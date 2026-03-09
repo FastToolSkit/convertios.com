@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Text Formatter</title>
+</head>
+
+<body>
+
+<h1>Text Formatter</h1>
+
+<textarea id="text" rows="10" cols="60" placeholder="Enter your text here..."></textarea>
+
+<br><br>
+
+<button onclick="toUpper()">UPPERCASE</button>
+<button onclick="toLower()">lowercase</button>
+<button onclick="capitalize()">Capitalize</button>
+<button onclick="removeSpaces()">Remove Extra Spaces</button>
+
+<script>
+
+function toUpper(){
+let text=document.getElementById("text").value;
+document.getElementById("text").value=text.toUpperCase();
+}
+
+function toLower(){
+let text=document.getElementById("text").value;
+document.getElementById("text").value=text.toLowerCase();
+}
+
+function capitalize(){
+let text=document.getElementById("text").value;
+let result=text.replace(/\b\w/g,function(l){ return l.toUpperCase() });
+document.getElementById("text").value=result;
+}
+
+function removeSpaces(){
+let text=document.getElementById("text").value;
+document.getElementById("text").value=text.replace(/\s+/g," ").trim();
+}
+
+</script>
+
+</body>
+</html>
