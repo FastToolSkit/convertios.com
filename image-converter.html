@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Image Converter</title>
+<title>Image Converter - FastTools</title>
 </head>
 
 <body>
 
 <h1>Image Converter</h1>
 
-<input type="file" id="upload">
+<input type="file" id="upload" multiple>
 
 <br><br>
 
@@ -23,44 +23,57 @@
 
 <br><br>
 
-<a id="download" style="display:none;">Download Image</a>
+<div id="downloads"></div>
 
 <script>
 
 function convertImage(){
 
-let file=document.getElementById("upload").files[0];
-let format=document.getElementById("format").value;
+let files = document.getElementById("upload").files;
+let format = document.getElementById("format").value;
 
-let img=new Image();
-let reader=new FileReader();
+let downloads = document.getElementById("downloads");
+downloads.innerHTML = "";
 
-reader.onload=function(e){
+for(let i=0;i<files.length;i++){
 
-img.src=e.target.result;
+let file = files[i];
 
-img.onload=function(){
+let img = new Image();
+let reader = new FileReader();
 
-let canvas=document.createElement("canvas");
-canvas.width=img.width;
-canvas.height=img.height;
+reader.onload = function(e){
 
-let ctx=canvas.getContext("2d");
+img.src = e.target.result;
+
+img.onload = function(){
+
+let canvas = document.createElement("canvas");
+canvas.width = img.width;
+canvas.height = img.height;
+
+let ctx = canvas.getContext("2d");
 ctx.drawImage(img,0,0);
 
-let converted=canvas.toDataURL(format);
+let converted = canvas.toDataURL(format);
 
-let link=document.getElementById("download");
-link.href=converted;
-link.download="converted-image";
-link.innerHTML="Download Converted Image";
-link.style.display="block";
+let extension = format === "image/jpeg" ? ".jpg" : ".png";
+
+let link = document.createElement("a");
+link.href = converted;
+link.download = "converted_"+(i+1)+extension;
+link.innerHTML = "Download Image "+(i+1);
+
+downloads.appendChild(link);
+downloads.appendChild(document.createElement("br"));
 
 }
 
 }
 
 reader.readAsDataURL(file);
+
+}
 
 }
 
