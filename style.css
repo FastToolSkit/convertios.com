@@ -1,30 +1,58 @@
+/* GLOBAL */
+
 body{
-font-family:Arial;
+font-family:Arial, sans-serif;
 background:#f4f6f9;
-text-align:center;
 margin:0;
-padding:40px;
+text-align:center;
 }
 
 /* HEADER */
-header{
+
+.site-header{
 background:#2c3e50;
-color:white;
-padding:30px 20px;
-margin:-40px -40px 40px -40px;
+padding:20px;
 }
 
-/* TOOL GRID */
+.logo{
+color:white;
+font-size:24px;
+font-weight:bold;
+text-decoration:none;
+}
+
+/* BACK BUTTON */
+
+.back-home{
+display:inline-block;
+margin-top:20px;
+margin-bottom:10px;
+font-size:14px;
+text-decoration:none;
+color:#2c3e50;
+font-weight:bold;
+}
+
+/* MAIN TITLE */
+
+h1{
+margin-top:10px;
+margin-bottom:30px;
+}
+
+/* HOMEPAGE GRID */
+
 .tools-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
 max-width:1200px;
-margin:auto;
-margin-top:40px;
+margin:40px auto;
+padding:0 20px;
 }
 
-/* TOOL CARDS */
+/* TOOL CARD */
+
 .tool-card{
 background:white;
 padding:25px;
@@ -32,7 +60,7 @@ border-radius:10px;
 box-shadow:0 4px 12px rgba(0,0,0,0.08);
 text-decoration:none;
 color:#2c3e50;
-transition:all 0.25s ease;
+transition:0.25s;
 display:block;
 }
 
@@ -50,7 +78,53 @@ font-size:14px;
 color:#555;
 }
 
-/* DROP AREA (IMAGE TOOLS) */
+/* TEXTAREA */
+
+textarea{
+width:80%;
+max-width:700px;
+padding:12px;
+font-size:16px;
+border-radius:6px;
+border:1px solid #ccc;
+margin-top:20px;
+}
+
+/* INPUTS */
+
+input{
+padding:10px;
+font-size:16px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+/* BUTTON */
+
+button{
+padding:10px 20px;
+margin-top:20px;
+background:#2c3e50;
+color:white;
+border:none;
+border-radius:6px;
+font-size:15px;
+cursor:pointer;
+}
+
+button:hover{
+background:#34495e;
+}
+
+/* IMAGE PREVIEW */
+
+#preview img{
+width:100px;
+margin:10px;
+}
+
+/* DROP AREA */
+
 #drop-area{
 border:2px dashed #2c3e50;
 padding:40px;
@@ -60,118 +134,14 @@ background:white;
 cursor:pointer;
 }
 
-/* IMAGE PREVIEW */
-#preview img{
-width:100px;
-margin:10px;
-}
+/* DESCRIPTION */
 
-/* HEADINGS */
-h1{
-margin-bottom:30px;
-}
-
-/* TEXTAREA */
-textarea{
-width:80%;
-max-width:600px;
-padding:10px;
-font-size:16px;
-margin-top:20px;
-border-radius:6px;
-border:1px solid #ccc;
-}
-
-/* INPUTS */
-input{
-padding:10px;
-font-size:16px;
-margin-top:10px;
-border-radius:6px;
-border:1px solid #ccc;
-}
-
-/* BUTTONS */
-button{
-padding:10px 20px;
-margin-top:20px;
-cursor:pointer;
-background:#2c3e50;
-color:white;
-border:none;
-border-radius:6px;
-font-size:15px;
-}
-
-button:hover{
-background:#34495e;
-}
-
-/* BACK LINK */
-.back-link{
-display:inline-block;
-margin-bottom:20px;
-text-decoration:none;
-color:#2c3e50;
-font-weight:bold;
-}
-
-/* DESCRIPTION SECTION (homepage SEO) */
 .description{
 max-width:800px;
 margin:50px auto;
 font-size:16px;
 color:#444;
 line-height:1.6;
-}
-
-/* FOOTER */
-footer{
-margin-top:40px;
-padding:20px;
-background:#2c3e50;
-color:white;
-}
-
-a{
-color:inherit;
-}
-
-/* HEADER */
-
-.site-header{
-background:#2c3e50;
-padding:18px 30px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-color:white;
-}
-
-.logo{
-color:white;
-font-size:22px;
-font-weight:bold;
-text-decoration:none;
-}
-
-.header-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-font-size:14px;
-}
-
-/* BACK BUTTON */
-
-.back-home{
-display:inline-block;
-margin-top:20px;
-margin-bottom:10px;
-text-decoration:none;
-color:#2c3e50;
-font-weight:bold;
-font-size:14px;
 }
 
 /* FOOTER */
@@ -183,4 +153,10 @@ background:#2c3e50;
 color:white;
 text-align:center;
 font-size:14px;
+}
+
+/* LINKS */
+
+a{
+color:inherit;
 }
