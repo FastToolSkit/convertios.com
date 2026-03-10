@@ -1,60 +1,74 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <link rel="stylesheet" href="style.css">
-<title>Text Formatter</title>
+
+<title>Text Formatter - FastTools</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-  <header class="site-header">
 
-<a href="index.html" class="logo">
-FastTools
-</a>
-<a href="index.html" class="back-home">
-← Back to Home
-</a>
-<nav class="header-nav">
-<a href="index.html">Home</a>
-</nav>
-
+<header class="site-header">
+<a href="index.html" class="logo">FastTools</a>
 </header>
-<a href="index.html">← Back to FastTools</a>
+
+<a href="index.html" class="back-home">← Back to FastTools</a>
+
+
+<div class="tool-container">
+
 <h1>Text Formatter</h1>
 
-<textarea id="text" rows="10" cols="60" placeholder="Enter your text here..."></textarea>
+<textarea id="text" placeholder="Enter your text here..."></textarea>
 
-<br><br>
+<div class="button-group">
 
 <button onclick="toUpper()">UPPERCASE</button>
+
 <button onclick="toLower()">lowercase</button>
+
 <button onclick="capitalize()">Capitalize</button>
+
 <button onclick="removeSpaces()">Remove Extra Spaces</button>
+
+</div>
+
+</div>
+
+
+<footer class="site-footer">
+<p>© 2026 FastTools • Free Online Tools</p>
+</footer>
+
 
 <script>
 
 function toUpper(){
-let text=document.getElementById("text").value;
-document.getElementById("text").value=text.toUpperCase();
+let text = document.getElementById("text").value;
+document.getElementById("text").value = text.toUpperCase();
 }
 
 function toLower(){
-let text=document.getElementById("text").value;
-document.getElementById("text").value=text.toLowerCase();
+let text = document.getElementById("text").value;
+document.getElementById("text").value = text.toLowerCase();
 }
 
 function capitalize(){
-let text=document.getElementById("text").value;
-let result=text.replace(/\b\w/g,function(l){ return l.toUpperCase() });
-document.getElementById("text").value=result;
+let text = document.getElementById("text").value;
+let result = text.replace(/\b\w/g,function(l){ return l.toUpperCase() });
+document.getElementById("text").value = result;
 }
 
 function removeSpaces(){
-let text=document.getElementById("text").value;
-document.getElementById("text").value=text.replace(/\s+/g," ").trim();
+let text = document.getElementById("text").value;
+document.getElementById("text").value = text.replace(/\s+/g," ").trim();
 }
 
 </script>
 
 </body>
+
 </html>
