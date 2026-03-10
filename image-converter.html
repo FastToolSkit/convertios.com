@@ -1,61 +1,38 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<link rel="stylesheet" href="style.css">
+
 <title>Image Converter - FastTools</title>
+
+<link rel="stylesheet" href="style.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
 <style>
-<footer class="site-footer">
-<p>© 2026 FastTools • Free Online Tools</p>
-</footer>
-body
-<header class="site-header">
-<a href="index.html" class="logo">FastTools</a>
-</header>
-
-<a href="index.html" class="back-home">← Back to FastTools</a>
-
-<h1>Word & Character Counter</h1>
-<a href="index.html" class="back-home">
-← Back to Home
-</a>
-<nav class="header-nav">
-<a href="index.html">Home</a>
-</nav>
-
-</header>
-  <a href="index.html">← Back to FastTools</a>
-  {
-font-family:Arial;
-background:#f4f6f9;
-text-align:center;
-}
 
 #drop-area{
 border:2px dashed #2c3e50;
 padding:40px;
-width:60%;
-margin:auto;
+max-width:600px;
+margin:20px auto;
 background:white;
 cursor:pointer;
+border-radius:8px;
 }
 
 #preview img{
 width:100px;
 margin:10px;
+border-radius:6px;
 }
 
-button{
-padding:10px 20px;
-margin-top:20px;
-cursor:pointer;
+#preview{
+margin-top:15px;
 }
 
 #downloadMenu{
 display:none;
-position:relative;
 margin-top:20px;
 }
 
@@ -63,8 +40,9 @@ margin-top:20px;
 display:none;
 background:white;
 border:1px solid #ccc;
-width:200px;
-margin:auto;
+width:220px;
+margin:10px auto;
+border-radius:6px;
 }
 
 #menu button{
@@ -72,14 +50,13 @@ display:block;
 width:100%;
 border:none;
 background:white;
-padding:10px;
+padding:12px;
+cursor:pointer;
 }
 
 #menu button:hover{
 background:#eee;
 }
-
-/* TOAST */
 
 #toast{
 visibility:hidden;
@@ -117,6 +94,15 @@ to{bottom:10px;opacity:0;}
 
 <body>
 
+<header class="site-header">
+<a href="index.html" class="logo">FastTools</a>
+</header>
+
+<a href="index.html" class="back-home">← Back to FastTools</a>
+
+
+<div class="tool-container">
+
 <h1>Image Converter</h1>
 
 <div id="drop-area">
@@ -124,20 +110,14 @@ to{bottom:10px;opacity:0;}
 <input type="file" id="upload" multiple accept="image/*" hidden>
 </div>
 
-<br>
-
 <select id="format">
 <option value="image/jpeg">Convert to JPG</option>
 <option value="image/png">Convert to PNG</option>
 </select>
 
-<br>
-
 <div id="preview"></div>
 
 <button onclick="convertImage()">Convert</button>
-
-<br><br>
 
 <div id="downloadMenu">
 
@@ -150,7 +130,16 @@ to{bottom:10px;opacity:0;}
 
 </div>
 
+</div>
+
+
+<footer class="site-footer">
+<p>© 2026 FastTools • Free Online Tools</p>
+</footer>
+
+
 <div id="toast">Please upload an image first</div>
+
 
 <script>
 
@@ -278,21 +267,21 @@ link.click();
 
 function downloadZip(){
 
-let zip = new JSZip();
+let zip=new JSZip();
 
 for(let i=0;i<convertedImages.length;i++){
 
-let base64 = convertedImages[i].data.split(',')[1];
+let base64=convertedImages[i].data.split(',')[1];
 
-zip.file(convertedImages[i].name, base64, {base64:true});
+zip.file(convertedImages[i].name,base64,{base64:true});
 
 }
 
 zip.generateAsync({type:"blob"}).then(function(content){
 
-let link = document.createElement("a");
-link.href = URL.createObjectURL(content);
-link.download = "converted_images.zip";
+let link=document.createElement("a");
+link.href=URL.createObjectURL(content);
+link.download="converted_images.zip";
 link.click();
 
 });
