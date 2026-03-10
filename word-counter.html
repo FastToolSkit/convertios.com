@@ -1,55 +1,58 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <link rel="stylesheet" href="style.css">
-  
-<title>Word & Character Counter</title>
-  
+
+<title>Word & Character Counter - FastTools</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-  <header class="site-header">
 
-<a href="index.html" class="logo">
-FastTools
-</a>
-<a href="index.html" class="back-home">
-← Back to Home
-</a>
-<nav class="header-nav">
-<a href="index.html">Home</a>
-</nav>
-
+<header class="site-header">
+<a href="index.html" class="logo">FastTools</a>
 </header>
-<a href="index.html">← Back to FastTools</a>
+
+<a href="index.html" class="back-home">← Back to FastTools</a>
+
+
+<div class="tool-container">
+
 <h1>Word & Character Counter</h1>
-<textarea id="text" rows="10" cols="60" placeholder="Paste or type your text here..."></textarea>
 
-<br><br>
+<textarea id="text" placeholder="Paste or type your text here..."></textarea>
 
-<button onclick="countWords()">Count Words & Character</button>
+<button onclick="countWords()">Count Words & Characters</button>
 
-<h3 id="result"></h3>
+<h3 id="result">Words: 0 | Characters: 0</h3>
+
+</div>
+
+
+<footer class="site-footer">
+<p>© 2026 FastTools • Free Online Tools</p>
+</footer>
+
 
 <script>
 
 function countWords(){
 
-let text=document.getElementById("text").value.trim();
+let text = document.getElementById("text").value;
 
-if(text===""){
-document.getElementById("result").innerHTML="Words: 0 | Characters: 0";
-return;
-}
+let characters = text.length;
 
-let words=text.split(/\s+/).length;
-let characters=text.length;
+let words = text.trim().split(/\s+/).filter(Boolean).length;
 
-document.getElementById("result").innerHTML="Words: "+words+" | Characters: "+characters;
+document.getElementById("result").innerHTML =
+"Words: " + words + " | Characters: " + characters;
 
 }
 
 </script>
 
 </body>
+
 </html>
