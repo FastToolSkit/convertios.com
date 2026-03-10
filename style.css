@@ -176,3 +176,47 @@ font-size:14px;
 a{
 color:inherit;
 }
+
+/* Tool layout */
+
+.tool-container{
+max-width:700px;
+margin:60px auto;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+text-align:center;
+}
+
+/* Inputs */
+
+input, textarea, select{
+width:100%;
+max-width:500px;
+padding:12px;
+font-size:16px;
+border-radius:6px;
+border:1px solid #ccc;
+margin:15px auto;
+display:block;
+}
+
+/* Buttons */
+
+button{
+background:#2c3e50;
+color:white;
+border:none;
+padding:12px 25px;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+margin-top:15px;
+width:auto;
+min-width:200px;
+}
+
+button:hover{
+background:#1f2e3d;
+}
