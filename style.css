@@ -11,7 +11,8 @@ text-align:center;
 
 .site-header{
 background:#2c3e50;
-padding:20px;
+padding:20px 0;
+text-align:center;
 }
 
 .logo{
@@ -19,14 +20,15 @@ color:white;
 font-size:40px;
 font-weight:bold;
 text-decoration:none;
+display:inline-block;
 }
 
 /* BACK BUTTON */
 
 .back-home{
-display:inline-block;
-margin-top:20px;
-margin-bottom:10px;
+position:absolute;
+left:30px;
+top:90px;
 font-size:14px;
 text-decoration:none;
 color:#2c3e50;
@@ -36,7 +38,7 @@ font-weight:bold;
 /* MAIN TITLE */
 
 h1{
-margin-top:10px;
+margin-top:90px;
 margin-bottom:30px;
 }
 
