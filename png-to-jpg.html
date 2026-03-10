@@ -1,51 +1,39 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<link rel="stylesheet" href="style.css">
+
 <title>PNG to JPG Converter - FastTools</title>
+
+<link rel="stylesheet" href="style.css">
 
 <meta name="description" content="Convert PNG images to JPG online for free using FastTools.">
 
 <style>
 
-body
-  <header class="site-header">
-
-<a href="index.html" class="logo">
-FastTools
-</a>
-<a href="index.html" class="back-home">
-← Back to Home
-</a>
-<nav class="header-nav">
-<a href="index.html">Home</a>
-</nav>
-
-</header>
-  <a href="index.html">← Back to FastTools</a>
-  {
-font-family:Arial;
-background:#f4f6f9;
-text-align:center;
-}
-
 #drop-area{
 border:2px dashed #2c3e50;
 padding:40px;
-width:60%;
-margin:auto;
+max-width:600px;
+margin:20px auto;
 background:white;
 cursor:pointer;
+border-radius:8px;
 }
 
 #preview img{
 width:100px;
 margin:10px;
+border-radius:6px;
 }
 
-button{
-padding:10px 20px;
-margin-top:20px;
+#preview{
+margin-top:15px;
+}
+
+#downloads a{
+display:block;
+margin:8px;
 }
 
 </style>
@@ -54,24 +42,37 @@ margin-top:20px;
 
 <body>
 
+<header class="site-header">
+<a href="index.html" class="logo">FastTools</a>
+</header>
+
+<a href="index.html" class="back-home">← Back to FastTools</a>
+
+
+<div class="tool-container">
+
 <h1>PNG to JPG Converter</h1>
 
 <p>Upload PNG images and convert them to JPG instantly.</p>
 
 <div id="drop-area">
 <p>Drag & Drop Images Here or Click to Upload</p>
-<input type="file" id="upload" multiple accept="image/*" hidden>
+<input type="file" id="upload" multiple accept="image/png" hidden>
 </div>
-  
-<div id="preview"></div>
 
-<br>
+<div id="preview"></div>
 
 <button onclick="convert()">Convert to JPG</button>
 
-<br><br>
-
 <div id="downloads"></div>
+
+</div>
+
+
+<footer class="site-footer">
+<p>© 2026 FastTools • Free Online Tools</p>
+</footer>
+
 
 <script>
 
@@ -136,7 +137,7 @@ canvas.height=img.height;
 let ctx=canvas.getContext("2d");
 ctx.drawImage(img,0,0);
 
-let jpg=canvas.toDataURL("image/jpg");
+let jpg=canvas.toDataURL("image/jpeg");
 
 let link=document.createElement("a");
 
@@ -145,7 +146,6 @@ link.download="converted_"+(i+1)+".jpg";
 link.innerHTML="Download Image "+(i+1);
 
 downloads.appendChild(link);
-downloads.appendChild(document.createElement("br"));
 
 }
 
