@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <link rel="stylesheet" href="style.css">
-<title>Link Shortener</title>
+<title>Link Shortener - FastTools</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
- <header class="site-header">
+
+<header class="site-header">
 <a href="index.html" class="logo">FastTools</a>
 </header>
 
 <a href="index.html" class="back-home">← Back to FastTools</a>
-<a href="index.html" class="back-home">
-← Back to Home
-</a>
-<nav class="header-nav">
-<a href="index.html">Home</a>
-</nav>
 
-</header>
-<a href="index.html">← Back to FastTools</a>
 <h1>Link Shortener</h1>
 
-<input type="text" id="url" placeholder="Paste your long URL here" style="width:300px;">
+<input type="text" id="url" placeholder="Paste your long URL here">
 
 <br><br>
 
@@ -30,7 +24,11 @@
 
 <br><br>
 
-<input type="text" id="result" readonly style="width:300px;">
+<input type="text" id="result" readonly placeholder="Short link will appear here">
+
+<footer class="site-footer">
+<p>© 2026 FastTools • Free Online Tools</p>
+</footer>
 
 <script>
 
@@ -49,7 +47,5 @@ document.getElementById("result").value=shortUrl;
 </script>
 
 </body>
-  <footer class="site-footer">
-<p>© 2026 FastTools • Free Online Tools</p>
-</footer>
+
 </html>
