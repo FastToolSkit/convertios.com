@@ -1,0 +1,25 @@
+body{
+font-family:Arial;
+background:#f4f6f9;
+text-align:center;
+}
+
+#drop-area{
+border:2px dashed #2c3e50;
+padding:40px;
+width:60%;
+margin:auto;
+background:white;
+cursor:pointer;
+}
+
+#preview img{
+width:100px;
+margin:10px;
+}
+
+button{
+padding:10px 20px;
+margin-top:20px;
+cursor:pointer;
+}
