@@ -1,72 +1,71 @@
-const upload = document.getElementById("upload")
-const preview = document.getElementById("preview")
-const qualitySlider = document.getElementById("quality")
-const qualityValue = document.getElementById("qualityValue")
-const downloadLink = document.getElementById("downloadLink")
+const upload = document.getElementById("upload");
+const preview = document.getElementById("preview");
+const qualitySlider = document.getElementById("quality");
+const qualityValue = document.getElementById("qualityValue");
+const downloadLink = document.getElementById("downloadLink");
 
-let imageFile
+let imageFile;
 
 qualitySlider.oninput = () => {
-qualityValue.innerText = qualitySlider.value
-}
+    qualityValue.innerText = qualitySlider.value;
+};
 
 upload.onchange = (e) => {
 
-imageFile = e.target.files[0]
+    imageFile = e.target.files[0];
 
-const reader = new FileReader()
+    const reader = new FileReader();
 
-reader.onload = function(event){
-preview.src = event.target.result
-}
+    reader.onload = function(event){
+        preview.src = event.target.result;
+    };
 
-reader.readAsDataURL(imageFile)
-
-}
+    reader.readAsDataURL(imageFile);
+};
 
 function compressImage(){
 
-const canvas = document.createElement("canvas")
-const ctx = canvas.getContext("2d")
+    if(!imageFile){
+        alert("Please upload an image first.");
+        return;
+    }
 
-const img = new Image()
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
 
-img.src = preview.src
+    const img = new Image();
+    img.src = preview.src;
 
-img.onload = function(){
+    img.onload = function(){
 
-canvas.width = img.width
-canvas.height = img.height
+        const maxWidth = 1920;
 
-ctx.drawImage(img,0,0)
+        if(img.width > maxWidth){
+            canvas.width = maxWidth;
+            canvas.height = img.height * (maxWidth / img.width);
+        } else {
+            canvas.width = img.width;
+            canvas.height = img.height;
+        }
 
-let outputType = imageFile.type
+        ctx.drawImage(img,0,0,canvas.width,canvas.height);
 
-// PNG does not compress well, convert to JPEG
-if(imageFile.type === "image/png"){
-outputType = "image/jpeg"
-}
+        let outputType = imageFile.type;
 
-canvas.toBlob(function(blob){
+        if(imageFile.type === "image/png"){
+            outputType = "image/jpeg";
+        }
 
-const url = URL.createObjectURL(blob)
+        canvas.toBlob(function(blob){
 
-downloadLink.href = url
-downloadLink.download = "compressed-" + imageFile.name
-downloadLink.innerText = "Download Image"
-downloadLink.style.display = "block"
+            const url = URL.createObjectURL(blob);
 
-}, outputType, qualitySlider.value)
-  
-const url = URL.createObjectURL(blob)
+            downloadLink.href = url;
+            downloadLink.download = "compressed-" + imageFile.name;
+            downloadLink.innerText = "Download Image";
+            downloadLink.style.display = "block";
 
-downloadLink.href = url
-downloadLink.download = "compressed-image.jpg"
-downloadLink.innerText = "Download Image"
-downloadLink.style.display = "block"
+        }, outputType, qualitySlider.value);
 
-},"image/jpeg", qualitySlider.value)
-
-}
-
+    };
 }
