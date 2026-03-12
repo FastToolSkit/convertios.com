@@ -316,3 +316,8 @@ display:block;
 margin-top:20px;
 font-weight:bold;
 }
+
+.tool-container img{
+display:block;
+margin:25px auto;
+}
