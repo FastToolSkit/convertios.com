@@ -256,3 +256,59 @@ background:#9aa4ad;
 .reset-btn:hover{
 background:#7f8a93;
 }
+
+.tool-container{
+max-width:600px;
+margin:60px auto;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+text-align:center;
+}
+
+.upload-box{
+border:2px dashed #cbd5e1;
+padding:40px;
+margin:25px 0;
+border-radius:8px;
+background:#f8fafc;
+}
+
+.main-button{
+background:#334155;
+color:white;
+padding:14px 30px;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+margin-top:20px;
+}
+
+.main-button:hover{
+background:#1e293b;
+}
+
+.quality-control{
+margin:20px 0;
+}
+
+.back-link{
+display:block;
+margin:20px;
+color:#334155;
+text-decoration:none;
+font-weight:500;
+}
+
+#preview{
+margin-top:20px;
+max-width:300px;
+}
+
+#downloadLink{
+display:block;
+margin-top:20px;
+font-weight:bold;
+}
