@@ -370,3 +370,16 @@ font-size:14px;
 .back-bar a:hover{
 text-decoration:underline;
 }
+
+.site-footer{
+background:#334155;
+color:white;
+text-align:center;
+padding:25px 0;
+margin-top:80px;
+font-size:14px;
+}
+
+.site-footer p{
+margin:0;
+}
