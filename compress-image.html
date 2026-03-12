@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Compress Image Online - FastTools</title>
+<meta name="description" content="Compress JPG, PNG and WEBP images online for free. Reduce image file size instantly.">
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+padding:40px;
+background:#f4f4f4;
+}
+
+#upload{
+margin:20px;
+}
+
+button{
+padding:10px 20px;
+margin-top:20px;
+cursor:pointer;
+}
+
+img{
+max-width:300px;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Image Compressor</h1>
+
+<p>Compress JPG, PNG or WEBP images instantly.</p>
+
+<input type="file" id="upload" accept="image/*">
+
+<br>
+
+<label>Compression Quality:</label>
+
+<input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.8">
+
+<span id="qualityValue">0.8</span>
+
+<br>
+
+<button onclick="compressImage()">Compress Image</button>
+
+<br>
+
+<img id="preview">
+
+<br>
+
+<a id="downloadLink" style="display:none">Download Compressed Image</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>
