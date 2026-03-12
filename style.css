@@ -355,8 +355,9 @@ text-decoration:underline;
 
 .back-bar{
 width:100%;
-padding:15px 40px;
-background:#f4f4f4;
+padding:15px 30px;
+box-sizing:border-box;
+text-align:left;
 }
 
 .back-bar a{
