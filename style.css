@@ -279,6 +279,9 @@ font-size:15px;
 }
 
 .logo img{
-height:60px;
+height:55px;
 width:auto;
+display:block;
+object-fit:contain;
+background:transparent;
 }
