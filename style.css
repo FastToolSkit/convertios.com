@@ -20,7 +20,6 @@ HEADER
 background:#2c3e50;
 display:flex;
 align-items:center;
-justify-content:space-between;
 padding:0 40px;
 height:90px;
 }
@@ -34,9 +33,8 @@ display:flex;
 align-items:center;
 text-decoration:none;
 }
-
 .logo img{
-height:70px;
+height:85px;
 width:auto;
 display:block;
 }
@@ -46,8 +44,9 @@ NAVIGATION
 ================================*/
 
 .nav-menu{
+margin:0 auto;
 display:flex;
-gap:35px;
+gap:40px;
 }
 
 .nav-menu a{
