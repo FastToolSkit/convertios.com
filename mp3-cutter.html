@@ -25,14 +25,15 @@ height:150px;
 }
 
 #timeline{
-margin-top:10px;
+margin-top:8px;
 }
 
 .controls{
 display:flex;
 align-items:center;
-gap:20px;
+gap:15px;
 margin-top:20px;
+flex-wrap:wrap;
 }
 
 .time-box{
@@ -41,20 +42,20 @@ border:none;
 color:white;
 padding:8px 12px;
 border-radius:6px;
-width:90px;
+width:100px;
 }
 
 .export-btn{
 background:#2563eb;
 border:none;
 color:white;
-padding:12px 20px;
+padding:12px 22px;
 border-radius:8px;
 cursor:pointer;
 }
 
 .play-btn{
-font-size:30px;
+font-size:28px;
 cursor:pointer;
 }
 
@@ -92,12 +93,10 @@ cursor:pointer;
 
 <div class="play-btn" onclick="wavesurfer.playPause()">▶</div>
 
-<label>Cut from:</label>
-
+<label>Start</label>
 <input id="startTime" class="time-box">
 
-<label>to</label>
-
+<label>End</label>
 <input id="endTime" class="time-box">
 
 <button class="export-btn" onclick="exportAudio()">Export</button>
@@ -111,7 +110,7 @@ cursor:pointer;
 let wavesurfer
 let region
 let audioBuffer
-let audioContext = new AudioContext()
+const audioContext = new AudioContext()
 
 const regions = WaveSurfer.Regions.create()
 const timeline = WaveSurfer.Timeline.create({ container:"#timeline" })
@@ -130,9 +129,9 @@ plugins:[regions,timeline]
 document.getElementById("audioFile").addEventListener("change", async (e)=>{
 
 const file = e.target.files[0]
+if(!file) return
 
 const buffer = await file.arrayBuffer()
-
 audioBuffer = await audioContext.decodeAudioData(buffer)
 
 wavesurfer.loadBlob(file)
@@ -142,7 +141,7 @@ wavesurfer.once("ready",()=>{
 region = wavesurfer.addRegion({
 
 start:0,
-end:10,
+end:Math.min(10,wavesurfer.getDuration()),
 color:"rgba(250,204,21,0.35)",
 drag:true,
 resize:true
@@ -164,26 +163,35 @@ document.getElementById("endTime").value = region.end.toFixed(2)
 
 wavesurfer.on("region-updated", updateInputs)
 
+document.getElementById("startTime").addEventListener("change",()=>{
+region.setOptions({start:parseFloat(startTime.value)})
+})
+
+document.getElementById("endTime").addEventListener("change",()=>{
+region.setOptions({end:parseFloat(endTime.value)})
+})
+
 function exportAudio(){
 
-if(!audioBuffer) return
+if(!audioBuffer || !region){
+alert("Upload audio first")
+return
+}
 
 const start = region.start
 const end = region.end
 
 const sampleRate = audioBuffer.sampleRate
 
-const startOffset = start * sampleRate
-const endOffset = end * sampleRate
+const startOffset = Math.floor(start * sampleRate)
+const endOffset = Math.floor(end * sampleRate)
 
 const frameCount = endOffset - startOffset
 
 const newBuffer = audioContext.createBuffer(
-
 audioBuffer.numberOfChannels,
 frameCount,
 sampleRate
-
 )
 
 for(let channel=0; channel<audioBuffer.numberOfChannels; channel++){
@@ -192,22 +200,68 @@ const oldData = audioBuffer.getChannelData(channel)
 const newData = newBuffer.getChannelData(channel)
 
 for(let i=0;i<frameCount;i++){
-
 newData[i] = oldData[i+startOffset]
-
 }
 
 }
 
-const blob = new Blob([newBuffer.getChannelData(0)], {type:"audio/wav"})
+const wavBlob = bufferToWave(newBuffer)
 
-const url = URL.createObjectURL(blob)
+const url = URL.createObjectURL(wavBlob)
 
 const a = document.createElement("a")
-
 a.href = url
 a.download = "trimmed.wav"
 a.click()
+
+}
+
+function bufferToWave(buffer){
+
+const numOfChan = buffer.numberOfChannels
+const length = buffer.length * numOfChan * 2 + 44
+const bufferArray = new ArrayBuffer(length)
+const view = new DataView(bufferArray)
+
+let offset = 0
+
+function writeString(str){
+for(let i=0;i<str.length;i++){
+view.setUint8(offset++,str.charCodeAt(i))
+}
+}
+
+writeString("RIFF")
+view.setUint32(offset,36 + buffer.length * 2,true); offset+=4
+writeString("WAVE")
+writeString("fmt ")
+view.setUint32(offset,16,true); offset+=4
+view.setUint16(offset,1,true); offset+=2
+view.setUint16(offset,numOfChan,true); offset+=2
+view.setUint32(offset,buffer.sampleRate,true); offset+=4
+view.setUint32(offset,buffer.sampleRate * 2,true); offset+=4
+view.setUint16(offset,numOfChan * 2,true); offset+=2
+view.setUint16(offset,16,true); offset+=2
+writeString("data")
+view.setUint32(offset,buffer.length * 2,true); offset+=4
+
+for(let i=0;i<buffer.length;i++){
+for(let channel=0;channel<numOfChan;channel++){
+
+let sample = buffer.getChannelData(channel)[i]
+sample = Math.max(-1,Math.min(1,sample))
+
+view.setInt16(offset,
+sample<0 ? sample*0x8000 : sample*0x7FFF,
+true)
+
+offset+=2
+
+}
+
+}
+
+return new Blob([view],{type:"audio/wav"})
 
 }
 
