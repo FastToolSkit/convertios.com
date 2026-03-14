@@ -18,10 +18,9 @@ HEADER
 
 .site-header{
 background:#2c3e50;
-padding:18px 40px;
+padding:12px 40px;
 display:flex;
 align-items:center;
-justify-content:flex-start;
 }
 
 .logo{
