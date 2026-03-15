@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Merge PDF - FastTools</title>
+
+<meta name="description" content="Merge multiple PDF files into one PDF instantly online for free.">
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+<style>
+
+.preview-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+margin-top:25px;
+}
+
+.preview-item{
+background:#f8fafc;
+border:1px solid #cbd5e1;
+padding:15px;
+border-radius:8px;
+text-align:center;
+}
+
+.drop-area{
+border:2px dashed #cbd5e1;
+padding:40px;
+border-radius:10px;
+background:#f8fafc;
+margin-top:20px;
+cursor:pointer;
+}
+
+.move-btn{
+margin:5px;
+padding:5px 10px;
+border:none;
+background:#2563eb;
+color:white;
+border-radius:4px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<a href="index.html" class="logo">
+<img src="fasttools-logo.png.png" alt="FastTools">
+</a>
+
+<nav class="nav-menu">
+<a href="index.html">Home</a>
+<a href="index.html#tools">Tools</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+</header>
+
+
+<div class="tool-container">
+
+<h1>Merge PDF</h1>
+
+<p>Upload multiple PDF files and combine them into one PDF.</p>
+
+<div class="drop-area" id="drop-area">
+
+<p>Drag PDF files here or click to upload</p>
+
+<input type="file" id="file-input" accept=".pdf" multiple hidden>
+
+</div>
+
+<div class="preview-grid" id="preview"></div>
+
+<button class="main-button" onclick="mergePDF()">Merge PDFs</button>
+
+<a id="downloadLink"></a>
+
+</div>
+
+
+<div class="more-tools">
+
+<h3>More Tools</h3>
+
+<a href="jpg-to-pdf.html">JPG to PDF</a>
+<a href="pdf-to-word.html">PDF to Word</a>
+<a href="image-converter.html">Image Converter</a>
+<a href="compress-image.html">Image Compressor</a>
+
+</div>
+
+
+<footer class="site-footer">
+<p>
+© 2026 FastTools • Free Online Tools
+<br>
+<a href="privacy.html">Privacy</a> •
+<a href="terms.html">Terms</a> •
+<a href="contact.html">Contact</a>
+</p>
+</footer>
+
+
+<script>
+
+const dropArea = document.getElementById("drop-area");
+const fileInput = document.getElementById("file-input");
+const preview = document.getElementById("preview");
+
+let files = [];
+
+dropArea.onclick = () => fileInput.click();
+
+dropArea.addEventListener("dragover", e=>{
+e.preventDefault();
+});
+
+dropArea.addEventListener("drop", e=>{
+e.preventDefault();
+handleFiles(e.dataTransfer.files);
+});
+
+fileInput.addEventListener("change", ()=>{
+handleFiles(fileInput.files);
+});
+
+function handleFiles(newFiles){
+
+for(let file of newFiles){
+
+if(file.type !== "application/pdf") continue;
+
+files.push(file);
+
+}
+
+renderPreview();
+
+}
+
+function renderPreview(){
+
+preview.innerHTML="";
+
+files.forEach((file,index)=>{
+
+const div=document.createElement("div");
+
+div.className="preview-item";
+
+div.innerHTML=`
+📄 ${file.name}
+<br><br>
+<button class="move-btn" onclick="moveUp(${index})">↑</button>
+<button class="move-btn" onclick="moveDown(${index})">↓</button>
+`;
+
+preview.appendChild(div);
+
+});
+
+}
+
+function moveUp(index){
+
+if(index===0) return;
+
+[files[index-1],files[index]]=[files[index],files[index-1]];
+
+renderPreview();
+
+}
+
+function moveDown(index){
+
+if(index===files.length-1) return;
+
+[files[index+1],files[index]]=[files[index],files[index+1]];
+
+renderPreview();
+
+}
+
+async function mergePDF(){
+
+if(files.length===0){
+
+alert("Upload PDF files first");
+
+return;
+
+}
+
+const { PDFDocument } = PDFLib;
+
+const mergedPDF = await PDFDocument.create();
+
+for(const file of files){
+
+const bytes = await file.arrayBuffer();
+
+const pdf = await PDFDocument.load(bytes);
+
+const pages = await mergedPDF.copyPages(pdf,pdf.getPageIndices());
+
+pages.forEach(page => mergedPDF.addPage(page));
+
+}
+
+const pdfBytes = await mergedPDF.save();
+
+const blob = new Blob([pdfBytes],{type:"application/pdf"});
+
+const link = document.getElementById("downloadLink");
+
+link.href = URL.createObjectURL(blob);
+
+link.download = "merged.pdf";
+
+link.innerText = "Download Merged PDF";
+
+link.className = "main-button";
+
+}
+
+</script>
+
+</body>
+</html>
