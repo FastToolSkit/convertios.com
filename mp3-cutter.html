@@ -1,57 +1,24 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 
-<title>MP3 Cutter - FastTools</title>
+<title>MP3 Cutter</title>
 
-<link rel="stylesheet" href="style.css">
-
-<script src="https://unpkg.com/wavesurfer.js"></script>
-<script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.regions.min.js"></script>
+<script src="https://unpkg.com/wavesurfer.js@7"></script>
 
 <style>
 
 body{
-background:#0f1623;
+background:#0a1628;
 font-family:Arial;
 color:white;
-}
-
-.tool{
-width:900px;
-margin:80px auto;
+text-align:center;
+padding-top:80px;
 }
 
 #waveform{
-margin-top:20px;
-background:#0b1320;
-border-radius:6px;
-}
-
-.controls{
-margin-top:20px;
-display:flex;
-gap:20px;
-align-items:center;
-}
-
-button{
-background:#2a84ff;
-border:none;
-padding:10px 18px;
-color:white;
-border-radius:6px;
-cursor:pointer;
-}
-
-input{
-background:#121c2e;
-border:none;
-color:white;
-padding:6px;
-width:90px;
-border-radius:4px;
+width:900px;
+margin:40px auto;
 }
 
 </style>
@@ -60,183 +27,34 @@ border-radius:4px;
 
 <body>
 
-<div class="tool">
-
 <h2>MP3 Cutter</h2>
 
 <input type="file" id="audio">
 
 <div id="waveform"></div>
 
-<div class="controls">
-
-Cut from  
-<input id="start" type="text">
-
-to  
-<input id="end" type="text">
-
-<button onclick="exportTrim()">Export</button>
-
-</div>
-
-</div>
-
 <script>
 
-let wavesurfer
-let region
-
-wavesurfer = WaveSurfer.create({
-container:'#waveform',
-waveColor:'#444',
-progressColor:'#2196f3',
-height:120,
-plugins:[
-WaveSurfer.regions.create({})
-]
+const wavesurfer = WaveSurfer.create({
+container: '#waveform',
+waveColor: '#555',
+progressColor: '#2a84ff',
+height:120
 })
 
-document.getElementById("audio").addEventListener("change",function(e){
+document.getElementById("audio").addEventListener("change", function(e){
 
 const file = e.target.files[0]
+
+if(!file) return
+
 const url = URL.createObjectURL(file)
 
 wavesurfer.load(url)
 
 })
 
-wavesurfer.on("ready",function(){
-
-const duration = wavesurfer.getDuration()
-
-region = wavesurfer.addRegion({
-start:duration*0.2,
-end:duration*0.6,
-color:'rgba(255,215,0,0.4)',
-drag:true,
-resize:true
-})
-
-updateInputs()
-
-region.on("update-end",updateInputs)
-
-})
-
-function updateInputs(){
-
-document.getElementById("start").value = region.start.toFixed(2)
-document.getElementById("end").value = region.end.toFixed(2)
-
-}
-
-function exportTrim(){
-
-let start = region.start
-let end = region.end
-
-const buffer = wavesurfer.backend.buffer
-const sampleRate = buffer.sampleRate
-
-const newBuffer = wavesurfer.backend.ac.createBuffer(
-buffer.numberOfChannels,
-(end-start)*sampleRate,
-sampleRate
-)
-
-for(let channel=0; channel<buffer.numberOfChannels; channel++){
-
-const oldData = buffer.getChannelData(channel)
-const newData = newBuffer.getChannelData(channel)
-
-for(let i=0;i<newData.length;i++){
-newData[i] = oldData[i + start*sampleRate]
-}
-
-}
-
-const offlineContext = new OfflineAudioContext(
-newBuffer.numberOfChannels,
-newBuffer.length,
-sampleRate
-)
-
-const source = offlineContext.createBufferSource()
-source.buffer = newBuffer
-source.connect(offlineContext.destination)
-source.start()
-
-offlineContext.startRendering().then(function(renderedBuffer){
-
-const wav = encodeWAV(renderedBuffer)
-const blob = new Blob([wav],{type:"audio/wav"})
-
-const url = URL.createObjectURL(blob)
-
-const a = document.createElement("a")
-a.href=url
-a.download="trimmed.wav"
-a.click()
-
-})
-
-}
-
-function encodeWAV(buffer){
-
-let numOfChan = buffer.numberOfChannels
-let length = buffer.length * numOfChan * 2 + 44
-let arrayBuffer = new ArrayBuffer(length)
-let view = new DataView(arrayBuffer)
-
-let channels=[]
-let offset=0
-let pos=0
-
-function setUint16(data){view.setUint16(pos,data,true);pos+=2}
-function setUint32(data){view.setUint32(pos,data,true);pos+=4}
-
-setUint32(0x46464952)
-setUint32(length-8)
-setUint32(0x45564157)
-
-setUint32(0x20746d66)
-setUint32(16)
-setUint16(1)
-setUint16(numOfChan)
-setUint32(buffer.sampleRate)
-setUint32(buffer.sampleRate*2*numOfChan)
-setUint16(numOfChan*2)
-setUint16(16)
-
-setUint32(0x61746164)
-setUint32(length-pos-4)
-
-for(let i=0;i<buffer.numberOfChannels;i++)
-channels.push(buffer.getChannelData(i))
-
-while(pos<length){
-
-for(let i=0;i<numOfChan;i++){
-
-let sample=Math.max(-1,Math.min(1,channels[i][offset]))
-sample=(sample<0?sample*32768:sample*32767)|0
-view.setInt16(pos,sample,true)
-pos+=2
-
-}
-
-offset++
-
-}
-
-return arrayBuffer
-
-}
-
 </script>
 
 </body>
-
 </html>
