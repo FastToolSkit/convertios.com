@@ -149,9 +149,10 @@ drag: true,
 resize: true
 })
 
-updateInputs()
+function updateInputs(){
 
-region.on('update-end',updateInputs)
+document.getElementById("start").value = formatTime(region.start)
+document.getElementById("end").value = formatTime(region.end)
 
 })
 
