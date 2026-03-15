@@ -72,7 +72,10 @@ cursor:pointer;
 
 
 <div class="tool-container">
-
+<div id="loader" style="display:none;margin-top:20px;">
+<p>Preparing PDF...</p>
+<div class="spinner"></div>
+</div>
 <h1>Split PDF</h1>
 
 <p>Upload a PDF, preview its pages, and select the pages you want to extract.</p>
@@ -89,7 +92,6 @@ cursor:pointer;
 
 <button class="main-button" onclick="splitPDF()">Download Selected Pages</button>
 
-<a id="downloadLink"></a>
 
 </div>
 
@@ -192,12 +194,21 @@ preview.appendChild(div);
 }
 
 
-async function splitPDF(){
+aasync function splitPDF(){
+
+if(!pdfFile){
+alert("Upload a PDF first");
+return;
+}
+
+document.getElementById("loader").style.display="block";
 
 const { PDFDocument } = PDFLib;
 
 const bytes = await pdfFile.arrayBuffer();
+
 const originalPDF = await PDFDocument.load(bytes);
+
 const newPDF = await PDFDocument.create();
 
 const items = document.querySelectorAll(".preview-item");
@@ -218,15 +229,20 @@ const newBytes = await newPDF.save();
 
 const blob = new Blob([newBytes],{type:"application/pdf"});
 
-const link = document.getElementById("downloadLink");
+const url = URL.createObjectURL(blob);
 
-link.href = URL.createObjectURL(blob);
+const link = document.createElement("a");
 
+link.href = url;
 link.download = "split.pdf";
 
-link.innerText = "Download PDF";
+document.body.appendChild(link);
 
-link.className = "main-button";
+link.click();
+
+document.body.removeChild(link);
+
+document.getElementById("loader").style.display="none";
 
 }
 
