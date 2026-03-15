@@ -4,12 +4,11 @@
 <head>
 
 <meta charset="UTF-8">
-<title>MP3 Cutter - FastTools</title>
+<title>Audio Speed Changer - FastTools</title>
 
 <link rel="stylesheet" href="style.css">
 
-<script src="https://unpkg.com/wavesurfer.js"></script>
-<script src="https://unpkg.com/wavesurfer.js/dist/plugins/regions.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
 
 <style>
 
@@ -25,12 +24,6 @@ background:#071428;
 padding:40px;
 border-radius:12px;
 color:white;
-}
-
-#waveform{
-margin-top:30px;
-background:#0a1c34;
-border-radius:6px;
 }
 
 .controls{
@@ -49,24 +42,13 @@ border-radius:6px;
 cursor:pointer;
 }
 
-input{
-width:80px;
-padding:6px;
-border-radius:4px;
-border:none;
+input[type="range"]{
+width:200px;
 }
 
-.related{
-margin-top:30px;
-}
-
-.related a{
-color:#7fb2ff;
-text-decoration:none;
-}
-
-.related a:hover{
-text-decoration:underline;
+audio{
+margin-top:20px;
+width:100%;
 }
 
 </style>
@@ -78,7 +60,7 @@ text-decoration:underline;
 <header class="site-header">
 
 <a href="/tools-site/index.html" class="logo">
-<img src="/tools-site/fasttools-logo.png.png" alt="FastTools">
+<img src="/tools-site/fasttools-logo.png" alt="FastTools">
 </a>
 
 <nav class="nav-menu">
@@ -92,29 +74,20 @@ text-decoration:underline;
 
 <div class="tool-box">
 
-<h2>MP3 Cutter</h2>
+<h2>Audio Speed Changer</h2>
 
 <input type="file" id="audioFile" accept="audio/*">
 
-<div id="waveform"></div>
+<audio id="audioPreview" controls></audio>
 
 <div class="controls">
 
-Start <input id="startTime" type="number" value="0">
+Speed
+<input type="range" id="speedSlider" min="0.5" max="2" step="0.1" value="1">
 
-End <input id="endTime" type="number">
+<span id="speedValue">1x</span>
 
-<button onclick="exportTrim()">Export</button>
-
-</div>
-
-<div class="related">
-
-<h3>Related Audio Tools</h3>
-
-<a href="/tools-site/audio-speed-changer.html">
-Audio Speed Changer
-</a>
+<button onclick="exportAudio()">Export</button>
 
 </div>
 
@@ -122,132 +95,109 @@ Audio Speed Changer
 
 <script>
 
-let wavesurfer
+let audioContext
+let audioBuffer
+let currentFile
 
-wavesurfer = WaveSurfer.create({
-container:'#waveform',
-waveColor:'#6c8fff',
-progressColor:'#3a78ff',
-height:120,
-plugins:[WaveSurfer.regions.create({})]
-})
+const audioFile = document.getElementById("audioFile")
+const preview = document.getElementById("audioPreview")
+const slider = document.getElementById("speedSlider")
+const speedValue = document.getElementById("speedValue")
 
-document.getElementById("audioFile").addEventListener("change", function(e){
+slider.addEventListener("input",function(){
 
-const file = e.target.files[0]
-if(!file) return
+speedValue.innerText = slider.value + "x"
 
-const url = URL.createObjectURL(file)
-wavesurfer.load(url)
+preview.playbackRate = slider.value
 
 })
 
-function exportTrim(){
+audioFile.addEventListener("change", async function(){
 
-let start = parseFloat(document.getElementById("startTime").value)
-let end = parseFloat(document.getElementById("endTime").value)
+currentFile = this.files[0]
 
-const audioBuffer = wavesurfer.backend.buffer
-const sampleRate = audioBuffer.sampleRate
+if(!currentFile) return
 
-const newBuffer = wavesurfer.backend.ac.createBuffer(
+preview.src = URL.createObjectURL(currentFile)
+
+audioContext = new AudioContext()
+
+const arrayBuffer = await currentFile.arrayBuffer()
+
+audioBuffer = await audioContext.decodeAudioData(arrayBuffer)
+
+})
+
+async function exportAudio(){
+
+if(!audioBuffer) return
+
+const speed = parseFloat(slider.value)
+
+const offline = new OfflineAudioContext(
 audioBuffer.numberOfChannels,
-(end-start)*sampleRate,
-sampleRate
+audioBuffer.length / speed,
+audioBuffer.sampleRate
 )
 
-for(let channel=0; channel<audioBuffer.numberOfChannels; channel++){
+const source = offline.createBufferSource()
 
-const oldData = audioBuffer.getChannelData(channel)
-const newData = newBuffer.getChannelData(channel)
+source.buffer = audioBuffer
+source.playbackRate.value = speed
 
-for(let i=0; i<newData.length; i++){
-newData[i] = oldData[i + start*sampleRate]
-}
+source.connect(offline.destination)
 
-}
-
-const offlineContext = new OfflineAudioContext(
-newBuffer.numberOfChannels,
-newBuffer.length,
-sampleRate
-)
-
-const source = offlineContext.createBufferSource()
-source.buffer = newBuffer
-source.connect(offlineContext.destination)
 source.start()
 
-offlineContext.startRendering().then(function(renderedBuffer){
+const renderedBuffer = await offline.startRendering()
 
-let wav = bufferToWave(renderedBuffer, renderedBuffer.length)
-let blob = new Blob([wav], {type:'audio/wav'})
+const samples = renderedBuffer.getChannelData(0)
 
-let url = URL.createObjectURL(blob)
+const mp3encoder = new lamejs.Mp3Encoder(
+1,
+renderedBuffer.sampleRate,
+192
+)
 
-let a = document.createElement("a")
+const sampleBlockSize = 1152
+let mp3Data = []
+
+for(let i=0;i<samples.length;i+=sampleBlockSize){
+
+let chunk = samples.subarray(i,i+sampleBlockSize)
+
+let int16 = new Int16Array(chunk.length)
+
+for(let j=0;j<chunk.length;j++){
+int16[j] = chunk[j] * 32767
+}
+
+let mp3buf = mp3encoder.encodeBuffer(int16)
+
+if(mp3buf.length>0){
+mp3Data.push(mp3buf)
+}
+
+}
+
+let mp3buf = mp3encoder.flush()
+
+if(mp3buf.length>0){
+mp3Data.push(mp3buf)
+}
+
+const blob = new Blob(mp3Data,{type:'audio/mp3'})
+
+const url = URL.createObjectURL(blob)
+
+const a = document.createElement("a")
 a.href = url
-a.download = "trimmed_audio.wav"
+a.download = "speed_changed.mp3"
 a.click()
-
-})
-
-}
-
-function bufferToWave(abuffer, len){
-
-let numOfChan = abuffer.numberOfChannels
-let length = len * numOfChan * 2 + 44
-let buffer = new ArrayBuffer(length)
-let view = new DataView(buffer)
-let channels = [], i, sample
-let offset = 0
-let pos = 0
-
-function setUint16(data){ view.setUint16(pos,data,true); pos+=2 }
-function setUint32(data){ view.setUint32(pos,data,true); pos+=4 }
-
-setUint32(0x46464952)
-setUint32(length-8)
-setUint32(0x45564157)
-
-setUint32(0x20746d66)
-setUint32(16)
-setUint16(1)
-setUint16(numOfChan)
-setUint32(abuffer.sampleRate)
-setUint32(abuffer.sampleRate * 2 * numOfChan)
-setUint16(numOfChan * 2)
-setUint16(16)
-
-setUint32(0x61746164)
-setUint32(length - pos - 4)
-
-for(i=0;i<abuffer.numberOfChannels;i++)
-channels.push(abuffer.getChannelData(i))
-
-while(pos < length){
-
-for(i=0;i<numOfChan;i++){
-
-sample = Math.max(-1,Math.min(1,channels[i][offset]))
-sample = (sample<0 ? sample*32768 : sample*32767)|0
-
-view.setInt16(pos,sample,true)
-pos+=2
-
-}
-
-offset++
-
-}
-
-return buffer
 
 }
 
 </script>
 
 </body>
-
 </html>
