@@ -8,6 +8,7 @@
 <script src="https://unpkg.com/wavesurfer.js@7"></script>
 <script src="https://unpkg.com/wavesurfer.js/dist/plugins/regions.min.js"></script>
 <script src="https://unpkg.com/wavesurfer.js/dist/plugins/timeline.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
 
 <style>
 
@@ -59,16 +60,6 @@ align-items:center;
 gap:20px;
 }
 
-input{
-background:#0d1d36;
-border:none;
-padding:8px;
-border-radius:4px;
-color:white;
-width:80px;
-text-align:center;
-}
-
 button{
 background:#2a84ff;
 border:none;
@@ -81,6 +72,14 @@ font-weight:bold;
 
 button:hover{
 background:#1d6be0;
+}
+
+.timebox{
+background:#0d1d36;
+padding:8px;
+border-radius:4px;
+width:80px;
+display:inline-block;
 }
 
 .zoom{
@@ -115,12 +114,12 @@ Zoom
 <button id="play">Play</button>
 
 Cut from
-<input id="start" readonly>
+<div class="timebox" id="start">0:00</div>
 
 to
-<input id="end" readonly>
+<div class="timebox" id="end">0:00</div>
 
-<button id="export">Export</button>
+<button id="export">Export MP3</button>
 
 </div>
 
@@ -185,7 +184,7 @@ document.getElementById("progress").innerText="Uploading "+percent+"%"
 
 reader.onloadend=function(){
 
-document.getElementById("progress").innerText="Audio loaded"
+document.getElementById("progress").innerText="Audio ready"
 
 }
 
@@ -213,8 +212,8 @@ region.on('update-end',updateInputs)
 
 function updateInputs(){
 
-document.getElementById("start").value=formatTime(region.start)
-document.getElementById("end").value=formatTime(region.end)
+document.getElementById("start").innerText=formatTime(region.start)
+document.getElementById("end").innerText=formatTime(region.end)
 
 }
 
@@ -244,88 +243,43 @@ const sampleRate=buffer.sampleRate
 const startOffset=Math.floor(start*sampleRate)
 const endOffset=Math.floor(end*sampleRate)
 
-const length=endOffset-startOffset
+const samples=buffer.getChannelData(0).slice(startOffset,endOffset)
 
-const context=new AudioContext()
+const mp3encoder=new lamejs.Mp3Encoder(1,sampleRate,192)
 
-const newBuffer=context.createBuffer(
-buffer.numberOfChannels,
-length,
-sampleRate
-)
+const sampleBlockSize=1152
+let mp3Data=[]
 
-for(let channel=0;channel<buffer.numberOfChannels;channel++){
+for(let i=0;i<samples.length;i+=sampleBlockSize){
 
-const oldData=buffer.getChannelData(channel)
-const newData=newBuffer.getChannelData(channel)
+let sampleChunk=samples.subarray(i,i+sampleBlockSize)
 
-for(let i=0;i<length;i++){
-newData[i]=oldData[startOffset+i]
+let int16Chunk=new Int16Array(sampleChunk.length)
+
+for(let j=0;j<sampleChunk.length;j++){
+int16Chunk[j]=sampleChunk[j]*32767
 }
 
+let mp3buf=mp3encoder.encodeBuffer(int16Chunk)
+
+if(mp3buf.length>0)
+mp3Data.push(mp3buf)
+
 }
 
-const wav=encodeWAV(newBuffer)
+let mp3buf=mp3encoder.flush()
 
-const blob=new Blob([wav],{type:"audio/wav"})
+if(mp3buf.length>0)
+mp3Data.push(mp3buf)
+
+const blob=new Blob(mp3Data,{type:'audio/mp3'})
+
 const url=URL.createObjectURL(blob)
 
 const a=document.createElement("a")
 a.href=url
-a.download="trimmed.wav"
+a.download="trimmed.mp3"
 a.click()
-
-}
-
-function encodeWAV(buffer){
-
-const numOfChan=buffer.numberOfChannels
-const length=buffer.length*numOfChan*2+44
-const bufferArray=new ArrayBuffer(length)
-const view=new DataView(bufferArray)
-
-let channels=[]
-let offset=0
-let pos=0
-
-function setUint16(data){view.setUint16(pos,data,true);pos+=2}
-function setUint32(data){view.setUint32(pos,data,true);pos+=4}
-
-setUint32(0x46464952)
-setUint32(length-8)
-setUint32(0x45564157)
-
-setUint32(0x20746d66)
-setUint32(16)
-setUint16(1)
-setUint16(numOfChan)
-setUint32(buffer.sampleRate)
-setUint32(buffer.sampleRate*2*numOfChan)
-setUint16(numOfChan*2)
-setUint16(16)
-
-setUint32(0x61746164)
-setUint32(length-pos-4)
-
-for(let i=0;i<buffer.numberOfChannels;i++)
-channels.push(buffer.getChannelData(i))
-
-while(pos<length){
-
-for(let i=0;i<numOfChan;i++){
-
-let sample=Math.max(-1,Math.min(1,channels[i][offset]))
-sample=(sample<0?sample*32768:sample*32767)|0
-view.setInt16(pos,sample,true)
-pos+=2
-
-}
-
-offset++
-
-}
-
-return bufferArray
 
 }
 
