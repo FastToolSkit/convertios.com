@@ -14,7 +14,10 @@
 
 <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
-
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js";
+</script>
 <style>
 
 .preview-grid{
@@ -193,8 +196,8 @@ async function splitPDF(){
 
 const { PDFDocument } = PDFLib;
 
-const originalPDF = await PDFDocument.load(pdfBytes);
-
+const originalPDF = await PDFDocument.load(pdfBytes.slice(0));
+  
 const newPDF = await PDFDocument.create();
 
 const items = document.querySelectorAll(".preview-item");
