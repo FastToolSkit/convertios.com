@@ -5,6 +5,8 @@
 
 <title>MP3 Cutter - FastTools</title>
 
+<link rel="stylesheet" href="style.css">
+
 <script src="https://unpkg.com/wavesurfer.js@7"></script>
 <script src="https://unpkg.com/wavesurfer.js/dist/plugins/regions.min.js"></script>
 <script src="https://unpkg.com/wavesurfer.js/dist/plugins/timeline.min.js"></script>
@@ -12,34 +14,28 @@
 
 <style>
 
-body{
-background:#071428;
-font-family:Arial;
-color:white;
+.tool-container{
+max-width:1000px;
+margin:auto;
+padding:40px 20px;
 text-align:center;
-padding-top:50px;
-}
-
-h2{
-margin-bottom:25px;
 }
 
 #waveform{
-width:900px;
-margin:30px auto 0;
+margin-top:40px;
 }
 
 #timeline{
-width:900px;
-margin:auto;
+margin-top:10px;
 }
 
 .upload-btn{
 background:#2a84ff;
-padding:10px 20px;
+padding:12px 22px;
 border-radius:6px;
 cursor:pointer;
 font-weight:bold;
+color:white;
 display:inline-block;
 }
 
@@ -49,7 +45,7 @@ display:none;
 
 #progress{
 margin-top:10px;
-color:#aaa;
+color:#888;
 }
 
 .controls{
@@ -58,6 +54,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 gap:20px;
+flex-wrap:wrap;
 }
 
 button{
@@ -79,31 +76,37 @@ background:#0d1d36;
 padding:8px;
 border-radius:4px;
 width:80px;
-display:inline-block;
+text-align:center;
 }
 
 .zoom{
-margin-top:20px;
+margin-top:30px;
 }
 
 </style>
 
-<head>
-
-<title>MP3 Cutter - FastTools</title>
-
-<link rel="stylesheet" href="style.css">
-
-<script src="https://unpkg.com/wavesurfer.js@7"></script>
-<script src="https://unpkg.com/wavesurfer.js/dist/plugins/regions.min.js"></script>
-<script src="https://unpkg.com/wavesurfer.js/dist/plugins/timeline.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
-
-<style>
-/* your page-specific CSS */
-</style>
-
 </head>
+
+<body>
+
+<header class="site-header">
+
+<a href="index.html" class="logo">
+<img src="fasttools-logo.png">
+<span>FastTools</span>
+</a>
+
+<nav class="nav-links">
+<a href="index.html">Home</a>
+<a href="tools.html">Tools</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+</header>
+
+<div class="tool-container">
+
 <h2>MP3 Cutter</h2>
 
 <label class="upload-btn">
@@ -118,6 +121,7 @@ Upload MP3
 
 <div class="zoom">
 Zoom
+<br>
 <input type="range" id="zoom" min="10" max="200" value="50">
 </div>
 
@@ -135,6 +139,8 @@ to
 
 </div>
 
+</div>
+
 <script>
 
 const RegionsPlugin = WaveSurfer.Regions.create()
@@ -144,10 +150,10 @@ container:"#timeline"
 })
 
 const wavesurfer = WaveSurfer.create({
-container:'#waveform',
-waveColor:'#6c8fff',
-progressColor:'#2a84ff',
-cursorColor:'#2a84ff',
+container:"#waveform",
+waveColor:"#6c8fff",
+progressColor:"#2a84ff",
+cursorColor:"#2a84ff",
 height:120,
 plugins:[RegionsPlugin,TimelinePlugin]
 })
@@ -249,7 +255,6 @@ const start=region.start
 const end=region.end
 
 const buffer=wavesurfer.getDecodedData()
-
 const sampleRate=buffer.sampleRate
 
 const startOffset=Math.floor(start*sampleRate)
@@ -298,5 +303,4 @@ a.click()
 </script>
 
 </body>
-
 </html>
