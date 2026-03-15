@@ -18,14 +18,17 @@ background:#0b1220;
 border-radius:12px;
 padding:30px;
 color:white;
+max-width:900px;
+margin:auto;
 }
 
 #waveform{
 height:150px;
+margin-top:20px;
 }
 
 #timeline{
-margin-top:8px;
+margin-top:10px;
 }
 
 .controls{
@@ -42,7 +45,7 @@ border:none;
 color:white;
 padding:8px 12px;
 border-radius:6px;
-width:100px;
+width:90px;
 }
 
 .export-btn{
@@ -71,16 +74,9 @@ cursor:pointer;
 <img src="fasttools-logo.png.png">
 </a>
 
-<nav class="nav-menu">
-<a href="index.html">Home</a>
-<a href="index.html#tools">Tools</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-</nav>
-
 </header>
 
-<div class="tool-container editor">
+<div class="editor">
 
 <h2>MP3 Cutter</h2>
 
@@ -109,11 +105,10 @@ cursor:pointer;
 
 let wavesurfer
 let region
-let audioBuffer
 const audioContext = new AudioContext()
 
-const regions = WaveSurfer.Regions.create()
-const timeline = WaveSurfer.Timeline.create({ container:"#timeline" })
+const regionsPlugin = WaveSurfer.Regions.create()
+const timelinePlugin = WaveSurfer.Timeline.create({ container:"#timeline" })
 
 wavesurfer = WaveSurfer.create({
 
@@ -122,26 +117,25 @@ waveColor:"#64748b",
 progressColor:"#3b82f6",
 cursorColor:"#facc15",
 height:140,
-plugins:[regions,timeline]
+plugins:[regionsPlugin,timelinePlugin]
 
 })
 
-document.getElementById("audioFile").addEventListener("change", async (e)=>{
+document.getElementById("audioFile").addEventListener("change",(e)=>{
 
 const file = e.target.files[0]
 if(!file) return
-
-const buffer = await file.arrayBuffer()
-audioBuffer = await audioContext.decodeAudioData(buffer)
 
 wavesurfer.loadBlob(file)
 
 wavesurfer.once("ready",()=>{
 
+const duration = wavesurfer.getDuration()
+
 region = wavesurfer.addRegion({
 
 start:0,
-end:Math.min(10,wavesurfer.getDuration()),
+end:Math.min(10,duration),
 color:"rgba(250,204,21,0.35)",
 drag:true,
 resize:true
@@ -156,32 +150,45 @@ updateInputs()
 
 function updateInputs(){
 
-document.getElementById("startTime").value = region.start.toFixed(2)
-document.getElementById("endTime").value = region.end.toFixed(2)
+if(!region) return
+
+startTime.value = region.start.toFixed(2)
+endTime.value = region.end.toFixed(2)
 
 }
 
-wavesurfer.on("region-updated", updateInputs)
+wavesurfer.on("region-updated",updateInputs)
 
-document.getElementById("startTime").addEventListener("change",()=>{
+startTime.addEventListener("change",()=>{
+if(region){
 region.setOptions({start:parseFloat(startTime.value)})
+}
 })
 
-document.getElementById("endTime").addEventListener("change",()=>{
+endTime.addEventListener("change",()=>{
+if(region){
 region.setOptions({end:parseFloat(endTime.value)})
+}
 })
 
 function exportAudio(){
 
-if(!audioBuffer || !region){
+if(!region){
 alert("Upload audio first")
+return
+}
+
+const buffer = wavesurfer.getDecodedData()
+
+if(!buffer){
+alert("Audio not ready")
 return
 }
 
 const start = region.start
 const end = region.end
 
-const sampleRate = audioBuffer.sampleRate
+const sampleRate = buffer.sampleRate
 
 const startOffset = Math.floor(start * sampleRate)
 const endOffset = Math.floor(end * sampleRate)
@@ -189,14 +196,14 @@ const endOffset = Math.floor(end * sampleRate)
 const frameCount = endOffset - startOffset
 
 const newBuffer = audioContext.createBuffer(
-audioBuffer.numberOfChannels,
+buffer.numberOfChannels,
 frameCount,
 sampleRate
 )
 
-for(let channel=0; channel<audioBuffer.numberOfChannels; channel++){
+for(let channel=0;channel<buffer.numberOfChannels;channel++){
 
-const oldData = audioBuffer.getChannelData(channel)
+const oldData = buffer.getChannelData(channel)
 const newData = newBuffer.getChannelData(channel)
 
 for(let i=0;i<frameCount;i++){
@@ -258,7 +265,6 @@ true)
 offset+=2
 
 }
-
 }
 
 return new Blob([view],{type:"audio/wav"})
