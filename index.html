@@ -14,7 +14,29 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 </head>
+<script>
 
+function searchTools(){
+
+let input = document.getElementById("toolSearch").value.toLowerCase();
+
+let cards = document.querySelectorAll(".tool-card");
+
+cards.forEach(card => {
+
+let text = card.innerText.toLowerCase();
+
+if(text.includes(input)){
+card.style.display = "flex";
+}else{
+card.style.display = "none";
+}
+
+});
+
+}
+
+</script>
 <body>
 
 <header class="site-header">
@@ -36,7 +58,16 @@
 <!-- ===============================
 TOOLS GRID
 ================================-->
+<div class="tool-search">
 
+<input
+type="text"
+id="toolSearch"
+placeholder="Search tools..."
+onkeyup="searchTools()"
+/>
+
+</div>
 <div class="tools-grid" id="tools">
 <a href="pdf-to-word.html" class="tool-card">
 <div class="tool-title">
