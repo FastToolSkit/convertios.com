@@ -7,6 +7,7 @@
 
 <script src="https://unpkg.com/wavesurfer.js@7"></script>
 <script src="https://unpkg.com/wavesurfer.js/dist/plugins/regions.min.js"></script>
+<script src="https://unpkg.com/wavesurfer.js/dist/plugins/timeline.min.js"></script>
 
 <style>
 
@@ -15,16 +16,21 @@ background:#071428;
 font-family:Arial;
 color:white;
 text-align:center;
-padding-top:60px;
+padding-top:50px;
 }
 
 h2{
-margin-bottom:30px;
+margin-bottom:25px;
 }
 
 #waveform{
 width:900px;
-margin:40px auto;
+margin:30px auto 0;
+}
+
+#timeline{
+width:900px;
+margin:auto;
 }
 
 .upload-btn{
@@ -77,6 +83,10 @@ button:hover{
 background:#1d6be0;
 }
 
+.zoom{
+margin-top:20px;
+}
+
 </style>
 
 </head>
@@ -93,6 +103,12 @@ Upload MP3
 <div id="progress"></div>
 
 <div id="waveform"></div>
+<div id="timeline"></div>
+
+<div class="zoom">
+Zoom
+<input type="range" id="zoom" min="10" max="200" value="50">
+</div>
 
 <div class="controls">
 
@@ -112,13 +128,17 @@ to
 
 const RegionsPlugin = WaveSurfer.Regions.create()
 
+const TimelinePlugin = WaveSurfer.Timeline.create({
+container:"#timeline"
+})
+
 const wavesurfer = WaveSurfer.create({
 container:'#waveform',
 waveColor:'#6c8fff',
 progressColor:'#2a84ff',
 cursorColor:'#2a84ff',
 height:120,
-plugins:[RegionsPlugin]
+plugins:[RegionsPlugin,TimelinePlugin]
 })
 
 let region
@@ -139,7 +159,6 @@ return m+":"+s
 document.getElementById("audio").addEventListener("change",function(e){
 
 const file=e.target.files[0]
-
 if(!file) return
 
 document.getElementById("progress").innerText="Loading audio..."
@@ -204,6 +223,12 @@ document.getElementById("play").onclick=function(){
 wavesurfer.playPause()
 
 this.innerText=wavesurfer.isPlaying()?"Pause":"Play"
+
+}
+
+document.getElementById("zoom").oninput=function(){
+
+wavesurfer.zoom(this.value)
 
 }
 
