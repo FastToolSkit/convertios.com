@@ -7,59 +7,52 @@
 
 <link rel="stylesheet" href="style.css">
 
-<script src="https://unpkg.com/wavesurfer.js@7"></script>
-<script src="https://unpkg.com/wavesurfer.js@7/dist/plugins/regions.min.js"></script>
-<script src="https://unpkg.com/wavesurfer.js@7/dist/plugins/timeline.min.js"></script>
+<script src="https://unpkg.com/wavesurfer.js"></script>
+<script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.regions.min.js"></script>
 
 <style>
 
-.editor{
-background:#0b1220;
+body{
+background:#e6e7ea;
+font-family:Arial;
+}
+
+.tool-box{
+width:600px;
+margin:80px auto;
+background:#071428;
+padding:40px;
 border-radius:12px;
-padding:30px;
 color:white;
-max-width:900px;
-margin:auto;
 }
 
 #waveform{
-height:150px;
-margin-top:20px;
-}
-
-#timeline{
-margin-top:10px;
+margin-top:30px;
+background:#0a1c34;
+border-radius:6px;
 }
 
 .controls{
+margin-top:30px;
 display:flex;
 align-items:center;
 gap:15px;
-margin-top:20px;
-flex-wrap:wrap;
 }
 
-.time-box{
-background:#1e293b;
+button{
+background:#3a78ff;
 border:none;
 color:white;
-padding:8px 12px;
+padding:10px 18px;
 border-radius:6px;
-width:90px;
+cursor:pointer;
 }
 
-.export-btn{
-background:#2563eb;
+input{
+width:80px;
+padding:6px;
+border-radius:4px;
 border:none;
-color:white;
-padding:12px 22px;
-border-radius:8px;
-cursor:pointer;
-}
-
-.play-btn{
-font-size:28px;
-cursor:pointer;
 }
 
 </style>
@@ -69,33 +62,24 @@ cursor:pointer;
 <body>
 
 <header class="site-header">
-
-<a href="index.html" class="logo">
-<img src="fasttools-logo.png.png">
-</a>
-
+<a href="index.html" class="logo">FastTools</a>
 </header>
 
-<div class="editor">
+<div class="tool-box">
 
 <h2>MP3 Cutter</h2>
 
-<input type="file" id="audioFile" accept="audio/*">
+<input type="file" id="audioFile">
 
 <div id="waveform"></div>
-<div id="timeline"></div>
 
 <div class="controls">
 
-<div class="play-btn" onclick="wavesurfer.playPause()">▶</div>
+Start <input id="startTime" type="number" value="0">
 
-<label>Start</label>
-<input id="startTime" class="time-box">
+End <input id="endTime" type="number">
 
-<label>End</label>
-<input id="endTime" class="time-box">
-
-<button class="export-btn" onclick="exportAudio()">Export</button>
+<button onclick="exportTrim()">Export</button>
 
 </div>
 
@@ -104,174 +88,135 @@ cursor:pointer;
 <script>
 
 let wavesurfer
-let region
-const audioContext = new AudioContext()
-
-const regionsPlugin = WaveSurfer.Regions.create()
-const timelinePlugin = WaveSurfer.Timeline.create({ container:"#timeline" })
 
 wavesurfer = WaveSurfer.create({
-
-container:"#waveform",
-waveColor:"#64748b",
-progressColor:"#3b82f6",
-cursorColor:"#facc15",
-height:140,
-plugins:[regionsPlugin,timelinePlugin]
-
+container: '#waveform',
+waveColor: '#6c8fff',
+progressColor: '#3a78ff',
+height:120,
+plugins: [
+WaveSurfer.regions.create({})
+]
 })
 
-document.getElementById("audioFile").addEventListener("change",(e)=>{
+document.getElementById("audioFile").addEventListener("change", function(e){
 
 const file = e.target.files[0]
+
 if(!file) return
 
-wavesurfer.loadBlob(file)
+const url = URL.createObjectURL(file)
 
-wavesurfer.once("ready",()=>{
+wavesurfer.load(url)
 
-const duration = wavesurfer.getDuration()
+wavesurfer.on('ready', function(){
 
-region = wavesurfer.addRegion({
-
-start:0,
-end:Math.min(10,duration),
-color:"rgba(250,204,21,0.35)",
-drag:true,
-resize:true
-
-})
-
-updateInputs()
+document.getElementById("endTime").value = wavesurfer.getDuration()
 
 })
 
 })
 
-function updateInputs(){
+function exportTrim(){
 
-if(!region) return
+let start = parseFloat(document.getElementById("startTime").value)
+let end = parseFloat(document.getElementById("endTime").value)
 
-startTime.value = region.start.toFixed(2)
-endTime.value = region.end.toFixed(2)
+const audioBuffer = wavesurfer.backend.buffer
+const sampleRate = audioBuffer.sampleRate
 
-}
-
-wavesurfer.on("region-updated",updateInputs)
-
-startTime.addEventListener("change",()=>{
-if(region){
-region.setOptions({start:parseFloat(startTime.value)})
-}
-})
-
-endTime.addEventListener("change",()=>{
-if(region){
-region.setOptions({end:parseFloat(endTime.value)})
-}
-})
-
-function exportAudio(){
-
-if(!region){
-alert("Upload audio first")
-return
-}
-
-const buffer = wavesurfer.getDecodedData()
-
-if(!buffer){
-alert("Audio not ready")
-return
-}
-
-const start = region.start
-const end = region.end
-
-const sampleRate = buffer.sampleRate
-
-const startOffset = Math.floor(start * sampleRate)
-const endOffset = Math.floor(end * sampleRate)
-
-const frameCount = endOffset - startOffset
-
-const newBuffer = audioContext.createBuffer(
-buffer.numberOfChannels,
-frameCount,
+const newBuffer = wavesurfer.backend.ac.createBuffer(
+audioBuffer.numberOfChannels,
+(end-start)*sampleRate,
 sampleRate
 )
 
-for(let channel=0;channel<buffer.numberOfChannels;channel++){
+for(let channel=0; channel<audioBuffer.numberOfChannels; channel++){
 
-const oldData = buffer.getChannelData(channel)
+const oldData = audioBuffer.getChannelData(channel)
 const newData = newBuffer.getChannelData(channel)
 
-for(let i=0;i<frameCount;i++){
-newData[i] = oldData[i+startOffset]
+for(let i=0; i<newData.length; i++){
+newData[i] = oldData[i + start*sampleRate]
 }
 
 }
 
-const wavBlob = bufferToWave(newBuffer)
+const offlineContext = new OfflineAudioContext(
+newBuffer.numberOfChannels,
+newBuffer.length,
+sampleRate
+)
 
-const url = URL.createObjectURL(wavBlob)
+const source = offlineContext.createBufferSource()
+source.buffer = newBuffer
+source.connect(offlineContext.destination)
+source.start()
 
-const a = document.createElement("a")
+offlineContext.startRendering().then(function(renderedBuffer){
+
+let wav = bufferToWave(renderedBuffer, renderedBuffer.length)
+let blob = new Blob([wav], {type:'audio/wav'})
+
+let url = URL.createObjectURL(blob)
+
+let a = document.createElement("a")
 a.href = url
-a.download = "trimmed.wav"
+a.download = "trimmed_audio.wav"
 a.click()
 
+})
+
 }
 
-function bufferToWave(buffer){
+function bufferToWave(abuffer, len){
 
-const numOfChan = buffer.numberOfChannels
-const length = buffer.length * numOfChan * 2 + 44
-const bufferArray = new ArrayBuffer(length)
-const view = new DataView(bufferArray)
-
+let numOfChan = abuffer.numberOfChannels
+let length = len * numOfChan * 2 + 44
+let buffer = new ArrayBuffer(length)
+let view = new DataView(buffer)
+let channels = [], i, sample
 let offset = 0
+let pos = 0
 
-function writeString(str){
-for(let i=0;i<str.length;i++){
-view.setUint8(offset++,str.charCodeAt(i))
+function setUint16(data){ view.setUint16(pos,data,true); pos+=2 }
+function setUint32(data){ view.setUint32(pos,data,true); pos+=4 }
+
+setUint32(0x46464952)
+setUint32(length-8)
+setUint32(0x45564157)
+
+setUint32(0x20746d66)
+setUint32(16)
+setUint16(1)
+setUint16(numOfChan)
+setUint32(abuffer.sampleRate)
+setUint32(abuffer.sampleRate * 2 * numOfChan)
+setUint16(numOfChan * 2)
+setUint16(16)
+
+setUint32(0x61746164)
+setUint32(length - pos - 4)
+
+for(i=0;i<abuffer.numberOfChannels;i++)
+channels.push(abuffer.getChannelData(i))
+
+while(pos < length){
+for(i=0;i<numOfChan;i++){
+sample = Math.max(-1,Math.min(1,channels[i][offset]))
+sample = (0.5 + sample<0 ? sample*32768 : sample*32767)|0
+view.setInt16(pos,sample,true)
+pos+=2
 }
-}
-
-writeString("RIFF")
-view.setUint32(offset,36 + buffer.length * 2,true); offset+=4
-writeString("WAVE")
-writeString("fmt ")
-view.setUint32(offset,16,true); offset+=4
-view.setUint16(offset,1,true); offset+=2
-view.setUint16(offset,numOfChan,true); offset+=2
-view.setUint32(offset,buffer.sampleRate,true); offset+=4
-view.setUint32(offset,buffer.sampleRate * 2,true); offset+=4
-view.setUint16(offset,numOfChan * 2,true); offset+=2
-view.setUint16(offset,16,true); offset+=2
-writeString("data")
-view.setUint32(offset,buffer.length * 2,true); offset+=4
-
-for(let i=0;i<buffer.length;i++){
-for(let channel=0;channel<numOfChan;channel++){
-
-let sample = buffer.getChannelData(channel)[i]
-sample = Math.max(-1,Math.min(1,sample))
-
-view.setInt16(offset,
-sample<0 ? sample*0x8000 : sample*0x7FFF,
-true)
-
-offset+=2
-
-}
+offset++
 }
 
-return new Blob([view],{type:"audio/wav"})
+return buffer
 
 }
 
 </script>
 
 </body>
+
 </html>
