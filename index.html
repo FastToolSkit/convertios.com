@@ -1,96 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
 
 <head>
-<meta name="keywords" content="free online tools, pdf converter, qr generator, password generator, word counter, image converter">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>FastTools - Free Online Tools</title>
 
 <meta name="description" content="FastTools provides free online tools including QR generator, password generator, word counter, image converter, image compressor and more.">
-<meta charset="UTF-8">
-<title>Meme Generator - FastTools</title>
+
+<meta name="keywords" content="free online tools, pdf converter, qr generator, password generator, word counter, image converter">
 
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 </head>
-<script>
-<style>
 
-function searchTools(){
-.editor{
-max-width:900px;
-margin:auto;
-margin-top:20px;
-display:grid;
-grid-template-columns:1fr 300px;
-gap:30px;
-}
-
-let input = document.getElementById("toolSearch").value.toLowerCase();
-.canvas-container{
-text-align:center;
-}
-
-let cards = document.querySelectorAll(".tool-card");
-#memeCanvas{
-max-width:100%;
-border-radius:10px;
-background:#111;
-}
-
-cards.forEach(card => {
-.controls{
-display:flex;
-flex-direction:column;
-gap:10px;
-}
-
-let text = card.innerText.toLowerCase();
-.controls input,
-.controls select{
-padding:10px;
-border-radius:6px;
-border:1px solid #cbd5e1;
-}
-
-if(text.includes(input)){
-card.style.display = "flex";
-}else{
-card.style.display = "none";
-.controls button{
-padding:12px;
-border:none;
-background:#2563eb;
-color:white;
-border-radius:6px;
-cursor:pointer;
-}
-
-});
-</style>
-
-}
-</head>
-
-</script>
 <body>
+
+<!-- ===============================
+HEADER
+================================-->
 
 <header class="site-header">
 
 <a href="index.html" class="logo">
 <img src="fasttools-logo.png.png" alt="FastTools">
-<img src="fasttools-logo.png" alt="FastTools">
 </a>
-  
 
 <nav class="nav-menu">
 <a href="index.html">Home</a>
 <a href="#tools">Tools</a>
-<a href="index.html#tools">Tools</a>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 </nav>
@@ -99,10 +40,10 @@ cursor:pointer;
 
 
 <!-- ===============================
-TOOLS GRID
+SEARCH
 ================================-->
+
 <div class="tool-search">
-<div class="tool-container">
 
 <input
 type="text"
@@ -110,10 +51,17 @@ id="toolSearch"
 placeholder="Search tools..."
 onkeyup="searchTools()"
 />
-<h1>Meme Generator</h1>
 
 </div>
+
+
+<!-- ===============================
+TOOLS GRID
+================================-->
+
 <div class="tools-grid" id="tools">
+
+
 <a href="pdf-to-word.html" class="tool-card">
 <div class="tool-title">
 <span class="tool-icon">📄</span>
@@ -121,13 +69,17 @@ onkeyup="searchTools()"
 </div>
 <p>Convert PDF files to Word documents instantly.</p>
 </a>
+
+
 <a href="image-resizer.html" class="tool-card">
 <div class="tool-title">
 <span class="tool-icon">📐</span>
 <h3>Image Resizer</h3>
 </div>
-<p>Resize images instantly by changing width and height.</p>
+<p>Resize images instantly.</p>
 </a>
+
+
 <a href="qr-generator.html" class="tool-card">
 <div class="tool-title">
 <span class="tool-icon">🔳</span>
@@ -135,6 +87,8 @@ onkeyup="searchTools()"
 </div>
 <p>Create QR codes instantly.</p>
 </a>
+
+
 <a href="meme-generator.html" class="tool-card">
 <div class="tool-title">
 <span class="tool-icon">😂</span>
@@ -142,6 +96,8 @@ onkeyup="searchTools()"
 </div>
 <p>Create funny memes by adding text to images.</p>
 </a>
+
+
 <a href="password-generator.html" class="tool-card">
 <div class="tool-title">
 <span class="tool-icon">🔐</span>
@@ -149,6 +105,8 @@ onkeyup="searchTools()"
 </div>
 <p>Generate strong passwords.</p>
 </a>
+
+
 <a href="jpg-to-pdf.html" class="tool-card">
 <div class="tool-title">
 <span class="tool-icon">📄</span>
@@ -156,312 +114,95 @@ onkeyup="searchTools()"
 </div>
 <p>Convert JPG images into a single PDF file.</p>
 </a>
+
+
 <a href="word-counter.html" class="tool-card">
 <div class="tool-title">
 <span class="tool-icon">🔤</span>
-<h3>Word & Character Counter</h3>
+<h3>Word Counter</h3>
 </div>
 <p>Count words and characters.</p>
 </a>
+
+
 <a href="pdf-to-jpg.html" class="tool-card">
 <div class="tool-title">
 <span class="tool-icon">🖼️</span>
 <h3>PDF to JPG</h3>
 </div>
-<p>Convert PDF pages into JPG images.</p>
+<p>Convert PDF pages into images.</p>
 </a>
-  <a href="rotate-pdf.html" class="tool-card">
+
+
+<a href="rotate-pdf.html" class="tool-card">
 <div class="tool-title">
 <span class="tool-icon">🔄</span>
 <h3>Rotate PDF</h3>
 </div>
-<p>Rotate all pages of a PDF document.</p>
+<p>Rotate PDF pages instantly.</p>
 </a>
-  <a href="split-pdf.html" class="tool-card">
+
+
+<a href="split-pdf.html" class="tool-card">
 <div class="tool-title">
 <span class="tool-icon">✂️</span>
 <h3>Split PDF</h3>
 </div>
-<p>Extract specific pages from a PDF document.</p>
-</a>
-<a href="text-formatter.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">✏️</span>
-<h3>Text Formatter</h3>
-</div>
-<p>Uppercase, lowercase and more.</p>
-</a>
-<p>Create custom memes with draggable text.</p>
-
-<a href="unit-converter.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">📏</span>
-<h3>Unit Converter</h3>
-</div>
-<p>Convert units instantly.</p>
-</a>
-  
-<a href="mp3-cutter.html" class="tool-card">
-<input type="file" id="upload" accept="image/*">
-
-<div class="tool-icon">🎵</div>
-<div class="editor">
-
-<h3>MP3 Cutter</h3>
-<div class="canvas-container">
-
-<p>Trim MP3 audio files instantly.</p>
-<canvas id="memeCanvas"></canvas>
-
-</a>
-<a href="image-converter.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🖼️</span>
-<h3>Image Converter</h3>
-</div>
-<p>Supported formats: JPG, PNG, WEBP, BMP, GIF, AVIF</p>
+<p>Extract specific pages from a PDF.</p>
 </a>
 
-<a href="link-shortener.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🔗</span>
-<h3>Link Shortener</h3>
-</div>
-<p>Shorten long URLs easily.</p>
-</a>
-<div class="controls">
 
-<a href="png-to-jpg.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">📸</span>
-<h3>PNG to JPG Converter</h3>
-</div>
-<p>Convert PNG images to JPG.</p>
-</a>
-<label>Top Text</label>
-<input type="text" id="topText">
-
-<a href="jpg-to-png.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🖼️</span>
-<h3>JPG to PNG Converter</h3>
-</div>
-<p>Convert JPG images to PNG.</p>
-</a>
-<label>Bottom Text</label>
-<input type="text" id="bottomText">
-
-<a href="webp-to-png.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🔄</span>
-<h3>WEBP to PNG Converter</h3>
-</div>
-<p>Convert WEBP images to PNG.</p>
-</a>
 <a href="merge-pdf.html" class="tool-card">
 <div class="tool-title">
 <span class="tool-icon">📑</span>
 <h3>Merge PDF</h3>
 </div>
-<p>Combine multiple PDF files into one document.</p>
+<p>Combine multiple PDFs into one.</p>
 </a>
-  <a href="/tools-site/audio-speed-changer.html" class="tool-card">
-<label>Font Size</label>
-<input type="range" id="fontSize" min="20" max="80" value="40">
 
+
+<a href="image-converter.html" class="tool-card">
 <div class="tool-title">
-<span class="tool-icon">🎵</span>
-<h3>Audio Speed Changer</h3>
+<span class="tool-icon">🖼️</span>
+<h3>Image Converter</h3>
 </div>
-<label>Text Color</label>
-<input type="color" id="textColor" value="#ffffff">
-
-<p>Speed up or slow down audio files online instantly.</p>
-<label>Outline Width</label>
-<input type="range" id="strokeWidth" min="1" max="10" value="4">
-
+<p>Convert images between formats.</p>
 </a>
-<button onclick="downloadMeme()">Download Meme</button>
 
-  
+
 <a href="compress-image.html" class="tool-card">
 <div class="tool-title">
 <span class="tool-icon">🗜️</span>
 <h3>Image Compressor</h3>
 </div>
-<p>Reduce JPG, PNG and WEBP image file size instantly.</p>
+<p>Reduce image file size instantly.</p>
 </a>
 
-  <a href="/tools-site/audio-converter.html" class="tool-card">
-</div>
-
-<div class="tool-title">
-<span class="tool-icon">🎵</span>
-<h3>Audio Converter</h3>
-</div>
-
-<p>Convert audio files between formats quickly and easily.</p>
-
-</a>
-<footer class="site-footer">
 
 </div>
-<p>
-© 2026 FastTools
-<br>
-<a href="privacy.html">Privacy</a> •
-<a href="terms.html">Terms</a> •
-<a href="contact.html">Contact</a>
-</p>
 
-</footer>
 
 <!-- ===============================
-TOOLS DESCRIPTION
-================================-->
-
-<div class="description">
-<script>
-
-  <h3>MP3 Cutter</h3>
-<p>
-Trim MP3 files quickly by selecting the exact start and end points. 
-Create ringtones, remove unwanted parts of audio, and export a new file instantly directly in your browser.
-</p>
-const canvas = document.getElementById("memeCanvas");
-const ctx = canvas.getContext("2d");
-
-let img = new Image();
-
-<h3>Audio Converter</h3>
-<p>
-Convert audio files between different formats quickly and easily. 
-Upload your file and download the converted version instantly with no software required.
-</p>
-document.getElementById("upload").addEventListener("change", function(){
-
-  <h3>Audio Speed Controller</h3>
-<p>
-Speed up or slow down audio files easily. 
-Adjust playback speed, preview the result, and export the modified audio directly from your browser.
-</p>
-const file = this.files[0];
-
-<h2>PDF to Word Converter</h2>
-<p>
-Convert PDF files into fully editable Word documents quickly and easily.
-Upload your PDF and download a DOCX file instantly without installing any software.
-FastTools processes files directly in your browser, keeping your documents private and secure.
-Perfect for editing reports, contracts, and academic files.
-</p>
-if(!file) return;
-
-<h2>QR Code Generator</h2>
-<p>
-Generate QR codes instantly for URLs, text, email addresses, and more.
-Simply enter your content and download a high-quality QR code image.
-Our QR generator works directly in your browser with no uploads required.
-Ideal for marketing materials, business cards, and websites.
-</p>
-const reader = new FileReader();
-
-<h2>Password Generator</h2>
-<p>
-Create strong and secure passwords instantly using our online password generator.
-Generate random passwords with letters, numbers, and symbols for maximum protection.
-Everything runs locally in your browser with no data stored.
-</p>
-reader.onload = function(e){
-
-<h2>Word & Character Counter</h2>
-<p>
-Count words, characters, sentences, and paragraphs in your text instantly.
-Simply paste or type your text and the statistics update automatically.
-Perfect for writers, students, and bloggers.
-</p>
-img.src = e.target.result;
-
-<h2>Text Formatter</h2>
-<p>
-Quickly change text formatting with options like uppercase, lowercase, and title case.
-Perfect for editing documents and preparing content.
-All formatting runs directly inside your browser.
-</p>
-};
-
-<h2>Unit Converter</h2>
-<p>
-Convert measurements easily between units like length, weight, temperature, and more.
-Fast and accurate results appear instantly as you type.
-</p>
-reader.readAsDataURL(file);
-
-<h2>Image Converter</h2>
-<p>
-Convert images between formats such as JPG, PNG, WEBP, BMP, GIF, and AVIF.
-Upload your image and download it in the format you need instantly.
-</p>
-});
-
-<h2>Link Shortener</h2>
-<p>
-Shorten long URLs quickly and create easy-to-share links for social media and messaging.
-</p>
-
-<h2>PNG to JPG Converter</h2>
-<p>
-Convert PNG images into JPG format quickly and easily to reduce file size and improve compatibility.
-</p>
-img.onload = function(){
-
-<h2>JPG to PNG Converter</h2>
-<p>
-Convert JPG images to PNG format while maintaining better image quality.
-</p>
-canvas.width = img.width;
-canvas.height = img.height;
-
-<h2>WEBP to PNG Converter</h2>
-<p>
-Convert WEBP images into PNG format to improve compatibility with editing software.
-</p>
-draw();
-
-<h2>Image Compressor</h2>
-<p>
-Reduce the file size of JPG, PNG, and WEBP images without losing quality.
-Optimize images for websites and faster loading times.
-</p>
-};
-
-</div>
-
-document.querySelectorAll("input").forEach(el=>{
-el.addEventListener("input",draw);
-});
-
-<!-- ===============================
-BOTTOM SITE DESCRIPTION
+SITE DESCRIPTION
 ================================-->
 
 <div class="site-description">
+
 <p>
 FastTools provides free online utilities including image converters, image compressors,
 QR generators, word counters, password generators, link shorteners, and text formatting tools.
-All tools run directly in your browser with no downloads required, making it fast and easy
-to complete everyday tasks online.
+All tools run directly in your browser with no downloads required.
 </p>
-</div>
-function draw(){
 
-ctx.clearRect(0,0,canvas.width,canvas.height);
+</div>
+
 
 <!-- ===============================
 FOOTER
 ================================-->
-ctx.drawImage(img,0,0);
 
 <footer class="site-footer">
+
 <p>
 © 2026 FastTools • Free Online Tools
 <br>
@@ -469,48 +210,37 @@ ctx.drawImage(img,0,0);
 <a href="terms.html">Terms</a> •
 <a href="contact.html">Contact</a>
 </p>
-</footer>
-const topText = document.getElementById("topText").value;
-const bottomText = document.getElementById("bottomText").value;
 
-const fontSize = document.getElementById("fontSize").value;
-const color = document.getElementById("textColor").value;
-const strokeWidth = document.getElementById("strokeWidth").value;
+</footer>
+
+
+<!-- ===============================
+SEARCH SCRIPT
+================================-->
 
 <script>
-ctx.font = `bold ${fontSize}px Impact`;
-ctx.fillStyle = color;
-ctx.strokeStyle = "black";
-ctx.lineWidth = strokeWidth;
-ctx.textAlign = "center";
 
-ctx.fillText(topText,canvas.width/2,60);
-ctx.strokeText(topText,canvas.width/2,60);
+function searchTools(){
 
-ctx.fillText(bottomText,canvas.width/2,canvas.height-30);
-ctx.strokeText(bottomText,canvas.width/2,canvas.height-30);
+let input = document.getElementById("toolSearch").value.toLowerCase();
 
-if ('scrollRestoration' in history) {
-history.scrollRestoration = 'manual';
+let cards = document.querySelectorAll(".tool-card");
+
+cards.forEach(card => {
+
+let text = card.innerText.toLowerCase();
+
+if(text.includes(input)){
+card.style.display="block";
+}else{
+card.style.display="none";
 }
 
-window.addEventListener('load', function () {
-window.scrollTo(0,0);
 });
-
-window.addEventListener('beforeunload', function () {
-window.scrollTo(0,0);
-});
-function downloadMeme(){
-
-const link = document.createElement("a");
-
-link.download="meme.png";
-
-link.href=canvas.toDataURL();
-
-link.click();
 
 }
 
 </script>
+
+</body>
+</html>
