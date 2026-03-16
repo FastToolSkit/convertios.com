@@ -4,45 +4,50 @@
 <head>
 
 <meta charset="UTF-8">
-
 <title>Meme Generator - FastTools</title>
-
-<meta name="description" content="Create memes online. Add text to images and download instantly.">
 
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+
 <style>
 
-.meme-container{
-max-width:700px;
+.editor{
+display:grid;
+grid-template-columns:1fr 280px;
+gap:30px;
+max-width:1000px;
 margin:auto;
-margin-top:20px;
-text-align:center;
+margin-top:30px;
 }
 
-#memeCanvas{
+canvas{
+border-radius:10px;
+border:1px solid #cbd5e1;
 max-width:100%;
-border-radius:8px;
-margin-top:20px;
 }
 
-.inputs{
-margin-top:20px;
+.controls{
 display:flex;
 flex-direction:column;
-gap:10px;
+gap:12px;
 }
 
-.inputs input{
-padding:12px;
+.controls input,
+.controls select{
+padding:10px;
 border-radius:6px;
 border:1px solid #cbd5e1;
-font-size:16px;
 }
 
-.upload-btn{
-margin-top:20px;
+.controls button{
+padding:12px;
+border:none;
+background:#2563eb;
+color:white;
+border-radius:6px;
+cursor:pointer;
 }
 
 </style>
@@ -54,7 +59,7 @@ margin-top:20px;
 <header class="site-header">
 
 <a href="index.html" class="logo">
-<img src="fasttools-logo.png.png" alt="FastTools">
+<img src="fasttools-logo.png" alt="FastTools">
 </a>
 
 <nav class="nav-menu">
@@ -70,26 +75,32 @@ margin-top:20px;
 <div class="tool-container">
 
 <h1>Meme Generator</h1>
-
-<p>Create memes instantly by adding text to your images.</p>
-
-<div class="meme-container">
+<p>Create memes with draggable text.</p>
 
 <input type="file" id="upload" accept="image/*">
 
-<div class="inputs">
+<div class="editor">
 
-<input type="text" id="topText" placeholder="Top Text">
+<div>
 
-<input type="text" id="bottomText" placeholder="Bottom Text">
+<canvas id="canvas"></canvas>
 
 </div>
 
-<canvas id="memeCanvas"></canvas>
+<div class="controls">
 
-<button class="main-button" onclick="downloadMeme()">
-Download Meme
-</button>
+<input type="text" id="topText" placeholder="Top text">
+<input type="text" id="bottomText" placeholder="Bottom text">
+
+<label>Font Size</label>
+<input type="range" id="fontSize" min="20" max="100" value="50">
+
+<label>Text Color</label>
+<input type="color" id="textColor" value="#ffffff">
+
+<button onclick="downloadMeme()">Download Meme</button>
+
+</div>
 
 </div>
 
@@ -97,84 +108,109 @@ Download Meme
 
 
 <footer class="site-footer">
-
 <p>
-© 2026 FastTools • Free Online Tools
+© 2026 FastTools
 <br>
 <a href="privacy.html">Privacy</a> •
 <a href="terms.html">Terms</a> •
 <a href="contact.html">Contact</a>
 </p>
-
 </footer>
 
 
 <script>
 
-const canvas = document.getElementById("memeCanvas");
-const ctx = canvas.getContext("2d");
+const canvas = new fabric.Canvas('canvas');
 
-let image = new Image();
+let topTextObj;
+let bottomTextObj;
 
 document.getElementById("upload").addEventListener("change", function(){
-
-const file = this.files[0];
-
-if(!file) return;
 
 const reader = new FileReader();
 
 reader.onload = function(e){
 
-image.src = e.target.result;
+fabric.Image.fromURL(e.target.result,function(img){
 
-};
+canvas.clear();
 
-reader.readAsDataURL(file);
+canvas.setWidth(img.width);
+canvas.setHeight(img.height);
+
+canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
+
+topTextObj = new fabric.Textbox('TOP TEXT',{
+left:canvas.width/2,
+top:40,
+originX:'center',
+fontSize:50,
+fill:'white',
+stroke:'black',
+strokeWidth:2,
+fontFamily:'Impact'
+});
+
+bottomTextObj = new fabric.Textbox('BOTTOM TEXT',{
+left:canvas.width/2,
+top:canvas.height-100,
+originX:'center',
+fontSize:50,
+fill:'white',
+stroke:'black',
+strokeWidth:2,
+fontFamily:'Impact'
+});
+
+canvas.add(topTextObj);
+canvas.add(bottomTextObj);
 
 });
 
-image.onload = function(){
-
-canvas.width = image.width;
-canvas.height = image.height;
-
-drawMeme();
-
 };
 
-document.getElementById("topText").addEventListener("input", drawMeme);
-document.getElementById("bottomText").addEventListener("input", drawMeme);
+reader.readAsDataURL(this.files[0]);
 
-function drawMeme(){
+});
 
-ctx.clearRect(0,0,canvas.width,canvas.height);
 
-ctx.drawImage(image,0,0);
-
-const topText = document.getElementById("topText").value;
-const bottomText = document.getElementById("bottomText").value;
-
-ctx.font = "bold 40px Impact";
-ctx.fillStyle = "white";
-ctx.strokeStyle = "black";
-ctx.lineWidth = 4;
-ctx.textAlign = "center";
-
-ctx.fillText(topText,canvas.width/2,50);
-ctx.strokeText(topText,canvas.width/2,50);
-
-ctx.fillText(bottomText,canvas.width/2,canvas.height-20);
-ctx.strokeText(bottomText,canvas.width/2,canvas.height-20);
-
+document.getElementById("topText").addEventListener("input",e=>{
+if(topTextObj){
+topTextObj.text = e.target.value;
+canvas.renderAll();
 }
+});
+
+document.getElementById("bottomText").addEventListener("input",e=>{
+if(bottomTextObj){
+bottomTextObj.text = e.target.value;
+canvas.renderAll();
+}
+});
+
+document.getElementById("fontSize").addEventListener("input",e=>{
+const size = parseInt(e.target.value);
+
+if(canvas.getActiveObject()){
+canvas.getActiveObject().set({fontSize:size});
+canvas.renderAll();
+}
+});
+
+document.getElementById("textColor").addEventListener("input",e=>{
+if(canvas.getActiveObject()){
+canvas.getActiveObject().set({fill:e.target.value});
+canvas.renderAll();
+}
+});
+
 
 function downloadMeme(){
 
 const link = document.createElement("a");
 
-link.download = "meme.png";
-link.href = canvas.toDataURL();
+link.download="meme.png";
+link.href=canvas.toDataURL();
 
 link.click();
 
