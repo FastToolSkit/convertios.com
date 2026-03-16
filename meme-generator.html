@@ -129,10 +129,10 @@ background:#1d4ed8;
 
 <script>
 
-const canvas = new fabric.Canvas('canvas');
+const canvas = document.getElementById("memeCanvas");
+const ctx = canvas.getContext("2d");
 
-let topTextObj;
-let bottomTextObj;
+let img = new Image();
 
 document.getElementById("upload").addEventListener("change", function(){
 
@@ -142,101 +142,64 @@ if(!file) return;
 const reader = new FileReader();
 
 reader.onload = function(e){
-
-fabric.Image.fromURL(e.target.result,function(img){
-
-canvas.clear();
-
-const maxWidth = 600;
-const scale = img.width > maxWidth ? maxWidth / img.width : 1;
-
-canvas.setWidth(img.width * scale);
-canvas.setHeight(img.height * scale);
-
-img.scale(scale);
-
-canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
-
-topTextObj = new fabric.Textbox('TOP TEXT',{
-left:canvas.width/2,
-top:40,
-originX:'center',
-fontSize:50,
-fill:'white',
-stroke:'black',
-strokeWidth:3,
-fontFamily:'Impact',
-textAlign:'center'
-});
-
-bottomTextObj = new fabric.Textbox('BOTTOM TEXT',{
-left:canvas.width/2,
-top:canvas.height-80,
-originX:'center',
-fontSize:50,
-fill:'white',
-stroke:'black',
-strokeWidth:3,
-fontFamily:'Impact',
-textAlign:'center'
-});
-
-canvas.add(topTextObj);
-canvas.add(bottomTextObj);
-
-});
-
+img.src = e.target.result;
 };
 
 reader.readAsDataURL(file);
 
 });
 
+img.onload = function(){
 
-document.getElementById("topText").addEventListener("input",e=>{
-if(topTextObj){
-topTextObj.text = e.target.value;
-canvas.renderAll();
-}
+// scale image to fit canvas width
+const maxWidth = 800;
+
+let scale = Math.min(maxWidth / img.width, 1);
+
+canvas.width = img.width * scale;
+canvas.height = img.height * scale;
+
+draw();
+
+};
+
+document.querySelectorAll("input").forEach(el=>{
+el.addEventListener("input",draw);
 });
 
-document.getElementById("bottomText").addEventListener("input",e=>{
-if(bottomTextObj){
-bottomTextObj.text = e.target.value;
-canvas.renderAll();
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.drawImage(img,0,0,canvas.width,canvas.height);
+
+const topText = document.getElementById("topText").value;
+const bottomText = document.getElementById("bottomText").value;
+
+const fontSize = document.getElementById("fontSize").value;
+const color = document.getElementById("textColor").value;
+const strokeWidth = document.getElementById("strokeWidth").value;
+
+ctx.font = `bold ${fontSize}px Impact`;
+ctx.fillStyle = color;
+ctx.strokeStyle = "black";
+ctx.lineWidth = strokeWidth;
+ctx.textAlign = "center";
+
+ctx.fillText(topText,canvas.width/2,60);
+ctx.strokeText(topText,canvas.width/2,60);
+
+ctx.fillText(bottomText,canvas.width/2,canvas.height-30);
+ctx.strokeText(bottomText,canvas.width/2,canvas.height-30);
+
 }
-});
-
-
-document.getElementById("fontSize").addEventListener("input",e=>{
-const size = parseInt(e.target.value);
-
-const active = canvas.getActiveObject();
-if(active){
-active.set({fontSize:size});
-canvas.renderAll();
-}
-});
-
-
-document.getElementById("textColor").addEventListener("input",e=>{
-const active = canvas.getActiveObject();
-if(active){
-active.set({fill:e.target.value});
-canvas.renderAll();
-}
-});
-
 
 function downloadMeme(){
 
 const link = document.createElement("a");
 
 link.download="meme.png";
-link.href=canvas.toDataURL({
-format:'png',
-quality:1
-});
+link.href=canvas.toDataURL("image/png");
 
 link.click();
 
