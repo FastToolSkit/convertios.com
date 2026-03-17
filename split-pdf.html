@@ -8,7 +8,7 @@
 
 <title>Split PDF Online Free | FastTools</title>
 
-<meta name="description" content="Split PDF online and extract selected pages into a new file. Free, fast, and easy to use.">
+<meta name="description" content="Split PDF online and extract selected pages instantly. Free and easy tool.">
 
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -23,80 +23,76 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 
 <style>
 
-body{
-background:#e6e7ea;
-font-family:'Segoe UI', Tahoma, sans-serif;
-margin:0;
-}
-
 /* TOOL */
 .tool-container{
-max-width:900px;
-margin:80px auto 40px;
-background:white;
-padding:35px;
-border-radius:14px;
+max-width:1000px;
+margin:80px auto 30px;
+background:#071a33;
+color:white;
+padding:40px;
+border-radius:20px;
 text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.tool-container p{
+color:#cbd5e1;
 }
 
 /* DROP */
 .drop-area{
-border:2px dashed #cbd5e1;
-padding:40px;
-border-radius:10px;
-background:#f8fafc;
+border:2px dashed #3a78ff;
+padding:50px;
+border-radius:14px;
+background:#0c2547;
 margin-top:20px;
 cursor:pointer;
+}
+
+.drop-area:hover{
+background:#12305a;
 }
 
 /* PREVIEW */
 .preview-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
-gap:15px;
-margin-top:25px;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:20px;
+margin-top:30px;
 }
 
 .preview-item{
-background:#f8fafc;
-border:1px solid #cbd5e1;
-padding:10px;
-border-radius:8px;
-text-align:center;
+background:#0c2547;
+padding:12px;
+border-radius:10px;
+cursor:pointer;
 transition:0.2s;
 }
 
 .preview-item.selected{
 border:2px solid #3a78ff;
-background:#eef4ff;
 }
 
 .preview-item canvas{
 width:100%;
-border-radius:6px;
+border-radius:8px;
 }
 
 /* BUTTON */
 .main-button{
-margin-top:20px;
-padding:12px 20px;
-background:#1e293b;
+margin-top:25px;
+padding:14px 22px;
+background:#020c1b;
 color:white;
 border:none;
-border-radius:6px;
+border-radius:10px;
 cursor:pointer;
-}
-
-.main-button:hover{
-background:#0f172a;
 }
 
 /* LOADER */
 .spinner{
 width:40px;
 height:40px;
-border:4px solid #cbd5e1;
+border:4px solid #1e293b;
 border-top:4px solid #3a78ff;
 border-radius:50%;
 animation:spin 1s linear infinite;
@@ -111,25 +107,22 @@ margin:15px auto;
 /* SEO */
 .seo-content{
 max-width:900px;
-margin:40px auto;
-background:white;
-padding:35px;
-border-radius:14px;
-box-shadow:0 8px 25px rgba(0,0,0,0.05);
-}
-
-.seo-content p:last-child{
-direction:rtl;
-text-align:right;
-}
-
-/* FOOTER */
-.site-footer{
-background:#3f5368;
+margin:20px auto;
+background:#071a33;
 color:white;
-text-align:center;
-padding:25px;
-margin-top:60px;
+padding:35px;
+border-radius:20px;
+}
+
+/* SEO BOOST */
+.tool-description{
+max-width:900px;
+margin:30px auto 80px;
+background:white;
+padding:40px;
+border-radius:16px;
+color:#1e293b;
+line-height:1.8;
 }
 
 </style>
@@ -153,15 +146,14 @@ margin-top:60px;
 
 </header>
 
-
 <div class="tool-container">
 
 <h1>Split PDF</h1>
 
-<p>Select the pages you want and download them as a new PDF.</p>
+<p>Select pages and download them as a new PDF.</p>
 
 <div id="drop-area" class="drop-area">
-<p>Drag PDF here or click to upload</p>
+<p>Click or drag your PDF file here</p>
 <input type="file" id="file-input" accept=".pdf" hidden>
 </div>
 
@@ -181,16 +173,70 @@ Download Selected Pages
 <!-- SEO -->
 <div class="seo-content">
 
-<h2>How to split PDF pages</h2>
+<h2>Split PDF Pages Online</h2>
 
 <p>
-Upload your PDF, select the pages you need, and download them as a new file instantly.
-This tool works directly in your browser with no uploads required.
+Extract specific pages from your PDF file quickly and easily.
 </p>
 
-<p>
-يمكنك تقسيم ملفات PDF واستخراج الصفحات المطلوبة بسهولة وبسرعة.
+<p style="direction:rtl;text-align:right;">
+يمكنك استخراج صفحات محددة من ملف PDF بسهولة.
 </p>
+
+</div>
+
+<!-- SEO BOOST -->
+<div class="tool-description">
+
+<h2>What this tool does</h2>
+<p>
+Split PDF files and extract selected pages into a new document.
+</p>
+
+<h2>How to use</h2>
+<ul>
+<li>Upload PDF</li>
+<li>Select pages</li>
+<li>Download new file</li>
+</ul>
+
+<h2>Benefits</h2>
+<ul>
+<li>Fast processing</li>
+<li>No upload required</li>
+<li>Free tool</li>
+</ul>
+
+</div>
+
+<!-- MORE TOOLS -->
+<div class="more-tools">
+
+<h3>Explore More Tools</h3>
+
+<div class="more-tools-grid">
+
+<a href="merge-pdf.html" class="more-tool-card">
+<span>📄</span>
+<p>Merge PDF</p>
+</a>
+
+<a href="rotate-pdf.html" class="more-tool-card">
+<span>🔄</span>
+<p>Rotate PDF</p>
+</a>
+
+<a href="pdf-to-word.html" class="more-tool-card">
+<span>📑</span>
+<p>PDF to Word</p>
+</a>
+
+<a href="pdf-to-jpg.html" class="more-tool-card">
+<span>🖼️</span>
+<p>PDF to JPG</p>
+</a>
+
+</div>
 
 </div>
 
@@ -218,9 +264,7 @@ let pdfFile = null;
 
 dropArea.onclick = () => fileInput.click();
 
-dropArea.addEventListener("dragover", e=>{
-e.preventDefault();
-});
+dropArea.addEventListener("dragover", e=>e.preventDefault());
 
 dropArea.addEventListener("drop", e=>{
 e.preventDefault();
@@ -232,8 +276,6 @@ handleFile(fileInput.files[0]);
 });
 
 async function handleFile(file){
-
-if(!file) return;
 
 pdfFile = file;
 preview.innerHTML = "";
@@ -252,10 +294,7 @@ const ctx = canvas.getContext("2d");
 canvas.width = viewport.width;
 canvas.height = viewport.height;
 
-await page.render({
-canvasContext:ctx,
-viewport:viewport
-}).promise;
+await page.render({canvasContext:ctx,viewport}).promise;
 
 const box = document.createElement("div");
 box.className="preview-item selected";
@@ -312,10 +351,7 @@ const url = URL.createObjectURL(blob);
 const link = document.createElement("a");
 link.href = url;
 link.download = "split.pdf";
-
-document.body.appendChild(link);
 link.click();
-document.body.removeChild(link);
 
 loader.style.display="none";
 
