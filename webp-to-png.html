@@ -8,100 +8,93 @@
 
 <title>PNG to JPG Converter Online Free | FastTools</title>
 
-<meta name="description" content="Convert PNG to JPG online for free. Fast and easy image converter with instant download.">
+<meta name="description" content="Convert PNG images to JPG instantly online. Free, fast, and no upload required.">
 
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <style>
 
-body{
-background:#e6e7ea;
-font-family:'Segoe UI', Tahoma, sans-serif;
-margin:0;
-}
-
 /* TOOL */
 .tool-container{
-max-width:700px;
-margin:80px auto 40px;
-background:white;
-padding:35px;
-border-radius:14px;
+max-width:900px;
+margin:80px auto 30px;
+background:#071a33;
+color:white;
+padding:40px;
+border-radius:20px;
 text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
 
-/* DROP AREA */
+.tool-container p{
+color:#cbd5e1;
+}
+
+/* DROP */
 #drop-area{
-border:2px dashed #cbd5e1;
-padding:40px;
-max-width:600px;
-margin:20px auto;
-background:#f8fafc;
+border:2px dashed #3a78ff;
+padding:50px;
+border-radius:14px;
+background:#0c2547;
+margin-top:20px;
 cursor:pointer;
-border-radius:10px;
+}
+
+#drop-area:hover{
+background:#12305a;
 }
 
 /* PREVIEW */
 #preview{
-margin-top:20px;
+margin-top:25px;
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:10px;
+gap:12px;
 }
 
 #preview img{
-width:90px;
-border-radius:6px;
+width:100px;
+border-radius:8px;
 }
 
 /* BUTTON */
 button{
 margin-top:20px;
-padding:12px 20px;
+padding:14px 20px;
 background:#3a78ff;
 color:white;
 border:none;
-border-radius:6px;
+border-radius:10px;
 cursor:pointer;
-}
-
-button:hover{
-background:#1d4ed8;
 }
 
 /* DOWNLOADS */
 #downloads a{
 display:block;
-margin:10px;
-color:#2563eb;
-text-decoration:none;
+margin-top:10px;
+color:#3a78ff;
 }
 
 /* SEO */
 .seo-content{
-max-width:700px;
-margin:40px auto;
-background:white;
-padding:30px;
-border-radius:14px;
-box-shadow:0 8px 25px rgba(0,0,0,0.05);
-}
-
-.seo-content p:last-child{
-direction:rtl;
-text-align:right;
-}
-
-/* FOOTER */
-.site-footer{
-background:#3f5368;
+max-width:900px;
+margin:20px auto;
+background:#071a33;
 color:white;
-text-align:center;
-padding:25px;
-margin-top:60px;
+padding:35px;
+border-radius:20px;
+}
+
+/* SEO BOOST */
+.tool-description{
+max-width:900px;
+margin:30px auto 80px;
+background:white;
+padding:40px;
+border-radius:16px;
+color:#1e293b;
+line-height:1.8;
 }
 
 </style>
@@ -129,10 +122,10 @@ margin-top:60px;
 
 <h1>PNG to JPG Converter</h1>
 
-<p>Upload PNG images and convert them to JPG instantly.</p>
+<p>Convert PNG images to JPG instantly.</p>
 
 <div id="drop-area">
-<p>Drag & Drop Images Here or Click to Upload</p>
+<p>Click or drag PNG images here</p>
 <input type="file" id="upload" multiple accept="image/png" hidden>
 </div>
 
@@ -147,16 +140,75 @@ margin-top:60px;
 <!-- SEO -->
 <div class="seo-content">
 
-<h2>Convert PNG to JPG easily</h2>
+<h2>Convert PNG to JPG Online</h2>
 
 <p>
-Use this free online tool to convert PNG images to JPG format instantly. 
-No uploads required — everything runs directly in your browser.
+Convert PNG images into JPG format quickly and easily without uploading files.
 </p>
 
-<p>
-يمكنك تحويل الصور من PNG إلى JPG بسهولة وسرعة بدون رفع الملفات.
+<p style="direction:rtl;text-align:right;">
+يمكنك تحويل الصور بسهولة من PNG إلى JPG مباشرة من المتصفح.
 </p>
+
+</div>
+
+<!-- SEO BOOST -->
+<div class="tool-description">
+
+<h2>What this tool does</h2>
+<p>
+This tool converts PNG images into JPG format instantly while maintaining good quality.
+</p>
+
+<h2>How to use</h2>
+<ul>
+<li>Upload PNG images</li>
+<li>Click convert</li>
+<li>Download JPG files</li>
+</ul>
+
+<h2>Benefits</h2>
+<ul>
+<li>Fast conversion</li>
+<li>No upload required</li>
+<li>Free tool</li>
+</ul>
+
+<h2>Use cases</h2>
+<p>
+Perfect for reducing image size, preparing images for websites, or converting formats for compatibility.
+</p>
+
+</div>
+
+<!-- MORE TOOLS -->
+<div class="more-tools">
+
+<h3>Explore More Tools</h3>
+
+<div class="more-tools-grid">
+
+<a href="jpg-to-png.html" class="more-tool-card">
+<span>🖼️</span>
+<p>JPG to PNG</p>
+</a>
+
+<a href="image-compressor.html" class="more-tool-card">
+<span>📉</span>
+<p>Image Compressor</p>
+</a>
+
+<a href="pdf-to-jpg.html" class="more-tool-card">
+<span>📄</span>
+<p>PDF to JPG</p>
+</a>
+
+<a href="text-formatter.html" class="more-tool-card">
+<span>📝</span>
+<p>Text Formatter</p>
+</a>
+
+</div>
 
 </div>
 
@@ -180,9 +232,7 @@ let preview=document.getElementById("preview");
 
 dropArea.onclick=()=>fileInput.click();
 
-dropArea.addEventListener("dragover",e=>{
-e.preventDefault();
-});
+dropArea.addEventListener("dragover",e=>e.preventDefault());
 
 dropArea.addEventListener("drop",e=>{
 e.preventDefault();
@@ -198,10 +248,10 @@ preview.innerHTML="";
 
 let files=fileInput.files;
 
-for(let i=0;i<files.length;i++){
+for(let file of files){
 
 let img=document.createElement("img");
-img.src=URL.createObjectURL(files[i]);
+img.src=URL.createObjectURL(file);
 preview.appendChild(img);
 
 }
@@ -211,7 +261,6 @@ preview.appendChild(img);
 function convert(){
 
 let files=fileInput.files;
-
 let downloads=document.getElementById("downloads");
 downloads.innerHTML="";
 
@@ -235,13 +284,12 @@ canvas.height=img.height;
 let ctx=canvas.getContext("2d");
 ctx.drawImage(img,0,0);
 
-let jpg=canvas.toDataURL("image/jpeg");
+let jpg=canvas.toDataURL("image/jpeg",0.9);
 
 let link=document.createElement("a");
-
 link.href=jpg;
 link.download="converted_"+(i+1)+".jpg";
-link.innerHTML="Download Image "+(i+1);
+link.innerText="Download Image "+(i+1);
 
 downloads.appendChild(link);
 
