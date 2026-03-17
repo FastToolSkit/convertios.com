@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 
-<meta charset="UTF-8">
 <title>Remove Background - FastTools</title>
 
 <link rel="stylesheet" href="/tools-site/style.css">
 
 <style>
 
-/* ===== CONTAINER ===== */
 .tool-container{
-max-width:1000px;
+max-width:800px;
 margin:40px auto;
 background:white;
 padding:30px;
@@ -20,89 +18,23 @@ border-radius:12px;
 text-align:center;
 }
 
-/* ===== INPUT ===== */
-input[type="file"]{
+.preview{
 margin-top:20px;
 }
 
-/* ===== COMPARE TOOL ===== */
-.compare-container{
-position:relative;
-width:100%;
-margin-top:30px;
-overflow:hidden;
-border-radius:12px;
-display:none;
+.preview img{
+max-width:100%;
+border-radius:10px;
 }
 
-.compare-container img{
-width:100%;
-display:block;
-}
-
-/* overlay (after image) */
-.overlay{
-position:absolute;
-top:0;
-left:0;
-height:100%;
-width:50%;
-overflow:hidden;
-}
-
-.overlay img{
-width:100%;
-}
-
-/* slider */
-#slider{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%, -50%);
-width:100%;
-appearance:none;
-background:none;
-cursor:pointer;
-}
-
-#slider::-webkit-slider-thumb{
-appearance:none;
-width:18px;
-height:18px;
-background:#2563eb;
-border-radius:50%;
-cursor:pointer;
-}
-
-/* labels */
-.label{
-position:absolute;
-top:10px;
-background:rgba(0,0,0,0.6);
-color:white;
-padding:5px 10px;
-border-radius:6px;
-font-size:12px;
-}
-
-.before{ left:10px; }
-.after{ right:10px; }
-
-/* ===== BUTTON ===== */
 button{
-margin-top:20px;
+margin-top:15px;
 padding:10px 20px;
 background:#2563eb;
 color:white;
 border:none;
 border-radius:6px;
 cursor:pointer;
-font-weight:bold;
-}
-
-button:hover{
-background:#1d4ed8;
 }
 
 </style>
@@ -110,41 +42,21 @@ background:#1d4ed8;
 </head>
 
 <body>
+
 <header class="site-header">
-
-<a href="index.html" class="logo">
-<img src="fasttools-logo.png.png" alt="FastTools">
+<a href="/tools-site/index.html" class="logo">
+<img src="/tools-site/fasttools-logo.png.png">
 </a>
-
-<nav class="nav-menu">
-<a href="index.html">Home</a>
-<a href="index.html#tools">Tools</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-</nav>
-
 </header>
 
 <div class="tool-container">
 
 <h1>Remove Background</h1>
 
-<input type="file" id="image" accept="image/*">
+<input type="file" id="image">
 
-<!-- COMPARE VIEW -->
-<div class="compare-container" id="compare">
-
-<span class="label before">Before</span>
-<span class="label after">After</span>
-
-<img id="original">
-
-<div class="overlay">
-  <img id="result">
-</div>
-
-<input type="range" id="slider" min="0" max="100" value="50">
-
+<div class="preview">
+<img id="result">
 </div>
 
 <button id="download" style="display:none;">Download</button>
@@ -154,23 +66,15 @@ background:#1d4ed8;
 <script>
 
 const input = document.getElementById("image")
-const originalImg = document.getElementById("original")
 const resultImg = document.getElementById("result")
 const downloadBtn = document.getElementById("download")
-const compare = document.getElementById("compare")
-const slider = document.getElementById("slider")
-const overlay = document.querySelector(".overlay")
 
 input.addEventListener("change", async function(){
 
 const file = input.files[0]
+
 if(!file) return
 
-// show original image
-const originalURL = URL.createObjectURL(file)
-originalImg.src = originalURL
-
-// call API
 const formData = new FormData()
 formData.append("image_file", file)
 
@@ -182,35 +86,21 @@ headers: {
 body: formData
 })
 
-if(!res.ok){
-alert("Error removing background")
-return
-}
-
 const blob = await res.blob()
-const resultURL = URL.createObjectURL(blob)
 
-// show result
-resultImg.src = resultURL
+const url = URL.createObjectURL(blob)
 
-// show compare UI
-compare.style.display = "block"
+resultImg.src = url
 
-// show download
 downloadBtn.style.display = "inline-block"
 
 downloadBtn.onclick = () => {
 const a = document.createElement("a")
-a.href = resultURL
+a.href = url
 a.download = "no-bg.png"
 a.click()
 }
 
-})
-
-// slider logic
-slider.addEventListener("input", () => {
-overlay.style.width = slider.value + "%"
 })
 
 </script>
