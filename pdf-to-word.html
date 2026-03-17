@@ -8,7 +8,7 @@
 
 <title>PDF to Word Converter Online Free | FastTools</title>
 
-<meta name="description" content="Convert PDF to Word (DOCX) online for free. Fast, accurate and easy PDF to DOC conversion tool.">
+<meta name="description" content="Convert PDF to Word (DOCX) online for free. Fast and accurate conversion tool.">
 
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -17,28 +17,32 @@
 
 /* TOOL */
 .tool-container{
-max-width:900px;
+max-width:1000px;
 margin:80px auto 30px;
 background:#071a33;
 color:white;
 padding:40px;
 border-radius:20px;
 text-align:center;
-box-shadow:0 20px 50px rgba(0,0,0,0.3);
 }
 
 .tool-container p{
 color:#cbd5e1;
 }
 
-/* DROP AREA */
+/* DROP */
 .drop-area{
-border:2px dashed #4b5d75;
-padding:40px;
-border-radius:12px;
+border:2px dashed #3a78ff;
+padding:50px;
+border-radius:14px;
 background:#0c2547;
 margin-top:20px;
 cursor:pointer;
+transition:0.3s;
+}
+
+.drop-area:hover{
+background:#12305a;
 }
 
 /* PREVIEW */
@@ -53,7 +57,7 @@ color:#cbd5e1;
 width:100%;
 background:#1e293b;
 height:20px;
-border-radius:6px;
+border-radius:8px;
 margin-top:20px;
 overflow:hidden;
 }
@@ -62,16 +66,17 @@ overflow:hidden;
 height:100%;
 width:0%;
 background:#3a78ff;
+transition:0.3s;
 }
 
 /* BUTTON */
 .main-button{
 margin-top:20px;
-padding:12px 20px;
+padding:14px 22px;
 background:#3a78ff;
 color:white;
 border:none;
-border-radius:8px;
+border-radius:10px;
 cursor:pointer;
 }
 
@@ -87,7 +92,7 @@ padding:12px 18px;
 background:#020c1b;
 color:white;
 text-decoration:none;
-border-radius:8px;
+border-radius:10px;
 }
 
 /* STATUS */
@@ -96,7 +101,7 @@ margin-top:15px;
 color:#94a3b8;
 }
 
-/* SEO DARK */
+/* SEO */
 .seo-content{
 max-width:900px;
 margin:20px auto;
@@ -106,7 +111,7 @@ padding:35px;
 border-radius:20px;
 }
 
-/* LIGHT DESCRIPTION */
+/* SEO BOOST */
 .tool-description{
 max-width:900px;
 margin:30px auto 80px;
@@ -125,29 +130,26 @@ line-height:1.8;
 
 <header class="site-header">
 
-<div class="header-left">
 <a href="index.html" class="logo">
-<img src="fasttools-logo.png.png">
+<img src="fasttools-logo.png.png" alt="FastTools">
 </a>
-</div>
 
 <nav class="nav-menu">
 <a href="index.html">Home</a>
-<a href="index.html#tools">Tools</a> <!-- ✅ FIXED -->
+<a href="index.html#tools">Tools</a>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 </nav>
 
 </header>
 
-<!-- TOOL -->
 <div class="tool-container">
 
 <h1>PDF to Word Converter</h1>
 <p>Convert PDF files into editable Word documents instantly.</p>
 
 <div class="drop-area" id="drop-area">
-<p>Drag PDF here or click to upload</p>
+<p>Click or drag your PDF file here</p>
 <input type="file" id="upload" accept=".pdf" hidden>
 </div>
 
@@ -170,49 +172,34 @@ line-height:1.8;
 <h2>Convert PDF to Word Online</h2>
 
 <p>
-Easily convert your PDF documents into editable Word files in seconds.
+Turn your PDF documents into fully editable Word files in seconds.
 </p>
 
 </div>
 
-<!-- DESCRIPTION -->
+<!-- SEO BOOST -->
 <div class="tool-description">
 
 <h2>What this tool does</h2>
-<p>
-This PDF to Word converter allows you to transform PDF files into fully editable Word documents (.docx).
-You can easily edit text, adjust formatting, and reuse content without starting from scratch.
-</p>
+<p>Convert PDF files into editable Word documents.</p>
 
 <h2>How to use</h2>
 <ul>
-<li>Upload your PDF file</li>
-<li>Click "Convert to Word"</li>
-<li>Wait a few seconds while the file is processed</li>
-<li>Download your editable Word document</li>
+<li>Upload PDF</li>
+<li>Click convert</li>
+<li>Download Word file</li>
 </ul>
 
 <h2>Benefits</h2>
 <ul>
-<li>Fast and simple conversion process</li>
-<li>No installation or software required</li>
-<li>Works on all devices (desktop, tablet, mobile)</li>
-<li>Completely free to use</li>
+<li>Fast conversion</li>
+<li>No installation</li>
+<li>Free tool</li>
 </ul>
-
-<h2>Use cases</h2>
-<p>
-Ideal for students, professionals, and businesses who need to edit PDF files,
-extract information, or convert documents into editable formats for further use.
-</p>
-
-<h2>FAQ</h2>
-<p><strong>Is it free?</strong> Yes, this tool is completely free to use.</p>
-<p><strong>Is it safe?</strong> Your files are processed securely and are not stored on our servers.</p>
 
 </div>
 
-  <footer class="site-footer">
+<footer class="site-footer">
 
 <p>
 © 2026 FastTools • Free Online Tools
@@ -227,7 +214,7 @@ extract information, or convert documents into editable formats for further use.
 <script>
 
 /* ===============================
-UPLOAD FIX (IMPORTANT)
+FILE HANDLING
 ================================*/
 
 let file = null;
@@ -236,28 +223,21 @@ const dropArea = document.getElementById("drop-area");
 const fileInput = document.getElementById("upload");
 const preview = document.getElementById("preview");
 
-/* 🔥 CLICK WORKS NOW */
 dropArea.onclick = () => fileInput.click();
 
-/* DRAG */
-dropArea.addEventListener("dragover", e => {
-e.preventDefault();
-});
+dropArea.addEventListener("dragover", e => e.preventDefault());
 
-/* DROP */
 dropArea.addEventListener("drop", e => {
 e.preventDefault();
 file = e.dataTransfer.files[0];
 showPreview();
 });
 
-/* SELECT */
 fileInput.addEventListener("change", () => {
 file = fileInput.files[0];
 showPreview();
 });
 
-/* PREVIEW */
 function showPreview(){
 if(!file) return;
 
@@ -267,26 +247,78 @@ Size: ${(file.size/1024/1024).toFixed(2)} MB
 `;
 }
 
-/* DUMMY CONVERT (replace with API later) */
-function convertPDF(){
+/* ===============================
+🚀 MAIN CONVERT FUNCTION
+================================*/
+
+async function convertPDF(){
 
 if(!file){
 alert("Upload a PDF first");
 return;
 }
 
-document.getElementById("status").innerText = "Processing...";
+const bar = document.getElementById("progress-bar");
+const status = document.getElementById("status");
 
-/* simulate */
-setTimeout(() => {
+status.innerText = "Uploading...";
+bar.style.width = "20%";
 
-document.getElementById("status").innerText = "Done!";
+/* =========================================
+🚀 👉 PLACE YOUR API HERE (IMPORTANT)
 
+Replace everything below with your API logic
+
+Example flow:
+1. Send file to API
+2. Wait for conversion
+3. Receive download link
+4. Show link to user
+
+========================================= */
+
+try{
+
+// 1️⃣ Prepare file
+const formData = new FormData();
+formData.append("file", file);
+
+// 2️⃣ SEND TO API
+// 🔴 REPLACE THIS URL WITH YOUR REAL API
+const response = await fetch("eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZTUzZmJiNGFlNGRmNzFmNDY3MzY4YTU5YjE2ZTkxNDQyYWZiMjc5YTQwNzA3MDIyNjBmMWU0NGI1MGVkZTFiYjE3MTk3ZjgzYzhhYWNhOTYiLCJpYXQiOjE3NzM3MzA0MTAuMDcyOTM0LCJuYmYiOjE3NzM3MzA0MTAuMDcyOTM2LCJleHAiOjQ5Mjk0MDQwMTAuMDY2MjgsInN1YiI6Ijc0NjM4MTYxIiwic2NvcGVzIjpbInVzZXIucmVhZCIsInVzZXIud3JpdGUiXX0.pQ2Mz5C2n9XxlzrNJDySda2Cc2TxddO4dsiPmthWD1Xef1A1NFyPuoztXqv6h4awJ0TAdqNei5oRipFyKSNeADLx6vseOQYfn-uzFRbzByxlEwE5g-WEB3yDsP_X4KTbG8DXGD657HmGCGFyqsgfgmMY9AJXlIeFyLZvOaUBgMdubrAUZf6sm-0UG-TrIcMVFlbFhBMedRxPnnjoPoTlEYTBsZBDNy-PRWksY76GOxAiHAgeYifXFiWXi6-B1oY4zPzQ5hihXGhZeHpibLf2aDy9jyFSbZY0E0NFt_A64w7zlELPAfHl6x09bxf_4ci8jGPHgMm1Q_9t040atxLThQ1fvmCH0whF_pTPqwD_iQdGvaTYPL7y3rrn4GmqmmNT4HwmHhfPl5I4Z5HzoP_pnuczB8IetjUkyGcicgek5TFE3NIRKeOAMGan0p6DMJ41nIXpL85CeHxeCo5HNvN7CQbqEh7yw04EDEFFooUTGtel9sEQvbEb8u5bvO__j0-rPO67zCRIaWLsikQrMS_natooRoXmYZKp7t1IGNLQqoM6HdYFr7l8qr0apSt2KP57zwrIpKKjeN2RV3VfPRjmwwVcQ1jv33YryFabh4sZ2osvEixBgyuqPCgWSPuAj7mOEGxfHUTHtmIRC_39iPmOV8omgais4cwziNA1YKZlf9I", {
+method: "POST",
+body: formData
+});
+
+bar.style.width = "60%";
+status.innerText = "Converting...";
+
+// 3️⃣ GET RESULT
+const result = await response.json();
+
+/*
+Expected response format:
+{
+  file_url: "https://yourfile.docx"
+}
+*/
+
+bar.style.width = "100%";
+status.innerText = "Done!";
+
+// 4️⃣ SHOW DOWNLOAD
 document.getElementById("downloads").innerHTML = `
-<a class="download-btn">Download Word File</a>
+<a href="${result.file_url}" class="download-btn" target="_blank">
+Download Word File
+</a>
 `;
 
-},2000);
+}catch(error){
+
+console.error(error);
+status.innerText = "Conversion failed";
+
+}
 
 }
 
