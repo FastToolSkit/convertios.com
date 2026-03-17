@@ -493,3 +493,64 @@ position:absolute;
 left:10px;
 font-size:14px;
 }
+/* ===============================
+MP3 EDITOR
+================================*/
+
+.upload-section{
+margin-bottom:30px;
+}
+
+.editor{
+display:grid;
+grid-template-columns: 1fr 260px;
+gap:40px;
+margin-top:20px;
+align-items:start;
+}
+
+.wave-area{
+width:100%;
+}
+
+#waveform{
+width:100%;
+margin-top:20px;
+}
+
+#timeline{
+width:100%;
+}
+
+.editor-controls{
+background:#f8fafc;
+padding:25px;
+border-radius:10px;
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.main-play{
+font-size:18px;
+padding:12px;
+background:#2563eb;
+border:none;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+.time-display{
+font-size:16px;
+font-weight:bold;
+color:#334155;
+}
+
+.zoom input{
+width:100%;
+}
+
+#waveform canvas{
+width:100% !important;
+}
