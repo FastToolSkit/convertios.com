@@ -472,11 +472,11 @@ HEADER
 ================================*/
 
 .site-header{
+background:#020c1b;
+padding:15px 30px;
 display:flex;
-align-items:center;
 justify-content:space-between;
-padding:15px 40px;
-background:#34495e;
+align-items:center;
 }
 
 .header-left{
