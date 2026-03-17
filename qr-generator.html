@@ -8,7 +8,7 @@
 
 <title>QR Code Generator Online Free | FastTools</title>
 
-<meta name="description" content="Generate QR codes online for free. Create QR codes for URLs, text, and more. Download instantly.">
+<meta name="description" content="Generate QR codes online for free. Create QR codes for URLs, text, and download instantly.">
 
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -17,39 +17,41 @@
 
 <style>
 
-body{
-background:#e6e7ea;
-font-family:'Segoe UI', Tahoma, sans-serif;
-margin:0;
-}
-
 /* TOOL */
 .tool-container{
-max-width:500px;
-margin:80px auto 40px;
-background:white;
-padding:35px;
-border-radius:14px;
+max-width:600px;
+margin:80px auto 30px;
+background:#071a33;
+color:white;
+padding:40px;
+border-radius:20px;
 text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
 
+.tool-container p{
+color:#cbd5e1;
+}
+
+/* INPUT */
 .tool-container input{
 width:100%;
-padding:12px;
-border-radius:6px;
-border:1px solid #cbd5e1;
+padding:14px;
+border-radius:10px;
+border:none;
 margin-top:10px;
+background:#0c2547;
+color:white;
 }
 
+/* BUTTON */
 .main-button{
 margin-top:15px;
-padding:12px;
+padding:14px;
 width:100%;
 background:#3a78ff;
 color:white;
 border:none;
-border-radius:6px;
+border-radius:10px;
 cursor:pointer;
 }
 
@@ -57,50 +59,47 @@ cursor:pointer;
 background:#2a66e6;
 }
 
+/* QR */
 #qrcode-container{
-margin-top:20px;
-padding:15px;
-background:#f8fafc;
-border-radius:10px;
+margin-top:25px;
+padding:20px;
+background:#0c2547;
+border-radius:14px;
+display:flex;
+justify-content:center;
 }
 
+/* DOWNLOAD */
 #downloadBtn{
 margin-top:15px;
-padding:10px 15px;
-background:#1e293b;
+padding:12px 18px;
+background:#020c1b;
 color:white;
 border:none;
-border-radius:6px;
+border-radius:10px;
 cursor:pointer;
 display:none;
 }
 
-#downloadBtn:hover{
-background:#0f172a;
-}
-
 /* SEO */
 .seo-content{
-max-width:700px;
-margin:40px auto;
-background:white;
-padding:30px;
-border-radius:14px;
-box-shadow:0 8px 25px rgba(0,0,0,0.05);
-}
-
-.seo-content p:last-child{
-direction:rtl;
-text-align:right;
-}
-
-/* FOOTER */
-.site-footer{
-background:#3f5368;
+max-width:900px;
+margin:20px auto;
+background:#071a33;
 color:white;
-text-align:center;
-padding:25px;
-margin-top:60px;
+padding:35px;
+border-radius:20px;
+}
+
+/* SEO BOOST */
+.tool-description{
+max-width:900px;
+margin:30px auto 80px;
+background:white;
+padding:40px;
+border-radius:16px;
+color:#1e293b;
+line-height:1.8;
 }
 
 </style>
@@ -128,9 +127,9 @@ margin-top:60px;
 
 <h1>QR Code Generator</h1>
 
-<p>Create QR codes instantly for URLs or text.</p>
+<p>Create QR codes instantly for links, text, and more.</p>
 
-<input id="text" type="text" placeholder="Enter text or URL">
+<input id="text" type="text" placeholder="Enter URL or text">
 
 <button class="main-button" onclick="generateQR()">Generate QR Code</button>
 
@@ -142,19 +141,79 @@ margin-top:60px;
 
 </div>
 
-<!-- SEO CONTENT -->
+<!-- SEO -->
 <div class="seo-content">
 
-<h2>How to create a QR code</h2>
+<h2>Generate QR Codes Online</h2>
 
 <p>
-Enter any text or URL, generate a QR code, and download it instantly. 
-Perfect for sharing links, business cards, and marketing materials.
+Create QR codes easily and download them instantly for sharing links and information.
 </p>
 
-<p>
-يمكنك إنشاء QR Code بسهولة ومشاركته مع الآخرين من خلال إدخال الرابط أو النص وتحميله مباشرة.
+<p style="direction:rtl;text-align:right;">
+أنشئ QR Code بسهولة وشاركه مع الآخرين فوراً.
 </p>
+
+</div>
+
+<!-- SEO BOOST -->
+<div class="tool-description">
+
+<h2>What this tool does</h2>
+<p>
+Generate QR codes from text or URLs instantly.
+</p>
+
+<h2>How to use</h2>
+<ul>
+<li>Enter text or link</li>
+<li>Click generate</li>
+<li>Download QR code</li>
+</ul>
+
+<h2>Benefits</h2>
+<ul>
+<li>Fast generation</li>
+<li>No installation required</li>
+<li>Free tool</li>
+<li>High quality output</li>
+</ul>
+
+<h2>Use cases</h2>
+<p>
+Perfect for marketing, sharing links, business cards, and events.
+</p>
+
+</div>
+
+<!-- MORE TOOLS -->
+<div class="more-tools">
+
+<h3>Explore More Tools</h3>
+
+<div class="more-tools-grid">
+
+<a href="password-generator.html" class="more-tool-card">
+<span>🔐</span>
+<p>Password Generator</p>
+</a>
+
+<a href="link-shortener.html" class="more-tool-card">
+<span>🔗</span>
+<p>Link Shortener</p>
+</a>
+
+<a href="png-to-jpg.html" class="more-tool-card">
+<span>🖼️</span>
+<p>PNG to JPG</p>
+</a>
+
+<a href="pdf-to-jpg.html" class="more-tool-card">
+<span>📄</span>
+<p>PDF to JPG</p>
+</a>
+
+</div>
 
 </div>
 
@@ -196,14 +255,11 @@ document.getElementById("downloadBtn").style.display="inline-block";
 function downloadQR(){
 
 const qrCanvas=document.querySelector("#qrcode canvas");
-
 if(!qrCanvas) return;
 
 const link=document.createElement("a");
-
 link.download="fasttools-qr.png";
 link.href=qrCanvas.toDataURL();
-
 link.click();
 
 }
