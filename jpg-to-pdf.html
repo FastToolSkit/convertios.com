@@ -5,18 +5,55 @@
 
 <meta charset="UTF-8">
 
-<title>JPG to PDF Converter - FastTools</title>
+<title>JPG to PDF Converter Online Free - Convert Images to PDF | FastTools</title>
 
-<meta name="description" content="Convert JPG images to PDF online for free using FastTools.">
+<meta name="description" content="Convert JPG to PDF online for free. Upload images and combine them into a single PDF file instantly. Fast and easy JPG to PDF converter.">
 
 <link rel="stylesheet" href="style.css">
-
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
 
 <style>
 
+body{
+background:#e6e7ea;
+font-family:'Segoe UI', Tahoma, sans-serif;
+margin:0;
+}
+
+/* TOOL */
+.tool-container{
+max-width:800px;
+margin:80px auto 40px;
+background:white;
+padding:35px;
+border-radius:14px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.tool-container h1{
+margin-bottom:10px;
+color:#1e293b;
+}
+
+.tool-container p{
+color:#64748b;
+font-size:14px;
+}
+
+/* DROP AREA */
+.drop-area{
+border:2px dashed #cbd5e1;
+padding:40px;
+border-radius:10px;
+background:#f8fafc;
+margin-top:20px;
+cursor:pointer;
+}
+
+/* PREVIEW */
 .preview-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
@@ -37,17 +74,87 @@ max-width:100%;
 border-radius:6px;
 }
 
-.preview-item input{
-margin-top:8px;
+/* BUTTON */
+.main-button{
+display:inline-block;
+margin-top:20px;
+padding:10px 20px;
+background:#3a78ff;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+text-decoration:none;
 }
 
-.drop-area{
-border:2px dashed #cbd5e1;
-padding:40px;
-border-radius:10px;
-background:#f8fafc;
-margin-top:20px;
-cursor:pointer;
+.main-button:hover{
+background:#2a66e6;
+}
+
+/* SEO CONTENT */
+.seo-content{
+max-width:900px;
+margin:40px auto;
+background:white;
+padding:35px 40px;
+border-radius:14px;
+box-shadow:0 8px 25px rgba(0,0,0,0.05);
+}
+
+.seo-content h2{
+font-size:24px;
+margin-bottom:15px;
+color:#1e293b;
+}
+
+.seo-content p{
+font-size:15px;
+line-height:1.8;
+color:#475569;
+margin-bottom:15px;
+}
+
+.seo-content ul{
+list-style:none;
+padding-left:0;
+}
+
+.seo-content li{
+margin-bottom:10px;
+font-size:15px;
+}
+
+.seo-content li::before{
+content:"✔";
+color:#3a78ff;
+margin-right:8px;
+}
+
+.seo-content p:last-child{
+direction:rtl;
+text-align:right;
+}
+
+/* MORE TOOLS */
+.more-tools{
+text-align:center;
+margin:40px 0;
+}
+
+.more-tools a{
+margin:0 10px;
+text-decoration:none;
+color:#2563eb;
+}
+
+/* FOOTER */
+.site-footer{
+background:#3f5368;
+color:white;
+text-align:center;
+padding:25px 10px;
+margin-top:60px;
+font-size:14px;
 }
 
 </style>
@@ -71,19 +178,17 @@ cursor:pointer;
 
 </header>
 
-
 <div class="tool-container">
 
 <h1>JPG to PDF Converter</h1>
 
-<p>Upload JPG images, preview them, select the ones you want, and download a PDF.</p>
+<p>
+Convert JPG images to PDF online for free. Combine multiple images into one PDF file easily.
+</p>
 
 <div class="drop-area" id="drop-area">
-
 <p>Drag JPG images here or click to upload</p>
-
 <input type="file" id="file-input" accept="image/jpeg" multiple hidden>
-
 </div>
 
 <div class="preview-grid" id="preview"></div>
@@ -94,6 +199,28 @@ cursor:pointer;
 
 </div>
 
+<!-- SEO CONTENT -->
+<div class="seo-content">
+
+<h2>How to convert JPG to PDF</h2>
+
+<ul>
+<li>Upload your JPG images</li>
+<li>Select the images you want to include</li>
+<li>Click "Create PDF"</li>
+<li>Download your PDF file</li>
+</ul>
+
+<p>
+This free JPG to PDF converter allows you to combine images into a single PDF file quickly and easily. 
+Perfect for documents, sharing files, and organizing images.
+</p>
+
+<p>
+يمكنك تحويل صور JPG إلى ملف PDF بسهولة ودمج عدة صور في ملف واحد بدون الحاجة لأي برامج.
+</p>
+
+</div>
 
 <div class="more-tools">
 
@@ -106,7 +233,6 @@ cursor:pointer;
 
 </div>
 
-
 <footer class="site-footer">
 <p>
 © 2026 FastTools • Free Online Tools
@@ -116,7 +242,6 @@ cursor:pointer;
 <a href="contact.html">Contact</a>
 </p>
 </footer>
-
 
 <script>
 
@@ -154,7 +279,6 @@ reader.onload = function(e){
 images.push(e.target.result);
 
 const div = document.createElement("div");
-
 div.className = "preview-item";
 
 div.innerHTML = `
@@ -173,11 +297,9 @@ reader.readAsDataURL(file);
 
 }
 
-
 async function createPDF(){
 
 const { PDFDocument } = PDFLib;
-
 const pdfDoc = await PDFDocument.create();
 
 const items = document.querySelectorAll(".preview-item");
@@ -185,13 +307,11 @@ const items = document.querySelectorAll(".preview-item");
 for(let i=0;i<items.length;i++){
 
 const checked = items[i].querySelector("input").checked;
-
 if(!checked) continue;
 
 const imgSrc = items[i].querySelector("img").src;
 
 const imgBytes = await fetch(imgSrc).then(res=>res.arrayBuffer());
-
 const jpg = await pdfDoc.embedJpg(imgBytes);
 
 const page = pdfDoc.addPage([jpg.width, jpg.height]);
@@ -212,11 +332,8 @@ const blob = new Blob([pdfBytes],{type:"application/pdf"});
 const link = document.getElementById("downloadLink");
 
 link.href = URL.createObjectURL(blob);
-
 link.download = "images.pdf";
-
 link.innerText = "Download PDF";
-
 link.className = "main-button";
 
 }
