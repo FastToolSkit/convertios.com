@@ -2,13 +2,112 @@
 <html>
 
 <head>
- <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-<title>QR Code Generator - FastTools</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QR Code Generator Online Free | FastTools</title>
+
+<meta name="description" content="Generate QR codes online for free. Create QR codes for URLs, text, and more. Download instantly.">
 
 <link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
+<style>
+
+body{
+background:#e6e7ea;
+font-family:'Segoe UI', Tahoma, sans-serif;
+margin:0;
+}
+
+/* TOOL */
+.tool-container{
+max-width:500px;
+margin:80px auto 40px;
+background:white;
+padding:35px;
+border-radius:14px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.tool-container input{
+width:100%;
+padding:12px;
+border-radius:6px;
+border:1px solid #cbd5e1;
+margin-top:10px;
+}
+
+.main-button{
+margin-top:15px;
+padding:12px;
+width:100%;
+background:#3a78ff;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.main-button:hover{
+background:#2a66e6;
+}
+
+#qrcode-container{
+margin-top:20px;
+padding:15px;
+background:#f8fafc;
+border-radius:10px;
+}
+
+#downloadBtn{
+margin-top:15px;
+padding:10px 15px;
+background:#1e293b;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+display:none;
+}
+
+#downloadBtn:hover{
+background:#0f172a;
+}
+
+/* SEO */
+.seo-content{
+max-width:700px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:14px;
+box-shadow:0 8px 25px rgba(0,0,0,0.05);
+}
+
+.seo-content p:last-child{
+direction:rtl;
+text-align:right;
+}
+
+/* FOOTER */
+.site-footer{
+background:#3f5368;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:60px;
+}
+
+</style>
+
+</head>
+
+<body>
 
 <header class="site-header">
 
@@ -25,47 +124,42 @@
 
 </header>
 
-<nav class="nav-menu">
-<a href="index.html">Home</a>
-<a href="index.html#tools">Tools</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-</nav>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-</header>
-<div class="back-bar">
-<a href="index.html" class="back-link">← Back to FastTools</a>
-</div>
-
 <div class="tool-container">
 
 <h1>QR Code Generator</h1>
+
+<p>Create QR codes instantly for URLs or text.</p>
+
 <input id="text" type="text" placeholder="Enter text or URL">
 
-<button onclick="generateQR()">Generate QR Code</button>
+<button class="main-button" onclick="generateQR()">Generate QR Code</button>
 
 <div id="qrcode-container">
 <div id="qrcode"></div>
 </div>
 
-<button id="downloadBtn" onclick="downloadQR()" style="display:none;">
-Download QR Code
-</button>
+<button id="downloadBtn" onclick="downloadQR()">Download QR Code</button>
 
 </div>
 
-<div class="more-tools">
+<!-- SEO CONTENT -->
+<div class="seo-content">
 
-<h3>More Tools</h3>
+<h2>How to create a QR code</h2>
 
-<a href="audio-speed-changer.html">Audio Speed Changer</a>
-<a href="audio-converter.html">Audio Converter</a>
-<a href="password-generator.html">Password Generator</a>
-<a href="compress-image.html">Image Compressor</a>
+<p>
+Enter any text or URL, generate a QR code, and download it instantly. 
+Perfect for sharing links, business cards, and marketing materials.
+</p>
+
+<p>
+يمكنك إنشاء QR Code بسهولة ومشاركته مع الآخرين من خلال إدخال الرابط أو النص وتحميله مباشرة.
+</p>
 
 </div>
+
 <footer class="site-footer">
+
 <p>
 © 2026 FastTools • Free Online Tools
 <br>
@@ -73,21 +167,26 @@ Download QR Code
 <a href="terms.html">Terms</a> •
 <a href="contact.html">Contact</a>
 </p>
-</footer>
 
+</footer>
 
 <script>
 
 function generateQR(){
 
-document.getElementById("qrcode").innerHTML="";
+const text=document.getElementById("text").value.trim();
 
-var text=document.getElementById("text").value;
+if(!text){
+alert("Enter text or URL");
+return;
+}
+
+document.getElementById("qrcode").innerHTML="";
 
 new QRCode(document.getElementById("qrcode"),{
 text:text,
-width:512,
-height:512
+width:256,
+height:256
 });
 
 document.getElementById("downloadBtn").style.display="inline-block";
@@ -96,22 +195,20 @@ document.getElementById("downloadBtn").style.display="inline-block";
 
 function downloadQR(){
 
-var qrCanvas=document.querySelector("#qrcode canvas");
+const qrCanvas=document.querySelector("#qrcode canvas");
 
-var link=document.createElement("a");
+if(!qrCanvas) return;
+
+const link=document.createElement("a");
 
 link.download="fasttools-qr.png";
-
 link.href=qrCanvas.toDataURL();
 
 link.click();
-
 
 }
 
 </script>
 
-
 </body>
-
 </html>
