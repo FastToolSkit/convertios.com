@@ -28,10 +28,12 @@ text-align:center;
 
 #waveform{
 margin-top:30px;
+width:100%;
 }
 
 #timeline{
 margin-top:10px;
+width:100%;
 }
 
 .upload-btn{
@@ -42,15 +44,31 @@ cursor:pointer;
 font-weight:bold;
 color:white;
 display:inline-block;
-  
 }
 
 .upload-btn input{
 display:none;
 }
-<div id="loader">
-<div id="bar"></div>
-</div>
+
+/* loading bar */
+
+#loader{
+width:100%;
+height:6px;
+background:#e2e8f0;
+border-radius:4px;
+margin-top:15px;
+overflow:hidden;
+display:none;
+}
+
+#bar{
+height:100%;
+width:0%;
+background:#2563eb;
+transition:width 0.3s;
+}
+
 .controls{
 margin-top:30px;
 display:flex;
@@ -116,6 +134,11 @@ Upload MP3
 <input type="file" id="audio" accept="audio/*">
 </label>
 
+<!-- loader bar -->
+<div id="loader">
+<div id="bar"></div>
+</div>
+
 <div id="waveform"></div>
 <div id="timeline"></div>
 
@@ -173,7 +196,7 @@ container:"#waveform",
 waveColor:"#94a3b8",
 progressColor:"#2563eb",
 cursorColor:"#2563eb",
-height:120,
+height:180,
 plugins:[
 WaveSurfer.regions.create(),
 WaveSurfer.timeline.create({
@@ -198,7 +221,7 @@ const file=e.target.files[0]
 if(!file)return
 
 document.getElementById("loader").style.display="block"
-document.getElementById("bar").style.width="30%"
+document.getElementById("bar").style.width="40%"
 
 wavesurfer.loadBlob(file)
 
@@ -210,7 +233,7 @@ document.getElementById("bar").style.width="100%"
 
 setTimeout(()=>{
 document.getElementById("loader").style.display="none"
-},500)
+},400)
 
 const duration=wavesurfer.getDuration()
 
