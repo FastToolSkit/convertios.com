@@ -4,61 +4,54 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Link Shortener Online Free - Shorten URLs Instantly | FastTools</title>
 
-<meta name="description" content="Shorten long URLs instantly with our free link shortener. Create short links fast and easily. No registration required.">
+<meta name="description" content="Shorten long URLs instantly with our free link shortener. Create short links fast and easily.">
 
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <style>
 
-body{
-background:#e6e7ea;
-font-family:'Segoe UI', Tahoma, sans-serif;
-margin:0;
-}
-
-/* TOOL */
+/* TOOL DARK */
 .tool-container{
-max-width:600px;
-margin:80px auto 40px;
-background:white;
-padding:35px;
-border-radius:14px;
+max-width:700px;
+margin:80px auto 30px;
+background:#071a33;
+color:white;
+padding:40px;
+border-radius:20px;
 text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
-}
-
-.tool-container h1{
-margin-bottom:10px;
-color:#1e293b;
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
 }
 
 .tool-container p{
-color:#64748b;
-font-size:14px;
+color:#cbd5e1;
 }
 
 /* INPUT */
 #url{
 width:100%;
-padding:12px;
-border:1px solid #cbd5e1;
-border-radius:6px;
+padding:14px;
+border:none;
+border-radius:10px;
 margin-top:15px;
-font-size:14px;
+background:#0c2547;
+color:white;
+font-size:15px;
+outline:none;
 }
 
 /* BUTTON */
 #shortenBtn{
 margin-top:15px;
-padding:10px 20px;
+padding:12px 24px;
 background:#3a78ff;
 color:white;
 border:none;
-border-radius:6px;
+border-radius:10px;
 cursor:pointer;
 }
 
@@ -75,96 +68,62 @@ margin-top:20px;
 
 #result{
 flex:1;
-padding:12px;
-border:1px solid #cbd5e1;
-border-radius:6px;
+padding:14px;
+border:none;
+border-radius:10px;
+background:#0c2547;
+color:white;
 }
 
 #copyBtn{
-padding:12px 16px;
+padding:14px 18px;
 cursor:pointer;
-background:#2c3e50;
+background:#1e40af;
 color:white;
 border:none;
-border-radius:6px;
+border-radius:10px;
 }
 
 #copyBtn:hover{
-background:#1f2f3d;
+background:#1d4ed8;
 }
 
-/* SEO CONTENT */
+/* SEO DARK */
 .seo-content{
 max-width:900px;
-margin:40px auto;
+margin:20px auto;
+background:#071a33;
+color:white;
+padding:35px;
+border-radius:20px;
+}
+
+/* SEO BOOST */
+.tool-description{
+max-width:900px;
+margin:30px auto 80px;
 background:white;
-padding:35px 40px;
-border-radius:14px;
-box-shadow:0 8px 25px rgba(0,0,0,0.05);
-}
-
-.seo-content h2{
-font-size:24px;
-margin-bottom:15px;
+padding:40px;
+border-radius:16px;
 color:#1e293b;
-}
-
-.seo-content p{
-font-size:15px;
 line-height:1.8;
-color:#475569;
-margin-bottom:15px;
-}
-
-.seo-content ul{
-list-style:none;
-padding-left:0;
-}
-
-.seo-content li{
-margin-bottom:10px;
-}
-
-.seo-content li::before{
-content:"✔";
-color:#3a78ff;
-margin-right:8px;
-}
-
-.seo-content p:last-child{
-direction:rtl;
-text-align:right;
 }
 
 /* TOAST */
 #toast{
 visibility:hidden;
-min-width:200px;
-background:#333;
+background:#111;
 color:#fff;
-text-align:center;
-border-radius:6px;
 padding:12px;
 position:fixed;
 bottom:30px;
 left:50%;
 transform:translateX(-50%);
-z-index:999;
+border-radius:8px;
 }
 
 #toast.show{
 visibility:visible;
-animation:fadein 0.3s, fadeout 0.3s 2.5s;
-}
-
-/* FOOTER */
-.site-footer{
-background:#3f5368;
-color:white;
-text-align:center;
-padding:25px 10px;
-margin-top:60px;
-font-size:14px;
 }
 
 </style>
@@ -188,15 +147,16 @@ font-size:14px;
 
 </header>
 
+<!-- TOOL -->
 <div class="tool-container">
 
 <h1>Link Shortener</h1>
 
 <p>
-Shorten long URLs instantly and create clean, shareable links in seconds.
+Turn long URLs into clean, short links instantly.
 </p>
 
-<input type="text" id="url" placeholder="Paste your long URL here">
+<input type="text" id="url" placeholder="Paste your long URL here...">
 
 <button id="shortenBtn" onclick="shorten()">Shorten Link</button>
 
@@ -210,40 +170,88 @@ Shorten long URLs instantly and create clean, shareable links in seconds.
 
 </div>
 
-<!-- SEO CONTENT -->
+<!-- SEO DARK -->
 <div class="seo-content">
 
-<h2>How to shorten a link</h2>
-
-<ul>
-<li>Paste your long URL</li>
-<li>Click "Shorten Link"</li>
-<li>Copy and share your short URL</li>
-</ul>
+<h2>Shorten URLs Instantly</h2>
 
 <p>
-This free link shortener allows you to create short URLs instantly. 
-Perfect for sharing links on social media, messages, and emails.
+Create short and shareable links in seconds. Perfect for social media, marketing, and messaging.
 </p>
 
 <p>
-يمكنك تقصير الروابط بسهولة ومشاركتها بسرعة. الأداة تعمل مباشرة بدون الحاجة لأي تسجيل.
+يمكنك تقصير الروابط بسهولة ومشاركتها بسرعة.
 </p>
 
 </div>
 
+<!-- SEO BOOST -->
+<div class="tool-description">
+
+<h2>What this tool does</h2>
+<p>
+This tool converts long URLs into short links that are easier to share and manage.
+</p>
+
+<h2>How to use</h2>
+<ul>
+<li>Paste your long URL</li>
+<li>Click shorten</li>
+<li>Copy the short link</li>
+</ul>
+
+<h2>Benefits</h2>
+<ul>
+<li>Clean links</li>
+<li>Fast processing</li>
+<li>No signup required</li>
+<li>Works instantly</li>
+</ul>
+
+<h2>Use cases</h2>
+<p>
+Great for social media, WhatsApp, email campaigns, and marketing.
+</p>
+
+<h2>FAQ</h2>
+<p><strong>Is it free?</strong> Yes.</p>
+<p><strong>Does it expire?</strong> Depends on provider (TinyURL).</p>
+
+</div>
+
+<!-- MORE TOOLS -->
 <div class="more-tools">
 
-<h3>More Tools</h3>
+<h3>Explore More Tools</h3>
 
-<a href="audio-speed-changer.html">Audio Speed Changer</a>
-<a href="audio-converter.html">Audio Converter</a>
-<a href="image-converter.html">Image Converter</a>
-<a href="compress-image.html">Image Compressor</a>
+<div class="more-tools-grid">
+
+<a href="image-converter.html" class="more-tool-card">
+<span>🖼️</span>
+<p>Image Converter</p>
+</a>
+
+<a href="compress-image.html" class="more-tool-card">
+<span>📦</span>
+<p>Image Compressor</p>
+</a>
+
+<a href="jpg-to-pdf.html" class="more-tool-card">
+<span>📄</span>
+<p>JPG to PDF</p>
+</a>
+
+<a href="mp3-cutter.html" class="more-tool-card">
+<span>🎧</span>
+<p>MP3 Cutter</p>
+</a>
+
+</div>
 
 </div>
 
 <footer class="site-footer">
+
 <p>
 © 2026 FastTools • Free Online Tools
 <br>
@@ -251,9 +259,10 @@ Perfect for sharing links on social media, messages, and emails.
 <a href="terms.html">Terms</a> •
 <a href="contact.html">Contact</a>
 </p>
+
 </footer>
 
-<div id="toast">Link copied!</div>
+<div id="toast">Copied!</div>
 
 <script>
 
@@ -263,6 +272,11 @@ let url=document.getElementById("url").value.trim();
 let button=document.getElementById("shortenBtn");
 let result=document.getElementById("result");
 
+if(!url){
+alert("Enter a URL");
+return;
+}
+
 if(!url.startsWith("http://") && !url.startsWith("https://")){
 url="https://" + url;
 }
@@ -270,7 +284,7 @@ url="https://" + url;
 try{
 new URL(url);
 }catch{
-alert("Please enter a valid URL");
+alert("Invalid URL");
 return;
 }
 
@@ -284,9 +298,9 @@ let shortUrl=await response.text();
 
 result.value=shortUrl;
 
-}catch(error){
+}catch{
 
-alert("Error shortening link. Try again.");
+alert("Error shortening link");
 
 }
 
@@ -301,9 +315,7 @@ let result=document.getElementById("result");
 
 if(!result.value) return;
 
-result.select();
 navigator.clipboard.writeText(result.value);
-
 showToast();
 
 }
@@ -311,12 +323,9 @@ showToast();
 function showToast(){
 
 let toast=document.getElementById("toast");
-
 toast.className="show";
 
-setTimeout(()=>{
-toast.className=toast.className.replace("show","");
-},3000);
+setTimeout(()=>toast.className="",2000);
 
 }
 
