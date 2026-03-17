@@ -4,54 +4,62 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Audio Speed Changer Online Free - Speed Up or Slow Down Audio | FastTools</title>
 
-<meta name="description" content="Change audio speed online for free. Speed up or slow down MP3 files easily with high quality. No registration required.">
+<meta name="description" content="Change audio speed online for free. Speed up or slow down audio files easily. Fast, secure, and works directly in your browser.">
 
 <link rel="stylesheet" href="style.css">
-
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
 
 <style>
 
-body{
-background:#e6e7ea;
-font-family:'Segoe UI', Tahoma, sans-serif;
-margin:0;
-}
-
-/* TOOL BOX */
-.tool-box{
-width:600px;
-margin:80px auto 40px;
-background:#071428;
-padding:40px;
-border-radius:14px;
+/* TOOL DARK */
+.tool-container{
+max-width:900px;
+margin:80px auto 30px;
+background:#071a33;
 color:white;
+padding:40px;
+border-radius:20px;
 text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
 }
 
-.tool-box h1{
-margin-bottom:10px;
-}
-
-.tool-box p{
+.tool-container p{
 color:#cbd5e1;
-font-size:14px;
+}
+
+/* INPUT */
+input[type="file"]{
+margin-top:20px;
+background:#0c2547;
+padding:10px;
+border-radius:8px;
+color:white;
+}
+
+/* AUDIO */
+audio{
+margin-top:20px;
+width:100%;
 }
 
 /* CONTROLS */
 .controls{
-margin-top:30px;
+margin-top:25px;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 gap:15px;
 flex-wrap:wrap;
+}
+
+input[type="range"]{
+width:220px;
 }
 
 button{
@@ -59,7 +67,7 @@ background:#3a78ff;
 border:none;
 color:white;
 padding:10px 18px;
-border-radius:6px;
+border-radius:8px;
 cursor:pointer;
 }
 
@@ -67,57 +75,39 @@ button:hover{
 background:#2a66e6;
 }
 
-input[type="range"]{
-width:200px;
-}
-
-audio{
-margin-top:20px;
-width:100%;
-}
-
-/* SEO CONTENT */
+/* SEO DARK */
 .seo-content{
 max-width:900px;
-margin:40px auto;
+margin:20px auto;
+background:#071a33;
+color:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
+}
+
+/* SEO BOOST LIGHT */
+.tool-description{
+max-width:900px;
+margin:30px auto 80px;
 background:white;
-padding:35px 40px;
-border-radius:14px;
-box-shadow:0 8px 25px rgba(0,0,0,0.05);
-}
-
-.seo-content h2{
-font-size:24px;
-margin-bottom:15px;
+padding:40px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
 color:#1e293b;
-}
-
-.seo-content p{
-font-size:15px;
 line-height:1.8;
-color:#475569;
-margin-bottom:15px;
 }
 
-.seo-content ul{
-list-style:none;
-padding-left:0;
+.tool-description h2{
+margin-top:25px;
 }
 
-.seo-content li{
+.tool-description ul{
+padding-left:20px;
+}
+
+.tool-description li{
 margin-bottom:10px;
-font-size:15px;
-}
-
-.seo-content li::before{
-content:"✔";
-color:#3a78ff;
-margin-right:8px;
-}
-
-.seo-content p:last-child{
-direction:rtl;
-text-align:right;
 }
 
 /* MORE TOOLS */
@@ -132,30 +122,6 @@ text-decoration:none;
 color:#2563eb;
 }
 
-/* FOOTER */
-.site-footer{
-background:#3f5368;
-color:white;
-text-align:center;
-padding:25px 10px;
-margin-top:60px;
-font-size:14px;
-}
-
-.footer-links{
-margin-top:8px;
-}
-
-.footer-links a{
-color:white;
-text-decoration:none;
-margin:0 6px;
-}
-
-.footer-links a:hover{
-text-decoration:underline;
-}
-
 </style>
 
 </head>
@@ -164,26 +130,26 @@ text-decoration:underline;
 
 <header class="site-header">
 
-<a href="/tools-site/index.html" class="logo">
-<img src="/tools-site/fasttools-logo.png.png" alt="FastTools">
+<a href="index.html" class="logo">
+<img src="fasttools-logo.png.png" alt="FastTools">
 </a>
 
 <nav class="nav-menu">
-<a href="/tools-site/index.html">Home</a>
-<a href="/tools-site/tools.html">Tools</a>
-<a href="/tools-site/about.html">About</a>
-<a href="/tools-site/contact.html">Contact</a>
+<a href="index.html">Home</a>
+<a href="index.html#tools">Tools</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
 </nav>
 
 </header>
 
 <!-- TOOL -->
-<div class="tool-box">
+<div class="tool-container">
 
 <h1>Audio Speed Changer</h1>
 
 <p>
-Speed up or slow down audio files instantly. Adjust playback speed and export your file in seconds.
+Speed up or slow down audio files instantly. Adjust playback speed and export your audio in seconds.
 </p>
 
 <input type="file" id="audioFile" accept="audio/*">
@@ -204,25 +170,55 @@ Speed up or slow down audio files instantly. Adjust playback speed and export yo
 
 </div>
 
-<!-- SEO CONTENT -->
+<!-- SEO DARK -->
 <div class="seo-content">
 
-<h2>How to change audio speed</h2>
+<h2>Change Audio Speed Online</h2>
 
+<p>
+This free audio speed changer allows you to easily speed up or slow down audio files directly in your browser. 
+No uploads, no delays, and no software needed.
+</p>
+
+<p>
+يمكنك تسريع أو إبطاء الملفات الصوتية بسهولة مباشرة من المتصفح بدون أي برامج.
+</p>
+
+</div>
+
+<!-- SEO BOOST (VERY IMPORTANT) -->
+<div class="tool-description">
+
+<h2>What this tool does</h2>
+<p>
+This tool allows you to adjust the speed of audio files without needing professional software. You can make audio faster for quick listening or slower for better understanding.
+</p>
+
+<h2>How to use</h2>
 <ul>
 <li>Upload your audio file</li>
 <li>Adjust the speed using the slider</li>
-<li>Export your modified audio</li>
+<li>Preview the audio</li>
+<li>Click export to download</li>
 </ul>
 
+<h2>Benefits</h2>
+<ul>
+<li>Instant speed adjustment</li>
+<li>No installation required</li>
+<li>Works on all devices</li>
+<li>Completely free</li>
+</ul>
+
+<h2>Use cases</h2>
 <p>
-This free audio speed changer lets you speed up or slow down audio files easily. 
-Perfect for podcasts, music, voice recordings and more. Works directly in your browser.
+Perfect for podcasts, learning languages, music practice, transcription, or reviewing recordings at different speeds.
 </p>
 
-<p>
-يمكنك تسريع أو إبطاء الملفات الصوتية بسهولة بدون الحاجة لأي برامج. الأداة تعمل مباشرة من المتصفح وبجودة عالية.
-</p>
+<h2>FAQ</h2>
+<p><strong>Is it free?</strong> Yes, completely free.</p>
+<p><strong>Does it affect quality?</strong> Minimal impact depending on speed change.</p>
+<p><strong>Is it safe?</strong> Files are processed locally in your browser.</p>
 
 </div>
 
@@ -238,20 +234,15 @@ Perfect for podcasts, music, voice recordings and more. Works directly in your b
 
 </div>
 
-<!-- FOOTER -->
 <footer class="site-footer">
 
 <p>
 © 2026 FastTools • Free Online Tools
-</p>
-
-<div class="footer-links">
-<a href="privacy.html">Privacy</a>
-<span>•</span>
-<a href="terms.html">Terms</a>
-<span>•</span>
+<br>
+<a href="privacy.html">Privacy</a> •
+<a href="terms.html">Terms</a> •
 <a href="contact.html">Contact</a>
-</div>
+</p>
 
 </footer>
 
@@ -267,10 +258,8 @@ const slider = document.getElementById("speedSlider")
 const speedValue = document.getElementById("speedValue")
 
 slider.addEventListener("input",function(){
-
 speedValue.innerText = slider.value + "x"
 preview.playbackRate = slider.value
-
 })
 
 audioFile.addEventListener("change", async function(){
@@ -310,11 +299,7 @@ const renderedBuffer = await offline.startRendering()
 
 const samples = renderedBuffer.getChannelData(0)
 
-const mp3encoder = new lamejs.Mp3Encoder(
-1,
-renderedBuffer.sampleRate,
-192
-)
+const mp3encoder = new lamejs.Mp3Encoder(1, renderedBuffer.sampleRate, 192)
 
 const sampleBlockSize = 1152
 let mp3Data = []
