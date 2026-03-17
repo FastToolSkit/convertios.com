@@ -2,39 +2,104 @@
 <html>
 
 <head>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-<title>PNG to JPG Converter - FastTools</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PNG to JPG Converter Online Free | FastTools</title>
+
+<meta name="description" content="Convert PNG images to JPG online for free. Fast and easy image conversion with high quality output.">
 
 <link rel="stylesheet" href="style.css">
-
-<meta name="description" content="Convert PNG images to JPG online for free using FastTools.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <style>
 
-#drop-area{
-border:2px dashed #2c3e50;
-padding:40px;
-max-width:600px;
-margin:20px auto;
+body{
+background:#e6e7ea;
+font-family:'Segoe UI', Tahoma, sans-serif;
+margin:0;
+}
+
+/* TOOL */
+.tool-container{
+max-width:700px;
+margin:80px auto 40px;
 background:white;
+padding:35px;
+border-radius:14px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* DROP AREA */
+#drop-area{
+border:2px dashed #cbd5e1;
+padding:40px;
+margin-top:20px;
+background:#f8fafc;
 cursor:pointer;
-border-radius:8px;
+border-radius:10px;
+}
+
+/* PREVIEW */
+#preview{
+margin-top:20px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
 }
 
 #preview img{
 width:100px;
-margin:10px;
 border-radius:6px;
 }
 
-#preview{
-margin-top:15px;
+/* BUTTON */
+.main-button{
+margin-top:20px;
+padding:12px 20px;
+background:#3a78ff;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
 }
 
+.main-button:hover{
+background:#2a66e6;
+}
+
+/* DOWNLOADS */
 #downloads a{
 display:block;
-margin:8px;
+margin-top:10px;
+color:#2563eb;
+}
+
+/* SEO */
+.seo-content{
+max-width:800px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:14px;
+box-shadow:0 8px 25px rgba(0,0,0,0.05);
+}
+
+.seo-content p:last-child{
+direction:rtl;
+text-align:right;
+}
+
+/* FOOTER */
+.site-footer{
+background:#3f5368;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:60px;
 }
 
 </style>
@@ -55,13 +120,8 @@ margin:8px;
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 </nav>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 </header>
-
-<div class="back-bar">
-<a href="index.html" class="back-link">← Back to FastTools</a>
-</div>
 
 <div class="tool-container">
 
@@ -76,23 +136,30 @@ margin:8px;
 
 <div id="preview"></div>
 
-<button onclick="convert()">Convert to JPG</button>
+<button class="main-button" onclick="convert()">Convert to JPG</button>
 
 <div id="downloads"></div>
 
 </div>
 
-<div class="more-tools">
+<!-- SEO CONTENT -->
+<div class="seo-content">
 
-<h3>More Tools</h3>
+<h2>How to convert PNG to JPG</h2>
 
-<a href="audio-speed-changer.html">Audio Speed Changer</a>
-<a href="audio-converter.html">Audio Converter</a>
-<a href="password-generator.html">Password Generator</a>
-<a href="compress-image.html">Image Compressor</a>
+<p>
+Upload your PNG images and convert them to JPG format instantly. 
+This tool is fast, free, and works directly in your browser.
+</p>
+
+<p>
+يمكنك تحويل الصور من PNG إلى JPG بسهولة وتحميلها مباشرة بدون الحاجة لأي برنامج.
+</p>
 
 </div>
+
 <footer class="site-footer">
+
 <p>
 © 2026 FastTools • Free Online Tools
 <br>
@@ -100,8 +167,8 @@ margin:8px;
 <a href="terms.html">Terms</a> •
 <a href="contact.html">Contact</a>
 </p>
-</footer>
 
+</footer>
 
 <script>
 
@@ -164,9 +231,14 @@ canvas.width=img.width;
 canvas.height=img.height;
 
 let ctx=canvas.getContext("2d");
+
+/* FIX: white background (important for PNG transparency) */
+ctx.fillStyle="#ffffff";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
 ctx.drawImage(img,0,0);
 
-let jpg=canvas.toDataURL("image/jpeg");
+let jpg=canvas.toDataURL("image/jpeg",0.95);
 
 let link=document.createElement("a");
 
