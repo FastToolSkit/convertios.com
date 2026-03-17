@@ -445,10 +445,23 @@ font-weight:500;
 }
 
 .header-search{
-padding:8px 14px;
+padding:8px 12px 8px 30px;
 border-radius:20px;
 border:none;
 outline:none;
 width:200px;
 font-size:14px;
 }
+
+.search-box{
+position:relative;
+display:flex;
+align-items:center;
+}
+
+.search-icon{
+position:absolute;
+left:10px;
+font-size:14px;
+}
+
