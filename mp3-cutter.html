@@ -11,15 +11,14 @@
 <script src="https://unpkg.com/wavesurfer.js@7"></script>
 
 <style>
-
-#waveform{
-width:100%;
-height:220px;
-background:#f1f5f9;
-border-radius:8px;
-margin-top:25px;
-}
-
+wavesurfer = WaveSurfer.create({
+container: "#waveform",
+waveColor: "#94a3b8",
+progressColor: "#2563eb",
+cursorColor: "#2563eb",
+height: 200,
+normalize: true
+});
 .editor{
 max-width:1000px;
 margin:40px auto;
