@@ -231,8 +231,7 @@ resize:true
 
 updateInputs()
 
-region.on('update-end',updateInputs)
-
+region.on('update', updateInputs)
 })
 
 function updateInputs(){
