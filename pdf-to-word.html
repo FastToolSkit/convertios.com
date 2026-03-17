@@ -4,58 +4,120 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PDF to Word Converter - FastTools</title>
+<title>PDF to Word Converter Online Free | FastTools</title>
 
-<meta name="description" content="Convert PDF to Word online for free using FastTools.">
+<meta name="description" content="Convert PDF to Word (DOCX) online for free. Fast, accurate and easy PDF to DOC conversion tool.">
 
 <link rel="stylesheet" href="style.css">
-
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <style>
 
-#drop-area{
-border:2px dashed #2c3e50;
-padding:40px;
-margin:auto;
-width:60%;
+body{
+background:#e6e7ea;
+font-family:'Segoe UI', Tahoma, sans-serif;
+margin:0;
+}
+
+.tool-container{
+max-width:800px;
+margin:80px auto 40px;
 background:white;
+padding:35px;
+border-radius:14px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.drop-area{
+border:2px dashed #cbd5e1;
+padding:40px;
+border-radius:10px;
+background:#f8fafc;
+margin-top:20px;
 cursor:pointer;
 }
 
-#preview{
+.preview{
 margin-top:20px;
+text-align:left;
 }
 
-#preview div{
-margin:10px;
+.preview div{
+margin:10px 0;
 padding:10px;
-border:1px solid #ddd;
+background:#f8fafc;
+border:1px solid #cbd5e1;
+border-radius:6px;
 }
 
-#progress{
-width:60%;
-margin:auto;
-background:#eee;
+.progress{
+width:100%;
+background:#e2e8f0;
 height:20px;
+border-radius:6px;
 margin-top:20px;
+overflow:hidden;
 }
 
-#progress-bar{
+.progress-bar{
 height:100%;
 width:0%;
-background:#2c3e50;
+background:#3a78ff;
+}
+
+.main-button{
+margin-top:20px;
+padding:12px 20px;
+background:#3a78ff;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.main-button:hover{
+background:#2a66e6;
 }
 
 .download-btn{
 display:inline-block;
 margin-top:15px;
 padding:12px 18px;
-background:#2c3e50;
+background:#1e293b;
 color:white;
 text-decoration:none;
 border-radius:6px;
+}
+
+.status{
+margin-top:15px;
+color:#475569;
+}
+
+/* SEO */
+.seo-content{
+max-width:900px;
+margin:40px auto;
+background:white;
+padding:35px;
+border-radius:14px;
+box-shadow:0 8px 25px rgba(0,0,0,0.05);
+}
+
+.seo-content p:last-child{
+direction:rtl;
+text-align:right;
+}
+
+.site-footer{
+background:#3f5368;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:60px;
 }
 
 </style>
@@ -63,7 +125,6 @@ border-radius:6px;
 </head>
 
 <body>
-
 
 <header class="site-header">
 
@@ -80,66 +141,64 @@ border-radius:6px;
 
 </header>
 
-
 <div class="tool-container">
 
 <h1>PDF to Word Converter</h1>
 
-<p>Upload PDF files and convert them to Word (.docx)</p>
+<p>Convert PDF files into editable Word documents instantly.</p>
 
-<div id="drop-area">
-<p>Drag & Drop PDF files here or Click to Upload</p>
-<input type="file" id="upload" multiple accept=".pdf" hidden>
+<div class="drop-area" id="drop-area">
+<p>Drag PDF here or click to upload</p>
+<input type="file" id="upload" accept=".pdf" hidden>
 </div>
 
-<div id="preview"></div>
+<div class="preview" id="preview"></div>
 
-<div id="progress">
-<div id="progress-bar"></div>
+<div class="progress">
+<div class="progress-bar" id="progress-bar"></div>
 </div>
 
-<br>
+<button class="main-button" onclick="convertPDF()">Convert to Word</button>
 
-<button onclick="convertPDF()">Convert to Word</button>
-
-<p id="status"></p>
+<div class="status" id="status"></div>
 
 <div id="downloads"></div>
 
 </div>
 
-<div class="more-tools">
+<!-- SEO CONTENT -->
+<div class="seo-content">
 
-<h3>More Tools</h3>
+<h2>How to convert PDF to Word</h2>
 
-<a href="audio-speed-changer.html">Audio Speed Changer</a>
-<a href="audio-converter.html">Audio Converter</a>
-<a href="password-generator.html">Password Generator</a>
-<a href="compress-image.html">Image Compressor</a>
+<p>
+Upload your PDF file and convert it into an editable Word document (.docx). 
+This tool is perfect for editing documents, extracting content, and improving workflow.
+</p>
+
+<p>
+يمكنك تحويل ملفات PDF إلى Word بسهولة والتعديل عليها مباشرة بدون الحاجة لأي برامج.
+</p>
 
 </div>
+
 <footer class="site-footer">
 
 <p>
 © 2026 FastTools • Free Online Tools
+<br>
+<a href="privacy.html">Privacy</a> •
+<a href="terms.html">Terms</a> •
+<a href="contact.html">Contact</a>
 </p>
 
-<div class="footer-links">
-<a href="privacy.html">Privacy</a>
-<span>•</span>
-<a href="terms.html">Terms</a>
-<span>•</span>
-<a href="contact.html">Contact</a>
-</div>
-
 </footer>
-
 
 <script>
 
 const API_KEY="YOUR_API_KEY";
 
-let files=[];
+let file=null;
 
 const dropArea=document.getElementById("drop-area");
 const fileInput=document.getElementById("upload");
@@ -153,12 +212,12 @@ e.preventDefault();
 
 dropArea.addEventListener("drop",e=>{
 e.preventDefault();
-files=[...e.dataTransfer.files];
+file=e.dataTransfer.files[0];
 showPreview();
 });
 
 fileInput.addEventListener("change",()=>{
-files=[...fileInput.files];
+file=fileInput.files[0];
 showPreview();
 });
 
@@ -166,39 +225,25 @@ function showPreview(){
 
 preview.innerHTML="";
 
-files.forEach(file=>{
+if(!file) return;
 
-let div=document.createElement("div");
-
-div.innerHTML=`
+preview.innerHTML=`
 📄 ${file.name}
 <br>
 Size: ${(file.size/1024/1024).toFixed(2)} MB
 `;
 
-preview.appendChild(div);
-
-});
-
 }
 
 async function convertPDF(){
 
-if(files.length===0){
+if(!file){
 alert("Upload a PDF first");
 return;
 }
 
-document.getElementById("downloads").innerHTML="";
-document.getElementById("status").innerText="Creating conversion job...";
-
-updateProgress(5);
-
-await convertSingle(files[0]);
-
-}
-
-async function convertSingle(file){
+document.getElementById("status").innerText="Creating job...";
+updateProgress(10);
 
 try{
 
@@ -226,9 +271,8 @@ const jobData = await jobResponse.json();
 
 const uploadTask = jobData.data.tasks.find(t=>t.name==="upload");
 
-document.getElementById("status").innerText="Uploading PDF...";
-
-updateProgress(20);
+document.getElementById("status").innerText="Uploading...";
+updateProgress(30);
 
 const form = new FormData();
 
@@ -243,9 +287,8 @@ method:"POST",
 body:form
 });
 
-document.getElementById("status").innerText="Converting PDF...";
-
-updateProgress(40);
+document.getElementById("status").innerText="Converting...";
+updateProgress(60);
 
 const jobId = jobData.data.id;
 
@@ -269,39 +312,29 @@ t=>t.operation==="export/url"
 );
 
 if(exportTask && exportTask.result && exportTask.result.files){
-
 downloadUrl = exportTask.result.files[0].url;
-
 break;
-
 }
 
 }
 
 if(!downloadUrl){
-
-document.getElementById("status").innerText=
-"Conversion failed or API limit reached.";
-
+document.getElementById("status").innerText="Conversion failed.";
 return;
-
 }
 
 updateProgress(90);
-
-document.getElementById("status").innerText="Preparing download...";
 
 showDownload(downloadUrl,file.name);
 
 updateProgress(100);
 
-document.getElementById("status").innerText="Finished!";
+document.getElementById("status").innerText="Done!";
 
 }catch(err){
 
 console.error(err);
-
-document.getElementById("status").innerText="Unexpected error occurred.";
+document.getElementById("status").innerText="Error occurred.";
 
 }
 
@@ -309,20 +342,16 @@ document.getElementById("status").innerText="Unexpected error occurred.";
 
 function showDownload(url,name){
 
-const downloads=document.getElementById("downloads");
-
-downloads.innerHTML=`
+document.getElementById("downloads").innerHTML=`
 <a href="${url}" class="download-btn" download="${name.replace(".pdf",".docx")}">
-Download ${name.replace(".pdf",".docx")}
+Download Word File
 </a>
 `;
 
 }
 
 function updateProgress(percent){
-
 document.getElementById("progress-bar").style.width=percent+"%";
-
 }
 
 </script>
