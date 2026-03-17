@@ -62,7 +62,17 @@ cursor:pointer;
 <button id="download" style="display:none;">Download</button>
 
 </div>
+<div class="compare-container">
 
+  <img id="original">
+  
+  <div class="overlay">
+    <img id="result">
+  </div>
+
+  <input type="range" id="slider" min="0" max="100" value="50">
+
+</div>
 <script>
 
 const input = document.getElementById("image")
