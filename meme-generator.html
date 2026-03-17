@@ -6,17 +6,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Meme Generator - FastTools</title>
+<title>Meme Generator Online Free - Create Memes Easily | FastTools</title>
+
+<meta name="description" content="Create memes online for free. Add text to images, customize font, color and download instantly. Easy meme generator tool.">
 
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <style>
 
-.editor{
+body{
+background:#e6e7ea;
+font-family:'Segoe UI', Tahoma, sans-serif;
+margin:0;
+}
+
+/* TOOL */
+.tool-container{
 max-width:1000px;
-margin:auto;
-margin-top:40px;
+margin:80px auto 40px;
+background:white;
+padding:35px;
+border-radius:14px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* EDITOR */
+.editor{
+margin-top:30px;
 display:grid;
 grid-template-columns:1fr 320px;
 gap:30px;
@@ -32,6 +50,7 @@ background:#000;
 border-radius:10px;
 }
 
+/* CONTROLS */
 .controls{
 display:flex;
 flex-direction:column;
@@ -47,10 +66,67 @@ border:1px solid #cbd5e1;
 .controls button{
 padding:12px;
 border:none;
-background:#2563eb;
+background:#3a78ff;
 color:white;
 border-radius:6px;
 cursor:pointer;
+}
+
+.controls button:hover{
+background:#2a66e6;
+}
+
+/* SEO CONTENT */
+.seo-content{
+max-width:900px;
+margin:40px auto;
+background:white;
+padding:35px 40px;
+border-radius:14px;
+box-shadow:0 8px 25px rgba(0,0,0,0.05);
+}
+
+.seo-content h2{
+font-size:24px;
+margin-bottom:15px;
+color:#1e293b;
+}
+
+.seo-content p{
+font-size:15px;
+line-height:1.8;
+color:#475569;
+margin-bottom:15px;
+}
+
+.seo-content ul{
+list-style:none;
+padding-left:0;
+}
+
+.seo-content li{
+margin-bottom:10px;
+}
+
+.seo-content li::before{
+content:"✔";
+color:#3a78ff;
+margin-right:8px;
+}
+
+.seo-content p:last-child{
+direction:rtl;
+text-align:right;
+}
+
+/* FOOTER */
+.site-footer{
+background:#3f5368;
+color:white;
+text-align:center;
+padding:25px 10px;
+margin-top:60px;
+font-size:14px;
 }
 
 </style>
@@ -74,28 +150,25 @@ cursor:pointer;
 
 </header>
 
-
 <div class="tool-container">
 
 <h1>Meme Generator</h1>
-<p>Create memes with draggable text.</p>
 
+<p>
+Create memes online easily. Add top and bottom text, customize style and download instantly.
+</p>
 
-</div>
-  <input type="file" id="upload" accept="image/*">
-
+<input type="file" id="upload" accept="image/*">
 
 <div class="editor">
 
 <div class="canvas-container">
-
 <canvas id="memeCanvas"></canvas>
 </div>
 
 <div class="controls">
 
 <input type="text" id="topText" placeholder="Top text">
-
 <input type="text" id="bottomText" placeholder="Bottom text">
 
 <label>Font Size</label>
@@ -113,6 +186,30 @@ cursor:pointer;
 
 </div>
 
+</div>
+
+<!-- SEO CONTENT -->
+<div class="seo-content">
+
+<h2>How to create a meme</h2>
+
+<ul>
+<li>Upload your image</li>
+<li>Add top and bottom text</li>
+<li>Customize font size and color</li>
+<li>Download your meme</li>
+</ul>
+
+<p>
+This free meme generator allows you to create memes quickly and easily. 
+Perfect for social media, sharing with friends, and content creation.
+</p>
+
+<p>
+يمكنك إنشاء ميمز بسهولة عن طريق إضافة نصوص على الصور وتحميلها مباشرة بدون الحاجة لأي برامج.
+</p>
+
+</div>
 
 <footer class="site-footer">
 
@@ -125,7 +222,6 @@ cursor:pointer;
 </p>
 
 </footer>
-
 
 <script>
 
@@ -151,11 +247,9 @@ reader.readAsDataURL(file);
 
 });
 
-
 img.onload = function(){
 
 const maxWidth = 800;
-
 let scale = Math.min(maxWidth / img.width,1);
 
 canvas.width = img.width * scale;
@@ -165,11 +259,9 @@ draw();
 
 };
 
-
 document.querySelectorAll(".controls input").forEach(el=>{
 el.addEventListener("input",draw);
 });
-
 
 function draw(){
 
@@ -197,7 +289,6 @@ ctx.fillText(bottomText,canvas.width/2,canvas.height-30);
 ctx.strokeText(bottomText,canvas.width/2,canvas.height-30);
 
 }
-
 
 window.downloadMeme = function(){
 
