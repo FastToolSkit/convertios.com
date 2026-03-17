@@ -173,15 +173,14 @@ to
 
 const wavesurfer = WaveSurfer.create({
 container:"#waveform",
-waveColor:"#94a3b8",
-progressColor:"#2563eb",
-cursorColor:"#2563eb",
-height:120,
+waveColor:"#555",
+progressColor:"#1ea7ff",
+cursorColor:"#ffffff",
+backgroundColor:"#0b0f1a",
+height:140,
 plugins:[
 WaveSurfer.regions.create(),
-WaveSurfer.timeline.create({
-container:"#timeline"
-})
+WaveSurfer.timeline.create({container:"#timeline"})
 ]
 })
 
@@ -219,12 +218,12 @@ wavesurfer.on("ready",function(){
 
 document.getElementById("progress").innerText=""
 
-const duration=wavesurfer.getDuration()
+const duration = wavesurfer.getDuration()
 
 region = wavesurfer.addRegion({
-start:duration*0.2,
+start:duration*0.3,
 end:duration*0.6,
-color:'rgba(37,99,235,0.3)',
+color:'rgba(255,212,59,0.15)',
 drag:true,
 resize:true
 })
