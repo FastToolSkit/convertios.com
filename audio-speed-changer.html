@@ -4,9 +4,14 @@
 <head>
 
 <meta charset="UTF-8">
-<title>Audio Speed Changer - FastTools</title>
+
+<title>Audio Speed Changer Online Free - Speed Up or Slow Down Audio | FastTools</title>
+
+<meta name="description" content="Change audio speed online for free. Speed up or slow down MP3 files easily with high quality. No registration required.">
 
 <link rel="stylesheet" href="style.css">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
 
@@ -14,23 +19,39 @@
 
 body{
 background:#e6e7ea;
-font-family:Arial;
+font-family:'Segoe UI', Tahoma, sans-serif;
+margin:0;
 }
 
+/* TOOL BOX */
 .tool-box{
 width:600px;
-margin:80px auto;
+margin:80px auto 40px;
 background:#071428;
 padding:40px;
-border-radius:12px;
+border-radius:14px;
 color:white;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
+.tool-box h1{
+margin-bottom:10px;
+}
+
+.tool-box p{
+color:#cbd5e1;
+font-size:14px;
+}
+
+/* CONTROLS */
 .controls{
 margin-top:30px;
 display:flex;
 align-items:center;
+justify-content:center;
 gap:15px;
+flex-wrap:wrap;
 }
 
 button{
@@ -42,6 +63,10 @@ border-radius:6px;
 cursor:pointer;
 }
 
+button:hover{
+background:#2a66e6;
+}
+
 input[type="range"]{
 width:200px;
 }
@@ -51,8 +76,87 @@ margin-top:20px;
 width:100%;
 }
 
+/* SEO CONTENT */
+.seo-content{
+max-width:900px;
+margin:40px auto;
+background:white;
+padding:35px 40px;
+border-radius:14px;
+box-shadow:0 8px 25px rgba(0,0,0,0.05);
+}
+
+.seo-content h2{
+font-size:24px;
+margin-bottom:15px;
+color:#1e293b;
+}
+
+.seo-content p{
+font-size:15px;
+line-height:1.8;
+color:#475569;
+margin-bottom:15px;
+}
+
+.seo-content ul{
+list-style:none;
+padding-left:0;
+}
+
+.seo-content li{
+margin-bottom:10px;
+font-size:15px;
+}
+
+.seo-content li::before{
+content:"✔";
+color:#3a78ff;
+margin-right:8px;
+}
+
+.seo-content p:last-child{
+direction:rtl;
+text-align:right;
+}
+
+/* MORE TOOLS */
+.more-tools{
+text-align:center;
+margin:40px 0;
+}
+
+.more-tools a{
+margin:0 10px;
+text-decoration:none;
+color:#2563eb;
+}
+
+/* FOOTER */
+.site-footer{
+background:#3f5368;
+color:white;
+text-align:center;
+padding:25px 10px;
+margin-top:60px;
+font-size:14px;
+}
+
+.footer-links{
+margin-top:8px;
+}
+
+.footer-links a{
+color:white;
+text-decoration:none;
+margin:0 6px;
+}
+
+.footer-links a:hover{
+text-decoration:underline;
+}
+
 </style>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 </head>
 
@@ -73,9 +177,14 @@ width:100%;
 
 </header>
 
+<!-- TOOL -->
 <div class="tool-box">
 
-<h2>Audio Speed Changer</h2>
+<h1>Audio Speed Changer</h1>
+
+<p>
+Speed up or slow down audio files instantly. Adjust playback speed and export your file in seconds.
+</p>
 
 <input type="file" id="audioFile" accept="audio/*">
 
@@ -83,7 +192,8 @@ width:100%;
 
 <div class="controls">
 
-Speed
+<span>Speed</span>
+
 <input type="range" id="speedSlider" min="0.5" max="2" step="0.1" value="1">
 
 <span id="speedValue">1x</span>
@@ -93,16 +203,42 @@ Speed
 </div>
 
 </div>
-  <div class="more-tools">
+
+<!-- SEO CONTENT -->
+<div class="seo-content">
+
+<h2>How to change audio speed</h2>
+
+<ul>
+<li>Upload your audio file</li>
+<li>Adjust the speed using the slider</li>
+<li>Export your modified audio</li>
+</ul>
+
+<p>
+This free audio speed changer lets you speed up or slow down audio files easily. 
+Perfect for podcasts, music, voice recordings and more. Works directly in your browser.
+</p>
+
+<p>
+يمكنك تسريع أو إبطاء الملفات الصوتية بسهولة بدون الحاجة لأي برامج. الأداة تعمل مباشرة من المتصفح وبجودة عالية.
+</p>
+
+</div>
+
+<!-- MORE TOOLS -->
+<div class="more-tools">
 
 <h3>More Tools</h3>
 
 <a href="audio-speed-changer.html">Audio Speed Changer</a>
 <a href="audio-converter.html">Audio Converter</a>
-<a href="password-generator.html">Password Generator</a>
+<a href="mp3-cutter.html">MP3 Cutter</a>
 <a href="compress-image.html">Image Compressor</a>
 
 </div>
+
+<!-- FOOTER -->
 <footer class="site-footer">
 
 <p>
@@ -133,7 +269,6 @@ const speedValue = document.getElementById("speedValue")
 slider.addEventListener("input",function(){
 
 speedValue.innerText = slider.value + "x"
-
 preview.playbackRate = slider.value
 
 })
@@ -141,7 +276,6 @@ preview.playbackRate = slider.value
 audioFile.addEventListener("change", async function(){
 
 currentFile = this.files[0]
-
 if(!currentFile) return
 
 preview.src = URL.createObjectURL(currentFile)
@@ -149,7 +283,6 @@ preview.src = URL.createObjectURL(currentFile)
 audioContext = new AudioContext()
 
 const arrayBuffer = await currentFile.arrayBuffer()
-
 audioBuffer = await audioContext.decodeAudioData(arrayBuffer)
 
 })
@@ -167,12 +300,10 @@ audioBuffer.sampleRate
 )
 
 const source = offline.createBufferSource()
-
 source.buffer = audioBuffer
 source.playbackRate.value = speed
 
 source.connect(offline.destination)
-
 source.start()
 
 const renderedBuffer = await offline.startRendering()
