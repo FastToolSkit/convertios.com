@@ -1,25 +1,27 @@
 /* ===============================
-GLOBAL
+GLOBAL RESET
 ================================*/
 
 *{
+margin:0;
+padding:0;
 box-sizing:border-box;
 }
 
 body{
 background:#e6e7ea;
 font-family:'Poppins', sans-serif;
-margin:0;
 color:#1e293b;
 }
+
+/* REMOVE DEFAULT LINK COLORS */
+a{
+text-decoration:none;
+color:inherit;
+}
+
 /* ===============================
-HEADER (PROFESSIONAL LAYOUT)
-================================*/
-/* ===============================
-HEADER (FINAL REAL FIX)
-================================*/
-/* ===============================
-HEADER (FORCED CLEAN LAYOUT)
+HEADER (STABLE FLEX SYSTEM)
 ================================*/
 
 .site-header{
@@ -28,30 +30,39 @@ align-items:center;
 background:#020c1b;
 padding:15px 60px;
 border-bottom:1px solid #0c2547;
+gap:30px;
 }
 
 /* LOGO */
-.logo{
-flex-shrink:0;
-}
 .logo img{
 height:50px;
 width:auto;
-/* NAV */
+display:block;
+}
+
+/* NAVIGATION */
 .nav-menu{
 display:flex;
 gap:30px;
-margin-left:40px;
 }
 
-/* 🔥 FORCE SEARCH TO RIGHT */
+.nav-menu a{
+color:#cbd5e1;
+font-weight:500;
+transition:0.2s;
+}
+
+.nav-menu a:hover{
+color:white;
+}
+
+/* SEARCH (ALWAYS RIGHT) */
 .search-box{
-margin-left:auto !important;
+margin-left:auto;
 width:260px;
 position:relative;
 }
 
-/* INPUT */
 .search-box input{
 width:100%;
 padding:12px 14px 12px 40px;
@@ -59,9 +70,9 @@ border-radius:12px;
 border:none;
 background:#0c2547;
 color:white;
+outline:none;
 }
 
-/* ICON */
 .search-icon{
 position:absolute;
 left:12px;
@@ -69,6 +80,7 @@ top:50%;
 transform:translateY(-50%);
 color:#94a3b8;
 }
+
 /* ===============================
 TOOLS GRID
 ================================*/
@@ -83,10 +95,10 @@ padding:0 20px;
 }
 
 .tool-card{
+display:block;
 background:white;
 padding:25px;
 border-radius:12px;
-text-decoration:none;
 color:#1e293b;
 text-align:center;
 box-shadow:0 6px 18px rgba(0,0,0,0.08);
@@ -197,33 +209,40 @@ border-radius:16px;
 }
 
 /* ===============================
-MORE TOOLS
+TOOL DESCRIPTIONS (CLEAN)
 ================================*/
 
-.more-tools{
-max-width:1000px;
-margin:60px auto;
+.tool-descriptions{
+max-width:900px;
+margin:80px auto;
+padding:40px;
 text-align:center;
+background:white;
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,0.05);
 }
 
-.more-tools-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:20px;
+.tool-descriptions h2{
+font-size:32px;
+margin-bottom:40px;
+font-weight:700;
+color:#0f172a;
 }
 
-.more-tool-card{
-background:#071a33;
-color:white;
-padding:20px;
-border-radius:14px;
-text-decoration:none;
-text-align:center;
-transition:0.2s;
+.tool-descriptions h3{
+font-size:20px;
+margin-top:30px;
+margin-bottom:10px;
+font-weight:600;
+color:#1e293b;
 }
 
-.more-tool-card:hover{
-background:#0c2547;
+.tool-descriptions p{
+font-size:15px;
+line-height:1.8;
+color:#475569;
+max-width:700px;
+margin:0 auto;
 }
 
 /* ===============================
@@ -240,7 +259,6 @@ margin-top:60px;
 
 .site-footer a{
 color:#3a78ff;
-text-decoration:none;
 }
 
 /* ===============================
@@ -255,13 +273,6 @@ align-items:center;
 padding:15px 20px;
 }
 
-/* LOGO */
-.logo{
-text-align:center;
-margin-bottom:10px;
-}
-
-/* NAV */
 .nav-menu{
 justify-content:center;
 flex-wrap:wrap;
@@ -269,56 +280,14 @@ margin:10px 0;
 gap:15px;
 }
 
-/* SEARCH */
 .search-box{
 width:100%;
-justify-content:center;
 margin-top:10px;
 }
 
 .search-box input{
 max-width:300px;
+margin:auto;
 }
 
-}
-/* ===============================
-TOOL DESCRIPTIONS (UPGRADED)
-================================*/
-
-.tool-descriptions{
-max-width:900px;
-margin:80px auto;
-padding:40px;
-text-align:center;
-}
-
-/* MAIN TITLE */
-.tool-descriptions h2{
-font-size:32px;
-margin-bottom:40px;
-font-weight:700;
-color:#0f172a;
-}
-
-/* TOOL TITLE */
-.tool-descriptions h3{
-font-size:20px;
-margin-top:30px;
-margin-bottom:10px;
-font-weight:600;
-color:#1e293b;
-}
-
-/* TEXT */
-.tool-descriptions p{
-font-size:15px;
-line-height:1.8;
-color:#475569;
-max-width:700px;
-margin:0 auto;
-}
-.tool-descriptions{
-background:white;
-border-radius:20px;
-box-shadow:0 10px 40px rgba(0,0,0,0.05);
 }
