@@ -24,8 +24,9 @@ background:#020c1b;
 padding:15px 60px;
 display:flex;
 align-items:center;
-  position:relative;
+justify-content:space-between; /* 🔥 important */
 border-bottom:1px solid #0c2547;
+position:relative;
 }
 
 /* LOGO */
