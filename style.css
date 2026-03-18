@@ -494,9 +494,9 @@ SEARCH BOX FIX
 
 .search-box{
 position:relative;
-max-width:500px;
 margin:0;
-margin-left:auto;}
+margin-left:auto;
+max-width:300px;}
 
 .search-box input{
 width:100%;
