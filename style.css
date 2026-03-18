@@ -59,7 +59,8 @@ white-space:nowrap;
 
 /* SEARCH RIGHT */
 .search-box{
-flex:0 0 260px;
+margin-left:auto; /* 🔥 THIS pushes it to the far right */
+width:260px;
 position:relative;
 }
 
