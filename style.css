@@ -13,64 +13,67 @@ color:#1e293b;
 HEADER (FINAL CLEAN VERSION)
 ================================*/
 
+/* ===============================
+HEADER FINAL (FIXED SPACING + ALIGNMENT)
+================================*/
+
 .site-header{
 background:#020c1b;
-padding:12px 30px;
+padding:15px 60px; /* 👈 MORE SIDE SPACE */
 display:flex;
 align-items:center;
-gap:25px;
+justify-content:space-between;
 border-bottom:1px solid #0c2547;
-flex-wrap:wrap;
 }
 
 /* LOGO */
+.logo{
+flex:0 0 auto;
+}
+
 .logo img{
-height:45px;
+height:50px;
 }
 
 /* NAV */
 .nav-menu{
 display:flex;
-gap:25px;
+gap:30px;
 flex:1;
-justify-content:center;
+justify-content:center; /* 👈 TRUE CENTER */
 }
 
 .nav-menu a{
 color:#cbd5e1;
 text-decoration:none;
 font-weight:500;
-}
-
-.nav-menu a:hover{
-color:#3a78ff;
+white-space:nowrap;
 }
 
 /* SEARCH */
 .search-box{
+flex:0 0 260px; /* 👈 FIX WIDTH (IMPORTANT) */
 position:relative;
-width:260px;
 }
 
+/* INPUT */
 .search-box input{
 width:100%;
-padding:10px 14px 10px 40px;
+padding:12px 14px 12px 40px;
 border-radius:12px;
 border:none;
 background:#0c2547;
 color:white;
-font-size:14px;
 }
 
+/* ICON */
 .search-icon{
 position:absolute;
 left:12px;
 top:50%;
 transform:translateY(-50%);
-font-size:16px;
 color:#94a3b8;
 }
-
 /* ===============================
 TOOLS GRID
 ================================*/
