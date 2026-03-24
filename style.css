@@ -397,3 +397,26 @@ color:#475569;
 line-height:1.8;
 margin-bottom:12px;
 }
+/* ===============================
+HERO (PROPER CENTERED DESIGN)
+================================*/
+
+.hero{
+text-align:center;
+padding:60px 20px 30px;
+max-width:900px;
+margin:0 auto;
+}
+
+.hero h1{
+font-size:42px;
+font-weight:700;
+color:#0f172a;
+margin-bottom:12px;
+letter-spacing:-0.5px;
+}
+
+.hero p{
+font-size:18px;
+color:#64748b;
+}
