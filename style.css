@@ -325,3 +325,27 @@ margin:auto;
 }
 
 }
+/* ===============================
+PAGE CONTENT (ABOUT / CONTACT)
+================================*/
+
+.page-content{
+max-width:900px;
+margin:80px auto;
+padding:40px;
+background:white;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,0.05);
+}
+
+.page-content h1{
+font-size:32px;
+margin-bottom:20px;
+}
+
+.page-content p{
+color:#475569;
+line-height:1.8;
+font-size:16px;
+}
