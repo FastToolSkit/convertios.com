@@ -288,6 +288,20 @@ All tools run locally in your browser for maximum privacy and performance.
 
 <script>
 
+// 🔥 FORCE PAGE TO TOP (smooth behavior)
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+window.onload = function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "instant"
+  });
+};
+
+
+// 🔍 SEARCH FUNCTION
 function searchTools(){
 
 let input = document.getElementById("toolSearch").value.toLowerCase();
@@ -297,12 +311,9 @@ cards.forEach(card => {
 let text = card.innerText.toLowerCase();
 card.style.display = text.includes(input) ? "block" : "none";
 });
-window.onload = function() {
-  window.scrollTo(0, 0);
-};
+
 }
 
 </script>
-
 </body>
 </html>
