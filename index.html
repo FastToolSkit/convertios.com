@@ -51,57 +51,7 @@
 <h1>Free Online Conversion Tools & More</h1>
 
 <p>Convert files instantly — No downloads. No signup.</p>
-<div class="quick-converter">
 
-<div class="converter-card">
-
-<label class="upload-area">
-<input type="file" id="fileInput">
-📁 Select File
-</label>
-
-<div class="format-row">
-
-<select id="fromFormat">
-<option value="">From</option>
-<option value="pdf">PDF</option>
-<option value="jpg">JPG</option>
-<option value="png">PNG</option>
-<option value="mp3">MP3</option>
-<option value="wav">WAV</option>
-</select>
-
-<span style="color:white;">→</span>
-
-<select id="toFormat">
-<option value="">To</option>
-</select>
-
-<button id="convertBtn">Convert</button>
-
-</div>
-
-<div id="statusText" style="margin-top:10px;color:#94a3b8;"></div>
-
-<div id="progressBar" style="
-display:none;
-height:6px;
-background:#0c2547;
-margin-top:10px;
-border-radius:6px;
-">
-<div id="progressFill" style="
-height:100%;
-width:0%;
-background:#3a78ff;
-"></div>
-</div>
-
-<div id="downloadArea"></div>
-
-</div>
-
-</div>
 </div>
 
 <!-- TOOLS GRID -->
@@ -344,80 +294,29 @@ All tools run locally in your browser for maximum privacy and performance.
 
 <script>
 
-let fileInput = document.getElementById("fileInput");
-let preview = document.getElementById("statusText");
-let downloads = document.getElementById("downloadArea");
-let progress = document.getElementById("progressFill");
-
-// SELECT FILE
-fileInput.addEventListener("change", function(){
-let file = fileInput.files[0];
-
-if(file){
-preview.innerText = file.name;
+// 🔥 FORCE PAGE TO TOP (smooth behavior)
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
 }
+
+window.onload = function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "instant"
+  });
+};
+
+
+// 🔍 SEARCH FUNCTION
+function searchTools(){
+
+let input = document.getElementById("toolSearch").value.toLowerCase();
+let cards = document.querySelectorAll(".tool-card");
+
+cards.forEach(card => {
+let text = card.innerText.toLowerCase();
+card.style.display = text.includes(input) ? "block" : "none";
 });
-
-// CONVERT (LOCAL ONLY)
-function convert(){
-
-let files = fileInput.files;
-
-if(!files || files.length === 0){
-alert("Upload image first");
-return;
-}
-
-downloads.innerHTML = "";
-progress.style.width = "20%";
-
-for(let i=0;i<files.length;i++){
-
-let file = files[i];
-let img = new Image();
-let reader = new FileReader();
-
-reader.onload = function(e){
-
-img.src = e.target.result;
-
-img.onload = function(){
-
-let canvas = document.createElement("canvas");
-canvas.width = img.width;
-canvas.height = img.height;
-
-let ctx = canvas.getContext("2d");
-ctx.drawImage(img,0,0);
-
-// 🔥 SAME AS YOUR WORKING TOOL
-let toFormat = document.getElementById("toFormat").value || "jpg";
-
-const mimeMap = {
-jpg: "image/jpeg",
-png: "image/png",
-webp: "image/webp"
-};
-
-let output = canvas.toDataURL(mimeMap[toFormat]);
-
-let link = document.createElement("a");
-link.href = output;
-link.download = "converted_" + (i+1) + "." + toFormat;
-link.innerHTML = "⬇ Download Image " + (i+1);
-link.className = "convert-btn";
-
-downloads.appendChild(link);
-
-progress.style.width = "100%";
-
-};
-
-};
-
-reader.readAsDataURL(file);
-
-}
 
 }
 
