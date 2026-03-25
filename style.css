@@ -29,14 +29,17 @@ HEADER
 display:flex;
 align-items:center;
 background:#020c1b;
-padding:5px 20px;   /* 🔥 reduced */
+padding:0 40px;        /* remove vertical padding */
+height:65px;           /* 🔥 force height */
 border-bottom:1px solid #0c2547;
 gap:30px;
 }
 
 /* LOGO */
 .logo img{
-height:10px;
+height:45px;
+max-height:100%;
+display:block;
 }
 /* NAV */
 .nav-menu{
@@ -63,7 +66,8 @@ position:relative;
 
 .search-box input{
 width:100%;
-padding:12px 14px 12px 40px;
+  height:40px; 
+padding:0 14px 0 40px;
 border-radius:12px;
 border:none;
 background:#0c2547;
