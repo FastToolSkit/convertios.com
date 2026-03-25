@@ -240,8 +240,61 @@ Perfect for presentations, sharing documents, extracting images, and converting 
 </footer>
 
 <script>
-// YOUR ORIGINAL JS (UNCHANGED)
-</script>
+<script>
+
+function generatePassword(){
+
+const length = document.getElementById("length").value;
+
+const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lower = "abcdefghijklmnopqrstuvwxyz";
+const numbers = "0123456789";
+const symbols = "!@#$%^&*()";
+
+let selectedSets = [];
+
+if(document.getElementById("uppercase").checked) selectedSets.push(upper);
+if(document.getElementById("lowercase").checked) selectedSets.push(lower);
+if(document.getElementById("numbers").checked) selectedSets.push(numbers);
+if(document.getElementById("symbols").checked) selectedSets.push(symbols);
+
+if(selectedSets.length === 0){
+alert("Select at least one option");
+return;
+}
+
+let password = "";
+
+/* ensure each type exists */
+selectedSets.forEach(set=>{
+password += set[Math.floor(Math.random()*set.length)];
+});
+
+/* fill rest */
+let allChars = selectedSets.join("");
+
+for(let i=password.length;i<length;i++){
+password += allChars[Math.floor(Math.random()*allChars.length)];
+}
+
+/* shuffle */
+password = password.split('').sort(()=>Math.random()-0.5).join('');
+
+document.getElementById("password").value = password;
+
+}
+
+function copyPassword(){
+
+let val=document.getElementById("password").value;
+if(!val) return;
+
+navigator.clipboard.writeText(val);
+alert("Copied!");
+
+}
+
+</script></script>
 
 </body>
 </html>
