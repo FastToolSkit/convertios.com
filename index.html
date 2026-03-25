@@ -6,14 +6,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convertios - Free Online File Converter (PDF, Image, Audio Tools)</title>
+<title>Convertios - Free Online File Converter</title>
 
-<meta name="description" content="Convert files online for free. Convertios offers PDF, image, audio and file tools with no downloads and no signup required. Fast and secure.">
+<meta name="description" content="Convert files online for free. PDF, Image, Audio tools. No signup. Fast and secure.">
 
-<meta name="keywords" content="convert files online, pdf tools, image converter, mp3 cutter, free online tools, file converter">
-
-<link rel="stylesheet" href="style.css?v=3">
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style.css?v=4">
+<link rel="icon" href="favicon.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -23,7 +21,7 @@
 <header class="site-header">
 
 <a href="index.html" class="logo">
-<img src="convertios-logo.png" alt="Convertios" style="height:220px;">
+<img src="convertios-logo.png" alt="Convertios" style="height:45px;">
 </a>
 
 <nav class="nav-menu">
@@ -34,7 +32,6 @@
 </nav>
 
 <div class="search-box">
-<span class="search-icon">🔍</span>
 <input type="text" id="toolSearch" placeholder="Search tools..." onkeyup="searchTools()">
 </div>
 
@@ -43,29 +40,38 @@
 <!-- HERO -->
 
 <div class="hero">
+
 <h1>Convert Files Online for Free</h1>
 <p>PDF, Image, Audio & Video Tools — Fast, Secure & No Signup</p>
 
-<div style="margin-top:15px; color:#64748b;">
+<div class="hero-badges">
 ✔ Free & Unlimited • ✔ No Signup • ✔ Works in Browser
 </div>
+
 </div>
 
-  <div class="quick-converter">
+<!-- 🔥 REAL CONVERTER BOX -->
 
-<h3>⚡ Quick Convert</h3>
+<div class="converter-hero">
 
-<div class="converter-box">
+<div class="converter-card">
+
+<label class="upload-area">
+<input type="file" id="quickFile">
+<span>📁 Select File</span>
+</label>
+
+<div class="format-row">
 
 <select id="fromFormat">
-<option value="">From</option>
+<option value="">Auto</option>
 <option value="pdf">PDF</option>
 <option value="jpg">JPG</option>
 <option value="png">PNG</option>
 <option value="mp3">MP3</option>
 </select>
 
-<span>→</span>
+<span class="arrow">→</span>
 
 <select id="toFormat">
 <option value="">To</option>
@@ -75,259 +81,60 @@
 <option value="png">PNG</option>
 </select>
 
-<button onclick="goToTool()">Convert</button>
+<button onclick="quickConvert()">Convert</button>
 
 </div>
 
 </div>
+
+</div>
+
 <!-- POPULAR -->
 
-<h2 style="text-align:center;margin-top:30px;">🔥 Popular Tools</h2>
+<h2 class="section-title">🔥 Popular Tools</h2>
 
 <div class="tools-grid">
 
 <a href="pdf-to-word.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">📄</span>
 <h3>PDF to Word</h3>
-</div>
-<p>Convert PDF to Word (DOCX) online free with high accuracy.</p>
+<p>Convert PDF to Word (DOCX) online.</p>
 </a>
 
 <a href="remove-bg.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🪄</span>
 <h3>Remove Background</h3>
-</div>
-<p>Remove image background online instantly with one click.</p>
+<p>Remove image backgrounds instantly.</p>
 </a>
 
 <a href="mp3-cutter.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🎵</span>
 <h3>MP3 Cutter</h3>
-</div>
-<p>Trim MP3 audio files online quickly and easily.</p>
+<p>Trim MP3 audio files easily.</p>
 </a>
 
 </div>
 
 <!-- PDF TOOLS -->
 
-<h2 style="text-align:center;margin-top:40px;">📄 PDF Tools</h2>
+<h2 class="section-title">📄 PDF Tools</h2>
 
 <div class="tools-grid" id="tools">
 
-<a href="pdf-to-word.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">📄</span>
-<h3>PDF to Word</h3>
-</div>
-<p>Convert PDF to Word (DOCX) online instantly.</p>
-</a>
-
-<a href="merge-pdf.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">📑</span>
-<h3>Merge PDF</h3>
-</div>
-<p>Combine multiple PDF files into one document online.</p>
-</a>
-
-<a href="split-pdf.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">✂️</span>
-<h3>Split PDF</h3>
-</div>
-<p>Extract pages from PDF files easily.</p>
-</a>
-
-<a href="rotate-pdf.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🔄</span>
-<h3>Rotate PDF</h3>
-</div>
-<p>Rotate PDF pages online instantly.</p>
-</a>
-
-<a href="jpg-to-pdf.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">📄</span>
-<h3>JPG to PDF</h3>
-</div>
-<p>Convert JPG images into a PDF file.</p>
-</a>
-
-<a href="pdf-to-jpg.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🖼️</span>
-<h3>PDF to JPG</h3>
-</div>
-<p>Convert PDF pages into JPG images.</p>
-</a>
+<a href="merge-pdf.html" class="tool-card"><h3>Merge PDF</h3><p>Combine PDF files.</p></a> <a href="split-pdf.html" class="tool-card"><h3>Split PDF</h3><p>Extract pages.</p></a> <a href="rotate-pdf.html" class="tool-card"><h3>Rotate PDF</h3><p>Rotate pages.</p></a> <a href="jpg-to-pdf.html" class="tool-card"><h3>JPG to PDF</h3><p>Images to PDF.</p></a> <a href="pdf-to-jpg.html" class="tool-card"><h3>PDF to JPG</h3><p>PDF to images.</p></a>
 
 </div>
 
-<!-- IMAGE TOOLS -->
-
-<h2 style="text-align:center;margin-top:40px;">🖼️ Image Tools</h2>
-
-<div class="tools-grid">
-
-<a href="remove-bg.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🪄</span>
-<h3>Remove Background</h3>
-</div>
-<p>Remove image backgrounds instantly.</p>
-</a>
-
-<a href="image-resizer.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">📐</span>
-<h3>Image Resizer</h3>
-</div>
-<p>Resize and crop images online.</p>
-</a>
-
-<a href="image-converter.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🖼️</span>
-<h3>Image Converter</h3>
-</div>
-<p>Convert images between formats.</p>
-</a>
-
-<a href="compress-image.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🗜️</span>
-<h3>Image Compressor</h3>
-</div>
-<p>Reduce image file size instantly.</p>
-</a>
-
-<a href="png-to-jpg.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">📸</span>
-<h3>PNG to JPG</h3>
-</div>
-<p>Convert PNG images to JPG format.</p>
-</a>
-
-<a href="jpg-to-png.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🖼️</span>
-<h3>JPG to PNG</h3>
-</div>
-<p>Convert JPG images to PNG format.</p>
-</a>
-
-</div>
-
-<!-- AUDIO TOOLS -->
-
-<h2 style="text-align:center;margin-top:40px;">🎵 Audio Tools</h2>
-
-<div class="tools-grid">
-
-<a href="mp3-cutter.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🎵</span>
-<h3>MP3 Cutter</h3>
-</div>
-<p>Trim MP3 files easily online.</p>
-</a>
-
-<a href="audio-converter.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🎵</span>
-<h3>Audio Converter</h3>
-</div>
-<p>Convert audio between formats.</p>
-</a>
-
-<a href="audio-speed-changer.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🎧</span>
-<h3>Audio Speed Changer</h3>
-</div>
-<p>Change audio speed instantly.</p>
-</a>
-
-</div>
-
-<!-- UTILITIES -->
-
-<h2 style="text-align:center;margin-top:40px;">🧰 Utilities</h2>
-
-<div class="tools-grid">
-
-<a href="qr-generator.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🔳</span>
-<h3>QR Code Generator</h3>
-</div>
-<p>Create QR codes online instantly.</p>
-</a>
-
-<a href="password-generator.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🔐</span>
-<h3>Password Generator</h3>
-</div>
-<p>Generate secure passwords.</p>
-</a>
-
-<a href="word-counter.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🔤</span>
-<h3>Word Counter</h3>
-</div>
-<p>Count words and characters instantly.</p>
-</a>
-
-<a href="text-formatter.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">✏️</span>
-<h3>Text Formatter</h3>
-</div>
-<p>Format text easily online.</p>
-</a>
-
-<a href="unit-converter.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">📏</span>
-<h3>Unit Converter</h3>
-</div>
-<p>Convert units quickly.</p>
-</a>
-
-<a href="link-shortener.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">🔗</span>
-<h3>Link Shortener</h3>
-</div>
-<p>Shorten long URLs easily.</p>
-</a>
-
-<a href="meme-generator.html" class="tool-card">
-<div class="tool-title">
-<span class="tool-icon">😂</span>
-<h3>Meme Generator</h3>
-</div>
-<p>Create memes online instantly.</p>
-</a>
-
-</div>
-
-<!-- SEO TEXT -->
+<!-- SEO -->
 
 <div class="site-description">
 
-<h2>All-in-One Free Online Tools</h2>
+<h2>All-in-One File Converter</h2>
 
 <p>
-Convertios provides a complete collection of free online tools for converting files, editing images, processing audio, and managing documents. All tools run directly in your browser with no downloads or signup required.
+Convertios provides powerful free online tools for PDF, image and audio conversion. 
+All tools work directly in your browser with no downloads or signup required.
+</p>
+
+<p>
+Convert files quickly, securely and easily with our growing collection of tools.
 </p>
 
 </div>
@@ -345,25 +152,21 @@ Convertios provides a complete collection of free online tools for converting fi
 </footer>
 
 <script>
+
 function searchTools(){
 let input = document.getElementById("toolSearch").value.toLowerCase();
 let cards = document.querySelectorAll(".tool-card");
-  
 
 cards.forEach(card => {
 let text = card.innerText.toLowerCase();
 card.style.display = text.includes(input) ? "" : "none";
 });
 }
-  function goToTool(){
+
+function quickConvert(){
 
 const from = document.getElementById("fromFormat").value;
 const to = document.getElementById("toFormat").value;
-
-if(!from || !to){
-alert("Select formats");
-return;
-}
 
 const routes = {
 "pdf-word": "pdf-to-word.html",
@@ -378,10 +181,11 @@ const key = `${from}-${to}`;
 if(routes[key]){
 window.location.href = routes[key];
 }else{
-alert("This conversion is not available yet.");
+alert("Conversion not available yet");
 }
 
 }
+
 </script>
 
 </body>
