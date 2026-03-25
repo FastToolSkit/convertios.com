@@ -238,61 +238,90 @@ Perfect for presentations, sharing documents, extracting images, and converting 
 </p>
 
 </footer>
-
 <script>
+const dropArea = document.getElementById("drop-area");
+const fileInput = document.getElementById("file-input");
+const preview = document.getElementById("preview");
 
-function generatePassword(){
+/* CLICK TO OPEN FILE */
+dropArea.addEventListener("click", () => fileInput.click());
 
-const length = document.getElementById("length").value;
+/* HANDLE FILE SELECT */
+fileInput.addEventListener("change", handleFile);
 
-const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const lower = "abcdefghijklmnopqrstuvwxyz";
-const numbers = "0123456789";
-const symbols = "!@#$%^&*()";
-
-let selectedSets = [];
-
-if(document.getElementById("uppercase").checked) selectedSets.push(upper);
-if(document.getElementById("lowercase").checked) selectedSets.push(lower);
-if(document.getElementById("numbers").checked) selectedSets.push(numbers);
-if(document.getElementById("symbols").checked) selectedSets.push(symbols);
-
-if(selectedSets.length === 0){
-alert("Select at least one option");
-return;
-}
-
-let password = "";
-
-/* ensure each type exists */
-selectedSets.forEach(set=>{
-password += set[Math.floor(Math.random()*set.length)];
+/* DRAG & DROP */
+dropArea.addEventListener("dragover", (e) => {
+  e.preventDefault();
+  dropArea.style.background = "#12305a";
 });
 
-/* fill rest */
-let allChars = selectedSets.join("");
+dropArea.addEventListener("dragleave", () => {
+  dropArea.style.background = "#0c2547";
+});
 
-for(let i=password.length;i<length;i++){
-password += allChars[Math.floor(Math.random()*allChars.length)];
+dropArea.addEventListener("drop", (e) => {
+  e.preventDefault();
+  dropArea.style.background = "#0c2547";
+  fileInput.files = e.dataTransfer.files;
+  handleFile();
+});
+
+/* MAIN FUNCTION */
+async function handleFile() {
+  const file = fileInput.files[0];
+  if (!file || file.type !== "application/pdf") {
+    alert("Please upload a valid PDF file");
+    return;
+  }
+
+  preview.innerHTML = "Processing...";
+
+  const fileReader = new FileReader();
+
+  fileReader.onload = async function () {
+    const typedarray = new Uint8Array(this.result);
+
+    const pdf = await pdfjsLib.getDocument(typedarray).promise;
+
+    preview.innerHTML = "";
+
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const page = await pdf.getPage(i);
+
+      const viewport = page.getViewport({ scale: 1.5 });
+
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d");
+
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+
+      await page.render({
+        canvasContext: context,
+        viewport: viewport
+      }).promise;
+
+      const imgData = canvas.toDataURL("image/jpeg");
+
+      const item = document.createElement("div");
+      item.className = "preview-item";
+
+      const link = document.createElement("a");
+      link.href = imgData;
+      link.download = `page-${i}.jpg`;
+      link.innerText = "Download";
+
+      link.className = "download-btn";
+
+      item.appendChild(canvas);
+      item.appendChild(link);
+
+      preview.appendChild(item);
+    }
+  };
+
+  fileReader.readAsArrayBuffer(file);
 }
-
-/* shuffle */
-password = password.split('').sort(()=>Math.random()-0.5).join('');
-
-document.getElementById("password").value = password;
-
-}
-
-function copyPassword(){
-
-let val=document.getElementById("password").value;
-if(!val) return;
-
-navigator.clipboard.writeText(val);
-alert("Copied!");
-
-}
-
 </script>
 
 </body>
