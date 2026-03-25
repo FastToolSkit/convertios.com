@@ -198,11 +198,10 @@ color:white;
 </div>
 
 <!-- CONVERTER -->
-
 <div class="converter">
 
 <label class="upload-btn">
-<input type="file">
+<input type="file" id="fileInput">
 📁 Select File
 </label>
 
@@ -211,7 +210,6 @@ color:white;
 <select id="fromFormat" onchange="updateToOptions()">
 <option value="">From</option>
 <option value="pdf">PDF</option>
-<option value="word">Word</option>
 <option value="jpg">JPG</option>
 <option value="png">PNG</option>
 <option value="mp3">MP3</option>
@@ -226,10 +224,12 @@ color:white;
 
 </div>
 
-<button class="convert-btn">Convert</button>
+<button class="convert-btn" onclick="convertFile()">Convert</button>
+
+<div id="statusText" style="margin-top:10px;"></div>
+<div id="downloadArea"></div>
 
 </div>
-
 <!-- TOOLS -->
 
 <h2 class="section-title">🔥 Popular Tools</h2>
@@ -302,6 +302,96 @@ option.value = format;
 option.textContent = format.toUpperCase();
 toSelect.appendChild(option);
 });
+
+}
+
+async function convertFile(){
+
+const file = document.getElementById("fileInput").files[0];
+
+if(!file){
+alert("Select a file first");
+return;
+}
+
+document.getElementById("statusText").innerText = "Uploading...";
+document.getElementById("downloadArea").innerHTML = "";
+
+const apiKey = "YOUR_API_KEY_HERE"; // 🔥 PUT YOUR KEY
+
+try{
+
+const job = await fetch("https://api.cloudconvert.com/v2/jobs", {
+method: "POST",
+headers: {
+"Authorization": "Bearer " + apiKey,
+"Content-Type": "application/json"
+},
+body: JSON.stringify({
+tasks: {
+"upload-file": { operation: "import/upload" },
+"convert-file": {
+operation: "convert",
+input: "upload-file",
+output_format: document.getElementById("toFormat").value || "pdf"
+},
+"export-file": {
+operation: "export/url",
+input: "convert-file"
+}
+}
+})
+});
+
+const jobData = await job.json();
+
+const uploadTask = jobData.data.tasks.find(t => t.name === "upload-file");
+
+const formData = new FormData();
+Object.entries(uploadTask.result.form.parameters).forEach(([key,value])=>{
+formData.append(key,value);
+});
+formData.append("file", file);
+
+await fetch(uploadTask.result.form.url, {
+method: "POST",
+body: formData
+});
+
+document.getElementById("statusText").innerText = "Processing...";
+
+let resultUrl = null;
+
+while(!resultUrl){
+
+await new Promise(r => setTimeout(r,2000));
+
+const statusRes = await fetch(`https://api.cloudconvert.com/v2/jobs/${jobData.data.id}`, {
+headers: { "Authorization": "Bearer " + apiKey }
+});
+
+const statusData = await statusRes.json();
+
+const exportTask = statusData.data.tasks.find(t => t.name === "export-file");
+
+if(exportTask && exportTask.status === "finished"){
+resultUrl = exportTask.result.files[0].url;
+}
+
+}
+
+document.getElementById("statusText").innerText = "Done!";
+
+document.getElementById("downloadArea").innerHTML = `
+<a href="${resultUrl}" target="_blank" class="convert-btn">
+Download File
+</a>
+`;
+
+}catch(err){
+console.error(err);
+document.getElementById("statusText").innerText = "Error converting file.";
+}
 
 }
 
