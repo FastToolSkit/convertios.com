@@ -97,20 +97,25 @@ padding:0 20px;
 }
 
 .tool-card{
-display:block;
-background:white;
-padding:25px;
-border-radius:12px;
-text-align:center;
-box-shadow:0 6px 18px rgba(0,0,0,0.08);
-transition:0.25s;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+height:100%;
+min-height:160px; /* adjust if needed */
 }
 
 .tool-card:hover{
 transform:translateY(-5px);
 box-shadow:0 12px 25px rgba(0,0,0,0.15);
 }
+.tool-title{
+margin-bottom:10px;
+}
 
+/* MAKE TEXT TAKE SPACE EVENLY */
+.tool-card p{
+flex-grow:1;
+}
 /* ===============================
 TOOL PAGE CONTAINER
 ================================*/
