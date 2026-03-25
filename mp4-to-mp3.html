@@ -12,8 +12,7 @@
 <link rel="icon" href="favicon.png">
 
 <!-- FFmpeg -->
-<script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.6/dist/ffmpeg.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.11.6/dist/ffmpeg.min.js"></script>
 </head>
 
 <body>
@@ -96,7 +95,7 @@ Upload your MP4 file, click convert, and download the extracted audio instantly.
 <script>
 
 const { createFFmpeg, fetchFile } = FFmpeg;
-const ffmpeg = createFFmpeg({ log: true });
+  const ffmpeg = createFFmpeg({ log: true });
 
 const fileInput = document.getElementById("videoFile");
 const preview = document.getElementById("preview");
