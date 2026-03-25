@@ -238,8 +238,101 @@ This tool converts multiple JPG images into one PDF document while maintaining i
 </footer>
 
 <script>
-// YOUR ORIGINAL JS (UNCHANGED)
-</script>
 
+const dropArea = document.getElementById("drop-area");
+const fileInput = document.getElementById("file-input");
+const preview = document.getElementById("preview");
+
+let images = [];
+
+dropArea.onclick = () => fileInput.click();
+
+dropArea.addEventListener("dragover", e=>e.preventDefault());
+
+dropArea.addEventListener("drop", e=>{
+e.preventDefault();
+handleFiles(e.dataTransfer.files);
+});
+
+fileInput.addEventListener("change", ()=>handleFiles(fileInput.files));
+
+function handleFiles(files){
+
+for(let file of files){
+
+if(file.type !== "image/jpeg") continue;
+
+const reader = new FileReader();
+
+reader.onload = function(e){
+
+images.push(e.target.result);
+
+const div = document.createElement("div");
+div.className = "preview-item";
+
+div.innerHTML = `
+<img src="${e.target.result}">
+<br>
+<input type="checkbox" checked>
+`;
+
+preview.appendChild(div);
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+}
+
+async function createPDF(){
+
+if(images.length === 0){
+alert("Upload images first");
+return;
+}
+
+const { PDFDocument } = PDFLib;
+const pdfDoc = await PDFDocument.create();
+
+const items = document.querySelectorAll(".preview-item");
+
+for(let i=0;i<items.length;i++){
+
+const checked = items[i].querySelector("input").checked;
+if(!checked) continue;
+
+const imgSrc = items[i].querySelector("img").src;
+
+const imgBytes = await fetch(imgSrc).then(res=>res.arrayBuffer());
+const jpg = await pdfDoc.embedJpg(imgBytes);
+
+const page = pdfDoc.addPage([jpg.width, jpg.height]);
+
+page.drawImage(jpg,{
+x:0,
+y:0,
+width:jpg.width,
+height:jpg.height
+});
+
+}
+
+const pdfBytes = await pdfDoc.save();
+
+const blob = new Blob([pdfBytes],{type:"application/pdf"});
+
+const link = document.getElementById("downloadLink");
+
+link.href = URL.createObjectURL(blob);
+link.download = "images.pdf";
+link.innerText = "Download PDF";
+link.className = "main-button";
+
+}
+
+</script>
 </body>
 </html>
