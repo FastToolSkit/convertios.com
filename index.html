@@ -1,365 +1,325 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convertios - Free Online Conversion Tools</title>
+<title>Convertios - Free Online Conversion Tools (Image, Audio, PDF)</title>
 
-<meta name="description" content="Convert files online for free. Image, PDF, Audio tools and more. Fast, secure, no signup.">
+<meta name="description" content="Convertios provides free online tools including image converter, audio converter, PDF tools, compressors and more. Fast, secure, and no downloads required.">
 
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="favicon.png">
+<meta name="keywords" content="free online tools, image converter, audio converter, pdf tools, compress image, mp3 cutter, convert files online">
+
+<meta name="robots" content="index, follow">
+
+<link rel="stylesheet" href="style.css?v=2">
+<link rel="icon" type="image/png" href="favicon.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-/* ===== GLOBAL ===== */
-body{
-font-family:'Poppins', sans-serif;
-margin:0;
-background:#f5f7fb;
-color:#0f172a;
-}
-
-/* ===== HEADER ===== */
-.site-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-background:#020c1b;
-}
-
-.logo img{
-height:50px;
-}
-
-.nav-menu a{
-color:white;
-margin:0 10px;
-text-decoration:none;
-}
-
-/* ===== HERO ===== */
-.hero{
-text-align:center;
-padding:60px 20px 20px;
-}
-
-.hero h1{
-font-size:42px;
-color:#2563eb;
-margin-bottom:10px;
-}
-
-.hero p{
-color:#64748b;
-}
-
-/* ===== CONVERTER ===== */
-.converter{
-background:#071a33;
-padding:25px;
-border-radius:18px;
-max-width:420px;
-margin:30px auto;
-text-align:center;
-color:white;
-}
-
-.upload-btn{
-background:#0c2547;
-padding:12px 18px;
-border-radius:10px;
-cursor:pointer;
-display:inline-block;
-margin-bottom:15px;
-}
-
-.upload-btn input{
-display:none;
-}
-
-.format-row{
-display:flex;
-justify-content:center;
-gap:10px;
-margin:15px 0;
-}
-
-select{
-padding:8px;
-border-radius:8px;
-border:none;
-}
-
-.convert-btn{
-padding:10px 20px;
-background:#3a78ff;
-border:none;
-border-radius:8px;
-color:white;
-cursor:pointer;
-}
-
-#statusText{
-margin-top:10px;
-font-size:14px;
-color:#94a3b8;
-}
-
-/* ===== GRID ===== */
-.tools-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-padding:30px 40px;
-}
-
-.tool-card{
-background:white;
-padding:20px;
-border-radius:16px;
-text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-transition:.3s;
-}
-
-.tool-card:hover{
-transform:translateY(-5px);
-}
-
-.tool-icon{
-font-size:28px;
-}
-
-/* ===== FOOTER ===== */
-.site-footer{
-text-align:center;
-padding:20px;
-background:#020c1b;
-color:white;
-}
-
-</style>
 
 </head>
 
 <body>
 
 <header class="site-header">
+
 <a href="index.html" class="logo">
-<img src="convertios-logo.png">
+<img src="convertios-logo.png" alt="Convertios"style="height:220px;">
 </a>
 
 <nav class="nav-menu">
-<a href="#">Home</a>
+<a href="index.html">Home</a>
 <a href="#tools">Tools</a>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 </nav>
+
+<div class="search-box">
+<span class="search-icon">🔍</span>
+<input type="text" id="toolSearch" placeholder="Search tools..." onkeyup="searchTools()">
+</div>
+
 </header>
 
 <!-- HERO -->
+
 <div class="hero">
-<h1>Convert Files Online for Free</h1>
-<p>PDF, Image, Audio & More — Fast & Secure</p>
-</div>
 
-<!-- CONVERTER -->
-<div class="converter">
+<h1>Free Online Conversion Tools & More</h1>
 
-<label class="upload-btn">
-<input type="file" id="fileInput">
-📁 Select File
-</label>
-
-<div class="format-row">
-<select id="fromFormat" onchange="updateToOptions()">
-<option value="">From</option>
-<option value="pdf">PDF</option>
-<option value="jpg">JPG</option>
-<option value="png">PNG</option>
-<option value="mp3">MP3</option>
-<option value="wav">WAV</option>
-</select>
-
-<span>→</span>
-
-<select id="toFormat">
-<option value="">To</option>
-</select>
-</div>
-
-<button class="convert-btn" onclick="convertFile()">Convert</button>
-
-<div id="statusText"></div>
-<div id="downloadArea"></div>
+<p>Convert files instantly — No downloads. No signup.</p>
 
 </div>
 
-<!-- TOOLS -->
-<h2 style="text-align:center;">🔥 All Tools</h2>
+<!-- TOOLS GRID -->
 
 <div class="tools-grid" id="tools">
 
-<!-- KEEP ALL YOUR TOOLS -->
-<a href="pdf-to-word.html" class="tool-card"><div class="tool-icon">📄</div><h3>PDF to Word</h3></a>
-<a href="remove-bg.html" class="tool-card"><div class="tool-icon">🪄</div><h3>Remove BG</h3></a>
-<a href="pdf-to-jpg.html" class="tool-card"><div class="tool-icon">🖼️</div><h3>PDF to JPG</h3></a>
-<a href="jpg-to-pdf.html" class="tool-card"><div class="tool-icon">📄</div><h3>JPG to PDF</h3></a>
-<a href="merge-pdf.html" class="tool-card"><div class="tool-icon">📑</div><h3>Merge PDF</h3></a>
-<a href="split-pdf.html" class="tool-card"><div class="tool-icon">✂️</div><h3>Split PDF</h3></a>
-<a href="rotate-pdf.html" class="tool-card"><div class="tool-icon">🔄</div><h3>Rotate PDF</h3></a>
-<a href="image-resizer.html" class="tool-card"><div class="tool-icon">📐</div><h3>Image Resizer</h3></a>
-<a href="image-converter.html" class="tool-card"><div class="tool-icon">🖼️</div><h3>Image Converter</h3></a>
-<a href="compress-image.html" class="tool-card"><div class="tool-icon">🗜️</div><h3>Image Compressor</h3></a>
-<a href="png-to-jpg.html" class="tool-card"><div class="tool-icon">📸</div><h3>PNG to JPG</h3></a>
-<a href="jpg-to-png.html" class="tool-card"><div class="tool-icon">🖼️</div><h3>JPG to PNG</h3></a>
-<a href="webp-to-png.html" class="tool-card"><div class="tool-icon">🔄</div><h3>WEBP to PNG</h3></a>
-<a href="qr-generator.html" class="tool-card"><div class="tool-icon">🔳</div><h3>QR Generator</h3></a>
-<a href="password-generator.html" class="tool-card"><div class="tool-icon">🔐</div><h3>Password Generator</h3></a>
-<a href="word-counter.html" class="tool-card"><div class="tool-icon">🔤</div><h3>Word Counter</h3></a>
-<a href="text-formatter.html" class="tool-card"><div class="tool-icon">✏️</div><h3>Text Formatter</h3></a>
-<a href="unit-converter.html" class="tool-card"><div class="tool-icon">📏</div><h3>Unit Converter</h3></a>
-<a href="link-shortener.html" class="tool-card"><div class="tool-icon">🔗</div><h3>Link Shortener</h3></a>
-<a href="mp3-cutter.html" class="tool-card"><div class="tool-icon">🎵</div><h3>MP3 Cutter</h3></a>
-<a href="audio-converter.html" class="tool-card"><div class="tool-icon">🎧</div><h3>Audio Converter</h3></a>
-<a href="audio-speed-changer.html" class="tool-card"><div class="tool-icon">🎚️</div><h3>Speed Changer</h3></a>
-<a href="meme-generator.html" class="tool-card"><div class="tool-icon">😂</div><h3>Meme Generator</h3></a>
+<a href="pdf-to-word.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">📄</span>
+<h3>PDF to Word</h3>
+</div>
+<p>Convert PDF files to Word documents instantly.</p>
+</a>
+<a href="remove-bg.html" class="tool-card">
+  <div class="tool-title">
+    <span class="tool-icon">🪄</span>
+    <h3>Remove Background</h3>
+  </div>
+  <p>Remove image backgrounds instantly with one click.</p>
+</a>
+<a href="pdf-to-jpg.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">🖼️</span>
+<h3>PDF to JPG</h3>
+</div>
+<p>Convert PDF pages into JPG images.</p>
+</a>
+
+<a href="jpg-to-pdf.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">📄</span>
+<h3>JPG to PDF</h3>
+</div>
+<p>Convert JPG images into a single PDF file.</p>
+</a>
+
+<a href="merge-pdf.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">📑</span>
+<h3>Merge PDF</h3>
+</div>
+<p>Combine multiple PDF files into one document.</p>
+</a>
+<a href="mp4-to-mp3.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">🎬</span>
+<h3>MP4 to MP3</h3>
+</div>
+<p>Extract audio from MP4 videos and download as MP3.</p>
+</a>
+<a href="split-pdf.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">✂️</span>
+<h3>Split PDF</h3>
+</div>
+<p>Extract specific pages from a PDF document.</p>
+</a>
+
+<a href="rotate-pdf.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">🔄</span>
+<h3>Rotate PDF</h3>
+</div>
+<p>Rotate PDF pages instantly.</p>
+</a>
+
+<a href="image-resizer.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">📐</span>
+<h3>Image Resizer</h3>
+</div>
+<p>Resize and crop images easily.</p>
+</a>
+
+<a href="image-converter.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">🖼️</span>
+<h3>Image Converter</h3>
+</div>
+<p>Convert images between formats.</p>
+</a>
+
+<a href="compress-image.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">🗜️</span>
+<h3>Image Compressor</h3>
+</div>
+<p>Reduce JPG, PNG and WEBP image file size instantly.</p>
+</a>
+
+<a href="png-to-jpg.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">📸</span>
+<h3>PNG to JPG Converter</h3>
+</div>
+<p>Convert PNG images to JPG.</p>
+</a>
+
+<a href="jpg-to-png.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">🖼️</span>
+<h3>JPG to PNG Converter</h3>
+</div>
+<p>Convert JPG images to PNG.</p>
+</a>
+
+<a href="webp-to-png.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">🔄</span>
+<h3>WEBP to PNG</h3>
+</div>
+<p>Convert WEBP images to PNG format.</p>
+</a>
+
+<a href="qr-generator.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">🔳</span>
+<h3>QR Code Generator</h3>
+</div>
+<p>Create QR codes instantly.</p>
+</a>
+
+<a href="password-generator.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">🔐</span>
+<h3>Password Generator</h3>
+</div>
+<p>Generate strong passwords.</p>
+</a>
+
+<a href="word-counter.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">🔤</span>
+<h3>Word Counter</h3>
+</div>
+<p>Count words and characters.</p>
+</a>
+
+<a href="text-formatter.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">✏️</span>
+<h3>Text Formatter</h3>
+</div>
+<p>Uppercase, lowercase and more.</p>
+</a>
+
+<a href="unit-converter.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">📏</span>
+<h3>Unit Converter</h3>
+</div>
+<p>Convert units instantly.</p>
+</a>
+
+<a href="link-shortener.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">🔗</span>
+<h3>Link Shortener</h3>
+</div>
+<p>Shorten long URLs easily.</p>
+</a>
+
+<a href="mp3-cutter.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">🎵</span>
+<h3>MP3 Cutter</h3>
+</div>
+<p>Trim MP3 audio files instantly.</p>
+</a>
+
+<a href="audio-converter.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">🎵</span>
+<h3>Audio Converter</h3>
+</div>
+<p>Convert audio files between formats.</p>
+</a>
+
+<a href="audio-speed-changer.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">🎧</span>
+<h3>Audio Speed Changer</h3>
+</div>
+<p>Speed up or slow down audio files.</p>
+</a>
+
+<a href="meme-generator.html" class="tool-card">
+<div class="tool-title">
+<span class="tool-icon">😂</span>
+<h3>Meme Generator</h3>
+</div>
+<p>Create funny memes by adding text to images.</p>
+</a>
+
+</div>
+
+
+<!-- SEO SECTION -->
+
+<div class="site-description">
+
+<p>
+Convertios is a powerful collection of free online tools designed for file conversion and digital tasks. 
+You can convert images, edit audio, compress files, and manage documents directly in your browser.
+</p>
+
+</div>
+
+<!-- SEO BOOST -->
+
+<div class="tool-descriptions">
+
+<h2>Why Use Convertios?</h2>
+
+<p>
+Convertios provides fast, secure, and easy-to-use tools without downloads or signups. 
+All tools run locally in your browser for maximum privacy and performance.
+</p>
+
+<ul>
+<li>Free and unlimited tools</li>
+<li>No software installation</li>
+<li>Fast processing</li>
+<li>Supports multiple file formats</li>
+</ul>
 
 </div>
 
 <footer class="site-footer">
-© 2026 Convertios
+
+<p>
+© 2026 Convertios • Free Online Tools
+<br>
+<a href="privacy.html">Privacy</a> •
+<a href="terms.html">Terms</a> •
+<a href="contact.html">Contact</a>
+</p>
+
 </footer>
 
 <script>
 
-// ✅ FORMAT LOGIC (FIXED)
-const formatMap = {
-pdf: ["docx","jpg"],
-docx: ["pdf"],
-jpg: ["png","webp"],
-png: ["jpg","webp"],
-mp3: ["wav"],
-wav: ["mp3"]
+// 🔥 FORCE PAGE TO TOP (smooth behavior)
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+window.onload = function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "instant"
+  });
 };
 
-function updateToOptions(){
-const from = document.getElementById("fromFormat").value;
-const to = document.getElementById("toFormat");
 
-to.innerHTML = '<option value="">To</option>';
+// 🔍 SEARCH FUNCTION
+function searchTools(){
 
-if(!formatMap[from]) return;
+let input = document.getElementById("toolSearch").value.toLowerCase();
+let cards = document.querySelectorAll(".tool-card");
 
-formatMap[from].forEach(f=>{
-const opt = document.createElement("option");
-opt.value = f;
-opt.textContent = f.toUpperCase();
-to.appendChild(opt);
+cards.forEach(card => {
+let text = card.innerText.toLowerCase();
+card.style.display = text.includes(input) ? "block" : "none";
 });
-}
-
-// ✅ CONVERTER (FIXED)
-async function convertFile(){
-
-const file = document.getElementById("fileInput").files[0];
-const toFormat = document.getElementById("toFormat").value;
-
-if(!file){
-alert("Select file");
-return;
-}
-
-if(!toFormat){
-alert("Select output format");
-return;
-}
-
-document.getElementById("statusText").innerText = "Uploading...";
-
-const apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTczYWIxNDhmMDUzMmUyYmI4Yzg0N2IxODE3MTczMjUxN2YzYzRkNmI0OTRiNGFkZTg3NjM3NmEzZDE0NjZkYjZiMWNlMjk2ODIwYzg3YzMiLCJpYXQiOjE3NzQ0MTkzNzkuNDU4MjY0LCJuYmYiOjE3NzQ0MTkzNzkuNDU4MjY1LCJleHAiOjQ5MzAwOTI5NzkuNDUyNjM2LCJzdWIiOiI3NDYzODE2MSIsInNjb3BlcyI6WyJ0YXNrLnJlYWQiLCJ0YXNrLndyaXRlIl19.rAA6MNrIEd7T2hSZi8Cy4uUO00JiENXwE-0Acss0uwGJaicbcVfLkHH5NDI5NfVPcTEiKsblHsSzz067q_lwD5utri48y2NvyeuoKowXATIAPyCSt3tQKqJo0MgSa9dmTkNGrMvkWGAkl-DdKLikbefeoaEha_U43J7_CwnhBiY3YvGZwHD4XGRMRc2-Vl_qeZFnvrVrfFE3vHdM38rqwS-BwUrGOHER2GofmpfEJaOqnoDLlX8YWRV03_RzYTj5mKGsRvupGYegnXdCiu_ZQV-QQDeTqBP3DRs3coZYOYTkGdOmjQ-Wffk6QL8Ub3JVKibfX4JIUpHkB81bxKdoFIsaOhaPU9mPeWc1jhdlm6_4UgTlhaWyuIHQhXohKZEP1vT2UCHWFUm3nKbG4fiLys3W48qvbL-yBhZp84pkxy69ZBnRkoY9vrIVbkWvKeaqXcBaqqdNcVg3d57RmI1jvnwqd3zx9I7jTE4uk-q_jmaJi7K6Ei25IlXubaSuXVS41jjiUKK4FtTYPhfOuBSKUShwfY3tsdivQrVYg7eTF7bTjAyflKALoTUmoSeohRxvHY6zqlTWkb102s2qyDqVUlXuyqKIGvnY7ZkZp2H-Oem0XrqDvANLxE8pVDOdTgcGqfmbQh-DFcfGuZL_kBwFoe0R8vUdqMdv9EvkEuQTnTk";
-
-try{
-
-const job = await fetch("https://api.cloudconvert.com/v2/jobs",{
-method:"POST",
-headers:{
-"Authorization":"Bearer "+apiKey,
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-tasks:{
-"upload-file":{operation:"import/upload"},
-"convert-file":{
-operation:"convert",
-input:"upload-file",
-output_format:toFormat
-},
-"export-file":{
-operation:"export/url",
-input:"convert-file"
-}
-}
-})
-});
-
-const data = await job.json();
-
-const uploadTask = data.data.tasks.find(t=>t.name==="upload-file");
-
-const formData = new FormData();
-
-Object.entries(uploadTask.result.form.parameters).forEach(([k,v])=>{
-formData.append(k,v);
-});
-
-formData.append("file",file);
-
-await fetch(uploadTask.result.form.url,{
-method:"POST",
-body:formData
-});
-
-document.getElementById("statusText").innerText = "Processing...";
-
-let url = null;
-
-while(!url){
-await new Promise(r=>setTimeout(r,2000));
-
-const check = await fetch(`https://api.cloudconvert.com/v2/jobs/${data.data.id}`,{
-headers:{"Authorization":"Bearer "+apiKey}
-});
-
-const result = await check.json();
-
-const exportTask = result.data.tasks.find(t=>t.name==="export-file");
-
-if(exportTask && exportTask.status==="finished"){
-url = exportTask.result.files[0].url;
-}
-}
-
-document.getElementById("statusText").innerText = "Done";
-
-document.getElementById("downloadArea").innerHTML = `
-<a href="${url}" target="_blank" class="convert-btn">Download</a>
-`;
-
-}catch(e){
-console.error(e);
-document.getElementById("statusText").innerText = "Error converting file";
-}
 
 }
 
 </script>
-
 </body>
 </html>
