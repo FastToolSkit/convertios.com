@@ -259,65 +259,133 @@ const status = document.getElementById("status");
 const progressBar = document.getElementById("progress-bar");
 const downloads = document.getElementById("downloads");
 
-// CLICK TO UPLOAD
+// 👉 PUT YOUR API KEY HERE
+const API_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODM3NzhlMGZlNWI5ZmQ5ZjI0MTc3ODQyZDRjMGVjMTUxZjI2OTFkMWYyNTIwNjI1NzhmZTA4YTg2MGU1YTFkNDhkY2Q0NGFhZDkxYWYzNDUiLCJpYXQiOjE3NzQ0NzkwMTIuNjQ3MTM3LCJuYmYiOjE3NzQ0NzkwMTIuNjQ3MTM4LCJleHAiOjQ5MzAxNTI2MTIuNjM5MzMzLCJzdWIiOiI3NDYzODE2MSIsInNjb3BlcyI6WyJ0YXNrLnJlYWQiLCJ0YXNrLndyaXRlIl19.Uy6_AY5BZzdgNLSJDr1Nm-qrZhEgdSptO6lgphIYpGw9ntrSs4NmM1WW-YOMhZIf-gmF92i-6BhBgg6ZBcGKGII3BRy078Tx3PUDWearv5byyuHGngAJ_KHUFWZ9V0-hmz3yazZKfHFkKGJ1_t3fyEWPOzZng1PgW5tiycKSlC_WCuZdZqGiAqfMFyJOIv7oqmZN1xub51BkvkwSfclmLWrQhmFoE9pUvBCPKESxenRBCAKP5tUfk66Tm0Xybl1gWDILvEwD1uyEqNflgqcQNCL0SmuvLCNgYqn3OzapH5gtDliR6c28aOrDKwnVmAiMX5JZ0r5fW_perYMnY8CpPy8kBfMcPFIrShsRTw4UpP2V1lf3tInvyJ9f4FD3fDEe_kdxD86c9zsbzz28Ju5Zk5Fq6Z8Oxx6fJupHbPXOtVFeDWj7hsImwZ-bo7lUe9_0rQB_0uK_1JYSzu2XNe7pgfEnKxaa5q_nX3DRjX44R1UwpY-6x2yoC4SYOPBbmEBvISJckn0jSFGHgKu1H833d_beW0yX-MMt1pgnawghf3B_EIRhG_FQSSKONIfBWnCJ8yYy6urERZhWBuV_Fp-rYbDbgGkerzD_YAs_CJ3t_7hvAP0k5Bn7BaADDooA6XEYdGmvcThPiemUE3iR-w1KAraIpNzvr6YPtwZs7QC11z4";
+
+// CLICK
 dropArea.onclick = () => fileInput.click();
 
-// DRAG OVER
+// DRAG
 dropArea.addEventListener("dragover", e => e.preventDefault());
 
-// DROP FILE
 dropArea.addEventListener("drop", e => {
 e.preventDefault();
 fileInput.files = e.dataTransfer.files;
 handleFile();
 });
 
-// FILE SELECT
+// SELECT
 fileInput.addEventListener("change", handleFile);
 
 function handleFile(){
 file = fileInput.files[0];
 
-if(!file) return;
-
+if(file){
 preview.innerHTML = `
 📄 ${file.name}<br>
 Size: ${(file.size/1024/1024).toFixed(2)} MB
 `;
 }
+}
 
-// MAIN BUTTON
-function convert(){
+// MAIN CONVERT
+async function convert(){
 
 if(!file){
 alert("Upload PDF first");
 return;
 }
 
-// RESET UI
-progressBar.style.width = "20%";
-status.innerText = "Uploading...";
+status.innerText = "Starting...";
+progressBar.style.width = "10%";
 downloads.innerHTML = "";
 
-// SIMULATED PROGRESS (until you add API)
-setTimeout(()=>{
-progressBar.style.width = "50%";
-status.innerText = "Processing...";
-}, 1000);
+try{
 
-setTimeout(()=>{
+// 1️⃣ CREATE JOB
+const jobResponse = await fetch("https://api.cloudconvert.com/v2/jobs", {
+method: "POST",
+headers: {
+"Authorization": "Bearer " + API_KEY,
+"Content-Type": "application/json"
+},
+body: JSON.stringify({
+tasks: {
+upload: {
+operation: "import/upload"
+},
+convert: {
+operation: "convert",
+input: "upload",
+input_format: "pdf",
+output_format: "docx"
+},
+export: {
+operation: "export/url",
+input: "convert"
+}
+}
+})
+});
+
+const jobData = await jobResponse.json();
+
+progressBar.style.width = "30%";
+
+// 2️⃣ UPLOAD FILE
+const uploadTask = jobData.data.tasks.find(t => t.name === "upload");
+
+const formData = new FormData();
+Object.entries(uploadTask.result.form).forEach(([key, value]) => {
+formData.append(key, value);
+});
+formData.append("file", file);
+
+await fetch(uploadTask.result.form.url, {
+method: "POST",
+body: formData
+});
+
+status.innerText = "Converting...";
+progressBar.style.width = "60%";
+
+// 3️⃣ WAIT FOR JOB
+let exportUrl = null;
+
+while(!exportUrl){
+
+const poll = await fetch(`https://api.cloudconvert.com/v2/jobs/${jobData.data.id}`, {
+headers: {
+"Authorization": "Bearer " + API_KEY
+}
+});
+
+const pollData = await poll.json();
+
+const exportTask = pollData.data.tasks.find(t => t.name === "export");
+
+if(exportTask && exportTask.status === "finished"){
+exportUrl = exportTask.result.files[0].url;
+break;
+}
+
+await new Promise(r => setTimeout(r, 2000));
+}
+
+// 4️⃣ DONE
 progressBar.style.width = "100%";
-status.innerText = "Ready";
+status.innerText = "Done ✅";
 
-// TEMP MESSAGE
 downloads.innerHTML = `
-<div style="margin-top:15px; color:#94a3b8;">
-PDF to Word conversion requires server processing.<br>
-This tool will be enabled soon.
-</div>
+<a href="${exportUrl}" target="_blank" class="download-btn">
+⬇ Download Word File
+</a>
 `;
 
-}, 2500);
+}catch(err){
+console.error(err);
+status.innerText = "Conversion failed ❌";
+}
 
 }
 
