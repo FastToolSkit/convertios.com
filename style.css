@@ -468,3 +468,50 @@ border:none;
 border-radius:8px;
 cursor:pointer;
 }
+.converter-card{
+background:#071a33;
+padding:25px;
+border-radius:16px;
+max-width:500px;
+margin:20px auto;
+text-align:center;
+}
+
+.upload-area{
+background:#0c2547;
+padding:12px 18px;
+border-radius:10px;
+cursor:pointer;
+display:inline-block;
+color:white;
+margin-bottom:15px;
+}
+
+.upload-area input{
+display:none;
+}
+
+.format-row{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.format-row select,
+.format-row button{
+padding:10px;
+border-radius:8px;
+border:none;
+}
+
+.format-row button{
+background:#3a78ff;
+color:white;
+cursor:pointer;
+}
+
+.section-title{
+text-align:center;
+margin:40px 0 20px;
+}
