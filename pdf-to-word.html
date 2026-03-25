@@ -248,7 +248,77 @@ Perfect for editing documents, converting reports, and working with PDF content 
 </footer>
 
 <script>
-// YOUR ORIGINAL JS (UNCHANGED)
+<script>
+
+// GET ELEMENTS
+const dropArea = document.getElementById("drop-area");
+const fileInput = document.getElementById("upload");
+const preview = document.getElementById("preview");
+
+// ✅ CLICK → OPEN FILE
+dropArea.addEventListener("click", () => {
+  fileInput.click();
+});
+
+// ✅ WHEN FILE SELECTED
+fileInput.addEventListener("change", handleFile);
+
+// ✅ DRAG OVER
+dropArea.addEventListener("dragover", (e) => {
+  e.preventDefault();
+  dropArea.style.borderColor = "#60a5fa";
+});
+
+// ✅ DRAG LEAVE
+dropArea.addEventListener("dragleave", () => {
+  dropArea.style.borderColor = "#3a78ff";
+});
+
+// ✅ DROP FILE
+dropArea.addEventListener("drop", (e) => {
+  e.preventDefault();
+  dropArea.style.borderColor = "#3a78ff";
+
+  fileInput.files = e.dataTransfer.files;
+  handleFile();
+});
+
+// ✅ HANDLE FILE
+function handleFile(){
+
+  if(!fileInput.files.length) return;
+
+  const file = fileInput.files[0];
+
+  // Show file name
+  preview.innerHTML = `
+    <p>📄 <strong>${file.name}</strong></p>
+    <p>Size: ${(file.size / 1024).toFixed(2)} KB</p>
+  `;
+
+}
+
+
+// 🔥 YOUR CONVERT FUNCTION (PLACEHOLDER)
+function convertPDF(){
+
+  if(!fileInput.files.length){
+    alert("Please upload a PDF file first");
+    return;
+  }
+
+  document.getElementById("status").innerText = "Processing...";
+
+  // ⚠️ NOTE:
+  // Real PDF → Word conversion requires API or backend
+
+  setTimeout(() => {
+    document.getElementById("status").innerText = "Conversion complete (demo)";
+  }, 1500);
+
+}
+
+</script>
 </script>
 
 </body>
