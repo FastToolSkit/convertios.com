@@ -344,171 +344,81 @@ All tools run locally in your browser for maximum privacy and performance.
 
 <script>
 
-// ===== FORMAT LOGIC =====
-const formatMap = {
-pdf: ["docx","jpg","png"],
-docx: ["pdf"],
-jpg: ["png","webp","pdf"],
-png: ["jpg","webp","pdf"],
-mp3: ["wav"],
-wav: ["mp3"]
+let fileInput = document.getElementById("fileInput");
+let preview = document.getElementById("statusText");
+let downloads = document.getElementById("downloadArea");
+let progress = document.getElementById("progressFill");
+
+// SELECT FILE
+fileInput.addEventListener("change", function(){
+let file = fileInput.files[0];
+
+if(file){
+preview.innerText = file.name;
+}
+});
+
+// CONVERT (LOCAL ONLY)
+function convert(){
+
+let files = fileInput.files;
+
+if(!files || files.length === 0){
+alert("Upload image first");
+return;
+}
+
+downloads.innerHTML = "";
+progress.style.width = "20%";
+
+for(let i=0;i<files.length;i++){
+
+let file = files[i];
+let img = new Image();
+let reader = new FileReader();
+
+reader.onload = function(e){
+
+img.src = e.target.result;
+
+img.onload = function(){
+
+let canvas = document.createElement("canvas");
+canvas.width = img.width;
+canvas.height = img.height;
+
+let ctx = canvas.getContext("2d");
+ctx.drawImage(img,0,0);
+
+// 🔥 SAME AS YOUR WORKING TOOL
+let toFormat = document.getElementById("toFormat").value || "jpg";
+
+const mimeMap = {
+jpg: "image/jpeg",
+png: "image/png",
+webp: "image/webp"
 };
 
-const fromSelect = document.getElementById("fromFormat");
-const toSelect = document.getElementById("toFormat");
+let output = canvas.toDataURL(mimeMap[toFormat]);
 
-fromSelect.addEventListener("change", () => {
-const from = fromSelect.value;
+let link = document.createElement("a");
+link.href = output;
+link.download = "converted_" + (i+1) + "." + toFormat;
+link.innerHTML = "⬇ Download Image " + (i+1);
+link.className = "convert-btn";
 
-toSelect.innerHTML = '<option value="">To</option>';
+downloads.appendChild(link);
 
-if(!formatMap[from]) return;
+progress.style.width = "100%";
 
-formatMap[from].forEach(f => {
-const opt = document.createElement("option");
-opt.value = f;
-opt.textContent = f.toUpperCase();
-toSelect.appendChild(opt);
-});
-});
+};
 
-// AUTO DETECT FILE
-document.getElementById("fileInput").addEventListener("change", (e)=>{
-const file = e.target.files[0];
-if(!file) return;
+};
 
-const ext = file.name.split(".").pop().toLowerCase();
+reader.readAsDataURL(file);
 
-if(formatMap[ext]){
-fromSelect.value = ext;
-fromSelect.dispatchEvent(new Event("change"));
-}
-});
-
-// PROGRESS
-function setProgress(p){
-document.getElementById("progressBar").style.display = "block";
-document.getElementById("progressFill").style.width = p + "%";
 }
 
-// CONVERT
-document.getElementById("convertBtn").addEventListener("click", async ()=>{
-
-const file = document.getElementById("fileInput").files[0];
-const toFormat = toSelect.value;
-
-if(!file){
-alert("Select file");
-return;
-}
-
-if(!toFormat){
-alert("Select output format");
-return;
-}
-
-const apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZTUzZmJiNGFlNGRmNzFmNDY3MzY4YTU5YjE2ZTkxNDQyYWZiMjc5YTQwNzA3MDIyNjBmMWU0NGI1MGVkZTFiYjE3MTk3ZjgzYzhhYWNhOTYiLCJpYXQiOjE3NzM3MzA0MTAuMDcyOTM0LCJuYmYiOjE3NzM3MzA0MTAuMDcyOTM2LCJleHAiOjQ5Mjk0MDQwMTAuMDY2MjgsInN1YiI6Ijc0NjM4MTYxIiwic2NvcGVzIjpbInVzZXIucmVhZCIsInVzZXIud3JpdGUiXX0.pQ2Mz5C2n9XxlzrNJDySda2Cc2TxddO4dsiPmthWD1Xef1A1NFyPuoztXqv6h4awJ0TAdqNei5oRipFyKSNeADLx6vseOQYfn-uzFRbzByxlEwE5g-WEB3yDsP_X4KTbG8DXGD657HmGCGFyqsgfgmMY9AJXlIeFyLZvOaUBgMdubrAUZf6sm-0UG-TrIcMVFlbFhBMedRxPnnjoPoTlEYTBsZBDNy-PRWksY76GOxAiHAgeYifXFiWXi6-B1oY4zPzQ5hihXGhZeHpibLf2aDy9jyFSbZY0E0NFt_A64w7zlELPAfHl6x09bxf_4ci8jGPHgMm1Q_9t040atxLThQ1fvmCH0whF_pTPqwD_iQdGvaTYPL7y3rrn4GmqmmNT4HwmHhfPl5I4Z5HzoP_pnuczB8IetjUkyGcicgek5TFE3NIRKeOAMGan0p6DMJ41nIXpL85CeHxeCo5HNvN7CQbqEh7yw04EDEFFooUTGtel9sEQvbEb8u5bvO__j0-rPO67zCRIaWLsikQrMS_natooRoXmYZKp7t1IGNLQqoM6HdYFr7l8qr0apSt2KP57zwrIpKKjeN2RV3VfPRjmwwVcQ1jv33YryFabh4sZ2osvEixBgyuqPCgWSPuAj7mOEGxfHUTHtmIRC_39iPmOV8omgais4cwziNA1YKZlf9I";
-
-document.getElementById("statusText").innerText = "Uploading...";
-document.getElementById("downloadArea").innerHTML = "";
-
-try{
-
-setProgress(20);
-
-// CREATE JOB
-const job = await fetch("https://api.cloudconvert.com/v2/jobs",{
-method:"POST",
-headers:{
-"Authorization":"Bearer "+apiKey,
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-tasks:{
-"upload-file":{operation:"import/upload"},
-"convert-file":{
-operation:"convert",
-input:"upload-file",
-output_format:toFormat
-},
-"export-file":{
-operation:"export/url",
-input:"convert-file"
-}
-}
-})
-});
-
-const data = await job.json();
-
-if(!data.data){
-throw new Error("API failed");
-}
-
-// UPLOAD FILE
-const uploadTask = data.data.tasks.find(t=>t.name==="upload-file");
-
-const formData = new FormData();
-
-Object.entries(uploadTask.result.form.parameters).forEach(([k,v])=>{
-formData.append(k,v);
-});
-
-formData.append("file",file);
-
-await fetch(uploadTask.result.form.url,{
-method:"POST",
-body:formData
-});
-
-document.getElementById("statusText").innerText = "Processing...";
-setProgress(60);
-
-let url = null;
-
-while(!url){
-await new Promise(r=>setTimeout(r,2000));
-
-const check = await fetch(`https://api.cloudconvert.com/v2/jobs/${data.data.id}`,{
-headers:{ "Authorization":"Bearer "+apiKey }
-});
-
-const result = await check.json();
-
-const exportTask = result.data.tasks.find(t=>t.name==="export-file");
-
-if(exportTask && exportTask.status==="finished"){
-url = exportTask.result.files[0].url;
-}
-
-setProgress(85);
-}
-
-setProgress(100);
-
-document.getElementById("statusText").innerText = "Done ✅";
-
-document.getElementById("downloadArea").innerHTML = `
-<a href="${url}" target="_blank" class="convert-btn">
-⬇ Download File
-</a>
-`;
-
-}catch(e){
-console.error(e);
-document.getElementById("statusText").innerText = "Error converting file";
-}
-
-});
-
-// SEARCH (KEEP YOUR FUNCTION)
-function searchTools(){
-let input = document.getElementById("toolSearch").value.toLowerCase();
-let cards = document.querySelectorAll(".tool-card");
-
-cards.forEach(card=>{
-card.style.display = card.innerText.toLowerCase().includes(input) ? "block" : "none";
-});
 }
 
 </script>
