@@ -157,7 +157,7 @@ line-height:1.8;
 <div class="progress-bar" id="progress-bar"></div>
 </div>
 
-<button class="main-button" onclick="convert()">Convert</button>
+<button class="<button onclick="convert()">Convert</button>
   
 <div class="status" id="status"></div>
 <div id="downloads"></div>
@@ -250,7 +250,7 @@ Perfect for editing documents, converting reports, and working with PDF content 
 
   
   
- <script>
+<script>
 
 /* ===============================
 FILE HANDLING
@@ -258,94 +258,113 @@ FILE HANDLING
 
 let file = null;
 
-const dropArea = document.getElementById("drop-area");
-const fileInput = document.getElementById("upload");
-const preview = document.getElementById("preview");
-const status = document.getElementById("status");
-const progressBar = document.getElementById("progress-bar");
-const downloads = document.getElementById("downloads");
+const fileInput = document.getElementById("fileInput");
+const status = document.getElementById("statusText");
+const progressFill = document.getElementById("progressFill");
+const downloadArea = document.getElementById("downloadArea");
 
-// CLICK TO SELECT
-dropArea.onclick = () => fileInput.click();
+// SELECT FILE
+fileInput.addEventListener("change", (e)=>{
+file = e.target.files[0];
 
-// DRAG OVER
-dropArea.addEventListener("dragover", (e) => {
-e.preventDefault();
-dropArea.style.borderColor = "#60a5fa";
-});
-
-// DRAG LEAVE
-dropArea.addEventListener("dragleave", () => {
-dropArea.style.borderColor = "#3a78ff";
-});
-
-// DROP FILE
-dropArea.addEventListener("drop", (e) => {
-e.preventDefault();
-dropArea.style.borderColor = "#3a78ff";
-
-file = e.dataTransfer.files[0];
-showPreview();
-});
-
-// FILE INPUT CHANGE
-fileInput.addEventListener("change", () => {
-file = fileInput.files[0];
-showPreview();
-});
-
-// SHOW FILE PREVIEW
-function showPreview(){
-if(!file) return;
-
-preview.innerHTML = `
-📄 <strong>${file.name}</strong><br>
-Size: ${(file.size/1024/1024).toFixed(2)} MB
-`;
+if(file){
+status.innerText = file.name;
 }
+});
 
 /* ===============================
-CONVERT FUNCTION (NO API)
+FORMAT LOGIC
+================================*/
+
+const formatMap = {
+jpg: ["png","webp"],
+png: ["jpg","webp"],
+webp: ["jpg","png"]
+};
+
+const fromSelect = document.getElementById("fromFormat");
+const toSelect = document.getElementById("toFormat");
+
+// UPDATE "TO"
+fromSelect.addEventListener("change", ()=>{
+const from = fromSelect.value;
+
+toSelect.innerHTML = '<option value="">To</option>';
+
+if(!formatMap[from]) return;
+
+formatMap[from].forEach(f=>{
+const opt = document.createElement("option");
+opt.value = f;
+opt.textContent = f.toUpperCase();
+toSelect.appendChild(opt);
+});
+});
+
+/* ===============================
+CONVERT IMAGE (LOCAL)
 ================================*/
 
 function convert(){
 
 if(!file){
-alert("Upload a file first");
+alert("Select a file first");
 return;
 }
 
-// RESET UI
-downloads.innerHTML = "";
-progressBar.style.width = "0%";
-status.innerText = "Uploading...";
+const toFormat = toSelect.value;
 
-// STEP 1
-setTimeout(() => {
-progressBar.style.width = "30%";
+if(!toFormat){
+alert("Select output format");
+return;
+}
+
+progressFill.style.width = "20%";
 status.innerText = "Processing...";
-}, 500);
 
-// STEP 2
-setTimeout(() => {
-progressBar.style.width = "70%";
-status.innerText = "Converting...";
-}, 1200);
+const img = new Image();
+const reader = new FileReader();
 
-// STEP 3
-setTimeout(() => {
-progressBar.style.width = "100%";
-status.innerText = "Done";
+reader.onload = function(e){
+img.src = e.target.result;
+};
 
-// ⚠️ IMPORTANT MESSAGE (REALISTIC UX)
-downloads.innerHTML = `
-<div style="margin-top:15px; color:#94a3b8;">
-PDF to Word conversion requires backend processing.<br>
-Please use a dedicated tool.
-</div>
+reader.readAsDataURL(file);
+
+img.onload = function(){
+
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = img.width;
+canvas.height = img.height;
+
+ctx.drawImage(img, 0, 0);
+
+progressFill.style.width = "70%";
+
+const mimeMap = {
+jpg: "image/jpeg",
+png: "image/png",
+webp: "image/webp"
+};
+
+canvas.toBlob(function(blob){
+
+const url = URL.createObjectURL(blob);
+
+progressFill.style.width = "100%";
+status.innerText = "Done ✅";
+
+downloadArea.innerHTML = `
+<a href="${url}" download="converted.${toFormat}" class="convert-btn">
+⬇ Download ${toFormat.toUpperCase()}
+</a>
 `;
 
-}, 2000);
+}, mimeMap[toFormat], 0.95);
+
+};
 
 }
 
