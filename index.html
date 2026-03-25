@@ -6,22 +6,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convertios - Free Online File Converter</title>
+<title>Convertios - Free Online Tools</title>
+<meta name="description" content="Free online tools for PDF, image, audio and more. Fast, secure, no signup.">
 
-<meta name="description" content="Convert files online for free. PDF, Image, Audio tools. No signup. Fast and secure.">
-
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css">
 <link rel="icon" href="favicon.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* GLOBAL */
+/* BASE */
 body{
 font-family:'Poppins', sans-serif;
-background:#f5f7fb;
 margin:0;
+background:#f5f7fb;
 color:#0f172a;
 }
 
@@ -49,18 +48,17 @@ border:none;
 /* HERO */
 .hero{
 text-align:center;
-padding:70px 20px 30px;
+padding:60px 20px 30px;
 }
 
 .hero h1{
-font-size:42px;
+font-size:40px;
 color:#2563eb;
 margin-bottom:10px;
 }
 
 .hero p{
 color:#64748b;
-font-size:18px;
 }
 
 .hero-badges{
@@ -69,47 +67,36 @@ color:#94a3b8;
 }
 
 /* CONVERTER */
-.converter-card{
+.converter{
 background:#071a33;
-padding:30px;
-border-radius:20px;
-max-width:520px;
+padding:25px;
+border-radius:18px;
+max-width:500px;
 margin:30px auto;
 text-align:center;
-box-shadow:0 20px 50px rgba(0,0,0,0.2);
 }
 
-.upload-area{
+.upload-btn{
 background:#0c2547;
-padding:14px 20px;
-border-radius:12px;
+padding:12px 18px;
+border-radius:10px;
 color:white;
-display:inline-block;
 cursor:pointer;
-margin-bottom:20px;
+display:inline-block;
+margin-bottom:15px;
 }
 
-.upload-area input{
+.upload-btn input{
 display:none;
 }
 
-.format-row{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-}
-
-.format-row select,
-.format-row button{
-padding:10px;
-border-radius:8px;
+.convert-btn{
+margin-top:10px;
+padding:10px 20px;
 border:none;
-}
-
-.format-row button{
 background:#3a78ff;
 color:white;
+border-radius:8px;
 cursor:pointer;
 }
 
@@ -119,7 +106,7 @@ text-align:center;
 margin:40px 0 20px;
 }
 
-/* TOOLS */
+/* GRID */
 .tools-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -127,6 +114,7 @@ gap:20px;
 padding:0 40px;
 }
 
+/* CARD */
 .tool-card{
 background:white;
 padding:20px;
@@ -137,6 +125,7 @@ min-height:150px;
 display:flex;
 flex-direction:column;
 justify-content:center;
+align-items:center;
 }
 
 .tool-card:hover{
@@ -144,13 +133,18 @@ transform:translateY(-5px);
 box-shadow:0 20px 40px rgba(0,0,0,0.15);
 }
 
+.tool-icon{
+font-size:26px;
+margin-bottom:5px;
+}
+
 .tool-card h3{
-margin-bottom:8px;
+margin:5px 0;
 }
 
 .tool-card p{
+font-size:13px;
 color:#64748b;
-font-size:14px;
 }
 
 /* SEO */
@@ -158,8 +152,9 @@ font-size:14px;
 background:#071a33;
 color:white;
 padding:40px;
-margin:60px 40px;
+margin:60px auto;
 border-radius:20px;
+max-width:900px;
 text-align:center;
 }
 
@@ -179,13 +174,13 @@ color:white;
 
 <header class="site-header">
 
-<img src="convertios-logo.png" style="height:45px;">
+<img src="convertios-logo.png" style="height:40px;">
 
 <nav class="nav-menu">
 <a href="#">Home</a>
 <a href="#tools">Tools</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
 </nav>
 
 <div class="search-box">
@@ -197,43 +192,23 @@ color:white;
 <!-- HERO -->
 
 <div class="hero">
-
 <h1>Convert Files Online for Free</h1>
-<p>PDF, Image, Audio & Video Tools — Fast, Secure & No Signup</p>
-
-<div class="hero-badges">
-✔ Free • ✔ No Signup • ✔ Works in Browser
-</div>
-
+<p>PDF, Image, Audio & Video Tools — Fast & Secure</p>
+<div class="hero-badges">✔ No Signup • ✔ Free • ✔ Instant</div>
 </div>
 
 <!-- CONVERTER -->
 
-<div class="converter-card">
+<div class="converter">
 
-<label class="upload-area">
+<label class="upload-btn">
 <input type="file">
 📁 Select File
 </label>
 
-<div class="format-row">
+<br>
 
-<select id="fromFormat" onchange="updateToOptions()">
-<option value="">From</option>
-<option value="pdf">PDF</option>
-<option value="jpg">JPG</option>
-<option value="png">PNG</option>
-</select>
-
-<span>→</span>
-
-<select id="toFormat">
-<option value="">To</option>
-</select>
-
-<button onclick="quickConvert()">Convert</button>
-
-</div>
+<button class="convert-btn">Convert</button>
 
 </div>
 
@@ -243,68 +218,46 @@ color:white;
 
 <div class="tools-grid">
 
-<a href="pdf-to-word.html" class="tool-card"><h3>PDF to Word</h3><p>Convert PDF to Word instantly.</p></a> <a href="remove-bg.html" class="tool-card"><h3>Remove Background</h3><p>Remove background instantly.</p></a> <a href="mp3-cutter.html" class="tool-card"><h3>MP3 Cutter</h3><p>Trim audio files.</p></a>
+<a href="pdf-to-word.html" class="tool-card">
+<div class="tool-icon">📄</div>
+<h3>PDF to Word</h3>
+<p>Convert PDF to Word</p>
+</a>
+
+<a href="remove-bg.html" class="tool-card">
+<div class="tool-icon">🪄</div>
+<h3>Remove Background</h3>
+<p>Remove image background</p>
+</a>
+
+<a href="mp3-cutter.html" class="tool-card">
+<div class="tool-icon">🎵</div>
+<h3>MP3 Cutter</h3>
+<p>Trim audio files</p>
+</a>
 
 </div>
 
-<h2 class="section-title">📄 All Tools</h2>
+<h2 class="section-title">📂 All Tools</h2>
 
 <div class="tools-grid" id="tools">
 
-<a href="merge-pdf.html" class="tool-card"><h3>Merge PDF</h3></a> <a href="split-pdf.html" class="tool-card"><h3>Split PDF</h3></a> <a href="rotate-pdf.html" class="tool-card"><h3>Rotate PDF</h3></a> <a href="jpg-to-pdf.html" class="tool-card"><h3>JPG to PDF</h3></a> <a href="pdf-to-jpg.html" class="tool-card"><h3>PDF to JPG</h3></a> <a href="image-converter.html" class="tool-card"><h3>Image Converter</h3></a> <a href="compress-image.html" class="tool-card"><h3>Image Compressor</h3></a> <a href="qr-generator.html" class="tool-card"><h3>QR Generator</h3></a>
+<a href="merge-pdf.html" class="tool-card"><div class="tool-icon">📑</div><h3>Merge PDF</h3></a> <a href="split-pdf.html" class="tool-card"><div class="tool-icon">✂️</div><h3>Split PDF</h3></a> <a href="rotate-pdf.html" class="tool-card"><div class="tool-icon">🔄</div><h3>Rotate PDF</h3></a> <a href="jpg-to-pdf.html" class="tool-card"><div class="tool-icon">🖼️</div><h3>JPG to PDF</h3></a> <a href="pdf-to-jpg.html" class="tool-card"><div class="tool-icon">📄</div><h3>PDF to JPG</h3></a> <a href="image-converter.html" class="tool-card"><div class="tool-icon">🔄</div><h3>Image Converter</h3></a> <a href="compress-image.html" class="tool-card"><div class="tool-icon">🗜️</div><h3>Image Compressor</h3></a> <a href="qr-generator.html" class="tool-card"><div class="tool-icon">🔳</div><h3>QR Generator</h3></a>
 
 </div>
 
 <!-- SEO -->
 
 <div class="site-description">
-
 <h2>All-in-One File Converter</h2>
-
 <p>
-Convertios offers a full collection of online tools for file conversion, image editing, and audio processing. 
-Everything works instantly in your browser with no downloads required.
+Convertios provides free tools for converting files, editing images, and processing audio — directly in your browser.
 </p>
-
 </div>
 
 <footer class="site-footer">
-
-<p>
-© 2026 Convertios • Free Online Tools
-</p>
-
+© 2026 Convertios
 </footer>
-
-<script>
-
-const formatMap = {
-pdf:["jpg"],
-jpg:["pdf","png"],
-png:["jpg"]
-};
-
-function updateToOptions(){
-let from=document.getElementById("fromFormat").value;
-let to=document.getElementById("toFormat");
-
-to.innerHTML="<option>To</option>";
-
-if(!formatMap[from]) return;
-
-formatMap[from].forEach(f=>{
-let opt=document.createElement("option");
-opt.value=f;
-opt.textContent=f.toUpperCase();
-to.appendChild(opt);
-});
-}
-
-function quickConvert(){
-alert("Redirect to tool (connect later)");
-}
-
-</script>
 
 </body>
 </html>
