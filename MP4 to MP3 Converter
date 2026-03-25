@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MP4 to MP3 Converter Online | Convertios</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.png">
+
+<!-- FFmpeg -->
+<script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.6/dist/ffmpeg.min.js"></script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<a href="index.html" class="logo">
+<img src="convertios-logo.png" alt="Convertios">
+</a>
+
+<nav class="nav-menu">
+<a href="index.html">Home</a>
+<a href="index.html#tools">Tools</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+</header>
+
+<!-- TOOL -->
+
+<div class="tool-container">
+
+<h1>MP4 to MP3 Converter</h1>
+
+<p>
+Extract audio from MP4 video files instantly in your browser.
+</p>
+
+<input type="file" id="videoFile" accept="video/mp4">
+
+<video id="preview" controls style="margin-top:20px;width:100%;border-radius:10px;"></video>
+
+<div class="controls">
+
+<button onclick="convertVideo()">Convert to MP3</button>
+
+</div>
+
+<div id="downloadArea"></div>
+
+</div>
+
+<!-- SEO CONTENT -->
+
+<div class="seo-content">
+
+<h2>Free MP4 to MP3 Converter</h2>
+
+<p>
+Convert video files into MP3 audio instantly without uploading files.
+Everything runs locally in your browser for maximum privacy.
+</p>
+
+</div>
+
+<!-- DESCRIPTION -->
+
+<div class="tool-description">
+
+<h2>How it works</h2>
+<p>
+Upload your MP4 file, click convert, and download the extracted audio instantly.
+</p>
+
+</div>
+
+<footer class="site-footer">
+
+<p>
+© 2026 Convertios • Free Online Tools
+<br>
+<a href="privacy.html">Privacy</a> •
+<a href="terms.html">Terms</a> •
+<a href="contact.html">Contact</a>
+</p>
+
+</footer>
+
+<script>
+
+const { createFFmpeg, fetchFile } = FFmpeg;
+const ffmpeg = createFFmpeg({ log: true });
+
+const fileInput = document.getElementById("videoFile");
+const preview = document.getElementById("preview");
+const downloadArea = document.getElementById("downloadArea");
+
+fileInput.addEventListener("change", function(){
+
+const file = this.files[0];
+if(!file) return;
+
+preview.src = URL.createObjectURL(file);
+
+});
+
+async function convertVideo(){
+
+const file = fileInput.files[0];
+
+if(!file){
+alert("Please upload an MP4 file");
+return;
+}
+
+downloadArea.innerHTML = "Processing... (first time may take few seconds)";
+
+if(!ffmpeg.isLoaded()){
+await ffmpeg.load();
+}
+
+ffmpeg.FS("writeFile","input.mp4", await fetchFile(file));
+
+await ffmpeg.run("-i","input.mp4","output.mp3");
+
+const data = ffmpeg.FS("readFile","output.mp3");
+
+const url = URL.createObjectURL(new Blob([data.buffer], { type: "audio/mp3" }));
+
+downloadArea.innerHTML = `
+<a href="${url}" download="audio.mp3" class="download-btn">
+Download MP3
+</a>
+`;
+
+}
+
+</script>
+
+</body>
+</html>
