@@ -630,9 +630,7 @@ body{
     padding: 10px;
 }
 
-.logo img{
-    max-width: 140px;
-}
+
 
 .nav-menu{
     display: flex;
