@@ -231,15 +231,15 @@ color:#475569;
 line-height:1.8;
 }
 .tool-descriptions ul{
-    list-style: none;
-    padding: 0;
-    margin: 25px 0;
+    list-style: disc;
+    padding-left: 20px;
+    margin: 25px auto;
+    display: inline-block;
+    text-align: left;
 }
 
 .tool-descriptions li{
-    position: relative;
     margin: 10px 0;
-    font-size: 16px;
     color: #475569;
 }
 
