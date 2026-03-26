@@ -352,7 +352,12 @@ padding:20px 15px;
 .hero img{
 max-width:110px;
 }
-
+.hero-section{
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 0 20px;
+}
 .hero h1{
 font-size:22px;
 }
