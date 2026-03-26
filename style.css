@@ -13,9 +13,11 @@ background:#e6e7ea;
 font-family:'Poppins', sans-serif;
 color:#1e293b;
 line-height:1.5;
+display:flex;
+flex-direction:column;
+min-height:100vh;
 }
 
-/* REMOVE DEFAULT LINK COLORS */
 a{
 text-decoration:none;
 color:inherit;
@@ -28,23 +30,22 @@ HEADER
 .site-header{
 display:flex;
 align-items:center;
+justify-content:space-between;
 background:#020c1b;
-padding:0 40px;        /* remove vertical padding */
-height:65px;           /* 🔥 force height */
+padding:0 30px;
+height:65px;
 border-bottom:1px solid #0c2547;
-gap:30px;
 }
 
 /* LOGO */
 .logo img{
 height:45px;
-max-height:100%;
-display:block;
 }
+
 /* NAV */
 .nav-menu{
 display:flex;
-gap:30px;
+gap:25px;
 }
 
 .nav-menu a{
@@ -59,14 +60,13 @@ color:white;
 
 /* SEARCH */
 .search-box{
-margin-left:auto;
-width:275px;
+width:260px;
 position:relative;
 }
 
 .search-box input{
 width:100%;
-  height:40px; 
+height:40px;
 padding:0 14px 0 40px;
 border-radius:12px;
 border:none;
@@ -76,11 +76,38 @@ outline:none;
 }
 
 .search-icon{
-  position: absolute;
+position:absolute;
 left:12px;
 top:50%;
 transform:translateY(-50%);
 color:#94a3b8;
+font-size:14px;
+}
+
+/* ===============================
+HERO
+================================*/
+
+.hero{
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
+padding:50px 20px;
+}
+
+.hero img{
+max-width:140px;
+margin-bottom:15px;
+}
+
+.hero h1{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#64748b;
 }
 
 /* ===============================
@@ -96,17 +123,7 @@ margin:50px auto;
 padding:0 20px;
 }
 
-.tools-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-max-width:1200px;
-margin:50px auto;
-padding:0 20px;
-}
-
 .tool-card{
-display:block;
 background:white;
 padding:25px;
 border-radius:12px;
@@ -119,8 +136,9 @@ transition:0.25s;
 transform:translateY(-5px);
 box-shadow:0 12px 25px rgba(0,0,0,0.15);
 }
+
 /* ===============================
-TOOL PAGE CONTAINER
+TOOL PAGE
 ================================*/
 
 .tool-container{
@@ -131,14 +149,13 @@ color:white;
 padding:40px;
 border-radius:20px;
 text-align:center;
-box-shadow:0 20px 50px rgba(0,0,0,0.3);
 }
 
 /* ===============================
-INPUTS
+INPUTS & BUTTONS
 ================================*/
 
-input, textarea{
+input, textarea, select{
 width:100%;
 padding:12px;
 border-radius:8px;
@@ -149,19 +166,14 @@ margin-top:10px;
 outline:none;
 }
 
-/* ===============================
-BUTTONS
-================================*/
-
 button{
 margin-top:20px;
-padding:12px 20px;
+padding:12px;
 background:#3a78ff;
 color:white;
 border:none;
 border-radius:8px;
 cursor:pointer;
-transition:0.2s;
 }
 
 button:hover{
@@ -186,107 +198,37 @@ display:none;
 }
 
 /* ===============================
-SEO CONTENT
+CONTENT SECTIONS
 ================================*/
 
+.site-description,
 .seo-content{
-max-width:1000px;
-margin:40px auto;
-background:#071a33;
-color:white;
-padding:35px;
-border-radius:20px;
-}
-
-.seo-content p{
-color:#cbd5e1;
-line-height:1.7;
-}
-
-/* ===============================
-HOMEPAGE DESCRIPTION
-================================*/
-
-.site-description{
-max-width:800px;
+max-width:900px;
 margin:50px auto;
-padding:25px;
+padding:30px;
 background:#071a33;
 color:#cbd5e1;
 text-align:center;
 border-radius:16px;
 }
 
-/* ===============================
-TOOL DESCRIPTIONS
-================================*/
-
 .tool-descriptions{
 max-width:900px;
 margin:80px auto;
 padding:40px;
-text-align:center;
 background:white;
 border-radius:20px;
-box-shadow:0 10px 40px rgba(0,0,0,0.05);
+text-align:center;
 }
 
 .tool-descriptions h2{
-font-size:32px;
-margin-bottom:40px;
-font-weight:700;
-color:#0f172a;
-}
-
-.tool-descriptions h3{
-font-size:20px;
-margin-top:30px;
-margin-bottom:10px;
-font-weight:600;
+font-size:28px;
+margin-bottom:30px;
 }
 
 .tool-descriptions p{
-font-size:15px;
-line-height:1.8;
 color:#475569;
-max-width:700px;
-margin:0 auto;
-}
-
-/* ===============================
-MORE TOOLS (FIXED 🔥)
-================================*/
-
-.more-tools{
-max-width:1000px;
-margin:60px auto;
-padding:0 20px;
-text-align:center;
-}
-
-.more-tools h2{
-font-size:24px;
-margin-bottom:20px;
-color:#0f172a;
-}
-
-.more-tools-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,220px));
-gap:20px;
-justify-content:center;
-}
-.more-tool-card{
-display:block;
-background:#071a33;
-color:white;
-padding:20px;
-border-radius:14px;
-transition:0.2s;
-}
-
-.more-tool-card:hover{
-background:#0c2547;
+line-height:1.8;
 }
 
 /* ===============================
@@ -298,7 +240,7 @@ background:#020c1b;
 color:#cbd5e1;
 text-align:center;
 padding:25px;
-margin-top:60px;
+margin-top:auto;
 }
 
 .site-footer a{
@@ -306,492 +248,81 @@ color:#3a78ff;
 }
 
 /* ===============================
-RESPONSIVE
+MOBILE (FINAL CLEAN)
 ================================*/
 
 @media (max-width:768px){
 
-.site-header{
-flex-direction:column;
-align-items:center;
-padding:15px 20px;
-}
-
-.nav-menu{
-justify-content:center;
-flex-wrap:wrap;
-margin:10px 0;
-gap:15px;
-}
-
-.search-box{
-width:100%;
-margin-top:10px;
-}
-
-.search-box input{
-max-width:300px;
-margin:auto;
-}
-
-}
-/* ===============================
-PAGE CONTENT (ABOUT / CONTACT)
-================================*/
-
-.page-content{
-max-width:900px;
-margin:80px auto;
-padding:40px;
-background:white;
-border-radius:20px;
-text-align:center;
-box-shadow:0 10px 40px rgba(0,0,0,0.05);
-}
-
-.page-content h1{
-font-size:32px;
-margin-bottom:20px;
-}
-
-.page-content p{
-color:#475569;
-line-height:1.8;
-font-size:16px;
-}
-html, body{
-height:100%;
-}
-
-body{
-display:flex;
-flex-direction:column;
-}
-
-.site-footer{
-margin-top:auto; 
-}
-html, body{
-height:100%;
-}
-
-body{
-display:flex;
-flex-direction:column;
-min-height:100vh;
-}
-
-/* PUSH FOOTER DOWN */
-.site-footer{
-margin-top:auto;
-}
-
-/* CENTER PAGE CONTENT */
-.page-content{
-max-width:900px;
-margin:80px auto;
-padding:40px;
-background:white;
-border-radius:20px;
-text-align:center;
-box-shadow:0 10px 40px rgba(0,0,0,0.05);
-}
-
-.page-content h1{
-font-size:32px;
-margin-bottom:20px;
-}
-
-.page-content p{
-color:#475569;
-line-height:1.8;
-margin-bottom:12px;
-}
-/* ===============================
-HERO (PROPER CENTERED DESIGN)
-================================*/
-
-.hero{
-      margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.hero-logo{
-    max-width: 140px;
-    margin-bottom: 15px;
-}
-
-.hero h1{
-    font-size: 28px;
-    line-height: 1.3;
-    margin: 0;
-}
-
-.hero p{
-    margin-top: 10px;
-    color: #666;
-}
-.quick-converter{
-text-align:center;
-margin-top:25px;
-}
-
-.converter-box{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:10px;
-margin-top:15px;
-flex-wrap:wrap;
-}
-
-.converter-box select{
-padding:10px;
-border-radius:8px;
-border:none;
-background:#0c2547;
-color:white;
-}
-
-.converter-box button{
-padding:10px 18px;
-background:#3a78ff;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-}
-.converter-card{
-background:#071a33;
-padding:25px;
-border-radius:16px;
-max-width:500px;
-margin:20px auto;
-text-align:center;
-}
-
-.upload-area{
-background:#0c2547;
-padding:12px 18px;
-border-radius:10px;
-cursor:pointer;
-display:inline-block;
-color:white;
-margin-bottom:15px;
-}
-
-.upload-area input{
-display:none;
-}
-
-.format-row{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-}
-
-.format-row select,
-.format-row button{
-padding:10px;
-border-radius:8px;
-border:none;
-}
-
-.format-row button{
-background:#3a78ff;
-color:white;
-cursor:pointer;
-}
-
-.section-title{
-text-align:center;
-margin:40px 0 20px;
-}
-ul {
-    text-align: left;
-    display: inline-block;
-    margin-top: 15px;
-}
-/* ===============================
-MOBILE FIX
-================================*/
-
-@media (max-width: 768px){
-
-/* Container */
-.tool-container{
-    width: 90%;
-    padding: 20px;
-    margin: 40px auto;
-}
-
-/* Header */
-.site-header{
-    flex-direction: column;
-    gap: 10px;
-}
-
-/* Nav */
-.nav-menu{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-/* Title */
-h1{
-    font-size: 24px;
-    text-align: center;
-}
-
-/* Subtitle */
-p{
-    font-size: 14px;
-    text-align: center;
-}
-
-/* Upload box */
-.drop-area{
-    padding: 20px;
-    font-size: 14px;
-}
-
-/* Buttons */
-button, .convert-btn{
-    width: 100%;
-    margin-top: 10px;
-}
-
-/* Select dropdowns */
-select{
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-/* Tool cards grid */
-.tools-grid{
-    grid-template-columns: 1fr;
-    gap: 15px;
-}
-
-/* Tool cards */
-.tool-card{
-    padding: 20px;
-}
-
-/* Footer */
-footer{
-    text-align: center;
-    font-size: 14px;
-}
-
-}
-.logo img{
-    max-width: 150px;
-}
-body{
-    padding: 0;
-    margin: 0;
-}
-@media (max-width: 768px){
-
-.hero h1{
-    font-size: 26px;
-    line-height: 1.3;
-    margin-top: 10px;
-}
-
-.hero img{
-    max-width: 160px;
-    margin-bottom: 10px;
-}
-
-.hero{
-    padding: 20px 15px;
-    text-align: center;
-}
-
-}
-/* ===============================
-MOBILE RESPONSIVE (CLEAN VERSION)
-================================*/
-
-@media (max-width: 768px){
-
-/* RESET */
-body{
-    margin: 0;
-    padding: 0;
-}
-
 /* HEADER */
 .site-header{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    gap: 10px;
+flex-direction:column;
+height:auto;
+padding:10px;
+gap:10px;
 }
 
-/* LOGO (CRITICAL FIX) */
+/* LOGO */
 .logo img{
-    position: static !important;
-    display: block;
-    margin: 0 auto;
-    max-width: 140px;
+max-width:120px;
+margin:auto;
 }
 
 /* NAV */
 .nav-menu{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    font-size: 14px;
-}
-
-/* HERO SECTION (MAIN FIX) */
-.hero{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 15px;
-    text-align: center;
-}
-
-/* 🔥 THIS FIXES OVERLAP */
-.hero img{
-    position: static !important;
-    z-index: auto;
-    max-width: 140px;
-    margin-bottom: 15px;
-}
-
-/* TITLE */
-.hero h1{
-    font-size: 24px;
-    line-height: 1.3;
-    margin: 0;
-    z-index: auto;
-}
-
-/* SUBTITLE */
-.hero p{
-    font-size: 14px;
-    margin-top: 10px;
+flex-wrap:wrap;
+justify-content:center;
+gap:12px;
+font-size:14px;
 }
 
 /* SEARCH */
 .search-box{
-    width: 100%;
-  margin-top: 20px;
-    padding: 0 20px;
+width:100%;
+max-width:320px;
+margin:10px auto;
 }
 
 .search-box input{
-    border-radius: 12px;
-    padding: 14px 16px;
-    width: 100%;
-    border: none;
-    outline: none;
-}
-}
-.search-icon{
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 16px;
-    opacity: 0.7;
-}
-/* TOOLS GRID */
-.tools-grid{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-    padding: 10px;
+padding:12px 14px 12px 40px;
 }
 
-/* TOOL CARD */
-.tool-card{
-    width: 100%;
-    padding: 18px;
-    text-align: center;
-}
-
-/* TOOL CONTAINER */
-.tool-container{
-    width: 90%;
-    padding: 20px;
-    margin: 30px auto;
-}
-
-/* INPUTS */
-select, button{
-    width: 100%;
-    margin-top: 10px;
-}
-
-/* DROP AREA */
-.drop-area{
-    padding: 20px;
-    font-size: 14px;
-}
-
-/* FOOTER */
-footer{
-    text-align: center;
-    font-size: 14px;
-}
-
-section{
-    margin-bottom: 30px;
-}
-
-}
-@media (max-width: 768px){
-
-/* FORCE RESET EVERYTHING */
-.hero img,
-.logo img{
-    position: static !important;
-    transform: none !important;
-    top: auto !important;
-    left: auto !important;
-}
-
-/* HERO FIX */
+/* HERO */
 .hero{
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
+padding:20px 15px;
 }
 
-/* LOGO */
 .hero img{
-    max-width: 120px !important;
-    margin-bottom: 15px !important;
+max-width:110px;
 }
 
-/* TITLE */
 .hero h1{
-    font-size: 22px !important;
-    line-height: 1.3 !important;
-    margin: 0 !important;
+font-size:22px;
 }
 
-/* SUBTEXT */
 .hero p{
-    margin-top: 10px !important;
+font-size:14px;
+}
+
+/* GRID */
+.tools-grid{
+grid-template-columns:1fr;
+gap:15px;
+}
+
+/* CARDS */
+.tool-card{
+padding:18px;
+}
+
+/* CONTAINER */
+.tool-container{
+width:90%;
+padding:20px;
+}
+
+/* BUTTONS */
+button, select{
+width:100%;
 }
 
 }
