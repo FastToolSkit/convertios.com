@@ -520,3 +520,78 @@ ul {
     display: inline-block;
     margin-top: 15px;
 }
+/* ===============================
+MOBILE FIX
+================================*/
+
+@media (max-width: 768px){
+
+/* Container */
+.tool-container{
+    width: 90%;
+    padding: 20px;
+    margin: 40px auto;
+}
+
+/* Header */
+.site-header{
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Nav */
+.nav-menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Title */
+h1{
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Subtitle */
+p{
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Upload box */
+.drop-area{
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* Buttons */
+button, .convert-btn{
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Select dropdowns */
+select{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Tool cards grid */
+.tools-grid{
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+/* Tool cards */
+.tool-card{
+    padding: 20px;
+}
+
+/* Footer */
+footer{
+    text-align: center;
+    font-size: 14px;
+}
+
+}
