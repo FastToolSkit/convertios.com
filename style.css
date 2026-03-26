@@ -230,23 +230,26 @@ margin-bottom:30px;
 color:#475569;
 line-height:1.8;
 
-    .tool-descriptions ul{
-    list-style: disc;
-    padding-left: 20px;
-    margin: 25px auto;
-    display: table;
+.tool-descriptions ul{
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
 }
 
 .tool-descriptions li{
-    text-align: left;
-    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
 }
 
 .tool-descriptions li::before{
     content: "•";
     color: #3b82f6;
-    font-weight: bold;
-    margin-right: 10px;
+    font-size: 18px;
+    width: 20px;
+    text-align: right;
 }
 /* ===============================
 FOOTER
