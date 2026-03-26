@@ -412,31 +412,28 @@ HERO (PROPER CENTERED DESIGN)
 ================================*/
 
 .hero{
-text-align:center;
-padding:60px 20px 30px;
-max-width:900px;
-margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero-logo{
+    max-width: 140px;
+    margin-bottom: 15px;
 }
 
 .hero h1{
-font-size:42px;
-font-weight:700;
-color:#0f172a;
-margin-bottom:12px;
-letter-spacing:-0.5px;
+    font-size: 28px;
+    line-height: 1.3;
+    margin: 0;
 }
 
 .hero p{
-font-size:25px;
-color:#64748b;
-}
-.hero{
-margin-top:20px;
-}
-.hero h1{
-background: linear-gradient(90deg,#2563eb,#3a78ff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+    margin-top: 10px;
+    color: #666;
 }
 .quick-converter{
 text-align:center;
