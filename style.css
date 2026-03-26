@@ -361,7 +361,10 @@ max-width:110px;
 .hero h1{
 font-size:22px;
 }
-
+.hero-wrapper{
+    display: flex;
+    justify-content: center;
+}
 .hero p{
 font-size:14px;
 }
