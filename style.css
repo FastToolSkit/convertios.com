@@ -272,10 +272,11 @@ color:#0f172a;
 }
 
 .more-tools-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,220px));
-gap:20px;
-justify-content:center;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 .more-tool-card{
 display:block;
