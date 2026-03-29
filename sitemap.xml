@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<?xml-stylesheet type="text/xsl" href="noindex.xsl"?>
+
   <url>
     <loc>https://convertios.com/</loc>
   </url>
 
   <url>
-    <loc>https://convertios.com/png-to-jpg.html</loc>
+    <loc>https://convertios.com/tools.html</loc>
   </url>
 
   <url>
-  <loc>https://convertios.com/tools.html</loc>
-</url>
+    <loc>https://convertios.com/png-to-jpg.html</loc>
+  </url>
 
   <url>
     <loc>https://convertios.com/pdf-to-jpg.html</loc>
