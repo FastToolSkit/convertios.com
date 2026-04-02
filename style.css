@@ -6,7 +6,7 @@ GLOBAL RESET
 margin:0;
 padding:0;
 box-sizing:border-box;
-}
+}logo
 
 body{
 background:#e6e7ea;
@@ -35,7 +35,7 @@ color:inherit;
     flex: 0 0 auto;
 }
 .logo img{
-    height:45px;
+    height:90px;
     display:block;
 }
 
