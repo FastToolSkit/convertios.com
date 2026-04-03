@@ -85,6 +85,7 @@ color:inherit;
     top:50%;
     transform:translateY(-50%);
     font-size:14px;
+    flex-shrink:0;
 }
 /* ===============================
 TOOLS GRID
