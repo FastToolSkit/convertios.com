@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -8,26 +7,17 @@
 
 <title>Free Online Conversion Tools | Convertios</title>
 
-<meta name="description" content="Convert files online for free with Convertios. Fast, secure image, audio, and PDF converter tools with no downloads required. Easy to use and high quality results.">
-<meta name="keywords" content="free online tools, image converter, audio converter, pdf tools, compress image, mp3 cutter, convert files online">
+<meta name="description" content="Convert files online for free with Convertios. Fast, secure image, audio, and PDF tools.">
 <meta name="robots" content="index, follow">
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
 
-<link rel="stylesheet" href="style.css?v=4">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="style.css?v=5">
+<link rel="icon" href="favicon.png">
+
+<!-- AdSense (KEEP ONLY THIS) -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072"
 crossorigin="anonymous"></script>
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0CH8NE5WDH');
-</script>
 </head>
 
 <body>
@@ -35,7 +25,7 @@ crossorigin="anonymous"></script>
 <header class="site-header">
 
 <a href="index.html" class="logo">
-<img src="convertios-logo.png" width="200" height="55" alt="Convertios Logo">
+<img src="convertios-logo.png" alt="Convertios Logo">
 </a>
 
 <nav class="nav-menu">
@@ -46,41 +36,30 @@ crossorigin="anonymous"></script>
 </nav>
 
 <div class="search-box">
-<span class="search-icon">🔍</span>
-<input type="text" id="toolSearch" placeholder="Search tools..." onkeyup="searchTools()">
+<input type="text" id="toolSearchHeader" placeholder="Search tools..." onkeyup="searchTools()">
 </div>
 
 </header>
+
 <main>
 
 <!-- HERO -->
 <section class="hero">
 
-    <div class="hero-content">
-        <h1>Free Online Conversion Tools & More</h1>
+<h1>Free Online Conversion Tools & More</h1>
 
-        <p class="hero-sub">
-            Convert files, edit images, and transform documents instantly with our fast and secure tools.
-        </p>
+<p class="hero-sub">
+Convert files, edit images, and transform documents instantly.
+</p>
 
-        <p class="trust-line">
-            ✔ No signup required • ✔ Files never uploaded • ✔ Works on any device
-        </p>
+<p class="trust-line">
+✔ No signup • ✔ Secure • ✔ Fast
+</p>
 
-        <div class="hero-search">
-            <input type="text" id="toolSearch" placeholder="Search tools (e.g. PDF to JPG)">
-            <button onclick="searchTools()">Search</button>
-        </div>
-    </div>
-
-    <!-- FLOATING ICONS -->
-    <div class="hero-icons">
-        <div class="file-icon pdf">PDF</div>
-        <div class="file-icon jpg">JPG</div>
-        <div class="file-icon png">PNG</div>
-        <div class="file-icon mp3">MP3</div>
-        <div class="file-icon docx">DOCX</div>
-    </div>
+<div class="hero-search">
+<input type="text" id="toolSearchHero" placeholder="Search tools...">
+<button onclick="searchTools()">Search</button>
+</div>
 
 </section>
 
@@ -88,105 +67,106 @@ crossorigin="anonymous"></script>
 <!-- CATEGORIES -->
 <section class="categories">
 
-    <div class="category-card">
-        <h3>🖼 Image Tools</h3>
-        <p>Resize, compress, and convert images</p>
-        <a href="tools.html">Explore →</a>
-    </div>
+<div class="category-card">
+<h3>Image Tools</h3>
+<p>Resize, compress, convert</p>
+</div>
 
-    <div class="category-card">
-        <h3>📄 PDF Tools</h3>
-        <p>Convert, merge, split, and edit PDFs</p>
-        <a href="tools.html">Explore →</a>
-    </div>
+<div class="category-card">
+<h3>PDF Tools</h3>
+<p>Merge, split, convert</p>
+</div>
 
-    <div class="category-card">
-        <h3>🎵 Audio Tools</h3>
-        <p>Convert, cut, and edit audio files</p>
-        <a href="tools.html">Explore →</a>
-    </div>
+<div class="category-card">
+<h3>Audio Tools</h3>
+<p>Cut, convert, edit</p>
+</div>
 
 </section>
 
 
-<!-- POPULAR TOOLS -->
+<!-- TOOLS -->
 <h2 class="section-title">Popular Conversion Tools</h2>
 
-<div class="tools-grid" id="tools">
+<div class="tools-grid">
 
-    <!-- KEEP YOUR EXISTING TOOLS -->
-<div class="tools-grid" id="tools">
+<a href="#" class="tool-card">
+<h4>PDF to Word</h4>
+<p>Convert PDF into editable Word</p>
+</a>
+
+<a href="#" class="tool-card">
+<h4>JPG to PDF</h4>
+<p>Combine images into PDF</p>
+</a>
+
+<a href="#" class="tool-card">
+<h4>PNG to JPG</h4>
+<p>Convert PNG to JPG</p>
+</a>
+
+<a href="#" class="tool-card">
+<h4>Compress Image</h4>
+<p>Reduce image size</p>
+</a>
+
+<a href="#" class="tool-card">
+<h4>MP3 Cutter</h4>
+<p>Trim audio files</p>
+</a>
+
+<a href="#" class="tool-card">
+<h4>Merge PDF</h4>
+<p>Combine PDF files</p>
+</a>
+
 </div>
 
 <p class="browse-more">
-    Looking for more tools? <a href="tools.html">Browse full collection →</a>
+<a href="tools.html">Browse all tools →</a>
 </p>
 
 
-<!-- TRUST SECTION -->
+<!-- TRUST -->
 <section class="trust-section">
 
-    <div class="trust-box">
-        <h4>🔓 Free & Unlimited</h4>
-        <p>No hidden fees or limits</p>
-    </div>
+<div class="trust-box">
+<h4>Free & Unlimited</h4>
+<p>No hidden fees</p>
+</div>
 
-    <div class="trust-box">
-        <h4>🔒 Secure Processing</h4>
-        <p>Your files are never stored</p>
-    </div>
+<div class="trust-box">
+<h4>Secure</h4>
+<p>Files not stored</p>
+</div>
 
-    <div class="trust-box">
-        <h4>⚡ Fast & Reliable</h4>
-        <p>Instant results in seconds</p>
-    </div>
+<div class="trust-box">
+<h4>Fast</h4>
+<p>Instant results</p>
+</div>
 
-    <div class="trust-box">
-        <h4>🌍 Works Everywhere</h4>
-        <p>Mobile, tablet, and desktop</p>
-    </div>
+<div class="trust-box">
+<h4>Works Everywhere</h4>
+<p>All devices supported</p>
+</div>
 
 </section>
 
-
-<!-- KEEP YOUR SEO CONTENT -->
-<div class="site-description">
-    <!-- KEEP AS IS -->
-</div>
-
-<div class="tool-descriptions">
-    <!-- KEEP AS IS -->
-</div>
-
 </main>
+
+
 <footer class="site-footer">
-<p>
-© 2026 Convertios • Free Online Tools<br>
-<a href="privacy.html">Privacy</a> •
-<a href="terms.html">Terms</a> •
-<a href="contact.html">Contact</a>
-</p>
+<p>© Convertios • Free Tools</p>
 </footer>
 
 <script>
-// Delay ad rendering (CLS-safe)
-window.addEventListener("load", function(){
-    setTimeout(function(){
-    }, 1200);
-});
-
-    if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
-}
-// Search
 function searchTools(){
-    let input = document.getElementById("toolSearch").value.toLowerCase();
-    let cards = document.querySelectorAll(".tool-card");
+let input = document.getElementById("toolSearchHeader").value.toLowerCase();
+let cards = document.querySelectorAll(".tool-card");
 
-    cards.forEach(card => {
-        let text = card.innerText.toLowerCase();
-        card.style.display = text.includes(input) ? "block" : "none";
-    });
+cards.forEach(card => {
+card.style.display = card.innerText.toLowerCase().includes(input) ? "block" : "none";
+});
 }
 </script>
 
