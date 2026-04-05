@@ -18,7 +18,7 @@ body{
 HEADER
 =============================== */
 .site-header{
-    display:grid;
+    display:flex;
     grid-template-columns: auto 1fr auto;
     align-items:center;
     padding:15px 40px;
@@ -26,6 +26,8 @@ HEADER
     box-shadow:0 4px 20px rgba(0,0,0,0.2);
       position:relative;
     z-index:1000;
+        justify-content:space-between;
+
 }
 
 .logo img{
@@ -47,6 +49,10 @@ HEADER
     width:100%;       
     max-width:800px;  
     margin:0 auto;    
+    left:50%;
+    transform:translateX(-50%);
+    position:absolute;
+
 }
 .nav-menu a::after{
     content:"";
