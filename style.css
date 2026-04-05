@@ -31,20 +31,26 @@ HEADER (MATCH DESIGN)
     height:40px;
 }
 
-.nav-menu a{
-    color:#cbd5e1;
-    font-weight:500;
+.nav-menu a.active{
+    color:#3b82f6;
+    font-weight:600;
 }
+.header-right{
+    justify-self:end;
+}
+
 .nav-menu a{
     color:#64748b;
     font-weight:500;
 }
-.nav-menu a:hover{
-    color:white;
-}
+
 .nav-menu a:hover{
     color:#2563eb;
 }
+.header-right{
+    justify-self:end;
+}
+
 .nav-menu a.active{
     color:#2563eb;
     font-weight:600;
@@ -53,7 +59,6 @@ HEADER (MATCH DESIGN)
     display:flex;
     align-items:center;
     gap:15px;
-}
 .bookmark-btn{
     background:#2563eb;
     color:white;
