@@ -18,7 +18,33 @@
 crossorigin="anonymous"></script>
 
 </head>
+<script>
+(function(){
+    const userLang = navigator.language || navigator.userLanguage;
 
+    if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
+        
+        if (userLang.startsWith("ar")) {
+            window.location.href = "/ar/";
+        } 
+        else if (userLang.startsWith("es")) {
+            window.location.href = "/es/";
+        }
+        else if (userLang.startsWith("fr")) {
+            window.location.href = "/fr/";
+        }
+        else if (userLang.startsWith("de")) {
+            window.location.href = "/de/";
+        }
+        else if (userLang.startsWith("tr")) {
+            window.location.href = "/tr/";
+        }
+        else {
+            window.location.href = "/en/";
+        }
+    }
+})();
+</script>
 <body>
 
 <!-- HEADER -->
@@ -109,12 +135,12 @@ crossorigin="anonymous"></script>
     </div>
 
     <div class="lang-menu">
-        <a href="#">English</a>
-        <a href="#">Arabic</a>
-        <a href="#">Spanish</a>
-        <a href="#">French</a>
-        <a href="#">German</a>
-        <a href="#">Turkish</a>
+  <a href="/en/">English</a>
+<a href="/ar/">العربية</a>
+<a href="/es/">Español</a>
+<a href="/fr/">Français</a>
+<a href="/de/">Deutsch</a>
+<a href="/tr/">Türkçe</a>
     </div>
 
 </div>
