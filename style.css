@@ -22,24 +22,26 @@ HEADER (MATCH DESIGN)
     justify-content:space-between;
     align-items:center;
     padding:15px 40px;
-    background:white;
-    border-bottom:1px solid #e5e7eb;
+
+    background:#0f172a; /* 🔥 DARK CLEAN */
+    border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .logo img{
     height:40px;
 }
 
-.nav-menu{
-    display:flex;
-    gap:20px;
-    font-size:14px;
+.nav-menu a{
+    color:#cbd5e1;
+    font-weight:500;
 }
 .nav-menu a{
     color:#64748b;
     font-weight:500;
 }
-
+.nav-menu a:hover{
+    color:white;
+}
 .nav-menu a:hover{
     color:#2563eb;
 }
