@@ -21,9 +21,9 @@ HEADER (MATCH DESIGN)
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:15px 50px;
-    background:#ffffff;
-    border-bottom:1px solid #e2e8f0;
+    padding:15px 40px;
+    background:white;
+    border-bottom:1px solid #e5e7eb;
 }
 
 .logo img{
@@ -32,9 +32,9 @@ HEADER (MATCH DESIGN)
 
 .nav-menu{
     display:flex;
-    gap:25px;
+    gap:20px;
+    font-size:14px;
 }
-
 .nav-menu a{
     color:#64748b;
     font-weight:500;
@@ -42,6 +42,23 @@ HEADER (MATCH DESIGN)
 
 .nav-menu a:hover{
     color:#2563eb;
+}
+.nav-menu a.active{
+    color:#2563eb;
+    font-weight:600;
+}
+.right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+.bookmark-btn{
+    background:#e0ecff;
+    border:none;
+    padding:6px 12px;
+    border-radius:8px;
+    color:#2563eb;
+    cursor:pointer;
 }
 
 .search-box{
@@ -61,10 +78,14 @@ HERO (REAL MATCH)
 =============================== */
 .hero{
     position:relative;
-    text-align:center;
     padding:100px 20px;
+    text-align:center;
     background:linear-gradient(180deg,#eef2ff 0%, #ffffff 100%);
     overflow:hidden;
+}
+.hero-content{
+    position:relative;
+    z-index:2;
 }
 
 .hero-badge{
@@ -76,9 +97,8 @@ HERO (REAL MATCH)
     font-size:13px;
     margin-bottom:20px;
 }
-
 .hero h1{
-    font-size:48px;
+    font-size:46px;
     font-weight:700;
 }
 
@@ -87,11 +107,10 @@ HERO (REAL MATCH)
 }
 
 .hero-sub{
-    margin-top:15px;
+    margin-top:10px;
     color:#64748b;
 }
 
-/* SEARCH */
 .hero-search{
     margin-top:25px;
 }
@@ -104,13 +123,12 @@ HERO (REAL MATCH)
 }
 
 .hero-search button{
-    padding:14px 22px;
+    padding:14px 20px;
     margin-left:10px;
+    border:none;
     border-radius:10px;
     background:#2563eb;
     color:white;
-    border:none;
-    cursor:pointer;
 }
 
 .hero-search button:hover{
@@ -290,3 +308,29 @@ RESPONSIVE
 }
 
 }
+.floating-icons{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+/* ICON STYLE */
+.icon{
+    position:absolute;
+    padding:12px 16px;
+    border-radius:12px;
+    color:white;
+    font-weight:600;
+    font-size:14px;
+    transform:rotate(-10deg);
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* LEFT SIDE */
+.pdf{ background:#ef4444; top:30%; left:10%; }
+.jpg{ background:#22c55e; top:60%; left:15%; }
+.mp3{ background:#a855f7; top:75%; left:25%; }
+
+/* RIGHT SIDE */
+.png{ background:#3b82f6; top:25%; right:10%; }
+.docx{ background:#0ea5e9; top:50%; right:15%; }
