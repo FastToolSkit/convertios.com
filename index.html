@@ -51,109 +51,115 @@ crossorigin="anonymous"></script>
 </div>
 
 </header>
-
 <main>
 
 <!-- HERO -->
-<div class="hero-wrapper">
-    <div class="hero-section">
+<section class="hero">
+
+    <div class="hero-content">
         <h1>Free Online Conversion Tools & More</h1>
-        <p>Convert files instantly<p class="trust-line">
-✔ No signup required • ✔ Files never uploaded • ✔ 100% browser-based • ✔ Free & secure
-</p>.</p>
+
+        <p class="hero-sub">
+            Convert files, edit images, and transform documents instantly with our fast and secure tools.
+        </p>
+
+        <p class="trust-line">
+            ✔ No signup required • ✔ Files never uploaded • ✔ Works on any device
+        </p>
+
+        <div class="hero-search">
+            <input type="text" id="toolSearch" placeholder="Search tools (e.g. PDF to JPG)">
+            <button onclick="searchTools()">Search</button>
+        </div>
     </div>
-</div>
 
-<!-- AD SLOT (SAFE) -->
-<!--<div class="ad-slot">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-8386549343296072"
-       data-ad-slot="9477759753"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
+    <!-- FLOATING ICONS -->
+    <div class="hero-icons">
+        <div class="file-icon pdf">PDF</div>
+        <div class="file-icon jpg">JPG</div>
+        <div class="file-icon png">PNG</div>
+        <div class="file-icon mp3">MP3</div>
+        <div class="file-icon docx">DOCX</div>
+    </div>
 
-<!-- TOOLS GRID -->
-<h2 style="text-align:center; margin-top:40px;">Online Conversion Tools</h2>
+</section>
+
+
+<!-- CATEGORIES -->
+<section class="categories">
+
+    <div class="category-card">
+        <h3>🖼 Image Tools</h3>
+        <p>Resize, compress, and convert images</p>
+        <a href="tools.html">Explore →</a>
+    </div>
+
+    <div class="category-card">
+        <h3>📄 PDF Tools</h3>
+        <p>Convert, merge, split, and edit PDFs</p>
+        <a href="tools.html">Explore →</a>
+    </div>
+
+    <div class="category-card">
+        <h3>🎵 Audio Tools</h3>
+        <p>Convert, cut, and edit audio files</p>
+        <a href="tools.html">Explore →</a>
+    </div>
+
+</section>
+
+
+<!-- POPULAR TOOLS -->
+<h2 class="section-title">Popular Conversion Tools</h2>
 
 <div class="tools-grid" id="tools">
 
-<a href="pdf-to-word.html" class="tool-card"><h3>📄 PDF to Word</h3><p>Convert PDF files into fully editable Word documents instantly.</p></a>
-<a href="remove-bg.html" class="tool-card"><h3>🪄 Remove Background</h3><p>Automatically remove image backgrounds with high accuracy.</p></a>
-<a href="pdf-to-jpg.html" class="tool-card"><h3>🖼️ PDF to JPG</h3><p>Convert PDF pages into high-quality JPG images.</p></a>
-<a href="jpg-to-pdf.html" class="tool-card"><h3>📄 JPG to PDF</h3><p>Combine JPG images into a single PDF file easily.</p></a>
-<a href="merge-pdf.html" class="tool-card"><h3>📑 Merge PDF</h3><p>Merge multiple PDF files into one document in seconds.</p></a>
-<a href="split-pdf.html" class="tool-card"><h3>✂️ Split PDF</h3><p>Extract or split pages from your PDF documents quickly.</p></a>
-<a href="rotate-pdf.html" class="tool-card"><h3>🔄 Rotate PDF</h3><p>Rotate PDF pages to the correct orientation instantly.</p></a>
-<a href="image-resizer.html" class="tool-card"><h3>📐 Image Resizer</h3><p>Resize images to any dimension without losing quality.</p></a>
-<a href="image-converter.html" class="tool-card"><h3>🖼️ Image Converter</h3><p>Convert images between JPG, PNG, WEBP and more.</p></a>
-<a href="compress-image.html" class="tool-card"><h3>🗜️ Image Compressor</h3><p>Reduce image file size while maintaining quality.</p></a>
-<a href="png-to-jpg.html" class="tool-card"><h3>📸 PNG to JPG</h3><p>Convert PNG images into JPG format easily.</p></a>
-<a href="jpg-to-png.html" class="tool-card"><h3>🖼️ JPG to PNG</h3><p>Convert JPG images into PNG format instantly.</p></a>
-<a href="webp-to-png.html" class="tool-card"><h3>🔄 WEBP to PNG</h3><p>Convert WEBP images into PNG format.</p></a>
-<a href="qr-generator.html" class="tool-card"><h3>🔳 QR Generator</h3><p>Create custom QR codes for links, text, and more.</p></a>
-<a href="password-generator.html" class="tool-card"><h3>🔐 Password Generator</h3><p>Generate strong and secure passwords instantly.</p></a>
-<a href="word-counter.html" class="tool-card"><h3>🔤 Word Counter</h3><p>Count words, characters, and text length instantly.</p></a>
-<a href="text-formatter.html" class="tool-card"><h3>✏️ Text Formatter</h3><p>Format, clean, and transform text with ease.</p></a>
-<a href="unit-converter.html" class="tool-card"><h3>📏 Unit Converter</h3><p>Convert units of measurement quickly and accurately.</p></a>
-<a href="link-shortener.html" class="tool-card"><h3>🔗 Link Shortener</h3><p>Shorten long URLs into clean and shareable links.</p></a>
-<a href="mp3-cutter.html" class="tool-card"><h3>🎵 MP3 Cutter</h3><p>Trim and cut MP3 audio files easily.</p></a>
-<a href="audio-converter.html" class="tool-card"><h3>🎵 Audio Converter</h3><p>Convert audio files between different formats.</p></a>
-<a href="audio-speed-changer.html" class="tool-card"><h3>🎧 Audio Speed</h3><p>Adjust audio playback speed instantly.</p></a>
-<a href="meme-generator.html" class="tool-card"><h3>😂 Meme Generator</h3><p>Create and customize memes quickly and easily.</p></a>
+    <!-- KEEP YOUR EXISTING TOOLS -->
+    :contentReference[oaicite:0]{index=0}
 
 </div>
 
-<p style="text-align:center; margin-top:20px;">
-Looking for more tools? <a href="tools.html">Browse the full collection</a>
+<p class="browse-more">
+    Looking for more tools? <a href="tools.html">Browse full collection →</a>
 </p>
 
-<!-- SEO CONTENT -->
+
+<!-- TRUST SECTION -->
+<section class="trust-section">
+
+    <div class="trust-box">
+        <h4>🔓 Free & Unlimited</h4>
+        <p>No hidden fees or limits</p>
+    </div>
+
+    <div class="trust-box">
+        <h4>🔒 Secure Processing</h4>
+        <p>Your files are never stored</p>
+    </div>
+
+    <div class="trust-box">
+        <h4>⚡ Fast & Reliable</h4>
+        <p>Instant results in seconds</p>
+    </div>
+
+    <div class="trust-box">
+        <h4>🌍 Works Everywhere</h4>
+        <p>Mobile, tablet, and desktop</p>
+    </div>
+
+</section>
+
+
+<!-- KEEP YOUR SEO CONTENT -->
 <div class="site-description">
-
-<h2>Free Online Conversion Tools for Everyday Use</h2>
-<p>
-Convertios provides a complete suite of free online tools designed to simplify your digital tasks. Whether you need to convert files, compress images, edit audio, or generate content, our tools are built to deliver fast and reliable results directly in your browser.
-</p>
-
-<p>
-Our platform supports a wide range of file conversions including PDF, JPG, PNG, WEBP, and audio formats. Each tool is optimized for speed, accuracy, and ease of use, making it suitable for both beginners and professionals.
-</p>
-
-<h2>Secure and Private File Processing</h2>
-<p>
-Your privacy is our priority. Most Convertios tools run locally in your browser, which means your files are never uploaded to external servers. This ensures maximum security and complete control over your data.
-</p>
-
-<h2>How to Use Convertios Tools</h2>
-<p>
-Using Convertios is simple and efficient. Select the tool you need, upload your file, and download the result instantly. No registration, no installations, and no hidden steps — just fast and straightforward tools that work.
-</p>
-
+    <!-- KEEP AS IS -->
 </div>
 
 <div class="tool-descriptions">
-
-<h2>Why Choose Convertios?</h2>
-<p>
-Convertios is designed to be fast, lightweight, and accessible from any device. With a clean interface and optimized performance, you can complete your tasks in seconds without unnecessary complexity.
-</p>
-
-<h2>Who Can Benefit from These Tools?</h2>
-<p>
-Our tools are perfect for students, designers, developers, marketers, and anyone who needs quick and efficient file conversions. Whether you're working on documents, images, or audio files, Convertios provides the tools you need in one place.
-</p>
-
-<h2>All-in-One Online Toolbox</h2>
-<p>
-Instead of using multiple websites for different tasks, Convertios brings everything together in one platform. From file conversion to content tools, you can handle all your daily digital needs quickly and efficiently.
-</p>
-
+    <!-- KEEP AS IS -->
 </div>
 
 </main>
-
 <footer class="site-footer">
 <p>
 © 2026 Convertios • Free Online Tools<br>
