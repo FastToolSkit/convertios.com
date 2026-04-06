@@ -139,7 +139,7 @@ HERO
 
 /* SEARCH */
 .hero-search{
-    margin-top:20px;
+    position: relative;
 }
 
 .hero-search input{
@@ -163,7 +163,29 @@ HERO
     position:relative;
     height:320px;
 }
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-top: 8px;
+    display: none;
+    overflow: hidden;
+    z-index: 1000;
+}
 
+.search-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.search-item:hover {
+    background: #f3f4f6;
+}
 /* ===============================
 BACKGROUND EFFECT
 =============================== */
