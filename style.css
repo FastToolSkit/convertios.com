@@ -309,8 +309,11 @@ TOOLS
     background:white;
     padding:20px;
     border-radius:16px;
-    border:1px solid #e2e8f0;
-    transition:0.25s;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    border: 1px solid #e5e7eb;
 }
 
 .tool-card:hover{
@@ -318,7 +321,23 @@ TOOLS
     box-shadow:0 12px 30px rgba(0,0,0,0.08);
     border-color:#2563eb;
 }
+.tool-icon {
+    font-size: 28px;
+    background: #eef2ff;
+    padding: 10px;
+    border-radius: 10px;
+}
+.tool-content h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #111827;
+}
 
+.tool-content p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: #6b7280;
+}
 /* ===============================
 TRUST
 =============================== */
@@ -527,4 +546,32 @@ RESPONSIVE
 .lang-menu a:hover{
     background:#334155;
     color:white;
+}
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0 20px;
+}
+
+.section-header h2 {
+    font-size: 26px;
+    margin: 0;
+}
+
+.section-sub {
+    font-size: 14px;
+    color: #6b7280;
+    margin-top: 5px;
+}
+
+.view-all-btn {
+    text-decoration: none;
+    font-weight: 500;
+    color: #4f46e5;
+    transition: 0.2s;
+}
+
+.view-all-btn:hover {
+    opacity: 0.7;
 }
