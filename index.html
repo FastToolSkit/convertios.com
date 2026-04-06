@@ -179,7 +179,7 @@ Convert files, edit images, and transform documents instantly with fast and secu
 <!-- CATEGORIES -->
 <section class="categories">
 
-<a href="tools.html" class="category-card">
+<a href="tools.html?category=image" class="category-card">
     <div class="category-icon">🖼</div>
     <div class="category-content">
         <h3>Image Tools</h3>
@@ -187,7 +187,7 @@ Convert files, edit images, and transform documents instantly with fast and secu
     </div>
 </a>
 
-<a href="tools.html" class="category-card">
+<a href="tools.html?category=pdf" class="category-card">
     <div class="category-icon">📄</div>
     <div class="category-content">
         <h3>PDF Tools</h3>
@@ -195,7 +195,7 @@ Convert files, edit images, and transform documents instantly with fast and secu
     </div>
 </a>
 
-<a href="tools.html" class="category-card">
+<a href="tools.html?category=audio" class="category-card">
     <div class="category-icon">🎵</div>
     <div class="category-content">
         <h3>Audio Tools</h3>
@@ -371,7 +371,20 @@ document.addEventListener("click", (e) => {
         resultsBox.style.display = "none";
     }
 });
-    
+    const urlParams = new URLSearchParams(window.location.search);
+const category = urlParams.get("category");
+
+if (category) {
+    const tools = document.querySelectorAll(".tool-card");
+
+    tools.forEach(tool => {
+        const toolCategory = tool.getAttribute("data-category");
+
+        if (toolCategory !== category) {
+            tool.style.display = "none";
+        }
+    });
+}
 </script>
 </body>
 </html>
