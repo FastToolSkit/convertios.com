@@ -578,7 +578,16 @@ RESPONSIVE
     flex-direction: column;
     align-items: center;
 }
+.hero-badges{
+    gap: 6px;
+}
 
+.hero-badge{
+    font-size: 11px;
+    padding: 5px 8px;
+}
+
+}
 /* ===== SEO SECTION ===== */
 .seo-section{
     padding: 0 15px;
