@@ -215,53 +215,32 @@ Convert files, edit images, and transform documents instantly with fast and secu
 
 
 <!-- POPULAR TOOLS -->
-<section class="popular-tools">
+<section class="popular-section">
 
-<div class="section-header">
-    <div>
-        <h2>Popular File Conversion Tools</h2>
-        <p class="section-sub">Convert PDF, JPG, PNG, and audio files instantly</p>
-    </div>
+<h2>Popular File Conversion Tools</h2>
+<p class="section-sub">
+Convert PDF, JPG, PNG, and audio files instantly
+</p>
 
-<a href="all-tools.html" class="view-all-btn">View All Tools →</a>
-</div>
-<h2 id="categoryTitle" style="margin:20px 0;"></h2>
-<div class="tools-grid" id="toolsGrid">
+<div class="tools-grid popular-grid">
 
-<a href="pdf-to-word.html" class="tool-card" data-keywords="pdf to word convert document">
+<!-- example -->
+<a href="pdf-to-word.html" class="tool-card">
     <div class="tool-icon-wrap">📄</div>
     <h3>PDF to Word</h3>
     <p>Convert PDF files into editable Word documents</p>
 </a>
 
-<a href="jpg-to-pdf.html" class="tool-card" data-keywords="jpg to pdf image convert">
+<a href="jpg-to-pdf.html" class="tool-card">
     <div class="tool-icon-wrap">🖼</div>
     <h3>JPG to PDF</h3>
     <p>Convert JPG images into high-quality PDF files</p>
 </a>
 
-<a href="png-to-jpg.html" class="tool-card" data-keywords="png to jpg image converter">
+<a href="png-to-jpg.html" class="tool-card">
     <div class="tool-icon-wrap">🖼</div>
     <h3>PNG to JPG</h3>
     <p>Convert PNG images to JPG format quickly</p>
-</a>
-
-<a href="compress-image.html" class="tool-card" data-keywords="compress image reduce size">
-    <div class="tool-icon-wrap">📦</div>
-    <h3>Image Compressor</h3>
-    <p>Reduce image file size without losing quality</p>
-</a>
-
-<a href="mp3-cutter.html" class="tool-card" data-keywords="mp3 cutter audio trim">
-    <div class="tool-icon-wrap">🎵</div>
-    <h3>MP3 Cutter</h3>
-    <p>Trim and cut audio files online easily</p>
-</a>
-
-<a href="merge-pdf.html" class="tool-card" data-keywords="merge pdf combine files">
-    <div class="tool-icon-wrap">📑</div>
-    <h3>Merge PDF</h3>
-    <p>Combine multiple PDF files into one document</p>
 </a>
 
 </div>
@@ -427,34 +406,6 @@ if (searchInput && resultsBox) {
 }
 
 
-// ==========================
-// CATEGORY FILTER (tools.html)
-// ==========================
-const urlParams = new URLSearchParams(window.location.search);
-const category = urlParams.get("category");
-
-const tools = document.querySelectorAll(".tool-card");
-const title = document.getElementById("categoryTitle");
-
-if (tools.length && title) {
-
-    if (category) {
-
-        title.innerText = category.charAt(0).toUpperCase() + category.slice(1) + " Tools";
-
-        tools.forEach(tool => {
-            const toolCat = tool.getAttribute("data-category");
-
-            if (toolCat !== category) {
-                tool.style.display = "none";
-            }
-        });
-
-    } else {
-        title.innerText = "All Tools";
-    }
-
-}
 
 </script>
 </body>
