@@ -379,8 +379,9 @@ TOOLS
     z-index: 0;
 }
 
-.tool-card:hover::before {
-    opacity: 0.06;
+.tool-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 /* hover lift */
@@ -770,17 +771,15 @@ RESPONSIVE
     margin-bottom: 30px;
 }
 
-/* ✨ خليها مميزة */
 .popular-grid .tool-card {
     border: 2px solid #6366f1;
     box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
 }
 
-/* hover أقوى */
-.popular-grid .tool-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.25);
-}
 .popular-grid .tool-card:first-child {
     transform: scale(1.05);
+}
+
+.popular-grid .tool-card:first-child:hover {
+    transform: scale(1.05) translateY(-8px);
 }
