@@ -20,6 +20,10 @@ body{
 .page-content {
     flex: 1;
 }
+main {
+    flex: 1;
+    padding-bottom: 20px;
+}
 /* ===============================
 HEADER
 =============================== */
