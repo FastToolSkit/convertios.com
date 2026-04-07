@@ -748,3 +748,31 @@ RESPONSIVE
 .seo-section li {
     margin-bottom: 8px;
 }
+.popular-section {
+    text-align: center;
+    margin: 60px auto;
+    max-width: 1100px;
+    padding: 0 20px;
+}
+
+.popular-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.popular-section .section-sub {
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+/* ✨ خليها مميزة */
+.popular-grid .tool-card {
+    border: 2px solid #6366f1;
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+}
+
+/* hover أقوى */
+.popular-grid .tool-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.25);
+}
