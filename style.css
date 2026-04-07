@@ -165,10 +165,11 @@ HERO
 }
 
 /* SEARCH */
-.hero-search{
+.hero-search {
+    margin-top: 20px;
     position: relative;
+    max-width: 400px;
 }
-
 .hero-search input{
     width:400px;
     padding:14px 16px;
