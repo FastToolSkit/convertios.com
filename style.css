@@ -539,7 +539,66 @@ RESPONSIVE
     flex-direction: column;
     text-align: center;
 }
+@media (max-width:768px){
 
+/* ===== HEADER ===== */
+.site-header{
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* NAV */
+.nav-menu{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 100%;
+}
+
+/* DROPDOWN */
+.dropdown-menu{
+    position: static;
+    width: 100%;
+}
+
+/* ===== HERO ===== */
+.hero-container{
+    flex-direction: column;
+    text-align: center;
+}
+
+/* 🔥 IMPORTANT FIX */
+.hero-right{
+    display: none !important;
+}
+
+/* TEXT */
+.hero-left h1{
+    font-size: 24px;
+}
+
+/* SEARCH */
+.hero-search input{
+    width: 100%;
+}
+
+/* ===== CATEGORIES ===== */
+.categories{
+    grid-template-columns: 1fr;
+}
+
+/* ===== TOOLS ===== */
+.tools-grid{
+    grid-template-columns: 1fr;
+}
+
+/* ===== TRUST ===== */
+.trust-section{
+    grid-template-columns: 1fr;
+}
+
+}
 .hero-left h1{
     font-size: 24px;
 }
@@ -563,7 +622,11 @@ RESPONSIVE
 .tool-card{
     padding: 16px;
 }
+.trust-section{
+    grid-template-columns: 1fr;
+}
 
+}
 /* ===== POPULAR SECTION ===== */
 .popular-section h2{
     font-size: 22px;
