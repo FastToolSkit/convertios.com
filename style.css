@@ -580,24 +580,21 @@ RESPONSIVE
 }
 
 /* FORCE RESET EVERYTHING */
-.hero-badges,
-.hero-badges * {
-    position: static !important;
-    transform: none !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: auto !important;
+.hero-badges{
+    display: block !important;
+    text-align: center;
 }
 
-/* CLEAN LAYOUT */
-.hero-badges{
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
+/* each badge becomes its own row */
+.hero-badge{
+    display: inline-block !important;
+    position: static !important;
+    transform: none !important;
+    margin: 4px;
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
 }
 
 /* BADGE STYLE */
