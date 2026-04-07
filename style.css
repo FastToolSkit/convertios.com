@@ -250,8 +250,12 @@ ICONS
     font-size:12px;
     font-weight:600;
     color:white;
-
+    text-decoration: none;
+    cursor: pointer;
     transition:0.3s;
+}
+.icon:active{
+    transform:scale(0.95);
 }
 /* main */
 .pdf{ background:#ef4444; top:20%; left:25%; transform:rotate(-8deg); }
