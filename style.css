@@ -783,3 +783,41 @@ RESPONSIVE
 .popular-grid .tool-card:first-child:hover {
     transform: scale(1.05) translateY(-8px);
 }
+
+.more-tools {
+    text-align: center;
+    margin: 60px auto;
+}
+
+.more-tools h2 {
+    margin-bottom: 20px;
+}
+
+.more-tools-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.more-tool-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f1f5f9;
+    padding: 10px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #1e293b;
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+.more-tool-card span {
+    font-size: 18px;
+}
+
+.more-tool-card:hover {
+    background: #e2e8f0;
+    transform: translateY(-3px);
+}
