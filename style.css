@@ -19,15 +19,22 @@ HEADER
 =============================== */
 .site-header{
     display:flex;
-    grid-template-columns: auto 1fr auto;
+    justify-content:space-between;
     align-items:center;
-    padding:15px 40px;
-    background:#0f172a;
-    box-shadow:0 4px 20px rgba(0,0,0,0.2);
-      position:relative;
-    z-index:1000;
-        justify-content:space-between;
 
+    padding:15px 40px;
+
+    /* ✅ UPGRADED BACKGROUND */
+    background: linear-gradient(90deg, #0f172a, #111827);
+
+    /* ✅ ADD THIS (clean separation) */
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    /* keep your shadow */
+    box-shadow:0 4px 20px rgba(0,0,0,0.2);
+
+    position:relative;
+    z-index:1000;
 }
 
 .logo img{
@@ -405,11 +412,12 @@ TRUST
 /* ===============================
 FOOTER
 =============================== */
-.site-footer{
-    background:#020c1b;
-    color:#cbd5e1;
-    text-align:center;
-    padding:25px;
+.site-footer {
+    background: #0b1220;
+    opacity: 0.95;
+    padding: 30px;
+    text-align: center;
+    color: #9ca3af;
 }
 
 /* ===============================
