@@ -235,6 +235,8 @@ BACKGROUND EFFECT
     top:50px;
     background:radial-gradient(circle, rgba(99,102,241,0.2), transparent);
     filter:blur(40px);
+    
+    pointer-events: none;
 }
 
 /* ===============================
