@@ -70,8 +70,8 @@ HEADER
     margin:0 auto;    
     left:50%;
     transform:translateX(-50%);
-    position:absolute;
-
+  position: relative;
+    z-index: 999;
 }
 .nav-menu a{
     color:#cbd5e1;
