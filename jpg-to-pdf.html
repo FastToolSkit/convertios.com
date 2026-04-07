@@ -111,19 +111,104 @@ line-height:1.8;
 
 <header class="site-header">
 
-<a href="index.html" class="logo">
-<img src="convertios-logo.png" alt="Convertios">
-</a>
+<div class="header-left">
+    <a href="index.html" class="logo">
+        <img src="convertios-logo.png" alt="Convertios Logo">
+    </a>
+</div>
 
 <nav class="nav-menu">
-<a href="index.html">Home</a>
-<a href="index.html#tools">Tools</a>
+
+<a href="index.html" class="active">Home</a>
+
+
+<div class="nav-item dropdown">
+    <span>Image ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="png-to-jpg.html">PNG to JPG</a>
+        <a href="jpg-to-png.html">JPG to PNG</a>
+        <a href="webp-to-png.html">WEBP to PNG</a>
+        <a href="image-converter.html">Image Converter</a>
+        <a href="image-resizer.html">Resize Image</a>
+        <a href="compress-image.html">Compress Image</a>
+        <a href="remove-bg.html">Remove Background</a>
+
+<a href="all-tools.html" class="view-all">View All →</a>
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>PDF ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="pdf-to-word.html">PDF to Word</a>
+        <a href="pdf-to-jpg.html">PDF to JPG</a>
+        <a href="jpg-to-pdf.html">JPG to PDF</a>
+
+        <a href="merge-pdf.html">Merge PDF</a>
+        <a href="split-pdf.html">Split PDF</a>
+        <a href="rotate-pdf.html">Rotate PDF</a>
+
+        <a href="all-tools.html" class="view-all">View All →</a>
+
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>Audio ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="mp3-cutter.html">MP3 Cutter</a>
+        <a href="audio-converter.html">Audio Converter</a>
+        <a href="audio-speed-changer.html">Speed Changer</a>
+
+        <a href="all-tools.html" class="view-all">View All →</a>
+
+    </div>
+</div>
+<div class="nav-item dropdown">
+    <span>More Tools ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="qr-generator.html">QR Generator</a>
+        <a href="link-shortener.html">Link Shortener</a>
+        <a href="password-generator.html">Password Generator</a>
+        <a href="word-counter.html">Word Counter</a>
+        <a href="text-formatter.html">Text Formatter</a>
+        <a href="unit-converter.html">Unit Converter</a>
+        <a href="meme-generator.html">Meme Generator</a>
+
+        <a href="all-tools.html" class="view-all">View All →</a>
+
+    </div>
+</div>
+    <a href="all-tools.html" class="nav-all-tools">All Tools →</a>
+
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
+
 </nav>
 
-</header>
+<div class="header-right">
+<div class="language-switcher">
 
+    <div class="lang-trigger">
+        🌐 EN ▾
+    </div>
+
+    <div class="lang-menu">
+  <a href="/en/">English</a>
+<a href="/ar/">العربية</a>
+<a href="/es/">Español</a>
+<a href="/fr/">Français</a>
+<a href="/de/">Deutsch</a>
+<a href="/tr/">Türkçe</a>
+    </div>
+
+</div>
+
+</header>
 <!-- TOOL -->
 
 <div class="tool-container">
@@ -230,16 +315,28 @@ You can combine multiple JPG, JPEG, or PNG images into one organized PDF documen
 
 <footer class="site-footer">
 
-<p>
-© 2026 Convertios • Free Online Tools
-<br>
-<a href="privacy.html">Privacy</a> •
-<a href="terms.html">Terms</a> •
-<a href="contact.html">Contact</a>
+<div class="footer-container">
+
+    <div class="footer-brand">
+        <h3>Convertios</h3>
+        <p>Free online tools for converting files, images, and more.</p>
+    </div>
+
+    <div class="footer-links">
+        <a href="tools.html">Tools</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+    </div>
+
+</div>
+
+<p class="footer-bottom">
+© 2026 Convertios • All rights reserved
 </p>
 
 </footer>
-
 <script>
 
 const dropArea = document.getElementById("drop-area");
