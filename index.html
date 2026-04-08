@@ -15,8 +15,16 @@
 <link rel="stylesheet" href="style.css?v=7">
 <link rel="icon" href="favicon.png">
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072"
-crossorigin="anonymous"></script>
+<script>
+if (window.innerWidth > 768) {
+    let script = document.createElement("script");
+    script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    document.head.appendChild(script);
+}
+</script>
+    crossorigin="anonymous"></script>
 
 </head>
 
