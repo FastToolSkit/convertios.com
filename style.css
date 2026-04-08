@@ -792,6 +792,17 @@ RESPONSIVE
 }
 
 
+.category-card{
+    flex-direction: column;   /* 🔥 هذا الحل الحقيقي */
+    align-items: center;
+    text-align: center;
+}
+
+
+.category-content{
+    width: 100%;
+}
+
 }
 
 /* ================= NAV IMPROVED ================= */
