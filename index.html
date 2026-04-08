@@ -16,12 +16,17 @@
 <link rel="icon" href="favicon.png">
 
 <script>
-if (window.innerWidth > 768) {
+function loadAds(){
     let script = document.createElement("script");
     script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072";
     script.async = true;
-
     document.head.appendChild(script);
+}
+
+if (window.innerWidth > 768) {
+    loadAds(); 
+} else {
+    setTimeout(loadAds, 3000);
 }
 </script>
 
