@@ -381,6 +381,10 @@ Our goal is to make everyday file tasks easier, faster, and more accessible for 
 
 </footer>
 <script>
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
 window.onload = function() {
     window.scrollTo(0, 0);
 };
