@@ -1186,6 +1186,12 @@ RESPONSIVE
 
 .faq-item{
     margin-bottom: 25px;
+    padding: 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.faq-item:hover{
+    background: rgba(255,255,255,0.03);
 }
 
 .faq-item h3{
