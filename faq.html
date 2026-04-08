@@ -209,6 +209,26 @@ margin-bottom:10px;
 </p>
 
 </footer>
+<script>
+document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+        const answer = button.nextElementSibling;
 
+        // close others
+        document.querySelectorAll(".faq-answer").forEach(item => {
+            if(item !== answer){
+                item.style.maxHeight = null;
+            }
+        });
+
+        // toggle current
+        if(answer.style.maxHeight){
+            answer.style.maxHeight = null;
+        } else {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+        }
+    });
+});
+</script>
 </body>
 </html>
