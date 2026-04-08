@@ -182,6 +182,7 @@ HERO
 
 /* RIGHT SIDE */
 .hero-right{
+     position: relative;
     display:flex;
     align-items:center;
     justify-content:flex-start;
@@ -255,6 +256,7 @@ ICONS
     text-decoration: none;
     cursor: pointer;
     transition:0.3s;
+      position: absolute;
 }
 .icon:active{
     transform:scale(0.95);
