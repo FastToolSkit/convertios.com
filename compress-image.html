@@ -14,152 +14,80 @@
 
 <link rel="stylesheet" href="style.css">
 
-<!-- FIXED FAVICON -->
 <link rel="icon" type="image/png" href="/favicon.png">
 
 </head>
 
 <body>
 
-<!-- HEADER (UNCHANGED) -->
+<!-- HEADER -->
 <header class="site-header">
 
 <div class="header-left">
-    <a href="index.html" class="logo">
-        <img src="convertios-logo.png" alt="Convertios Logo">
-    </a>
+<a href="index.html" class="logo">
+<img src="convertios-logo.png" alt="Convertios Logo">
+</a>
 </div>
 
 <nav class="nav-menu">
-
 <a href="index.html" class="active">Home</a>
 
-
 <div class="nav-item dropdown">
-    <span>Image ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="png-to-jpg.html">PNG to JPG</a>
-        <a href="jpg-to-png.html">JPG to PNG</a>
-        <a href="webp-to-png.html">WEBP to PNG</a>
-        <a href="image-converter.html">Image Converter</a>
-        <a href="image-resizer.html">Resize Image</a>
-        <a href="compress-image.html">Compress Image</a>
-        <a href="remove-bg.html">Remove Background</a>
-
+<span>Image ▾</span>
+<div class="dropdown-menu">
+<a href="png-to-jpg.html">PNG to JPG</a>
+<a href="jpg-to-png.html">JPG to PNG</a>
+<a href="webp-to-png.html">WEBP to PNG</a>
+<a href="image-converter.html">Image Converter</a>
+<a href="image-resizer.html">Resize Image</a>
+<a href="compress-image.html">Compress Image</a>
+<a href="remove-bg.html">Remove Background</a>
 <a href="all-tools.html" class="view-all">View All →</a>
-    </div>
+</div>
 </div>
 
 <div class="nav-item dropdown">
-    <span>PDF ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="pdf-to-word.html">PDF to Word</a>
-        <a href="pdf-to-jpg.html">PDF to JPG</a>
-        <a href="jpg-to-pdf.html">JPG to PDF</a>
-
-        <a href="merge-pdf.html">Merge PDF</a>
-        <a href="split-pdf.html">Split PDF</a>
-        <a href="rotate-pdf.html">Rotate PDF</a>
-
-        <a href="all-tools.html" class="view-all">View All →</a>
-
-    </div>
+<span>PDF ▾</span>
+<div class="dropdown-menu">
+<a href="pdf-to-word.html">PDF to Word</a>
+<a href="pdf-to-jpg.html">PDF to JPG</a>
+<a href="jpg-to-pdf.html">JPG to PDF</a>
+<a href="merge-pdf.html">Merge PDF</a>
+<a href="split-pdf.html">Split PDF</a>
+<a href="rotate-pdf.html">Rotate PDF</a>
+<a href="all-tools.html" class="view-all">View All →</a>
+</div>
 </div>
 
 <div class="nav-item dropdown">
-    <span>Audio ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="mp3-cutter.html">MP3 Cutter</a>
-        <a href="audio-converter.html">Audio Converter</a>
-        <a href="audio-speed-changer.html">Speed Changer</a>
-
-        <a href="all-tools.html" class="view-all">View All →</a>
-
-    </div>
+<span>Audio ▾</span>
+<div class="dropdown-menu">
+<a href="mp3-cutter.html">MP3 Cutter</a>
+<a href="audio-converter.html">Audio Converter</a>
+<a href="audio-speed-changer.html">Speed Changer</a>
+<a href="all-tools.html" class="view-all">View All →</a>
 </div>
+</div>
+
 <div class="nav-item dropdown">
-    <span>More Tools ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="qr-generator.html">QR Generator</a>
-        <a href="link-shortener.html">Link Shortener</a>
-        <a href="password-generator.html">Password Generator</a>
-        <a href="word-counter.html">Word Counter</a>
-        <a href="text-formatter.html">Text Formatter</a>
-        <a href="unit-converter.html">Unit Converter</a>
-        <a href="meme-generator.html">Meme Generator</a>
-
-        <a href="all-tools.html" class="view-all">View All →</a>
-
-    </div>
+<span>More Tools ▾</span>
+<div class="dropdown-menu">
+<a href="qr-generator.html">QR Generator</a>
+<a href="link-shortener.html">Link Shortener</a>
+<a href="password-generator.html">Password Generator</a>
+<a href="word-counter.html">Word Counter</a>
+<a href="text-formatter.html">Text Formatter</a>
+<a href="unit-converter.html">Unit Converter</a>
+<a href="meme-generator.html">Meme Generator</a>
+<a href="all-tools.html" class="view-all">View All →</a>
 </div>
-    <a href="all-tools.html" class="nav-all-tools">All Tools →</a>
+</div>
 
+<a href="all-tools.html" class="nav-all-tools">All Tools →</a>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
-
 </nav>
 
-<div class="nav-icon faq-wrapper">
-    <a href="/faq.html" class="faq-link-block">
-
-        <!-- ICON -->
-        <div class="faq-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M9.5 9a2.5 2.<div class="tool-container">
-
-<h1>Image Compressor</h1>
-
-<p>
-Compress images instantly using manual quality or fixed file size targets.
-</p>
-
-<input type="file" id="upload" accept="image/*">
-
-<!-- 🔥 QUICK COMPRESS (FIXED STYLE) -->
-<div style="margin-top:25px">
-<h3>Quick Compress</h3>
-
-<div style="margin-top:10px">
-<button class="main-button" onclick="compressToTarget(100)">100KB</button>
-<button class="main-button" onclick="compressToTarget(50)">50KB</button>
-<button class="main-button" onclick="compressToTarget(20)">20KB</button>
-<button class="main-button" onclick="compressToTarget(200)">200KB</button>
-</div>
-
-</div>
-
-<!-- 🔵 MANUAL -->
-<div style="margin-top:30px">
-
-<label>Compression Quality</label><br>
-
-<input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.8">
-
-<br>
-<span id="qualityValue">0.8</span>
-
-</div>
-
-<button class="main-button" onclick="compressImage()">
-Manual Compress
-</button>
-
-<img id="preview">
-
-<a id="downloadLink" class="main-button" style="display:none"></a>
-
-</div>5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
-                <circle cx="12" cy="17" r="1"></circle>
-            </svg>
-        </div>
-
-        <!-- TEXT -->
-        <span class="faq-text">FAQ</span> </a>
 </header>
 
 <!-- TOOL -->
@@ -171,8 +99,8 @@ Manual Compress
 
 <input type="file" id="upload" accept="image/*">
 
-<!-- 🔥 QUICK TARGET BUTTONS -->
-<div style="margin-top:20px;">
+<!-- QUICK COMPRESS -->
+<div style="margin-top:25px">
 <h3>Quick Compress</h3>
 
 <button class="main-button" onclick="compressToTarget(100)">100KB</button>
@@ -182,20 +110,16 @@ Manual Compress
 
 </div>
 
-<!-- 🔵 MANUAL SLIDER -->
+<!-- MANUAL -->
 <div style="margin-top:25px">
-
-<label>Manual Quality</label><br>
+<label>Compression Quality</label><br>
 
 <input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.8">
 <br>
 <span id="qualityValue">0.8</span>
-
 </div>
 
-<button class="main-button" onclick="compressImage()">
-Manual Compress
-</button>
+<button class="main-button" onclick="compressImage()">Manual Compress</button>
 
 <img id="preview">
 
@@ -203,24 +127,14 @@ Manual Compress
 
 </div>
 
-<!-- SEO CONTENT -->
+<!-- SEO -->
 <div class="seo-content">
-
 <h2>Free Image Compressor Tool</h2>
-
-<p>
-Compress images online quickly without losing quality. Choose manual compression or fixed sizes like 100KB or 50KB.
-</p>
-
-<p>
-Perfect for websites, forms, and faster uploads.
-</p>
-
+<p>Compress images online quickly without losing quality. Choose manual compression or fixed sizes like 100KB or 50KB.</p>
 </div>
 
 <!-- DESCRIPTION -->
 <div class="tool-description">
-
 <h2>How to use</h2>
 <ul>
 <li>Upload your image</li>
@@ -232,34 +146,29 @@ Perfect for websites, forms, and faster uploads.
 <h2>FAQ</h2>
 <p><strong>Is it free?</strong> Yes.</p>
 <p><strong>Is it safe?</strong> Files stay on your device.</p>
-
 </div>
 
+<!-- FOOTER -->
 <footer class="site-footer">
-
 <div class="footer-container">
-
-    <div class="footer-brand">
-        <h3>Convertios</h3>
-        <p>Free online tools for converting files, images, and more.</p>
-    </div>
-
-    <div class="footer-links">
-        <a href="tools.html">Tools</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="/security.html">Security</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-    </div>
-
+<div class="footer-brand">
+<h3>Convertios</h3>
+<p>Free online tools for converting files, images, and more.</p>
 </div>
 
-<p class="footer-bottom">
-© 2026 Convertios • All rights reserved
-</p>
+<div class="footer-links">
+<a href="tools.html">Tools</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="security.html">Security</a>
+<a href="privacy.html">Privacy</a>
+<a href="terms.html">Terms</a>
+</div>
+</div>
 
+<p class="footer-bottom">© 2026 Convertios • All rights reserved</p>
 </footer>
+
 <script>
 
 const upload = document.getElementById("upload");
@@ -270,32 +179,22 @@ const downloadLink = document.getElementById("downloadLink");
 
 let imageFile = null;
 
-qualitySlider.oninput = function(){
-qualityValue.innerText = qualitySlider.value;
-};
+qualitySlider.oninput = () => qualityValue.innerText = qualitySlider.value;
 
 upload.onchange = function(e){
 imageFile = e.target.files[0];
-
 const reader = new FileReader();
-reader.onload = function(event){
-preview.src = event.target.result;
-};
+reader.onload = e => preview.src = e.target.result;
 reader.readAsDataURL(imageFile);
 };
 
 function compressImage(){
-
-if(!imageFile){
-alert("Upload image first");
-return;
-}
+if(!imageFile) return alert("Upload image first");
 
 const img = new Image();
 img.src = preview.src;
 
 img.onload = function(){
-
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
 
@@ -304,32 +203,23 @@ canvas.height = img.height;
 
 ctx.drawImage(img,0,0);
 
-canvas.toBlob(function(blob){
-
+canvas.toBlob(blob=>{
 const url = URL.createObjectURL(blob);
-
 downloadLink.href = url;
 downloadLink.download = "compressed.jpg";
 downloadLink.innerText = "Download Image";
 downloadLink.style.display = "block";
-
 },"image/jpeg", qualitySlider.value);
-
 };
 }
 
 function compressToTarget(targetKB){
-
-if(!imageFile){
-alert("Upload image first");
-return;
-}
+if(!imageFile) return alert("Upload image first");
 
 const img = new Image();
 img.src = preview.src;
 
 img.onload = function(){
-
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
 
@@ -341,26 +231,20 @@ ctx.drawImage(img,0,0);
 let quality = 0.9;
 
 function tryCompress(){
-
-canvas.toBlob(function(blob){
-
+canvas.toBlob(blob=>{
 let sizeKB = blob.size / 1024;
 
 if(sizeKB > targetKB && quality > 0.1){
 quality -= 0.05;
 tryCompress();
 }else{
-
 const url = URL.createObjectURL(blob);
-
 downloadLink.href = url;
 downloadLink.download = "compressed-" + targetKB + "kb.jpg";
 downloadLink.innerText = "Download (" + Math.round(sizeKB) + " KB)";
 downloadLink.style.display = "block";
-
 }
-
-},"image/jpeg",quality);
+},"image/jpeg", quality);
 }
 
 tryCompress();
