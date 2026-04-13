@@ -898,9 +898,8 @@ RESPONSIVE
 }
 
 /* ===== SEO SECTION ===== */
-.seo-section{
-    padding: 0 15px;
-}
+
+    
 
 .seo-section h2{
     font-size: 22px;
@@ -923,7 +922,7 @@ RESPONSIVE
 
 
 .category-card{
-    flex-direction: column;   /* 🔥 هذا الحل الحقيقي */
+    flex-direction: column; 
     align-items: center;
     text-align: center;
 }
@@ -1128,38 +1127,43 @@ RESPONSIVE
 .view-all-btn:hover {
     opacity: 0.7;
 }
-.seo-section {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 0 20px;
-    color: #374151;
-    line-height: 1.8;
+
+
+.seo-section{
+max-width:900px;
+margin:60px auto;
+padding:30px;
+
+background:#f5f7fa;
+border-radius:20px;
+
+color:#0b2447;
+line-height:1.7;
 }
 
-.seo-section h2 {
-    font-size: 26px;
-    margin-bottom: 15px;
-    text-align: center;
+.seo-section h2{
+text-align:center;
+margin-bottom:15px;
+font-size:28px;
 }
 
-.seo-section h3 {
-    font-size: 20px;
-    margin-top: 25px;
-    margin-bottom: 10px;
+.seo-section h3{
+margin-top:25px;
+margin-bottom:10px;
+font-size:20px;
 }
 
-.seo-section p {
-    margin-bottom: 15px;
-    font-size: 15px;
+.seo-section p{
+margin-bottom:15px;
 }
 
-.seo-section ul {
-    margin: 15px 0;
-    padding-left: 20px;
+.seo-section ul{
+padding-left:20px;
+margin-top:10px;
 }
 
-.seo-section li {
-    margin-bottom: 8px;
+.seo-section li{
+margin-bottom:8px;
 }
 .popular-section {
     text-align: center;
