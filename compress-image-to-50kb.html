@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Compress Image to 50KB Online Free | Convertios</title>
+
+<meta name="description" content="Compress image to 50KB online free. Reduce JPG, PNG, and WEBP file size instantly without losing quality. Works in your browser.">
+
+<link rel="canonical" href="https://convertios.com/compress-image-to-50kb.html">
+<meta name="robots" content="index, follow">
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.png">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+
+<div class="header-left">
+    <a href="index.html" class="logo">
+        <img src="convertios-logo.png" alt="Convertios Logo">
+    </a>
+</div>
+
+<nav class="nav-menu">
+
+<a href="index.html" class="active">Home</a>
+
+
+<div class="nav-item dropdown">
+    <span>Image ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="png-to-jpg.html">PNG to JPG</a>
+        <a href="jpg-to-png.html">JPG to PNG</a>
+        <a href="webp-to-png.html">WEBP to PNG</a>
+        <a href="image-converter.html">Image Converter</a>
+        <a href="image-resizer.html">Resize Image</a>
+        <a href="compress-image.html">Compress Image</a>
+        <a href="remove-bg.html">Remove Background</a>
+
+<a href="all-tools.html" class="view-all">View All →</a>
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>PDF ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="pdf-to-word.html">PDF to Word</a>
+        <a href="pdf-to-jpg.html">PDF to JPG</a>
+        <a href="jpg-to-pdf.html">JPG to PDF</a>
+
+        <a href="merge-pdf.html">Merge PDF</a>
+        <a href="split-pdf.html">Split PDF</a>
+        <a href="rotate-pdf.html">Rotate PDF</a>
+
+        <a href="all-tools.html" class="view-all">View All →</a>
+
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>Audio ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="mp3-cutter.html">MP3 Cutter</a>
+        <a href="audio-converter.html">Audio Converter</a>
+        <a href="audio-speed-changer.html">Speed Changer</a>
+
+        <a href="all-tools.html" class="view-all">View All →</a>
+
+    </div>
+</div>
+<div class="nav-item dropdown">
+    <span>More Tools ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="qr-generator.html">QR Generator</a>
+        <a href="link-shortener.html">Link Shortener</a>
+        <a href="password-generator.html">Password Generator</a>
+        <a href="word-counter.html">Word Counter</a>
+        <a href="text-formatter.html">Text Formatter</a>
+        <a href="unit-converter.html">Unit Converter</a>
+        <a href="meme-generator.html">Meme Generator</a>
+
+        <a href="all-tools.html" class="view-all">View All →</a>
+
+    </div>
+</div>
+    <a href="all-tools.html" class="nav-all-tools">All Tools →</a>
+
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+<div class="nav-icon faq-wrapper">
+    <a href="/faq.html" class="faq-link-block">
+
+        <!-- ICON -->
+        <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
+                <circle cx="12" cy="17" r="1"></circle>
+            </svg>
+        </div>
+
+        <!-- TEXT -->
+        <span class="faq-text">FAQ</span>
+</a>
+</header>
+
+<!-- HERO -->
+<div class="tool-container">
+<h1>Compress Image to 50KB</h1>
+<p>
+Reduce image file size to 50KB instantly. Ideal for forms, online uploads, and faster websites. No upload required — everything runs in your browser.
+</p>
+</div>
+
+<!-- TOOL -->
+<div class="app-container">
+
+<div class="sidebar">
+
+<h2>Compression Settings</h2>
+
+<label>Target Size (KB)</label>
+<input type="number" id="targetKB">
+
+<label>Manual Quality</label>
+<input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.8">
+<span id="qualityValue">0.8</span>
+
+<label>Format</label>
+<select id="format">
+<option value="image/jpeg">JPG</option>
+<option value="image/png">PNG</option>
+<option value="image/webp">WEBP</option>
+</select>
+
+<button class="main-button" onclick="runCompression()">Compress</button>
+
+<a id="downloadLink" class="main-button download-btn" style="display:none;"></a>
+
+<div id="progressBox" style="display:none;">
+<p>Processing: <span id="progressText">0%</span></p>
+</div>
+
+</div>
+
+<div class="workspace">
+
+<div class="upload-area" onclick="upload.click()">
+<p>Click or drag image here</p>
+<input type="file" id="upload" hidden>
+</div>
+
+<img id="preview">
+
+</div>
+
+</div>
+
+<!-- SEO SECTION -->
+<section class="seo-section">
+
+<div class="seo-container">
+
+<h2>Compress Image to 50KB Online</h2>
+
+<p class="seo-intro">
+Use this free tool to compress images to 50KB quickly and efficiently. Perfect for uploading files to websites, reducing image size for emails, or optimizing performance.
+</p>
+
+<div class="seo-block">
+<h3>How to compress image to 50KB</h3>
+<ul>
+<li>Upload your image</li>
+<li>Click compress</li>
+<li>Download your optimized image</li>
+</ul>
+</div>
+
+<div class="seo-block">
+<h3>Why use this tool</h3>
+<ul>
+<li>No upload required (privacy safe)</li>
+<li>Fast processing in your browser</li>
+<li>Supports JPG, PNG, WEBP</li>
+<li>Free and easy to use</li>
+</ul>
+</div>
+
+</div>
+
+</section>
+
+<!-- MORE TOOLS -->
+<div class="more-tools">
+
+<h3>More Image Tools</h3>
+
+<div class="more-tools-grid">
+
+<a href="compress-image-to-100kb.html" class="tool-link">Compress to 100KB</a>
+<a href="compress-image-to-20kb.html" class="tool-link">Compress to 20KB</a>
+<a href="compress-image.html" class="tool-link">Image Compressor</a>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+
+<div class="footer-container">
+
+    <div class="footer-brand">
+        <h3>Convertios</h3>
+        <p>Free online tools for converting files, images, and more.</p>
+    </div>
+
+    <div class="footer-links">
+        <a href="tools.html">Tools</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+         <a href="/security.html">Security</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+    </div>
+
+</div>
+
+<p class="footer-bottom">
+© 2026 Convertios • All rights reserved
+</p>
+
+</footer>
+
+const upload = document.getElementById("upload");
+const preview = document.getElementById("preview");
+const qualitySlider = document.getElementById("quality");
+const qualityValue = document.getElementById("qualityValue");
+const downloadLink = document.getElementById("downloadLink");
+const progressBox = document.getElementById("progressBox");
+const progressText = document.getElementById("progressText");
+
+let imageFile = null;
+
+/* AUTO SET 50KB */
+window.onload = function(){
+    document.getElementById("targetKB").value = 50;
+};
+
+/* SLIDER */
+qualitySlider.oninput = () => qualityValue.innerText = qualitySlider.value;
+
+/* UPLOAD */
+upload.onchange = function(e){
+    imageFile = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = e => preview.src = e.target.result;
+    reader.readAsDataURL(imageFile);
+};
+
+/* RUN */
+function runCompression(){
+
+    if(!imageFile){
+        alert("Upload image first");
+        return;
+    }
+
+    progressBox.style.display = "block";
+    progressText.innerText = "0%";
+    downloadLink.style.display = "none";
+
+    const targetKB = 50;
+    const format = document.getElementById("format").value;
+
+    compressToTarget(targetKB, format);
+}
+
+/* COMPRESS LOOP */
+function compressToTarget(targetKB, format){
+
+    const img = new Image();
+    img.src = preview.src;
+
+    img.onload = function(){
+
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = img.width;
+        canvas.height = img.height;
+
+        ctx.drawImage(img,0,0);
+
+        let quality = 0.9;
+        let attempts = 0;
+
+        function loop(){
+
+            canvas.toBlob(blob => {
+
+                let sizeKB = blob.size / 1024;
+                attempts++;
+
+                progressText.innerText = Math.min(95, attempts * 10) + "%";
+
+                if(sizeKB > targetKB && quality > 0.1){
+                    quality -= 0.05;
+                    loop();
+                }else{
+
+                    const url = URL.createObjectURL(blob);
+
+                    downloadLink.href = url;
+                    downloadLink.download = "compressed-50kb.jpg";
+                    downloadLink.innerText = "Download (" + Math.round(sizeKB) + " KB)";
+                    downloadLink.style.display = "block";
+
+                    progressText.innerText = "Done ✅";
+                }
+
+            }, format, quality);
+        }
+
+        loop();
+    };
+}
+
+</script>
+
+</body>
+</html>
