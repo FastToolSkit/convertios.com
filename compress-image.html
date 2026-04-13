@@ -94,35 +94,38 @@
 <div class="tool-container">
 
 <h1>Image Compressor</h1>
-
 <p>Compress images instantly using manual quality or fixed file size targets.</p>
 
-<input type="file" id="upload" accept="image/*">
-
-<!-- QUICK COMPRESS -->
-<div style="margin-top:25px">
-<h3>Quick Compress</h3>
-
-<button class="main-button" onclick="compressToTarget(100)">100KB</button>
-<button class="main-button" onclick="compressToTarget(50)">50KB</button>
-<button class="main-button" onclick="compressToTarget(20)">20KB</button>
-<button class="main-button" onclick="compressToTarget(200)">200KB</button>
-
+<!-- UPLOAD BOX -->
+<div class="upload-box" onclick="document.getElementById('upload').click()">
+<p>Click or drag image here</p>
+<input type="file" id="upload" accept="image/*" hidden>
 </div>
 
-<!-- MANUAL -->
-<div style="margin-top:25px">
-<label>Compression Quality</label><br>
+<!-- QUICK BUTTONS -->
+<div class="quick-tools">
+<button onclick="compressToTarget(100)">Compress to 100KB</button>
+<button onclick="compressToTarget(50)">Compress to 50KB</button>
+<button onclick="compressToTarget(20)">Compress to 20KB</button>
+<button onclick="compressToTarget(200)">Compress to 200KB</button>
+</div>
 
+<!-- SLIDER -->
+<div class="slider-box">
+<label>Compression Quality</label>
 <input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.8">
-<br>
 <span id="qualityValue">0.8</span>
 </div>
 
-<button class="main-button" onclick="compressImage()">Manual Compress</button>
+<!-- ACTION -->
+<button class="main-button" onclick="compressImage()">
+Manual Compress
+</button>
 
+<!-- PREVIEW -->
 <img id="preview">
 
+<!-- DOWNLOAD -->
 <a id="downloadLink" class="main-button" style="display:none"></a>
 
 </div>
