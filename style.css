@@ -1323,3 +1323,54 @@ margin-top:20px;
 display:inline-block;
 text-align:center;
 }
+.app-container{
+display:flex;
+max-width:1200px;
+margin:80px auto;
+gap:20px;
+}
+
+.sidebar{
+width:300px;
+background:#071a33;
+color:white;
+padding:20px;
+border-radius:15px;
+display:flex;
+flex-direction:column;
+}
+
+.sidebar input,
+.sidebar select{
+margin-top:5px;
+padding:8px;
+border-radius:6px;
+border:none;
+}
+
+.workspace{
+flex:1;
+background:#0b2447;
+border-radius:15px;
+padding:40px;
+text-align:center;
+color:white;
+}
+
+.upload-area{
+border:2px dashed #3a78ff;
+padding:40px;
+border-radius:15px;
+cursor:pointer;
+margin-bottom:20px;
+}
+
+.upload-area:hover{
+background:#102d5c;
+}
+
+#preview{
+max-width:100%;
+margin-top:20px;
+border-radius:12px;
+}
