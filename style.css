@@ -1270,3 +1270,56 @@ RESPONSIVE
 .faq-link-block:hover .faq-text{
     color: white;
 }
+
+.upload-box{
+border:2px dashed #3a78ff;
+padding:40px;
+border-radius:15px;
+cursor:pointer;
+margin-top:20px;
+text-align:center;
+background:#0b2447;
+color:white;
+}
+
+.upload-box:hover{
+background:#102d5c;
+}
+
+.quick-tools{
+margin-top:20px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+}
+
+.quick-tools button{
+background:#1e40af;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.quick-tools button:hover{
+background:#2563eb;
+}
+
+.slider-box{
+margin-top:25px;
+text-align:center;
+}
+
+#preview{
+margin-top:25px;
+max-width:100%;
+border-radius:12px;
+}
+
+#downloadLink{
+margin-top:20px;
+display:inline-block;
+text-align:center;
+}
