@@ -1738,3 +1738,38 @@ color:#cbd5e1;
 font-size:14px;
 line-height:1.6;
 }
+.tool-description{
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 20px;
+    color: #1e293b;
+    line-height: 1.7;
+     background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.tool-description h2{
+    font-size: 26px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.tool-description p{
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.tool-description ul{
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.tool-description li{
+    margin-bottom: 8px;
+}
+
+.tool-description strong{
+    color: #0f172a;
+}
