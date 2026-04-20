@@ -1028,6 +1028,7 @@ RESPONSIVE
 
 .nav-item{
     position:relative;
+     padding-bottom: 10px;
 }
 .nav-all-tools{
     color:#3b82f6;
@@ -1041,7 +1042,7 @@ RESPONSIVE
 
 .dropdown-menu{
     position:absolute;
-    top:35px;
+ top:100%; 
     left:0;
 
     background:#1e293b;
