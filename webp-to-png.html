@@ -7,13 +7,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PNG to JPG Converter Online - Convert Images Free | Convertios</title>
+<title>WEBP to PNG Converter Online - Convert Images Free | Convertios</title>
+  
+<meta name="description" content="Convert WEBP images to PNG online for free. Fast, high-quality image conversion with no upload required using Convertios."><link rel="canonical" href="https://convertios.com/webp-to-png.html">
 
-<meta name="description" content="Convert PNG images to JPG online for free. Fast, high-quality image conversion with no upload required using Convertios.">
-<link rel="canonical" href="https://convertios.com/webp-to-png.html">
-
-<meta name="keywords" content="png to jpg, convert png to jpg, image converter jpg, png to jpeg online">
-
+<meta name="keywords" content="webp to png, convert webp to png, image converter png, webp converter online">
+  
 <meta name="robots" content="index, follow">
 
 <link rel="stylesheet" href="style.css">
@@ -201,18 +200,18 @@ line-height:1.8;
 </header>
 <div class="tool-container">
 
-<h1>PNG to JPG Converter Online</h1>
-
-<p>Convert PNG images to JPG instantly with optimized quality.</p>
-
+<h1>WEBP to PNG Converter Online</h1>
+  
+Convert WEBP images to PNG instantly with optimized quality.
+  
 <div id="drop-area">
-<p>Click or drag PNG images here</p>
-<input type="file" id="upload" multiple accept="image/png" hidden>
+<p>Click or drag images here</p>
+<input type="file" id="upload" multiple accept="accept="image/webp">
 </div>
 
 <div id="preview"></div>
 
-<button onclick="convert()">Convert to JPG</button>
+<button onclick="convert()">Convert to PNG</button>
 
 <div id="downloads"></div>
 
@@ -222,10 +221,10 @@ line-height:1.8;
 
 <div class="seo-content">
 
-<h2>Free PNG to JPG Converter</h2>
+<h2>Free WEBP to PNG Converter</h2>
 
 <p>
-Convertios allows you to convert PNG images into JPG format quickly and easily without uploading files.
+Convertios allows you to convert WEBP images into PNG format quickly and easily without uploading files.
 </p>
 
 <p>
@@ -240,28 +239,66 @@ All processing is done locally in your browser for maximum speed and privacy.
 
 <h2>What this tool does</h2>
 <p>
-This tool converts PNG images into JPG format while maintaining good quality and reducing file size.
+This free online tool allows you to convert WEBP images into PNG format quickly and easily. WEBP is a modern image format used for web optimization, but it is not always supported by all devices, software, or platforms. By converting WEBP files to PNG, you ensure maximum compatibility while preserving image quality and transparency.
+</p>
+
+<p>
+Unlike many online converters, this tool works directly in your browser. Your images are never uploaded to any server, which means your data remains private and secure at all times.
 </p>
 
 <h2>How to use</h2>
 <ul>
-<li>Upload PNG images</li>
-<li>Click convert</li>
-<li>Download JPG files</li>
+<li>Click or drag and drop your WEBP images into the upload area</li>
+<li>Wait for the preview to load instantly in your browser</li>
+<li>Click the "Convert to PNG" button to process your images</li>
+<li>Download your converted PNG files individually</li>
 </ul>
+
+<p>
+The process is fast and requires no installation or registration. Everything happens locally on your device.
+</p>
 
 <h2>Benefits</h2>
 <ul>
-<li>Fast conversion</li>
-<li>No upload required</li>
-<li>Free tool</li>
-<li>High-quality output</li>
+<li>Fast browser-based conversion with no waiting time</li>
+<li>No file uploads, ensuring full privacy and security</li>
+<li>Supports multiple image conversions at once</li>
+<li>Maintains image quality and transparency</li>
+<li>Works on all devices including mobile, tablet, and desktop</li>
+<li>Completely free with no hidden limitations</li>
 </ul>
+
+<h2>Why convert WEBP to PNG?</h2>
+<p>
+WEBP images are efficient for websites, but they are not always supported in editing software, older browsers, or certain platforms. PNG, on the other hand, is widely supported and ideal for graphics, design work, and images that require transparency.
+</p>
+
+<p>
+By converting WEBP to PNG, you make your images easier to edit, share, and reuse across different tools and environments without compatibility issues.
+</p>
 
 <h2>Use cases</h2>
 <p>
-Perfect for web optimization, sharing images, and converting formats for compatibility.
+This tool is perfect for designers, developers, students, and everyday users who need quick image format conversion. Whether you are preparing images for a website, editing graphics, uploading content to platforms that don’t support WEBP, or simply organizing your files, this converter makes the process simple and efficient.
 </p>
+
+<p>
+It is especially useful when working with images downloaded from websites, as many modern sites use WEBP format by default.
+</p>
+
+<h2>FAQ</h2>
+
+<p><strong>Is this tool free to use?</strong><br>
+Yes, this WEBP to PNG converter is completely free with no hidden costs.</p>
+
+<p><strong>Are my files uploaded to a server?</strong><br>
+No, all conversions happen directly in your browser, ensuring your files remain private.</p>
+
+<p><strong>Will I lose image quality?</strong><br>
+PNG is a lossless format, so your image quality will be preserved during conversion.</p>
+
+<p><strong>Can I convert multiple images?</strong><br>
+Yes, you can upload and convert multiple WEBP images at once.</p>
 
 </div>
 
@@ -384,12 +421,11 @@ canvas.height=img.height;
 let ctx=canvas.getContext("2d");
 ctx.drawImage(img,0,0);
 
-let jpg=canvas.toDataURL("image/jpeg",0.9);
-
+let png = canvas.toDataURL("image/png");
 let link=document.createElement("a");
 link.href=jpg;
-link.download="converted_"+(i+1)+".jpg";
-link.innerText="Download Image "+(i+1);
+link.download = "converted_"+(i+1)+".png";
+  link.innerText="Download Image "+(i+1);
 
 downloads.appendChild(link);
 
