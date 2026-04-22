@@ -1,49 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://convertios.com/</loc>
-  </url>
+<url><loc>https://convertios.com/</loc></url>
+<url><loc>https://convertios.com/tools.html</loc></url>
+<url><loc>https://convertios.com/all-tools.html</loc></url>
 
-  <url>
-    <loc>https://convertios.com/tools.html</loc>
-  </url>
+<url><loc>https://convertios.com/mp3-cutter.html</loc></url>
+<url><loc>https://convertios.com/trim-audio-online.html</loc></url>
+<url><loc>https://convertios.com/audio-converter.html</loc></url>
+<url><loc>https://convertios.com/audio-speed-changer.html</loc></url>
 
-  <url>
-    <loc>https://convertios.com/png-to-jpg.html</loc>
-  </url>
+<url><loc>https://convertios.com/compress-image.html</loc></url>
+<url><loc>https://convertios.com/compress-image-to-20kb.html</loc></url>
+<url><loc>https://convertios.com/compress-image-to-50kb.html</loc></url>
+<url><loc>https://convertios.com/compress-image-to-100kb.html</loc></url>
 
-  <url>
-    <loc>https://convertios.com/pdf-to-jpg.html</loc>
-  </url>
+<url><loc>https://convertios.com/image-converter.html</loc></url>
+<url><loc>https://convertios.com/image-resizer.html</loc></url>
+<url><loc>https://convertios.com/remove-bg.html</loc></url>
+<url><loc>https://convertios.com/webp-to-png.html</loc></url>
+<url><loc>https://convertios.com/png-to-jpg.html</loc></url>
+<url><loc>https://convertios.com/jpg-to-png.html</loc></url>
 
-  <url>
-    <loc>https://convertios.com/jpg-to-pdf.html</loc>
-  </url>
+<url><loc>https://convertios.com/pdf-to-word.html</loc></url>
+<url><loc>https://convertios.com/pdf-to-jpg.html</loc></url>
+<url><loc>https://convertios.com/jpg-to-pdf.html</loc></url>
+<url><loc>https://convertios.com/merge-pdf.html</loc></url>
+<url><loc>https://convertios.com/split-pdf.html</loc></url>
+<url><loc>https://convertios.com/rotate-pdf.html</loc></url>
 
-  <url>
-    <loc>https://convertios.com/image-converter.html</loc>
-  </url>
+<url><loc>https://convertios.com/qr-generator.html</loc></url>
+<url><loc>https://convertios.com/link-shortener.html</loc></url>
+<url><loc>https://convertios.com/password-generator.html</loc></url>
+<url><loc>https://convertios.com/word-counter.html</loc></url>
+<url><loc>https://convertios.com/text-formatter.html</loc></url>
+<url><loc>https://convertios.com/unit-converter.html</loc></url>
+<url><loc>https://convertios.com/meme-generator.html</loc></url>
 
-  <url>
-    <loc>https://convertios.com/compress-image.html</loc>
-  </url>
-
-  <url>
-    <loc>https://convertios.com/audio-converter.html</loc>
-  </url>
-
-  <url>
-    <loc>https://convertios.com/mp3-cutter.html</loc>
-  </url>
-
-  <url>
-    <loc>https://convertios.com/about.html</loc>
-  </url>
-
-  <url>
-    <loc>https://convertios.com/contact.html</loc>
-  </url>
+<url><loc>https://convertios.com/about.html</loc></url>
+<url><loc>https://convertios.com/contact.html</loc></url>
+<url><loc>https://convertios.com/privacy.html</loc></url>
+<url><loc>https://convertios.com/terms.html</loc></url>
+<url><loc>https://convertios.com/security.html</loc></url>
+<url><loc>https://convertios.com/faq.html</loc></url>
 
 </urlset>
