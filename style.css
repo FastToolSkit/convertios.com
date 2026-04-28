@@ -1790,3 +1790,9 @@ line-height:1.6;
 .lang-switch a:hover{
     text-decoration: underline;
 }
+     .footer-lang {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    opacity: 0.8;
+}
