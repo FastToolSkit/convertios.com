@@ -1796,3 +1796,20 @@ line-height:1.6;
     font-size: 14px;
     opacity: 0.8;
 }
+.brand-intro{
+    text-align: center;
+    max-width: 700px;
+    margin: 40px auto 20px auto; /* المسافة من فوق وتحت */
+    padding: 0 15px;
+}
+
+.brand-intro h2{
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.brand-intro p{
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
