@@ -1813,3 +1813,11 @@ line-height:1.6;
     line-height: 1.6;
     color: #555;
 }
+     .hero-description {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.7;
+    font-size: 16px;
+    color: #444;
+}
