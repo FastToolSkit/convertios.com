@@ -18,7 +18,10 @@
 .tool-wrap{max-width:1200px;margin:90px auto 40px;padding:0 20px}
 .tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .panel{background:#071a33;color:#fff;border-radius:16px;padding:24px}
+.dropzone{border:3px dashed #8bb2ff;border-radius:14px;padding:24px;text-align:center;cursor:pointer;background:linear-gradient(180deg,#0f2c54 0%,#0b2241 100%);min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+=======
 .dropzone{border:2px dashed #6da0ff;border-radius:14px;padding:32px;text-align:center;cursor:pointer;background:#0d2444}
+ main
 .dropzone.dragover{background:#15365f}
 .preview{max-width:100%;max-height:300px;border-radius:10px;margin-top:14px;display:none}
 .upload-btn{display:inline-block;margin-top:12px;background:#3a78ff;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600}
@@ -51,12 +54,17 @@
 <main class="tool-wrap">
 <h1>Social Media Image Resizer</h1>
 <p>Resize one image into multiple social-media-ready formats in seconds. Pick the exact platform presets you need, then export individual sizes or download everything together as a ZIP. All resizing runs directly in your browser for fast and private processing.</p>
+=======
 main
+ main
 <div class="tool-grid">
 <section class="panel">
 <h2>Upload Image</h2>
 <div id="dropzone" class="dropzone">
+<p>Drag &amp; Drop your image here or click to upload</p>
+=======
 <p>Drag & drop an image here</p>
+ main
 <label class="upload-btn">Choose Image <input type="file" id="fileInput" accept="image/*"></label>
 </div>
 <img id="preview" class="preview" alt="Preview">
@@ -115,7 +123,20 @@ const groups={
 "Other Sizes":[["1:1 (Square)",1000,1000],["2:3",1000,1500],["3:2",1500,1000],["4:3",1200,900],["9:16",1080,1920],["16:9",1920,1080]]
 };
 const panel=document.getElementById('sizePanel');
+const seoNotes={
+"Instagram":"Using correct Instagram dimensions helps your posts, stories, and profile visuals stay sharp and properly framed. These sizes reduce unexpected cropping and keep branding consistent across feed and mobile views.",
+"Facebook":"Facebook supports multiple placements, each with different aspect ratios and display rules. Choosing the right size improves clarity in the feed, events, and page banners while avoiding cut-off text or logos.",
+"YouTube":"YouTube thumbnails and channel banners require precise dimensions for desktop, mobile, and TV visibility. Correct sizing ensures your previews look professional and readable everywhere.",
+"X (Twitter)":"X images can be cropped differently across timeline cards and profile headers. Applying recommended dimensions keeps your visuals balanced and prevents key content from being clipped.",
+"LinkedIn":"LinkedIn post, profile, and banner images are often viewed in professional contexts. Proper sizing helps maintain credibility and keeps company or personal branding clean and polished.",
+"TikTok":"TikTok content is primarily vertical and mobile-first. Using the right format improves visual quality and ensures your image fills the screen naturally.",
+"Snapchat":"Snapchat stories are displayed in full-screen vertical format. Matching the expected dimensions prevents stretching, pixelation, and accidental cropping of important elements."
+};
+Object.entries(groups).forEach(([name,opts])=>{const d=document.createElement('details');d.innerHTML=`<summary>${name}</summary><p class=\"status\">${seoNotes[name]||''}</p>`+opts.map(o=>`<label class="option"><input type="checkbox" data-label="${name} - ${o[0]}" data-w="${o[1]}" data-h="${o[2]}"> ${o[0]} (${o[1]}x${o[2]})</label>`).join('');panel.appendChild(d);});
+[...panel.querySelectorAll('summary')].forEach(s=>s.addEventListener('click',e=>{e.preventDefault();const d=s.parentElement;d.open=!d.open;}));
+=======
 Object.entries(groups).forEach(([name,opts],i)=>{const d=document.createElement('details');if(i<2)d.open=true;d.innerHTML=`<summary>${name}</summary>`+opts.map(o=>`<label class="option"><input type="checkbox" data-label="${name} - ${o[0]}" data-w="${o[1]}" data-h="${o[2]}"> ${o[0]} (${o[1]}x${o[2]})</label>`).join('');panel.appendChild(d);});
+ main
 
 const fileInput=document.getElementById('fileInput'), dropzone=document.getElementById('dropzone'), preview=document.getElementById('preview');
 const btnSingle=document.getElementById('downloadSingle'), btnZip=document.getElementById('downloadZip'), statusEl=document.getElementById('status');
