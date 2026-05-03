@@ -1813,7 +1813,12 @@ line-height:1.6;
     line-height: 1.6;
     color: #555;
 }
-     .hero-description {
+.tool-wrap h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.hero-description {
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
