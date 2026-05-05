@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Image Enhancer | Convertios</title>
+<meta name="description" content="Enhance image quality online using AI. Improve resolution, sharpen details, and upscale images instantly.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://convertios.com/ai-image-enhancer.html">
+<link rel="stylesheet" href="style.css?v=7">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+.tool-wrap{max-width:1200px;margin:90px auto 40px;padding:0 20px}
+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.panel{background:#071a33;color:#fff;border-radius:16px;padding:24px}
+.dropzone{border:3px dashed #8bb2ff;border-radius:14px;padding:24px;text-align:center;cursor:pointer;background:linear-gradient(180deg,#0f2c54 0%,#0b2241 100%);min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.dropzone.dragover{background:#15365f}
+.preview{max-width:100%;max-height:300px;border-radius:10px;margin-top:14px;display:none}
+.upload-btn{display:inline-block;margin-top:12px;background:#3a78ff;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600}
+.upload-btn input{display:none}
+.file-name{font-size:14px;color:#c4d6ff;min-height:20px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.btn{background:#3a78ff;border:none;color:#fff;padding:10px 16px;border-radius:8px;cursor:pointer}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.status{margin-top:12px;font-size:14px;color:#c4d6ff;min-height:20px}
+.result-wrap{margin-top:16px}
+@media (max-width:900px){.tool-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="site-header">
+<div class="header-left"><a href="index.html" class="logo"><img src="convertios-logo.png" alt="Convertios Logo"></a></div>
+<nav class="nav-menu">
+<a href="index.html" class="active">Home</a>
+<div class="nav-item dropdown"><span>Image ▾</span><div class="dropdown-menu">
+<a href="png-to-jpg.html">PNG to JPG</a><a href="jpg-to-png.html">JPG to PNG</a><a href="webp-to-png.html">WEBP to PNG</a><a href="image-converter.html">Image Converter</a><a href="image-resizer.html">Resize Image</a><a href="compress-image.html">Compress Image</a><a href="remove-bg.html">Remove Background</a><a href="all-tools.html" class="view-all">View All →</a>
+</div></div>
+<div class="nav-item dropdown"><span>PDF ▾</span><div class="dropdown-menu"><a href="pdf-to-word.html">PDF to Word</a><a href="pdf-to-jpg.html">PDF to JPG</a><a href="jpg-to-pdf.html">JPG to PDF</a><a href="merge-pdf.html">Merge PDF</a><a href="split-pdf.html">Split PDF</a><a href="rotate-pdf.html">Rotate PDF</a><a href="all-tools.html" class="view-all">View All →</a></div></div>
+<div class="nav-item dropdown"><span>Audio ▾</span><div class="dropdown-menu"><a href="mp3-cutter.html">MP3 Cutter</a><a href="audio-converter.html">Audio Converter</a><a href="audio-speed-changer.html">Speed Changer</a><a href="all-tools.html" class="view-all">View All →</a></div></div>
+<a href="all-tools.html" class="nav-all-tools">All Tools →</a>
+<a href="about.html">About</a><a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<main class="tool-wrap">
+<h1>AI Image Enhancer</h1>
+<p>Enhance blurry or low-resolution images with AI-powered processing. This tool can improve sharpness, upscale detail, and produce cleaner visuals in just a few clicks.</p>
+<div class="tool-grid">
+<section class="panel">
+<h2>Upload Image</h2>
+<div id="dropzone" class="dropzone">
+<p>Upload your image to enhance its quality using AI</p>
+<label class="upload-btn">Choose Image <input type="file" id="fileInput" accept="image/*"></label>
+</div>
+<p id="fileName" class="file-name"></p>
+<img id="preview" class="preview" alt="Selected image preview">
+</section>
+
+<section class="panel">
+<h2>Enhancement Result</h2>
+<div class="actions">
+<button id="enhanceBtn" class="btn" disabled>Enhance Image</button>
+<a id="downloadBtn" class="btn" style="display:none" download="enhanced-image.png">Download</a>
+</div>
+<p id="status" class="status">Select an image to begin.</p>
+<div class="result-wrap">
+<img id="resultPreview" class="preview" alt="Enhanced image preview">
+</div>
+</section>
+</div>
+
+<section class="tool-description">
+<h2>How to Use</h2>
+<ol>
+<li>Upload an image by dragging and dropping it or by clicking <strong>Choose Image</strong>.</li>
+<li>Confirm the selected file name and preview.</li>
+<li>Click <strong>Enhance Image</strong> to process the image with AI.</li>
+<li>Wait while the tool shows <strong>Enhancing image...</strong>.</li>
+<li>Preview and download the enhanced image result.</li>
+</ol>
+
+<h2>Why Use This Tool</h2>
+<ul>
+<li>AI-powered enhancement for sharper and cleaner images.</li>
+<li>Improves quality by refining detail and boosting resolution.</li>
+<li>Fast and simple workflow with instant preview and download.</li>
+</ul>
+</section>
+
+<div class="more-tools">
+<h3>Explore More Tools</h3>
+<div class="more-tools-grid">
+<a href="image-resizer.html" class="more-tool-card"><span>✂️</span><p>Image Resizer</p></a>
+<a href="compress-image.html" class="more-tool-card"><span>🗜️</span><p>Compress Image</p></a>
+<a href="image-converter.html" class="more-tool-card"><span>🖼️</span><p>Image Converter</p></a>
+<a href="crop-image.html" class="more-tool-card"><span>🪄</span><p>Crop Image</p></a>
+</div>
+</div>
+</main>
+
+<script>
+const fileInput=document.getElementById('fileInput');
+const dropzone=document.getElementById('dropzone');
+const fileNameEl=document.getElementById('fileName');
+const preview=document.getElementById('preview');
+const resultPreview=document.getElementById('resultPreview');
+const enhanceBtn=document.getElementById('enhanceBtn');
+const downloadBtn=document.getElementById('downloadBtn');
+const statusEl=document.getElementById('status');
+
+let selectedFile=null;
+
+function setEnhanceState(enabled){
+enhanceBtn.disabled=!enabled;
+}
+
+function resetResult(){
+resultPreview.style.display='none';
+resultPreview.removeAttribute('src');
+downloadBtn.style.display='none';
+downloadBtn.removeAttribute('href');
+}
+
+function handleFile(file){
+if(!file || !file.type.startsWith('image/')) return;
+selectedFile=file;
+fileNameEl.textContent=`Selected: ${file.name}`;
+preview.src=URL.createObjectURL(file);
+preview.style.display='block';
+statusEl.textContent='Ready to enhance.';
+resetResult();
+setEnhanceState(true);
+}
+
+fileInput.addEventListener('change',e=>handleFile(e.target.files[0]));
+['dragenter','dragover'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.add('dragover');}));
+['dragleave','drop'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.remove('dragover');}));
+dropzone.addEventListener('drop',e=>handleFile(e.dataTransfer.files[0]));
+dropzone.addEventListener('click',()=>fileInput.click());
+
+enhanceBtn.addEventListener('click',async()=>{
+if(!selectedFile) return;
+setEnhanceState(false);
+statusEl.textContent='Enhancing image...';
+resetResult();
+
+try{
+const formData=new FormData();
+formData.append('image',selectedFile);
+
+const response=await fetch('/enhance',{
+method:'POST',
+body:formData
+});
+
+if(!response.ok){
+throw new Error('Enhancement request failed');
+}
+
+const data=await response.json();
+const imageUrl=data.enhancedImageUrl || data.url || data.image_url;
+if(!imageUrl){
+throw new Error('Enhanced image URL not found in response');
+}
+
+resultPreview.src=imageUrl;
+resultPreview.style.display='block';
+downloadBtn.href=imageUrl;
+downloadBtn.style.display='inline-block';
+statusEl.textContent='Image enhanced successfully ✅';
+}catch(err){
+console.error(err);
+statusEl.textContent='Failed to enhance image. Please try again.';
+}finally{
+setEnhanceState(!!selectedFile);
+}
+});
+
+setEnhanceState(false);
+</script>
+</body>
+</html>
