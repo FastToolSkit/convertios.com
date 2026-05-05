@@ -90,6 +90,33 @@ cursor:pointer;
 background:#2a66e6;
 }
 
+.convert-btn{
+margin-top:20px;
+padding:14px 22px;
+background:#3a78ff;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+opacity:1;
+}
+
+.convert-btn:hover:not(:disabled){
+background:#2a66e6;
+}
+
+.convert-btn:disabled{
+background:#64748b;
+cursor:not-allowed;
+opacity:.65;
+}
+
+.convert-btn:not(:disabled){
+background:#3a78ff;
+cursor:pointer;
+opacity:1;
+}
+
 .download-btn{
 display:inline-block;
 margin-top:15px;
@@ -395,7 +422,7 @@ const downloads = document.getElementById("downloads");
 const convertBtn = document.querySelector(".convert-btn");
 const CLOUDCONVERT_API_URL = "https://api.cloudconvert.com/v2/jobs";
 const CLOUDCONVERT_API_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODM3NzhlMGZlNWI5ZmQ5ZjI0MTc3ODQyZDRjMGVjMTUxZjI2OTFkMWYyNTIwNjI1NzhmZTA4YTg2MGU1YTFkNDhkY2Q0NGFhZDkxYWYzNDUiLCJpYXQiOjE3NzQ0NzkwMTIuNjQ3MTM3LCJuYmYiOjE3NzQ0NzkwMTIuNjQ3MTM4LCJleHAiOjQ5MzAxNTI2MTIuNjM5MzMzLCJzdWIiOiI3NDYzODE2MSIsInNjb3BlcyI6WyJ0YXNrLnJlYWQiLCJ0YXNrLndyaXRlIl19.Uy6_AY5BZzdgNLSJDr1Nm-qrZhEgdSptO6lgphIYpGw9ntrSs4NmM1WW-YOMhZIf-gmF92i-6BhBgg6ZBcGKGII3BRy078Tx3PUDWearv5byyuHGngAJ_KHUFWZ9V0-hmz3yazZKfHFkKGJ1_t3fyEWPOzZng1PgW5tiycKSlC_WCuZdZqGiAqfMFyJOIv7oqmZN1xub51BkvkwSfclmLWrQhmFoE9pUvBCPKESxenRBCAKP5tUfk66Tm0Xybl1gWDILvEwD1uyEqNflgqcQNCL0SmuvLCNgYqn3OzapH5gtDliR6c28aOrDKwnVmAiMX5JZ0r5fW_perYMnY8CpPy8kBfMcPFIrShsRTw4UpP2V1lf3tInvyJ9f4FD3fDEe_kdxD86c9zsbzz28Ju5Zk5Fq6Z8Oxx6fJupHbPXOtVFeDWj7hsImwZ-bo7lUe9_0rQB_0uK_1JYSzu2XNe7pgfEnKxaa5q_nX3DRjX44R1UwpY-6x2yoC4SYOPBbmEBvISJckn0jSFGHgKu1H833d_beW0yX-MMt1pgnawghf3B_EIRhG_FQSSKONIfBWnCJ8yYy6urERZhWBuV_Fp-rYbDbgGkerzD_YAs_CJ3t_7hvAP0k5Bn7BaADDooA6XEYdGmvcThPiemUE3iR-w1KAraIpNzvr6YPtwZs7QC11z4";
-convertBtn.disabled = true;
+setConvertButtonState(false);
 
 //const API_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODM3NzhlMGZlNWI5ZmQ5ZjI0MTc3ODQyZDRjMGVjMTUxZjI2OTFkMWYyNTIwNjI1NzhmZTA4YTg2MGU1YTFkNDhkY2Q0NGFhZDkxYWYzNDUiLCJpYXQiOjE3NzQ0NzkwMTIuNjQ3MTM3LCJuYmYiOjE3NzQ0NzkwMTIuNjQ3MTM4LCJleHAiOjQ5MzAxNTI2MTIuNjM5MzMzLCJzdWIiOiI3NDYzODE2MSIsInNjb3BlcyI6WyJ0YXNrLnJlYWQiLCJ0YXNrLndyaXRlIl19.Uy6_AY5BZzdgNLSJDr1Nm-qrZhEgdSptO6lgphIYpGw9ntrSs4NmM1WW-YOMhZIf-gmF92i-6BhBgg6ZBcGKGII3BRy078Tx3PUDWearv5byyuHGngAJ_KHUFWZ9V0-hmz3yazZKfHFkKGJ1_t3fyEWPOzZng1PgW5tiycKSlC_WCuZdZqGiAqfMFyJOIv7oqmZN1xub51BkvkwSfclmLWrQhmFoE9pUvBCPKESxenRBCAKP5tUfk66Tm0Xybl1gWDILvEwD1uyEqNflgqcQNCL0SmuvLCNgYqn3OzapH5gtDliR6c28aOrDKwnVmAiMX5JZ0r5fW_perYMnY8CpPy8kBfMcPFIrShsRTw4UpP2V1lf3tInvyJ9f4FD3fDEe_kdxD86c9zsbzz28Ju5Zk5Fq6Z8Oxx6fJupHbPXOtVFeDWj7hsImwZ-bo7lUe9_0rQB_0uK_1JYSzu2XNe7pgfEnKxaa5q_nX3DRjX44R1UwpY-6x2yoC4SYOPBbmEBvISJckn0jSFGHgKu1H833d_beW0yX-MMt1pgnawghf3B_EIRhG_FQSSKONIfBWnCJ8yYy6urERZhWBuV_Fp-rYbDbgGkerzD_YAs_CJ3t_7hvAP0k5Bn7BaADDooA6XEYdGmvcThPiemUE3iR-w1KAraIpNzvr6YPtwZs7QC11z4";
 
@@ -415,6 +442,10 @@ handleFile();
 fileInput.addEventListener("change", handleFile);
 convertBtn.addEventListener("click", convert);
 
+function setConvertButtonState(enabled){
+convertBtn.disabled = !enabled;
+}
+
 function handleFile(){
 file = fileInput.files[0];
 
@@ -423,9 +454,9 @@ preview.innerHTML = `
 📄 ${file.name}<br>
 Size: ${(file.size/1024/1024).toFixed(2)} MB
 `;
-convertBtn.disabled = false;
+setConvertButtonState(true);
 } else {
-convertBtn.disabled = true;
+setConvertButtonState(false);
 }
 }
 
@@ -440,7 +471,7 @@ return;
 status.innerText = "Creating conversion job...";
 progressBar.style.width = "10%";
 downloads.innerHTML = "";
-convertBtn.disabled = true;
+setConvertButtonState(false);
 
 try{
 
@@ -474,7 +505,7 @@ const job = await jobRes.json();
 const uploadTask = job?.data?.tasks?.find(t => t.name === "upload");
 if(!uploadTask?.result?.form?.url){
 status.innerText = "Upload step failed ❌";
-convertBtn.disabled = false;
+setConvertButtonState(true);
 return;
 }
 
@@ -534,7 +565,7 @@ a.remove();
 progressBar.style.width = "100%";
 status.innerText = "Done ✅";
 downloads.innerHTML = `<a href="${url}" download="${fileName}" class="download-btn">⬇ Download Word File</a>`;
-convertBtn.disabled = false;
+setConvertButtonState(true);
 
 }catch(e){
 console.error(e);
@@ -559,7 +590,7 @@ a.remove();
 progressBar.style.width = "100%";
 status.innerText = "Done ✅";
 downloads.innerHTML = `<a href="${url}" download="${fileName}" class="download-btn">⬇ Download Word File</a>`;
-convertBtn.disabled = false;
+setConvertButtonState(true);
 }
 
 </script>
