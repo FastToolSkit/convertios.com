@@ -395,6 +395,8 @@ const preview = document.getElementById("preview");
 const status = document.getElementById("status");
 const progressBar = document.getElementById("progress-bar");
 const downloads = document.getElementById("downloads");
+const convertBtn = document.querySelector(".convert-btn");
+const PDF_TO_WORD_API_URL = window.PDF_TO_WORD_API_URL || "";
 
 //const API_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODM3NzhlMGZlNWI5ZmQ5ZjI0MTc3ODQyZDRjMGVjMTUxZjI2OTFkMWYyNTIwNjI1NzhmZTA4YTg2MGU1YTFkNDhkY2Q0NGFhZDkxYWYzNDUiLCJpYXQiOjE3NzQ0NzkwMTIuNjQ3MTM3LCJuYmYiOjE3NzQ0NzkwMTIuNjQ3MTM4LCJleHAiOjQ5MzAxNTI2MTIuNjM5MzMzLCJzdWIiOiI3NDYzODE2MSIsInNjb3BlcyI6WyJ0YXNrLnJlYWQiLCJ0YXNrLndyaXRlIl19.Uy6_AY5BZzdgNLSJDr1Nm-qrZhEgdSptO6lgphIYpGw9ntrSs4NmM1WW-YOMhZIf-gmF92i-6BhBgg6ZBcGKGII3BRy078Tx3PUDWearv5byyuHGngAJ_KHUFWZ9V0-hmz3yazZKfHFkKGJ1_t3fyEWPOzZng1PgW5tiycKSlC_WCuZdZqGiAqfMFyJOIv7oqmZN1xub51BkvkwSfclmLWrQhmFoE9pUvBCPKESxenRBCAKP5tUfk66Tm0Xybl1gWDILvEwD1uyEqNflgqcQNCL0SmuvLCNgYqn3OzapH5gtDliR6c28aOrDKwnVmAiMX5JZ0r5fW_perYMnY8CpPy8kBfMcPFIrShsRTw4UpP2V1lf3tInvyJ9f4FD3fDEe_kdxD86c9zsbzz28Ju5Zk5Fq6Z8Oxx6fJupHbPXOtVFeDWj7hsImwZ-bo7lUe9_0rQB_0uK_1JYSzu2XNe7pgfEnKxaa5q_nX3DRjX44R1UwpY-6x2yoC4SYOPBbmEBvISJckn0jSFGHgKu1H833d_beW0yX-MMt1pgnawghf3B_EIRhG_FQSSKONIfBWnCJ8yYy6urERZhWBuV_Fp-rYbDbgGkerzD_YAs_CJ3t_7hvAP0k5Bn7BaADDooA6XEYdGmvcThPiemUE3iR-w1KAraIpNzvr6YPtwZs7QC11z4";
 
@@ -412,6 +414,7 @@ handleFile();
 
 // SELECT
 fileInput.addEventListener("change", handleFile);
+convertBtn.addEventListener("click", convert);
 
 function handleFile(){
 file = fileInput.files[0];
@@ -421,6 +424,9 @@ preview.innerHTML = `
 📄 ${file.name}<br>
 Size: ${(file.size/1024/1024).toFixed(2)} MB
 `;
+convertBtn.disabled = false;
+} else {
+convertBtn.disabled = true;
 }
 }
 
@@ -432,103 +438,66 @@ alert("Upload PDF first");
 return;
 }
 
-status.innerText = "Creating job...";
+if(!PDF_TO_WORD_API_URL){
+status.innerText = "API endpoint not configured ❌";
+return;
+}
+
+status.innerText = "Uploading...";
 progressBar.style.width = "10%";
 downloads.innerHTML = "";
 
 try{
 
-// 1️⃣ CREATE JOB
-const jobRes = await fetch("https://api.cloudconvert.com/v2/jobs", {
-method: "POST",
-headers: {
-"Authorization": "Bearer " + API_KEY,
-"Content-Type": "application/json"
-},
-body: JSON.stringify({
-tasks: {
-upload: { operation: "import/upload" },
-convert: {
-operation: "convert",
-input: "upload",
-input_format: "pdf",
-output_format: "docx"
-},
-export: {
-operation: "export/url",
-input: "convert"
-}
-}
-})
-});
-
-// 🔴 HANDLE NO CREDIT ERROR
-if(jobRes.status === 402){
-status.innerText = "No credits left ❌";
-return;
-}
-
-const job = await jobRes.json();
-
-if(!job.data){
-status.innerText = "Error creating job ❌";
-return;
-}
-
-// 2️⃣ UPLOAD
-const uploadTask = job.data.tasks.find(t => t.name === "upload");
-
 const formData = new FormData();
-
-// append fields ONCE
-for (const key in uploadTask.result.form) {
-formData.append(key, uploadTask.result.form[key]);
-}
-
-// file LAST
 formData.append("file", file);
 
-// upload
-await fetch(uploadTask.result.form.url, {
+const jobRes = await fetch(PDF_TO_WORD_API_URL, {
 method: "POST",
 body: formData
 });
+if(!jobRes.ok){
+status.innerText = "Conversion failed ❌";
+return;
+}
 
 status.innerText = "Converting...";
 progressBar.style.width = "50%";
+const contentType = (jobRes.headers.get("content-type") || "").toLowerCase();
+let blob = null;
+let fileName = file.name.replace(/\.pdf$/i, ".docx");
 
-// 3️⃣ WAIT LOOP
-let fileUrl = null;
-
-while(!fileUrl){
-
-const poll = await fetch(`https://api.cloudconvert.com/v2/jobs/${job.data.id}`, {
-headers: {
-"Authorization": "Bearer " + API_KEY
+if(contentType.includes("application/json")){
+const data = await jobRes.json();
+if(data.file_url){
+const dl = await fetch(data.file_url);
+blob = await dl.blob();
+fileName = data.file_name || fileName;
+}else if(data.base64){
+const bytes = Uint8Array.from(atob(data.base64), c => c.charCodeAt(0));
+blob = new Blob([bytes], {type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"});
+fileName = data.file_name || fileName;
 }
-});
-
-const data = await poll.json();
-
-const exportTask = data.data.tasks.find(t => t.name === "export");
-
-if(exportTask && exportTask.status === "finished"){
-fileUrl = exportTask.result.files[0].url;
-break;
+}else{
+blob = await jobRes.blob();
 }
 
-await new Promise(r => setTimeout(r, 2000));
+if(!blob){
+status.innerText = "Invalid API response ❌";
+return;
 }
 
-// 4️⃣ DONE
+const url = URL.createObjectURL(blob);
+const a = document.createElement("a");
+a.href = url;
+a.download = fileName;
+document.body.appendChild(a);
+a.click();
+a.remove();
+
 progressBar.style.width = "100%";
 status.innerText = "Done ✅";
-
-downloads.innerHTML = `
-<a href="${fileUrl}" target="_blank" class="download-btn">
-⬇ Download Word File
-</a>
-`;
+downloads.innerHTML = `<a href="${url}" download="${fileName}" class="download-btn">⬇ Download Word File</a>`;
 
 }catch(e){
 console.error(e);
