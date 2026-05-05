@@ -152,7 +152,8 @@ try{
 const formData=new FormData();
 formData.append('image',selectedFile);
 
-const response=await fetch('/enhance',{
+console.log('[AI Enhancer] Request start');
+const response=await fetch('http://localhost:3000/enhance',{
 method:'POST',
 body:formData
 });
@@ -162,6 +163,7 @@ throw new Error('Enhancement request failed');
 }
 
 const data=await response.json();
+console.log('[AI Enhancer] API response', data);
 const imageUrl=data.enhancedImageUrl || data.url || data.image_url;
 if(!imageUrl){
 throw new Error('Enhanced image URL not found in response');
@@ -173,7 +175,7 @@ downloadBtn.href=imageUrl;
 downloadBtn.style.display='inline-block';
 statusEl.textContent='Image enhanced successfully ✅';
 }catch(err){
-console.error(err);
+console.error('[AI Enhancer] Error', err);
 statusEl.textContent='Failed to enhance image. Please try again.';
 }finally{
 setEnhanceState(!!selectedFile);

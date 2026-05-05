@@ -6,7 +6,7 @@ const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
 const PORT = 3000;
 const REPLICATE_API_URL = 'https://api.replicate.com/v1/predictions';
-const REPLICATE_MODEL = 'nightmareai/real-esrgan';
+const REPLICATE_MODEL_VERSION = '42fed1c497a4d2e1a7d0c9d03c6c3f6f2e3a0b0f3fdb1f9c3e4a6d5c4f9b6a8f';
 
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
@@ -47,7 +47,7 @@ app.post('/enhance', upload.single('image'), async (req, res) => {
     });
 
     const createPayload = {
-      model: REPLICATE_MODEL,
+      version: REPLICATE_MODEL_VERSION,
       input: {
         image: dataUri,
         scale: 2,
