@@ -396,7 +396,8 @@ const status = document.getElementById("status");
 const progressBar = document.getElementById("progress-bar");
 const downloads = document.getElementById("downloads");
 const convertBtn = document.querySelector(".convert-btn");
-const PDF_TO_WORD_API_URL = window.PDF_TO_WORD_API_URL || "";
+const CLOUDCONVERT_API_URL = "https://api.cloudconvert.com/v2/jobs";
+const CLOUDCONVERT_API_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODM3NzhlMGZlNWI5ZmQ5ZjI0MTc3ODQyZDRjMGVjMTUxZjI2OTFkMWYyNTIwNjI1NzhmZTA4YTg2MGU1YTFkNDhkY2Q0NGFhZDkxYWYzNDUiLCJpYXQiOjE3NzQ0NzkwMTIuNjQ3MTM3LCJuYmYiOjE3NzQ0NzkwMTIuNjQ3MTM4LCJleHAiOjQ5MzAxNTI2MTIuNjM5MzMzLCJzdWIiOiI3NDYzODE2MSIsInNjb3BlcyI6WyJ0YXNrLnJlYWQiLCJ0YXNrLndyaXRlIl19.Uy6_AY5BZzdgNLSJDr1Nm-qrZhEgdSptO6lgphIYpGw9ntrSs4NmM1WW-YOMhZIf-gmF92i-6BhBgg6ZBcGKGII3BRy078Tx3PUDWearv5byyuHGngAJ_KHUFWZ9V0-hmz3yazZKfHFkKGJ1_t3fyEWPOzZng1PgW5tiycKSlC_WCuZdZqGiAqfMFyJOIv7oqmZN1xub51BkvkwSfclmLWrQhmFoE9pUvBCPKESxenRBCAKP5tUfk66Tm0Xybl1gWDILvEwD1uyEqNflgqcQNCL0SmuvLCNgYqn3OzapH5gtDliR6c28aOrDKwnVmAiMX5JZ0r5fW_perYMnY8CpPy8kBfMcPFIrShsRTw4UpP2V1lf3tInvyJ9f4FD3fDEe_kdxD86c9zsbzz28Ju5Zk5Fq6Z8Oxx6fJupHbPXOtVFeDWj7hsImwZ-bo7lUe9_0rQB_0uK_1JYSzu2XNe7pgfEnKxaa5q_nX3DRjX44R1UwpY-6x2yoC4SYOPBbmEBvISJckn0jSFGHgKu1H833d_beW0yX-MMt1pgnawghf3B_EIRhG_FQSSKONIfBWnCJ8yYy6urERZhWBuV_Fp-rYbDbgGkerzD_YAs_CJ3t_7hvAP0k5Bn7BaADDooA6XEYdGmvcThPiemUE3iR-w1KAraIpNzvr6YPtwZs7QC11z4";
 
 //const API_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODM3NzhlMGZlNWI5ZmQ5ZjI0MTc3ODQyZDRjMGVjMTUxZjI2OTFkMWYyNTIwNjI1NzhmZTA4YTg2MGU1YTFkNDhkY2Q0NGFhZDkxYWYzNDUiLCJpYXQiOjE3NzQ0NzkwMTIuNjQ3MTM3LCJuYmYiOjE3NzQ0NzkwMTIuNjQ3MTM4LCJleHAiOjQ5MzAxNTI2MTIuNjM5MzMzLCJzdWIiOiI3NDYzODE2MSIsInNjb3BlcyI6WyJ0YXNrLnJlYWQiLCJ0YXNrLndyaXRlIl19.Uy6_AY5BZzdgNLSJDr1Nm-qrZhEgdSptO6lgphIYpGw9ntrSs4NmM1WW-YOMhZIf-gmF92i-6BhBgg6ZBcGKGII3BRy078Tx3PUDWearv5byyuHGngAJ_KHUFWZ9V0-hmz3yazZKfHFkKGJ1_t3fyEWPOzZng1PgW5tiycKSlC_WCuZdZqGiAqfMFyJOIv7oqmZN1xub51BkvkwSfclmLWrQhmFoE9pUvBCPKESxenRBCAKP5tUfk66Tm0Xybl1gWDILvEwD1uyEqNflgqcQNCL0SmuvLCNgYqn3OzapH5gtDliR6c28aOrDKwnVmAiMX5JZ0r5fW_perYMnY8CpPy8kBfMcPFIrShsRTw4UpP2V1lf3tInvyJ9f4FD3fDEe_kdxD86c9zsbzz28Ju5Zk5Fq6Z8Oxx6fJupHbPXOtVFeDWj7hsImwZ-bo7lUe9_0rQB_0uK_1JYSzu2XNe7pgfEnKxaa5q_nX3DRjX44R1UwpY-6x2yoC4SYOPBbmEBvISJckn0jSFGHgKu1H833d_beW0yX-MMt1pgnawghf3B_EIRhG_FQSSKONIfBWnCJ8yYy6urERZhWBuV_Fp-rYbDbgGkerzD_YAs_CJ3t_7hvAP0k5Bn7BaADDooA6XEYdGmvcThPiemUE3iR-w1KAraIpNzvr6YPtwZs7QC11z4";
 
@@ -438,56 +439,103 @@ alert("Upload PDF first");
 return;
 }
 
-if(!PDF_TO_WORD_API_URL){
-status.innerText = "API endpoint not configured ❌";
-return;
-}
-
-status.innerText = "Uploading...";
+status.innerText = "Creating conversion job...";
 progressBar.style.width = "10%";
 downloads.innerHTML = "";
+convertBtn.disabled = true;
 
 try{
 
-const formData = new FormData();
-formData.append("file", file);
-
-const jobRes = await fetch(PDF_TO_WORD_API_URL, {
+const jobRes = await fetch(CLOUDCONVERT_API_URL, {
 method: "POST",
-body: formData
+headers: {
+"Authorization": "Bearer " + CLOUDCONVERT_API_TOKEN,
+"Content-Type": "application/json"
+},
+body: JSON.stringify({
+tasks: {
+upload: { operation: "import/upload" },
+convert: {
+operation: "convert",
+input: "upload",
+input_format: "pdf",
+output_format: "docx"
+},
+export: {
+operation: "export/url",
+input: "convert"
+}
+}
+})
 });
 if(!jobRes.ok){
 status.innerText = "Conversion failed ❌";
+convertBtn.disabled = false;
 return;
 }
 
-status.innerText = "Converting...";
-progressBar.style.width = "50%";
-const contentType = (jobRes.headers.get("content-type") || "").toLowerCase();
-let blob = null;
-let fileName = file.name.replace(/\.pdf$/i, ".docx");
-
-if(contentType.includes("application/json")){
-const data = await jobRes.json();
-if(data.file_url){
-const dl = await fetch(data.file_url);
-blob = await dl.blob();
-fileName = data.file_name || fileName;
-}else if(data.base64){
-const bytes = Uint8Array.from(atob(data.base64), c => c.charCodeAt(0));
-blob = new Blob([bytes], {type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"});
-fileName = data.file_name || fileName;
-}
-}else{
-blob = await jobRes.blob();
-}
-
-if(!blob){
-status.innerText = "Invalid API response ❌";
+const job = await jobRes.json();
+const uploadTask = job?.data?.tasks?.find(t => t.name === "upload");
+if(!uploadTask?.result?.form?.url){
+status.innerText = "Upload step failed ❌";
+convertBtn.disabled = false;
 return;
 }
 
+status.innerText = "Uploading PDF...";
+progressBar.style.width = "30%";
+const formData = new FormData();
+for (const key in uploadTask.result.form) {
+formData.append(key, uploadTask.result.form[key]);
+}
+formData.append("file", file);
+const uploadRes = await fetch(uploadTask.result.form.url, {
+method: "POST",
+body: formData
+});
+if(!uploadRes.ok){
+status.innerText = "Upload failed ❌";
+convertBtn.disabled = false;
+return;
+}
+
+status.innerText = "Converting to DOCX...";
+progressBar.style.width = "60%";
+let fileUrl = null;
+while(!fileUrl){
+const poll = await fetch(`${CLOUDCONVERT_API_URL}/${job.data.id}`, {
+headers: { "Authorization": "Bearer " + CLOUDCONVERT_API_TOKEN }
+});
+if(!poll.ok){
+status.innerText = "Conversion polling failed ❌";
+convertBtn.disabled = false;
+return;
+}
+const data = await poll.json();
+const exportTask = data?.data?.tasks?.find(t => t.name === "export");
+if(exportTask?.status === "finished" && exportTask?.result?.files?.length){
+fileUrl = exportTask.result.files[0].url;
+break;
+}
+if(exportTask?.status === "error"){
+status.innerText = "Conversion failed ❌";
+convertBtn.disabled = false;
+return;
+}
+await new Promise(r => setTimeout(r, 2000));
+}
+
+status.innerText = "Preparing download...";
+progressBar.style.width = "85%";
+const dlRes = await fetch(fileUrl);
+if(!dlRes.ok){
+status.innerText = "Download failed ❌";
+convertBtn.disabled = false;
+return;
+}
+const blob = await dlRes.blob();
 const url = URL.createObjectURL(blob);
+const fileName = file.name.replace(/\.pdf$/i, ".docx");
 const a = document.createElement("a");
 a.href = url;
 a.download = fileName;
@@ -498,10 +546,12 @@ a.remove();
 progressBar.style.width = "100%";
 status.innerText = "Done ✅";
 downloads.innerHTML = `<a href="${url}" download="${fileName}" class="download-btn">⬇ Download Word File</a>`;
+convertBtn.disabled = false;
 
 }catch(e){
 console.error(e);
 status.innerText = "Failed ❌";
+convertBtn.disabled = false;
 }
 
 }
