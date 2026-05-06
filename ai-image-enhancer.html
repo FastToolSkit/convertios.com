@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Image Enhancer | Convertios</title>
-<meta name="description" content="Enhance image quality online using AI. Improve resolution, sharpen details, and upscale images instantly.">
+<meta name="description" content="Use AI Image Enhancer on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://convertios.com/ai-image-enhancer.html">
 <link rel="stylesheet" href="style.css?v=7">
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -30,6 +29,7 @@
 .result-wrap{margin-top:16px}
 @media (max-width:900px){.tool-grid{grid-template-columns:1fr}}
 </style>
+<link rel="canonical" href="https://convertios.com/ai-image-enhancer.html">
 </head>
 <body>
 <header class="site-header">
@@ -54,7 +54,7 @@
 <h2>Upload Image</h2>
 <div id="dropzone" class="dropzone">
 <p>Upload your image to enhance its quality using AI</p>
-<label class="upload-btn">Choose Image <input type="file" id="fileInput" accept="image/*"></label>
+<label class="upload-btn">Choose Image <input type="file" id="fileInput" accept="image/*" aria-label="Choose a file to process"></label>
 </div>
 <p id="fileName" class="file-name"></p>
 <img id="preview" class="preview" alt="Selected image preview">
@@ -63,7 +63,7 @@
 <section class="panel">
 <h2>Enhancement Result</h2>
 <div class="actions">
-<button id="enhanceBtn" class="btn" disabled>Enhance Image</button>
+<button id="enhanceBtn" class="btn" disabled aria-label="Run this tool">Enhance Image</button>
 <a id="downloadBtn" class="btn" style="display:none" download="enhanced-image.png">Download</a>
 </div>
 <p id="status" class="status">Select an image to begin.</p>
@@ -72,6 +72,56 @@
 </div>
 </section>
 </div>
+
+
+
+<section class="tool-info-block" aria-labelledby="tool-info-heading">
+<h2 id="tool-info-heading">Tool Information</h2>
+<div class="tool-info-grid">
+<div><strong>Runs in browser:</strong><span>No</span></div>
+<div><strong>Upload required:</strong><span>Yes</span></div>
+<div><strong>Third-party processing:</strong><span>Convertios backend + Replicate</span></div>
+<div><strong>File retention:</strong><span>Processed by Replicate for enhancement and not stored by Convertios after the request completes.</span></div>
+<div><strong>Max file size:</strong><span>10 MB</span></div>
+<div><strong>Supported formats:</strong><span>JPG, PNG, WEBP image uploads → Enhanced image output from the AI service</span></div>
+</div>
+<p class="transparency-note"><strong>Transparency note:</strong> This tool requires secure third-party processing through the Convertios backend using Replicate. Files are uploaded only for the requested task, so it is not a browser-only tool.</p>
+</section>
+
+<section class="tool-guide-block" aria-labelledby="guide-heading-ai-image-enhancer">
+<h2 id="guide-heading-ai-image-enhancer">How It Works</h2>
+<p>AI Image Enhancer reads your selected input, applies the conversion or editing step shown in the tool controls, and prepares an output that matches the format listed below. Review the file name, size, and chosen settings before starting so the result matches your intended use.</p>
+<p>For related workflows, you can also use <a href="compress-image.html">Free Image Compressor</a> or <a href="image-converter.html">Image Converter Online</a> when your task needs another step in the same category.</p>
+
+<h2>Supported Formats</h2>
+<ul>
+<li><strong>Input:</strong> JPG, PNG, WEBP image uploads</li>
+<li><strong>Output:</strong> Enhanced image output from the AI service</li>
+</ul>
+
+<h2>Common Issues &amp; Fixes</h2>
+<ul>
+<li><strong>Why did my file not convert correctly?</strong> Check that the file is not corrupted, password protected, or larger than the recommended limit.</li>
+<li><strong>Why is the result different from the original?</strong> Some formats store layout, transparency, fonts, or audio metadata differently, so review the output before sharing it.</li>
+<li><strong>Why did processing stop?</strong> Refresh the page, choose a smaller file, and try again. If the tool uses third-party processing, temporary provider limits may also affect completion.</li>
+</ul>
+
+<h2>Best Use Cases</h2>
+<ul>
+<li>Preparing files for upload forms, email attachments, websites, or social media.</li>
+<li>Changing a file into a more compatible format before sharing it with others.</li>
+<li>Reducing manual editing by using the focused settings available in this tool.</li>
+</ul>
+
+<h2>Related Tools</h2>
+<ul class="related-tools-list">
+<li><a href="compress-image.html">Free Image Compressor</a></li>
+<li><a href="image-converter.html">Image Converter Online</a></li>
+<li><a href="image-resizer.html">Resize Image Online</a></li>
+<li><a href="jpg-to-png.html">JPG to PNG Converter Online</a></li>
+<li><a href="png-to-jpg.html">PNG to JPG Converter</a></li>
+</ul>
+</section>
 
 <section class="tool-description">
 <h2>How to Use</h2>
@@ -113,6 +163,7 @@ const downloadBtn=document.getElementById('downloadBtn');
 const statusEl=document.getElementById('status');
 
 let selectedFile=null;
+let lastEnhanceAttempt=null;
 
 function setEnhanceState(enabled){
 enhanceBtn.disabled=!enabled;
@@ -142,10 +193,11 @@ fileInput.addEventListener('change',e=>handleFile(e.target.files[0]));
 dropzone.addEventListener('drop',e=>handleFile(e.dataTransfer.files[0]));
 dropzone.addEventListener('click',()=>fileInput.click());
 
-enhanceBtn.addEventListener('click',async()=>{
+async function runEnhancement(){
 if(!selectedFile) return;
+lastEnhanceAttempt=runEnhancement;
 setEnhanceState(false);
-statusEl.textContent='Enhancing image...';
+statusEl.textContent='Uploading image for secure enhancement...';
 resetResult();
 
 try{
@@ -153,9 +205,9 @@ const formData=new FormData();
 formData.append('image',selectedFile);
 
 console.log('[AI Enhancer] Request start');
-const response = await fetch('https://convertios-com-2.onrender.com/enhance', {
-    method: 'POST',
-    body: formData
+const response=await fetch('/enhance',{
+method:'POST',
+body:formData
 });
 if(!response.ok){
 throw new Error('Enhancement request failed');
@@ -175,13 +227,64 @@ downloadBtn.style.display='inline-block';
 statusEl.textContent='Image enhanced successfully ✅';
 }catch(err){
 console.error('[AI Enhancer] Error', err);
-statusEl.textContent='Failed to enhance image. Please try again.';
+statusEl.innerHTML='Failed to enhance image. Please try again. <button type="button" class="tool-retry-button" id="retryEnhance">Retry</button>';
+const retry=document.getElementById('retryEnhance');
+if(retry) retry.addEventListener('click',runEnhancement);
 }finally{
 setEnhanceState(!!selectedFile);
 }
-});
+}
+
+enhanceBtn.addEventListener('click',runEnhancement);
 
 setEnhanceState(false);
 </script>
+
+<script>
+(function(){
+let lastActionButton=null;
+document.addEventListener('click',function(event){
+const button=event.target.closest('button');
+if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
+},true);
+function ensureToolMessage(){
+let box=document.getElementById('toolMessage');
+if(!box){
+box=document.createElement('div');
+box.id='toolMessage';
+box.className='tool-message-box';
+box.setAttribute('role','status');
+box.setAttribute('aria-live','polite');
+const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
+anchor.insertAdjacentElement('afterend',box);
+}
+return box;
+}
+window.showToolMessage=function(message,canRetry){
+const box=ensureToolMessage();
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
+box.style.display='block';
+const retry=document.getElementById('commonToolRetry');
+if(retry){
+retry.addEventListener('click',function(){
+box.style.display='none';
+if(lastActionButton) lastActionButton.click();
+});
+}
+};
+const nativeAlert=window.alert;
+window.alert=function(message){
+window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
+if(nativeAlert && !document.body) nativeAlert(message);
+};
+window.addEventListener('error',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+window.addEventListener('unhandledrejection',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+})();
+</script>
+
 </body>
 </html>
