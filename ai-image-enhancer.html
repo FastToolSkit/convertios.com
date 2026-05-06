@@ -153,11 +153,10 @@ const formData=new FormData();
 formData.append('image',selectedFile);
 
 console.log('[AI Enhancer] Request start');
-const response=await fetch('http://localhost:3000/enhance',{
-method:'POST',
-body:formData
+const response = await fetch('https://convertios-com-2.onrender.com/enhance', {
+    method: 'POST',
+    body: formData
 });
-
 if(!response.ok){
 throw new Error('Enhancement request failed');
 }
