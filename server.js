@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
+const fetch = require('node-fetch'); // ✅ FIX
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
@@ -470,8 +471,8 @@ app.post('/remove-background', upload.single('image_file'), async (req, res) => 
   }
 });
 
-app.get('/health', (_req, res) => {
-  res.json({ ok: true });
+app.get('/', (req, res) => {
+  res.send('Server running');
 });
 
 app.use((_req, res) => {
@@ -484,5 +485,5 @@ app.use((error, _req, res, _next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`AI enhancer backend running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
