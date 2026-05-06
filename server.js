@@ -10,6 +10,10 @@ const REPLICATE_API_URL = 'https://api.replicate.com/v1/predictions';
 const REPLICATE_MODEL = 'nightmareai/real-esrgan:42fed1c4974146d4d2414e2be2c5277c7fcf05fcc3a73abf41610695738c1d7b';
 const REPLICATE_MODEL_VERSION = REPLICATE_MODEL.split(':').pop();
 const MAX_ENHANCE_IMAGE_BYTES = 10 * 1024 * 1024;
+const enhanceUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: MAX_ENHANCE_IMAGE_BYTES }
+});
 
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
@@ -21,7 +25,7 @@ function getAuthHeaders({ wait = false } = {}) {
   }
 
   const headers = {
-    Authorization: `Token ${token}`,
+    Authorization: `Bearer ${token}`,
     'Content-Type': 'application/json'
   };
 
@@ -90,7 +94,19 @@ async function pollReplicatePrediction(prediction) {
   return { prediction: current, outputUrl: extractPredictionOutput(current) };
 }
 
-app.post('/enhance', upload.single('image'), async (req, res) => {
+app.post('/enhance', (req, res, next) => {
+  enhanceUpload.single('image')(req, res, (error) => {
+    if (!error) {
+      return next();
+    }
+
+    if (error instanceof multer.MulterError && error.code === 'LIMIT_FILE_SIZE') {
+      return res.status(413).json({ error: 'Enhancement failed', details: 'Image must be smaller than 10MB.' });
+    }
+
+    return res.status(400).json({ error: 'Enhancement failed', details: error.message || 'Invalid image upload.' });
+  });
+}, async (req, res) => {
   let prediction = null;
 
   try {
@@ -262,10 +278,6 @@ app.post('/convert/pdf-to-word', upload.single('file'), async (req, res) => {
       if (failedTask) {
         return res.status(502).json({ error: 'CloudConvert conversion failed', details: failedTask.message || failedTask.code || 'Task error' });
       }
-
-      if (exportTask?.status === 'finished' && exportTask?.result?.files?.length) {
-        fileUrl = exportTask.result.files[0].url;
-      }
     }
 
     if (!fileUrl) {
@@ -375,44 +387,6 @@ app.post('/convert/pdf-to-word', upload.single('file'), async (req, res) => {
     const uploadTask = job?.data?.tasks?.find((task) => task.name === 'upload');
     const form = uploadTask?.result?.form;
 
-    if (!form?.url || !form?.parameters) {
-      return res.status(502).json({ error: 'CloudConvert did not return a valid upload form' });
-    }
-
-    const uploadForm = new FormData();
-    Object.entries(form.parameters).forEach(([key, value]) => uploadForm.append(key, value));
-    uploadForm.append('file', new Blob([req.file.buffer], { type: req.file.mimetype || 'application/pdf' }), req.file.originalname || 'document.pdf');
-
-    const uploadResponse = await fetch(form.url, {
-      method: 'POST',
-      body: uploadForm
-    });
-
-    if (!uploadResponse.ok) {
-      const details = await uploadResponse.text();
-      return res.status(502).json({ error: 'CloudConvert upload failed', details });
-    }
-
-    let fileUrl = null;
-    for (let attempt = 0; attempt < 60 && !fileUrl; attempt += 1) {
-      await sleep(2000);
-      const pollResponse = await fetch(`https://api.cloudconvert.com/v2/jobs/${job.data.id}`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-
-      if (!pollResponse.ok) {
-        const details = await pollResponse.text();
-        return res.status(502).json({ error: 'CloudConvert polling failed', details });
-      }
-
-      const data = await pollResponse.json();
-      const exportTask = data?.data?.tasks?.find((task) => task.name === 'export');
-      const failedTask = data?.data?.tasks?.find((task) => task.status === 'error');
-
-      if (failedTask) {
-        return res.status(502).json({ error: 'CloudConvert conversion failed', details: failedTask.message || failedTask.code || 'Task error' });
-      }
-
       if (exportTask?.status === 'finished' && exportTask?.result?.files?.length) {
         fileUrl = exportTask.result.files[0].url;
       }
@@ -473,6 +447,15 @@ app.post('/remove-background', upload.single('image_file'), async (req, res) => 
 
 app.get('/', (req, res) => {
   res.send('Server running');
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
 });
 
 app.use((_req, res) => {
