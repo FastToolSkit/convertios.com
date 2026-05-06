@@ -1,10 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
+const fetch = require('node-fetch'); // ✅ FIX
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
-const PORT = 3000;
+
+// ✅ FIX PORT
+const PORT = process.env.PORT || 3000;
+
 const REPLICATE_API_URL = 'https://api.replicate.com/v1/predictions';
 const REPLICATE_MODEL_VERSION = '42fed1c497a4d2e1a7d0c9d03c6c3f6f2e3a0b0f3fdb1f9c3e4a6d5c4f9b6a8f';
 
@@ -28,122 +32,62 @@ function sleep(ms) {
 }
 
 app.post('/enhance', upload.single('image'), async (req, res) => {
-  console.log('[POST /enhance] Incoming request');
-
   try {
     if (!req.file) {
-      console.error('[POST /enhance] No image file received');
-      return res.status(400).json({ error: 'No image uploaded. Use FormData field name "image".' });
+      return res.status(400).json({ error: 'No image uploaded' });
     }
 
     const mimeType = req.file.mimetype || 'image/png';
     const base64 = req.file.buffer.toString('base64');
     const dataUri = `data:${mimeType};base64,${base64}`;
 
-    console.log('[POST /enhance] Image received', {
-      originalName: req.file.originalname,
-      size: req.file.size,
-      mimeType
-    });
-
-    const createPayload = {
-      version: REPLICATE_MODEL_VERSION,
-      input: {
-        image: dataUri,
-        scale: 2,
-        face_enhance: false
-      }
-    };
-
-    console.log('[POST /enhance] Creating Replicate prediction');
     const createResponse = await fetch(REPLICATE_API_URL, {
       method: 'POST',
       headers: getAuthHeaders(),
-      body: JSON.stringify(createPayload)
+      body: JSON.stringify({
+        version: REPLICATE_MODEL_VERSION,
+        input: {
+          image: dataUri,
+          scale: 2,
+          face_enhance: false
+        }
+      })
     });
-
-    if (!createResponse.ok) {
-      const errText = await createResponse.text();
-      console.error('[POST /enhance] Failed to create prediction', createResponse.status, errText);
-      return res.status(502).json({ error: 'Failed to create Replicate prediction', details: errText });
-    }
 
     const prediction = await createResponse.json();
-    console.log('[POST /enhance] Prediction created', {
-      id: prediction.id,
-      status: prediction.status,
-      get: prediction?.urls?.get
-    });
-
-    if (!prediction?.urls?.get) {
-      console.error('[POST /enhance] Missing poll URL in Replicate response');
-      return res.status(502).json({ error: 'Invalid response from Replicate (missing poll URL)' });
-    }
 
     let current = prediction;
-    let attempts = 0;
-    const maxAttempts = 60;
 
-    while (!['succeeded', 'failed', 'canceled'].includes(current.status) && attempts < maxAttempts) {
-      attempts += 1;
+    while (!['succeeded', 'failed'].includes(current.status)) {
       await sleep(2000);
 
-      console.log(`[POST /enhance] Polling prediction attempt ${attempts}, current status: ${current.status}`);
-
-      const pollResponse = await fetch(prediction.urls.get, {
-        method: 'GET',
+      const poll = await fetch(prediction.urls.get, {
         headers: getAuthHeaders()
       });
 
-      if (!pollResponse.ok) {
-        const errText = await pollResponse.text();
-        console.error('[POST /enhance] Polling failed', pollResponse.status, errText);
-        return res.status(502).json({ error: 'Failed while polling Replicate prediction', details: errText });
-      }
-
-      current = await pollResponse.json();
-    }
-
-    if (attempts >= maxAttempts && current.status !== 'succeeded') {
-      console.error('[POST /enhance] Polling timeout', { status: current.status });
-      return res.status(504).json({ error: 'Enhancement timed out', status: current.status });
+      current = await poll.json();
     }
 
     if (current.status !== 'succeeded') {
-      console.error('[POST /enhance] Prediction did not succeed', {
-        status: current.status,
-        error: current.error
-      });
-      return res.status(500).json({ error: 'Image enhancement failed', status: current.status, details: current.error });
+      return res.status(500).json({ error: 'Enhancement failed' });
     }
 
-    let outputUrl = null;
+    const outputUrl = Array.isArray(current.output)
+      ? current.output[0]
+      : current.output;
 
-    if (Array.isArray(current.output) && current.output.length > 0) {
-      outputUrl = current.output[0];
-    } else if (typeof current.output === 'string') {
-      outputUrl = current.output;
-    } else if (current.output && typeof current.output === 'object' && current.output.url) {
-      outputUrl = current.output.url;
-    }
+    res.json({ enhancedImageUrl: outputUrl });
 
-    if (!outputUrl) {
-      console.error('[POST /enhance] Succeeded but no output URL found', { output: current.output });
-      return res.status(502).json({ error: 'No enhanced image URL returned by Replicate' });
-    }
-
-    console.log('[POST /enhance] Enhancement complete', { outputUrl });
-    return res.json({ enhancedImageUrl: outputUrl });
-  } catch (error) {
-    console.error('[POST /enhance] Unexpected error', error);
-    return res.status(500).json({ error: 'Internal server error', details: error.message });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
   }
 });
 
-app.get('/health', (_req, res) => {
-  res.json({ ok: true });
+app.get('/', (req, res) => {
+  res.send('Server running');
 });
 
 app.listen(PORT, () => {
-  console.log(`AI enhancer backend running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
