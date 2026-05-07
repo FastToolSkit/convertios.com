@@ -25,7 +25,7 @@ function getAuthHeaders({ wait = false } = {}) {
   }
 
   const headers = {
-    Authorization: `Token ${token}`,
+    Authorization: `Bearer ${token}`,
     'Content-Type': 'application/json'
   };
 
@@ -169,9 +169,7 @@ app.post('/enhance', (req, res, next) => {
       requestId,
       mimeType,
       base64Length: base64.length,
-      dataUriLength: dataUri.length,
-      usingTemporarySampleImage: true,
-      replicateInputImage
+      dataUriLength: dataUri.length
     });
 
     const createPayload = {
@@ -406,6 +404,15 @@ app.post('/remove-background', upload.single('image_file'), async (req, res) => 
 
 app.get('/', (req, res) => {
   res.send('Server running');
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
 });
 
 app.use((_req, res) => {
