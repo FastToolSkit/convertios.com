@@ -176,6 +176,16 @@ downloadBtn.style.display='none';
 downloadBtn.removeAttribute('href');
 }
 
+function escapeHtml(value){
+return String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+}
+
+function formatErrorMessage(value){
+if(!value) return 'Enhancement request failed';
+if(typeof value === 'string') return value;
+try{return JSON.stringify(value);}catch(_err){return 'Enhancement request failed';}
+}
+
 function handleFile(file){
 if(!file || !file.type.startsWith('image/')) return;
 selectedFile=file;
@@ -205,16 +215,17 @@ const formData=new FormData();
 formData.append('image',selectedFile);
 
 console.log('[AI Enhancer] Request start');
-const response=await fetch('/enhance',{
+const response=await fetch('https://convertios-com-2.onrender.com/enhance',{
 method:'POST',
 body:formData
 });
-if(!response.ok){
-throw new Error('Enhancement request failed');
-}
 
-const data=await response.json();
+const data=await response.json().catch(()=>({error:'Invalid backend response'}));
 console.log('[AI Enhancer] API response', data);
+
+if(!response.ok){
+throw new Error(formatErrorMessage(data.details || data.error));
+}
 const imageUrl=data.enhancedImageUrl || data.url || data.image_url;
 if(!imageUrl){
 throw new Error('Enhanced image URL not found in response');
@@ -227,7 +238,7 @@ downloadBtn.style.display='inline-block';
 statusEl.textContent='Image enhanced successfully ✅';
 }catch(err){
 console.error('[AI Enhancer] Error', err);
-statusEl.innerHTML='Failed to enhance image. Please try again. <button type="button" class="tool-retry-button" id="retryEnhance">Retry</button>';
+statusEl.innerHTML=`Failed to enhance image: ${escapeHtml(err.message || 'Please try again.')} <button type="button" class="tool-retry-button" id="retryEnhance">Retry</button>`;
 const retry=document.getElementById('retryEnhance');
 if(retry) retry.addEventListener('click',runEnhancement);
 }finally{
