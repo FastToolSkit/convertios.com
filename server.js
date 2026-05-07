@@ -96,7 +96,7 @@ app.post('/enhance', upload.single('image'), async (req, res) => {
   try {
     console.log('🔥 Request received');
     console.log('📦 File size:', req.file?.size);
-    console.log('🔑 Token exists:', !!process.env.r8_0fRAytYFfOrTIgW7RIll4fFBvT9TfW41vyvUN);
+    console.log('🔑 Token exists:', !!process.env.REPLICATE_API_TOKEN);
 
     if (!req.file) {
       return res.status(400).json({ error: 'Enhancement failed', details: 'No image uploaded. Use FormData field name "image".' });
