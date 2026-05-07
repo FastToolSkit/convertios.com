@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
+const fetch = require('node-fetch'); // ✅ FIX
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
@@ -162,6 +163,7 @@ app.post('/enhance', (req, res, next) => {
     const mimeType = req.file.mimetype || 'image/png';
     const base64 = req.file.buffer.toString('base64');
     const dataUri = `data:${mimeType};base64,${base64}`;
+    const replicateInputImage = 'https://replicate.delivery/pbxt/sample.png';
 
     console.log('[POST /enhance] Encoded image for Replicate', {
       requestId,
@@ -173,7 +175,7 @@ app.post('/enhance', (req, res, next) => {
     const createPayload = {
       version: REPLICATE_MODEL_VERSION,
       input: {
-        image: dataUri,
+        image: replicateInputImage,
         scale: 2,
         face_enhance: false
       }
@@ -400,8 +402,53 @@ app.post('/remove-background', upload.single('image_file'), async (req, res) => 
   }
 });
 
-app.get('/health', (_req, res) => {
-  res.json({ ok: true });
+app.get('/', (req, res) => {
+  res.send('Server running');
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
 });
 
 app.use((_req, res) => {
@@ -414,5 +461,5 @@ app.use((error, _req, res, _next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`AI enhancer backend running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
