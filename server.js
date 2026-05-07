@@ -111,6 +111,7 @@ async function pollReplicatePrediction(prediction, requestId) {
     }
 
     current = await pollResponse.json();
+    console.log("REPLICATE RESPONSE:", current);
     console.log('📡 Replicate response:', { requestId, prediction: safeReplicateDetails(current) });
   }
 
@@ -162,18 +163,21 @@ app.post('/enhance', (req, res, next) => {
     const mimeType = req.file.mimetype || 'image/png';
     const base64 = req.file.buffer.toString('base64');
     const dataUri = `data:${mimeType};base64,${base64}`;
+    const replicateInputImage = 'https://replicate.delivery/pbxt/sample.png';
 
     console.log('[POST /enhance] Encoded image for Replicate', {
       requestId,
       mimeType,
       base64Length: base64.length,
-      dataUriLength: dataUri.length
+      dataUriLength: dataUri.length,
+      usingTemporarySampleImage: true,
+      replicateInputImage
     });
 
     const createPayload = {
       version: REPLICATE_MODEL_VERSION,
       input: {
-        image: dataUri,
+        image: replicateInputImage,
         scale: 2,
         face_enhance: false
       }
@@ -203,6 +207,7 @@ app.post('/enhance', (req, res, next) => {
       throw new Error(`Replicate returned non-JSON response (${createResponse.status}): ${responseText.slice(0, 500)}`);
     }
 
+    console.log("REPLICATE RESPONSE:", prediction);
     console.log('📡 Replicate response:', {
       requestId,
       httpStatus: createResponse.status,
@@ -401,6 +406,15 @@ app.post('/remove-background', upload.single('image_file'), async (req, res) => 
 
 app.get('/', (req, res) => {
   res.send('Server running');
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
 });
 
 app.use((_req, res) => {
