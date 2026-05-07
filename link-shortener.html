@@ -6,16 +6,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Link Shortener Online - Shorten URLs Instantly | Convertios</title>
+<title>Link Shortener Online | Convertios</title>
 
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="/favicon.ico">
-<meta name="description" content="Shorten long URLs instantly with our free online link shortener. Fast, secure, and easy to use with no signup required.">
+<meta name="description" content="Use Link Shortener Online on Convertios with clear instructions, transparent processing details, common fixes, and related utility tools.">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://convertios.com/link-shortener.html">
 </head>
 
 <body>
@@ -125,7 +126,7 @@
 
 <input type="text" id="url" placeholder="Paste your long URL here...">
 
-<button id="shortenBtn" onclick="shorten()">Shorten Link</button>
+<button id="shortenBtn" onclick="shorten()" aria-label="Run this tool">Shorten Link</button>
 
 <div class="result-box">
 
@@ -136,6 +137,56 @@
 </div>
 
 </div>
+
+
+<section class="tool-info-block" aria-labelledby="tool-info-heading">
+<h2 id="tool-info-heading">Tool Information</h2>
+<div class="tool-info-grid">
+<div><strong>Runs in browser:</strong><span>No</span></div>
+<div><strong>Upload required:</strong><span>No file upload</span></div>
+<div><strong>Third-party processing:</strong><span>TinyURL URL-shortening API</span></div>
+<div><strong>File retention:</strong><span>No files are uploaded; the entered URL is sent to TinyURL to create the short link.</span></div>
+<div><strong>Max file size:</strong><span>URL only</span></div>
+<div><strong>Supported formats:</strong><span>HTTP and HTTPS URLs → Short URL returned by TinyURL</span></div>
+</div>
+<p class="transparency-note"><strong>Transparency note:</strong> The URL you enter is sent to TinyURL to create the short link. No local file is uploaded.</p>
+</section>
+
+<section class="tool-guide-block" aria-labelledby="guide-heading-link-shortener">
+<h2 id="guide-heading-link-shortener">How It Works</h2>
+<p>Link Shortener Online reads your selected input, applies the conversion or editing step shown in the tool controls, and prepares an output that matches the format listed below. Review the file name, size, and chosen settings before starting so the result matches your intended use.</p>
+<p>For related workflows, you can also use <a href="qr-generator.html">QR Code Generator Online</a> or <a href="password-generator.html">Password Generator Online</a> when your task needs another step in the same category.</p>
+
+<h2>Supported Formats</h2>
+<ul>
+<li><strong>Input:</strong> HTTP and HTTPS URLs</li>
+<li><strong>Output:</strong> Short URL returned by TinyURL</li>
+</ul>
+
+<h2>Common Issues &amp; Fixes</h2>
+<ul>
+<li><strong>Why did my file not convert correctly?</strong> Check that the file is not corrupted, password protected, or larger than the recommended limit.</li>
+<li><strong>Why is the result different from the original?</strong> Some formats store layout, transparency, fonts, or audio metadata differently, so review the output before sharing it.</li>
+<li><strong>Why did processing stop?</strong> Refresh the page, choose a smaller file, and try again. If the tool uses third-party processing, temporary provider limits may also affect completion.</li>
+</ul>
+
+<h2>Best Use Cases</h2>
+<ul>
+<li>Preparing files for upload forms, email attachments, websites, or social media.</li>
+<li>Changing a file into a more compatible format before sharing it with others.</li>
+<li>Reducing manual editing by using the focused settings available in this tool.</li>
+</ul>
+
+<h2>Related Tools</h2>
+<ul class="related-tools-list">
+<li><a href="qr-generator.html">QR Code Generator Online</a></li>
+<li><a href="password-generator.html">Password Generator Online</a></li>
+<li><a href="word-counter.html">Word & Character Counter</a></li>
+<li><a href="text-formatter.html">Text Formatter Online</a></li>
+<li><a href="unit-converter.html">Unit Converter Online</a></li>
+</ul>
+</section>
+
 <div class="tool-description">
 
 <h2>Free Link Shortener Online</h2>
@@ -205,6 +256,7 @@ Yes, the tool is designed for simple link shortening without storing personal da
 Yes, it works on all devices including smartphones and tablets.</p>
 
 </div>
+
 <!-- MORE TOOLS -->
 
 <div class="more-tools">
@@ -313,7 +365,18 @@ attempts++;
 }
 
 if(!success){
-alert("Failed to generate link. Try again.");
+result.value = "";
+result.placeholder = "Link creation failed. Check the URL and retry.";
+let retry = document.getElementById("retryShorten");
+if(!retry){
+retry = document.createElement("button");
+retry.type = "button";
+retry.id = "retryShorten";
+retry.className = "tool-retry-button";
+retry.innerText = "Retry";
+retry.onclick = shorten;
+result.insertAdjacentElement("afterend", retry);
+}
 }
 
 button.innerText = "Shorten Link";
@@ -332,6 +395,53 @@ alert("Copied!");
 
 }
 
+</script>
+
+
+<script>
+(function(){
+let lastActionButton=null;
+document.addEventListener('click',function(event){
+const button=event.target.closest('button');
+if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
+},true);
+function ensureToolMessage(){
+let box=document.getElementById('toolMessage');
+if(!box){
+box=document.createElement('div');
+box.id='toolMessage';
+box.className='tool-message-box';
+box.setAttribute('role','status');
+box.setAttribute('aria-live','polite');
+const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
+anchor.insertAdjacentElement('afterend',box);
+}
+return box;
+}
+window.showToolMessage=function(message,canRetry){
+const box=ensureToolMessage();
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
+box.style.display='block';
+const retry=document.getElementById('commonToolRetry');
+if(retry){
+retry.addEventListener('click',function(){
+box.style.display='none';
+if(lastActionButton) lastActionButton.click();
+});
+}
+};
+const nativeAlert=window.alert;
+window.alert=function(message){
+window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
+if(nativeAlert && !document.body) nativeAlert(message);
+};
+window.addEventListener('error',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+window.addEventListener('unhandledrejection',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+})();
 </script>
 
 </body>
