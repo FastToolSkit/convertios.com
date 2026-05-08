@@ -28,6 +28,7 @@ function getAuthHeaders({ wait = false } = {}) {
     Authorization: `Bearer ${token}`,
     'Content-Type': 'application/json'
   };
+  
 
   if (wait) {
     headers.Prefer = 'wait';
@@ -142,8 +143,8 @@ app.post('/enhance', (req, res, next) => {
       mimetype: req.file?.mimetype,
       bufferBytes: req.file?.buffer?.length
     });
-    console.log('🔑 Token exists:', !!process.env.REPLICATE_API_TOKEN);
-
+console.log("🔥 NEW VERSION LIVE");
+console.log('🔑 Token exists:', !!process.env.REPLICATE_API_TOKEN);
     if (!req.file) {
       return sendEnhanceError(res, 400, 'No image uploaded. Use FormData field name "image".', { requestId, stage: 'validation' });
     }
