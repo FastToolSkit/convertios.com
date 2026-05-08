@@ -34,6 +34,8 @@ function getAuthHeaders({ wait = false } = {}) {
     headers.Prefer = 'wait';
   }
 
+  console.log("API KEY EXISTS:", !!process.env.REPLICATE_API_TOKEN);
+
   return headers;
 }
 
@@ -110,6 +112,7 @@ async function pollReplicatePrediction(prediction, requestId) {
     }
 
     current = await pollResponse.json();
+    console.log("REPLICATE RESPONSE:", current);
     console.log('📡 Replicate response:', { requestId, prediction: safeReplicateDetails(current) });
   }
 
@@ -161,6 +164,7 @@ console.log('🔑 Token exists:', !!process.env.REPLICATE_API_TOKEN);
     const mimeType = req.file.mimetype || 'image/png';
     const base64 = req.file.buffer.toString('base64');
     const dataUri = `data:${mimeType};base64,${base64}`;
+    const replicateInputImage = 'https://replicate.delivery/pbxt/sample.png';
 
     console.log('[POST /enhance] Encoded image for Replicate', {
       requestId,
@@ -172,7 +176,7 @@ console.log('🔑 Token exists:', !!process.env.REPLICATE_API_TOKEN);
     const createPayload = {
       version: REPLICATE_MODEL_VERSION,
       input: {
-        image: dataUri,
+        image: replicateInputImage,
         scale: 2,
         face_enhance: false
       }
@@ -202,6 +206,7 @@ console.log('🔑 Token exists:', !!process.env.REPLICATE_API_TOKEN);
       throw new Error(`Replicate returned non-JSON response (${createResponse.status}): ${responseText.slice(0, 500)}`);
     }
 
+    console.log("REPLICATE RESPONSE:", prediction);
     console.log('📡 Replicate response:', {
       requestId,
       httpStatus: createResponse.status,
@@ -400,6 +405,42 @@ app.post('/remove-background', upload.single('image_file'), async (req, res) => 
 
 app.get('/', (req, res) => {
   res.send('Server running');
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
 });
 
 app.use((_req, res) => {
