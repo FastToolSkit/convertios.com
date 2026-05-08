@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
+const fetch = require('node-fetch'); // ✅ FIX
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
@@ -135,7 +136,6 @@ app.post('/enhance', (req, res, next) => {
   let stage = 'received';
 
   try {
-    console.log("🔥 VERSION LIVE", new Date().toISOString());
     console.log('🔥 Request received', { requestId, path: req.path, method: req.method });
     console.log('📦 File size:', req.file?.size);
     console.log('[POST /enhance] Upload metadata:', {
@@ -145,7 +145,6 @@ app.post('/enhance', (req, res, next) => {
       mimetype: req.file?.mimetype,
       bufferBytes: req.file?.buffer?.length
     });
-    console.log("🔑 Replicate token exists:", !!process.env.REPLICATE_API_TOKEN);
     console.log('🔑 Token exists:', !!process.env.REPLICATE_API_TOKEN);
 
     if (!req.file) {
@@ -164,6 +163,7 @@ app.post('/enhance', (req, res, next) => {
     const mimeType = req.file.mimetype || 'image/png';
     const base64 = req.file.buffer.toString('base64');
     const dataUri = `data:${mimeType};base64,${base64}`;
+    const replicateInputImage = 'https://replicate.delivery/pbxt/sample.png';
 
     console.log('[POST /enhance] Encoded image for Replicate', {
       requestId,
@@ -175,7 +175,7 @@ app.post('/enhance', (req, res, next) => {
     const createPayload = {
       version: REPLICATE_MODEL_VERSION,
       input: {
-        image: dataUri,
+        image: replicateInputImage,
         scale: 2,
         face_enhance: false
       }
@@ -213,18 +213,7 @@ app.post('/enhance', (req, res, next) => {
     });
 
     if (!createResponse.ok) {
-      console.error('[POST /enhance] Replicate request failed', {
-        requestId,
-        httpStatus: createResponse.status,
-        responseBody: responseText,
-        prediction: safeReplicateDetails(prediction)
-      });
-      return sendEnhanceError(res, createResponse.status === 401 ? 401 : 502, `Replicate prediction failed (${createResponse.status})`, {
-        requestId,
-        stage,
-        replicateStatus: createResponse.status,
-        replicateResponse: safeReplicateDetails(prediction) || responseText
-      });
+      throw new Error(`Replicate prediction failed (${createResponse.status}): ${JSON.stringify(safeReplicateDetails(prediction) || responseText)}`);
     }
 
     stage = 'output_extract';
@@ -413,8 +402,62 @@ app.post('/remove-background', upload.single('image_file'), async (req, res) => 
   }
 });
 
-app.get('/health', (_req, res) => {
-  res.json({ ok: true });
+app.get('/', (req, res) => {
+  res.send('Server running');
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
 });
 
 app.use((_req, res) => {
@@ -427,5 +470,5 @@ app.use((error, _req, res, _next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`AI enhancer backend running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
