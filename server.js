@@ -460,6 +460,15 @@ app.use((error, _req, res, _next) => {
   return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
 });
 
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
