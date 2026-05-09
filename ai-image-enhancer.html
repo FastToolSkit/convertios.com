@@ -20,7 +20,7 @@
 .dropzone.dragover{background:#15365f}
 .preview{max-width:100%;max-height:300px;border-radius:10px;margin-top:14px;display:none}
 .upload-btn{display:inline-block;margin-top:12px;background:#3a78ff;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600}
-.upload-btn input{display:none}
+.upload-btn input{display:block;margin-top:8px;max-width:100%}
 .file-name{font-size:14px;color:#c4d6ff;min-height:20px}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .btn{background:#3a78ff;border:none;color:#fff;padding:10px 16px;border-radius:8px;cursor:pointer}
@@ -162,8 +162,9 @@ const enhanceBtn=document.getElementById('enhanceBtn');
 const downloadBtn=document.getElementById('downloadBtn');
 const statusEl=document.getElementById('status');
 
-const AI_ENHANCE_ENDPOINT='/ai-enhance';
-const AI_ENHANCE_DOWNLOAD_ENDPOINT='/ai-enhance/download';
+const AI_ENHANCE_API_BASE = ''; // Paste the Render backend URL here, for example: https://your-service.onrender.com
+const AI_ENHANCE_ENDPOINT = `${AI_ENHANCE_API_BASE}/ai-enhance`;
+const AI_ENHANCE_DOWNLOAD_ENDPOINT = `${AI_ENHANCE_API_BASE}/ai-enhance/download`;
 let selectedFile=null;
 let currentEnhancedImageUrl=null;
 let currentDownloadObjectUrl=null;
@@ -197,6 +198,17 @@ return String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;
 function getDownloadFileName(){
 const baseName=(selectedFile?.name || 'enhanced-image').replace(/\.[^.]+$/,'');
 return `${baseName}-enhanced.png`;
+}
+
+function getDownloadEndpoint(imageUrl){
+return `${AI_ENHANCE_DOWNLOAD_ENDPOINT}?url=${encodeURIComponent(imageUrl)}`;
+}
+
+function requireAiEnhanceBackend(){
+const isProductionStaticSite=['convertios.com','www.convertios.com'].includes(window.location.hostname);
+if(isProductionStaticSite && !AI_ENHANCE_API_BASE){
+throw new Error('AI enhancer backend URL is not configured. Deploy the Express backend on Render, then paste the Render URL into AI_ENHANCE_API_BASE.');
+}
 }
 
 function showError(message){
@@ -239,6 +251,7 @@ setLoading(true,'Uploading image. Replicate AI enhancement is processing and may
 resetResult();
 
 try{
+requireAiEnhanceBackend();
 const formData=new FormData();
 formData.append('image',selectedFile,selectedFile.name);
 
@@ -260,6 +273,7 @@ throw new Error('The enhancement server did not return an image URL.');
 currentEnhancedImageUrl=data.imageUrl;
 resultPreview.src=currentEnhancedImageUrl;
 resultPreview.style.display='block';
+downloadBtn.href=getDownloadEndpoint(currentEnhancedImageUrl);
 downloadBtn.style.display='inline-block';
 downloadBtn.download=getDownloadFileName();
 statusEl.textContent='Image enhanced successfully ✅';
@@ -280,8 +294,8 @@ return;
 
 try{
 statusEl.textContent='Preparing download...';
-const downloadUrl=`${AI_ENHANCE_DOWNLOAD_ENDPOINT}?url=${encodeURIComponent(currentEnhancedImageUrl)}`;
-const response=await fetch(downloadUrl);
+requireAiEnhanceBackend();
+const response=await fetch(getDownloadEndpoint(currentEnhancedImageUrl));
 if(!response.ok){
 const errorData=await response.json().catch(()=>({error:'Unable to prepare the enhanced image download.'}));
 throw new Error(errorData.error || 'Unable to prepare the enhanced image download.');
