@@ -1816,19 +1816,17 @@ TOOL TRUST & GUIDE BLOCKS
 /* Accessibility and UX enhancements */
 .skip-link{
     position:absolute;
-    top:-100px;
-    left:16px;
-    z-index:9999;
-    background:#fff;
-    color:#111;
+    left:12px;
+    top:-48px;
+    z-index:3000;
+    background:#ffffff;
+    color:#0f172a;
     padding:10px 14px;
     border-radius:8px;
-    font-weight:600;
     box-shadow:0 8px 24px rgba(15,23,42,0.22);
     transition:top .2s ease;
 }
-.skip-link:focus,
-.skip-link:focus-visible{
+.skip-link:focus{
     top:12px;
 }
 :focus-visible{
