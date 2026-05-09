@@ -28,44 +28,55 @@ return {id: value.id,status: value.status,error: value.error,output: value.outpu
 
 function sendEnhanceError(res, status, details, extra = {}) {return res.status(status).json({error: 'Enhancement failed',details,...extra});}
 
-async function pollReplicatePrediction(prediction, requestId) {if (!prediction?.urls?.get) {throw new Error('Replicate prediction is missing a polling URL');}
+async function pollReplicatePrediction(prediction, requestId) {
+  if (!prediction?.urls?.get) {
+    throw new Error('Replicate prediction is missing a polling URL');
+  }
 
-let current = prediction;const maxAttempts = 30;
+  let current = prediction;
+  const maxAttempts = 30;
 
-for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {if (['failed', 'canceled'].includes(current.status)) {throw new Error(current.error || `Replicate prediction ${current.status}`);
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    if (['failed', 'canceled'].includes(current.status)) {
+      throw new Error(current.error || `Replicate prediction ${current.status}`);
+    }
 
-const outputUrl = extractPredictionOutput(current);
-if (outputUrl) {
-  return { prediction: current, outputUrl };
+    const outputUrl = extractPredictionOutput(current);
+    if (outputUrl) {
+      return { prediction: current, outputUrl };
+    }
+
+    if (current.status === 'succeeded') {
+      break;
+    }
+
+    await sleep(2000);
+
+    console.log(`[POST /enhance] [${requestId}] Polling Replicate prediction attempt ${attempt}, current status: ${current.status}`);
+
+    const pollResponse = await fetch(prediction.urls.get, {
+      method: 'GET',
+      headers: getAuthHeaders()
+    });
+
+    if (!pollResponse.ok) {
+      const details = await pollResponse.text();
+      throw new Error(`Replicate polling failed (${pollResponse.status}): ${details}`);
+    }
+
+    current = await pollResponse.json();
+
+    console.log('📡 Replicate response:', {
+      requestId,
+      prediction: safeReplicateDetails(current)
+    });
+  }
+
+  return {
+    prediction: current,
+    outputUrl: extractPredictionOutput(current)
+  };
 }
-
-if (current.status === 'succeeded') {
-  break;
-}
-
-await sleep(2000);
-console.log(`[POST /enhance] [${requestId}] Polling Replicate prediction attempt ${attempt}, current status: 
-${current.status}`);
-
-const pollResponse = await fetch(prediction.urls.get, {
-  method: 'GET',
-  headers: getAuthHeaders()
-});
-
-if (!pollResponse.ok) {
-  const details = await pollResponse.text();
-  throw new Error(`Replicate polling failed (${pollResponse.status}): ${details}`);
-}
-
-current = await pollResponse.json();
-console.log("REPLICATE RESPONSE:", current);
-console.log('📡 Replicate response:', { requestId, prediction: safeReplicateDetails(current) });
-
-}
-
-return { prediction: current, outputUrl: extractPredictionOutput(current) };}
-
-app.post('/enhance', (req, res, next) => {enhanceUpload.single('image')(req, res, (error) => {if (!error) {return next();}
 
 if (error instanceof multer.MulterError && error.code === 'LIMIT_FILE_SIZE') {
   return sendEnhanceError(res, 413, 'Image must be smaller than 10MB.');
