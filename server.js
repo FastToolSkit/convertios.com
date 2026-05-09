@@ -6,8 +6,10 @@ app.use(cors());app.use(express.json({ limit: '10mb' }));
 
 function getAuthHeaders({ wait = false } = {}) {const token = process.env.REPLICATE_API_TOKEN;if (!token) {throw new Error('Missing REPLICATE_API_TOKEN environment variable');}
 
-const headers = {Authorization: Bearer ${token},'Content-Type': 'application/json'};
-
+const headers = {
+  Authorization: `Bearer ${token}`,
+  'Content-Type': 'application/json'
+};                                                
 if (wait) {headers.Prefer = 'wait';}
 
 console.log("TOKEN VALUE:", process.env.REPLICATE_API_TOKEN);return headers;}
