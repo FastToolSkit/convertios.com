@@ -18,6 +18,46 @@ const enhanceUpload = multer({
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 
+function getReplicateToken() {
+  const rawToken = process.env.REPLICATE_API_TOKEN;
+  if (!rawToken) {
+    throw new Error('Missing REPLICATE_API_TOKEN environment variable');
+  }
+
+  const token = rawToken
+    .trim()
+    .replace(/^['"]|['"]$/g, '')
+    .replace(/^(Bearer|Token)\s+/i, '')
+    .trim();
+
+  if (!token) {
+    throw new Error('REPLICATE_API_TOKEN is empty after removing quotes/auth prefix');
+  }
+
+  return token;
+}
+
+function getReplicateTokenDebug() {
+  const rawToken = process.env.REPLICATE_API_TOKEN || '';
+  const normalizedToken = rawToken
+    .trim()
+    .replace(/^['"]|['"]$/g, '')
+    .replace(/^(Bearer|Token)\s+/i, '')
+    .trim();
+
+  return {
+    exists: !!rawToken,
+    rawLength: rawToken.length,
+    normalizedLength: normalizedToken.length,
+    hasAuthPrefix: /^(Bearer|Token)\s+/i.test(rawToken.trim()),
+    hasQuotes: /^['"]|['"]$/.test(rawToken.trim()),
+    startsWithR8: normalizedToken.startsWith('r8_')
+  };
+}
+
+function getAuthHeaders({ wait = false } = {}) {
+  const token = getReplicateToken();
+
 function getAuthHeaders({ wait = false } = {}) {
   const token = process.env.REPLICATE_API_TOKEN;
   if (!token) {
@@ -136,6 +176,7 @@ app.post('/enhance', (req, res, next) => {
   let stage = 'received';
 
   try {
+    console.log("🔥 VERSION LIVE", new Date().toISOString());
     console.log('🔥 Request received', { requestId, path: req.path, method: req.method });
     console.log('📦 File size:', req.file?.size);
     console.log('[POST /enhance] Upload metadata:', {
@@ -145,10 +186,18 @@ app.post('/enhance', (req, res, next) => {
       mimetype: req.file?.mimetype,
       bufferBytes: req.file?.buffer?.length
     });
+    console.log("🔑 Replicate token exists:", !!process.env.REPLICATE_API_TOKEN);
+    console.log('[POST /enhance] Replicate token debug:', getReplicateTokenDebug());
     console.log('🔑 Token exists:', !!process.env.REPLICATE_API_TOKEN);
 
     if (!req.file) {
       return sendEnhanceError(res, 400, 'No image uploaded. Use FormData field name "image".', { requestId, stage: 'validation' });
+    }
+
+    if (!req.file.mimetype?.startsWith('image/')) {
+      return sendEnhanceError(res, 400, 'Uploaded file must be an image.', { requestId, stage: 'validation' });
+    }
+
     }
 
     if (!req.file.mimetype?.startsWith('image/')) {
@@ -213,6 +262,46 @@ app.post('/enhance', (req, res, next) => {
     });
 
     if (!createResponse.ok) {
+      console.error('[POST /enhance] Replicate request failed', {
+        requestId,
+        httpStatus: createResponse.status,
+        responseBody: responseText,
+        prediction: safeReplicateDetails(prediction)
+      });
+      return sendEnhanceError(
+        res,
+        createResponse.status === 401 ? 401 : 502,
+        createResponse.status === 401
+          ? 'Replicate rejected REPLICATE_API_TOKEN. In Render, set REPLICATE_API_TOKEN to the token value only (no Bearer/Token prefix, no quotes), then redeploy.'
+          : `Replicate prediction failed (${createResponse.status})`,
+        {
+          requestId,
+          stage,
+          replicateStatus: createResponse.status,
+          replicateResponse: safeReplicateDetails(prediction) || responseText,
+          tokenDebug: getReplicateTokenDebug()
+        }
+      );
+    }
+
+    stage = 'output_extract';
+    let outputUrl = extractPredictionOutput(prediction);
+
+    if (!outputUrl && !['failed', 'canceled'].includes(prediction.status)) {
+      stage = 'replicate_poll';
+      const result = await pollReplicatePrediction(prediction, requestId);
+      prediction = result.prediction;
+      outputUrl = result.outputUrl;
+    }
+
+    if (['failed', 'canceled'].includes(prediction.status)) {
+      throw new Error(prediction.error || `Replicate prediction ${prediction.status}`);
+    }
+
+    if (!outputUrl) {
+      return sendEnhanceError(res, 502, safeReplicateDetails(prediction) || 'Replicate did not return an output URL.', { requestId, stage });
+    }
+
       throw new Error(`Replicate prediction failed (${createResponse.status}): ${JSON.stringify(safeReplicateDetails(prediction) || responseText)}`);
     }
 
@@ -251,6 +340,16 @@ app.post('/enhance', (req, res, next) => {
     });
   }
 });
+
+
+function getEnvToken(name) {
+  const token = process.env[name];
+  if (!token) {
+    throw new Error(`Missing ${name} environment variable`);
+  }
+  return token;
+}
+
 
 
 function getEnvToken(name) {
@@ -344,6 +443,16 @@ app.post('/convert/pdf-to-word', upload.single('file'), async (req, res) => {
         return res.status(502).json({ error: 'CloudConvert conversion failed', details: failedTask.message || failedTask.code || 'Task error' });
       }
 
+      }
+
+      const data = await pollResponse.json();
+      const exportTask = data?.data?.tasks?.find((task) => task.name === 'export');
+      const failedTask = data?.data?.tasks?.find((task) => task.status === 'error');
+
+      if (failedTask) {
+        return res.status(502).json({ error: 'CloudConvert conversion failed', details: failedTask.message || failedTask.code || 'Task error' });
+      }
+
       if (exportTask?.status === 'finished' && exportTask?.result?.files?.length) {
         fileUrl = exportTask.result.files[0].url;
       }
@@ -404,6 +513,15 @@ app.post('/remove-background', upload.single('image_file'), async (req, res) => 
 
 app.get('/', (req, res) => {
   res.send('Server running');
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
 });
 
 app.use((_req, res) => {
