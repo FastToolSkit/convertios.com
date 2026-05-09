@@ -29,7 +29,7 @@
 .result-wrap{margin-top:16px}
 @media (max-width:900px){.tool-grid{grid-template-columns:1fr}}
 </style>
-<link rel="canonical" href="https://convertios.com/ai-image-enhancer.html">
+<link rel="canonical" href="https://convertios.com/ai-enhance.html">
 </head>
 <body>
 <header class="site-header">
@@ -162,9 +162,9 @@ const enhanceBtn=document.getElementById('enhanceBtn');
 const downloadBtn=document.getElementById('downloadBtn');
 const statusEl=document.getElementById('status');
 
-const AI_ENHANCE_ENDPOINT = 'https://convertios.app.n8n.cloud/webhook/ai-enhance';
-const CLOUDINARY_CLOUD_NAME = 'PASTE_CLOUDINARY_CLOUD_NAME_HERE';
-const CLOUDINARY_UPLOAD_PRESET = 'PASTE_UNSIGNED_UPLOAD_PRESET_HERE';
+const AI_ENHANCE_API_BASE = ''; // Paste the Render backend URL here, for example: https://your-service.onrender.com
+const AI_ENHANCE_ENDPOINT = `${AI_ENHANCE_API_BASE}/ai-enhance`;
+const AI_ENHANCE_DOWNLOAD_ENDPOINT = `${AI_ENHANCE_API_BASE}/ai-enhance/download`;
 let selectedFile=null;
 let currentEnhancedImageUrl=null;
 let currentDownloadObjectUrl=null;
@@ -200,54 +200,15 @@ const baseName=(selectedFile?.name || 'enhanced-image').replace(/\.[^.]+$/,'');
 return `${baseName}-enhanced.png`;
 }
 
-function ensureCloudinaryConfigured(){
-if(CLOUDINARY_CLOUD_NAME === 'PASTE_CLOUDINARY_CLOUD_NAME_HERE' || CLOUDINARY_UPLOAD_PRESET === 'PASTE_UNSIGNED_UPLOAD_PRESET_HERE'){
-throw new Error('Cloudinary upload failed: configure CLOUDINARY_CLOUD_NAME and CLOUDINARY_UPLOAD_PRESET in ai-image-enhancer.html.');
-}
+function getDownloadEndpoint(imageUrl){
+return `${AI_ENHANCE_DOWNLOAD_ENDPOINT}?url=${encodeURIComponent(imageUrl)}`;
 }
 
-async function uploadImageToCloudinary(){
-ensureCloudinaryConfigured();
-const cloudinaryUrl=`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
-const uploadData=new FormData();
-uploadData.append('file',selectedFile);
-uploadData.append('upload_preset',CLOUDINARY_UPLOAD_PRESET);
-
-const response=await fetch(cloudinaryUrl,{method:'POST',body:uploadData});
-const data=await response.json().catch(()=>({error:{message:'Invalid Cloudinary response.'}}));
-
-if(!response.ok){
-throw new Error(`Cloudinary upload failed: ${data.error?.message || 'Unable to upload image.'}`);
+function requireAiEnhanceBackend(){
+const isProductionStaticSite=['convertios.com','www.convertios.com'].includes(window.location.hostname);
+if(isProductionStaticSite && !AI_ENHANCE_API_BASE){
+throw new Error('AI enhancer backend URL is not configured. Deploy the Express backend on Render, then paste the Render URL into AI_ENHANCE_API_BASE.');
 }
-
-if(!data.secure_url){
-throw new Error('Cloudinary upload failed: secure_url missing from response.');
-}
-
-return data.secure_url;
-}
-
-async function enhanceImageWithN8n(cloudinarySecureUrl){
-const response=await fetch(AI_ENHANCE_ENDPOINT,{
-method:'POST',
-headers:{'Content-Type':'application/json'},
-body:JSON.stringify({
-image:cloudinarySecureUrl,
-message:'Convertios AI image enhancement'
-})
-});
-
-const data=await response.json().catch(()=>({success:false,error:'Invalid response from n8n enhancement server.'}));
-
-if(!response.ok || !data.success){
-throw new Error(`n8n enhancement failed: ${data.error || 'Unable to enhance image.'}`);
-}
-
-if(!data.imageUrl){
-throw new Error('imageUrl missing from n8n enhancement response.');
-}
-
-return data.imageUrl;
 }
 
 function showError(message){
@@ -290,14 +251,29 @@ setLoading(true,'Uploading image to Cloudinary...');
 resetResult();
 
 try{
-const cloudinarySecureUrl=await uploadImageToCloudinary();
-statusEl.textContent='Cloudinary upload complete. Sending image to AI enhancer...';
-const imageUrl=await enhanceImageWithN8n(cloudinarySecureUrl);
+requireAiEnhanceBackend();
+const formData=new FormData();
+formData.append('image',selectedFile,selectedFile.name);
+
+const response=await fetch(AI_ENHANCE_ENDPOINT,{
+method:'POST',
+body:formData
+});
+
+const data=await response.json().catch(()=>({success:false,error:'Invalid response from enhancement server.'}));
+
+if(!response.ok || !data.success){
+throw new Error(data.error || 'The enhancement server failed to process the image.');
+}
+
+if(!data.imageUrl){
+throw new Error('The enhancement server did not return an image URL.');
+}
 
 currentEnhancedImageUrl=imageUrl;
 resultPreview.src=currentEnhancedImageUrl;
 resultPreview.style.display='block';
-downloadBtn.href=currentEnhancedImageUrl;
+downloadBtn.href=getDownloadEndpoint(currentEnhancedImageUrl);
 downloadBtn.style.display='inline-block';
 downloadBtn.download=getDownloadFileName();
 statusEl.textContent='Image enhanced successfully ✅';
@@ -318,7 +294,8 @@ return;
 
 try{
 statusEl.textContent='Preparing download...';
-const response=await fetch(currentEnhancedImageUrl);
+requireAiEnhanceBackend();
+const response=await fetch(getDownloadEndpoint(currentEnhancedImageUrl));
 if(!response.ok){
 throw new Error('Unable to download the enhanced image.');
 }
