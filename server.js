@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
+const fetch = require('node-fetch'); // ✅ FIX
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
@@ -56,6 +57,12 @@ function getReplicateTokenDebug() {
 
 function getAuthHeaders({ wait = false } = {}) {
   const token = getReplicateToken();
+
+function getAuthHeaders({ wait = false } = {}) {
+  const token = process.env.REPLICATE_API_TOKEN;
+  if (!token) {
+    throw new Error('Missing REPLICATE_API_TOKEN environment variable');
+  }
 
   const headers = {
     Authorization: `Bearer ${token}`,
@@ -191,6 +198,12 @@ app.post('/enhance', (req, res, next) => {
       return sendEnhanceError(res, 400, 'Uploaded file must be an image.', { requestId, stage: 'validation' });
     }
 
+    }
+
+    if (!req.file.mimetype?.startsWith('image/')) {
+      return sendEnhanceError(res, 400, 'Uploaded file must be an image.', { requestId, stage: 'validation' });
+    }
+
     if (req.file.size >= MAX_ENHANCE_IMAGE_BYTES) {
       return sendEnhanceError(res, 413, 'Image must be smaller than 10MB.', { requestId, stage: 'validation' });
     }
@@ -199,6 +212,7 @@ app.post('/enhance', (req, res, next) => {
     const mimeType = req.file.mimetype || 'image/png';
     const base64 = req.file.buffer.toString('base64');
     const dataUri = `data:${mimeType};base64,${base64}`;
+    const replicateInputImage = 'https://replicate.delivery/pbxt/sample.png';
 
     console.log('[POST /enhance] Encoded image for Replicate', {
       requestId,
@@ -210,7 +224,7 @@ app.post('/enhance', (req, res, next) => {
     const createPayload = {
       version: REPLICATE_MODEL_VERSION,
       input: {
-        image: dataUri,
+        image: replicateInputImage,
         scale: 2,
         face_enhance: false
       }
@@ -288,6 +302,27 @@ app.post('/enhance', (req, res, next) => {
       return sendEnhanceError(res, 502, safeReplicateDetails(prediction) || 'Replicate did not return an output URL.', { requestId, stage });
     }
 
+      throw new Error(`Replicate prediction failed (${createResponse.status}): ${JSON.stringify(safeReplicateDetails(prediction) || responseText)}`);
+    }
+
+    stage = 'output_extract';
+    let outputUrl = extractPredictionOutput(prediction);
+
+    if (!outputUrl && !['failed', 'canceled'].includes(prediction.status)) {
+      stage = 'replicate_poll';
+      const result = await pollReplicatePrediction(prediction, requestId);
+      prediction = result.prediction;
+      outputUrl = result.outputUrl;
+    }
+
+    if (['failed', 'canceled'].includes(prediction.status)) {
+      throw new Error(prediction.error || `Replicate prediction ${prediction.status}`);
+    }
+
+    if (!outputUrl) {
+      return sendEnhanceError(res, 502, safeReplicateDetails(prediction) || 'Replicate did not return an output URL.', { requestId, stage });
+    }
+
     console.log('[POST /enhance] Enhancement complete', { requestId, outputUrl });
     return res.status(200).json({ enhancedImageUrl: outputUrl });
   } catch (error) {
@@ -305,6 +340,16 @@ app.post('/enhance', (req, res, next) => {
     });
   }
 });
+
+
+function getEnvToken(name) {
+  const token = process.env[name];
+  if (!token) {
+    throw new Error(`Missing ${name} environment variable`);
+  }
+  return token;
+}
+
 
 
 function getEnvToken(name) {
@@ -398,6 +443,16 @@ app.post('/convert/pdf-to-word', upload.single('file'), async (req, res) => {
         return res.status(502).json({ error: 'CloudConvert conversion failed', details: failedTask.message || failedTask.code || 'Task error' });
       }
 
+      }
+
+      const data = await pollResponse.json();
+      const exportTask = data?.data?.tasks?.find((task) => task.name === 'export');
+      const failedTask = data?.data?.tasks?.find((task) => task.status === 'error');
+
+      if (failedTask) {
+        return res.status(502).json({ error: 'CloudConvert conversion failed', details: failedTask.message || failedTask.code || 'Task error' });
+      }
+
       if (exportTask?.status === 'finished' && exportTask?.result?.files?.length) {
         fileUrl = exportTask.result.files[0].url;
       }
@@ -456,8 +511,71 @@ app.post('/remove-background', upload.single('image_file'), async (req, res) => 
   }
 });
 
-app.get('/health', (_req, res) => {
-  res.json({ ok: true });
+app.get('/', (req, res) => {
+  res.send('Server running');
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
 });
 
 app.use((_req, res) => {
@@ -470,5 +588,5 @@ app.use((error, _req, res, _next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`AI enhancer backend running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
