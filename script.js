@@ -1,59 +1,75 @@
-const upload = document.getElementById("upload");
-const preview = document.getElementById("preview");
-const qualitySlider = document.getElementById("quality");
-const qualityValue = document.getElementById("qualityValue");
-const downloadLink = document.getElementById("downloadLink");
+(function(){
+  function closeDropdown(dropdown){
+    const trigger=dropdown.querySelector('.dropdown-trigger,[data-dropdown-trigger]');
+    dropdown.classList.remove('open');
+    if(trigger) trigger.setAttribute('aria-expanded','false');
+  }
 
-let imageFile = null;
+  function openDropdown(dropdown){
+    const trigger=dropdown.querySelector('.dropdown-trigger,[data-dropdown-trigger]');
+    dropdown.classList.add('open');
+    if(trigger) trigger.setAttribute('aria-expanded','true');
+  }
 
-qualitySlider.addEventListener("input", function() {
-    qualityValue.textContent = qualitySlider.value;
-});
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.nav-item.dropdown').forEach(function(dropdown,index){
+      const menu=dropdown.querySelector('.dropdown-menu');
+      const trigger=dropdown.querySelector(':scope > span, :scope > button');
+      if(!menu || !trigger) return;
 
-upload.addEventListener("change", function(e) {
-    imageFile = e.target.files[0];
+      const menuId=menu.id || 'dropdown-menu-'+index;
+      menu.id=menuId;
+      trigger.classList.add('dropdown-trigger');
+      trigger.setAttribute('role','button');
+      trigger.setAttribute('tabindex','0');
+      trigger.setAttribute('aria-haspopup','true');
+      trigger.setAttribute('aria-controls',menuId);
+      trigger.setAttribute('aria-expanded','false');
+      trigger.dataset.dropdownTrigger='true';
 
-    if (!imageFile) return;
+      trigger.addEventListener('click',function(event){
+        event.preventDefault();
+        dropdown.classList.contains('open') ? closeDropdown(dropdown) : openDropdown(dropdown);
+      });
 
-    const reader = new FileReader();
+      trigger.addEventListener('keydown',function(event){
+        if(event.key==='Enter' || event.key===' '){
+          event.preventDefault();
+          dropdown.classList.contains('open') ? closeDropdown(dropdown) : openDropdown(dropdown);
+        }
+        if(event.key==='Escape'){
+          closeDropdown(dropdown);
+          trigger.focus();
+        }
+      });
 
-    reader.onload = function(event) {
-        preview.src = event.target.result;
-    };
+      menu.addEventListener('keydown',function(event){
+        if(event.key==='Escape'){
+          closeDropdown(dropdown);
+          trigger.focus();
+        }
+      });
+    });
 
-    reader.readAsDataURL(imageFile);
-});
+    document.addEventListener('click',function(event){
+      document.querySelectorAll('.nav-item.dropdown.open').forEach(function(dropdown){
+        if(!dropdown.contains(event.target)) closeDropdown(dropdown);
+      });
+    });
 
-function compressImage() {
-
-    if (!imageFile) {
-        alert("Please upload an image first.");
-        return;
-    }
-
-    const img = new Image();
-    img.src = preview.src;
-
-    img.onload = function () {
-
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-
-        canvas.width = img.width;
-        canvas.height = img.height;
-
-        ctx.drawImage(img, 0, 0);
-
-        canvas.toBlob(function(blob) {
-
-            const url = URL.createObjectURL(blob);
-
-            downloadLink.href = url;
-            downloadLink.download = "compressed-" + imageFile.name;
-            downloadLink.innerText = "Download Image";
-            downloadLink.style.display = "block";
-
-        }, "image/jpeg", qualitySlider.value);
-
-    };
-}
+    document.querySelectorAll('.dropzone').forEach(function(dropzone){
+      if(!dropzone.hasAttribute('tabindex')) dropzone.setAttribute('tabindex','0');
+      if(!dropzone.hasAttribute('role')) dropzone.setAttribute('role','button');
+      if(!dropzone.hasAttribute('aria-label')) dropzone.setAttribute('aria-label','Choose or drop a file');
+      dropzone.addEventListener('keydown',function(event){
+        if(event.key==='Enter' || event.key===' '){
+          const input=dropzone.querySelector('input[type="file"]') || document.querySelector('input[type="file"]');
+          if(input){
+            event.preventDefault();
+            input.click();
+          }
+        }
+      });
+    });
+  });
+})();
