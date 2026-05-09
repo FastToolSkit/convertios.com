@@ -20,7 +20,7 @@
 .dropzone.dragover{background:#15365f}
 .preview{max-width:100%;max-height:300px;border-radius:10px;margin-top:14px;display:none}
 .upload-btn{display:inline-block;margin-top:12px;background:#3a78ff;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600}
-.upload-btn input{display:none}
+.upload-btn input{display:block;margin-top:8px;max-width:100%}
 .file-name{font-size:14px;color:#c4d6ff;min-height:20px}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .btn{background:#3a78ff;border:none;color:#fff;padding:10px 16px;border-radius:8px;cursor:pointer}
@@ -30,10 +30,78 @@
 @media (max-width:900px){.tool-grid{grid-template-columns:1fr}}
 </style>
 <link rel="canonical" href="https://convertios.com/ai-image-enhancer.html">
+<link rel="preconnect" href="https://api.cloudinary.com">
+<link rel="preconnect" href="https://convertios.app.n8n.cloud">
+
+<!-- Convertios SEO social metadata -->
+<meta property="og:title" content="AI Image Enhancer | Convertios">
+<meta property="og:description" content="Use AI Image Enhancer on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://convertios.com/ai-image-enhancer.html">
+<meta property="og:image" content="https://convertios.com/convertios-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Image Enhancer | Convertios">
+<meta name="twitter:description" content="Use AI Image Enhancer on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.">
+<meta name="twitter:image" content="https://convertios.com/convertios-logo.png">
+<!-- /Convertios SEO social metadata -->
+
+<!-- Convertios structured data -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI Image Enhancer | Convertios",
+    "description": "Use AI Image Enhancer on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.",
+    "url": "https://convertios.com/ai-image-enhancer.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Convertios",
+      "url": "https://convertios.com"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Image Enhancer",
+    "url": "https://convertios.com/ai-image-enhancer.html",
+    "description": "Use AI Image Enhancer on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires a modern web browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://convertios.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "AI Image Enhancer",
+        "item": "https://convertios.com/ai-image-enhancer.html"
+      }
+    ]
+  }
+]
+</script>
+<!-- /Convertios structured data -->
+
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header">
-<div class="header-left"><a href="index.html" class="logo"><img src="convertios-logo.png" alt="Convertios Logo"></a></div>
+<div class="header-left"><a href="index.html" class="logo"><img src="convertios-logo.png" alt="Convertios Logo" width="2211" height="1234"></a></div>
 <nav class="nav-menu">
 <a href="index.html" class="active">Home</a>
 <div class="nav-item dropdown"><span>Image ▾</span><div class="dropdown-menu">
@@ -46,7 +114,7 @@
 </nav>
 </header>
 
-<main class="tool-wrap">
+<main id="main-content" class="tool-wrap">
 <h1>AI Image Enhancer</h1>
 <p>Enhance blurry or low-resolution images with AI-powered processing. This tool can improve sharpness, upscale detail, and produce cleaner visuals in just a few clicks.</p>
 <div class="tool-grid">
@@ -162,8 +230,9 @@ const enhanceBtn=document.getElementById('enhanceBtn');
 const downloadBtn=document.getElementById('downloadBtn');
 const statusEl=document.getElementById('status');
 
-const AI_ENHANCE_ENDPOINT='/ai-enhance';
-const AI_ENHANCE_DOWNLOAD_ENDPOINT='/ai-enhance/download';
+const AI_ENHANCE_ENDPOINT = 'https://convertios.app.n8n.cloud/webhook/ai-enhance';
+const CLOUDINARY_CLOUD_NAME = 'PASTE_CLOUDINARY_CLOUD_NAME_HERE';
+const CLOUDINARY_UPLOAD_PRESET = 'PASTE_UNSIGNED_UPLOAD_PRESET_HERE';
 let selectedFile=null;
 let currentEnhancedImageUrl=null;
 let currentDownloadObjectUrl=null;
@@ -197,6 +266,56 @@ return String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;
 function getDownloadFileName(){
 const baseName=(selectedFile?.name || 'enhanced-image').replace(/\.[^.]+$/,'');
 return `${baseName}-enhanced.png`;
+}
+
+function ensureCloudinaryConfigured(){
+if(CLOUDINARY_CLOUD_NAME === 'PASTE_CLOUDINARY_CLOUD_NAME_HERE' || CLOUDINARY_UPLOAD_PRESET === 'PASTE_UNSIGNED_UPLOAD_PRESET_HERE'){
+throw new Error('Cloudinary upload failed: configure CLOUDINARY_CLOUD_NAME and CLOUDINARY_UPLOAD_PRESET in ai-image-enhancer.html.');
+}
+}
+
+async function uploadImageToCloudinary(){
+ensureCloudinaryConfigured();
+const cloudinaryUrl=`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
+const uploadData=new FormData();
+uploadData.append('file',selectedFile);
+uploadData.append('upload_preset',CLOUDINARY_UPLOAD_PRESET);
+
+const response=await fetch(cloudinaryUrl,{method:'POST',body:uploadData});
+const data=await response.json().catch(()=>({error:{message:'Invalid Cloudinary response.'}}));
+
+if(!response.ok){
+throw new Error(`Cloudinary upload failed: ${data.error?.message || 'Unable to upload image.'}`);
+}
+
+if(!data.secure_url){
+throw new Error('Cloudinary upload failed: secure_url missing from response.');
+}
+
+return data.secure_url;
+}
+
+async function enhanceImageWithN8n(cloudinarySecureUrl){
+const response=await fetch(AI_ENHANCE_ENDPOINT,{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({
+image:cloudinarySecureUrl,
+message:'Convertios AI image enhancement'
+})
+});
+
+const data=await response.json().catch(()=>({success:false,error:'Invalid response from n8n enhancement server.'}));
+
+if(!response.ok || !data.success){
+throw new Error(`n8n enhancement failed: ${data.error || 'Unable to enhance image.'}`);
+}
+
+if(!data.imageUrl){
+throw new Error('imageUrl missing from n8n enhancement response.');
+}
+
+return data.imageUrl;
 }
 
 function showError(message){
@@ -235,31 +354,18 @@ dropzone.addEventListener('click',()=>fileInput.click());
 
 async function runEnhancement(){
 if(!selectedFile) return;
-setLoading(true,'Uploading image. Replicate AI enhancement is processing and may take a minute...');
+setLoading(true,'Uploading image to Cloudinary...');
 resetResult();
 
 try{
-const formData=new FormData();
-formData.append('image',selectedFile,selectedFile.name);
+const cloudinarySecureUrl=await uploadImageToCloudinary();
+statusEl.textContent='Cloudinary upload complete. Sending image to AI enhancer...';
+const imageUrl=await enhanceImageWithN8n(cloudinarySecureUrl);
 
-const response=await fetch(AI_ENHANCE_ENDPOINT,{
-method:'POST',
-body:formData
-});
-
-const data=await response.json().catch(()=>({success:false,error:'Invalid response from enhancement server.'}));
-
-if(!response.ok || !data.success){
-throw new Error(data.error || 'The enhancement server failed to process the image.');
-}
-
-if(!data.imageUrl){
-throw new Error('The enhancement server did not return an image URL.');
-}
-
-currentEnhancedImageUrl=data.imageUrl;
+currentEnhancedImageUrl=imageUrl;
 resultPreview.src=currentEnhancedImageUrl;
 resultPreview.style.display='block';
+downloadBtn.href=currentEnhancedImageUrl;
 downloadBtn.style.display='inline-block';
 downloadBtn.download=getDownloadFileName();
 statusEl.textContent='Image enhanced successfully ✅';
@@ -280,11 +386,9 @@ return;
 
 try{
 statusEl.textContent='Preparing download...';
-const downloadUrl=`${AI_ENHANCE_DOWNLOAD_ENDPOINT}?url=${encodeURIComponent(currentEnhancedImageUrl)}`;
-const response=await fetch(downloadUrl);
+const response=await fetch(currentEnhancedImageUrl);
 if(!response.ok){
-const errorData=await response.json().catch(()=>({error:'Unable to prepare the enhanced image download.'}));
-throw new Error(errorData.error || 'Unable to prepare the enhanced image download.');
+throw new Error('Unable to download the enhanced image.');
 }
 
 const blob=await response.blob();
@@ -355,5 +459,6 @@ window.showToolMessage('The tool could not complete the request. Check your file
 })();
 </script>
 
+<script src="script.js" defer></script>
 </body>
 </html>
