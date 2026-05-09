@@ -1,22 +1,36 @@
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
-const fetch = require('node-fetch'); // ✅ FIX
+const fetch = global.fetch || require('node-fetch');
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
 const PORT = process.env.PORT || 3000;
-app.use(cors());
+const REAL_ESRGAN_VERSION = '42fed1c4974146d4d2414e2be2c5277c7fcf05fcc3a73abf41610695738c1d7b';
+const allowedOrigins = new Set([
+  'https://convertios.com',
+  'https://www.convertios.com'
+]);
+
+app.use(cors({
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.has(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error(`CORS origin not allowed: ${origin}`));
+  }
+}));
 app.use(express.json({ limit: '10mb' }));
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function getEnvToken(name) {
-  const token = process.env[name];
+function getCloudConvertToken() {
+  const token = process.env.CLOUDCONVERT_API_TOKEN;
   if (!token) {
-    throw new Error(`Missing ${name} environment variable`);
+    throw new Error('Missing CLOUDCONVERT_API_TOKEN environment variable.');
   }
   return token;
 }
@@ -25,15 +39,89 @@ function sanitizeDownloadName(name, fallback) {
   return (name || fallback).replace(/[^a-z0-9._-]/gi, '_');
 }
 
+function getReplicateToken() {
+  const token = process.env.REPLICATE_API_TOKEN;
+  if (!token) {
+    throw new Error('Missing REPLICATE_API_TOKEN environment variable.');
+  }
+  return token;
+}
+
+function imageToDataUri(file) {
+  const mimeType = file.mimetype || 'image/png';
+  const base64Image = file.buffer.toString('base64');
+  return `data:${mimeType};base64,${base64Image}`;
+}
+
+function extractOutputUrl(output) {
+  if (!output) return null;
+  if (typeof output === 'string') return output;
+  if (Array.isArray(output)) {
+    return output.find((item) => typeof item === 'string' && /^https?:\/\//i.test(item)) || null;
+  }
+  if (typeof output === 'object') {
+    return output.url || output.image || output.output || null;
+  }
+  return null;
+}
+
+async function readJson(response) {
+  const text = await response.text();
+  try {
+    return text ? JSON.parse(text) : {};
+  } catch (_error) {
+    return { error: text || 'Invalid JSON response.' };
+  }
+}
+
+async function waitForPrediction(prediction, token) {
+  let currentPrediction = prediction;
+
+  for (let attempt = 0; attempt < 90; attempt += 1) {
+    if (currentPrediction?.status === 'succeeded') {
+      return currentPrediction;
+    }
+
+    if (['failed', 'canceled', 'cancelled'].includes(currentPrediction?.status)) {
+      throw new Error(currentPrediction?.error || `Replicate prediction ${currentPrediction.status}.`);
+    }
+
+    const pollUrl = currentPrediction?.urls?.get;
+    if (!pollUrl) {
+      throw new Error('Replicate did not return a polling URL.');
+    }
+
+    await sleep(2000);
+    const pollResponse = await fetch(pollUrl, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    currentPrediction = await readJson(pollResponse);
+
+    if (!pollResponse.ok) {
+      throw new Error(currentPrediction?.detail || currentPrediction?.error || 'Replicate polling failed.');
+    }
+  }
+
+  throw new Error('Replicate image enhancement timed out.');
+}
+
+app.get('/', (_req, res) => {
+  return res.json({ success: true, message: 'Convertios AI enhancer backend is running.' });
+});
+
 app.post('/convert/pdf-to-word', upload.single('file'), async (req, res) => {
   console.log('[POST /convert/pdf-to-word] Incoming request');
 
   try {
     if (!req.file) {
-      return res.status(400).json({ error: 'No PDF uploaded. Use FormData field name "file".' });
+      return res.status(400).json({ success: false, error: 'No PDF uploaded. Use FormData field name "file".' });
     }
 
-    const token = getEnvToken('CLOUDCONVERT_API_TOKEN');
+    if (req.file.mimetype && req.file.mimetype !== 'application/pdf') {
+      return res.status(400).json({ success: false, error: 'Uploaded file must be a PDF.' });
+    }
+
+    const token = getCloudConvertToken();
     const jobResponse = await fetch('https://api.cloudconvert.com/v2/jobs', {
       method: 'POST',
       headers: {
@@ -57,17 +145,16 @@ app.post('/convert/pdf-to-word', upload.single('file'), async (req, res) => {
       })
     });
 
+    const job = await readJson(jobResponse);
     if (!jobResponse.ok) {
-      const details = await jobResponse.text();
-      return res.status(502).json({ error: 'CloudConvert job creation failed', details });
+      return res.status(502).json({ success: false, error: job?.message || job?.error || 'CloudConvert job creation failed.' });
     }
 
-    const job = await jobResponse.json();
     const uploadTask = job?.data?.tasks?.find((task) => task.name === 'upload');
     const form = uploadTask?.result?.form;
 
     if (!form?.url || !form?.parameters) {
-      return res.status(502).json({ error: 'CloudConvert did not return a valid upload form' });
+      return res.status(502).json({ success: false, error: 'CloudConvert did not return a valid upload form.' });
     }
 
     const uploadForm = new FormData();
@@ -80,8 +167,7 @@ app.post('/convert/pdf-to-word', upload.single('file'), async (req, res) => {
     });
 
     if (!uploadResponse.ok) {
-      const details = await uploadResponse.text();
-      return res.status(502).json({ error: 'CloudConvert upload failed', details });
+      return res.status(502).json({ success: false, error: 'CloudConvert upload failed.' });
     }
 
     let fileUrl = null;
@@ -91,31 +177,29 @@ app.post('/convert/pdf-to-word', upload.single('file'), async (req, res) => {
         headers: { Authorization: `Bearer ${token}` }
       });
 
+      const data = await readJson(pollResponse);
       if (!pollResponse.ok) {
-        const details = await pollResponse.text();
-        return res.status(502).json({ error: 'CloudConvert polling failed', details });
+        return res.status(502).json({ success: false, error: data?.message || data?.error || 'CloudConvert polling failed.' });
       }
 
-      const data = await pollResponse.json();
-      const exportTask = data?.data?.tasks?.find((task) => task.name === 'export');
       const failedTask = data?.data?.tasks?.find((task) => task.status === 'error');
-
       if (failedTask) {
-        return res.status(502).json({ error: 'CloudConvert conversion failed', details: failedTask.message || failedTask.code || 'Task error' });
+        return res.status(502).json({ success: false, error: failedTask.message || failedTask.code || 'CloudConvert conversion failed.' });
       }
 
+      const exportTask = data?.data?.tasks?.find((task) => task.name === 'export');
       if (exportTask?.status === 'finished' && exportTask?.result?.files?.length) {
         fileUrl = exportTask.result.files[0].url;
       }
     }
 
     if (!fileUrl) {
-      return res.status(504).json({ error: 'PDF to Word conversion timed out' });
+      return res.status(504).json({ success: false, error: 'PDF to Word conversion timed out.' });
     }
 
     const convertedResponse = await fetch(fileUrl);
     if (!convertedResponse.ok) {
-      return res.status(502).json({ error: 'Unable to download converted DOCX from CloudConvert' });
+      return res.status(502).json({ success: false, error: 'Unable to download converted DOCX from CloudConvert.' });
     }
 
     const convertedBuffer = Buffer.from(await convertedResponse.arrayBuffer());
@@ -124,194 +208,99 @@ app.post('/convert/pdf-to-word', upload.single('file'), async (req, res) => {
     res.setHeader('Content-Disposition', `attachment; filename="${downloadName}"`);
     return res.send(convertedBuffer);
   } catch (error) {
-    console.error('[POST /convert/pdf-to-word] Unexpected error', error);
-    return res.status(500).json({ error: 'PDF to Word conversion failed', details: error.message });
+    console.error('[POST /convert/pdf-to-word] Error', error);
+    return res.status(500).json({ success: false, error: error.message || 'PDF to Word conversion failed.' });
   }
 });
 
-
-function buildReplicateHeaders(token, extraHeaders = {}) {
-  return {
-    Authorization: `Bearer ${token}`,
-    'Content-Type': 'application/json',
-    ...extraHeaders
-  };
-}
-
-function fileToDataUri(file) {
-  const mimeType = file.mimetype || 'image/png';
-  const base64 = file.buffer.toString('base64');
-  return `data:${mimeType};base64,${base64}`;
-}
-
-function extractReplicateOutputUrl(output) {
-  if (!output) return null;
-  if (typeof output === 'string') return output;
-  if (Array.isArray(output)) {
-    const firstUrl = output.find((item) => typeof item === 'string' && /^https?:\/\//i.test(item));
-    return firstUrl || (typeof output[0] === 'string' ? output[0] : null);
-  }
-  if (typeof output === 'object') {
-    return output.url || output.image || output.output || null;
-  }
-  return null;
-}
-
-function getUploadedImage(req) {
-  return req.file || req.files?.image?.[0] || req.files?.file?.[0] || null;
-}
-
-async function parseReplicateResponse(response) {
-  const text = await response.text();
-  try {
-    return text ? JSON.parse(text) : {};
-  } catch (_error) {
-    return { error: text || 'Invalid Replicate response' };
-  }
-}
-
-async function pollReplicatePrediction(prediction, token) {
-  let current = prediction;
-  const getUrl = current?.urls?.get;
-
-  for (let attempt = 0; attempt < 90; attempt += 1) {
-    if (['succeeded', 'successful'].includes(current?.status)) return current;
-    if (['failed', 'canceled', 'cancelled'].includes(current?.status)) {
-      throw new Error(current?.error || `Replicate prediction ${current.status}`);
-    }
-
-    if (!getUrl) {
-      throw new Error('Replicate did not return a polling URL');
-    }
-
-    await sleep(2000);
-    const pollResponse = await fetch(getUrl, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-
-    current = await parseReplicateResponse(pollResponse);
-    if (!pollResponse.ok) {
-      throw new Error(current?.detail || current?.error || 'Replicate polling failed');
-    }
-  }
-
-  throw new Error('Replicate image enhancement timed out');
-}
-
-app.post('/ai-enhance', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'file', maxCount: 1 }]), async (req, res) => {
-  console.log('[POST /ai-enhance] Incoming request');
+app.post('/ai-enhance', upload.single('image'), async (req, res) => {
+  const requestId = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  console.log(`[${requestId}] POST /ai-enhance`);
 
   try {
-    const image = getUploadedImage(req);
-    if (!image) {
+    if (!req.file) {
       return res.status(400).json({ success: false, error: 'No image uploaded. Use FormData field name "image".' });
     }
 
-    if (!image.mimetype?.startsWith('image/')) {
+    if (!req.file.mimetype?.startsWith('image/')) {
       return res.status(400).json({ success: false, error: 'Uploaded file must be an image.' });
     }
 
-    const token = getEnvToken('REPLICATE_API_TOKEN');
-    const imageDataUri = fileToDataUri(image);
-
+    const token = getReplicateToken();
     const createResponse = await fetch('https://api.replicate.com/v1/predictions', {
       method: 'POST',
-      headers: buildReplicateHeaders(token, {
-        Prefer: 'wait=60',
-        'Cancel-After': '3m'
-      }),
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        Prefer: 'wait=60'
+      },
       body: JSON.stringify({
-        version: '42fed1c4974146d4d2414e2be2c5277c7fcf05fcc3a73abf41610695738c1d7b',
+        version: REAL_ESRGAN_VERSION,
         input: {
-          image: imageDataUri,
+          image: imageToDataUri(req.file),
           scale: 2,
           face_enhance: false
         }
       })
     });
 
-    const createdPrediction = await parseReplicateResponse(createResponse);
+    const prediction = await readJson(createResponse);
     if (!createResponse.ok) {
       return res.status(502).json({
         success: false,
-        error: createdPrediction?.detail || createdPrediction?.error || 'Replicate prediction creation failed'
+        error: prediction?.detail || prediction?.error || 'Replicate prediction creation failed.'
       });
     }
 
-    const finishedPrediction = await pollReplicatePrediction(createdPrediction, token);
-    const imageUrl = extractReplicateOutputUrl(finishedPrediction.output);
+    const finishedPrediction = prediction.status === 'succeeded'
+      ? prediction
+      : await waitForPrediction(prediction, token);
+    const outputUrl = extractOutputUrl(finishedPrediction.output);
 
-    if (!imageUrl) {
-      return res.status(502).json({ success: false, error: 'Replicate finished without returning an enhanced image URL' });
+    if (!outputUrl) {
+      return res.status(502).json({ success: false, error: 'Replicate did not return an enhanced image URL.' });
     }
 
-    return res.json({ success: true, imageUrl });
+    return res.json({ success: true, imageUrl: outputUrl });
   } catch (error) {
-    console.error('[POST /ai-enhance] Error', error);
-    return res.status(500).json({ success: false, error: error.message || 'Replicate image enhancement failed' });
+    console.error(`[${requestId}] AI enhancement failed`, error);
+    return res.status(500).json({ success: false, error: error.message || 'AI image enhancement failed.' });
   }
 });
+
 app.get('/ai-enhance/download', async (req, res) => {
   try {
-    const imageUrl = String(req.query.url || '');
-    const parsedUrl = new URL(imageUrl);
-    const allowedHosts = new Set(['replicate.delivery', 'replicate.com']);
-
-    if (parsedUrl.protocol !== 'https:' || !allowedHosts.has(parsedUrl.hostname)) {
-      return res.status(400).json({ success: false, error: 'Invalid enhanced image URL.' });
+    const imageUrl = String(req.query.url || '').trim();
+    if (!imageUrl) {
+      return res.status(400).json({ success: false, error: 'Missing image URL.' });
     }
 
-    const response = await fetch(imageUrl);
-    if (!response.ok) {
-      return res.status(502).json({ success: false, error: 'Unable to download enhanced image from Replicate.' });
+    let parsedUrl;
+    try {
+      parsedUrl = new URL(imageUrl);
+    } catch (_error) {
+      return res.status(400).json({ success: false, error: 'Invalid image URL.' });
     }
 
-    const contentType = response.headers.get('content-type') || 'image/png';
-    const outputBuffer = Buffer.from(await response.arrayBuffer());
+    if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
+      return res.status(400).json({ success: false, error: 'Image URL must use HTTP or HTTPS.' });
+    }
+
+    const imageResponse = await fetch(parsedUrl.toString());
+    if (!imageResponse.ok) {
+      return res.status(502).json({ success: false, error: 'Unable to fetch enhanced image.' });
+    }
+
+    const contentType = imageResponse.headers.get('content-type') || 'image/png';
+    const imageBuffer = Buffer.from(await imageResponse.arrayBuffer());
+
     res.setHeader('Content-Type', contentType);
     res.setHeader('Content-Disposition', 'attachment; filename="enhanced-image.png"');
-    return res.send(outputBuffer);
+    return res.send(imageBuffer);
   } catch (error) {
     console.error('[GET /ai-enhance/download] Error', error);
-    return res.status(500).json({ success: false, error: error.message || 'Enhanced image download failed' });
+    return res.status(500).json({ success: false, error: error.message || 'Enhanced image download failed.' });
   }
-});
-
-app.post('/remove-background', upload.single('image_file'), async (req, res) => {
-  console.log('[POST /remove-background] Incoming request');
-
-  try {
-    if (!req.file) {
-      return res.status(400).json({ error: 'No image uploaded. Use FormData field name "image_file".' });
-    }
-
-    const formData = new FormData();
-    formData.append('image_file', new Blob([req.file.buffer], { type: req.file.mimetype || 'image/png' }), req.file.originalname || 'image.png');
-    formData.append('size', 'auto');
-
-    const response = await fetch('https://api.remove.bg/v1.0/removebg', {
-      method: 'POST',
-      headers: { 'X-Api-Key': getEnvToken('REMOVE_BG_API_KEY') },
-      body: formData
-    });
-
-    if (!response.ok) {
-      const details = await response.text();
-      return res.status(502).json({ error: 'Background removal failed', details });
-    }
-
-    const outputBuffer = Buffer.from(await response.arrayBuffer());
-    res.setHeader('Content-Type', 'image/png');
-    res.setHeader('Content-Disposition', 'attachment; filename="no-bg.png"');
-    return res.send(outputBuffer);
-  } catch (error) {
-    console.error('[POST /remove-background] Unexpected error', error);
-    return res.status(500).json({ error: 'Background removal failed', details: error.message });
-  }
-});
-
-app.get('/', (req, res) => {
-  res.send('Server running');
 });
 
 app.use((_req, res) => {
@@ -320,9 +309,9 @@ app.use((_req, res) => {
 
 app.use((error, _req, res, _next) => {
   console.error('[server] Unhandled request error', error);
-  return res.status(500).json({ success: false, error: 'Request failed', details: error.message || String(error) });
+  return res.status(500).json({ success: false, error: error.message || 'Request failed.' });
 });
 
 app.listen(PORT, () => {
-  console.log(`Convertios API server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });

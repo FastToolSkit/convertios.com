@@ -46,16 +46,69 @@ else {
     window.addEventListener("click", triggerAds);
 }
 </script>
+
+<!-- Convertios SEO social metadata -->
+<meta property="og:title" content="Convertios - Free Online Tools for Files, Images &amp; PDFs">
+<meta property="og:description" content="Convertios is your all-in-one platform for file tools. Convert, compress, and edit files easily with fast, secure, and free online tools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://convertios.com/">
+<meta property="og:image" content="https://convertios.com/convertios-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Convertios - Free Online Tools for Files, Images &amp; PDFs">
+<meta name="twitter:description" content="Convertios is your all-in-one platform for file tools. Convert, compress, and edit files easily with fast, secure, and free online tools.">
+<meta name="twitter:image" content="https://convertios.com/convertios-logo.png">
+<!-- /Convertios SEO social metadata -->
+
+<!-- Convertios structured data -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Convertios",
+    "url": "https://convertios.com",
+    "logo": "https://convertios.com/convertios-logo.png",
+    "sameAs": []
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Convertios",
+    "url": "https://convertios.com",
+    "description": "Convertios is your all-in-one platform for file tools. Convert, compress, and edit files easily with fast, secure, and free online tools.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://convertios.com/all-tools.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Convertios - Free Online Tools for Files, Images & PDFs",
+    "description": "Convertios is your all-in-one platform for file tools. Convert, compress, and edit files easily with fast, secure, and free online tools.",
+    "url": "https://convertios.com/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Convertios",
+      "url": "https://convertios.com"
+    }
+  }
+]
+</script>
+<!-- /Convertios structured data -->
+
 </head>
 
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- HEADER -->
 <header class="site-header">
 
 <div class="header-left">
     <a href="index.html" class="logo">
-        <img src="convertios-logo.png" alt="Convertios Logo">
+        <img src="convertios-logo.png" alt="Convertios Logo" width="2211" height="1234">
     </a>
 </div>
 
@@ -75,6 +128,7 @@ else {
         <a href="image-resizer.html">Resize Image</a>
         <a href="compress-image.html">Compress Image</a>
         <a href="remove-bg.html">Remove Background</a>
+        <a href="ai-image-enhancer.html">AI Image Enhancer</a>
 
 <a href="all-tools.html" class="view-all">View All →</a>
     </div>
@@ -151,7 +205,7 @@ else {
 </div>
 </header>
 
-<main>
+<main id="main-content">
 
 <!-- HERO -->
 <section class="hero">
@@ -238,6 +292,11 @@ Try some of the most commonly used tools on Convertios</p>
     <h3>PNG to JPG</h3>
     <p>Convert PNG images to JPG format quickly</p>
 </a>
+<a href="ai-image-enhancer.html" class="tool-card">
+    <div class="tool-icon-wrap">✨</div>
+    <h3>AI Image Enhancer</h3>
+    <p>Improve image quality, sharpness, and clarity using AI.</p>
+</a>
 
 </div>
 
@@ -255,7 +314,7 @@ Try some of the most commonly used tools on Convertios</p>
 
             <div class="category-content">
                 <h3>Image Tools</h3>
-                <p>Resize, compress, and convert images online</p>
+                <p>Resize, compress, convert, and enhance images online</p>
             </div>
         </a>
 
@@ -536,5 +595,6 @@ if (searchInput && resultsBox) {
 
 
 </script>
+<script src="script.js" defer></script>
 </body>
 </html>
