@@ -20,7 +20,7 @@
 .dropzone.dragover{background:#15365f}
 .preview{max-width:100%;max-height:300px;border-radius:10px;margin-top:14px;display:none}
 .upload-btn{display:inline-block;margin-top:12px;background:#3a78ff;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600}
-.upload-btn input{display:none}
+.upload-btn input{display:block;margin-top:8px;max-width:100%}
 .file-name{font-size:14px;color:#c4d6ff;min-height:20px}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .btn{background:#3a78ff;border:none;color:#fff;padding:10px 16px;border-radius:8px;cursor:pointer}
@@ -162,8 +162,8 @@ const enhanceBtn=document.getElementById('enhanceBtn');
 const downloadBtn=document.getElementById('downloadBtn');
 const statusEl=document.getElementById('status');
 
-const AI_ENHANCE_ENDPOINT='/ai-enhance';
-const AI_ENHANCE_DOWNLOAD_ENDPOINT='/ai-enhance/download';
+const AI_ENHANCE_ENDPOINT = '/ai-enhance';
+const AI_ENHANCE_DOWNLOAD_ENDPOINT = '/ai-enhance/download';
 let selectedFile=null;
 let currentEnhancedImageUrl=null;
 let currentDownloadObjectUrl=null;
