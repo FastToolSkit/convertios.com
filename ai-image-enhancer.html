@@ -38,7 +38,7 @@
 <nav class="nav-menu">
 <a href="index.html" class="active">Home</a>
 <div class="nav-item dropdown"><span>Image ▾</span><div class="dropdown-menu">
-<a href="png-to-jpg.html">PNG to JPG</a><a href="jpg-to-png.html">JPG to PNG</a><a href="webp-to-png.html">WEBP to PNG</a><a href="image-converter.html">Image Converter</a><a href="image-resizer.html">Resize Image</a><a href="compress-image.html">Compress Image</a><a href="remove-bg.html">Remove Background</a><a href="all-tools.html" class="view-all">View All →</a>
+<a href="png-to-jpg.html">PNG to JPG</a><a href="jpg-to-png.html">JPG to PNG</a><a href="webp-to-png.html">WEBP to PNG</a><a href="image-converter.html">Image Converter</a><a href="image-resizer.html">Resize Image</a><a href="compress-image.html">Compress Image</a><a href="remove-bg.html">Remove Background</a><a href="ai-image-enhancer.html">AI Image Enhancer</a><a href="all-tools.html" class="view-all">View All →</a>
 </div></div>
 <div class="nav-item dropdown"><span>PDF ▾</span><div class="dropdown-menu"><a href="pdf-to-word.html">PDF to Word</a><a href="pdf-to-jpg.html">PDF to JPG</a><a href="jpg-to-pdf.html">JPG to PDF</a><a href="merge-pdf.html">Merge PDF</a><a href="split-pdf.html">Split PDF</a><a href="rotate-pdf.html">Rotate PDF</a><a href="all-tools.html" class="view-all">View All →</a></div></div>
 <div class="nav-item dropdown"><span>Audio ▾</span><div class="dropdown-menu"><a href="mp3-cutter.html">MP3 Cutter</a><a href="audio-converter.html">Audio Converter</a><a href="audio-speed-changer.html">Speed Changer</a><a href="all-tools.html" class="view-all">View All →</a></div></div>
@@ -81,30 +81,30 @@
 <div class="tool-info-grid">
 <div><strong>Runs in browser:</strong><span>No</span></div>
 <div><strong>Upload required:</strong><span>Yes</span></div>
-<div><strong>Third-party processing:</strong><span>Replicate AI image upscaling</span></div>
-<div><strong>File retention:</strong><span>Uploaded to the Convertios backend and sent to Replicate for processing.</span></div>
-<div><strong>Max file size:</strong><span>Server upload limits apply</span></div>
-<div><strong>Supported formats:</strong><span>JPG, PNG, WEBP image uploads → Enhanced Replicate image URL</span></div>
+<div><strong>Third-party processing:</strong><span>Cloudinary unsigned upload and n8n AI enhancement workflow</span></div>
+<div><strong>File retention:</strong><span>Uploaded to Cloudinary first, then the public image URL is sent to n8n for enhancement.</span></div>
+<div><strong>Max file size:</strong><span>Cloudinary unsigned upload preset limits apply</span></div>
+<div><strong>Supported formats:</strong><span>JPG, PNG, and WEBP image uploads → Enhanced image URL</span></div>
 </div>
-<p class="transparency-note"><strong>Transparency note:</strong> This tool uploads images to the Convertios backend, which sends them to Replicate for AI upscaling and returns the enhanced image URL.</p>
+<p class="transparency-note"><strong>Transparency note:</strong> This tool uploads images to Cloudinary using an unsigned preset, then sends the public image URL to the Convertios n8n AI enhancement workflow.</p>
 </section>
 
 <section class="tool-guide-block" aria-labelledby="guide-heading-ai-image-enhancer">
 <h2 id="guide-heading-ai-image-enhancer">How It Works</h2>
-<p>AI Image Enhancer uploads your selected image to the Convertios backend, then Replicate processes the image with an AI upscaling model and returns a sharper downloadable result. Review the file name and preview before starting so the result matches your intended use.</p>
+<p>AI Image Enhancer uploads your selected image to Cloudinary, then sends the secure image URL to the Convertios n8n AI enhancement workflow and returns a sharper downloadable result. Review the file name and preview before starting so the result matches your intended use.</p>
 <p>For related workflows, you can also use <a href="compress-image.html">Free Image Compressor</a> or <a href="image-converter.html">Image Converter Online</a> when your task needs another step in the same category.</p>
 
 <h2>Supported Formats</h2>
 <ul>
 <li><strong>Input:</strong> JPG, PNG, WEBP image uploads</li>
-<li><strong>Output:</strong> Enhanced Replicate image URL</li>
+<li><strong>Output:</strong> Enhanced image URL</li>
 </ul>
 
 <h2>Common Issues &amp; Fixes</h2>
 <ul>
 <li><strong>Why did my file not convert correctly?</strong> Check that the file is not corrupted, password protected, or larger than the recommended limit.</li>
 <li><strong>Why is the result different from the original?</strong> Some formats store layout, transparency, fonts, or audio metadata differently, so review the output before sharing it.</li>
-<li><strong>Why did processing stop?</strong> Refresh the page, choose a smaller file, and try again. Temporary Replicate processing limits or upload issues may also affect completion.</li>
+<li><strong>Why did processing stop?</strong> Refresh the page, choose a smaller file, and try again. Temporary Cloudinary upload issues or n8n enhancement processing limits may also affect completion.</li>
 </ul>
 
 <h2>Best Use Cases</h2>
@@ -140,6 +140,25 @@
 <li>Improves quality by refining detail and boosting resolution.</li>
 <li>Fast and simple workflow with instant preview and download.</li>
 </ul>
+</section>
+
+
+<section class="tool-description" aria-labelledby="ai-enhancer-faq-heading">
+<h2 id="ai-enhancer-faq-heading">AI Image Enhancer FAQ</h2>
+<h3>What does the AI Image Enhancer do?</h3>
+<p>It improves image quality, sharpness, and clarity using an AI enhancement workflow, then shows the enhanced image for preview and download.</p>
+<h3>Is it free to use?</h3>
+<p>Yes. The AI Image Enhancer is available as a free Convertios tool.</p>
+<h3>Are my images uploaded?</h3>
+<p>Yes. Your selected image is uploaded to Cloudinary using an unsigned upload preset, and the resulting public image URL is sent to the n8n AI enhancement workflow.</p>
+<h3>What image formats are supported?</h3>
+<p>Common web image formats such as JPG, PNG, and WEBP are supported, depending on the Cloudinary upload preset and browser file selection.</p>
+<h3>Why does enhancement take time?</h3>
+<p>The tool first uploads your image and then waits for the AI workflow to process it. Larger images or temporary provider load can increase processing time.</p>
+<h3>What should I do if enhancement fails?</h3>
+<p>Try a smaller JPG, PNG, or WEBP file, check your connection, and retry. If the issue continues, the Cloudinary preset or n8n workflow may need configuration.</p>
+<h3>Does it work on mobile?</h3>
+<p>Yes. The tool works in modern mobile browsers, though upload and processing speed depends on your device, image size, and network connection.</p>
 </section>
 
 <div class="more-tools">
