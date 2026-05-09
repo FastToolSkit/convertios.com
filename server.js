@@ -34,8 +34,7 @@ function getAuthHeaders({ wait = false } = {}) {
     headers.Prefer = 'wait';
   }
 
-  console.log("API KEY EXISTS:", !!process.env.REPLICATE_API_TOKEN);
-
+console.log("TOKEN VALUE:", process.env.REPLICATE_API_TOKEN);
   return headers;
 }
 
