@@ -1812,3 +1812,64 @@ TOOL TRUST & GUIDE BLOCKS
 @media (max-width: 768px){
     .tool-message-box{margin:16px;}
 }
+
+/* Accessibility and UX enhancements */
+.skip-link{
+    position:absolute;
+    top:-100px;
+    left:16px;
+    z-index:9999;
+    background:#fff;
+    color:#111;
+    padding:10px 14px;
+    border-radius:8px;
+    font-weight:600;
+    box-shadow:0 8px 24px rgba(15,23,42,0.22);
+    transition:top .2s ease;
+}
+.skip-link:focus,
+.skip-link:focus-visible{
+    top:12px;
+}
+:focus-visible{
+    outline:3px solid #60a5fa;
+    outline-offset:3px;
+}
+.nav-menu .dropdown-trigger{
+    display:inline-block;
+    min-height:44px;
+    line-height:44px;
+}
+.nav-item.open .dropdown-menu,
+.nav-item:focus-within .dropdown-menu{
+    display:block;
+}
+.dropzone{
+    min-height:180px;
+}
+.dropzone:focus-visible{
+    border-color:#60a5fa;
+    box-shadow:0 0 0 4px rgba(96,165,250,0.35);
+}
+.adsbygoogle{
+    display:block;
+    min-height:90px;
+}
+@media (max-width:768px){
+    .nav-menu a,
+    .nav-menu span,
+    .nav-menu .dropdown-trigger,
+    .dropdown-menu a,
+    button,
+    .btn{
+        min-height:44px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+    }
+    .nav-item.open .dropdown-menu,
+    .nav-item:focus-within .dropdown-menu{
+        display:block;
+        width:100%;
+    }
+}
