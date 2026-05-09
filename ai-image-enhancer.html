@@ -173,7 +173,15 @@ function resetResult(){
 resultPreview.style.display='none';
 resultPreview.removeAttribute('src');
 downloadBtn.style.display='none';
-downloadBtn.removeAttribute('href');
+if(currentDownloadObjectUrl){
+URL.revokeObjectURL(currentDownloadObjectUrl);
+currentDownloadObjectUrl=null;
+}
+currentEnhancedImageUrl=null;
+}
+
+function escapeHtml(value){
+return String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
 }
 
 function escapeHtml(value){
