@@ -13,7 +13,6 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-
 function getEnvToken(name) {
   const token = process.env[name];
   if (!token) {
@@ -30,20 +29,6 @@ app.post('/convert/pdf-to-word', upload.single('file'), async (req, res) => {
   console.log('[POST /convert/pdf-to-word] Incoming request');
 
   try {
-    console.log("🔥 VERSION LIVE", new Date().toISOString());
-    console.log('🔥 Request received', { requestId, path: req.path, method: req.method });
-    console.log('📦 File size:', req.file?.size);
-    console.log('[POST /enhance] Upload metadata:', {
-      requestId,
-      fieldName: req.file?.fieldname,
-      originalName: req.file?.originalname,
-      mimetype: req.file?.mimetype,
-      bufferBytes: req.file?.buffer?.length
-    });
-    console.log("🔑 Replicate token exists:", !!process.env.REPLICATE_API_TOKEN);
-    console.log('[POST /enhance] Replicate token debug:', getReplicateTokenDebug());
-    console.log('🔑 Token exists:', !!process.env.REPLICATE_API_TOKEN);
-
     if (!req.file) {
       return res.status(400).json({ error: 'No PDF uploaded. Use FormData field name "file".' });
     }
@@ -179,6 +164,15 @@ app.post('/remove-background', upload.single('image_file'), async (req, res) => 
 
 app.get('/', (req, res) => {
   res.send('Server running');
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
 });
 
 app.use((_req, res) => {
