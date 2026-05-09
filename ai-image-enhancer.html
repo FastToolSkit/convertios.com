@@ -20,7 +20,7 @@
 .dropzone.dragover{background:#15365f}
 .preview{max-width:100%;max-height:300px;border-radius:10px;margin-top:14px;display:none}
 .upload-btn{display:inline-block;margin-top:12px;background:#3a78ff;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600}
-.upload-btn input{display:none}
+.upload-btn input{display:block;margin-top:8px;max-width:100%}
 .file-name{font-size:14px;color:#c4d6ff;min-height:20px}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .btn{background:#3a78ff;border:none;color:#fff;padding:10px 16px;border-radius:8px;cursor:pointer}
@@ -30,14 +30,144 @@
 @media (max-width:900px){.tool-grid{grid-template-columns:1fr}}
 </style>
 <link rel="canonical" href="https://convertios.com/ai-image-enhancer.html">
+<link rel="preconnect" href="https://api.cloudinary.com">
+<link rel="preconnect" href="https://convertios.app.n8n.cloud">
+
+<!-- Convertios SEO social metadata -->
+<meta property="og:title" content="AI Image Enhancer | Convertios">
+<meta property="og:description" content="Use AI Image Enhancer on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://convertios.com/ai-image-enhancer.html">
+<meta property="og:image" content="https://convertios.com/convertios-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Image Enhancer | Convertios">
+<meta name="twitter:description" content="Use AI Image Enhancer on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.">
+<meta name="twitter:image" content="https://convertios.com/convertios-logo.png">
+<!-- /Convertios SEO social metadata -->
+
+<!-- Convertios structured data -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI Image Enhancer | Convertios",
+    "description": "Use AI Image Enhancer on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.",
+    "url": "https://convertios.com/ai-image-enhancer.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Convertios",
+      "url": "https://convertios.com"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Image Enhancer",
+    "url": "https://convertios.com/ai-image-enhancer.html",
+    "description": "Use AI Image Enhancer on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires a modern web browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://convertios.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "AI Image Enhancer",
+        "item": "https://convertios.com/ai-image-enhancer.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does the AI Image Enhancer do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It improves image quality, sharpness, and clarity using an AI enhancement workflow, then shows the enhanced image for preview and download."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The AI Image Enhancer is available as a free Convertios tool."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my images uploaded?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Your selected image is uploaded to Cloudinary using an unsigned upload preset, and the resulting public image URL is sent to the n8n AI enhancement workflow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What image formats are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Common web image formats such as JPG, PNG, and WEBP are supported, depending on the Cloudinary upload preset and browser file selection."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does enhancement take time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tool first uploads your image and then waits for the AI workflow to process it. Larger images or temporary provider load can increase processing time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I do if enhancement fails?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Try a smaller JPG, PNG, or WEBP file, check your connection, and retry. If the issue continues, the Cloudinary preset or n8n workflow may need configuration."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it work on mobile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The tool works in modern mobile browsers, though upload and processing speed depends on your device, image size, and network connection."
+        }
+      }
+    ]
+  }
+]
+</script>
+<!-- /Convertios structured data -->
+
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header">
-<div class="header-left"><a href="index.html" class="logo"><img src="convertios-logo.png" alt="Convertios Logo"></a></div>
+<div class="header-left"><a href="index.html" class="logo"><img src="convertios-logo.png" alt="Convertios Logo" width="2211" height="1234"></a></div>
 <nav class="nav-menu">
 <a href="index.html" class="active">Home</a>
 <div class="nav-item dropdown"><span>Image ▾</span><div class="dropdown-menu">
-<a href="png-to-jpg.html">PNG to JPG</a><a href="jpg-to-png.html">JPG to PNG</a><a href="webp-to-png.html">WEBP to PNG</a><a href="image-converter.html">Image Converter</a><a href="image-resizer.html">Resize Image</a><a href="compress-image.html">Compress Image</a><a href="remove-bg.html">Remove Background</a><a href="all-tools.html" class="view-all">View All →</a>
+<a href="png-to-jpg.html">PNG to JPG</a><a href="jpg-to-png.html">JPG to PNG</a><a href="webp-to-png.html">WEBP to PNG</a><a href="image-converter.html">Image Converter</a><a href="image-resizer.html">Resize Image</a><a href="compress-image.html">Compress Image</a><a href="remove-bg.html">Remove Background</a><a href="ai-image-enhancer.html">AI Image Enhancer</a><a href="all-tools.html" class="view-all">View All →</a>
 </div></div>
 <div class="nav-item dropdown"><span>PDF ▾</span><div class="dropdown-menu"><a href="pdf-to-word.html">PDF to Word</a><a href="pdf-to-jpg.html">PDF to JPG</a><a href="jpg-to-pdf.html">JPG to PDF</a><a href="merge-pdf.html">Merge PDF</a><a href="split-pdf.html">Split PDF</a><a href="rotate-pdf.html">Rotate PDF</a><a href="all-tools.html" class="view-all">View All →</a></div></div>
 <div class="nav-item dropdown"><span>Audio ▾</span><div class="dropdown-menu"><a href="mp3-cutter.html">MP3 Cutter</a><a href="audio-converter.html">Audio Converter</a><a href="audio-speed-changer.html">Speed Changer</a><a href="all-tools.html" class="view-all">View All →</a></div></div>
@@ -46,7 +176,7 @@
 </nav>
 </header>
 
-<main class="tool-wrap">
+<main id="main-content" class="tool-wrap">
 <h1>AI Image Enhancer</h1>
 <p>Enhance blurry or low-resolution images with AI-powered processing. This tool can improve sharpness, upscale detail, and produce cleaner visuals in just a few clicks.</p>
 <div class="tool-grid">
@@ -80,30 +210,30 @@
 <div class="tool-info-grid">
 <div><strong>Runs in browser:</strong><span>No</span></div>
 <div><strong>Upload required:</strong><span>Yes</span></div>
-<div><strong>Third-party processing:</strong><span>Replicate AI image upscaling</span></div>
-<div><strong>File retention:</strong><span>Uploaded to the Convertios backend and sent to Replicate for processing.</span></div>
-<div><strong>Max file size:</strong><span>Server upload limits apply</span></div>
-<div><strong>Supported formats:</strong><span>JPG, PNG, WEBP image uploads → Enhanced Replicate image URL</span></div>
+<div><strong>Third-party processing:</strong><span>Cloudinary unsigned upload and n8n AI enhancement workflow</span></div>
+<div><strong>File retention:</strong><span>Uploaded to Cloudinary first, then the public image URL is sent to n8n for enhancement.</span></div>
+<div><strong>Max file size:</strong><span>Cloudinary unsigned upload preset limits apply</span></div>
+<div><strong>Supported formats:</strong><span>JPG, PNG, and WEBP image uploads → Enhanced image URL</span></div>
 </div>
-<p class="transparency-note"><strong>Transparency note:</strong> This tool uploads images to the Convertios backend, which sends them to Replicate for AI upscaling and returns the enhanced image URL.</p>
+<p class="transparency-note"><strong>Transparency note:</strong> This tool uploads images to Cloudinary using an unsigned preset, then sends the public image URL to the Convertios n8n AI enhancement workflow.</p>
 </section>
 
 <section class="tool-guide-block" aria-labelledby="guide-heading-ai-image-enhancer">
 <h2 id="guide-heading-ai-image-enhancer">How It Works</h2>
-<p>AI Image Enhancer uploads your selected image to the Convertios backend, then Replicate processes the image with an AI upscaling model and returns a sharper downloadable result. Review the file name and preview before starting so the result matches your intended use.</p>
+<p>AI Image Enhancer uploads your selected image to Cloudinary, then sends the secure image URL to the Convertios n8n AI enhancement workflow and returns a sharper downloadable result. Review the file name and preview before starting so the result matches your intended use.</p>
 <p>For related workflows, you can also use <a href="compress-image.html">Free Image Compressor</a> or <a href="image-converter.html">Image Converter Online</a> when your task needs another step in the same category.</p>
 
 <h2>Supported Formats</h2>
 <ul>
 <li><strong>Input:</strong> JPG, PNG, WEBP image uploads</li>
-<li><strong>Output:</strong> Enhanced Replicate image URL</li>
+<li><strong>Output:</strong> Enhanced image URL</li>
 </ul>
 
 <h2>Common Issues &amp; Fixes</h2>
 <ul>
 <li><strong>Why did my file not convert correctly?</strong> Check that the file is not corrupted, password protected, or larger than the recommended limit.</li>
 <li><strong>Why is the result different from the original?</strong> Some formats store layout, transparency, fonts, or audio metadata differently, so review the output before sharing it.</li>
-<li><strong>Why did processing stop?</strong> Refresh the page, choose a smaller file, and try again. Temporary Replicate processing limits or upload issues may also affect completion.</li>
+<li><strong>Why did processing stop?</strong> Refresh the page, choose a smaller file, and try again. Temporary Cloudinary upload issues or n8n enhancement processing limits may also affect completion.</li>
 </ul>
 
 <h2>Best Use Cases</h2>
@@ -141,6 +271,25 @@
 </ul>
 </section>
 
+
+<section class="tool-description" aria-labelledby="ai-enhancer-faq-heading">
+<h2 id="ai-enhancer-faq-heading">AI Image Enhancer FAQ</h2>
+<h3>What does the AI Image Enhancer do?</h3>
+<p>It improves image quality, sharpness, and clarity using an AI enhancement workflow, then shows the enhanced image for preview and download.</p>
+<h3>Is it free to use?</h3>
+<p>Yes. The AI Image Enhancer is available as a free Convertios tool.</p>
+<h3>Are my images uploaded?</h3>
+<p>Yes. Your selected image is uploaded to Cloudinary using an unsigned upload preset, and the resulting public image URL is sent to the n8n AI enhancement workflow.</p>
+<h3>What image formats are supported?</h3>
+<p>Common web image formats such as JPG, PNG, and WEBP are supported, depending on the Cloudinary upload preset and browser file selection.</p>
+<h3>Why does enhancement take time?</h3>
+<p>The tool first uploads your image and then waits for the AI workflow to process it. Larger images or temporary provider load can increase processing time.</p>
+<h3>What should I do if enhancement fails?</h3>
+<p>Try a smaller JPG, PNG, or WEBP file, check your connection, and retry. If the issue continues, the Cloudinary preset or n8n workflow may need configuration.</p>
+<h3>Does it work on mobile?</h3>
+<p>Yes. The tool works in modern mobile browsers, though upload and processing speed depends on your device, image size, and network connection.</p>
+</section>
+
 <div class="more-tools">
 <h3>Explore More Tools</h3>
 <div class="more-tools-grid">
@@ -162,8 +311,9 @@ const enhanceBtn=document.getElementById('enhanceBtn');
 const downloadBtn=document.getElementById('downloadBtn');
 const statusEl=document.getElementById('status');
 
-const AI_ENHANCE_ENDPOINT='/ai-enhance';
-const AI_ENHANCE_DOWNLOAD_ENDPOINT='/ai-enhance/download';
+const AI_ENHANCE_ENDPOINT = 'https://convertios.app.n8n.cloud/webhook/ai-enhance';
+const CLOUDINARY_CLOUD_NAME = 'PASTE_CLOUDINARY_CLOUD_NAME_HERE';
+const CLOUDINARY_UPLOAD_PRESET = 'PASTE_UNSIGNED_UPLOAD_PRESET_HERE';
 let selectedFile=null;
 let currentEnhancedImageUrl=null;
 let currentDownloadObjectUrl=null;
@@ -197,6 +347,56 @@ return String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;
 function getDownloadFileName(){
 const baseName=(selectedFile?.name || 'enhanced-image').replace(/\.[^.]+$/,'');
 return `${baseName}-enhanced.png`;
+}
+
+function ensureCloudinaryConfigured(){
+if(CLOUDINARY_CLOUD_NAME === 'PASTE_CLOUDINARY_CLOUD_NAME_HERE' || CLOUDINARY_UPLOAD_PRESET === 'PASTE_UNSIGNED_UPLOAD_PRESET_HERE'){
+throw new Error('Cloudinary upload failed: configure CLOUDINARY_CLOUD_NAME and CLOUDINARY_UPLOAD_PRESET in ai-image-enhancer.html.');
+}
+}
+
+async function uploadImageToCloudinary(){
+ensureCloudinaryConfigured();
+const cloudinaryUrl=`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
+const uploadData=new FormData();
+uploadData.append('file',selectedFile);
+uploadData.append('upload_preset',CLOUDINARY_UPLOAD_PRESET);
+
+const response=await fetch(cloudinaryUrl,{method:'POST',body:uploadData});
+const data=await response.json().catch(()=>({error:{message:'Invalid Cloudinary response.'}}));
+
+if(!response.ok){
+throw new Error(`Cloudinary upload failed: ${data.error?.message || 'Unable to upload image.'}`);
+}
+
+if(!data.secure_url){
+throw new Error('Cloudinary upload failed: secure_url missing from response.');
+}
+
+return data.secure_url;
+}
+
+async function enhanceImageWithN8n(cloudinarySecureUrl){
+const response=await fetch(AI_ENHANCE_ENDPOINT,{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({
+image:cloudinarySecureUrl,
+message:'Convertios AI image enhancement'
+})
+});
+
+const data=await response.json().catch(()=>({success:false,error:'Invalid response from n8n enhancement server.'}));
+
+if(!response.ok || !data.success){
+throw new Error(`n8n enhancement failed: ${data.error || 'Unable to enhance image.'}`);
+}
+
+if(!data.imageUrl){
+throw new Error('imageUrl missing from n8n enhancement response.');
+}
+
+return data.imageUrl;
 }
 
 function showError(message){
@@ -235,31 +435,18 @@ dropzone.addEventListener('click',()=>fileInput.click());
 
 async function runEnhancement(){
 if(!selectedFile) return;
-setLoading(true,'Uploading image. Replicate AI enhancement is processing and may take a minute...');
+setLoading(true,'Uploading image to Cloudinary...');
 resetResult();
 
 try{
-const formData=new FormData();
-formData.append('image',selectedFile,selectedFile.name);
+const cloudinarySecureUrl=await uploadImageToCloudinary();
+statusEl.textContent='Cloudinary upload complete. Sending image to AI enhancer...';
+const imageUrl=await enhanceImageWithN8n(cloudinarySecureUrl);
 
-const response=await fetch(AI_ENHANCE_ENDPOINT,{
-method:'POST',
-body:formData
-});
-
-const data=await response.json().catch(()=>({success:false,error:'Invalid response from enhancement server.'}));
-
-if(!response.ok || !data.success){
-throw new Error(data.error || 'The enhancement server failed to process the image.');
-}
-
-if(!data.imageUrl){
-throw new Error('The enhancement server did not return an image URL.');
-}
-
-currentEnhancedImageUrl=data.imageUrl;
+currentEnhancedImageUrl=imageUrl;
 resultPreview.src=currentEnhancedImageUrl;
 resultPreview.style.display='block';
+downloadBtn.href=currentEnhancedImageUrl;
 downloadBtn.style.display='inline-block';
 downloadBtn.download=getDownloadFileName();
 statusEl.textContent='Image enhanced successfully ✅';
@@ -280,11 +467,9 @@ return;
 
 try{
 statusEl.textContent='Preparing download...';
-const downloadUrl=`${AI_ENHANCE_DOWNLOAD_ENDPOINT}?url=${encodeURIComponent(currentEnhancedImageUrl)}`;
-const response=await fetch(downloadUrl);
+const response=await fetch(currentEnhancedImageUrl);
 if(!response.ok){
-const errorData=await response.json().catch(()=>({error:'Unable to prepare the enhanced image download.'}));
-throw new Error(errorData.error || 'Unable to prepare the enhanced image download.');
+throw new Error('Unable to download the enhanced image.');
 }
 
 const blob=await response.blob();
@@ -355,5 +540,6 @@ window.showToolMessage('The tool could not complete the request. Check your file
 })();
 </script>
 
+<script src="script.js" defer></script>
 </body>
 </html>
