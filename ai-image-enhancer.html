@@ -247,7 +247,7 @@ dropzone.addEventListener('click',()=>fileInput.click());
 
 async function runEnhancement(){
 if(!selectedFile) return;
-setLoading(true,'Uploading image. Replicate AI enhancement is processing and may take a minute...');
+setLoading(true,'Uploading image to Cloudinary...');
 resetResult();
 
 try{
@@ -270,7 +270,7 @@ if(!data.imageUrl){
 throw new Error('The enhancement server did not return an image URL.');
 }
 
-currentEnhancedImageUrl=data.imageUrl;
+currentEnhancedImageUrl=imageUrl;
 resultPreview.src=currentEnhancedImageUrl;
 resultPreview.style.display='block';
 downloadBtn.href=getDownloadEndpoint(currentEnhancedImageUrl);
@@ -297,8 +297,7 @@ statusEl.textContent='Preparing download...';
 requireAiEnhanceBackend();
 const response=await fetch(getDownloadEndpoint(currentEnhancedImageUrl));
 if(!response.ok){
-const errorData=await response.json().catch(()=>({error:'Unable to prepare the enhanced image download.'}));
-throw new Error(errorData.error || 'Unable to prepare the enhanced image download.');
+throw new Error('Unable to download the enhanced image.');
 }
 
 const blob=await response.blob();
