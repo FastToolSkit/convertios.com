@@ -176,7 +176,7 @@ console.log('🔑 Token exists:', !!process.env.REPLICATE_API_TOKEN);
     const createPayload = {
       version: REPLICATE_MODEL_VERSION,
       input: {
-        image: replicateInputImage,
+image: dataUri,
         scale: 2,
         face_enhance: false
       }
