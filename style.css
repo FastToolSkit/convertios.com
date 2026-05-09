@@ -9,132 +9,8 @@ RESET
 html, body {
     height: 100%;
 }
-body{<script>
-
-const upload = document.getElementById("upload");
-const preview = document.getElementById("preview");
-const qualitySlider = document.getElementById("quality");
-const qualityValue = document.getElementById("qualityValue");
-const downloadLink = document.getElementById("downloadLink");
-
-let imageFile = null;
-
-/* ===== SLIDER ===== */
-if (qualitySlider && qualityValue) {
-    qualitySlider.oninput = () => {
-        qualityValue.innerText = qualitySlider.value;
-    };
-}
-
-/* ===== UPLOAD ===== */
-if (upload) {
-    upload.onchange = function(e){
-        imageFile = e.target.files[0];
-
-        if (!imageFile) return;
-
-        const reader = new FileReader();
-        reader.onload = e => preview.src = e.target.result;
-        reader.readAsDataURL(imageFile);
-    };
-}
-
-/* ===== MAIN ENTRY ===== */
-function runCompression(){
-
-    if(!imageFile){
-        alert("Upload image first");
-        return;
-    }
-
-    const targetInput = document.getElementById("targetKB");
-    const formatSelect = document.getElementById("format");
-
-    const targetKB = targetInput ? parseInt(targetInput.value) : null;
-    const format = formatSelect ? formatSelect.value : "image/jpeg";
-
-    if(targetKB && targetKB > 0){
-        compressToTarget(targetKB, format);
-    }else{
-        compressManual(format);
-    }
-}
-
-/* ===== MANUAL COMPRESS ===== */
-function compressManual(format){
-
-    const img = new Image();
-    img.src = preview.src;
-
-    img.onload = function(){
-
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-
-        canvas.width = img.width;
-        canvas.height = img.height;
-
-        ctx.drawImage(img,0,0);
-
-        canvas.toBlob(blob => {
-
-            const url = URL.createObjectURL(blob);
-
-            downloadLink.href = url;
-            downloadLink.download = "compressed";
-            downloadLink.innerText = "Download";
-            downloadLink.style.display = "block";
-
-        }, format, qualitySlider ? qualitySlider.value : 0.8);
-    };
-}
-
-/* ===== TARGET SIZE COMPRESS ===== */
-function compressToTarget(targetKB, format){
-
-    const img = new Image();
-    img.src = preview.src;
-
-    img.onload = function(){
-
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-
-        canvas.width = img.width;
-        canvas.height = img.height;
-
-        ctx.drawImage(img,0,0);
-
-        let quality = 0.9;
-
-        function tryCompress(){
-
-            canvas.toBlob(blob => {
-
-                let sizeKB = blob.size / 1024;
-
-                if(sizeKB > targetKB && quality > 0.1){
-                    quality -= 0.05;
-                    tryCompress();
-                }else{
-
-                    const url = URL.createObjectURL(blob);
-
-                    downloadLink.href = url;
-                    downloadLink.download = "compressed";
-                    downloadLink.innerText = "Download (" + Math.round(sizeKB) + " KB)";
-                    downloadLink.style.display = "block";
-                }
-
-            }, format, quality);
-        }
-
-        tryCompress();
-    };
-}
-
-</script>
-    font-family: system-ui, -apple-system, Arial, sans-serif;
+body{
+font-family: system-ui, -apple-system, Arial, sans-serif;
     background:#f8fafc;
     color:#0f172a;
     line-height:1.6;
@@ -1825,4 +1701,114 @@ line-height:1.6;
     line-height: 1.7;
     font-size: 16px;
     color: #444;
+}
+
+
+/* ===============================
+TOOL TRUST & GUIDE BLOCKS
+=============================== */
+.tool-info-block,
+.tool-guide-block{
+    max-width:1000px;
+    margin:30px auto;
+    background:#ffffff;
+    color:#1e293b;
+    padding:32px;
+    border-radius:18px;
+    box-shadow:0 12px 35px rgba(15,23,42,0.08);
+    border:1px solid #e2e8f0;
+    line-height:1.75;
+}
+.tool-info-block h2,
+.tool-guide-block h2{
+    color:#0f172a;
+    margin:0 0 16px;
+    font-size:1.45rem;
+}
+.tool-guide-block h2:not(:first-child){
+    margin-top:28px;
+}
+.tool-info-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+}
+.tool-info-grid div{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:14px 16px;
+}
+.tool-info-grid strong{
+    display:block;
+    color:#0f172a;
+    margin-bottom:4px;
+}
+.tool-info-grid span{
+    color:#475569;
+}
+.transparency-note{
+    margin-top:18px;
+    padding:14px 16px;
+    background:#fff7ed;
+    border:1px solid #fed7aa;
+    color:#7c2d12;
+    border-radius:12px;
+}
+.tool-guide-block ul{
+    margin:10px 0 0 22px;
+}
+.tool-guide-block a,
+.related-tools-list a{
+    color:#2563eb;
+    font-weight:600;
+}
+.related-tools-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:10px 18px;
+}
+.retry-btn,
+.tool-retry-button{
+    margin-top:12px;
+    padding:10px 16px;
+    border:none;
+    border-radius:10px;
+    background:#1d4ed8;
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+}
+.retry-btn:hover,
+.tool-retry-button:hover{
+    background:#1e40af;
+}
+.tool-error-message{
+    color:#b91c1c;
+    font-weight:600;
+}
+@media (max-width: 768px){
+    .tool-info-block,
+    .tool-guide-block{
+        margin:22px 16px;
+        padding:24px 18px;
+    }
+    .tool-info-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+.tool-message-box{
+    display:none;
+    max-width:1000px;
+    margin:18px auto;
+    padding:14px 18px;
+    background:#fff1f2;
+    color:#991b1b;
+    border:1px solid #fecdd3;
+    border-radius:12px;
+    font-weight:600;
+}
+@media (max-width: 768px){
+    .tool-message-box{margin:16px;}
 }
