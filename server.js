@@ -230,13 +230,11 @@ app.post('/ai-enhance', upload.single('image'), async (req, res) => {
       });
     }
 
-    const finishedPrediction = createdPrediction.status === 'succeeded'
-      ? createdPrediction
-      : await waitForReplicatePrediction(createdPrediction, token);
-    const outputUrl = getReplicateOutputUrl(finishedPrediction.output);
+    const finishedPrediction = await pollReplicatePrediction(createdPrediction, token);
+    const outputUrl = extractReplicateOutputUrl(finishedPrediction.output);
 
     if (!outputUrl) {
-      return res.status(502).json({ success: false, error: 'Replicate did not return an enhanced image URL.' });
+      return res.status(502).json({ success: false, error: 'Replicate finished without returning an enhanced image URL' });
     }
 
     return res.json({ success: true, imageUrl: outputUrl });
@@ -250,18 +248,23 @@ app.get('/ai-enhance/download', async (req, res) => {
   try {
     const imageUrl = String(req.query.url || '').trim();
     if (!imageUrl) {
-      return res.status(400).json({ success: false, error: 'Missing image URL.' });
+      return res.status(400).json({ success: false, error: 'Missing enhanced image URL.' });
     }
 
     let parsedUrl;
     try {
       parsedUrl = new URL(imageUrl);
     } catch (_error) {
-      return res.status(400).json({ success: false, error: 'Invalid image URL.' });
+      return res.status(400).json({ success: false, error: 'Invalid enhanced image URL.' });
     }
 
     if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
-      return res.status(400).json({ success: false, error: 'Image URL must use HTTP or HTTPS.' });
+      return res.status(400).json({ success: false, error: 'Enhanced image URL must use HTTP or HTTPS.' });
+    }
+
+    const response = await fetch(parsedUrl.toString());
+    if (!response.ok) {
+      return res.status(502).json({ success: false, error: 'Unable to download enhanced image from Replicate.' });
     }
 
     const imageResponse = await fetch(parsedUrl.toString());
