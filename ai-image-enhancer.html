@@ -163,6 +163,7 @@ const downloadBtn=document.getElementById('downloadBtn');
 const statusEl=document.getElementById('status');
 
 let selectedFile=null;
+let lastEnhanceAttempt=null;
 
 function setEnhanceState(enabled){
 enhanceBtn.disabled=!enabled;
@@ -198,6 +199,7 @@ dropzone.addEventListener('click',()=>fileInput.click());
 
 async function runEnhancement(){
 if(!selectedFile) return;
+lastEnhanceAttempt=runEnhancement;
 setEnhanceState(false);
 statusEl.textContent='Uploading image to Cloudinary for enhancement...';
 resetResult();
