@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
+const fetch = require('node-fetch'); // ✅ FIX
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
@@ -23,92 +24,6 @@ function getEnvToken(name) {
 function sanitizeDownloadName(name, fallback) {
   return (name || fallback).replace(/[^a-z0-9._-]/gi, '_');
 }
-
-
-const CLOUDINARY_CLOUD_NAME = 'dd9it0hte';
-const CLOUDINARY_UPLOAD_PRESET = 'convertios_unsigned';
-const CLOUDINARY_UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
-
-function buildEnhancedCloudinaryUrl(uploadedUrl) {
-  if (!uploadedUrl || !uploadedUrl.includes('/upload/')) {
-    throw new Error('Cloudinary upload response did not include a transformable image URL');
-  }
-
-  return uploadedUrl.replace('/upload/', '/upload/e_sharpen:300/q_auto/f_auto/');
-}
-
-app.post('/enhance', upload.single('image'), async (req, res) => {
-  const requestId = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
-  console.log('[POST /enhance] Upload received', {
-    requestId,
-    hasFile: !!req.file,
-    originalName: req.file?.originalname,
-    mimetype: req.file?.mimetype,
-    size: req.file?.size
-  });
-
-  try {
-    if (!req.file) {
-      return res.status(400).json({ error: 'No image uploaded. Use FormData field name "image".' });
-    }
-
-    if (!req.file.mimetype?.startsWith('image/')) {
-      return res.status(400).json({ error: 'Uploaded file must be an image.' });
-    }
-
-    const formData = new FormData();
-    formData.append('file', new Blob([req.file.buffer], { type: req.file.mimetype || 'image/png' }), req.file.originalname || 'image.png');
-    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-
-    const cloudinaryResponse = await fetch(CLOUDINARY_UPLOAD_URL, {
-      method: 'POST',
-      body: formData
-    });
-
-    const responseText = await cloudinaryResponse.text();
-    let cloudinaryData = null;
-    try {
-      cloudinaryData = responseText ? JSON.parse(responseText) : null;
-    } catch (parseError) {
-      console.error('[POST /enhance] Cloudinary returned non-JSON response', {
-        requestId,
-        status: cloudinaryResponse.status,
-        responseText: responseText.slice(0, 500)
-      });
-      return res.status(502).json({ error: 'Cloudinary upload failed', details: 'Cloudinary returned an invalid response.' });
-    }
-
-    console.log('[POST /enhance] Cloudinary response', {
-      requestId,
-      status: cloudinaryResponse.status,
-      publicId: cloudinaryData?.public_id,
-      secureUrl: cloudinaryData?.secure_url,
-      error: cloudinaryData?.error
-    });
-
-    if (!cloudinaryResponse.ok) {
-      return res.status(502).json({
-        error: 'Cloudinary upload failed',
-        details: cloudinaryData?.error?.message || cloudinaryData?.message || 'Cloudinary rejected the upload.'
-      });
-    }
-
-    const originalCloudinaryUrl = cloudinaryData?.secure_url;
-    const enhancedImageUrl = buildEnhancedCloudinaryUrl(originalCloudinaryUrl);
-    console.log('[POST /enhance] Original Cloudinary URL', { requestId, originalCloudinaryUrl });
-    console.log('[POST /enhance] Transformed enhanced URL', { requestId, enhancedImageUrl });
-    console.log('[POST /enhance] Final enhanced URL', { requestId, enhancedImageUrl });
-
-    return res.status(200).json({ enhancedImageUrl });
-  } catch (error) {
-    console.error('[POST /enhance] Error', {
-      requestId,
-      message: error.message,
-      stack: error.stack
-    });
-    return res.status(500).json({ error: 'Enhancement failed', details: error.message });
-  }
-});
 
 app.post('/convert/pdf-to-word', upload.single('file'), async (req, res) => {
   console.log('[POST /convert/pdf-to-word] Incoming request');
@@ -247,8 +162,107 @@ app.post('/remove-background', upload.single('image_file'), async (req, res) => 
   }
 });
 
-app.get('/health', (_req, res) => {
-  res.json({ ok: true });
+app.get('/', (req, res) => {
+  res.send('Server running');
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+});
+
+app.use((_req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
+
+app.use((error, _req, res, _next) => {
+  console.error('[server] Unhandled request error', error);
+  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
 });
 
 app.use((_req, res) => {
