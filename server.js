@@ -1,369 +1,341 @@
  (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/ai-enhance.html b/ai-enhance.html
-new file mode 100644
-index 0000000000000000000000000000000000000000..10ce6595d41b942eb802ed69d5cd128c508f4d2c
---- /dev/null
-+++ b/ai-enhance.html
-@@ -0,0 +1,359 @@
-+<!DOCTYPE html>
-+<html lang="en">
-+<head>
-+<meta charset="UTF-8">
-+<meta name="viewport" content="width=device-width, initial-scale=1.0">
-+<title>AI Image Enhancer | Convertios</title>
-+<meta name="description" content="Use AI Image Enhancer on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.">
-+<meta name="robots" content="index, follow">
-+<link rel="stylesheet" href="style.css?v=7">
-+<link rel="icon" href="/favicon.ico">
-+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-+<style>
-+.tool-wrap{max-width:1200px;margin:90px auto 40px;padding:0 20px}
-+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-+.panel{background:#071a33;color:#fff;border-radius:16px;padding:24px}
-+.dropzone{border:3px dashed #8bb2ff;border-radius:14px;padding:24px;text-align:center;cursor:pointer;background:linear-gradient(180deg,#0f2c54 0%,#0b2241 100%);min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
-+.dropzone.dragover{background:#15365f}
-+.preview{max-width:100%;max-height:300px;border-radius:10px;margin-top:14px;display:none}
-+.upload-btn{display:inline-block;margin-top:12px;background:#3a78ff;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600}
-+.upload-btn input{display:none}
-+.file-name{font-size:14px;color:#c4d6ff;min-height:20px}
-+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-+.btn{background:#3a78ff;border:none;color:#fff;padding:10px 16px;border-radius:8px;cursor:pointer}
-+.btn:disabled{opacity:.5;cursor:not-allowed}
-+.status{margin-top:12px;font-size:14px;color:#c4d6ff;min-height:20px}
-+.result-wrap{margin-top:16px}
-+@media (max-width:900px){.tool-grid{grid-template-columns:1fr}}
-+</style>
-+<link rel="canonical" href="https://convertios.com/ai-enhance.html">
-+</head>
-+<body>
-+<header class="site-header">
-+<div class="header-left"><a href="index.html" class="logo"><img src="convertios-logo.png" alt="Convertios Logo"></a></div>
-+<nav class="nav-menu">
-+<a href="index.html" class="active">Home</a>
-+<div class="nav-item dropdown"><span>Image ▾</span><div class="dropdown-menu">
-+<a href="png-to-jpg.html">PNG to JPG</a><a href="jpg-to-png.html">JPG to PNG</a><a href="webp-to-png.html">WEBP to PNG</a><a href="image-converter.html">Image Converter</a><a href="image-resizer.html">Resize Image</a><a href="compress-image.html">Compress Image</a><a href="remove-bg.html">Remove Background</a><a href="all-tools.html" class="view-all">View All →</a>
-+</div></div>
-+<div class="nav-item dropdown"><span>PDF ▾</span><div class="dropdown-menu"><a href="pdf-to-word.html">PDF to Word</a><a href="pdf-to-jpg.html">PDF to JPG</a><a href="jpg-to-pdf.html">JPG to PDF</a><a href="merge-pdf.html">Merge PDF</a><a href="split-pdf.html">Split PDF</a><a href="rotate-pdf.html">Rotate PDF</a><a href="all-tools.html" class="view-all">View All →</a></div></div>
-+<div class="nav-item dropdown"><span>Audio ▾</span><div class="dropdown-menu"><a href="mp3-cutter.html">MP3 Cutter</a><a href="audio-converter.html">Audio Converter</a><a href="audio-speed-changer.html">Speed Changer</a><a href="all-tools.html" class="view-all">View All →</a></div></div>
-+<a href="all-tools.html" class="nav-all-tools">All Tools →</a>
-+<a href="about.html">About</a><a href="contact.html">Contact</a>
-+</nav>
-+</header>
+diff --git a/server.js b/server.js
+index f334e0bfa48df4cde31f4f7789d6b169ec0e6ea0..aa082982339086ff6b659d796e2ce94a34f46792 100644
+--- a/server.js
++++ b/server.js
+@@ -107,182 +107,222 @@ app.post('/convert/pdf-to-word', upload.single('file'), async (req, res) => {
+       if (exportTask?.status === 'finished' && exportTask?.result?.files?.length) {
+         fileUrl = exportTask.result.files[0].url;
+       }
+     }
+ 
+     if (!fileUrl) {
+       return res.status(504).json({ error: 'PDF to Word conversion timed out' });
+     }
+ 
+     const convertedResponse = await fetch(fileUrl);
+     if (!convertedResponse.ok) {
+       return res.status(502).json({ error: 'Unable to download converted DOCX from CloudConvert' });
+     }
+ 
+     const convertedBuffer = Buffer.from(await convertedResponse.arrayBuffer());
+     const downloadName = sanitizeDownloadName((req.file.originalname || 'converted.pdf').replace(/\.pdf$/i, '.docx'), 'converted.docx');
+     res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+     res.setHeader('Content-Disposition', `attachment; filename="${downloadName}"`);
+     return res.send(convertedBuffer);
+   } catch (error) {
+     console.error('[POST /convert/pdf-to-word] Unexpected error', error);
+     return res.status(500).json({ error: 'PDF to Word conversion failed', details: error.message });
+   }
+ });
+ 
 +
-+<main class="tool-wrap">
-+<h1>AI Image Enhancer</h1>
-+<p>Enhance blurry or low-resolution images with AI-powered processing. This tool can improve sharpness, upscale detail, and produce cleaner visuals in just a few clicks.</p>
-+<div class="tool-grid">
-+<section class="panel">
-+<h2>Upload Image</h2>
-+<div id="dropzone" class="dropzone">
-+<p>Upload your image to enhance its quality using AI</p>
-+<label class="upload-btn">Choose Image <input type="file" id="fileInput" accept="image/*" aria-label="Choose a file to process"></label>
-+</div>
-+<p id="fileName" class="file-name"></p>
-+<img id="preview" class="preview" alt="Selected image preview">
-+</section>
-+
-+<section class="panel">
-+<h2>Enhancement Result</h2>
-+<div class="actions">
-+<button id="enhanceBtn" class="btn" disabled aria-label="Run this tool">Enhance Image</button>
-+<a id="downloadBtn" class="btn" style="display:none" download="enhanced-image.png">Download</a>
-+</div>
-+<p id="status" class="status">Select an image to begin.</p>
-+<div class="result-wrap">
-+<img id="resultPreview" class="preview" alt="Enhanced image preview">
-+</div>
-+</section>
-+</div>
-+
-+
-+
-+<section class="tool-info-block" aria-labelledby="tool-info-heading">
-+<h2 id="tool-info-heading">Tool Information</h2>
-+<div class="tool-info-grid">
-+<div><strong>Runs in browser:</strong><span>No</span></div>
-+<div><strong>Upload required:</strong><span>Yes</span></div>
-+<div><strong>Third-party processing:</strong><span>Replicate AI image upscaling</span></div>
-+<div><strong>File retention:</strong><span>Uploaded to the Convertios backend and sent to Replicate for processing.</span></div>
-+<div><strong>Max file size:</strong><span>Server upload limits apply</span></div>
-+<div><strong>Supported formats:</strong><span>JPG, PNG, WEBP image uploads → Enhanced Replicate image URL</span></div>
-+</div>
-+<p class="transparency-note"><strong>Transparency note:</strong> This tool uploads images to the Convertios backend, which sends them to Replicate for AI upscaling and returns the enhanced image URL.</p>
-+</section>
-+
-+<section class="tool-guide-block" aria-labelledby="guide-heading-ai-image-enhancer">
-+<h2 id="guide-heading-ai-image-enhancer">How It Works</h2>
-+<p>AI Image Enhancer uploads your selected image to the Convertios backend, then Replicate processes the image with an AI upscaling model and returns a sharper downloadable result. Review the file name and preview before starting so the result matches your intended use.</p>
-+<p>For related workflows, you can also use <a href="compress-image.html">Free Image Compressor</a> or <a href="image-converter.html">Image Converter Online</a> when your task needs another step in the same category.</p>
-+
-+<h2>Supported Formats</h2>
-+<ul>
-+<li><strong>Input:</strong> JPG, PNG, WEBP image uploads</li>
-+<li><strong>Output:</strong> Enhanced Replicate image URL</li>
-+</ul>
-+
-+<h2>Common Issues &amp; Fixes</h2>
-+<ul>
-+<li><strong>Why did my file not convert correctly?</strong> Check that the file is not corrupted, password protected, or larger than the recommended limit.</li>
-+<li><strong>Why is the result different from the original?</strong> Some formats store layout, transparency, fonts, or audio metadata differently, so review the output before sharing it.</li>
-+<li><strong>Why did processing stop?</strong> Refresh the page, choose a smaller file, and try again. Temporary Replicate processing limits or upload issues may also affect completion.</li>
-+</ul>
-+
-+<h2>Best Use Cases</h2>
-+<ul>
-+<li>Preparing files for upload forms, email attachments, websites, or social media.</li>
-+<li>Changing a file into a more compatible format before sharing it with others.</li>
-+<li>Reducing manual editing by using the focused settings available in this tool.</li>
-+</ul>
-+
-+<h2>Related Tools</h2>
-+<ul class="related-tools-list">
-+<li><a href="compress-image.html">Free Image Compressor</a></li>
-+<li><a href="image-converter.html">Image Converter Online</a></li>
-+<li><a href="image-resizer.html">Resize Image Online</a></li>
-+<li><a href="jpg-to-png.html">JPG to PNG Converter Online</a></li>
-+<li><a href="png-to-jpg.html">PNG to JPG Converter</a></li>
-+</ul>
-+</section>
-+
-+<section class="tool-description">
-+<h2>How to Use</h2>
-+<ol>
-+<li>Upload an image by dragging and dropping it or by clicking <strong>Choose Image</strong>.</li>
-+<li>Confirm the selected file name and preview.</li>
-+<li>Click <strong>Enhance Image</strong> to process the image with AI.</li>
-+<li>Wait while the tool shows <strong>Enhancing image...</strong>.</li>
-+<li>Preview and download the enhanced image result.</li>
-+</ol>
-+
-+<h2>Why Use This Tool</h2>
-+<ul>
-+<li>AI-powered enhancement for sharper and cleaner images.</li>
-+<li>Improves quality by refining detail and boosting resolution.</li>
-+<li>Fast and simple workflow with instant preview and download.</li>
-+</ul>
-+</section>
-+
-+<div class="more-tools">
-+<h3>Explore More Tools</h3>
-+<div class="more-tools-grid">
-+<a href="image-resizer.html" class="more-tool-card"><span>✂️</span><p>Image Resizer</p></a>
-+<a href="compress-image.html" class="more-tool-card"><span>🗜️</span><p>Compress Image</p></a>
-+<a href="image-converter.html" class="more-tool-card"><span>🖼️</span><p>Image Converter</p></a>
-+<a href="crop-image.html" class="more-tool-card"><span>🪄</span><p>Crop Image</p></a>
-+</div>
-+</div>
-+</main>
-+
-+<script>
-+const fileInput=document.getElementById('fileInput');
-+const dropzone=document.getElementById('dropzone');
-+const fileNameEl=document.getElementById('fileName');
-+const preview=document.getElementById('preview');
-+const resultPreview=document.getElementById('resultPreview');
-+const enhanceBtn=document.getElementById('enhanceBtn');
-+const downloadBtn=document.getElementById('downloadBtn');
-+const statusEl=document.getElementById('status');
-+
-+const AI_ENHANCE_ENDPOINT='/ai-enhance';
-+const AI_ENHANCE_DOWNLOAD_ENDPOINT='/ai-enhance/download';
-+let selectedFile=null;
-+let currentEnhancedImageUrl=null;
-+let currentDownloadObjectUrl=null;
-+let previewObjectUrl=null;
-+
-+function setEnhanceState(enabled){
-+enhanceBtn.disabled=!enabled;
++function buildReplicateHeaders(token, extraHeaders = {}) {
++  return {
++    Authorization: `Bearer ${token}`,
++    'Content-Type': 'application/json',
++    ...extraHeaders
++  };
 +}
 +
-+function setLoading(isLoading,message){
-+setEnhanceState(!isLoading && !!selectedFile);
-+if(message) statusEl.textContent=message;
++function fileToDataUri(file) {
++  const mimeType = file.mimetype || 'image/png';
++  const base64 = file.buffer.toString('base64');
++  return `data:${mimeType};base64,${base64}`;
 +}
 +
-+function resetResult(){
-+resultPreview.style.display='none';
-+resultPreview.removeAttribute('src');
-+downloadBtn.style.display='none';
-+downloadBtn.removeAttribute('href');
-+if(currentDownloadObjectUrl){
-+URL.revokeObjectURL(currentDownloadObjectUrl);
-+currentDownloadObjectUrl=null;
-+}
-+currentEnhancedImageUrl=null;
-+}
-+
-+function escapeHtml(value){
-+return String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
++function extractReplicateOutputUrl(output) {
++  if (!output) return null;
++  if (typeof output === 'string') return output;
++  if (Array.isArray(output)) {
++    const firstUrl = output.find((item) => typeof item === 'string' && /^https?:\/\//i.test(item));
++    return firstUrl || (typeof output[0] === 'string' ? output[0] : null);
++  }
++  if (typeof output === 'object') {
++    return output.url || output.image || output.output || null;
++  }
++  return null;
 +}
 +
-+function getDownloadFileName(){
-+const baseName=(selectedFile?.name || 'enhanced-image').replace(/\.[^.]+$/,'');
-+return `${baseName}-enhanced.png`;
++function getUploadedImage(req) {
++  return req.file || req.files?.image?.[0] || req.files?.file?.[0] || null;
 +}
 +
-+function showError(message){
-+statusEl.innerHTML=`Failed to enhance image: ${escapeHtml(message || 'Please try again.')} <button type="button" class="tool-retry-button" id="retryEnhance">Retry</button>`;
-+const retry=document.getElementById('retryEnhance');
-+if(retry) retry.addEventListener('click',runEnhancement);
++async function parseReplicateResponse(response) {
++  const text = await response.text();
++  try {
++    return text ? JSON.parse(text) : {};
++  } catch (_error) {
++    return { error: text || 'Invalid Replicate response' };
++  }
 +}
 +
-+function handleFile(file){
-+if(!file){
-+statusEl.textContent='Please choose an image file.';
-+return;
++async function pollReplicatePrediction(prediction, token) {
++  let current = prediction;
++  const getUrl = current?.urls?.get;
++
++  for (let attempt = 0; attempt < 90; attempt += 1) {
++    if (['succeeded', 'successful'].includes(current?.status)) return current;
++    if (['failed', 'canceled', 'cancelled'].includes(current?.status)) {
++      throw new Error(current?.error || `Replicate prediction ${current.status}`);
++    }
++
++    if (!getUrl) {
++      throw new Error('Replicate did not return a polling URL');
++    }
++
++    await sleep(2000);
++    const pollResponse = await fetch(getUrl, {
++      headers: { Authorization: `Bearer ${token}` }
++    });
++
++    current = await parseReplicateResponse(pollResponse);
++    if (!pollResponse.ok) {
++      throw new Error(current?.detail || current?.error || 'Replicate polling failed');
++    }
++  }
++
++  throw new Error('Replicate image enhancement timed out');
 +}
 +
-+if(!file.type.startsWith('image/')){
-+statusEl.textContent='Please choose a valid image file.';
-+return;
-+}
++app.post('/ai-enhance', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'file', maxCount: 1 }]), async (req, res) => {
++  console.log('[POST /ai-enhance] Incoming request');
 +
-+selectedFile=file;
-+fileNameEl.textContent=`Selected: ${file.name}`;
-+if(previewObjectUrl) URL.revokeObjectURL(previewObjectUrl);
-+previewObjectUrl=URL.createObjectURL(file);
-+preview.src=previewObjectUrl;
-+preview.style.display='block';
-+statusEl.textContent='Ready to enhance.';
-+resetResult();
-+setEnhanceState(true);
-+}
++  try {
++    const image = getUploadedImage(req);
++    if (!image) {
++      return res.status(400).json({ success: false, error: 'No image uploaded. Use FormData field name "image".' });
++    }
 +
-+fileInput.addEventListener('change',e=>handleFile(e.target.files[0]));
-+['dragenter','dragover'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.add('dragover');}));
-+['dragleave','drop'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.remove('dragover');}));
-+dropzone.addEventListener('drop',e=>handleFile(e.dataTransfer.files[0]));
-+dropzone.addEventListener('click',()=>fileInput.click());
++    if (!image.mimetype?.startsWith('image/')) {
++      return res.status(400).json({ success: false, error: 'Uploaded file must be an image.' });
++    }
 +
-+async function runEnhancement(){
-+if(!selectedFile) return;
-+setLoading(true,'Uploading image. Replicate AI enhancement is processing and may take a minute...');
-+resetResult();
++    const token = getEnvToken('REPLICATE_API_TOKEN');
++    const imageDataUri = fileToDataUri(image);
 +
-+try{
-+const formData=new FormData();
-+formData.append('image',selectedFile,selectedFile.name);
++    const createResponse = await fetch('https://api.replicate.com/v1/predictions', {
++      method: 'POST',
++      headers: buildReplicateHeaders(token, {
++        Prefer: 'wait=60',
++        'Cancel-After': '3m'
++      }),
++      body: JSON.stringify({
++        version: '42fed1c4974146d4d2414e2be2c5277c7fcf05fcc3a73abf41610695738c1d7b',
++        input: {
++          image: imageDataUri,
++          scale: 2,
++          face_enhance: false
++        }
++      })
++    });
 +
-+const response=await fetch(AI_ENHANCE_ENDPOINT,{
-+method:'POST',
-+body:formData
++    const createdPrediction = await parseReplicateResponse(createResponse);
++    if (!createResponse.ok) {
++      return res.status(502).json({
++        success: false,
++        error: createdPrediction?.detail || createdPrediction?.error || 'Replicate prediction creation failed'
++      });
++    }
++
++    const finishedPrediction = await pollReplicatePrediction(createdPrediction, token);
++    const imageUrl = extractReplicateOutputUrl(finishedPrediction.output);
++
++    if (!imageUrl) {
++      return res.status(502).json({ success: false, error: 'Replicate finished without returning an enhanced image URL' });
++    }
++
++    return res.json({ success: true, imageUrl });
++  } catch (error) {
++    console.error('[POST /ai-enhance] Error', error);
++    return res.status(500).json({ success: false, error: error.message || 'Replicate image enhancement failed' });
++  }
++});
++app.get('/ai-enhance/download', async (req, res) => {
++  try {
++    const imageUrl = String(req.query.url || '');
++    const parsedUrl = new URL(imageUrl);
++    const allowedHosts = new Set(['replicate.delivery', 'replicate.com']);
++
++    if (parsedUrl.protocol !== 'https:' || !allowedHosts.has(parsedUrl.hostname)) {
++      return res.status(400).json({ success: false, error: 'Invalid enhanced image URL.' });
++    }
++
++    const response = await fetch(imageUrl);
++    if (!response.ok) {
++      return res.status(502).json({ success: false, error: 'Unable to download enhanced image from Replicate.' });
++    }
++
++    const contentType = response.headers.get('content-type') || 'image/png';
++    const outputBuffer = Buffer.from(await response.arrayBuffer());
++    res.setHeader('Content-Type', contentType);
++    res.setHeader('Content-Disposition', 'attachment; filename="enhanced-image.png"');
++    return res.send(outputBuffer);
++  } catch (error) {
++    console.error('[GET /ai-enhance/download] Error', error);
++    return res.status(500).json({ success: false, error: error.message || 'Enhanced image download failed' });
++  }
 +});
 +
-+const data=await response.json().catch(()=>({success:false,error:'Invalid response from enhancement server.'}));
-+
-+if(!response.ok || !data.success){
-+throw new Error(data.error || 'The enhancement server failed to process the image.');
-+}
-+
-+if(!data.imageUrl){
-+throw new Error('The enhancement server did not return an image URL.');
-+}
-+
-+currentEnhancedImageUrl=data.imageUrl;
-+resultPreview.src=currentEnhancedImageUrl;
-+resultPreview.style.display='block';
-+downloadBtn.style.display='inline-block';
-+downloadBtn.download=getDownloadFileName();
-+statusEl.textContent='Image enhanced successfully ✅';
-+}catch(err){
-+console.error('[AI Enhancer] Error', err);
-+showError(err.message || 'Please try again.');
-+}finally{
-+setLoading(false);
-+}
-+}
-+
-+async function downloadEnhancedImage(event){
-+event.preventDefault();
-+if(!currentEnhancedImageUrl){
-+statusEl.textContent='Enhance an image before downloading.';
-+return;
-+}
-+
-+try{
-+statusEl.textContent='Preparing download...';
-+const downloadUrl=`${AI_ENHANCE_DOWNLOAD_ENDPOINT}?url=${encodeURIComponent(currentEnhancedImageUrl)}`;
-+const response=await fetch(downloadUrl);
-+if(!response.ok){
-+const errorData=await response.json().catch(()=>({error:'Unable to prepare the enhanced image download.'}));
-+throw new Error(errorData.error || 'Unable to prepare the enhanced image download.');
-+}
-+
-+const blob=await response.blob();
-+if(currentDownloadObjectUrl) URL.revokeObjectURL(currentDownloadObjectUrl);
-+currentDownloadObjectUrl=URL.createObjectURL(blob);
-+const link=document.createElement('a');
-+link.href=currentDownloadObjectUrl;
-+link.download=getDownloadFileName();
-+document.body.appendChild(link);
-+link.click();
-+link.remove();
-+statusEl.textContent='Download started.';
-+}catch(err){
-+console.error('[AI Enhancer] Download error', err);
-+statusEl.textContent=`Download failed: ${err.message || 'Please try again.'}`;
-+}
-+}
-+
-+enhanceBtn.addEventListener('click',runEnhancement);
-+downloadBtn.addEventListener('click',downloadEnhancedImage);
-+
-+setEnhanceState(false);
-+</script>
-+
-+<script>
-+(function(){
-+let lastActionButton=null;
-+document.addEventListener('click',function(event){
-+const button=event.target.closest('button');
-+if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-+},true);
-+function ensureToolMessage(){
-+let box=document.getElementById('toolMessage');
-+if(!box){
-+box=document.createElement('div');
-+box.id='toolMessage';
-+box.className='tool-message-box';
-+box.setAttribute('role','status');
-+box.setAttribute('aria-live','polite');
-+const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-+anchor.insertAdjacentElement('afterend',box);
-+}
-+return box;
-+}
-+window.showToolMessage=function(message,canRetry){
-+const box=ensureToolMessage();
-+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
-+box.style.display='block';
-+const retry=document.getElementById('commonToolRetry');
-+if(retry){
-+retry.addEventListener('click',function(){
-+box.style.display='none';
-+if(lastActionButton) lastActionButton.click();
-+});
-+}
-+};
-+const nativeAlert=window.alert;
-+window.alert=function(message){
-+window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
-+if(nativeAlert && !document.body) nativeAlert(message);
-+};
-+window.addEventListener('error',function(event){
-+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
-+});
-+window.addEventListener('unhandledrejection',function(event){
-+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
-+});
-+})();
-+</script>
-+
-+</body>
-+</html>
+ app.post('/remove-background', upload.single('image_file'), async (req, res) => {
+   console.log('[POST /remove-background] Incoming request');
+ 
+   try {
+     if (!req.file) {
+       return res.status(400).json({ error: 'No image uploaded. Use FormData field name "image_file".' });
+     }
+ 
+     const formData = new FormData();
+     formData.append('image_file', new Blob([req.file.buffer], { type: req.file.mimetype || 'image/png' }), req.file.originalname || 'image.png');
+     formData.append('size', 'auto');
+ 
+     const response = await fetch('https://api.remove.bg/v1.0/removebg', {
+       method: 'POST',
+       headers: { 'X-Api-Key': getEnvToken('REMOVE_BG_API_KEY') },
+       body: formData
+     });
+ 
+     if (!response.ok) {
+       const details = await response.text();
+       return res.status(502).json({ error: 'Background removal failed', details });
+     }
+ 
+     const outputBuffer = Buffer.from(await response.arrayBuffer());
+     res.setHeader('Content-Type', 'image/png');
+     res.setHeader('Content-Disposition', 'attachment; filename="no-bg.png"');
+     return res.send(outputBuffer);
+   } catch (error) {
+     console.error('[POST /remove-background] Unexpected error', error);
+     return res.status(500).json({ error: 'Background removal failed', details: error.message });
+   }
+ });
+ 
+ app.get('/', (req, res) => {
+   res.send('Server running');
+ });
+ 
+ app.use((_req, res) => {
+-  return res.status(404).json({ error: 'Not found' });
+-});
+-
+-app.use((error, _req, res, _next) => {
+-  console.error('[server] Unhandled request error', error);
+-  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+-});
+-
+-app.use((_req, res) => {
+-  return res.status(404).json({ error: 'Not found' });
+-});
+-
+-app.use((error, _req, res, _next) => {
+-  console.error('[server] Unhandled request error', error);
+-  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+-});
+-
+-app.use((_req, res) => {
+-  return res.status(404).json({ error: 'Not found' });
+-});
+-
+-app.use((error, _req, res, _next) => {
+-  console.error('[server] Unhandled request error', error);
+-  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+-});
+-
+-app.use((_req, res) => {
+-  return res.status(404).json({ error: 'Not found' });
+-});
+-
+-app.use((error, _req, res, _next) => {
+-  console.error('[server] Unhandled request error', error);
+-  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+-});
+-
+-app.use((_req, res) => {
+-  return res.status(404).json({ error: 'Not found' });
+-});
+-
+-app.use((error, _req, res, _next) => {
+-  console.error('[server] Unhandled request error', error);
+-  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+-});
+-
+-app.use((_req, res) => {
+-  return res.status(404).json({ error: 'Not found' });
+-});
+-
+-app.use((error, _req, res, _next) => {
+-  console.error('[server] Unhandled request error', error);
+-  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+-});
+-
+-app.use((_req, res) => {
+-  return res.status(404).json({ error: 'Not found' });
+-});
+-
+-app.use((error, _req, res, _next) => {
+-  console.error('[server] Unhandled request error', error);
+-  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+-});
+-
+-app.use((_req, res) => {
+-  return res.status(404).json({ error: 'Not found' });
+-});
+-
+-app.use((error, _req, res, _next) => {
+-  console.error('[server] Unhandled request error', error);
+-  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+-});
+-
+-app.use((_req, res) => {
+-  return res.status(404).json({ error: 'Not found' });
+-});
+-
+-app.use((error, _req, res, _next) => {
+-  console.error('[server] Unhandled request error', error);
+-  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+-});
+-
+-app.use((_req, res) => {
+-  return res.status(404).json({ error: 'Not found' });
+-});
+-
+-app.use((error, _req, res, _next) => {
+-  console.error('[server] Unhandled request error', error);
+-  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+-});
+-
+-app.use((_req, res) => {
+-  return res.status(404).json({ error: 'Not found' });
+-});
+-
+-app.use((error, _req, res, _next) => {
+-  console.error('[server] Unhandled request error', error);
+-  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+-});
+-
+-app.use((_req, res) => {
+-  return res.status(404).json({ error: 'Not found' });
+-});
+-
+-app.use((error, _req, res, _next) => {
+-  console.error('[server] Unhandled request error', error);
+-  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
+-});
+-
+-app.use((_req, res) => {
+-  return res.status(404).json({ error: 'Not found' });
++  return res.status(404).json({ success: false, error: 'Not found' });
+ });
+ 
+ app.use((error, _req, res, _next) => {
+   console.error('[server] Unhandled request error', error);
+-  return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });
++  return res.status(500).json({ success: false, error: 'Request failed', details: error.message || String(error) });
+ });
+ 
+ app.listen(PORT, () => {
+   console.log(`Convertios API server running on http://localhost:${PORT}`);
+ });
  
 EOF
 )
