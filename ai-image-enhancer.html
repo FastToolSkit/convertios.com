@@ -227,8 +227,10 @@ if(!uploadedImageUrl){
 throw new Error('Cloudinary did not return an uploaded image URL');
 }
 
-const enhancedImageUrl=uploadedImageUrl.replace('/upload/','/upload/e_improve:enhance/e_sharpen/');
-
+const enhancedImageUrl = uploadedImageUrl.replace(
+  '/upload/',
+  '/upload/e_sharpen:300,q_auto,f_auto/'
+);
 resultPreview.src=enhancedImageUrl;
 resultPreview.style.display='block';
 downloadBtn.href=enhancedImageUrl;
