@@ -5,11 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Compress Image Online - Reduce Image Size to 100KB, 50KB | Convertios</title>
+<title>Free Image Compressor | Convertios</title>
 
-<meta name="description" content="Compress images online for free. Reduce JPG, PNG, and WEBP file size instantly to 100KB, 50KB or custom size. Fast, secure, no signup.">
-
-<link rel="canonical" href="https://convertios.com/compress-image.html">
+<meta name="description" content="Use Free Image Compressor on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.">
 <meta name="robots" content="index, follow">
 
 <link rel="stylesheet" href="style.css">
@@ -132,6 +130,7 @@ line-height:1.8;
 
 </style>
 
+<link rel="canonical" href="https://convertios.com/compress-image.html">
 </head>
 
 <body>
@@ -262,7 +261,7 @@ line-height:1.8;
 <option value="image/webp">WEBP</option>
 </select>
 
-<button class="main-button" onclick="runCompression()">Compress</button>
+<button class="main-button" onclick="runCompression()" aria-label="Run this tool">Compress</button>
 
 <a id="downloadLink" class="main-button download-btn" style="display:none;"></a>
 
@@ -277,7 +276,7 @@ line-height:1.8;
 
 <div class="upload-area" onclick="upload.click()">
 <p>Click or drag image here</p>
-<input type="file" id="upload" hidden>
+<input type="file" id="upload" hidden aria-label="Choose a file to process">
 </div>
 
 <img id="preview">
@@ -286,7 +285,57 @@ line-height:1.8;
 
 </div>
 
+
+<section class="tool-info-block" aria-labelledby="tool-info-heading">
+<h2 id="tool-info-heading">Tool Information</h2>
+<div class="tool-info-grid">
+<div><strong>Runs in browser:</strong><span>Yes</span></div>
+<div><strong>Upload required:</strong><span>No - processed locally in your browser</span></div>
+<div><strong>Third-party processing:</strong><span>None</span></div>
+<div><strong>File retention:</strong><span>Files stay on your device and are not stored by Convertios.</span></div>
+<div><strong>Max file size:</strong><span>25 MB</span></div>
+<div><strong>Supported formats:</strong><span>JPG, PNG, WEBP and browser-supported images → Compressed image in the selected format</span></div>
+</div>
+
+</section>
+
+<section class="tool-guide-block" aria-labelledby="guide-heading-compress-image">
+<h2 id="guide-heading-compress-image">How It Works</h2>
+<p>Free Image Compressor reads your selected input, applies the conversion or editing step shown in the tool controls, and prepares an output that matches the format listed below. Review the file name, size, and chosen settings before starting so the result matches your intended use.</p>
+<p>For related workflows, you can also use <a href="image-converter.html">Image Converter Online</a> or <a href="image-resizer.html">Resize Image Online</a> when your task needs another step in the same category.</p>
+
+<h2>Supported Formats</h2>
+<ul>
+<li><strong>Input:</strong> JPG, PNG, WEBP and browser-supported images</li>
+<li><strong>Output:</strong> Compressed image in the selected format</li>
+</ul>
+
+<h2>Common Issues &amp; Fixes</h2>
+<ul>
+<li><strong>Why did my file not convert correctly?</strong> Check that the file is not corrupted, password protected, or larger than the recommended limit.</li>
+<li><strong>Why is the result different from the original?</strong> Some formats store layout, transparency, fonts, or audio metadata differently, so review the output before sharing it.</li>
+<li><strong>Why did processing stop?</strong> Refresh the page, choose a smaller file, and try again. If the tool uses third-party processing, temporary provider limits may also affect completion.</li>
+</ul>
+
+<h2>Best Use Cases</h2>
+<ul>
+<li>Preparing files for upload forms, email attachments, websites, or social media.</li>
+<li>Changing a file into a more compatible format before sharing it with others.</li>
+<li>Reducing manual editing by using the focused settings available in this tool.</li>
+</ul>
+
+<h2>Related Tools</h2>
+<ul class="related-tools-list">
+<li><a href="image-converter.html">Image Converter Online</a></li>
+<li><a href="image-resizer.html">Resize Image Online</a></li>
+<li><a href="jpg-to-png.html">JPG to PNG Converter Online</a></li>
+<li><a href="png-to-jpg.html">PNG to JPG Converter</a></li>
+<li><a href="webp-to-png.html">WEBP to PNG Converter Online</a></li>
+</ul>
+</section>
+
 <!-- SEO -->
+
 <div class="tool-description">
 
 <h2>Compress Images Online (Reduce Image Size to 100KB, 50KB & More)</h2>
@@ -391,6 +440,7 @@ Yes, you can compress images to target sizes like 100KB, 50KB, or adjust quality
 </div>
 
 </div>
+
 
 <footer class="site-footer">
 
@@ -539,6 +589,53 @@ loop();
 };
 }
 
+</script>
+
+
+<script>
+(function(){
+let lastActionButton=null;
+document.addEventListener('click',function(event){
+const button=event.target.closest('button');
+if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
+},true);
+function ensureToolMessage(){
+let box=document.getElementById('toolMessage');
+if(!box){
+box=document.createElement('div');
+box.id='toolMessage';
+box.className='tool-message-box';
+box.setAttribute('role','status');
+box.setAttribute('aria-live','polite');
+const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
+anchor.insertAdjacentElement('afterend',box);
+}
+return box;
+}
+window.showToolMessage=function(message,canRetry){
+const box=ensureToolMessage();
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
+box.style.display='block';
+const retry=document.getElementById('commonToolRetry');
+if(retry){
+retry.addEventListener('click',function(){
+box.style.display='none';
+if(lastActionButton) lastActionButton.click();
+});
+}
+};
+const nativeAlert=window.alert;
+window.alert=function(message){
+window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
+if(nativeAlert && !document.body) nativeAlert(message);
+};
+window.addEventListener('error',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+window.addEventListener('unhandledrejection',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+})();
 </script>
 
 </body>

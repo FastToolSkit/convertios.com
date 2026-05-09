@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Media Image Resizer | Convertios</title>
-<meta name="description" content="Resize images for Instagram, Facebook, YouTube, TikTok, LinkedIn, and more. Choose multiple sizes and download instantly.">
+<meta name="description" content="Use Social Media Image Resizer on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://convertios.com/social-media-image-resizer.html">
 <link rel="stylesheet" href="style.css?v=7">
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -32,6 +31,7 @@
 .status{margin-top:12px;font-size:14px;color:#c4d6ff}
 @media (max-width:900px){.tool-grid{grid-template-columns:1fr}}
 </style>
+<link rel="canonical" href="https://convertios.com/social-media-image-resizer.html">
 </head>
 <body>
 <header class="site-header">
@@ -56,7 +56,7 @@
 <h2>Upload Image</h2>
 <div id="dropzone" class="dropzone">
 <p>Drag &amp; Drop your image here or click to upload</p>
-<label class="upload-btn">Choose Image <input type="file" id="fileInput" accept="image/*"></label>
+<label class="upload-btn">Choose Image <input type="file" id="fileInput" accept="image/*" aria-label="Choose a file to process"></label>
 </div>
 <img id="preview" class="preview" alt="Preview">
 <div class="actions">
@@ -68,6 +68,56 @@
 
 <section class="panel accordion" id="sizePanel"><h2>Select Sizes</h2></section>
 </div>
+
+
+
+<section class="tool-info-block" aria-labelledby="tool-info-heading">
+<h2 id="tool-info-heading">Tool Information</h2>
+<div class="tool-info-grid">
+<div><strong>Runs in browser:</strong><span>Yes</span></div>
+<div><strong>Upload required:</strong><span>No - processed locally in your browser</span></div>
+<div><strong>Third-party processing:</strong><span>None</span></div>
+<div><strong>File retention:</strong><span>Files stay on your device and are not stored by Convertios.</span></div>
+<div><strong>Max file size:</strong><span>25 MB</span></div>
+<div><strong>Supported formats:</strong><span>JPG, PNG, WEBP and browser-supported images → Platform-sized image download</span></div>
+</div>
+
+</section>
+
+<section class="tool-guide-block" aria-labelledby="guide-heading-social-media-image-resizer">
+<h2 id="guide-heading-social-media-image-resizer">How It Works</h2>
+<p>Social Media Image Resizer reads your selected input, applies the conversion or editing step shown in the tool controls, and prepares an output that matches the format listed below. Review the file name, size, and chosen settings before starting so the result matches your intended use.</p>
+<p>For related workflows, you can also use <a href="compress-image.html">Free Image Compressor</a> or <a href="image-converter.html">Image Converter Online</a> when your task needs another step in the same category.</p>
+
+<h2>Supported Formats</h2>
+<ul>
+<li><strong>Input:</strong> JPG, PNG, WEBP and browser-supported images</li>
+<li><strong>Output:</strong> Platform-sized image download</li>
+</ul>
+
+<h2>Common Issues &amp; Fixes</h2>
+<ul>
+<li><strong>Why did my file not convert correctly?</strong> Check that the file is not corrupted, password protected, or larger than the recommended limit.</li>
+<li><strong>Why is the result different from the original?</strong> Some formats store layout, transparency, fonts, or audio metadata differently, so review the output before sharing it.</li>
+<li><strong>Why did processing stop?</strong> Refresh the page, choose a smaller file, and try again. If the tool uses third-party processing, temporary provider limits may also affect completion.</li>
+</ul>
+
+<h2>Best Use Cases</h2>
+<ul>
+<li>Preparing files for upload forms, email attachments, websites, or social media.</li>
+<li>Changing a file into a more compatible format before sharing it with others.</li>
+<li>Reducing manual editing by using the focused settings available in this tool.</li>
+</ul>
+
+<h2>Related Tools</h2>
+<ul class="related-tools-list">
+<li><a href="compress-image.html">Free Image Compressor</a></li>
+<li><a href="image-converter.html">Image Converter Online</a></li>
+<li><a href="image-resizer.html">Resize Image Online</a></li>
+<li><a href="jpg-to-png.html">JPG to PNG Converter Online</a></li>
+<li><a href="png-to-jpg.html">PNG to JPG Converter</a></li>
+</ul>
+</section>
 
 <section class="tool-description">
 <h2>How to Use</h2>
@@ -143,5 +193,52 @@ btnZip.addEventListener('click',async()=>{const opts=selectedOptions();if(opts.l
 function downloadBlob(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),800);}
 function slug(t){return t.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
 </script>
+
+<script>
+(function(){
+let lastActionButton=null;
+document.addEventListener('click',function(event){
+const button=event.target.closest('button');
+if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
+},true);
+function ensureToolMessage(){
+let box=document.getElementById('toolMessage');
+if(!box){
+box=document.createElement('div');
+box.id='toolMessage';
+box.className='tool-message-box';
+box.setAttribute('role','status');
+box.setAttribute('aria-live','polite');
+const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
+anchor.insertAdjacentElement('afterend',box);
+}
+return box;
+}
+window.showToolMessage=function(message,canRetry){
+const box=ensureToolMessage();
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
+box.style.display='block';
+const retry=document.getElementById('commonToolRetry');
+if(retry){
+retry.addEventListener('click',function(){
+box.style.display='none';
+if(lastActionButton) lastActionButton.click();
+});
+}
+};
+const nativeAlert=window.alert;
+window.alert=function(message){
+window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
+if(nativeAlert && !document.body) nativeAlert(message);
+};
+window.addEventListener('error',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+window.addEventListener('unhandledrejection',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+})();
+</script>
+
 </body>
 </html>
