@@ -239,13 +239,13 @@ app.post('/ai-enhance', upload.fields([{ name: 'image', maxCount: 1 }, { name: '
     }
 
     const finishedPrediction = await pollReplicatePrediction(createdPrediction, token);
-    const imageUrl = extractReplicateOutputUrl(finishedPrediction.output);
+    const outputUrl = extractReplicateOutputUrl(finishedPrediction.output);
 
-    if (!imageUrl) {
+    if (!outputUrl) {
       return res.status(502).json({ success: false, error: 'Replicate finished without returning an enhanced image URL' });
     }
 
-    return res.json({ success: true, imageUrl });
+    return res.json({ success: true, imageUrl: outputUrl });
   } catch (error) {
     console.error('[POST /ai-enhance] Error', error);
     return res.status(500).json({ success: false, error: error.message || 'Replicate image enhancement failed' });
@@ -253,15 +253,23 @@ app.post('/ai-enhance', upload.fields([{ name: 'image', maxCount: 1 }, { name: '
 });
 app.get('/ai-enhance/download', async (req, res) => {
   try {
-    const imageUrl = String(req.query.url || '');
-    const parsedUrl = new URL(imageUrl);
-    const allowedHosts = new Set(['replicate.delivery', 'replicate.com']);
+    const imageUrl = String(req.query.url || '').trim();
+    if (!imageUrl) {
+      return res.status(400).json({ success: false, error: 'Missing enhanced image URL.' });
+    }
 
-    if (parsedUrl.protocol !== 'https:' || !allowedHosts.has(parsedUrl.hostname)) {
+    let parsedUrl;
+    try {
+      parsedUrl = new URL(imageUrl);
+    } catch (_error) {
       return res.status(400).json({ success: false, error: 'Invalid enhanced image URL.' });
     }
 
-    const response = await fetch(imageUrl);
+    if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
+      return res.status(400).json({ success: false, error: 'Enhanced image URL must use HTTP or HTTPS.' });
+    }
+
+    const response = await fetch(parsedUrl.toString());
     if (!response.ok) {
       return res.status(502).json({ success: false, error: 'Unable to download enhanced image from Replicate.' });
     }

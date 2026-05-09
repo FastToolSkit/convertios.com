@@ -199,6 +199,10 @@ const baseName=(selectedFile?.name || 'enhanced-image').replace(/\.[^.]+$/,'');
 return `${baseName}-enhanced.png`;
 }
 
+function getDownloadEndpoint(imageUrl){
+return `${AI_ENHANCE_DOWNLOAD_ENDPOINT}?url=${encodeURIComponent(imageUrl)}`;
+}
+
 function showError(message){
 statusEl.innerHTML=`Failed to enhance image: ${escapeHtml(message || 'Please try again.')} <button type="button" class="tool-retry-button" id="retryEnhance">Retry</button>`;
 const retry=document.getElementById('retryEnhance');
@@ -260,6 +264,7 @@ throw new Error('The enhancement server did not return an image URL.');
 currentEnhancedImageUrl=data.imageUrl;
 resultPreview.src=currentEnhancedImageUrl;
 resultPreview.style.display='block';
+downloadBtn.href=getDownloadEndpoint(currentEnhancedImageUrl);
 downloadBtn.style.display='inline-block';
 downloadBtn.download=getDownloadFileName();
 statusEl.textContent='Image enhanced successfully ✅';
@@ -280,8 +285,7 @@ return;
 
 try{
 statusEl.textContent='Preparing download...';
-const downloadUrl=`${AI_ENHANCE_DOWNLOAD_ENDPOINT}?url=${encodeURIComponent(currentEnhancedImageUrl)}`;
-const response=await fetch(downloadUrl);
+const response=await fetch(getDownloadEndpoint(currentEnhancedImageUrl));
 if(!response.ok){
 const errorData=await response.json().catch(()=>({error:'Unable to prepare the enhanced image download.'}));
 throw new Error(errorData.error || 'Unable to prepare the enhanced image download.');
