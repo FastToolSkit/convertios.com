@@ -29,7 +29,7 @@
 .result-wrap{margin-top:16px}
 @media (max-width:900px){.tool-grid{grid-template-columns:1fr}}
 </style>
-<link rel="canonical" href="https://convertios.com/ai-image-enhancer.html">
+<link rel="canonical" href="https://convertios.com/ai-enhance.html">
 </head>
 <body>
 <header class="site-header">
@@ -162,9 +162,9 @@ const enhanceBtn=document.getElementById('enhanceBtn');
 const downloadBtn=document.getElementById('downloadBtn');
 const statusEl=document.getElementById('status');
 
-const BACKEND_BASE_URL = 'PASTE_RENDER_BACKEND_URL_HERE';
-const AI_ENHANCE_ENDPOINT = `${BACKEND_BASE_URL}/ai-enhance`;
-const AI_ENHANCE_DOWNLOAD_ENDPOINT = `${BACKEND_BASE_URL}/ai-enhance/download`;
+const AI_ENHANCE_API_BASE = ''; // Paste the Render backend URL here, for example: https://your-service.onrender.com
+const AI_ENHANCE_ENDPOINT = `${AI_ENHANCE_API_BASE}/ai-enhance`;
+const AI_ENHANCE_DOWNLOAD_ENDPOINT = `${AI_ENHANCE_API_BASE}/ai-enhance/download`;
 let selectedFile=null;
 let currentEnhancedImageUrl=null;
 let currentDownloadObjectUrl=null;
@@ -205,8 +205,9 @@ return `${AI_ENHANCE_DOWNLOAD_ENDPOINT}?url=${encodeURIComponent(imageUrl)}`;
 }
 
 function requireAiEnhanceBackend(){
-if(BACKEND_BASE_URL === 'PASTE_RENDER_BACKEND_URL_HERE'){
-throw new Error('AI enhancer backend URL is not configured. Deploy the Express backend on Render, then replace PASTE_RENDER_BACKEND_URL_HERE in ai-image-enhancer.html with the Render backend URL.');
+const isProductionStaticSite=['convertios.com','www.convertios.com'].includes(window.location.hostname);
+if(isProductionStaticSite && !AI_ENHANCE_API_BASE){
+throw new Error('AI enhancer backend URL is not configured. Deploy the Express backend on Render, then paste the Render URL into AI_ENHANCE_API_BASE.');
 }
 }
 
