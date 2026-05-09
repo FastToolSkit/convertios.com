@@ -32,7 +32,7 @@ async function pollReplicatePrediction(prediction, requestId) {if (!prediction?.
 
 let current = prediction;const maxAttempts = 30;
 
-for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {if (['failed', 'canceled'].includes(current.status)) {throw new Error(current.error || Replicate prediction ${current.status});}
+for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {if (['failed', 'canceled'].includes(current.status)) {throw new Error(current.error || `Replicate prediction ${current.status}`);
 
 const outputUrl = extractPredictionOutput(current);
 if (outputUrl) {
@@ -44,7 +44,8 @@ if (current.status === 'succeeded') {
 }
 
 await sleep(2000);
-console.log(`[POST /enhance] [${requestId}] Polling Replicate prediction attempt ${attempt}, current status: ${current.status}`);
+console.log(`[POST /enhance] [${requestId}] Polling Replicate prediction attempt ${attempt}, current status: 
+${current.status}`);
 
 const pollResponse = await fetch(prediction.urls.get, {
   method: 'GET',
@@ -72,7 +73,7 @@ if (error instanceof multer.MulterError && error.code === 'LIMIT_FILE_SIZE') {
 
 return sendEnhanceError(res, 400, error.message || 'Invalid image upload.');
 
-});}, async (req, res) => {const requestId = ${Date.now()}-${Math.random().toString(16).slice(2)};let prediction = null;let stage = 'received';
+});}, async (req, res) => {const requestId = `${Date.now()}-${Math.random().toString(16).slice(2)}`;let prediction = null;let stage = 'received';
 
 try {console.log('🔥 Request received', { requestId, path: req.path, method: req.method });console.log('📦 File size:', req.file?.size);console.log('[POST /enhance] Upload metadata:', {requestId,fieldName: req.file?.fieldname,originalName: req.file?.originalname,mimetype: req.file?.mimetype,bufferBytes: req.file?.buffer?.length});console.log("🔥 NEW VERSION LIVE");console.log('🔑 Token exists:', !!process.env.REPLICATE_API_TOKEN);if (!req.file) {return sendEnhanceError(res, 400, 'No image uploaded. Use FormData field name "image".', { requestId, stage: 'validation' });}
 
@@ -161,7 +162,7 @@ return res.status(200).json({ enhancedImageUrl: outputUrl });
 
 } catch (error) {console.error('[POST /enhance] Enhancement failed', {requestId,stage,message: error.message,stack: error.stack,replicate: safeReplicateDetails(prediction)});return sendEnhanceError(res, 500, error.message || safeReplicateDetails(prediction), {requestId,stage,replicate: safeReplicateDetails(prediction)});}});
 
-function getEnvToken(name) {const token = process.env[name];if (!token) {throw new Error(Missing ${name} environment variable);}return token;}
+function getEnvToken(name) {const token = process.env[name];if (!token) {throw new Error(`Missing ${name} environment variable`);}return token;}
 
 function sanitizeDownloadName(name, fallback) {return (name || fallback).replace(/[^a-z0-9.-]/gi, '');}
 
@@ -318,4 +319,4 @@ app.use((_req, res) => {return res.status(404).json({ error: 'Not found' });});
 
 app.use((error, _req, res, _next) => {console.error('[server] Unhandled request error', error);return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });});
 
-app.listen(PORT, () => {console.log(Server running on port ${PORT});});
+app.listen(PORT, () => {console.log(`Server running on port ${PORT}`);});
