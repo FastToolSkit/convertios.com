@@ -182,9 +182,11 @@ const enhanceBtn=document.getElementById('enhanceBtn');
 const downloadBtn=document.getElementById('downloadBtn');
 const statusEl=document.getElementById('status');
 
-const AI_ENHANCE_API_BASE = ''; // Paste the Render backend URL here, for example: https://your-service.onrender.com
-const AI_ENHANCE_ENDPOINT = `${AI_ENHANCE_API_BASE}/ai-enhance`;
-const AI_ENHANCE_DOWNLOAD_ENDPOINT = `${AI_ENHANCE_API_BASE}/ai-enhance/download`;
+const AI_ENHANCE_ENDPOINT = 'https://convertios.app.n8n.cloud/webhook/ai-enhance';
+
+const CLOUDINARY_CLOUD_NAME = 'dd9it0hte';
+const CLOUDINARY_UPLOAD_PRESET = 'convertios_unsigned';
+const CLOUDINARY_UPLOAD_ENDPOINT = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
 let selectedFile=null;
 let currentEnhancedImageUrl=null;
 let currentDownloadObjectUrl=null;
@@ -220,16 +222,6 @@ const baseName=(selectedFile?.name || 'enhanced-image').replace(/\.[^.]+$/,'');
 return `${baseName}-enhanced.png`;
 }
 
-function getDownloadEndpoint(imageUrl){
-return `${AI_ENHANCE_DOWNLOAD_ENDPOINT}?url=${encodeURIComponent(imageUrl)}`;
-}
-
-function requireAiEnhanceBackend(){
-const isProductionStaticSite=['convertios.com','www.convertios.com'].includes(window.location.hostname);
-if(isProductionStaticSite && !AI_ENHANCE_API_BASE){
-throw new Error('AI enhancer backend URL is not configured. Deploy the Express backend on Render, then paste the Render URL into AI_ENHANCE_API_BASE.');
-}
-}
 
 function showError(message){
 statusEl.innerHTML=`Failed to enhance image: ${escapeHtml(message || 'Please try again.')} <button type="button" class="tool-retry-button" id="retryEnhance">Retry</button>`;
@@ -267,36 +259,67 @@ dropzone.addEventListener('click',()=>fileInput.click());
 
 async function runEnhancement(){
 if(!selectedFile) return;
-setLoading(true,'Uploading image to Cloudinary...');
+
+setLoading(true,'Uploading image...');
 resetResult();
 
 try{
-requireAiEnhanceBackend();
-const formData=new FormData();
-formData.append('image',selectedFile,selectedFile.name);
+if(CLOUDINARY_CLOUD_NAME.includes('PASTE_') || CLOUDINARY_UPLOAD_PRESET.includes('PASTE_')){
+  throw new Error('Cloudinary is not configured yet. Add your cloud name and unsigned upload preset.');
+}
 
-const response=await fetch(AI_ENHANCE_ENDPOINT,{
-method:'POST',
-body:formData
+const uploadFormData = new FormData();
+uploadFormData.append('file', selectedFile);
+uploadFormData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+setLoading(true,'Uploading image to Cloudinary...');
+
+const cloudinaryResponse = await fetch(CLOUDINARY_UPLOAD_ENDPOINT,{
+  method:'POST',
+  body:uploadFormData
 });
 
-const data=await response.json().catch(()=>({success:false,error:'Invalid response from enhancement server.'}));
+const cloudinaryData = await cloudinaryResponse.json().catch(()=>null);
+
+if(!cloudinaryResponse.ok || !cloudinaryData?.secure_url){
+  throw new Error(cloudinaryData?.error?.message || 'Cloudinary upload failed.');
+}
+
+setLoading(true,'Enhancing image with AI...');
+
+const response = await fetch(AI_ENHANCE_ENDPOINT,{
+  method:'POST',
+  headers:{
+    'Content-Type':'application/json'
+  },
+  body:JSON.stringify({
+    image:cloudinaryData.secure_url,
+    message:'Convertios AI image enhancement'
+  })
+});
+
+const data = await response.json().catch(()=>({
+  success:false,
+  error:'Invalid response from AI enhancement server.'
+}));
 
 if(!response.ok || !data.success){
-throw new Error(data.error || 'The enhancement server failed to process the image.');
+  throw new Error(data.error || 'The AI enhancement server failed to process the image.');
 }
 
 if(!data.imageUrl){
-throw new Error('The enhancement server did not return an image URL.');
+  throw new Error('The AI enhancement server did not return an image URL.');
 }
 
-currentEnhancedImageUrl=imageUrl;
-resultPreview.src=currentEnhancedImageUrl;
-resultPreview.style.display='block';
-downloadBtn.href=getDownloadEndpoint(currentEnhancedImageUrl);
-downloadBtn.style.display='inline-block';
-downloadBtn.download=getDownloadFileName();
-statusEl.textContent='Image enhanced successfully ✅';
+currentEnhancedImageUrl = data.imageUrl;
+resultPreview.src = currentEnhancedImageUrl;
+resultPreview.style.display = 'block';
+
+downloadBtn.href = currentEnhancedImageUrl;
+downloadBtn.style.display = 'inline-block';
+downloadBtn.download = getDownloadFileName();
+
+statusEl.textContent = 'Image enhanced successfully ✅';
 }catch(err){
 console.error('[AI Enhancer] Error', err);
 showError(err.message || 'Please try again.');
@@ -307,6 +330,7 @@ setLoading(false);
 
 async function downloadEnhancedImage(event){
 event.preventDefault();
+
 if(!currentEnhancedImageUrl){
 statusEl.textContent='Enhance an image before downloading.';
 return;
@@ -314,28 +338,34 @@ return;
 
 try{
 statusEl.textContent='Preparing download...';
-requireAiEnhanceBackend();
-const response=await fetch(getDownloadEndpoint(currentEnhancedImageUrl));
+
+const response = await fetch(currentEnhancedImageUrl);
+
 if(!response.ok){
-throw new Error('Unable to download the enhanced image.');
+  throw new Error('Unable to download the enhanced image.');
 }
 
-const blob=await response.blob();
-if(currentDownloadObjectUrl) URL.revokeObjectURL(currentDownloadObjectUrl);
-currentDownloadObjectUrl=URL.createObjectURL(blob);
-const link=document.createElement('a');
-link.href=currentDownloadObjectUrl;
-link.download=getDownloadFileName();
+const blob = await response.blob();
+
+if(currentDownloadObjectUrl){
+  URL.revokeObjectURL(currentDownloadObjectUrl);
+}
+
+currentDownloadObjectUrl = URL.createObjectURL(blob);
+
+const link = document.createElement('a');
+link.href = currentDownloadObjectUrl;
+link.download = getDownloadFileName();
 document.body.appendChild(link);
 link.click();
 link.remove();
+
 statusEl.textContent='Download started.';
 }catch(err){
 console.error('[AI Enhancer] Download error', err);
 statusEl.textContent=`Download failed: ${err.message || 'Please try again.'}`;
 }
 }
-
 enhanceBtn.addEventListener('click',runEnhancement);
 downloadBtn.addEventListener('click',downloadEnhancedImage);
 
