@@ -2341,3 +2341,35 @@ UNIFIED TOOL PAGE UI
         padding:24px 20px !important;
     }
 }
+
+.tool-card,
+.tool-card *{
+    opacity:1 !important;
+}
+
+/* Titles */
+.tool-card h2,
+.tool-card h3,
+.tool-card h4{
+    color:#071a33 !important;
+}
+
+/* Descriptions */
+.tool-card p,
+.tool-card .tool-desc,
+.tool-card .description{
+    color:#64748b !important;
+    opacity:1 !important;
+}
+
+/* Category cards */
+.category-card h2,
+.category-card h3,
+.category-card h4{
+    color:#071a33 !important;
+}
+
+.category-card p{
+    color:#64748b !important;
+    opacity:1 !important;
+}
