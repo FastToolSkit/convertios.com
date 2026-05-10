@@ -224,6 +224,11 @@ let job = null;
 
 try {
   job = jobResponseText ? JSON.parse(jobResponseText) : null;
+  console.log('[POST /convert/pdf-to-word] CloudConvert job creation response', {
+  status: jobResponse.status,
+  ok: jobResponse.ok,
+  body: job
+});
 } catch (parseError) {
   console.error('[POST /convert/pdf-to-word] CloudConvert job creation returned non-JSON response', {
     httpStatus: jobResponse.status,
