@@ -20,7 +20,7 @@
 .dropzone.dragover{background:#15365f}
 .preview{max-width:100%;max-height:300px;border-radius:10px;margin-top:14px;display:none}
 .upload-btn{display:inline-block;margin-top:12px;background:#3a78ff;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600}
-.upload-btn input{display:block;margin-top:8px;max-width:100%}
+.upload-btn input{display:none}
 .file-name{font-size:14px;color:#c4d6ff;min-height:20px}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .btn{background:#3a78ff;border:none;color:#fff;padding:10px 16px;border-radius:8px;cursor:pointer}
@@ -47,15 +47,17 @@
 </nav>
 </header>
 
-<main id="main-content" class="tool-wrap">
+<main id="main-content" class="tool-wrap tool-page-readable">
 <h1>AI Image Enhancer</h1>
 <p>Enhance blurry or low-resolution images with AI-powered processing. This tool can improve sharpness, upscale detail, and produce cleaner visuals in just a few clicks.</p>
+<p class="temporary-tool-notice" role="status">This tool is currently being improved. Some features may not work yet.</p>
 <div class="tool-grid">
 <section class="panel">
 <h2>Upload Image</h2>
 <div id="dropzone" class="dropzone">
 <p>Upload your image to enhance its quality using AI</p>
-<label class="upload-btn">Choose Image <input type="file" id="fileInput" accept="image/*" aria-label="Choose a file to process"></label>
+<label class="upload-btn" for="fileInput">Choose Image</label>
+<input type="file" id="fileInput" accept="image/*" aria-label="Choose a file to process" hidden>
 </div>
 <p id="fileName" class="file-name"></p>
 <img id="preview" class="preview" alt="Selected image preview">
@@ -119,8 +121,6 @@
 <li><a href="compress-image.html">Free Image Compressor</a></li>
 <li><a href="image-converter.html">Image Converter Online</a></li>
 <li><a href="image-resizer.html">Resize Image Online</a></li>
-<li><a href="jpg-to-png.html">JPG to PNG Converter Online</a></li>
-<li><a href="png-to-jpg.html">PNG to JPG Converter</a></li>
 </ul>
 </section>
 
@@ -167,7 +167,6 @@
 <a href="image-resizer.html" class="more-tool-card"><span>✂️</span><p>Image Resizer</p></a>
 <a href="compress-image.html" class="more-tool-card"><span>🗜️</span><p>Compress Image</p></a>
 <a href="image-converter.html" class="more-tool-card"><span>🖼️</span><p>Image Converter</p></a>
-<a href="crop-image.html" class="more-tool-card"><span>🪄</span><p>Crop Image</p></a>
 </div>
 </div>
 </main>
@@ -263,7 +262,7 @@ fileInput.addEventListener('change',e=>handleFile(e.target.files[0]));
 ['dragenter','dragover'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.add('dragover');}));
 ['dragleave','drop'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.remove('dragover');}));
 dropzone.addEventListener('drop',e=>handleFile(e.dataTransfer.files[0]));
-dropzone.addEventListener('click',()=>fileInput.click());
+dropzone.addEventListener('click',event=>{if(event.target.closest('label')) return;fileInput.click();});
 
 async function runEnhancement(){
 if(!selectedFile) return;
@@ -290,7 +289,7 @@ if(!data.imageUrl){
 throw new Error('The enhancement server did not return an image URL.');
 }
 
-currentEnhancedImageUrl=imageUrl;
+currentEnhancedImageUrl=data.imageUrl;
 resultPreview.src=currentEnhancedImageUrl;
 resultPreview.style.display='block';
 downloadBtn.href=getDownloadEndpoint(currentEnhancedImageUrl);
