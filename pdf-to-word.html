@@ -249,6 +249,7 @@ line-height:1.8;
         <a href="remove-bg.html">Remove Background</a>
         <a href="ai-image-enhancer.html">AI Image Enhancer</a>
 
+        <a href="social-media-image-resizer.html">Social Media Image Resizer</a>
 <a href="all-tools.html" class="view-all">View All →</a>
     </div>
 </div>
@@ -362,40 +363,6 @@ Convert to Word
 <p class="transparency-note"><strong>Transparency note:</strong> This tool requires secure third-party processing through the Convertios backend using CloudConvert. Files are uploaded only for the requested task, so it is not a browser-only tool.</p>
 </section>
 
-<section class="tool-guide-block" aria-labelledby="guide-heading-pdf-to-word">
-<h2 id="guide-heading-pdf-to-word">How It Works</h2>
-<p>PDF to Word Converter Online reads your selected input, applies the conversion or editing step shown in the tool controls, and prepares an output that matches the format listed below. Review the file name, size, and chosen settings before starting so the result matches your intended use.</p>
-<p>For related workflows, you can also use <a href="pdf-to-jpg.html">PDF to JPG Converter Online</a> or <a href="jpg-to-pdf.html">JPG to PDF Converter Online</a> when your task needs another step in the same category.</p>
-
-<h2>Supported Formats</h2>
-<ul>
-<li><strong>Input:</strong> PDF files</li>
-<li><strong>Output:</strong> DOCX Word document</li>
-</ul>
-
-<h2>Common Issues &amp; Fixes</h2>
-<ul>
-<li><strong>Why did my file not convert correctly?</strong> Check that the file is not corrupted, password protected, or larger than the recommended limit.</li>
-<li><strong>Why is the result different from the original?</strong> Some formats store layout, transparency, fonts, or audio metadata differently, so review the output before sharing it.</li>
-<li><strong>Why did processing stop?</strong> Refresh the page, choose a smaller file, and try again. If the tool uses third-party processing, temporary provider limits may also affect completion.</li>
-</ul>
-
-<h2>Best Use Cases</h2>
-<ul>
-<li>Preparing files for upload forms, email attachments, websites, or social media.</li>
-<li>Changing a file into a more compatible format before sharing it with others.</li>
-<li>Reducing manual editing by using the focused settings available in this tool.</li>
-</ul>
-
-<h2>Related Tools</h2>
-<ul class="related-tools-list">
-<li><a href="pdf-to-jpg.html">PDF to JPG Converter Online</a></li>
-<li><a href="jpg-to-pdf.html">JPG to PDF Converter Online</a></li>
-<li><a href="merge-pdf.html">Merge PDF Online</a></li>
-<li><a href="split-pdf.html">Split PDF Online</a></li>
-<li><a href="rotate-pdf.html">Rotate PDF Online</a></li>
-</ul>
-</section>
 
 <!-- SEO CONTENT -->
 
@@ -605,7 +572,7 @@ try{
 const formData = new FormData();
 formData.append("file", file);
 
-const response = await fetch("/convert/pdf-to-word", {
+const response = await fetch("https://convertios-com-3.onrender.com/convert/pdf-to-word", {
 method: "POST",
 body: formData
 });

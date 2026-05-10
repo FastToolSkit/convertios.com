@@ -34,17 +34,102 @@
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header">
-<div class="header-left"><a href="index.html" class="logo"><img src="convertios-logo.png" alt="Convertios Logo" width="2211" height="1234"></a></div>
+
+<div class="header-left">
+    <a href="index.html" class="logo">
+        <img src="convertios-logo.png" alt="Convertios Logo" width="2211" height="1234">
+    </a>
+</div>
+
 <nav class="nav-menu">
+
 <a href="index.html" class="active">Home</a>
-<div class="nav-item dropdown"><span>Image ▾</span><div class="dropdown-menu">
-<a href="png-to-jpg.html">PNG to JPG</a><a href="jpg-to-png.html">JPG to PNG</a><a href="webp-to-png.html">WEBP to PNG</a><a href="image-converter.html">Image Converter</a><a href="image-resizer.html">Resize Image</a><a href="compress-image.html">Compress Image</a><a href="remove-bg.html">Remove Background</a><a href="ai-image-enhancer.html">AI Image Enhancer</a><a href="all-tools.html" class="view-all">View All →</a>
-</div></div>
-<div class="nav-item dropdown"><span>PDF ▾</span><div class="dropdown-menu"><a href="pdf-to-word.html">PDF to Word</a><a href="pdf-to-jpg.html">PDF to JPG</a><a href="jpg-to-pdf.html">JPG to PDF</a><a href="merge-pdf.html">Merge PDF</a><a href="split-pdf.html">Split PDF</a><a href="rotate-pdf.html">Rotate PDF</a><a href="all-tools.html" class="view-all">View All →</a></div></div>
-<div class="nav-item dropdown"><span>Audio ▾</span><div class="dropdown-menu"><a href="mp3-cutter.html">MP3 Cutter</a><a href="audio-converter.html">Audio Converter</a><a href="audio-speed-changer.html">Speed Changer</a><a href="all-tools.html" class="view-all">View All →</a></div></div>
-<a href="all-tools.html" class="nav-all-tools">All Tools →</a>
-<a href="about.html">About</a><a href="contact.html">Contact</a>
+
+
+<div class="nav-item dropdown">
+    <span>Image ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="png-to-jpg.html">PNG to JPG</a>
+        <a href="jpg-to-png.html">JPG to PNG</a>
+        <a href="webp-to-png.html">WEBP to PNG</a>
+        <a href="image-converter.html">Image Converter</a>
+        <a href="image-resizer.html">Resize Image</a>
+        <a href="compress-image.html">Compress Image</a>
+        <a href="remove-bg.html">Remove Background</a>
+        <a href="ai-image-enhancer.html">AI Image Enhancer</a>
+
+<a href="all-tools.html" class="view-all">View All →</a>
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>PDF ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="pdf-to-word.html">PDF to Word</a>
+        <a href="pdf-to-jpg.html">PDF to JPG</a>
+        <a href="jpg-to-pdf.html">JPG to PDF</a>
+
+        <a href="merge-pdf.html">Merge PDF</a>
+        <a href="split-pdf.html">Split PDF</a>
+        <a href="rotate-pdf.html">Rotate PDF</a>
+
+        <a href="all-tools.html" class="view-all">View All →</a>
+
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>Audio ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="mp3-cutter.html">MP3 Cutter</a>
+        <a href="audio-converter.html">Audio Converter</a>
+        <a href="audio-speed-changer.html">Speed Changer</a>
+
+        <a href="all-tools.html" class="view-all">View All →</a>
+
+    </div>
+</div>
+<div class="nav-item dropdown">
+    <span>More Tools ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="qr-generator.html">QR Generator</a>
+        <a href="link-shortener.html">Link Shortener</a>
+        <a href="password-generator.html">Password Generator</a>
+        <a href="word-counter.html">Word Counter</a>
+        <a href="text-formatter.html">Text Formatter</a>
+        <a href="unit-converter.html">Unit Converter</a>
+        <a href="meme-generator.html">Meme Generator</a>
+
+        <a href="all-tools.html" class="view-all">View All →</a>
+
+    </div>
+</div>
+    <a href="all-tools.html" class="nav-all-tools">All Tools →</a>
+
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+
 </nav>
+
+<div class="nav-icon faq-wrapper">
+    <a href="/faq.html" class="faq-link-block">
+
+        <!-- ICON -->
+        <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
+                <circle cx="12" cy="17" r="1"></circle>
+            </svg>
+        </div>
+
+        <!-- TEXT -->
+        <span class="faq-text">FAQ</span>
+</a>
 </header>
 
 <main id="main-content" class="tool-wrap">
@@ -91,38 +176,6 @@
 <p class="transparency-note"><strong>Transparency note:</strong> This tool uploads images to Cloudinary using an unsigned preset, then sends the public image URL to the Convertios n8n AI enhancement workflow.</p>
 </section>
 
-<section class="tool-guide-block" aria-labelledby="guide-heading-ai-image-enhancer">
-<h2 id="guide-heading-ai-image-enhancer">How It Works</h2>
-<p>AI Image Enhancer uploads your selected image to Cloudinary, then sends the secure image URL to the Convertios n8n AI enhancement workflow and returns a sharper downloadable result. Review the file name and preview before starting so the result matches your intended use.</p>
-<p>For related workflows, you can also use <a href="compress-image.html">Free Image Compressor</a> or <a href="image-converter.html">Image Converter Online</a> when your task needs another step in the same category.</p>
-
-<h2>Supported Formats</h2>
-<ul>
-<li><strong>Input:</strong> JPG, PNG, WEBP image uploads</li>
-<li><strong>Output:</strong> Enhanced image URL</li>
-</ul>
-
-<h2>Common Issues &amp; Fixes</h2>
-<ul>
-<li><strong>Why did my file not convert correctly?</strong> Check that the file is not corrupted, password protected, or larger than the recommended limit.</li>
-<li><strong>Why is the result different from the original?</strong> Some formats store layout, transparency, fonts, or audio metadata differently, so review the output before sharing it.</li>
-<li><strong>Why did processing stop?</strong> Refresh the page, choose a smaller file, and try again. Temporary Cloudinary upload issues or n8n enhancement processing limits may also affect completion.</li>
-</ul>
-
-<h2>Best Use Cases</h2>
-<ul>
-<li>Preparing files for upload forms, email attachments, websites, or social media.</li>
-<li>Changing a file into a more compatible format before sharing it with others.</li>
-<li>Reducing manual editing by using the focused settings available in this tool.</li>
-</ul>
-
-<h2>Related Tools</h2>
-<ul class="related-tools-list">
-<li><a href="compress-image.html">Free Image Compressor</a></li>
-<li><a href="image-converter.html">Image Converter Online</a></li>
-<li><a href="image-resizer.html">Resize Image Online</a></li>
-</ul>
-</section>
 
 <section class="tool-description">
 <h2>How to Use</h2>
@@ -170,7 +223,31 @@
 </div>
 </div>
 </main>
+<footer class="site-footer">
 
+<div class="footer-container">
+
+    <div class="footer-brand">
+        <h3>Convertios</h3>
+        <p>Free online tools for converting files, images, and more.</p>
+    </div>
+
+    <div class="footer-links">
+        <a href="all-tools.html">Tools</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+         <a href="/security.html">Security</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+    </div>
+
+</div>
+
+<p class="footer-bottom">
+© 2026 Convertios • All rights reserved
+</p>
+
+</footer>
 <script>
 const fileInput=document.getElementById('fileInput');
 const dropzone=document.getElementById('dropzone');
@@ -181,9 +258,11 @@ const enhanceBtn=document.getElementById('enhanceBtn');
 const downloadBtn=document.getElementById('downloadBtn');
 const statusEl=document.getElementById('status');
 
-const AI_ENHANCE_API_BASE = ''; // Paste the Render backend URL here, for example: https://your-service.onrender.com
-const AI_ENHANCE_ENDPOINT = `${AI_ENHANCE_API_BASE}/ai-enhance`;
-const AI_ENHANCE_DOWNLOAD_ENDPOINT = `${AI_ENHANCE_API_BASE}/ai-enhance/download`;
+const AI_ENHANCE_ENDPOINT = 'https://convertios.app.n8n.cloud/webhook/ai-enhance';
+
+const CLOUDINARY_CLOUD_NAME = 'dd9it0hte';
+const CLOUDINARY_UPLOAD_PRESET = 'convertios_unsigned';
+const CLOUDINARY_UPLOAD_ENDPOINT = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
 let selectedFile=null;
 let currentEnhancedImageUrl=null;
 let currentDownloadObjectUrl=null;
@@ -219,16 +298,6 @@ const baseName=(selectedFile?.name || 'enhanced-image').replace(/\.[^.]+$/,'');
 return `${baseName}-enhanced.png`;
 }
 
-function getDownloadEndpoint(imageUrl){
-return `${AI_ENHANCE_DOWNLOAD_ENDPOINT}?url=${encodeURIComponent(imageUrl)}`;
-}
-
-function requireAiEnhanceBackend(){
-const isProductionStaticSite=['convertios.com','www.convertios.com'].includes(window.location.hostname);
-if(isProductionStaticSite && !AI_ENHANCE_API_BASE){
-throw new Error('AI enhancer backend URL is not configured. Deploy the Express backend on Render, then paste the Render URL into AI_ENHANCE_API_BASE.');
-}
-}
 
 function showError(message){
 statusEl.innerHTML=`Failed to enhance image: ${escapeHtml(message || 'Please try again.')} <button type="button" class="tool-retry-button" id="retryEnhance">Retry</button>`;
@@ -266,36 +335,67 @@ dropzone.addEventListener('click',event=>{if(event.target.closest('label')) retu
 
 async function runEnhancement(){
 if(!selectedFile) return;
-setLoading(true,'Uploading image to Cloudinary...');
+
+setLoading(true,'Uploading image...');
 resetResult();
 
 try{
-requireAiEnhanceBackend();
-const formData=new FormData();
-formData.append('image',selectedFile,selectedFile.name);
+if(CLOUDINARY_CLOUD_NAME.includes('PASTE_') || CLOUDINARY_UPLOAD_PRESET.includes('PASTE_')){
+  throw new Error('Cloudinary is not configured yet. Add your cloud name and unsigned upload preset.');
+}
 
-const response=await fetch(AI_ENHANCE_ENDPOINT,{
-method:'POST',
-body:formData
+const uploadFormData = new FormData();
+uploadFormData.append('file', selectedFile);
+uploadFormData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+setLoading(true,'Uploading image to Cloudinary...');
+
+const cloudinaryResponse = await fetch(CLOUDINARY_UPLOAD_ENDPOINT,{
+  method:'POST',
+  body:uploadFormData
 });
 
-const data=await response.json().catch(()=>({success:false,error:'Invalid response from enhancement server.'}));
+const cloudinaryData = await cloudinaryResponse.json().catch(()=>null);
+
+if(!cloudinaryResponse.ok || !cloudinaryData?.secure_url){
+  throw new Error(cloudinaryData?.error?.message || 'Cloudinary upload failed.');
+}
+
+setLoading(true,'Enhancing image with AI...');
+
+const response = await fetch(AI_ENHANCE_ENDPOINT,{
+  method:'POST',
+  headers:{
+    'Content-Type':'application/json'
+  },
+  body:JSON.stringify({
+    image:cloudinaryData.secure_url,
+    message:'Convertios AI image enhancement'
+  })
+});
+
+const data = await response.json().catch(()=>({
+  success:false,
+  error:'Invalid response from AI enhancement server.'
+}));
 
 if(!response.ok || !data.success){
-throw new Error(data.error || 'The enhancement server failed to process the image.');
+  throw new Error(data.error || 'The AI enhancement server failed to process the image.');
 }
 
 if(!data.imageUrl){
-throw new Error('The enhancement server did not return an image URL.');
+  throw new Error('The AI enhancement server did not return an image URL.');
 }
 
-currentEnhancedImageUrl=data.imageUrl;
-resultPreview.src=currentEnhancedImageUrl;
-resultPreview.style.display='block';
-downloadBtn.href=getDownloadEndpoint(currentEnhancedImageUrl);
-downloadBtn.style.display='inline-block';
-downloadBtn.download=getDownloadFileName();
-statusEl.textContent='Image enhanced successfully ✅';
+currentEnhancedImageUrl = data.imageUrl;
+resultPreview.src = currentEnhancedImageUrl;
+resultPreview.style.display = 'block';
+
+downloadBtn.href = currentEnhancedImageUrl;
+downloadBtn.style.display = 'inline-block';
+downloadBtn.download = getDownloadFileName();
+
+statusEl.textContent = 'Image enhanced successfully ✅';
 }catch(err){
 console.error('[AI Enhancer] Error', err);
 showError(err.message || 'Please try again.');
@@ -306,6 +406,7 @@ setLoading(false);
 
 async function downloadEnhancedImage(event){
 event.preventDefault();
+
 if(!currentEnhancedImageUrl){
 statusEl.textContent='Enhance an image before downloading.';
 return;
@@ -313,28 +414,34 @@ return;
 
 try{
 statusEl.textContent='Preparing download...';
-requireAiEnhanceBackend();
-const response=await fetch(getDownloadEndpoint(currentEnhancedImageUrl));
+
+const response = await fetch(currentEnhancedImageUrl);
+
 if(!response.ok){
-throw new Error('Unable to download the enhanced image.');
+  throw new Error('Unable to download the enhanced image.');
 }
 
-const blob=await response.blob();
-if(currentDownloadObjectUrl) URL.revokeObjectURL(currentDownloadObjectUrl);
-currentDownloadObjectUrl=URL.createObjectURL(blob);
-const link=document.createElement('a');
-link.href=currentDownloadObjectUrl;
-link.download=getDownloadFileName();
+const blob = await response.blob();
+
+if(currentDownloadObjectUrl){
+  URL.revokeObjectURL(currentDownloadObjectUrl);
+}
+
+currentDownloadObjectUrl = URL.createObjectURL(blob);
+
+const link = document.createElement('a');
+link.href = currentDownloadObjectUrl;
+link.download = getDownloadFileName();
 document.body.appendChild(link);
 link.click();
 link.remove();
+
 statusEl.textContent='Download started.';
 }catch(err){
 console.error('[AI Enhancer] Download error', err);
 statusEl.textContent=`Download failed: ${err.message || 'Please try again.'}`;
 }
 }
-
 enhanceBtn.addEventListener('click',runEnhancement);
 downloadBtn.addEventListener('click',downloadEnhancedImage);
 
