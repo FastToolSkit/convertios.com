@@ -238,9 +238,19 @@ const uploadResponse = await fetch(form.url, {
 
 if (!uploadResponse.ok) {
   const details = await uploadResponse.text();
-  return res.status(502).json({ error: 'CloudConvert upload failed', details });
-}
 
+  console.error('[POST /convert/pdf-to-word] CloudConvert upload failed', {
+    status: uploadResponse.status,
+    statusText: uploadResponse.statusText,
+    details
+  });
+
+  return res.status(502).json({
+    error: 'CloudConvert upload failed',
+    status: uploadResponse.status,
+    details
+  });
+}
 let fileUrl = null;
 for (let attempt = 0; attempt < 60 && !fileUrl; attempt += 1) {
   await sleep(2000);
