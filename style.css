@@ -2342,3 +2342,24 @@ UNIFIED TOOL PAGE UI
     }
 }
 
+/* FINAL OVERRIDE: readable category/tool card text */
+.tools-section .tool-card p,
+.tools-section .tool-card .tool-desc,
+.tools-section .tool-card .description,
+.tools-section .tool-card div,
+.tools-section .tool-card span,
+.tools-grid .tool-card p,
+.tools-grid .tool-card .tool-desc,
+.tools-grid .tool-card .description,
+.tool-card p {
+  color: #4b5563 !important;
+  opacity: 1 !important;
+}
+
+.tools-section .tool-card h3,
+.tools-section .tool-card h2,
+.tools-grid .tool-card h3,
+.tool-card h3 {
+  color: #071a33 !important;
+  opacity: 1 !important;
+}
