@@ -331,7 +331,7 @@ fileInput.addEventListener('change',e=>handleFile(e.target.files[0]));
 ['dragenter','dragover'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.add('dragover');}));
 ['dragleave','drop'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.remove('dragover');}));
 dropzone.addEventListener('drop',e=>handleFile(e.dataTransfer.files[0]));
-dropzone.addEventListener('click',()=>fileInput.click());
+dropzone.addEventListener('click',event=>{if(event.target.closest('label')) return;fileInput.click();});
 
 async function runEnhancement(){
 if(!selectedFile) return;
