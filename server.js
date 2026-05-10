@@ -239,7 +239,6 @@ if (!jobResponse.ok) {
   });
 }
 
-let fileUrl = null;
      
 let fileUrl = null;
 for (let attempt = 0; attempt < 60 && !fileUrl; attempt += 1) {
