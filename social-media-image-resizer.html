@@ -208,7 +208,8 @@
 <h2>Upload Image</h2>
 <div id="dropzone" class="dropzone">
 <p>Drag &amp; Drop your image here or click to upload</p>
-<label class="upload-btn">Choose Image <input type="file" id="fileInput" accept="image/*" aria-label="Choose a file to process"></label>
+<label class="upload-btn" for="fileInput">Choose Image</label>
+<input type="file" id="fileInput" accept="image/*" aria-label="Choose a file to process" hidden>
 </div>
 <img id="preview" class="preview" alt="Preview">
 <div class="actions">
@@ -262,11 +263,9 @@
 <div class="more-tools">
 <h3>Explore More Tools</h3>
 <div class="more-tools-grid">
-<a href="ai-image-enhancer.html" class="more-tool-card"><span>✨</span><p>AI Image Enhancer</p></a>
 <a href="image-resizer.html" class="more-tool-card"><span>✂️</span><p>Image Resizer</p></a>
 <a href="compress-image.html" class="more-tool-card"><span>🗜️</span><p>Compress Image</p></a>
 <a href="image-converter.html" class="more-tool-card"><span>🖼️</span><p>Image Converter</p></a>
-<a href="png-to-jpg.html" class="more-tool-card"><span>🔄</span><p>PNG to JPG</p></a>
 </div>
 </div>
 </main>
@@ -303,6 +302,7 @@ fileInput.addEventListener('change',e=>handleFile(e.target.files[0]));
 ['dragenter','dragover'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.add('dragover');}));
 ['dragleave','drop'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.remove('dragover');}));
 dropzone.addEventListener('drop',e=>handleFile(e.dataTransfer.files[0]));
+dropzone.addEventListener('click',event=>{if(event.target.closest('label')) return;fileInput.click();});
 panel.addEventListener('change',updateButtons);
 function handleFile(file){if(!file) return;const r=new FileReader();r.onload=()=>{img.onload=()=>{imageLoaded=true;preview.src=r.result;preview.style.display='block';statusEl.textContent='Image ready. Choose sizes and download.';updateButtons();};img.src=r.result;};r.readAsDataURL(file);}
 function resizeBlob(w,h,type='image/png',q=0.92){const c=document.createElement('canvas');c.width=w;c.height=h;const ctx=c.getContext('2d');ctx.drawImage(img,0,0,w,h);return new Promise(res=>c.toBlob(res,type,q));}
