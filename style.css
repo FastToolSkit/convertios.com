@@ -2303,47 +2303,32 @@ UNIFIED TOOL PAGE UI
 }
 
 .tool-page-readable .more-tools{
-    max-width:900px;
+    max-width:1000px;
 }
 
 .tool-page-readable .more-tools-grid{
-    display:grid !important;
-    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
     align-items:stretch !important;
 }
 
 .tool-page-readable .more-tool-card{
-    background:#f8fafc !important;
-    border:1px solid #dbeafe !important;
-    color:#071a33 !important;
-    box-shadow:0 8px 22px rgba(15,23,42,0.06) !important;
-    justify-content:center !important;
-    min-height:64px !important;
-    min-width:0 !important;
+    background:#ffffff !important;
+    border:1px solid #dbe4ee !important;
+    color:#0f172a !important;
+    box-shadow:0 8px 24px rgba(15,23,42,0.08) !important;
+    min-width:190px !important;
+    justify-content:flex-start !important;
 }
 
 .tool-page-readable .more-tool-card p{
-    color:#071a33 !important;
+    color:#0f172a !important;
     margin:0 !important;
     line-height:1.35 !important;
     font-weight:700 !important;
 }
 
 .tool-page-readable .more-tool-card:hover{
-    border-color:#3a78ff !important;
-    box-shadow:0 12px 28px rgba(15,23,42,0.12) !important;
-}
-
-@media (max-width:768px){
-    .tool-page-readable .more-tools-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-    }
-}
-
-@media (max-width:520px){
-    .tool-page-readable .more-tools-grid{
-        grid-template-columns:1fr !important;
-    }
+    background:#f8fafc !important;
+    border-color:#93c5fd !important;
 }
 
 @media (max-width:700px){
@@ -2355,87 +2340,4 @@ UNIFIED TOOL PAGE UI
     .tool-page-readable .tool-description{
         padding:24px 20px !important;
     }
-}
-
-.more-tools {
-  max-width: 900px !important;
-  margin: 50px auto 80px !important;
-  padding: 0 20px !important;
-  text-align: center !important;
-}
-
-.more-tools h3 {
-  color: #071a33 !important;
-  font-size: 28px !important;
-  margin-bottom: 22px !important;
-}
-
-.more-tools-grid {
-  display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  gap: 16px !important;
-}
-
-.more-tool-card {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 10px !important;
-  min-height: 72px !important;
-  padding: 16px !important;
-  background: #ffffff !important;
-  border: 1px solid #dbeafe !important;
-  border-radius: 16px !important;
-  color: #071a33 !important;
-  font-weight: 700 !important;
-  text-decoration: none !important;
-  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08) !important;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease !important;
-}
-
-.more-tool-card:hover {
-  transform: translateY(-3px) !important;
-  border-color: #3a78ff !important;
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.14) !important;
-}
-
-@media (max-width: 900px) {
-  .more-tools-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-
-@media (max-width: 520px) {
-  .more-tools-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-/* Category and tool listing card text contrast */
-.tools-grid .tool-card h3,
-.category-tools .tool-card h3,
-.tool-card h3,
-.category-content h3 {
-  color: #071a33 !important;
-}
-
-.tools-grid .tool-card p,
-.category-tools .tool-card p,
-.tool-card p,
-.category-content p,
-.tool-desc {
-  color: #4b5563 !important;
-}
-
-/* Strong override for category/tool-list card typography */
-body main .tools-grid a.tool-card h3,
-body .tool-container .tools-grid a.tool-card h3,
-body .categories-grid .category-card .category-content h3 {
-  color: #071a33 !important;
-}
-
-body main .tools-grid a.tool-card p,
-body .tool-container .tools-grid a.tool-card p,
-body .categories-grid .category-card .category-content p {
-  color: #4b5563 !important;
 }
