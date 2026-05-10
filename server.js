@@ -200,10 +200,14 @@ const jobResponse = await fetch('https://api.cloudconvert.com/v2/jobs', {
   },
   body: JSON.stringify({
     tasks: {
-      upload: { operation: 'import/upload' },
+      import_file: {
+        operation: 'import/base64',
+        file: req.file.buffer.toString('base64'),
+        filename: req.file.originalname || 'document.pdf'
+      },
       convert: {
         operation: 'convert',
-        input: 'upload',
+        input: 'import_file',
         input_format: 'pdf',
         output_format: 'docx'
       },
@@ -215,17 +219,16 @@ const jobResponse = await fetch('https://api.cloudconvert.com/v2/jobs', {
   })
 });
 
-if (!jobResponse.ok) {
-  const details = await jobResponse.text();
-  return res.status(502).json({ error: 'CloudConvert job creation failed', details });
-}
+const jobResponseText = await jobResponse.text();
+let job = null;
 
-const job = await jobResponse.json();
-const uploadTask = job?.data?.tasks?.find((task) => task.name === 'upload');
-const form = uploadTask?.result?.form;
-
-if (!form?.url || !form?.parameters) {
-  return res.status(502).json({ error: 'CloudConvert did not return a valid upload form' });
+try {
+  job = jobResponseText ? JSON.parse(jobResponseText) : null;
+} catch (parseError) {
+  console.error('[POST /convert/pdf-to-word] CloudConvert job creation returned non-JSON response', {
+    httpStatus: jobResponse.status,
+    body: jobResponseText.slice(0, 500)
+  });
 }
 
 const uploadForm = new FormData();
@@ -276,12 +279,19 @@ for (let attempt = 0; attempt < 60 && !fileUrl; attempt += 1) {
   const exportTask = data?.data?.tasks?.find((task) => task.name === 'export');
   const failedTask = data?.data?.tasks?.find((task) => task.status === 'error');
 
+  console.log('[POST /convert/pdf-to-word] CloudConvert conversion status', {
+    attempt: attempt + 1,
+    jobId: data?.data?.id || job.data.id,
+    tasks: data?.data?.tasks?.map((task) => ({ name: task.name, operation: task.operation, status: task.status }))
+  });
+
   if (failedTask) {
     return res.status(502).json({ error: 'CloudConvert conversion failed', details: failedTask.message || failedTask.code || 'Task error' });
   }
 
   if (exportTask?.status === 'finished' && exportTask?.result?.files?.length) {
     fileUrl = exportTask.result.files[0].url;
+    console.log('[POST /convert/pdf-to-word] CloudConvert export URL', { jobId: data?.data?.id || job.data.id, fileUrl });
   }
 }
 
