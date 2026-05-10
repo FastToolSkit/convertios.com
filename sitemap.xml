@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://convertios.com/</loc>
     <lastmod>2026-05-10</lastmod>
     <priority>1.00</priority>
   </url>
+
   <url>
     <loc>https://convertios.com/all-tools.html</loc>
     <lastmod>2026-05-10</lastmod>
@@ -35,6 +37,7 @@
     <lastmod>2026-05-10</lastmod>
     <priority>0.85</priority>
   </url>
+
   <url>
     <loc>https://convertios.com/ai-image-enhancer.html</loc>
     <lastmod>2026-05-10</lastmod>
@@ -95,6 +98,7 @@
     <lastmod>2026-05-10</lastmod>
     <priority>0.70</priority>
   </url>
+
   <url>
     <loc>https://convertios.com/pdf-to-word.html</loc>
     <lastmod>2026-05-10</lastmod>
@@ -125,6 +129,7 @@
     <lastmod>2026-05-10</lastmod>
     <priority>0.70</priority>
   </url>
+
   <url>
     <loc>https://convertios.com/mp3-cutter.html</loc>
     <lastmod>2026-05-10</lastmod>
@@ -145,6 +150,7 @@
     <lastmod>2026-05-10</lastmod>
     <priority>0.70</priority>
   </url>
+
   <url>
     <loc>https://convertios.com/qr-generator.html</loc>
     <lastmod>2026-05-10</lastmod>
@@ -180,16 +186,7 @@
     <lastmod>2026-05-10</lastmod>
     <priority>0.70</priority>
   </url>
-  <url>
-    <loc>https://convertios.com/es/image-converter.html</loc>
-    <lastmod>2026-05-10</lastmod>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://convertios.com/es/mp3-cutter.html</loc>
-    <lastmod>2026-05-10</lastmod>
-    <priority>0.70</priority>
-  </url>
+
   <url>
     <loc>https://convertios.com/about.html</loc>
     <lastmod>2026-05-10</lastmod>
@@ -220,4 +217,5 @@
     <lastmod>2026-05-10</lastmod>
     <priority>0.60</priority>
   </url>
+
 </urlset>

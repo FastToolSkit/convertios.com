@@ -224,6 +224,11 @@ let job = null;
 
 try {
   job = jobResponseText ? JSON.parse(jobResponseText) : null;
+  console.log('[POST /convert/pdf-to-word] CloudConvert job creation response', {
+  status: jobResponse.status,
+  ok: jobResponse.ok,
+  body: job
+});
 } catch (parseError) {
   console.error('[POST /convert/pdf-to-word] CloudConvert job creation returned non-JSON response', {
     httpStatus: jobResponse.status,
@@ -231,38 +236,15 @@ try {
   });
 }
 
-const uploadForm = new FormData();
-
-Object.entries(form.parameters).forEach(([key, value]) => {
-  uploadForm.append(key, value);
-});
-
-uploadForm.append('file', req.file.buffer, {
-  filename: req.file.originalname || 'document.pdf',
-  contentType: req.file.mimetype || 'application/pdf'
-});
-
-const uploadResponse = await fetch(form.url, {
-  method: 'POST',
-  headers: uploadForm.getHeaders(),
-  body: uploadForm
-});
-
-if (!uploadResponse.ok) {
-  const details = await uploadResponse.text();
-
-  console.error('[POST /convert/pdf-to-word] CloudConvert upload failed', {
-    status: uploadResponse.status,
-    statusText: uploadResponse.statusText,
-    details
-  });
-
+if (!jobResponse.ok) {
   return res.status(502).json({
-    error: 'CloudConvert upload failed',
-    status: uploadResponse.status,
-    details
+    error: 'CloudConvert job creation failed',
+    status: jobResponse.status,
+    details: job || jobResponseText
   });
 }
+
+     
 let fileUrl = null;
 for (let attempt = 0; attempt < 60 && !fileUrl; attempt += 1) {
   await sleep(2000);
