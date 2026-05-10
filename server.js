@@ -6,7 +6,7 @@ app.use(cors());app.use(express.json({ limit: '10mb' }));
 
 function getAuthHeaders({ wait = false } = {}) {const token = process.env.REPLICATE_API_TOKEN;if (!token) {throw new Error('Missing REPLICATE_API_TOKEN environment variable');}
 
-const headers = {Authorization: `Bearer ${token}`,'Content-Type': 'application/json'};
+const headers = {Authorization: Bearer ${token},'Content-Type': 'application/json'};
 
 if (wait) {headers.Prefer = 'wait';}
 
@@ -30,7 +30,7 @@ async function pollReplicatePrediction(prediction, requestId) {if (!prediction?.
 
 let current = prediction;const maxAttempts = 30;
 
-for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {if (['failed', 'canceled'].includes(current.status)) {throw new Error(current.error || `Replicate prediction ${current.status}`);}
+for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {if (['failed', 'canceled'].includes(current.status)) {throw new Error(current.error || Replicate prediction ${current.status});}
 
 const outputUrl = extractPredictionOutput(current);
 if (outputUrl) {
@@ -70,7 +70,7 @@ if (error instanceof multer.MulterError && error.code === 'LIMIT_FILE_SIZE') {
 
 return sendEnhanceError(res, 400, error.message || 'Invalid image upload.');
 
-});}, async (req, res) => {const requestId = `${Date.now()}-${Math.random().toString(16).slice(2)}`;let prediction = null;let stage = 'received';
+});}, async (req, res) => {const requestId = ${Date.now()}-${Math.random().toString(16).slice(2)};let prediction = null;let stage = 'received';
 
 try {console.log('🔥 Request received', { requestId, path: req.path, method: req.method });console.log('📦 File size:', req.file?.size);console.log('[POST /enhance] Upload metadata:', {requestId,fieldName: req.file?.fieldname,originalName: req.file?.originalname,mimetype: req.file?.mimetype,bufferBytes: req.file?.buffer?.length});console.log("🔥 NEW VERSION LIVE");console.log('🔑 Token exists:', !!process.env.REPLICATE_API_TOKEN);if (!req.file) {return sendEnhanceError(res, 400, 'No image uploaded. Use FormData field name "image".', { requestId, stage: 'validation' });}
 
@@ -159,7 +159,7 @@ return res.status(200).json({ enhancedImageUrl: outputUrl });
 
 } catch (error) {console.error('[POST /enhance] Enhancement failed', {requestId,stage,message: error.message,stack: error.stack,replicate: safeReplicateDetails(prediction)});return sendEnhanceError(res, 500, error.message || safeReplicateDetails(prediction), {requestId,stage,replicate: safeReplicateDetails(prediction)});}});
 
-function getEnvToken(name) {const token = process.env[name];if (!token) {throw new Error(`Missing ${name} environment variable`);}return token;}
+function getEnvToken(name) {const token = process.env[name];if (!token) {throw new Error(Missing ${name} environment variable);}return token;}
 
 function sanitizeDownloadName(name, fallback) {return (name || fallback).replace(/[^a-z0-9.-]/gi, '');}
 
@@ -176,14 +176,10 @@ const jobResponse = await fetch('https://api.cloudconvert.com/v2/jobs', {
   },
   body: JSON.stringify({
     tasks: {
-      import_file: {
-        operation: 'import/base64',
-        file: req.file.buffer.toString('base64'),
-        filename: req.file.originalname || 'document.pdf'
-      },
+      upload: { operation: 'import/upload' },
       convert: {
         operation: 'convert',
-        input: 'import_file',
+        input: 'upload',
         input_format: 'pdf',
         output_format: 'docx'
       },
@@ -195,34 +191,31 @@ const jobResponse = await fetch('https://api.cloudconvert.com/v2/jobs', {
   })
 });
 
-const jobResponseText = await jobResponse.text();
-let job = null;
-
-try {
-  job = jobResponseText ? JSON.parse(jobResponseText) : null;
-} catch (parseError) {
-  console.error('[POST /convert/pdf-to-word] CloudConvert job creation returned non-JSON response', {
-    httpStatus: jobResponse.status,
-    body: jobResponseText.slice(0, 500)
-  });
+if (!jobResponse.ok) {
+  const details = await jobResponse.text();
+  return res.status(502).json({ error: 'CloudConvert job creation failed', details });
 }
 
-console.log('[POST /convert/pdf-to-word] CloudConvert job creation response', {
-  httpStatus: jobResponse.status,
-  ok: jobResponse.ok,
-  response: job || jobResponseText
+const job = await jobResponse.json();
+const uploadTask = job?.data?.tasks?.find((task) => task.name === 'upload');
+const form = uploadTask?.result?.form;
+
+if (!form?.url || !form?.parameters) {
+  return res.status(502).json({ error: 'CloudConvert did not return a valid upload form' });
+}
+
+const uploadForm = new FormData();
+Object.entries(form.parameters).forEach(([key, value]) => uploadForm.append(key, value));
+uploadForm.append('file', new Blob([req.file.buffer], { type: req.file.mimetype || 'application/pdf' }), req.file.originalname || 'document.pdf');
+
+const uploadResponse = await fetch(form.url, {
+  method: 'POST',
+  body: uploadForm
 });
 
-if (!jobResponse.ok) {
-  return res.status(502).json({
-    error: 'CloudConvert job creation failed',
-    status: jobResponse.status,
-    details: job
-  });
-}
-
-if (!job?.data?.id) {
-  return res.status(502).json({ error: 'CloudConvert job creation failed', details: 'Missing job id in response' });
+if (!uploadResponse.ok) {
+  const details = await uploadResponse.text();
+  return res.status(502).json({ error: 'CloudConvert upload failed', details });
 }
 
 let fileUrl = null;
@@ -241,19 +234,12 @@ for (let attempt = 0; attempt < 60 && !fileUrl; attempt += 1) {
   const exportTask = data?.data?.tasks?.find((task) => task.name === 'export');
   const failedTask = data?.data?.tasks?.find((task) => task.status === 'error');
 
-  console.log('[POST /convert/pdf-to-word] CloudConvert conversion status', {
-    attempt: attempt + 1,
-    jobId: data?.data?.id || job.data.id,
-    tasks: data?.data?.tasks?.map((task) => ({ name: task.name, operation: task.operation, status: task.status }))
-  });
-
   if (failedTask) {
     return res.status(502).json({ error: 'CloudConvert conversion failed', details: failedTask.message || failedTask.code || 'Task error' });
   }
 
   if (exportTask?.status === 'finished' && exportTask?.result?.files?.length) {
     fileUrl = exportTask.result.files[0].url;
-    console.log('[POST /convert/pdf-to-word] CloudConvert export URL', { jobId: data?.data?.id || job.data.id, fileUrl });
   }
 }
 
@@ -330,4 +316,4 @@ app.use((_req, res) => {return res.status(404).json({ error: 'Not found' });});
 
 app.use((error, _req, res, _next) => {console.error('[server] Unhandled request error', error);return res.status(500).json({ error: 'Request failed', details: error.message || String(error) });});
 
-app.listen(PORT, () => {console.log(`Server running on port ${PORT}`);});
+app.listen(PORT, () => {console.log(Server running on port ${PORT});});
