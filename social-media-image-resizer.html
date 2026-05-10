@@ -118,12 +118,14 @@
 <main id="main-content" class="tool-wrap">
 <h1>Social Media Image Resizer</h1>
 <p>Resize one image into multiple social-media-ready formats in seconds. Pick the exact platform presets you need, then export individual sizes or download everything together as a ZIP. All resizing runs directly in your browser for fast and private processing.</p>
+<p class="temporary-tool-notice" role="status">This tool is currently being improved. Some features may not work yet.</p>
 <div class="tool-grid">
 <section class="panel">
 <h2>Upload Image</h2>
 <div id="dropzone" class="dropzone">
 <p>Drag &amp; Drop your image here or click to upload</p>
-<label class="upload-btn">Choose Image <input type="file" id="fileInput" accept="image/*" aria-label="Choose a file to process"></label>
+<label class="upload-btn" for="fileInput">Choose Image</label>
+<input type="file" id="fileInput" accept="image/*" aria-label="Choose a file to process" hidden>
 </div>
 <img id="preview" class="preview" alt="Preview">
 <div class="actions">
@@ -137,88 +139,6 @@
 </div>
 
 
-
-<section class="tool-info-block" aria-labelledby="tool-info-heading">
-<h2 id="tool-info-heading">Tool Information</h2>
-<div class="tool-info-grid">
-<div><strong>Runs in browser:</strong><span>Yes</span></div>
-<div><strong>Upload required:</strong><span>No - processed locally in your browser</span></div>
-<div><strong>Third-party processing:</strong><span>None</span></div>
-<div><strong>File retention:</strong><span>Files stay on your device and are not stored by Convertios.</span></div>
-<div><strong>Max file size:</strong><span>25 MB</span></div>
-<div><strong>Supported formats:</strong><span>JPG, PNG, WEBP and browser-supported images → Platform-sized image download</span></div>
-</div>
-
-</section>
-
-<section class="tool-guide-block" aria-labelledby="guide-heading-social-media-image-resizer">
-<h2 id="guide-heading-social-media-image-resizer">How It Works</h2>
-<p>Social Media Image Resizer reads your selected input, applies the conversion or editing step shown in the tool controls, and prepares an output that matches the format listed below. Review the file name, size, and chosen settings before starting so the result matches your intended use.</p>
-<p>For related workflows, you can also use <a href="compress-image.html">Free Image Compressor</a> or <a href="image-converter.html">Image Converter Online</a> when your task needs another step in the same category.</p>
-
-<h2>Supported Formats</h2>
-<ul>
-<li><strong>Input:</strong> JPG, PNG, WEBP and browser-supported images</li>
-<li><strong>Output:</strong> Platform-sized image download</li>
-</ul>
-
-<h2>Common Issues &amp; Fixes</h2>
-<ul>
-<li><strong>Why did my file not convert correctly?</strong> Check that the file is not corrupted, password protected, or larger than the recommended limit.</li>
-<li><strong>Why is the result different from the original?</strong> Some formats store layout, transparency, fonts, or audio metadata differently, so review the output before sharing it.</li>
-<li><strong>Why did processing stop?</strong> Refresh the page, choose a smaller file, and try again. If the tool uses third-party processing, temporary provider limits may also affect completion.</li>
-</ul>
-
-<h2>Best Use Cases</h2>
-<ul>
-<li>Preparing files for upload forms, email attachments, websites, or social media.</li>
-<li>Changing a file into a more compatible format before sharing it with others.</li>
-<li>Reducing manual editing by using the focused settings available in this tool.</li>
-</ul>
-
-<h2>Related Tools</h2>
-<ul class="related-tools-list">
-<li><a href="compress-image.html">Free Image Compressor</a></li>
-<li><a href="image-converter.html">Image Converter Online</a></li>
-<li><a href="image-resizer.html">Resize Image Online</a></li>
-<li><a href="jpg-to-png.html">JPG to PNG Converter Online</a></li>
-<li><a href="png-to-jpg.html">PNG to JPG Converter</a></li>
-<li><a href="ai-image-enhancer.html">AI Image Enhancer</a></li>
-</ul>
-</section>
-
-<section class="tool-description">
-<h2>How to Use</h2>
-<ol>
-<li>Upload an image by dragging it into the upload area or selecting a file.</li>
-<li>Open the platform groups and select one or more target sizes.</li>
-<li>Preview your image and confirm your selected output dimensions.</li>
-<li>Use <strong>Download Selected (Single)</strong> for one size or <strong>Download Selected (ZIP)</strong> for multiple sizes.</li>
-<li>Save your resized images and publish them to your social channels.</li>
-</ol>
-
-<h2>Supported Platforms</h2>
-<p>Instagram, Facebook, YouTube, X (Twitter), LinkedIn, TikTok, and Snapchat.</p>
-
-<h2>Why Use This Tool</h2>
-<ul>
-<li>Fast processing</li>
-<li>Multiple sizes</li>
-<li>Free to use</li>
-<li>No upload required</li>
-</ul>
-</section>
-
-<div class="more-tools">
-<h3>Explore More Tools</h3>
-<div class="more-tools-grid">
-<a href="ai-image-enhancer.html" class="more-tool-card"><span>✨</span><p>AI Image Enhancer</p></a>
-<a href="image-resizer.html" class="more-tool-card"><span>✂️</span><p>Image Resizer</p></a>
-<a href="compress-image.html" class="more-tool-card"><span>🗜️</span><p>Compress Image</p></a>
-<a href="image-converter.html" class="more-tool-card"><span>🖼️</span><p>Image Converter</p></a>
-<a href="png-to-jpg.html" class="more-tool-card"><span>🔄</span><p>PNG to JPG</p></a>
-</div>
-</div>
 </main>
 
 <script>
@@ -253,6 +173,7 @@ fileInput.addEventListener('change',e=>handleFile(e.target.files[0]));
 ['dragenter','dragover'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.add('dragover');}));
 ['dragleave','drop'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.remove('dragover');}));
 dropzone.addEventListener('drop',e=>handleFile(e.dataTransfer.files[0]));
+dropzone.addEventListener('click',event=>{if(event.target.closest('label')) return;fileInput.click();});
 panel.addEventListener('change',updateButtons);
 function handleFile(file){if(!file) return;const r=new FileReader();r.onload=()=>{img.onload=()=>{imageLoaded=true;preview.src=r.result;preview.style.display='block';statusEl.textContent='Image ready. Choose sizes and download.';updateButtons();};img.src=r.result;};r.readAsDataURL(file);}
 function resizeBlob(w,h,type='image/png',q=0.92){const c=document.createElement('canvas');c.width=w;c.height=h;const ctx=c.getContext('2d');ctx.drawImage(img,0,0,w,h);return new Promise(res=>c.toBlob(res,type,q));}

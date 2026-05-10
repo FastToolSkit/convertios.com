@@ -20,7 +20,7 @@
 .dropzone.dragover{background:#15365f}
 .preview{max-width:100%;max-height:300px;border-radius:10px;margin-top:14px;display:none}
 .upload-btn{display:inline-block;margin-top:12px;background:#3a78ff;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600}
-.upload-btn input{display:block;margin-top:8px;max-width:100%}
+.upload-btn input{display:none}
 .file-name{font-size:14px;color:#c4d6ff;min-height:20px}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .btn{background:#3a78ff;border:none;color:#fff;padding:10px 16px;border-radius:8px;cursor:pointer}
@@ -50,12 +50,14 @@
 <main id="main-content" class="tool-wrap">
 <h1>AI Image Enhancer</h1>
 <p>Enhance blurry or low-resolution images with AI-powered processing. This tool can improve sharpness, upscale detail, and produce cleaner visuals in just a few clicks.</p>
+<p class="temporary-tool-notice" role="status">This tool is currently being improved. Some features may not work yet.</p>
 <div class="tool-grid">
 <section class="panel">
 <h2>Upload Image</h2>
 <div id="dropzone" class="dropzone">
 <p>Upload your image to enhance its quality using AI</p>
-<label class="upload-btn">Choose Image <input type="file" id="fileInput" accept="image/*" aria-label="Choose a file to process"></label>
+<label class="upload-btn" for="fileInput">Choose Image</label>
+<input type="file" id="fileInput" accept="image/*" aria-label="Choose a file to process" hidden>
 </div>
 <p id="fileName" class="file-name"></p>
 <img id="preview" class="preview" alt="Selected image preview">
@@ -75,101 +77,6 @@
 </div>
 
 
-
-<section class="tool-info-block" aria-labelledby="tool-info-heading">
-<h2 id="tool-info-heading">Tool Information</h2>
-<div class="tool-info-grid">
-<div><strong>Runs in browser:</strong><span>No</span></div>
-<div><strong>Upload required:</strong><span>Yes</span></div>
-<div><strong>Third-party processing:</strong><span>Cloudinary unsigned upload and n8n AI enhancement workflow</span></div>
-<div><strong>File retention:</strong><span>Uploaded to Cloudinary first, then the public image URL is sent to n8n for enhancement.</span></div>
-<div><strong>Max file size:</strong><span>Cloudinary unsigned upload preset limits apply</span></div>
-<div><strong>Supported formats:</strong><span>JPG, PNG, and WEBP image uploads → Enhanced image URL</span></div>
-</div>
-<p class="transparency-note"><strong>Transparency note:</strong> This tool uploads images to Cloudinary using an unsigned preset, then sends the public image URL to the Convertios n8n AI enhancement workflow.</p>
-</section>
-
-<section class="tool-guide-block" aria-labelledby="guide-heading-ai-image-enhancer">
-<h2 id="guide-heading-ai-image-enhancer">How It Works</h2>
-<p>AI Image Enhancer uploads your selected image to Cloudinary, then sends the secure image URL to the Convertios n8n AI enhancement workflow and returns a sharper downloadable result. Review the file name and preview before starting so the result matches your intended use.</p>
-<p>For related workflows, you can also use <a href="compress-image.html">Free Image Compressor</a> or <a href="image-converter.html">Image Converter Online</a> when your task needs another step in the same category.</p>
-
-<h2>Supported Formats</h2>
-<ul>
-<li><strong>Input:</strong> JPG, PNG, WEBP image uploads</li>
-<li><strong>Output:</strong> Enhanced image URL</li>
-</ul>
-
-<h2>Common Issues &amp; Fixes</h2>
-<ul>
-<li><strong>Why did my file not convert correctly?</strong> Check that the file is not corrupted, password protected, or larger than the recommended limit.</li>
-<li><strong>Why is the result different from the original?</strong> Some formats store layout, transparency, fonts, or audio metadata differently, so review the output before sharing it.</li>
-<li><strong>Why did processing stop?</strong> Refresh the page, choose a smaller file, and try again. Temporary Cloudinary upload issues or n8n enhancement processing limits may also affect completion.</li>
-</ul>
-
-<h2>Best Use Cases</h2>
-<ul>
-<li>Preparing files for upload forms, email attachments, websites, or social media.</li>
-<li>Changing a file into a more compatible format before sharing it with others.</li>
-<li>Reducing manual editing by using the focused settings available in this tool.</li>
-</ul>
-
-<h2>Related Tools</h2>
-<ul class="related-tools-list">
-<li><a href="compress-image.html">Free Image Compressor</a></li>
-<li><a href="image-converter.html">Image Converter Online</a></li>
-<li><a href="image-resizer.html">Resize Image Online</a></li>
-<li><a href="jpg-to-png.html">JPG to PNG Converter Online</a></li>
-<li><a href="png-to-jpg.html">PNG to JPG Converter</a></li>
-</ul>
-</section>
-
-<section class="tool-description">
-<h2>How to Use</h2>
-<ol>
-<li>Upload an image by dragging and dropping it or by clicking <strong>Choose Image</strong>.</li>
-<li>Confirm the selected file name and preview.</li>
-<li>Click <strong>Enhance Image</strong> to process the image with AI.</li>
-<li>Wait while the tool shows <strong>Enhancing image...</strong>.</li>
-<li>Preview and download the enhanced image result.</li>
-</ol>
-
-<h2>Why Use This Tool</h2>
-<ul>
-<li>AI-powered enhancement for sharper and cleaner images.</li>
-<li>Improves quality by refining detail and boosting resolution.</li>
-<li>Fast and simple workflow with instant preview and download.</li>
-</ul>
-</section>
-
-
-<section class="tool-description" aria-labelledby="ai-enhancer-faq-heading">
-<h2 id="ai-enhancer-faq-heading">AI Image Enhancer FAQ</h2>
-<h3>What does the AI Image Enhancer do?</h3>
-<p>It improves image quality, sharpness, and clarity using an AI enhancement workflow, then shows the enhanced image for preview and download.</p>
-<h3>Is it free to use?</h3>
-<p>Yes. The AI Image Enhancer is available as a free Convertios tool.</p>
-<h3>Are my images uploaded?</h3>
-<p>Yes. Your selected image is uploaded to Cloudinary using an unsigned upload preset, and the resulting public image URL is sent to the n8n AI enhancement workflow.</p>
-<h3>What image formats are supported?</h3>
-<p>Common web image formats such as JPG, PNG, and WEBP are supported, depending on the Cloudinary upload preset and browser file selection.</p>
-<h3>Why does enhancement take time?</h3>
-<p>The tool first uploads your image and then waits for the AI workflow to process it. Larger images or temporary provider load can increase processing time.</p>
-<h3>What should I do if enhancement fails?</h3>
-<p>Try a smaller JPG, PNG, or WEBP file, check your connection, and retry. If the issue continues, the Cloudinary preset or n8n workflow may need configuration.</p>
-<h3>Does it work on mobile?</h3>
-<p>Yes. The tool works in modern mobile browsers, though upload and processing speed depends on your device, image size, and network connection.</p>
-</section>
-
-<div class="more-tools">
-<h3>Explore More Tools</h3>
-<div class="more-tools-grid">
-<a href="image-resizer.html" class="more-tool-card"><span>✂️</span><p>Image Resizer</p></a>
-<a href="compress-image.html" class="more-tool-card"><span>🗜️</span><p>Compress Image</p></a>
-<a href="image-converter.html" class="more-tool-card"><span>🖼️</span><p>Image Converter</p></a>
-<a href="crop-image.html" class="more-tool-card"><span>🪄</span><p>Crop Image</p></a>
-</div>
-</div>
 </main>
 
 <script>
@@ -263,7 +170,7 @@ fileInput.addEventListener('change',e=>handleFile(e.target.files[0]));
 ['dragenter','dragover'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.add('dragover');}));
 ['dragleave','drop'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.remove('dragover');}));
 dropzone.addEventListener('drop',e=>handleFile(e.dataTransfer.files[0]));
-dropzone.addEventListener('click',()=>fileInput.click());
+dropzone.addEventListener('click',event=>{if(event.target.closest('label')) return;fileInput.click();});
 
 async function runEnhancement(){
 if(!selectedFile) return;
@@ -290,7 +197,7 @@ if(!data.imageUrl){
 throw new Error('The enhancement server did not return an image URL.');
 }
 
-currentEnhancedImageUrl=imageUrl;
+currentEnhancedImageUrl=data.imageUrl;
 resultPreview.src=currentEnhancedImageUrl;
 resultPreview.style.display='block';
 downloadBtn.href=getDownloadEndpoint(currentEnhancedImageUrl);
