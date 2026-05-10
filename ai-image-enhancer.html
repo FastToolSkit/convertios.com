@@ -20,7 +20,7 @@
 .dropzone.dragover{background:#15365f}
 .preview{max-width:100%;max-height:300px;border-radius:10px;margin-top:14px;display:none}
 .upload-btn{display:inline-block;margin-top:12px;background:#3a78ff;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600}
-.upload-btn input{display:block;margin-top:8px;max-width:100%}
+.upload-btn input{display:none}
 .file-name{font-size:14px;color:#c4d6ff;min-height:20px}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .btn{background:#3a78ff;border:none;color:#fff;padding:10px 16px;border-radius:8px;cursor:pointer}
@@ -141,7 +141,8 @@
 <h2>Upload Image</h2>
 <div id="dropzone" class="dropzone">
 <p>Upload your image to enhance its quality using AI</p>
-<label class="upload-btn">Choose Image <input type="file" id="fileInput" accept="image/*" aria-label="Choose a file to process"></label>
+<label class="upload-btn" for="fileInput">Choose Image</label>
+<input type="file" id="fileInput" accept="image/*" aria-label="Choose a file to process" hidden>
 </div>
 <p id="fileName" class="file-name"></p>
 <img id="preview" class="preview" alt="Selected image preview">
@@ -219,7 +220,6 @@
 <a href="image-resizer.html" class="more-tool-card"><span>✂️</span><p>Image Resizer</p></a>
 <a href="compress-image.html" class="more-tool-card"><span>🗜️</span><p>Compress Image</p></a>
 <a href="image-converter.html" class="more-tool-card"><span>🖼️</span><p>Image Converter</p></a>
-<a href="crop-image.html" class="more-tool-card"><span>🪄</span><p>Crop Image</p></a>
 </div>
 </div>
 </main>
