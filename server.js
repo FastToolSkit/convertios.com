@@ -78,13 +78,22 @@ async function pollReplicatePrediction(prediction, requestId) {
   };
 }
 
-if (error instanceof multer.MulterError && error.code === 'LIMIT_FILE_SIZE') {
-  return sendEnhanceError(res, 413, 'Image must be smaller than 10MB.');
-}
+app.post(
+  '/enhance',
+  (req, res, next) => {
+    enhanceUpload.single('image')(req, res, (error) => {
+      if (!error) {
+        return next();
+      }
 
-return sendEnhanceError(res, 400, error.message || 'Invalid image upload.');
+      if (error instanceof multer.MulterError && error.code === 'LIMIT_FILE_SIZE') {
+        return sendEnhanceError(res, 413, 'Image must be smaller than 10MB.');
+      }
 
-});}, async (req, res) => {const requestId = `${Date.now()}-${Math.random().toString(16).slice(2)}`;let prediction = null;let stage = 'received';
+      return sendEnhanceError(res, 400, error.message || 'Invalid image upload.');
+    });
+  },
+  async (req, res) => {const requestId = `${Date.now()}-${Math.random().toString(16).slice(2)}`;let prediction = null;let stage = 'received';
 
 try {console.log('🔥 Request received', { requestId, path: req.path, method: req.method });console.log('📦 File size:', req.file?.size);console.log('[POST /enhance] Upload metadata:', {requestId,fieldName: req.file?.fieldname,originalName: req.file?.originalname,mimetype: req.file?.mimetype,bufferBytes: req.file?.buffer?.length});console.log("🔥 NEW VERSION LIVE");console.log('🔑 Token exists:', !!process.env.REPLICATE_API_TOKEN);if (!req.file) {return sendEnhanceError(res, 400, 'No image uploaded. Use FormData field name "image".', { requestId, stage: 'validation' });}
 
