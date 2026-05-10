@@ -2199,3 +2199,115 @@ UNIFIED TOOL PAGE UI
         margin-right:0 !important;
     }
 }
+
+/* Targeted readability fixes for AI enhancer and social resizer pages */
+.tool-page-readable .tool-info-block,
+.tool-page-readable .tool-description,
+.tool-page-readable .more-tools{
+    color:#334155 !important;
+}
+
+.tool-page-readable .tool-info-block,
+.tool-page-readable .tool-description{
+    background:#ffffff !important;
+    border:1px solid #e2e8f0 !important;
+    box-shadow:0 12px 35px rgba(15,23,42,0.08) !important;
+    text-align:left !important;
+}
+
+.tool-page-readable .tool-info-block h2,
+.tool-page-readable .tool-description h2,
+.tool-page-readable .tool-description h3,
+.tool-page-readable .more-tools h3{
+    color:#0f172a !important;
+}
+
+.tool-page-readable .tool-info-block p,
+.tool-page-readable .tool-info-block span,
+.tool-page-readable .tool-description p,
+.tool-page-readable .tool-description li{
+    color:#334155 !important;
+}
+
+.tool-page-readable .tool-description a,
+.tool-page-readable .tool-info-block a,
+.tool-page-readable .more-tools a{
+    color:#2563eb !important;
+}
+
+.tool-page-readable .tool-description ul,
+.tool-page-readable .tool-description ol{
+    margin:10px 0 20px 1.35rem !important;
+    padding-left:1.1rem !important;
+    text-align:left !important;
+    list-style-position:outside !important;
+}
+
+.tool-page-readable .tool-description li{
+    margin:0 0 8px !important;
+    padding-left:0.15rem !important;
+    line-height:1.7 !important;
+    text-align:left !important;
+}
+
+.tool-page-readable .tool-info-grid div{
+    background:#f8fafc !important;
+    border:1px solid #e2e8f0 !important;
+    color:#334155 !important;
+    box-shadow:none !important;
+}
+
+.tool-page-readable .tool-info-grid strong,
+.tool-page-readable .tool-description strong{
+    color:#0f172a !important;
+}
+
+.tool-page-readable .transparency-note{
+    background:#fff7ed !important;
+    border:1px solid #fed7aa !important;
+    color:#7c2d12 !important;
+}
+
+.tool-page-readable .transparency-note strong{
+    color:#7c2d12 !important;
+}
+
+.tool-page-readable .more-tools{
+    max-width:1000px;
+}
+
+.tool-page-readable .more-tools-grid{
+    align-items:stretch !important;
+}
+
+.tool-page-readable .more-tool-card{
+    background:#ffffff !important;
+    border:1px solid #dbe4ee !important;
+    color:#0f172a !important;
+    box-shadow:0 8px 24px rgba(15,23,42,0.08) !important;
+    min-width:190px !important;
+    justify-content:flex-start !important;
+}
+
+.tool-page-readable .more-tool-card p{
+    color:#0f172a !important;
+    margin:0 !important;
+    line-height:1.35 !important;
+    font-weight:700 !important;
+}
+
+.tool-page-readable .more-tool-card:hover{
+    background:#f8fafc !important;
+    border-color:#93c5fd !important;
+}
+
+@media (max-width:700px){
+    .tool-page-readable .tool-info-grid{
+        grid-template-columns:1fr !important;
+    }
+
+    .tool-page-readable .tool-info-block,
+    .tool-page-readable .tool-description{
+        padding:24px 20px !important;
+    }
+}
