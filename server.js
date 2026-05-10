@@ -1,3 +1,4 @@
+const FormData = require('form-data');
 const express = require('express');const cors = require('cors');const multer = require('multer');const fetch = require('node-fetch'); // ✅ FIX
 
 const app = express();const upload = multer({ storage: multer.memoryStorage() });const PORT = process.env.PORT || 3000;const REPLICATE_API_URL = 'https://api.replicate.com/v1/predictions';const REPLICATE_MODEL = 'nightmareai/real-esrgan:42fed1c4974146d4d2414e2be2c5277c7fcf05fcc3a73abf41610695738c1d7b';const REPLICATE_MODEL_VERSION = REPLICATE_MODEL.split(':').pop();const MAX_ENHANCE_IMAGE_BYTES = 10 * 1024 * 1024;const enhanceUpload = multer({storage: multer.memoryStorage(),limits: { fileSize: MAX_ENHANCE_IMAGE_BYTES }});
@@ -228,11 +229,19 @@ if (!form?.url || !form?.parameters) {
 }
 
 const uploadForm = new FormData();
-Object.entries(form.parameters).forEach(([key, value]) => uploadForm.append(key, value));
-uploadForm.append('file', new Blob([req.file.buffer], { type: req.file.mimetype || 'application/pdf' }), req.file.originalname || 'document.pdf');
+
+Object.entries(form.parameters).forEach(([key, value]) => {
+  uploadForm.append(key, value);
+});
+
+uploadForm.append('file', req.file.buffer, {
+  filename: req.file.originalname || 'document.pdf',
+  contentType: req.file.mimetype || 'application/pdf'
+});
 
 const uploadResponse = await fetch(form.url, {
   method: 'POST',
+  headers: uploadForm.getHeaders(),
   body: uploadForm
 });
 
