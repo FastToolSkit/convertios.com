@@ -1871,3 +1871,342 @@ TOOL TRUST & GUIDE BLOCKS
         width:100%;
     }
 }
+
+/* ===============================
+UNIFIED TOOL PAGE UI
+=============================== */
+.tool-container,
+.tool-wrap,
+.app-container{
+    max-width:900px !important;
+    margin:80px auto 30px !important;
+    background:#071a33 !important;
+    color:#ffffff !important;
+    padding:40px !important;
+    border-radius:20px !important;
+    text-align:center !important;
+    box-shadow:0 20px 50px rgba(0,0,0,0.3) !important;
+}
+
+.tool-wrap{
+    display:block !important;
+}
+
+.tool-grid{
+    display:grid !important;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr)) !important;
+    gap:24px !important;
+    margin-top:24px !important;
+}
+
+.panel,
+.sidebar,
+.workspace{
+    background:#0c2547 !important;
+    color:#ffffff !important;
+    border-radius:16px !important;
+    padding:24px !important;
+    border:1px solid rgba(255,255,255,0.08) !important;
+    box-shadow:none !important;
+}
+
+.app-container{
+    display:grid !important;
+    grid-template-columns:minmax(240px,320px) 1fr !important;
+    gap:24px !important;
+    align-items:stretch !important;
+}
+
+.sidebar{
+    width:auto !important;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:12px !important;
+}
+
+.workspace{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+}
+
+.tool-container h1,
+.tool-wrap h1,
+.app-container h1{
+    color:#ffffff !important;
+    font-size:clamp(28px,4vw,42px) !important;
+    line-height:1.15 !important;
+    font-weight:700 !important;
+    text-align:center !important;
+    margin:0 0 12px !important;
+}
+
+.tool-container h2,
+.tool-wrap h2,
+.app-container h2,
+.panel h2,
+.sidebar h2,
+.workspace h2{
+    color:#ffffff !important;
+    font-size:clamp(20px,2.5vw,28px) !important;
+    line-height:1.25 !important;
+    margin:0 0 16px !important;
+}
+
+.tool-container p,
+.tool-wrap p,
+.app-container p,
+.panel p,
+.sidebar p,
+.workspace p,
+.file-name,
+.status{
+    color:#cbd5e1 !important;
+    font-size:16px !important;
+    line-height:1.7 !important;
+}
+
+#drop-area,
+.drop-area,
+.dropzone,
+.upload-area{
+    width:100% !important;
+    min-height:180px !important;
+    border:2px dashed #4b5d75 !important;
+    border-radius:12px !important;
+    background:#0c2547 !important;
+    color:#cbd5e1 !important;
+    padding:40px !important;
+    margin:24px auto !important;
+    cursor:pointer !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:12px !important;
+    text-align:center !important;
+    box-shadow:none !important;
+    transition:background .2s ease,border-color .2s ease,transform .2s ease !important;
+}
+
+#drop-area:hover,
+.drop-area:hover,
+.dropzone:hover,
+.dropzone.dragover,
+.upload-area:hover{
+    background:#12305a !important;
+    border-color:#3a78ff !important;
+}
+
+.tool-container input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not([hidden]),
+.tool-wrap input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not([hidden]),
+.app-container input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not([hidden]),
+.tool-container select,
+.tool-wrap select,
+.app-container select,
+.tool-container textarea,
+.tool-wrap textarea,
+.app-container textarea{
+    width:100% !important;
+    max-width:520px !important;
+    padding:12px 14px !important;
+    border-radius:8px !important;
+    border:1px solid rgba(255,255,255,0.1) !important;
+    background:#0c2547 !important;
+    color:#ffffff !important;
+    font-size:16px !important;
+    margin:10px auto 0 !important;
+}
+
+.tool-container input[type="file"]:not([hidden]),
+.tool-wrap input[type="file"]:not([hidden]),
+.app-container input[type="file"]:not([hidden]){
+    border:2px dashed #4b5d75 !important;
+    cursor:pointer !important;
+}
+
+.tool-container textarea,
+.tool-wrap textarea,
+.app-container textarea{
+    min-height:220px !important;
+    resize:vertical !important;
+}
+
+.tool-container label,
+.tool-wrap label,
+.app-container label,
+.sidebar label{
+    color:#e2e8f0 !important;
+    font-weight:600 !important;
+    margin-top:10px !important;
+}
+
+.controls,
+.actions{
+    margin-top:24px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:14px !important;
+    flex-wrap:wrap !important;
+}
+
+.tool-container button,
+.tool-wrap button,
+.app-container button,
+.tool-container .btn,
+.tool-wrap .btn,
+.app-container .btn,
+.tool-container .main-button,
+.tool-wrap .main-button,
+.app-container .main-button,
+.tool-container .download-btn,
+.tool-wrap .download-btn,
+.app-container .download-btn,
+.tool-container .upload-btn,
+.tool-wrap .upload-btn,
+.app-container .upload-btn{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-height:44px !important;
+    width:auto !important;
+    padding:12px 20px !important;
+    margin:20px 6px 0 !important;
+    border:none !important;
+    border-radius:8px !important;
+    background:#3a78ff !important;
+    color:#ffffff !important;
+    font-size:15px !important;
+    font-weight:700 !important;
+    line-height:1.2 !important;
+    text-decoration:none !important;
+    cursor:pointer !important;
+    transition:background .2s ease,transform .2s ease,box-shadow .2s ease !important;
+}
+
+.tool-container button:hover,
+.tool-wrap button:hover,
+.app-container button:hover,
+.tool-container .btn:hover,
+.tool-wrap .btn:hover,
+.app-container .btn:hover,
+.tool-container .main-button:hover,
+.tool-wrap .main-button:hover,
+.app-container .main-button:hover,
+.tool-container .download-btn:hover,
+.tool-wrap .download-btn:hover,
+.app-container .download-btn:hover,
+.tool-container .upload-btn:hover,
+.tool-wrap .upload-btn:hover,
+.app-container .upload-btn:hover{
+    background:#2a66e6 !important;
+    transform:translateY(-1px) !important;
+    box-shadow:0 10px 20px rgba(0,0,0,0.25) !important;
+}
+
+.tool-container button:disabled,
+.tool-wrap button:disabled,
+.app-container button:disabled,
+.tool-container .btn:disabled,
+.tool-wrap .btn:disabled,
+.app-container .btn:disabled{
+    opacity:.55 !important;
+    cursor:not-allowed !important;
+    transform:none !important;
+    box-shadow:none !important;
+}
+
+.tool-container .reset-btn,
+.tool-wrap .reset-btn,
+.app-container .reset-btn{
+    background:#ef4444 !important;
+}
+
+.tool-container .reset-btn:hover,
+.tool-wrap .reset-btn:hover,
+.app-container .reset-btn:hover{
+    background:#dc2626 !important;
+}
+
+.tool-container .stats,
+.tool-wrap .stats,
+.app-container .stats{
+    margin-top:28px !important;
+    gap:16px !important;
+}
+
+.tool-container .stat,
+.tool-wrap .stat,
+.app-container .stat,
+.result-wrap,
+#downloads,
+#downloadLinks,
+#output,
+.output{
+    background:#0c2547 !important;
+    color:#ffffff !important;
+    border-radius:12px !important;
+    padding:16px !important;
+    border:1px solid rgba(255,255,255,0.08) !important;
+}
+
+#preview,
+.preview,
+#resultPreview{
+    max-width:100% !important;
+    border-radius:10px !important;
+}
+
+@media (max-width:900px){
+    .tool-container,
+    .tool-wrap,
+    .app-container{
+        max-width:calc(100% - 32px) !important;
+        margin:40px auto 24px !important;
+        padding:24px 18px !important;
+        border-radius:16px !important;
+    }
+
+    .app-container,
+    .tool-grid{
+        grid-template-columns:1fr !important;
+    }
+
+    #drop-area,
+    .drop-area,
+    .dropzone,
+    .upload-area{
+        padding:28px 18px !important;
+        min-height:150px !important;
+    }
+
+    .tool-container button,
+    .tool-wrap button,
+    .app-container button,
+    .tool-container .btn,
+    .tool-wrap .btn,
+    .app-container .btn,
+    .tool-container .main-button,
+    .tool-wrap .main-button,
+    .app-container .main-button,
+    .tool-container .download-btn,
+    .tool-wrap .download-btn,
+    .app-container .download-btn{
+        width:100% !important;
+        margin-left:0 !important;
+        margin-right:0 !important;
+    }
+}
+
+.temporary-tool-notice{
+    margin:18px auto 24px;
+    padding:14px 18px;
+    border-radius:12px;
+    background:#fef3c7;
+    color:#78350f;
+    border:1px solid #f59e0b;
+    font-weight:700;
+    text-align:center;
+}
