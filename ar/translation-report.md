@@ -1,77 +1,65 @@
 # Arabic Rollout Report
 
-## Translated pages in this initial rollout
+## Production-approved scope
 
-The first Arabic rollout includes 20 high-value pages under `/ar/`:
+Only Arabic image-tool pages are approved for indexing and production discovery in this phase:
 
-1. `/ar/`
-2. `/ar/all-tools.html`
-3. `/ar/image-tools.html`
-4. `/ar/pdf-tools.html`
-5. `/ar/audio-tools.html`
-6. `/ar/png-to-jpg.html`
-7. `/ar/jpg-to-png.html`
-8. `/ar/webp-to-png.html`
-9. `/ar/image-converter.html`
-10. `/ar/image-resizer.html`
-11. `/ar/compress-image.html`
+1. `/ar/image-tools.html`
+2. `/ar/image-converter.html`
+3. `/ar/compress-image.html`
+4. `/ar/compress-image-to-20kb.html`
+5. `/ar/compress-image-to-50kb.html`
+6. `/ar/compress-image-to-100kb.html`
+7. `/ar/image-resizer.html`
+8. `/ar/png-to-jpg.html`
+9. `/ar/jpg-to-png.html`
+10. `/ar/webp-to-png.html`
+11. `/ar/remove-bg.html`
 12. `/ar/social-media-image-resizer.html`
 13. `/ar/ai-image-enhancer.html`
-14. `/ar/pdf-to-word.html`
-15. `/ar/pdf-to-jpg.html`
-16. `/ar/jpg-to-pdf.html`
-17. `/ar/merge-pdf.html`
-18. `/ar/split-pdf.html`
-19. `/ar/rotate-pdf.html`
-20. `/ar/mp3-cutter.html`
 
-## Missing translations for future phases
+## Approved image pages ready
 
-- Utility tools: QR generator, password generator, word counter, text formatter, unit converter, meme generator, link shortener.
-- Additional image pages: remove background and size-specific compression pages.
-- Additional audio pages: audio converter, audio speed changer, trim audio.
-- Spanish pages were not translated into Arabic because they are separate localized URLs.
-- Policy/support pages: about, contact, FAQ, privacy, terms, security.
+- The approved image pages retain `lang="ar"` and `dir="rtl"`, Arabic titles/descriptions, self canonicals, and English/Arabic hreflang pairs.
+- Header navigation on approved image pages is limited to image tools; Arabic PDF, audio, and utility pages are not linked from those image headers.
+- Static QA confirmed each approved image page keeps the same core tool IDs as its English counterpart, including upload/select controls, action buttons, result/preview areas, and download targets where the English page provides them.
+- Language selectors on approved image pages map the Arabic URL to the matching English URL without replacing the Arabic tool interface.
 
-## Pages needing manual review
+## Image pages needing manual browser test
 
-- Tool pages currently provide Arabic localized copy, Arabic navigation, hreflang, canonical, and internal Arabic links. Full Arabic tool-control parity should be reviewed before the next rollout for every converter that has complex client-side controls.
-- API-backed pages such as AI image enhancer and PDF to Word should be reviewed for Arabic error handling, upload limits, and service downtime messages.
-- Audio and PDF tools should be tested on mobile in RTL layout.
+Manual browser testing is still required before final production sign-off for:
 
-## RTL issues found and addressed
+- `/ar/remove-bg.html` because it depends on the backend `remove-bg` endpoint and third-party background-removal service behavior.
+- `/ar/ai-image-enhancer.html` because it uploads through Cloudinary and sends the image URL to the enhancement workflow.
+- `/ar/social-media-image-resizer.html` because ZIP generation and multiple preset downloads should be checked in a real browser.
+- Converter and compressor pages should receive a quick smoke test with at least one JPG, PNG, and WEBP file to confirm canvas download behavior across browsers.
 
-- Added `/ar/rtl.css` for RTL direction, text alignment, dropdown alignment, list indentation, related-tool cards, and mobile language-switcher spacing.
-- Arabic pages use `lang="ar"` and `dir="rtl"` directly on the `<html>` element.
-- Arabic pages use absolute root asset paths so CSS, icons, logo, favicon files, and scripts resolve correctly from `/ar/`.
+## Non-image Arabic pages marked noindex
 
-## Hreflang/canonical notes
+The following Arabic pages exist from the initial rollout but are not approved for indexing in this phase and are marked with `<meta name="robots" content="noindex, nofollow">`:
 
-- The implementation uses `https://convertios.com` to match the existing project canonicals and sitemap domain.
-- Every Arabic page has a self canonical.
-- Every Arabic page includes `hreflang="ar"`, `hreflang="en"`, and `hreflang="x-default"` tags.
-- The sitemap was regenerated with English and Arabic URLs for the translated pairs using `xhtml:link` alternates.
+- `/ar/`
+- `/ar/all-tools.html`
+- `/ar/audio-tools.html`
+- `/ar/pdf-tools.html`
+- `/ar/pdf-to-word.html`
+- `/ar/pdf-to-jpg.html`
+- `/ar/jpg-to-pdf.html`
+- `/ar/merge-pdf.html`
+- `/ar/split-pdf.html`
+- `/ar/rotate-pdf.html`
+- `/ar/mp3-cutter.html`
 
+No Arabic URLs are currently present in `sitemap.xml`, so no sitemap removal was needed in this audit.
 
-## Premium copy refinement
+## Copy and navigation QA
 
-- Refined the Arabic homepage and five priority pages: `/ar/compress-image.html`, `/ar/image-resizer.html`, `/ar/social-media-image-resizer.html`, `/ar/pdf-to-word.html`, and `/ar/mp3-cutter.html`.
-- Replaced mechanical tool-first phrasing with natural product copy focused on speed, clarity, trust, and practical workflows.
-- Reworked the header language control into an accessible dropdown-style selector and improved RTL spacing/visual hierarchy in `/ar/rtl.css`.
+- Removed the previously over-broad category navigation from approved image pages so the rollout does not promote unfinished Arabic PDF, audio, or utility sections.
+- Checked for the disallowed spammy Arabic phrases listed in the audit request and removed the remaining occurrence from Arabic page copy.
+- Remaining English product/file-format terms are intentional where they are brand names, file formats, code identifiers, endpoint names, or required UI values such as JPG, PNG, WEBP, ZIP, PDF, Cloudinary, and Convertios.
 
+## Remaining risks
 
-## Arabic QA branch refinement
-
-- Arabic localization work is now isolated on the `arabic-localization-dev` branch for quality review before any production merge.
-- This pass keeps the rollout scope unchanged and focuses only on the homepage, global Arabic header/footer, the language selector, RTL polish, and five priority pages.
-- Priority copy was rewritten to avoid keyword-stuffed or mechanical Arabic copy and to emphasize clarity, trust, and practical workflows.
-
-
-## Full Arabic copy polish pass
-
-- Polished all existing Arabic pages without adding new URLs.
-- Replaced generic boilerplate sections with shorter, more useful copy that explains intent, context, and next steps.
-- Kept `/ar/`, `/es/`, and English URL structure unchanged, with Arabic self canonicals and existing hreflang signals intact.
-- Tightened RTL CSS for Arabic line-height, card spacing, section rhythm, CTA alignment, dropdown positioning, and mobile stacking.
-- Language selector remains a compact dropdown that preserves each page’s Arabic/English equivalent URL.
-- Pages still needing manual QA: API-backed pages and pages whose actual tool controls are still inherited from English implementations.
+- Some approved pages still use inline scripts inherited from English pages. Static syntax checks pass, but browser QA is needed for drag/drop, canvas export, ZIP export, and API-backed flows.
+- API-backed Arabic status messages may still surface provider error text in English if the upstream service returns an English error.
+- The non-image Arabic pages remain in the repository as noindex placeholders to avoid merge conflicts; they should not be promoted until their real tool UIs and copy pass QA.

@@ -55,7 +55,7 @@
 <link rel="stylesheet" href="rtl.css">
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to content</a>
+<a class="skip-link" href="#main-content">تخطي إلى المحتوى</a>
 <header class="site-header">
 
 <div class="header-left">
@@ -86,56 +86,6 @@
     </div>
 </div>
 
-<div class="nav-item dropdown">
-    <span>PDF ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="/ar/image-tools.html">PDF إلى Word</a>
-        <a href="/ar/image-tools.html">PDF إلى JPG</a>
-        <a href="/ar/image-tools.html">JPG إلى PDF</a>
-
-        <a href="/ar/image-tools.html">دمج PDF</a>
-        <a href="/ar/image-tools.html">تقسيم PDF</a>
-        <a href="/ar/image-tools.html">تدوير PDF</a>
-
-        <a href="/ar/image-tools.html" class="view-all">عرض الكل ←</a>
-
-    </div>
-</div>
-
-<div class="nav-item dropdown">
-    <span>الصوت ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="/ar/image-tools.html">قص MP3</a>
-        <a href="/ar/image-tools.html">محول الصوت</a>
-        <a href="/ar/image-tools.html">تغيير السرعة</a>
-
-        <a href="/ar/image-tools.html" class="view-all">عرض الكل ←</a>
-
-    </div>
-</div>
-<div class="nav-item dropdown">
-    <span>أدوات أخرى ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="/ar/image-tools.html">رمز QR</a>
-        <a href="/ar/image-tools.html">اختصار الروابط</a>
-        <a href="/ar/image-tools.html">كلمات المرور</a>
-        <a href="/ar/image-tools.html">عداد الكلمات</a>
-        <a href="/ar/image-tools.html">تنسيق النص</a>
-        <a href="/ar/image-tools.html">محول الوحدات</a>
-        <a href="/ar/image-tools.html">ميمات</a>
-
-        <a href="/ar/image-tools.html" class="view-all">عرض الكل ←</a>
-
-    </div>
-</div>
-    <a href="/ar/image-tools.html" class="nav-all-tools">كل الأدوات ←</a>
-
-<a href="/ar/image-tools.html">عن الموقع</a>
-<a href="/ar/image-tools.html">تواصل معنا</a>
-
 </nav>
 
 <div class="nav-icon faq-wrapper">
@@ -165,11 +115,11 @@
 <section class="panel">
 <h2>رفع الصورة</h2>
 <div id="dropzone" class="dropzone">
-<p>Drag &amp; Drop your image here or click to upload</p>
+<p>اسحب الصورة هنا أو انقر للرفع</p>
 <label class="upload-btn" for="fileInput">اختيار صورة</label>
 <input type="file" id="fileInput" accept="image/*" aria-label="اختر ملفًا للمعالجة" hidden>
 </div>
-<img id="preview" class="preview" alt="Preview">
+<img id="preview" class="preview" alt="معاينة">
 <div class="actions">
 <button id="downloadSingle" class="btn" disabled>تنزيل المحدد (ملف واحد)</button>
 <button id="downloadZip" class="btn" disabled>تنزيل المحدد (ZIP)</button>
@@ -223,13 +173,13 @@ const groups={
 };
 const panel=document.getElementById('sizePanel');
 const seoNotes={
-"Instagram":"Using correct Instagram dimensions helps your posts, stories, and profile visuals stay sharp and properly framed. These sizes reduce unexpected cropping and keep branding consistent across feed and mobile views.",
-"Facebook":"Facebook supports multiple placements, each with different aspect ratios and display rules. Choosing the right size improves clarity in the feed, events, and page banners while avoiding cut-off text or logos.",
-"YouTube":"YouTube thumbnails and channel banners require precise dimensions for desktop, mobile, and TV visibility. Correct sizing ensures your previews look professional and readable everywhere.",
-"X (Twitter)":"X images can be cropped differently across timeline cards and profile headers. Applying recommended dimensions keeps your visuals balanced and prevents key content from being clipped.",
-"LinkedIn":"LinkedIn post, profile, and banner images are often viewed in professional contexts. Proper sizing helps maintain credibility and keeps company or personal branding clean and polished.",
-"TikTok":"TikTok content is primarily vertical and mobile-first. Using the right format improves visual quality and ensures your image fills the screen naturally.",
-"Snapchat":"Snapchat stories are displayed in full-screen vertical format. Matching the expected dimensions prevents stretching, pixelation, and accidental cropping of important elements."
+"Instagram":"استخدام مقاسات Instagram الصحيحة يساعد المنشورات والقصص والصورة الشخصية على الظهور بوضوح وبدون قص غير متوقع.",
+"Facebook":"يدعم Facebook مواضع متعددة بنسب عرض مختلفة. اختيار المقاس المناسب يحافظ على وضوح الصور ويقلل قص النصوص أو الشعارات.",
+"YouTube":"تحتاج صور YouTube المصغرة وأغلفة القنوات إلى أبعاد دقيقة حتى تظهر بوضوح على الهاتف والكمبيوتر والشاشات الكبيرة.",
+"X (Twitter)":"قد تُقص صور X بطرق مختلفة في المنشورات والرؤوس. المقاسات المناسبة تحافظ على توازن الصورة وتمنع قص العناصر المهمة.",
+"LinkedIn":"تُعرض صور LinkedIn غالبًا في سياق مهني، لذلك يساعد المقاس الصحيح على إبقاء الهوية الشخصية أو التجارية واضحة ومنظمة.",
+"TikTok":"يعتمد TikTok على العرض العمودي في الهاتف. استخدام المقاس الصحيح يجعل الصورة تملأ الشاشة بشكل طبيعي.",
+"Snapchat":"تُعرض قصص Snapchat عموديًا بملء الشاشة. مطابقة الأبعاد المتوقعة تمنع التمدد أو التشويش أو القص غير المقصود."
 };
 Object.entries(groups).forEach(([name,opts])=>{const d=document.createElement('details');d.innerHTML=`<summary>${name}</summary><p class=\"status\">${seoNotes[name]||''}</p>`+opts.map(o=>`<label class="option"><input type="checkbox" data-label="${name} - ${o[0]}" data-w="${o[1]}" data-h="${o[2]}"> ${o[0]} (${o[1]}x${o[2]})</label>`).join('');panel.appendChild(d);});
 [...panel.querySelectorAll('summary')].forEach(s=>s.addEventListener('click',e=>{e.preventDefault();const d=s.parentElement;d.open=!d.open;}));
