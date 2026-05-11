@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>تدوير صفحات PDF | Convertios</title>
+
+<meta name="description" content="صحّح اتجاه صفحات PDF ونزّل الملف بعد التدوير بواجهة عربية.">
+
+
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="/favicon.ico">
+
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+
+<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js";
+</script>
+
+<style>
+
+/* (UNCHANGED STYLES) */
+
+.tool-container{
+max-width:1000px;
+margin:80px auto 30px;
+background:#071a33;
+color:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+}
+
+.tool-container p{
+color:#cbd5e1;
+}
+
+.drop-area{
+border:2px dashed #3a78ff;
+padding:50px;
+border-radius:14px;
+background:#0c2547;
+margin-top:20px;
+cursor:pointer;
+}
+
+.drop-area:hover{
+background:#12305a;
+}
+
+.preview-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,180px));
+gap:20px;
+margin-top:30px;
+justify-content:center;
+}
+
+.preview-item{
+background:#0c2547;
+padding:12px;
+border-radius:10px;
+max-width:180px;
+margin:auto;
+overflow:hidden;
+}
+
+.preview-item canvas{
+max-width:100%;
+height:auto;
+display:block;
+margin:auto;
+transform-origin:center center;
+}
+
+.rotate-btn{
+margin-top:10px;
+padding:8px 12px;
+background:#3a78ff;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.main-button{
+margin-top:25px;
+padding:14px 22px;
+background:#020c1b;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.spinner{
+width:40px;
+height:40px;
+border:4px solid #1e293b;
+border-top:4px solid #3a78ff;
+border-radius:50%;
+animation:spin 1s linear infinite;
+margin:15px auto;
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+.seo-content{
+max-width:900px;
+margin:20px auto;
+background:#071a33;
+color:white;
+padding:35px;
+border-radius:20px;
+}
+
+.tool-description{
+max-width:900px;
+margin:30px auto 80px;
+background:white;
+padding:40px;
+border-radius:16px;
+color:#1e293b;
+line-height:1.8;
+}
+
+</style>
+
+<link rel="canonical" href="https://convertios.com/ar/rotate-pdf.html">
+
+<!-- Convertios SEO social metadata -->
+<meta property="og:title" content="تدوير PDF Online | Convertios">
+<meta property="og:description" content="Use تدوير PDF Online on Convertios with clear processing details, supported PDF formats, practical guidance, and related PDF tools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://convertios.com/rotate-pdf.html">
+<meta property="og:image" content="https://convertios.com/convertios-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="تدوير PDF Online | Convertios">
+<meta name="twitter:description" content="Use تدوير PDF Online on Convertios with clear processing details, supported PDF formats, practical guidance, and related PDF tools.">
+<meta name="twitter:image" content="https://convertios.com/convertios-logo.png">
+<!-- /Convertios SEO social metadata -->
+
+<!-- Convertios structured data -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "تدوير PDF Online | Convertios",
+    "description": "Use تدوير PDF Online on Convertios with clear processing details, supported PDF formats, practical guidance, and related PDF tools.",
+    "url": "https://convertios.com/rotate-pdf.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Convertios",
+      "url": "https://convertios.com"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "تدوير PDF Online",
+    "url": "https://convertios.com/rotate-pdf.html",
+    "description": "Use تدوير PDF Online on Convertios with clear processing details, supported PDF formats, practical guidance, and related PDF tools.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires a modern web browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "الرئيسية",
+        "item": "https://convertios.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "تدوير PDF Online",
+        "item": "https://convertios.com/rotate-pdf.html"
+      }
+    ]
+  }
+]
+</script>
+<!-- /Convertios structured data -->
+
+<link rel="stylesheet" href="rtl.css">
+</head>
+
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+
+<header class="site-header">
+
+<div class="header-left">
+    <a href="index.html" class="logo">
+        <img src="../convertios-logo.png" alt="شعار Convertios" width="2211" height="1234">
+    </a>
+</div>
+
+<nav class="nav-menu">
+
+<a href="index.html" class="active">الرئيسية</a>
+
+
+<div class="nav-item dropdown">
+    <span>Image ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="png-to-jpg.html">PNG to JPG</a>
+        <a href="jpg-to-png.html">JPG to PNG</a>
+        <a href="webp-to-png.html">WEBP to PNG</a>
+        <a href="image-converter.html">Image Converter</a>
+        <a href="image-resizer.html">Resize Image</a>
+        <a href="compress-image.html">Compress Image</a>
+        <a href="remove-bg.html">Remove Background</a>
+        <a href="ai-image-enhancer.html">AI Image Enhancer</a>
+
+        <a href="social-media-image-resizer.html">Social Media Image Resizer</a>
+<a href="all-tools.html" class="view-all">View All →</a>
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>PDF ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="pdf-to-word.html">PDF to Word</a>
+        <a href="pdf-to-jpg.html">PDF إلى JPG</a>
+        <a href="jpg-to-pdf.html">JPG to PDF</a>
+
+        <a href="merge-pdf.html">Merge PDF</a>
+        <a href="split-pdf.html">تقسيم PDF</a>
+        <a href="rotate-pdf.html">تدوير PDF</a>
+
+        <a href="all-tools.html" class="view-all">View All →</a>
+
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>الصوت ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="mp3-cutter.html">قص MP3</a>
+        <a href="audio-converter.html">Audio Converter</a>
+        <a href="audio-speed-changer.html">Speed Changer</a>
+
+        <a href="all-tools.html" class="view-all">View All →</a>
+
+    </div>
+</div>
+<div class="nav-item dropdown">
+    <span>More الأدوات ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="qr-generator.html">QR Generator</a>
+        <a href="link-shortener.html">Link Shortener</a>
+        <a href="password-generator.html">Password Generator</a>
+        <a href="word-counter.html">Word Counter</a>
+        <a href="text-formatter.html">Text Formatter</a>
+        <a href="unit-converter.html">Unit Converter</a>
+        <a href="meme-generator.html">Meme Generator</a>
+
+        <a href="all-tools.html" class="view-all">View All →</a>
+
+    </div>
+</div>
+    <a href="all-tools.html" class="nav-all-tools">كل الأدوات ←</a>
+
+<a href="about.html">عن الموقع</a>
+<a href="contact.html">تواصل معنا</a>
+
+</nav>
+
+<div class="nav-icon faq-wrapper">
+    <a href="/faq.html" class="faq-link-block">
+
+        <!-- ICON -->
+        <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
+                <circle cx="12" cy="17" r="1"></circle>
+            </svg>
+        </div>
+
+        <!-- TEXT -->
+        <span class="faq-text">المساعدة</span></a>
+</header>
+
+<div class="tool-container" id="main-content">
+
+<h1>تدوير PDF Online</h1>
+
+<p>دوّر صفحات PDF وصحّح الاتجاه قبل التنزيل.</p>
+
+<div id="drop-area" class="drop-area">
+<p>انقر أو اسحب ملف PDF هنا</p>
+<input type="file" id="file-input" accept=".pdf" hidden aria-label="اختر ملفًا للمعالجة">
+</div>
+
+<div id="preview" class="preview-grid"></div>
+
+<button class="main-button" id="downloadBtn">
+تنزيل PDF بعد التدوير
+</button>
+
+<div id="loader" style="display:none">
+<p>Preparing PDF...</p>
+<div class="spinner"></div>
+</div>
+
+</div>
+
+
+<section class="tool-info-block" aria-labelledby="tool-info-heading">
+<h2 id="tool-info-heading">معلومات الأداة</h2>
+<div class="tool-info-grid">
+<div><strong>يعمل داخل المتصفح:</strong><span>نعم</span></div>
+<div><strong>يتطلب رفع الملف:</strong><span>لا - processed locally in your browser</span></div>
+<div><strong>معالجة عبر طرف خارجي:</strong><span>لا يوجد</span></div>
+<div><strong>الاحتفاظ بالملف:</strong><span>Files stay on your device and are not stored by Convertios.</span></div>
+<div><strong>الحد الأقصى للحجم:</strong><span>100 MB</span></div>
+<div><strong>الصيغ المدعومة:</strong><span>PDF files → Rotated PDF</span></div>
+</div>
+
+</section>
+
+
+<!-- SEO -->
+<div class="seo-content">
+
+<h2>تدوير صفحات PDF Online Free</h2>
+
+<p>
+Convertios provides a fast and easy way to rotate PDF pages and fix incorrect orientation instantly. Whether your document is scanned sideways or upside down, this tool helps you correct it in seconds.
+</p>
+
+<p>
+Preview changes before downloading your updated file. All processing happens locally in your browser, ensuring maximum speed, privacy, and security.
+</p>
+
+</div>
+
+<!-- SEO BOOST -->
+
+
+<div class="tool-description">
+
+<h2>ماذا تفعل الأداة؟</h2>
+<p>
+This PDF rotation tool allows you to rotate individual pages or entire documents to the correct orientation. It is especially useful for fixing scanned documents, presentations, or files that were saved incorrectly.
+</p>
+
+<p>
+The tool works directly in your browser, allowing you to make quick adjustments without installing any software.
+</p>
+
+<h2>طريقة الاستخدام</h2>
+<ul>
+<li>Upload or drag and drop your PDF file</li>
+<li>Preview all pages of your document</li>
+<li>Rotate pages as needed (left or right)</li>
+<li>Download your corrected PDF file</li>
+</ul>
+
+<p>
+The process is simple and works smoothly on all devices.
+</p>
+
+<h2>المزايا</h2>
+<ul>
+<li>تدوير PDF pages instantly</li>
+<li>Fix incorrect orientation with ease</li>
+<li>Fast browser-based processing</li>
+<li>لا installation or registration required</li>
+<li>Secure editing with no file uploads</li>
+<li>Works on mobile, tablet, and desktop devices</li>
+</ul>
+
+<h2>Why rotate PDF pages?</h2>
+<p>
+PDF files often come with incorrect orientation, especially when scanned or exported from different devices. Rotating pages ensures your document is easy to read and properly formatted.
+</p>
+
+<p>
+Correct orientation improves usability and makes documents more professional for sharing or printing.
+</p>
+
+<h2>استخدامات شائعة</h2>
+<p>
+This tool is ideal for students, professionals, and businesses. You can use it to fix scanned documents, rotate presentation slides, adjust reports, or correct any PDF with misaligned pages.
+</p>
+
+<p>
+It is especially useful when preparing documents for submission or presentation.
+</p>
+
+<h2>المساعدة</h2>
+
+<p><strong>Is this PDF rotation tool free?</strong><br>
+نعم, the tool is completely free with no hidden costs.</p>
+
+<p><strong>Are my files uploaded?</strong><br>
+لا, all files are processed locally in your browser for full privacy.</p>
+
+<p><strong>Can I rotate specific pages only?</strong><br>
+نعم, you can rotate individual pages or the entire document.</p>
+
+<p><strong>Does it work on mobile?</strong><br>
+نعم, the tool works on all modern devices including smartphones and tablets.</p>
+
+</div>
+
+
+<!-- MORE TOOLS -->
+
+<div class="more-tools">
+
+<h3>أدوات أخرى</h3>
+
+<div class="more-tools-grid">
+
+<a href="merge-pdf.html" class="more-tool-card">
+<span>📄</span>
+<p>Merge PDF</p>
+</a>
+
+<a href="split-pdf.html" class="more-tool-card">
+<span>✂️</span>
+<p>تقسيم PDF</p>
+</a>
+
+<a href="pdf-to-jpg.html" class="more-tool-card">
+<span>🖼️</span>
+<p>PDF إلى JPG</p>
+</a>
+
+<a href="jpg-to-pdf.html" class="more-tool-card">
+<span>🧾</span>
+<p>JPG to PDF</p>
+</a>
+</div>
+
+</div>
+
+<footer class="site-footer">
+
+<div class="footer-container">
+
+    <div class="footer-brand">
+        <h3>Convertios</h3>
+        <p>أدوات مجانية لمعالجة الصور والملفات من المتصفح.</p>
+    </div>
+
+    <div class="footer-links">
+        <a href="all-tools.html">الأدوات</a>
+        <a href="about.html">عن الموقع</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="/security.html">الأمان</a>
+        <a href="privacy.html">الخصوصية</a>
+        <a href="terms.html">الشروط</a>
+    </div>
+
+</div>
+
+<p class="footer-bottom">
+© 2026 Convertios • جميع الحقوق محفوظة
+</p>
+
+</footer>
+<script>
+
+const dropArea = document.getElementById("drop-area");
+const fileInput = document.getElementById("file-input");
+const preview = document.getElementById("preview");
+const downloadBtn = document.getElementById("downloadBtn");
+const loader = document.getElementById("loader");
+
+let pdfFile;
+let rotations = [];
+
+dropArea.onclick = () => fileInput.click();
+
+dropArea.addEventListener("dragover", e=>e.preventDefault());
+
+dropArea.addEventListener("drop", e=>{
+e.preventDefault();
+loadPDF(e.dataTransfer.files[0]);
+});
+
+fileInput.addEventListener("change", ()=>{
+loadPDF(fileInput.files[0]);
+});
+
+async function loadPDF(file){
+
+pdfFile = file;
+preview.innerHTML="";
+rotations=[];
+
+const buffer = await file.arrayBuffer();
+const pdf = await pdfjsLib.getDocument({data:buffer}).promise;
+
+for(let i=1;i<=pdf.numPages;i++){
+
+rotations.push(0);
+
+const page = await pdf.getPage(i);
+const viewport = page.getViewport({scale:0.6});
+
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = viewport.width;
+canvas.height = viewport.height;
+
+await page.render({canvasContext:ctx,viewport}).promise;
+
+const box = document.createElement("div");
+box.className="preview-item";
+
+box.appendChild(canvas);
+
+const rotateBtn = document.createElement("button");
+rotateBtn.className="rotate-btn";
+rotateBtn.innerText="تدوير";
+
+rotateBtn.onclick = async () => {
+
+rotations[i-1] = (rotations[i-1] + 90) % 360;
+
+const page = await pdf.getPage(i);
+const viewport = page.getViewport({
+scale:0.6,
+rotation: rotations[i-1]
+});
+
+canvas.width = viewport.width;
+canvas.height = viewport.height;
+
+await page.render({
+canvasContext: ctx,
+viewport
+}).promise;
+
+};
+
+box.appendChild(rotateBtn);
+
+preview.appendChild(box);
+
+}
+
+}
+
+downloadBtn.addEventListener("click", async ()=>{
+
+if(!pdfFile){
+alert("ارفع ملف PDF أولًا");
+return;
+}
+
+loader.style.display="block";
+
+const bytes = await pdfFile.arrayBuffer();
+const pdfDoc = await PDFLib.PDFDocument.load(bytes);
+
+const pages = pdfDoc.getPages();
+
+pages.forEach((page,i)=>{
+page.setRotation(PDFLib.degrees(rotations[i]));
+});
+
+const newBytes = await pdfDoc.save();
+
+const blob = new Blob([newBytes],{type:"application/pdf"});
+const url = URL.createObjectURL(blob);
+
+const link = document.createElement("a");
+link.href = url;
+link.download = "rotated.pdf";
+link.click();
+
+loader.style.display="none";
+
+});
+
+</script>
+
+
+<script>
+(function(){
+let lastActionButton=null;
+document.addEventListener('click',function(event){
+const button=event.target.closest('button');
+if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
+},true);
+function ensureToolMessage(){
+let box=document.getElementById('toolMessage');
+if(!box){
+box=document.createElement('div');
+box.id='toolMessage';
+box.className='tool-message-box';
+box.setAttribute('role','status');
+box.setAttribute('aria-live','polite');
+const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
+anchor.insertAdjacentElement('afterend',box);
+}
+return box;
+}
+window.showToolMessage=function(message,canRetry){
+const box=ensureToolMessage();
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">إعادة المحاولة</button>':'');
+box.style.display='block';
+const retry=document.getElementById('commonToolRetry');
+if(retry){
+retry.addEventListener('click',function(){
+box.style.display='none';
+if(lastActionButton) lastActionButton.click();
+});
+}
+};
+const nativeAlert=window.alert;
+window.alert=function(message){
+window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
+if(nativeAlert && !document.body) nativeAlert(message);
+};
+window.addEventListener('error',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+window.addEventListener('unhandledrejection',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+})();
+</script>
+
+<script src="../script.js" defer></script>
+</body>
+</html>
