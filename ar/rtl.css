@@ -2,6 +2,8 @@ html[dir="rtl"] body{
     direction:rtl;
     text-align:right;
     font-family:"Tahoma","Arial",sans-serif;
+    line-height:1.75;
+    letter-spacing:0;
 }
 
 html[dir="rtl"] .site-header,
@@ -33,38 +35,302 @@ html[dir="rtl"] .tool-description ol{
 }
 
 html[dir="rtl"] .more-tool-card,
-html[dir="rtl"] .tool-card,
-html[dir="rtl"] .header-language-switch{
+html[dir="rtl"] .tool-card{
     direction:rtl;
 }
 
-.ar-tool-action{
-    margin-top:22px;
+.ar-page{
+    color:#0f172a;
 }
 
-.ar-tool-action .tool-note{
-    max-width:720px;
-    margin:16px auto 0;
+.ar-hero-premium{
+    max-width:1180px;
+    margin:88px auto 42px;
+    padding:34px 22px;
+    display:grid;
+    grid-template-columns:minmax(0,1.12fr) minmax(280px,.88fr);
+    gap:24px;
+    align-items:center;
+}
+
+.ar-hero-copy,
+.ar-tool-hero,
+.ar-copy-card,
+.ar-trust-copy{
+    background:#ffffff;
+    border:1px solid #e2e8f0;
+    border-radius:24px;
+    box-shadow:0 18px 45px rgba(15,23,42,.08);
+}
+
+.ar-hero-copy,
+.ar-tool-hero{
+    padding:40px;
+}
+
+.ar-hero-copy h1,
+.ar-tool-hero h1{
+    margin:10px 0 16px;
+    color:#071a33;
+    font-size:clamp(32px,4.6vw,56px);
+    line-height:1.15;
+    letter-spacing:-.03em;
+}
+
+.ar-hero-copy p,
+.ar-tool-hero p,
+.ar-copy-card p,
+.ar-trust-copy p{
+    color:#475569;
+    font-size:17px;
+    line-height:1.9;
+}
+
+.ar-kicker{
+    display:inline-flex;
+    align-items:center;
+    width:max-content;
+    padding:7px 12px;
+    border-radius:999px;
+    background:#eff6ff;
+    color:#2563eb;
+    font-size:14px;
+    font-weight:800;
+}
+
+.ar-hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:24px;
+}
+
+.ar-page .main-button,
+.ar-page .secondary-button{
+    line-height:1.4;
+}
+
+.ar-hero-panel{
+    display:grid;
+    gap:14px;
+}
+
+.ar-hero-panel div{
+    padding:20px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#071a33,#0f2c54);
+    color:#ffffff;
+    box-shadow:0 16px 34px rgba(7,26,51,.18);
+}
+
+.ar-hero-panel strong,
+.ar-hero-panel span{
+    display:block;
+}
+
+.ar-hero-panel strong{
+    font-size:20px;
+    margin-bottom:4px;
+}
+
+.ar-hero-panel span{
     color:#cbd5e1;
-    line-height:1.8;
 }
 
-.ar-hero .hero-content,
-.ar-page .tool-desc{
-    text-align:right;
+.ar-section{
+    max-width:1120px;
+    margin:38px auto;
+    padding:0 22px;
+}
+
+.ar-section-heading{
+    margin-bottom:20px;
+}
+
+.ar-section-heading span{
+    color:#2563eb;
+    font-weight:800;
+}
+
+.ar-section-heading h2,
+.ar-copy-card h2,
+.ar-trust-copy h2{
+    color:#071a33;
+    line-height:1.35;
 }
 
 .ar-tools-grid .tool-card{
     text-align:right;
 }
 
-@media (max-width:768px){
-    html[dir="rtl"] .site-header,
-    html[dir="rtl"] .nav-menu{
+.ar-copy-card,
+.ar-trust-copy{
+    max-width:920px;
+    margin:30px auto;
+    padding:32px;
+}
+
+.ar-tool-hero{
+    max-width:980px;
+    margin:92px auto 30px;
+    text-align:right;
+}
+
+.ar-category-hero{
+    margin-bottom:18px;
+}
+
+html[dir="rtl"] .ar-copy-card ol,
+html[dir="rtl"] .ar-copy-card ul{
+    padding-right:1.3rem;
+    margin:14px 0 22px;
+}
+
+.ar-copy-card li{
+    margin-bottom:10px;
+    color:#334155;
+}
+
+.ar-related{
+    margin-top:28px;
+}
+
+.ar-language-selector summary{
+    min-width:118px;
+    justify-content:center;
+}
+
+.ar-language-selector .language-selector__menu{
+    text-align:right;
+}
+
+@media (max-width:900px){
+    .ar-hero-premium{
+        grid-template-columns:1fr;
+        margin-top:76px;
+        padding:22px 18px;
+    }
+
+    .ar-hero-copy,
+    .ar-tool-hero,
+    .ar-copy-card,
+    .ar-trust-copy{
+        padding:26px 20px;
+        border-radius:20px;
+    }
+
+    .ar-tool-hero{
+        margin:78px 18px 26px;
+    }
+}
+
+@media (max-width:700px){
+    .ar-site-header,
+    .ar-site-header .nav-menu{
         align-items:stretch;
     }
 
-    .header-language-switch{
-        margin:10px auto;
+    .ar-hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .ar-hero-actions .main-button,
+    .ar-hero-actions .secondary-button{
+        width:100%;
+        text-align:center;
+    }
+
+    .ar-language-selector{
+        margin:10px auto 0;
+    }
+}
+
+/* Self-contained Arabic language selector styles (kept in /ar to avoid production CSS conflicts) */
+.language-selector{
+    position:relative;
+    margin-inline-start:12px;
+    flex:0 0 auto;
+}
+
+.language-selector summary{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    min-height:38px;
+    padding:8px 12px;
+    border:1px solid #dbe4ee;
+    border-radius:999px;
+    background:#ffffff;
+    color:#071a33;
+    font-size:13px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 8px 22px rgba(15,23,42,.06);
+    transition:background-color .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+
+.language-selector summary::-webkit-details-marker{
+    display:none;
+}
+
+.language-selector summary::after{
+    content:"▾";
+    font-size:11px;
+    color:#64748b;
+}
+
+.language-selector[open] summary,
+.language-selector summary:hover{
+    border-color:#93c5fd;
+    background:#f8fafc;
+    box-shadow:0 12px 26px rgba(15,23,42,.1);
+}
+
+.language-selector__globe{
+    font-size:15px;
+    line-height:1;
+}
+
+.language-selector__menu{
+    position:absolute;
+    top:calc(100% + 8px);
+    right:0;
+    z-index:30;
+    min-width:150px;
+    padding:7px;
+    border:1px solid #dbe4ee;
+    border-radius:14px;
+    background:#ffffff;
+    box-shadow:0 18px 42px rgba(15,23,42,.16);
+}
+
+.language-selector__menu a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:9px 10px;
+    border-radius:10px;
+    color:#071a33;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:700;
+}
+
+.language-selector__menu a:hover,
+.language-selector__menu a[aria-current="page"]{
+    background:#eff6ff;
+    color:#2563eb;
+}
+
+@media (max-width:768px){
+    .language-selector{
+        margin:10px auto 0;
+    }
+
+    .language-selector__menu{
+        right:50%;
+        transform:translateX(50%);
     }
 }

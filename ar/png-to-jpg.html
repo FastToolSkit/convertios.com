@@ -1,19 +1,121 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
 
-gtag('config', 'G-0CH8NE5WDH');
-</script>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تحويل PNG إلى JPG أونلاين | Convertios</title>
-<meta name="description" content="حوّل صور PNG إلى JPG مجانًا لتقليل الحجم وتحسين التوافق مع المواقع والتطبيقات.">
+
+<title>تحويل PNG إلى JPG | Convertios</title>
+
+<meta name="description" content="حوّل صور PNG إلى JPG عندما تحتاج إلى ملف أخف وأسهل للمشاركة أو الرفع.">
+
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="/favicon.ico">
+
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+
+/* TOOL CONTAINER */
+.tool-container{
+    max-width:1000px;
+    margin:80px auto 30px;
+    background:#071a33;
+    color:white;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.tool-container p{
+    color:#cbd5e1;
+}
+
+/* DROP AREA */
+#drop-area{
+    border:2px dashed #3a78ff;
+    padding:50px;
+    border-radius:14px;
+    background:#0c2547;
+    margin-top:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#drop-area:hover{
+    background:#12305a;
+}
+
+/* PREVIEW */
+#preview{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+    margin-top:25px;
+}
+
+#preview img{
+    width:100%;
+    border-radius:10px;
+}
+
+/* BUTTON */
+.main-button{
+    margin-top:20px;
+    padding:14px 22px;
+    background:#3a78ff;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.main-button:hover{
+    background:#2a66e6;
+}
+
+/* DOWNLOADS */
+#downloads{
+    margin-top:20px;
+    display:grid;
+    gap:10px;
+}
+
+#downloads a{
+    display:block;
+    background:#020c1b;
+    padding:10px;
+    border-radius:8px;
+    color:white;
+    text-decoration:none;
+}
+
+/* SEO */
+.seo-content{
+    max-width:900px;
+    margin:20px auto;
+    background:#071a33;
+    color:white;
+    padding:35px;
+    border-radius:20px;
+}
+
+/* DESCRIPTION */
+.tool-description{
+    max-width:900px;
+    margin:30px auto 80px;
+    background:white;
+    padding:40px;
+    border-radius:16px;
+    color:#1e293b;
+    line-height:1.8;
+}
+
+</style>
+
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://convertios.com/ar/png-to-jpg.html">
 <link rel="alternate" hreflang="en" href="https://convertios.com/png-to-jpg.html">
@@ -100,6 +202,10 @@ function showPreview(){
 
 function convert(){
     let files=fileInput.files;
+    if(!files || files.length===0){
+        alert("اختر صورة PNG واحدة على الأقل قبل التحويل.");
+        return;
+    }
     let downloads=document.getElementById("downloads");
 
     downloads.innerHTML="";
@@ -131,7 +237,7 @@ function convert(){
                 let link=document.createElement("a");
                 link.href=jpg;
                 link.download="converted_"+(i+1)+".jpg";
-                link.innerText="Download Image "+(i+1);
+                link.innerText="تنزيل الصورة "+(i+1);
 
                 downloads.appendChild(link);
             }
@@ -166,7 +272,7 @@ return box;
 }
 window.showToolMessage=function(message,canRetry){
 const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">إعادة المحاولة</button>':'');
 box.style.display='block';
 const retry=document.getElementById('commonToolRetry');
 if(retry){
@@ -178,18 +284,18 @@ if(lastActionButton) lastActionButton.click();
 };
 const nativeAlert=window.alert;
 window.alert=function(message){
-window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
+window.showToolMessage(String(message || 'تحقق من المدخلات ثم جرّب مرة أخرى.'), true);
 if(nativeAlert && !document.body) nativeAlert(message);
 };
 window.addEventListener('error',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+window.showToolMessage('تعذّر إكمال العملية. تحقق من الملف أو الإعدادات ثم جرّب مرة أخرى.', true);
 });
 window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+window.showToolMessage('تعذّر إكمال العملية. تحقق من الملف أو الإعدادات ثم جرّب مرة أخرى.', true);
 });
 })();
 </script>
 
-<script src="script.js" defer></script>
+<script src="../script.js" defer></script>
 </body>
 </html>
