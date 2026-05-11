@@ -2344,34 +2344,24 @@ UNIFIED TOOL PAGE UI
     }
 }
 
-.tool-card,
-.tool-card *{
-    opacity:1 !important;
+/* FINAL OVERRIDE: readable category/tool card text */
+.tools-section .tool-card p,
+.tools-section .tool-card .tool-desc,
+.tools-section .tool-card .description,
+.tools-section .tool-card div,
+.tools-section .tool-card span,
+.tools-grid .tool-card p,
+.tools-grid .tool-card .tool-desc,
+.tools-grid .tool-card .description,
+.tool-card p {
+  color: #4b5563 !important;
+  opacity: 1 !important;
 }
 
-/* Titles */
-.tool-card h2,
-.tool-card h3,
-.tool-card h4{
-    color:#071a33 !important;
-}
-
-/* Descriptions */
-.tool-card p,
-.tool-card .tool-desc,
-.tool-card .description{
-    color:#64748b !important;
-    opacity:1 !important;
-}
-
-/* Category cards */
-.category-card h2,
-.category-card h3,
-.category-card h4{
-    color:#071a33 !important;
-}
-
-.category-card p{
-    color:#64748b !important;
-    opacity:1 !important;
+.tools-section .tool-card h3,
+.tools-section .tool-card h2,
+.tools-grid .tool-card h3,
+.tool-card h3 {
+  color: #071a33 !important;
+  opacity: 1 !important;
 }
