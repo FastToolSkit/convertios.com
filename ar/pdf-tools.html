@@ -68,3 +68,170 @@ gtag('config', 'G-0CH8NE5WDH');
 <script src="/script.js" defer></script>
 </body>
 </html>
+<script>
+
+
+let file = null;
+let lastPdfToWordAttempt = null;
+
+const fileInput = document.getElementById("upload");
+const dropArea = document.getElementById("drop-area");
+const preview = document.getElementById("preview");
+const status = document.getElementById("status");
+const progressBar = document.getElementById("progress-bar");
+const downloads = document.getElementById("downloads");
+const convertBtn = document.querySelector(".convert-btn");
+setConvertButtonState(false);
+
+function setConvertButtonState(enabled){
+convertBtn.disabled = !enabled;
+}
+
+function showRetry(message){
+status.innerHTML = `<span class="tool-error-message">${message}</span>`;
+downloads.innerHTML = '<button type="button" class="tool-retry-button" id="retryPdfToWord">Retry conversion</button>';
+const retryBtn = document.getElementById("retryPdfToWord");
+if(retryBtn && lastPdfToWordAttempt){
+retryBtn.addEventListener("click", lastPdfToWordAttempt);
+}
+setConvertButtonState(!!file);
+}
+
+// CLICK
+dropArea.onclick = () => fileInput.click();
+
+// DRAG
+dropArea.addEventListener("dragover", e => e.preventDefault());
+
+dropArea.addEventListener("drop", e => {
+e.preventDefault();
+fileInput.files = e.dataTransfer.files;
+handleFile();
+});
+
+// SELECT
+fileInput.addEventListener("change", handleFile);
+convertBtn.addEventListener("click", convert);
+
+function handleFile(){
+file = fileInput.files[0];
+
+if(file){
+preview.innerHTML = `
+📄 ${file.name}<br>
+Size: ${(file.size/1024/1024).toFixed(2)} MB
+`;
+status.innerText = "Ready to convert. This tool uploads the PDF securely through the Convertios backend for CloudConvert processing.";
+downloads.innerHTML = "";
+setConvertButtonState(true);
+} else {
+setConvertButtonState(false);
+}
+}
+
+async function convert(){
+lastPdfToWordAttempt = convert;
+
+if(!file){
+showRetry("Please upload a PDF file before converting.");
+return;
+}
+
+status.innerText = "Uploading PDF for secure conversion...";
+progressBar.style.width = "20%";
+downloads.innerHTML = "";
+setConvertButtonState(false);
+
+try{
+const formData = new FormData();
+formData.append("file", file);
+
+const response = await fetch("https://convertios-com-3.onrender.com/convert/pdf-to-word", {
+method: "POST",
+body: formData
+});
+
+if(!response.ok){
+let message = "PDF to Word conversion failed. Please retry with a valid, unlocked PDF.";
+try{
+const details = await response.json();
+if(details?.error) message = details.error;
+}catch(_err){}
+throw new Error(message);
+}
+
+status.innerText = "Preparing DOCX download...";
+progressBar.style.width = "85%";
+const blob = await response.blob();
+const url = URL.createObjectURL(blob);
+const fileName = file.name.replace(/\.pdf$/i, ".docx");
+const a = document.createElement("a");
+a.href = url;
+a.download = fileName;
+document.body.appendChild(a);
+a.click();
+a.remove();
+
+progressBar.style.width = "100%";
+status.innerText = "Conversion complete ✅";
+downloads.innerHTML = `<a href="${url}" download="${fileName}" class="download-btn">⬇ Download Word File</a>`;
+setConvertButtonState(true);
+
+}catch(e){
+console.error(e);
+progressBar.style.width = "0%";
+showRetry(e.message || "Conversion failed. Please retry with a smaller or unlocked PDF.");
+}
+}
+
+</script>
+
+<script>
+(function(){
+let lastActionButton=null;
+document.addEventListener('click',function(event){
+const button=event.target.closest('button');
+if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
+},true);
+function ensureToolMessage(){
+let box=document.getElementById('toolMessage');
+if(!box){
+box=document.createElement('div');
+box.id='toolMessage';
+box.className='tool-message-box';
+box.setAttribute('role','status');
+box.setAttribute('aria-live','polite');
+const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
+anchor.insertAdjacentElement('afterend',box);
+}
+return box;
+}
+window.showToolMessage=function(message,canRetry){
+const box=ensureToolMessage();
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
+box.style.display='block';
+const retry=document.getElementById('commonToolRetry');
+if(retry){
+retry.addEventListener('click',function(){
+box.style.display='none';
+if(lastActionButton) lastActionButton.click();
+});
+}
+};
+const nativeAlert=window.alert;
+window.alert=function(message){
+window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
+if(nativeAlert && !document.body) nativeAlert(message);
+};
+window.addEventListener('error',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+window.addEventListener('unhandledrejection',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+})();
+</script>
+
+<script src="script.js" defer></script>
+</body>
+</html>

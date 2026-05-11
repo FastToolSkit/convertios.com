@@ -68,3 +68,128 @@ gtag('config', 'G-0CH8NE5WDH');
 <script src="/script.js" defer></script>
 </body>
 </html>
+
+<script>
+
+let dropArea=document.getElementById("drop-area");
+let fileInput=document.getElementById("upload");
+let preview=document.getElementById("preview");
+
+dropArea.onclick=()=>fileInput.click();
+
+dropArea.addEventListener("dragover",e=>e.preventDefault());
+
+dropArea.addEventListener("drop",e=>{
+    e.preventDefault();
+    fileInput.files=e.dataTransfer.files;
+    showPreview();
+});
+
+fileInput.addEventListener("change",showPreview);
+
+function showPreview(){
+    preview.innerHTML="";
+    let files=fileInput.files;
+
+    for(let i=0;i<files.length;i++){
+        let img=document.createElement("img");
+        img.src=URL.createObjectURL(files[i]);
+        preview.appendChild(img);
+    }
+}
+
+function convert(){
+    let files=fileInput.files;
+    let downloads=document.getElementById("downloads");
+
+    downloads.innerHTML="";
+
+    for(let i=0;i<files.length;i++){
+
+        let file=files[i];
+        let img=new Image();
+        let reader=new FileReader();
+
+        reader.onload=function(e){
+            img.src=e.target.result;
+
+            img.onload=function(){
+
+                let canvas=document.createElement("canvas");
+                canvas.width=img.width;
+                canvas.height=img.height;
+
+                let ctx=canvas.getContext("2d");
+
+                ctx.fillStyle="#ffffff";
+                ctx.fillRect(0,0,canvas.width,canvas.height);
+
+                ctx.drawImage(img,0,0);
+
+                let jpg=canvas.toDataURL("image/jpeg",0.95);
+
+                let link=document.createElement("a");
+                link.href=jpg;
+                link.download="converted_"+(i+1)+".jpg";
+                link.innerText="Download Image "+(i+1);
+
+                downloads.appendChild(link);
+            }
+        }
+
+        reader.readAsDataURL(file);
+    }
+}
+
+</script>
+
+
+<script>
+(function(){
+let lastActionButton=null;
+document.addEventListener('click',function(event){
+const button=event.target.closest('button');
+if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
+},true);
+function ensureToolMessage(){
+let box=document.getElementById('toolMessage');
+if(!box){
+box=document.createElement('div');
+box.id='toolMessage';
+box.className='tool-message-box';
+box.setAttribute('role','status');
+box.setAttribute('aria-live','polite');
+const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
+anchor.insertAdjacentElement('afterend',box);
+}
+return box;
+}
+window.showToolMessage=function(message,canRetry){
+const box=ensureToolMessage();
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
+box.style.display='block';
+const retry=document.getElementById('commonToolRetry');
+if(retry){
+retry.addEventListener('click',function(){
+box.style.display='none';
+if(lastActionButton) lastActionButton.click();
+});
+}
+};
+const nativeAlert=window.alert;
+window.alert=function(message){
+window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
+if(nativeAlert && !document.body) nativeAlert(message);
+};
+window.addEventListener('error',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+window.addEventListener('unhandledrejection',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+})();
+</script>
+
+<script src="script.js" defer></script>
+</body>
+</html>
