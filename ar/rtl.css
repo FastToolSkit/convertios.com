@@ -236,3 +236,35 @@ html[dir="rtl"] .ar-copy-card ul{
         margin:78px 18px 28px;
     }
 }
+
+/* Arabic QA branch refinements */
+.ar-language-selector summary{
+    min-width:118px;
+    justify-content:center;
+}
+
+.ar-language-selector .language-selector__menu{
+    text-align:right;
+}
+
+.ar-site-header .dropdown-menu a{
+    line-height:1.5;
+}
+
+.ar-page .main-button,
+.ar-page .secondary-button{
+    line-height:1.4;
+}
+
+@media (max-width:700px){
+    .ar-hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .ar-hero-actions .main-button,
+    .ar-hero-actions .secondary-button{
+        width:100%;
+        text-align:center;
+    }
+}

@@ -58,3 +58,10 @@ The first Arabic rollout includes 20 high-value pages under `/ar/`:
 - Refined the Arabic homepage and five priority pages: `/ar/compress-image.html`, `/ar/image-resizer.html`, `/ar/social-media-image-resizer.html`, `/ar/pdf-to-word.html`, and `/ar/mp3-cutter.html`.
 - Replaced mechanical phrases such as “أداة عربية” with natural product copy focused on speed, clarity, trust, and practical workflows.
 - Reworked the header language control into an accessible dropdown-style selector and improved RTL spacing/visual hierarchy in `/ar/rtl.css`.
+
+
+## Arabic QA branch refinement
+
+- Arabic localization work is now isolated on the `arabic-localization-dev` branch for quality review before any production merge.
+- This pass keeps the rollout scope unchanged and focuses only on the homepage, global Arabic header/footer, the language selector, RTL polish, and five priority pages.
+- Priority copy was rewritten to avoid keyword-stuffed or mechanical Arabic and to emphasize clarity, trust, and practical workflows.
