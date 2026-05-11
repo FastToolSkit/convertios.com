@@ -2,7 +2,7 @@
 
 ## Production-approved scope
 
-Only Arabic image-tool pages are approved for indexing and production discovery in this phase:
+Arabic image-tool pages are approved for indexing and production discovery in this phase. PDF/audio tool pages now include working in-page JavaScript as Arabic noindex pages until final SEO approval:
 
 1. `/ar/image-tools.html`
 2. `/ar/image-converter.html`
@@ -37,7 +37,7 @@ Manual browser testing is still required before final production sign-off for:
 
 ## Non-image Arabic pages marked noindex
 
-The following Arabic pages exist from the initial rollout but are not approved for indexing in this phase and are marked with `<meta name="robots" content="noindex, nofollow">`:
+The following Arabic pages now keep Arabic in-page interfaces where applicable, but remain marked with `<meta name="robots" content="noindex, nofollow">` until final production indexing approval:
 
 - `/ar/`
 - `/ar/all-tools.html`
@@ -56,7 +56,7 @@ No Arabic URLs are currently present in `sitemap.xml`, so no sitemap removal was
 ## Copy and navigation QA
 
 - Removed the previously over-broad category navigation from approved image pages so the rollout does not promote unfinished Arabic PDF, audio, or utility sections.
-- Removed English-page primary action redirects from noindex non-image placeholders; those CTAs now indicate review status instead of sending users to English tool pages.
+- Added the matching in-page JavaScript/tool controls to Arabic PDF and MP3 tool pages so primary actions run inside Arabic pages instead of sending users to English tool pages.
 - Checked for the disallowed spammy Arabic phrases listed in the audit request and removed the remaining occurrence from Arabic page copy.
 - Remaining English product/file-format terms are intentional where they are brand names, file formats, code identifiers, endpoint names, or required UI values such as JPG, PNG, WEBP, ZIP, PDF, Cloudinary, and Convertios.
 
@@ -64,4 +64,4 @@ No Arabic URLs are currently present in `sitemap.xml`, so no sitemap removal was
 
 - Some approved pages still use inline scripts inherited from English pages. Static syntax checks pass, but browser QA is needed for drag/drop, canvas export, ZIP export, and API-backed flows.
 - API-backed Arabic status messages may still surface provider error text in English if the upstream service returns an English error.
-- The non-image Arabic pages remain in the repository as noindex placeholders to avoid merge conflicts; they should not be promoted until their real tool UIs and copy pass QA.
+- The non-image Arabic pages remain noindex until manual browser QA confirms PDF rendering, PDF-lib operations, CloudConvert conversion, and MP3 waveform export in Arabic pages.

@@ -346,9 +346,3 @@ html[dir="rtl"] .ar-copy-card ul{
         transform:translateX(50%);
     }
 }
-
-.ar-disabled-cta{
-    opacity:.72;
-    cursor:not-allowed;
-    pointer-events:none;
-}
