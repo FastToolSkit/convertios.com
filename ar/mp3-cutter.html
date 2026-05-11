@@ -68,3 +68,161 @@ gtag('config', 'G-0CH8NE5WDH');
 <script src="/script.js" defer></script>
 </body>
 </html>
+<script>
+
+const wavesurfer = WaveSurfer.create({
+container:"#waveform",
+waveColor:"#475569",
+progressColor:"#3a78ff",
+cursorColor:"#3a78ff",
+height:150,
+plugins:[
+WaveSurfer.regions.create(),
+WaveSurfer.timeline.create({container:"#timeline"})
+]
+})
+
+let region
+
+function formatTime(sec){
+sec=Math.floor(sec)
+let m=Math.floor(sec/60)
+let s=sec%60
+if(s<10)s="0"+s
+return m+":"+s
+}
+
+document.getElementById("audio").addEventListener("change",function(e){
+const file=e.target.files[0]
+if(!file) return
+wavesurfer.loadBlob(file)
+})
+
+wavesurfer.on("ready",function(){
+
+const duration = wavesurfer.getDuration()
+
+region = wavesurfer.addRegion({
+start:duration*0.2,
+end:duration*0.5,
+color:'rgba(58,120,255,0.2)',
+drag:true,
+resize:true
+})
+
+updateInputs()
+region.on('update', updateInputs)
+
+})
+
+function updateInputs(){
+document.getElementById("start").innerText=formatTime(region.start)
+document.getElementById("end").innerText=formatTime(region.end)
+}
+
+document.getElementById("play").onclick=function(){
+wavesurfer.playPause()
+this.innerText = wavesurfer.isPlaying() ? "Pause" : "Play"
+}
+
+document.getElementById("zoom").oninput=function(){
+wavesurfer.zoom(Number(this.value))
+}
+
+document.getElementById("export").onclick=function(){
+
+if(!region) return
+
+const start=region.start
+const end=region.end
+
+const buffer=wavesurfer.backend.buffer
+const sampleRate=buffer.sampleRate
+
+const startOffset=Math.floor(start*sampleRate)
+const endOffset=Math.floor(end*sampleRate)
+
+const samples=buffer.getChannelData(0).slice(startOffset,endOffset)
+
+const mp3encoder=new lamejs.Mp3Encoder(1,sampleRate,192)
+
+const sampleBlockSize=1152
+let mp3Data=[]
+
+for(let i=0;i<samples.length;i+=sampleBlockSize){
+
+let chunk=samples.subarray(i,i+sampleBlockSize)
+let int16=new Int16Array(chunk.length)
+
+for(let j=0;j<chunk.length;j++){
+int16[j]=chunk[j]*32767
+}
+
+let mp3buf=mp3encoder.encodeBuffer(int16)
+if(mp3buf.length>0) mp3Data.push(mp3buf)
+
+}
+
+let mp3buf=mp3encoder.flush()
+if(mp3buf.length>0) mp3Data.push(mp3buf)
+
+const blob=new Blob(mp3Data,{type:'audio/mp3'})
+const url=URL.createObjectURL(blob)
+
+const a=document.createElement("a")
+a.href=url
+a.download="trimmed.mp3"
+a.click()
+
+}</script>
+
+
+<script>
+(function(){
+let lastActionButton=null;
+document.addEventListener('click',function(event){
+const button=event.target.closest('button');
+if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
+},true);
+function ensureToolMessage(){
+let box=document.getElementById('toolMessage');
+if(!box){
+box=document.createElement('div');
+box.id='toolMessage';
+box.className='tool-message-box';
+box.setAttribute('role','status');
+box.setAttribute('aria-live','polite');
+const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
+anchor.insertAdjacentElement('afterend',box);
+}
+return box;
+}
+window.showToolMessage=function(message,canRetry){
+const box=ensureToolMessage();
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
+box.style.display='block';
+const retry=document.getElementById('commonToolRetry');
+if(retry){
+retry.addEventListener('click',function(){
+box.style.display='none';
+if(lastActionButton) lastActionButton.click();
+});
+}
+};
+const nativeAlert=window.alert;
+window.alert=function(message){
+window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
+if(nativeAlert && !document.body) nativeAlert(message);
+};
+window.addEventListener('error',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+window.addEventListener('unhandledrejection',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+})();
+</script>
+
+<script src="script.js" defer></script>
+</body>
+</html>
