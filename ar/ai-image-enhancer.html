@@ -1,195 +1,74 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-0CH8NE5WDH');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تحسين الصور بالذكاء الاصطناعي | Convertios</title>
-<meta name="description" content="حسّن وضوح الصور وتفاصيلها عندما تحتاج إلى نتيجة أنظف للعرض أو المشاركة.">
+<title>تحسين جودة الصور بالذكاء الاصطناعي | Convertios</title>
+<meta name="description" content="حسّن وضوح الصور وتفاصيلها باستخدام أداة AI Image Enhancer مع شرح كامل للاستخدام والخصوصية.">
 <meta name="robots" content="index, follow">
-<link rel="stylesheet" href="../style.css?v=7">
+<link rel="canonical" href="https://convertios.com/ar/ai-image-enhancer.html">
+<link rel="alternate" hreflang="en" href="https://convertios.com/ai-image-enhancer.html">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/ai-image-enhancer.html">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/ai-image-enhancer.html">
+<link rel="stylesheet" href="/style.css?v=8">
+<link rel="stylesheet" href="/ar/rtl.css">
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<style>
-.tool-wrap{max-width:1200px;margin:90px auto 40px;padding:0 20px}
-.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.panel{background:#071a33;color:#fff;border-radius:16px;padding:24px}
-.dropzone{border:3px dashed #8bb2ff;border-radius:14px;padding:24px;text-align:center;cursor:pointer;background:linear-gradient(180deg,#0f2c54 0%,#0b2241 100%);min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
-.dropzone.dragover{background:#15365f}
-.preview{max-width:100%;max-height:300px;border-radius:10px;margin-top:14px;display:none}
-.upload-btn{display:inline-block;margin-top:12px;background:#3a78ff;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600}
-.upload-btn input{display:none}
-.file-name{font-size:14px;color:#c4d6ff;min-height:20px}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-.btn{background:#3a78ff;border:none;color:#fff;padding:10px 16px;border-radius:8px;cursor:pointer}
-.btn:disabled{opacity:.5;cursor:not-allowed}
-.status{margin-top:12px;font-size:14px;color:#c4d6ff;min-height:20px}
-.result-wrap{margin-top:16px}
-@media (max-width:900px){.tool-grid{grid-template-columns:1fr}}
-</style>
-<link rel="canonical" href="https://convertios.com/ar/ai-image-enhancer.html">
-<link rel="alternate" hreflang="en" href="https://convertios.com/ai-image-enhancer.html">
-<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/ai-image-enhancer.html">
-<link rel="alternate" hreflang="x-default" href="https://convertios.com/ai-image-enhancer.html">
-<link rel="stylesheet" href="rtl.css">
+<meta property="og:title" content="تحسين جودة الصور بالذكاء الاصطناعي | Convertios">
+<meta property="og:description" content="حسّن وضوح الصور وتفاصيلها باستخدام أداة AI Image Enhancer مع شرح واضح للاستخدام والخصوصية.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://convertios.com/ar/ai-image-enhancer.html">
+<meta property="og:image" content="https://convertios.com/convertios-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="تحسين جودة الصور بالذكاء الاصطناعي | Convertios">
+<meta name="twitter:description" content="حسّن وضوح الصور وتفاصيلها باستخدام أداة AI Image Enhancer مع شرح واضح للاستخدام والخصوصية.">
+<meta name="twitter:image" content="https://convertios.com/convertios-logo.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"تحسين جودة الصور بالذكاء الاصطناعي | Convertios","description":"حسّن وضوح الصور وتفاصيلها باستخدام أداة AI Image Enhancer مع شرح عربي للاستخدام والخصوصية.","url":"https://convertios.com/ar/ai-image-enhancer.html","inLanguage":"ar","isPartOf":{"@type":"WebSite","name":"Convertios","url":"https://convertios.com"}}</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">تخطي إلى المحتوى</a>
-<header class="site-header">
-
-<div class="header-left">
-    <a href="/ar/image-tools.html" class="logo">
-        <img src="../convertios-logo.png" alt="شعار Convertios" width="2211" height="1234">
-    </a>
-</div>
-
-<nav class="nav-menu">
-
-<a href="/ar/image-tools.html" class="active">الرئيسية</a>
-
-
-<div class="nav-item dropdown">
-    <span>الصور ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="/ar/png-to-jpg.html">PNG إلى JPG</a>
-        <a href="/ar/jpg-to-png.html">JPG إلى PNG</a>
-        <a href="/ar/webp-to-png.html">WEBP إلى PNG</a>
-        <a href="/ar/image-converter.html">محول الصور</a>
-        <a href="/ar/image-resizer.html">تغيير المقاس</a>
-        <a href="/ar/compress-image.html">ضغط الصور</a>
-        <a href="/ar/remove-bg.html">إزالة الخلفية</a>
-        <a href="/ar/ai-image-enhancer.html">تحسين الصور</a>
-
-<a href="/ar/image-tools.html" class="view-all">عرض الكل ←</a>
-    </div>
-</div>
-
-</nav>
-
-<div class="nav-icon faq-wrapper">
-    <a href="/ar/image-tools.html" class="faq-link-block">
-
-        <!-- ICON -->
-        <div class="faq-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
-                <circle cx="12" cy="17" r="1"></circle>
-            </svg>
-        </div>
-
-        <!-- TEXT -->
-        <span class="faq-text">المساعدة</span>
-</a>
-<details class="language-selector ar-language-selector"><summary aria-label="تغيير اللغة"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">العربية</span></summary><div class="language-selector__menu" role="menu" aria-label="خيارات اللغة"><a href="https://convertios.com/ar/ai-image-enhancer.html" lang="ar" dir="rtl" aria-current="page" role="menuitem">العربية</a><a href="https://convertios.com/ai-image-enhancer.html" hreflang="en" role="menuitem">English</a></div></details>
+<header class="site-header ar-site-header">
+  <div class="header-left"><a href="/ar/" class="logo"><img src="/convertios-logo.png" alt="شعار Convertios" width="2211" height="1234"></a></div>
+  <nav class="nav-menu" aria-label="التنقل الرئيسي">
+    <a href="/ar/">الرئيسية</a>
+    <div class="nav-item dropdown"><span>الصور ▾</span><div class="dropdown-menu"><a href="/ar/png-to-jpg.html">PNG إلى JPG</a>
+<a href="/ar/jpg-to-png.html">JPG إلى PNG</a>
+<a href="/ar/webp-to-png.html">WEBP إلى PNG</a>
+<a href="/ar/image-converter.html">محول الصور</a>
+<a href="/ar/image-resizer.html">تغيير حجم الصورة</a>
+<a href="/ar/compress-image.html">ضغط الصور</a>
+<a href="/ar/social-media-image-resizer.html">صور السوشيال ميديا</a>
+<a href="/ar/ai-image-enhancer.html">تحسين الصور بالذكاء الاصطناعي</a><a href="/ar/image-tools.html" class="view-all">عرض الكل ←</a></div></div>
+    <div class="nav-item dropdown"><span>PDF ▾</span><div class="dropdown-menu"><a href="/ar/pdf-to-word.html">PDF إلى Word</a>
+<a href="/ar/pdf-to-jpg.html">PDF إلى JPG</a>
+<a href="/ar/jpg-to-pdf.html">JPG إلى PDF</a>
+<a href="/ar/merge-pdf.html">دمج PDF</a>
+<a href="/ar/split-pdf.html">تقسيم PDF</a>
+<a href="/ar/rotate-pdf.html">تدوير PDF</a><a href="/ar/pdf-tools.html" class="view-all">عرض الكل ←</a></div></div>
+    <div class="nav-item dropdown"><span>الصوت ▾</span><div class="dropdown-menu"><a href="/ar/mp3-cutter.html">قص MP3</a><a href="/ar/audio-tools.html" class="view-all">عرض الكل ←</a></div></div>
+    <a href="/ar/all-tools.html">كل الأدوات</a>
+  </nav>
+  <div class="nav-icon faq-wrapper"><a href="/faq.html" class="faq-link-block"><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path><circle cx="12" cy="17" r="1"></circle></svg></div><span class="faq-text">الأسئلة</span></a></div>
+  <div class="header-language-switch" aria-label="اختيار اللغة"><a href="https://convertios.com/ai-image-enhancer.html">EN</a><span> / </span><a href="https://convertios.com/ar/ai-image-enhancer.html" aria-current="page">AR</a></div>
 </header>
+<main id="main-content" class="ar-page"><section class="tool-container ar-tool-intro"><h1>تحسين جودة الصور بالذكاء الاصطناعي</h1><p>استخدم تحسين الصور بالذكاء الاصطناعي عندما تحتاج إلى صورة أوضح للعرض أو المشاركة.</p><div class="ar-tool-action"><a class="main-button" href="/ai-image-enhancer.html" hreflang="en">افتح الأداة واستخدمها</a><p class="tool-note"></p></div></section><section class="tool-description"><h2>متى تستخدم تحسين جودة الصور بالذكاء الاصطناعي؟</h2><p>استخدم تحسين الصور بالذكاء الاصطناعي عندما تحتاج إلى صورة أوضح للعرض أو المشاركة. هذه الأداة مفيدة عندما تحتاج إلى نتيجة سريعة بدون تثبيت برامج إضافية، خصوصًا عند تجهيز ملفات للمدرسة أو العمل أو السوشيال ميديا.</p><h2>طريقة الاستخدام</h2><ol><li>افتح الأداة من زر الاستخدام.</li><li>اختر الملف أو الصورة المطلوبة من جهازك.</li><li>اضبط الإعدادات المتاحة حسب حاجتك.</li><li>حمّل النتيجة النهائية واحفظها باسم واضح.</li></ol><h2>نصائح للحصول على نتيجة أفضل</h2><ul><li>استخدم ملفات واضحة وغير تالفة قبل التحويل أو التعديل.</li><li>راجع حجم الملف النهائي إذا كان مطلوبًا لمنصة أو نموذج إلكتروني.</li><li>احتفظ بنسخة أصلية من الملف قبل إجراء أي تعديل.</li></ul><h2>أسئلة شائعة</h2><p><strong>هل الأداة مجانية؟</strong><br>نعم، يمكن استخدام أدوات Convertios الأساسية مجانًا من المتصفح.</p><p><strong>هل أحتاج إلى تثبيت برنامج؟</strong><br>لا، تعمل الأدوات من صفحة الويب مباشرة.</p><p><strong>هل يتم تغيير امتدادات مثل JPG وPNG وPDF؟</strong><br>لا تتم ترجمة أسماء الامتدادات التقنية حتى تبقى واضحة ومتوافقة مع الاستخدام العالمي.</p></section><div class="more-tools"><h3>أدوات مرتبطة</h3><div class="more-tools-grid"><a href="/ar/image-resizer.html" class="more-tool-card"><span>📐</span><p>تغيير حجم الصورة</p></a><a href="/ar/compress-image.html" class="more-tool-card"><span>📦</span><p>ضغط الصور</p></a><a href="/ar/image-converter.html" class="more-tool-card"><span>🛠️</span><p>محول الصور</p></a><a href="/ar/social-media-image-resizer.html" class="more-tool-card"><span>📐</span><p>تغيير مقاس صور السوشيال ميديا</p></a></div></div></main>
+<footer class="site-footer ar-footer"><div class="footer-container"><div class="footer-brand"><h3>Convertios</h3><p>أدوات مجانية لتحويل الملفات والصور وPDF والصوت بسرعة ووضوح.</p></div><div class="footer-links"><a href="/ar/all-tools.html">الأدوات</a><a href="/about.html">عن الموقع</a><a href="/contact.html">تواصل معنا</a><a href="/security.html">الأمان</a><a href="/privacy.html">الخصوصية</a><a href="/terms.html">الشروط</a></div></div><p class="footer-bottom">© 2026 Convertios • جميع الحقوق محفوظة</p></footer>
+<script src="/script.js" defer></script>
+</body>
+</html>
 
-<main id="main-content" class="tool-page-readable">
-<div class="tool-wrap">
-<h1>تحسين الصور بالذكاء الاصطناعي</h1>
-<p>حسّن الصور الباهتة أو منخفضة الدقة بخطوات بسيطة.</p>
-<p class="temporary-tool-notice" role="status">يجري تحسين هذه الأداة حاليًا. قد لا تعمل بعض الميزات مؤقتًا.</p>
-<div class="tool-grid">
-<section class="panel">
-<h2>رفع الصورة</h2>
-<div id="dropzone" class="dropzone">
-<p>ارفع الصورة لتحسين وضوحها بالذكاء الاصطناعي</p>
-<label class="upload-btn" for="fileInput">اختيار صورة</label>
-<input type="file" id="fileInput" accept="image/*" aria-label="اختر ملفًا للمعالجة" hidden>
-</div>
-<p id="fileName" class="file-name"></p>
-<img id="preview" class="preview" alt="معاينة الصورة المحددة">
-</section>
-
-<section class="panel">
-<h2>نتيجة التحسين</h2>
-<div class="actions">
-<button id="enhanceBtn" class="btn" disabled aria-label="تشغيل الأداة">تحسين الصورة</button>
-<a id="downloadBtn" class="btn" style="display:none" download="enhanced-image.png">تنزيل</a>
-</div>
-<p id="status" class="status">اختر صورة للبدء.</p>
-<div class="result-wrap">
-<img id="resultPreview" class="preview" alt="معاينة الصورة المحسّنة">
-</div>
-</section>
-</div>
-</div>
-
-
-
-<section class="tool-info-block" aria-labelledby="tool-info-heading">
-<h2 id="tool-info-heading">معلومات الأداة</h2>
-<div class="tool-info-grid">
-<div><strong>تعمل في المتصفح:</strong><span>لا</span></div>
-<div><strong>يتطلب رفع الملف:</strong><span>نعم</span></div>
-<div><strong>معالجة خارجية:</strong><span>رفع إلى Cloudinary ثم معالجة عبر سير عمل n8n</span></div>
-<div><strong>الاحتفاظ بالملف:</strong><span>يتم رفع الصورة إلى Cloudinary ثم إرسال رابطها العام إلى سير عمل n8n للتحسين.</span></div>
-<div><strong>الحد الأقصى للحجم:</strong><span>تُطبق حدود إعدادات الرفع في Cloudinary</span></div>
-<div><strong>الصيغ المدعومة:</strong><span>رفع صور JPG وPNG وWEBP ← رابط الصورة المحسّنة</span></div>
-</div>
-<p class="transparency-note"><strong>ملاحظة الشفافية:</strong> ترفع هذه الصفحة الصورة إلى Cloudinary ثم ترسل رابطها العام إلى سير عمل التحسين في Convertios.</p>
-</section>
-
-
-<section class="tool-description"><h2>طريقة الاستخدام</h2><ul><li>اختر الصورة أو اسحبها إلى منطقة الرفع.</li><li>اضبط الخيارات المتاحة بما يناسب حاجتك.</li><li>ابدأ المعالجة ثم نزّل النتيجة النهائية.</li></ul><h2>متى تفيدك؟</h2><p>حسّن الصور الباهتة أو منخفضة الدقة بخطوات بسيطة.</p><h2>نصيحة سريعة</h2><p>استخدم صورة واضحة واحتفظ بنسخة أصلية قبل أي تعديل مهم.</p></section>
-
-
-<section class="tool-description" aria-labelledby="ai-enhancer-faq-heading">
-<h2 id="ai-enhancer-faq-heading">مساعدة تحسين الصور</h2>
-<h3>ماذا تفعل أداة تحسين الصور؟</h3>
-<p>تحاول تحسين وضوح الصورة وتفاصيلها عبر سير عمل ذكاء اصطناعي، ثم تعرض النتيجة للمعاينة والتنزيل.</p>
-<h3>هل الأداة مجانية؟</h3>
-<p>نعم، يمكنك استخدام تحسين الصور مباشرة من Convertios.</p>
-<h3>هل يتم رفع صوري؟</h3>
-<p>نعم. يتم رفع الصورة المحددة إلى Cloudinary باستخدام إعداد رفع غير موقّع، ثم يُرسل رابط الصورة العام إلى سير عمل n8n الخاص بالتحسين.</p>
-<h3>ما الصيغ المدعومة؟</h3>
-<p>تُدعم صيغ الصور الشائعة مثل JPG وPNG وWEBP حسب إعدادات الرفع في Cloudinary والمتصفح.</p>
-<h3>لماذا تستغرق المعالجة وقتًا؟</h3>
-<p>ترفع الصفحة الصورة أولًا ثم تنتظر معالجة سير عمل الذكاء الاصطناعي. قد تستغرق الصور الكبيرة وقتًا أطول.</p>
-<h3>ماذا أفعل إذا فشل التحسين؟</h3>
-<p>جرّب صورة JPG أو PNG أو WEBP أصغر حجمًا، وتأكد من الاتصال، ثم أعد المحاولة. إذا استمرت المشكلة فقد تحتاج إعدادات Cloudinary أو سير عمل n8n إلى مراجعة.</p>
-<h3>هل تعمل على الهاتف؟</h3>
-<p>نعم، تعمل الصفحة على المتصفحات الحديثة في الهاتف، وتعتمد السرعة على الجهاز وحجم الصورة والاتصال.</p>
-</section>
-
-<section class="more-tools">
-  <h3>أدوات صور أخرى</h3>
-  <div class="more-tools-grid">
-    <a href="/ar/image-resizer.html" class="more-tool-card">✂️ <span>تغيير المقاس</span></a>
-    <a href="/ar/compress-image.html" class="more-tool-card">🗜️ <span>ضغط الصور</span></a>
-    <a href="/ar/image-converter.html" class="more-tool-card">🖼️ <span>محول الصور</span></a>
-    <a href="/ar/remove-bg.html" class="more-tool-card">🪄 <span>إزالة الخلفية</span></a>
-  </div>
-</section>
-</main>
-<footer class="site-footer">
-
-<div class="footer-container">
-
-    <div class="footer-brand">
-        <h3>Convertios</h3>
-        <p>أدوات عملية لمعالجة الصور والملفات بتجربة واضحة وسريعة.</p>
-    </div>
-
-    <div class="footer-links">
-        <a href="/ar/image-tools.html">الأدوات</a>
-        <a href="/ar/image-tools.html">عن الموقع</a>
-        <a href="/ar/image-tools.html">تواصل معنا</a>
-         <a href="/ar/image-tools.html">الأمان</a>
-        <a href="/ar/image-tools.html">الخصوصية</a>
-        <a href="/ar/image-tools.html">الشروط</a>
-    </div>
-
-</div>
-
-<p class="footer-bottom">
-© 2026 Convertios • جميع الحقوق محفوظة
-</p>
-
-</footer>
 <script>
 const fileInput=document.getElementById('fileInput');
 const dropzone=document.getElementById('dropzone');
@@ -242,29 +121,29 @@ return `${baseName}-enhanced.png`;
 
 
 function showError(message){
-statusEl.innerHTML=`تعذّر تحسين الصورة: ${escapeHtml(message || 'جرّب مرة أخرى.')} <button type="button" class="tool-retry-button" id="retryEnhance">إعادة المحاولة</button>`;
+statusEl.innerHTML=`Failed to enhance image: ${escapeHtml(message || 'Please try again.')} <button type="button" class="tool-retry-button" id="retryEnhance">Retry</button>`;
 const retry=document.getElementById('retryEnhance');
 if(retry) retry.addEventListener('click',runEnhancement);
 }
 
 function handleFile(file){
 if(!file){
-statusEl.textContent='اختر ملف صورة.';
+statusEl.textContent='Please choose an image file.';
 return;
 }
 
 if(!file.type.startsWith('image/')){
-statusEl.textContent='اختر ملف صورة صالحًا.';
+statusEl.textContent='Please choose a valid image file.';
 return;
 }
 
 selectedFile=file;
-fileNameEl.textContent=`تم الاختيار: ${file.name}`;
+fileNameEl.textContent=`Selected: ${file.name}`;
 if(previewObjectUrl) URL.revokeObjectURL(previewObjectUrl);
 previewObjectUrl=URL.createObjectURL(file);
 preview.src=previewObjectUrl;
 preview.style.display='block';
-statusEl.textContent='الصورة جاهزة للتحسين.';
+statusEl.textContent='Ready to enhance.';
 resetResult();
 setEnhanceState(true);
 }
@@ -278,19 +157,19 @@ dropzone.addEventListener('click',event=>{if(event.target.closest('label')) retu
 async function runEnhancement(){
 if(!selectedFile) return;
 
-setLoading(true,'جاري رفع الصورة...');
+setLoading(true,'Uploading image...');
 resetResult();
 
 try{
 if(CLOUDINARY_CLOUD_NAME.includes('PASTE_') || CLOUDINARY_UPLOAD_PRESET.includes('PASTE_')){
-  throw new Error('لم يتم إعداد Cloudinary بعد. أضف اسم السحابة وإعداد الرفع غير الموقّع.');
+  throw new Error('Cloudinary is not configured yet. Add your cloud name and unsigned upload preset.');
 }
 
 const uploadFormData = new FormData();
 uploadFormData.append('file', selectedFile);
 uploadFormData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
 
-setLoading(true,'جاري رفع الصورة للمعالجة...');
+setLoading(true,'Uploading image to Cloudinary...');
 
 const cloudinaryResponse = await fetch(CLOUDINARY_UPLOAD_ENDPOINT,{
   method:'POST',
@@ -300,10 +179,10 @@ const cloudinaryResponse = await fetch(CLOUDINARY_UPLOAD_ENDPOINT,{
 const cloudinaryData = await cloudinaryResponse.json().catch(()=>null);
 
 if(!cloudinaryResponse.ok || !cloudinaryData?.secure_url){
-  throw new Error(cloudinaryData?.error?.message || 'فشل رفع الصورة.');
+  throw new Error(cloudinaryData?.error?.message || 'Cloudinary upload failed.');
 }
 
-setLoading(true,'جاري تحسين الصورة بالذكاء الاصطناعي...');
+setLoading(true,'Enhancing image with AI...');
 
 const response = await fetch(AI_ENHANCE_ENDPOINT,{
   method:'POST',
@@ -318,15 +197,15 @@ const response = await fetch(AI_ENHANCE_ENDPOINT,{
 
 const data = await response.json().catch(()=>({
   success:false,
-  error:'وصل رد غير صالح من خدمة التحسين.'
+  error:'Invalid response from AI enhancement server.'
 }));
 
 if(!response.ok || !data.success){
-  throw new Error(data.error || 'تعذّرت معالجة الصورة في خدمة التحسين.');
+  throw new Error(data.error || 'The AI enhancement server failed to process the image.');
 }
 
 if(!data.imageUrl){
-  throw new Error('لم تُرجع خدمة التحسين رابط الصورة.');
+  throw new Error('The AI enhancement server did not return an image URL.');
 }
 
 currentEnhancedImageUrl = data.imageUrl;
@@ -337,10 +216,10 @@ downloadBtn.href = currentEnhancedImageUrl;
 downloadBtn.style.display = 'inline-block';
 downloadBtn.download = getDownloadFileName();
 
-statusEl.textContent = 'تم تحسين الصورة بنجاح ✅';
+statusEl.textContent = 'Image enhanced successfully ✅';
 }catch(err){
 console.error('[AI Enhancer] Error', err);
-showError(err.message || 'جرّب مرة أخرى.');
+showError(err.message || 'Please try again.');
 }finally{
 setLoading(false);
 }
@@ -350,17 +229,17 @@ async function downloadEnhancedImage(event){
 event.preventDefault();
 
 if(!currentEnhancedImageUrl){
-statusEl.textContent='حسّن صورة قبل التنزيل.';
+statusEl.textContent='Enhance an image before downloading.';
 return;
 }
 
 try{
-statusEl.textContent='جاري تجهيز التنزيل...';
+statusEl.textContent='Preparing download...';
 
 const response = await fetch(currentEnhancedImageUrl);
 
 if(!response.ok){
-  throw new Error('تعذّر تنزيل الصورة المحسّنة.');
+  throw new Error('Unable to download the enhanced image.');
 }
 
 const blob = await response.blob();
@@ -378,10 +257,10 @@ document.body.appendChild(link);
 link.click();
 link.remove();
 
-statusEl.textContent='بدأ التنزيل.';
+statusEl.textContent='Download started.';
 }catch(err){
-console.error('[AI Enhancer] تنزيل error', err);
-statusEl.textContent=`تعذّر التنزيل: ${err.message || 'جرّب مرة أخرى.'}`;
+console.error('[AI Enhancer] Download error', err);
+statusEl.textContent=`Download failed: ${err.message || 'Please try again.'}`;
 }
 }
 enhanceBtn.addEventListener('click',runEnhancement);
@@ -412,7 +291,7 @@ return box;
 }
 window.showToolMessage=function(message,canRetry){
 const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">إعادة المحاولة</button>':'');
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
 box.style.display='block';
 const retry=document.getElementById('commonToolRetry');
 if(retry){
@@ -424,18 +303,18 @@ if(lastActionButton) lastActionButton.click();
 };
 const nativeAlert=window.alert;
 window.alert=function(message){
-window.showToolMessage(String(message || 'تحقق من المدخلات ثم جرّب مرة أخرى.'), true);
+window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
 if(nativeAlert && !document.body) nativeAlert(message);
 };
 window.addEventListener('error',function(event){
-window.showToolMessage('تعذّر إكمال العملية. تحقق من الملف أو الإعدادات ثم جرّب مرة أخرى.', true);
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
 });
 window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('تعذّر إكمال العملية. تحقق من الملف أو الإعدادات ثم جرّب مرة أخرى.', true);
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
 });
 })();
 </script>
 
-<script src="../script.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>
