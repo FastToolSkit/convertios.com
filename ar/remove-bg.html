@@ -259,10 +259,6 @@ retry.addEventListener("click", lastRemoveBgAttempt);
 async function processBackgroundRemoval(){
 const file = input.files[0];
 if(!file) return;
-if(!file.type.startsWith("image/")){
-showRemoveBgRetry("اختر ملف صورة صالحًا قبل إزالة الخلفية.");
-return;
-}
 lastRemoveBgAttempt = processBackgroundRemoval;
 status.innerText = "جاري رفع الصورة لإزالة الخلفية بأمان...";
 downloadBtn.style.display = "none";

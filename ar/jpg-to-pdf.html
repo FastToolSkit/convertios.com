@@ -1,462 +1,73 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
-
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
+gtag('config', 'G-0CH8NE5WDH');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>تحويل JPG إلى PDF | Convertios</title>
-
-<meta name="description" content="اجمع صور JPG داخل ملف PDF واحد من داخل الصفحة بواجهة عربية.">
-
-
-<meta name="robots" content="noindex, nofollow">
-
-<link rel="stylesheet" href="../style.css">
+<title>تحويل JPG إلى PDF أونلاين | Convertios</title>
+<meta name="description" content="اجمع صور JPG داخل ملف PDF واحد مناسب للإرسال أو الطباعة أو رفع المستندات.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://convertios.com/ar/jpg-to-pdf.html">
+<link rel="alternate" hreflang="en" href="https://convertios.com/jpg-to-pdf.html">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/jpg-to-pdf.html">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/jpg-to-pdf.html">
+<link rel="stylesheet" href="/style.css?v=8">
+<link rel="stylesheet" href="/ar/rtl.css">
 <link rel="icon" href="/favicon.ico">
-
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
-
-<style>
-
-/* (UNCHANGED STYLES) */
-
-.tool-container{
-max-width:900px;
-margin:80px auto 30px;
-background:#071a33;
-color:white;
-padding:40px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 20px 50px rgba(0,0,0,0.3);
-}
-
-.tool-container p{
-color:#cbd5e1;
-}
-
-.drop-area{
-border:2px dashed #4b5d75;
-padding:40px;
-border-radius:12px;
-background:#0c2547;
-margin-top:20px;
-cursor:pointer;
-}
-
-.preview-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-gap:15px;
-margin-top:25px;
-}
-
-.preview-item{
-background:#0c2547;
-padding:10px;
-border-radius:10px;
-}
-
-.preview-item img{
-max-width:100%;
-border-radius:6px;
-}
-
-.main-button{
-display:inline-block;
-margin-top:20px;
-padding:12px 22px;
-background:#3a78ff;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-text-decoration:none;
-}
-
-.main-button:hover{
-background:#2a66e6;
-}
-
-.seo-content{
-max-width:900px;
-margin:20px auto;
-background:#071a33;
-color:white;
-padding:35px;
-border-radius:20px;
-}
-
-.tool-description{
-max-width:900px;
-margin:30px auto 80px;
-background:white;
-padding:40px;
-border-radius:16px;
-color:#1e293b;
-line-height:1.8;
-}
-
-</style>
-
-<link rel="canonical" href="https://convertios.com/ar/jpg-to-pdf.html">
-
-<!-- Convertios SEO social metadata -->
-<meta property="og:title" content="تحويل JPG إلى PDF Online | Convertios">
-<meta property="og:description" content="Use تحويل JPG إلى PDF Online on Convertios with clear processing details, supported PDF formats, practical guidance, and related PDF tools.">
+<meta property="og:title" content="تحويل JPG إلى PDF أونلاين | Convertios">
+<meta property="og:description" content="اجمع صور JPG داخل ملف PDF واحد مناسب للإرسال أو الطباعة أو رفع المستندات.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://convertios.com/jpg-to-pdf.html">
+<meta property="og:url" content="https://convertios.com/ar/jpg-to-pdf.html">
 <meta property="og:image" content="https://convertios.com/convertios-logo.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="تحويل JPG إلى PDF Online | Convertios">
-<meta name="twitter:description" content="Use تحويل JPG إلى PDF Online on Convertios with clear processing details, supported PDF formats, practical guidance, and related PDF tools.">
+<meta name="twitter:title" content="تحويل JPG إلى PDF أونلاين | Convertios">
+<meta name="twitter:description" content="اجمع صور JPG داخل ملف PDF واحد مناسب للإرسال أو الطباعة أو رفع المستندات.">
 <meta name="twitter:image" content="https://convertios.com/convertios-logo.png">
-<!-- /Convertios SEO social metadata -->
-
-<!-- Convertios structured data -->
-<script type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "تحويل JPG إلى PDF Online | Convertios",
-    "description": "Use تحويل JPG إلى PDF Online on Convertios with clear processing details, supported PDF formats, practical guidance, and related PDF tools.",
-    "url": "https://convertios.com/jpg-to-pdf.html",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "Convertios",
-      "url": "https://convertios.com"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "تحويل JPG إلى PDF Online",
-    "url": "https://convertios.com/jpg-to-pdf.html",
-    "description": "Use تحويل JPG إلى PDF Online on Convertios with clear processing details, supported PDF formats, practical guidance, and related PDF tools.",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "browserRequirements": "Requires a modern web browser",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "الرئيسية",
-        "item": "https://convertios.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "تحويل JPG إلى PDF Online",
-        "item": "https://convertios.com/jpg-to-pdf.html"
-      }
-    ]
-  }
-]
-</script>
-<!-- /Convertios structured data -->
-
-<link rel="stylesheet" href="rtl.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"تحويل JPG إلى PDF أونلاين | Convertios","description":"اجمع صور JPG داخل ملف PDF واحد مناسب للإرسال أو الطباعة أو رفع المستندات.","url":"https://convertios.com/ar/jpg-to-pdf.html","inLanguage":"ar","isPartOf":{"@type":"WebSite","name":"Convertios","url":"https://convertios.com"}}</script>
 </head>
-
 <body>
-<a class="skip-link" href="#main-content">Skip to content</a>
-
-<header class="site-header">
-
-<div class="header-left">
-    <a href="index.html" class="logo">
-        <img src="../convertios-logo.png" alt="شعار Convertios" width="2211" height="1234">
-    </a>
-</div>
-
-<nav class="nav-menu">
-
-<a href="index.html" class="active">الرئيسية</a>
-
-
-<div class="nav-item dropdown">
-    <span>Image ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="png-to-jpg.html">PNG to JPG</a>
-        <a href="jpg-to-png.html">JPG to PNG</a>
-        <a href="webp-to-png.html">WEBP to PNG</a>
-        <a href="image-converter.html">Image Converter</a>
-        <a href="image-resizer.html">Resize Image</a>
-        <a href="compress-image.html">Compress Image</a>
-        <a href="remove-bg.html">Remove Background</a>
-        <a href="ai-image-enhancer.html">AI Image Enhancer</a>
-
-        <a href="social-media-image-resizer.html">Social Media Image Resizer</a>
-<a href="all-tools.html" class="view-all">View All →</a>
-    </div>
-</div>
-
-<div class="nav-item dropdown">
-    <span>PDF ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="pdf-to-word.html">PDF to Word</a>
-        <a href="pdf-to-jpg.html">PDF إلى JPG</a>
-        <a href="jpg-to-pdf.html">JPG to PDF</a>
-
-        <a href="merge-pdf.html">Merge PDF</a>
-        <a href="split-pdf.html">تقسيم PDF</a>
-        <a href="rotate-pdf.html">تدوير PDF</a>
-
-        <a href="all-tools.html" class="view-all">View All →</a>
-
-    </div>
-</div>
-
-<div class="nav-item dropdown">
-    <span>الصوت ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="mp3-cutter.html">قص MP3</a>
-        <a href="audio-converter.html">Audio Converter</a>
-        <a href="audio-speed-changer.html">Speed Changer</a>
-
-        <a href="all-tools.html" class="view-all">View All →</a>
-
-    </div>
-</div>
-<div class="nav-item dropdown">
-    <span>More الأدوات ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="qr-generator.html">QR Generator</a>
-        <a href="link-shortener.html">Link Shortener</a>
-        <a href="password-generator.html">Password Generator</a>
-        <a href="word-counter.html">Word Counter</a>
-        <a href="text-formatter.html">Text Formatter</a>
-        <a href="unit-converter.html">Unit Converter</a>
-        <a href="meme-generator.html">Meme Generator</a>
-
-        <a href="all-tools.html" class="view-all">View All →</a>
-
-    </div>
-</div>
-    <a href="all-tools.html" class="nav-all-tools">كل الأدوات ←</a>
-
-<a href="about.html">عن الموقع</a>
-<a href="contact.html">تواصل معنا</a>
-
-</nav>
-
-<div class="nav-icon faq-wrapper">
-    <a href="/faq.html" class="faq-link-block">
-
-        <!-- ICON -->
-        <div class="faq-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
-                <circle cx="12" cy="17" r="1"></circle>
-            </svg>
-        </div>
-
-        <!-- TEXT -->
-        <span class="faq-text">المساعدة</span></a>
+<a class="skip-link" href="#main-content">تخطي إلى المحتوى</a>
+<header class="site-header ar-site-header">
+  <div class="header-left"><a href="/ar/" class="logo"><img src="/convertios-logo.png" alt="شعار Convertios" width="2211" height="1234"></a></div>
+  <nav class="nav-menu" aria-label="التنقل الرئيسي">
+    <a href="/ar/">الرئيسية</a>
+    <div class="nav-item dropdown"><span>الصور ▾</span><div class="dropdown-menu"><a href="/ar/png-to-jpg.html">PNG إلى JPG</a>
+<a href="/ar/jpg-to-png.html">JPG إلى PNG</a>
+<a href="/ar/webp-to-png.html">WEBP إلى PNG</a>
+<a href="/ar/image-converter.html">محول الصور</a>
+<a href="/ar/image-resizer.html">تغيير حجم الصورة</a>
+<a href="/ar/compress-image.html">ضغط الصور</a>
+<a href="/ar/social-media-image-resizer.html">صور السوشيال ميديا</a>
+<a href="/ar/ai-image-enhancer.html">تحسين الصور بالذكاء الاصطناعي</a><a href="/ar/image-tools.html" class="view-all">عرض الكل ←</a></div></div>
+    <div class="nav-item dropdown"><span>PDF ▾</span><div class="dropdown-menu"><a href="/ar/pdf-to-word.html">PDF إلى Word</a>
+<a href="/ar/pdf-to-jpg.html">PDF إلى JPG</a>
+<a href="/ar/jpg-to-pdf.html">JPG إلى PDF</a>
+<a href="/ar/merge-pdf.html">دمج PDF</a>
+<a href="/ar/split-pdf.html">تقسيم PDF</a>
+<a href="/ar/rotate-pdf.html">تدوير PDF</a><a href="/ar/pdf-tools.html" class="view-all">عرض الكل ←</a></div></div>
+    <div class="nav-item dropdown"><span>الصوت ▾</span><div class="dropdown-menu"><a href="/ar/mp3-cutter.html">قص MP3</a><a href="/ar/audio-tools.html" class="view-all">عرض الكل ←</a></div></div>
+    <a href="/ar/all-tools.html">كل الأدوات</a>
+  </nav>
+  <div class="nav-icon faq-wrapper"><a href="/faq.html" class="faq-link-block"><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path><circle cx="12" cy="17" r="1"></circle></svg></div><span class="faq-text">الأسئلة</span></a></div>
+  <div class="header-language-switch" aria-label="اختيار اللغة"><a href="https://convertios.com/jpg-to-pdf.html">EN</a><span> / </span><a href="https://convertios.com/ar/jpg-to-pdf.html" aria-current="page">AR</a></div>
 </header>
-<!-- TOOL -->
-
-<div class="tool-container" id="main-content">
-
-<h1>تحويل JPG إلى PDF Online</h1>
-
-<p>
-Convert JPG images into a single PDF file quickly and easily with high quality output.
-</p>
-
-<div class="drop-area" id="drop-area">
-<p>Drag images or click to upload</p>
-<input type="file" id="file-input" accept="image/jpeg" multiple hidden aria-label="اختر ملفًا للمعالجة">
-</div>
-
-<div class="preview-grid" id="preview"></div>
-
-<button class="main-button" onclick="createPDF()">إنشاء PDF</button>
-
-<a id="downloadLink"></a>
-
-</div>
-
-
-
-
-<section class="tool-info-block" aria-labelledby="tool-info-heading">
-<h2 id="tool-info-heading">معلومات الأداة</h2>
-<div class="tool-info-grid">
-<div><strong>يعمل داخل المتصفح:</strong><span>نعم</span></div>
-<div><strong>يتطلب رفع الملف:</strong><span>لا - processed locally in your browser</span></div>
-<div><strong>معالجة عبر طرف خارجي:</strong><span>لا يوجد</span></div>
-<div><strong>الاحتفاظ بالملف:</strong><span>Files stay on your device and are not stored by Convertios.</span></div>
-<div><strong>الحد الأقصى للحجم:</strong><span>100 MB</span></div>
-<div><strong>الصيغ المدعومة:</strong><span>JPG/JPEG images → PDF document</span></div>
-</div>
-
-</section>
-
-
-<!-- SEO CONTENT -->
-<div class="seo-content">
-
-<h2>Free تحويل JPG إلى PDF</h2>
-
-<p>
-Convertios offers a fast and reliable JPG to PDF converter that lets you merge multiple images into a single PDF file directly in your browser. Whether you need to organize images into a document or prepare files for sharing, this tool makes the process simple and efficient.
-</p>
-
-<p>
-All processing happens locally on your device, ensuring maximum speed, privacy, and security. Your images are never uploaded to any server.
-</p>
-
-</div>
-
-<!-- SEO BOOST -->
-
-<div class="tool-description">
-
-<h2>ماذا تفعل الأداة؟</h2>
-<p>
-This JPG to PDF converter allows you to combine multiple image files into a single, organized PDF document. It supports JPG, JPEG, and PNG formats and preserves image quality during conversion.
-</p>
-
-<p>
-The tool is designed for quick and secure processing, enabling you to create PDFs instantly without installing any software. Everything runs directly in your browser for a seamless experience.
-</p>
-
-<h2>طريقة الاستخدام</h2>
-<ul>
-<li>Upload or drag and drop your JPG images</li>
-<li>Arrange the images in your desired order</li>
-<li>Click the create PDF button</li>
-<li>Download your PDF file instantly</li>
-</ul>
-
-<p>
-The conversion process takes only a few seconds and works smoothly across all devices.
-</p>
-
-<h2>المزايا</h2>
-<ul>
-<li>Merge multiple images into a single PDF file</li>
-<li>Maintain high image quality during conversion</li>
-<li>Fast browser-based processing with no delays</li>
-<li>لا installation or registration required</li>
-<li>Secure conversion with no file uploads</li>
-<li>Works on mobile, tablet, and desktop devices</li>
-</ul>
-
-<h2>Why convert JPG to PDF?</h2>
-<p>
-PDF files are widely used for sharing and printing because they preserve layout and formatting across all devices. Converting JPG images into a PDF allows you to combine multiple images into one document that is easier to manage and distribute.
-</p>
-
-<p>
-This is especially useful when submitting documents, creating reports, or organizing scanned images into a single file.
-</p>
-
-<h2>استخدامات شائعة</h2>
-<p>
-This tool is ideal for students, professionals, and anyone who needs to convert images into PDF format. You can use it to submit assignments, upload documents to online portals, share image collections, or prepare files for printing.
-</p>
-
-<p>
-It is also useful for combining scanned pages or screenshots into a single organized document.
-</p>
-
-<h2>المساعدة</h2>
-
-<p><strong>Is this JPG to PDF converter free?</strong><br>
-نعم, the tool is completely free with no hidden costs.</p>
-
-<p><strong>Are my images uploaded?</strong><br>
-لا, all files are processed locally in your browser for full privacy.</p>
-
-<p><strong>Will image quality be reduced?</strong><br>
-لا, the tool is optimized to preserve image quality during conversion.</p>
-
-<p><strong>Can I reorder images before converting?</strong><br>
-نعم, you can arrange your images in the desired order before creating the PDF.</p>
-
-</div>
-
-<!-- MORE TOOLS -->
-
-<div class="more-tools">
-
-<h3>أدوات أخرى</h3>
-
-<div class="more-tools-grid">
-
-<a href="pdf-to-word.html" class="more-tool-card">
-<span>📑</span>
-<p>PDF to Word</p>
-</a>
-
-<a href="pdf-to-jpg.html" class="more-tool-card">
-<span>🖼️</span>
-<p>PDF إلى JPG</p>
-</a>
-
-<a href="merge-pdf.html" class="more-tool-card">
-<span>📄</span>
-<p>Merge PDF</p>
-</a>
-
-<a href="rotate-pdf.html" class="more-tool-card">
-<span>🔄</span>
-<p>تدوير PDF</p>
-</a>
-</div>
-
-</div>
-
-<footer class="site-footer">
-
-<div class="footer-container">
-
-    <div class="footer-brand">
-        <h3>Convertios</h3>
-        <p>أدوات مجانية لمعالجة الصور والملفات من المتصفح.</p>
-    </div>
-
-    <div class="footer-links">
-        <a href="all-tools.html">الأدوات</a>
-        <a href="about.html">عن الموقع</a>
-        <a href="contact.html">تواصل معنا</a>
-        <a href="/security.html">الأمان</a>
-        <a href="privacy.html">الخصوصية</a>
-        <a href="terms.html">الشروط</a>
-    </div>
-
-</div>
-
-<p class="footer-bottom">
-© 2026 Convertios • جميع الحقوق محفوظة
-</p>
-
-</footer>
+<main id="main-content" class="ar-page"><section class="tool-container ar-tool-intro"><h1>تحويل JPG إلى PDF</h1><p>حوّل صورة واحدة أو عدة صور JPG إلى ملف PDF مرتب للاستخدام الدراسي أو العملي.</p><div class="ar-tool-action"><a class="main-button" href="/jpg-to-pdf.html" hreflang="en">افتح الأداة واستخدمها</a><p class="tool-note">هذه صفحة عربية مستقلة تشرح الأداة وسياقات استخدامها باللغة العربية، مع روابط داخلية عربية للأدوات المرتبطة وتعليمات واضحة قبل بدء العمل.</p></div></section><section class="tool-description"><h2>متى تستخدم تحويل JPG إلى PDF؟</h2><p>حوّل صورة واحدة أو عدة صور JPG إلى ملف PDF مرتب للاستخدام الدراسي أو العملي. هذه الأداة مفيدة عندما تحتاج إلى نتيجة سريعة بدون تثبيت برامج إضافية، خصوصًا عند تجهيز ملفات للمدرسة أو العمل أو السوشيال ميديا.</p><h2>طريقة الاستخدام</h2><ol><li>افتح الأداة من زر الاستخدام.</li><li>اختر الملف أو الصورة المطلوبة من جهازك.</li><li>اضبط الإعدادات المتاحة حسب حاجتك.</li><li>حمّل النتيجة النهائية واحفظها باسم واضح.</li></ol><h2>نصائح للحصول على نتيجة أفضل</h2><ul><li>استخدم ملفات واضحة وغير تالفة قبل التحويل أو التعديل.</li><li>راجع حجم الملف النهائي إذا كان مطلوبًا لمنصة أو نموذج إلكتروني.</li><li>احتفظ بنسخة أصلية من الملف قبل إجراء أي تعديل.</li></ul><h2>أسئلة شائعة</h2><p><strong>هل الأداة مجانية؟</strong><br>نعم، يمكن استخدام أدوات Convertios الأساسية مجانًا من المتصفح.</p><p><strong>هل أحتاج إلى تثبيت برنامج؟</strong><br>لا، تعمل الأدوات من صفحة الويب مباشرة.</p><p><strong>هل يتم تغيير امتدادات مثل JPG وPNG وPDF؟</strong><br>لا تتم ترجمة أسماء الامتدادات التقنية حتى تبقى واضحة ومتوافقة مع الاستخدام العالمي.</p></section><div class="more-tools"><h3>أدوات مرتبطة</h3><div class="more-tools-grid"><a href="/ar/pdf-to-jpg.html" class="more-tool-card"><span>📄</span><p>تحويل PDF إلى JPG</p></a><a href="/ar/merge-pdf.html" class="more-tool-card"><span>📄</span><p>دمج ملفات PDF</p></a><a href="/ar/pdf-to-word.html" class="more-tool-card"><span>📄</span><p>تحويل PDF إلى Word</p></a><a href="/ar/compress-image.html" class="more-tool-card"><span>📦</span><p>ضغط الصور</p></a></div></div></main>
+<footer class="site-footer ar-footer"><div class="footer-container"><div class="footer-brand"><h3>Convertios</h3><p>أدوات مجانية لتحويل الملفات والصور وPDF والصوت بسرعة ووضوح.</p></div><div class="footer-links"><a href="/ar/all-tools.html">الأدوات</a><a href="/about.html">عن الموقع</a><a href="/contact.html">تواصل معنا</a><a href="/security.html">الأمان</a><a href="/privacy.html">الخصوصية</a><a href="/terms.html">الشروط</a></div></div><p class="footer-bottom">© 2026 Convertios • جميع الحقوق محفوظة</p></footer>
+<script src="/script.js" defer></script>
+</body>
+</html>
 <script>
 
 const dropArea = document.getElementById("drop-area");
@@ -548,7 +159,7 @@ const link = document.getElementById("downloadLink");
 
 link.href = URL.createObjectURL(blob);
 link.download = "images.pdf";
-link.innerText = "تنزيل PDF";
+link.innerText = "Download PDF";
 link.className = "main-button";
 
 }
@@ -577,7 +188,7 @@ return box;
 }
 window.showToolMessage=function(message,canRetry){
 const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">إعادة المحاولة</button>':'');
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
 box.style.display='block';
 const retry=document.getElementById('commonToolRetry');
 if(retry){
@@ -601,6 +212,6 @@ window.showToolMessage('The tool could not complete the request. Check your file
 })();
 </script>
 
-<script src="../script.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>

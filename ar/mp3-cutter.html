@@ -1,489 +1,73 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
-
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-
-
+gtag('config', 'G-0CH8NE5WDH');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>قص MP3 | Convertios</title>
-<meta name="description" content="قص ملفات MP3 وحدد البداية والنهاية من داخل الصفحة بواجهة عربية.">
-
-
-<meta name="robots" content="noindex, nofollow">
-
+<title>قص MP3 أونلاين | Convertios</title>
+<meta name="description" content="قص ملفات MP3 وحدد بداية ونهاية المقطع لصناعة رنين أو مقطع قصير.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://convertios.com/ar/mp3-cutter.html">
+<link rel="alternate" hreflang="en" href="https://convertios.com/mp3-cutter.html">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/mp3-cutter.html">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/mp3-cutter.html">
+<link rel="stylesheet" href="/style.css?v=8">
+<link rel="stylesheet" href="/ar/rtl.css">
 <link rel="icon" href="/favicon.ico">
-
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="stylesheet" href="../style.css">
-
-<script src="https://unpkg.com/wavesurfer.js@6"></script>
-
-<script src="https://unpkg.com/wavesurfer.js@6/dist/plugin/wavesurfer.regions.min.js"></script>
-
-<script src="https://unpkg.com/wavesurfer.js@6/dist/plugin/wavesurfer.timeline.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.0/lame.min.js"></script>
-
-<style>
-
-/* (UNCHANGED STYLES) */
-
-.tool-container{
-max-width:1000px;
-margin:80px auto 30px;
-background:#071a33;
-color:white;
-padding:40px;
-border-radius:20px;
-text-align:center;
-}
-
-.upload-btn{
-background:#3a78ff;
-padding:12px 24px;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold;
-color:white;
-display:inline-block;
-margin-top:20px;
-}
-
-.upload-btn input{
-display:none;
-}
-
-#waveform{
-margin-top:30px;
-background:#0c2547;
-border-radius:10px;
-padding:10px;
-}
-
-#timeline{
-margin-top:10px;
-}
-
-.control-bar{
-margin-top:25px;
-display:flex;
-justify-content:center;
-align-items:center;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.control-bar button{
-background:#3a78ff;
-border:none;
-padding:10px 18px;
-color:white;
-border-radius:8px;
-cursor:pointer;
-}
-
-.control-bar button:hover{
-background:#2a66e6;
-}
-
-.time-group{
-background:#0c2547;
-padding:8px 12px;
-border-radius:8px;
-}
-
-.seo-content{
-max-width:900px;
-margin:20px auto;
-background:#071a33;
-color:white;
-padding:35px;
-border-radius:20px;
-}
-
-.tool-description{
-max-width:900px;
-margin:30px auto 80px;
-background:white;
-padding:40px;
-border-radius:16px;
-color:#1e293b;
-line-height:1.8;
-}
-
-</style>
-
-<link rel="canonical" href="https://convertios.com/ar/mp3-cutter.html">
-
-<!-- Convertios SEO social metadata -->
-<meta property="og:title" content="قص MP3 Online – Trim Audio Instantly | Convertios">
-<meta property="og:description" content="Use قص MP3 Online – Trim Audio Instantly on Convertios with transparent processing details, supported audio formats, usage guidance, and related audio to.">
+<meta property="og:title" content="قص MP3 أونلاين | Convertios">
+<meta property="og:description" content="قص ملفات MP3 وحدد بداية ونهاية المقطع لصناعة رنين أو مقطع قصير.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://convertios.com/mp3-cutter.html">
+<meta property="og:url" content="https://convertios.com/ar/mp3-cutter.html">
 <meta property="og:image" content="https://convertios.com/convertios-logo.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="قص MP3 Online – Trim Audio Instantly | Convertios">
-<meta name="twitter:description" content="Use قص MP3 Online – Trim Audio Instantly on Convertios with transparent processing details, supported audio formats, usage guidance, and related audio to.">
+<meta name="twitter:title" content="قص MP3 أونلاين | Convertios">
+<meta name="twitter:description" content="قص ملفات MP3 وحدد بداية ونهاية المقطع لصناعة رنين أو مقطع قصير.">
 <meta name="twitter:image" content="https://convertios.com/convertios-logo.png">
-<!-- /Convertios SEO social metadata -->
-
-<!-- Convertios structured data -->
-<script type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "قص MP3 Online – Trim Audio Instantly | Convertios",
-    "description": "Use قص MP3 Online – Trim Audio Instantly on Convertios with transparent processing details, supported audio formats, usage guidance, and related audio to.",
-    "url": "https://convertios.com/mp3-cutter.html",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "Convertios",
-      "url": "https://convertios.com"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "قص MP3 Online – Trim Audio Instantly",
-    "url": "https://convertios.com/mp3-cutter.html",
-    "description": "Use قص MP3 Online – Trim Audio Instantly on Convertios with transparent processing details, supported audio formats, usage guidance, and related audio to.",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "browserRequirements": "Requires a modern web browser",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "الرئيسية",
-        "item": "https://convertios.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "قص MP3 Online – Trim Audio Instantly",
-        "item": "https://convertios.com/mp3-cutter.html"
-      }
-    ]
-  }
-]
-</script>
-<!-- /Convertios structured data -->
-
-<link rel="stylesheet" href="rtl.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"قص MP3 أونلاين | Convertios","description":"قص ملفات MP3 وحدد بداية ونهاية المقطع لصناعة رنين أو مقطع قصير.","url":"https://convertios.com/ar/mp3-cutter.html","inLanguage":"ar","isPartOf":{"@type":"WebSite","name":"Convertios","url":"https://convertios.com"}}</script>
 </head>
-
 <body>
-<a class="skip-link" href="#main-content">Skip to content</a>
-
-<header class="site-header">
-
-<div class="header-left">
-    <a href="index.html" class="logo">
-        <img src="../convertios-logo.png" alt="شعار Convertios" width="2211" height="1234">
-    </a>
-</div>
-
-<nav class="nav-menu">
-
-<a href="index.html" class="active">الرئيسية</a>
-
-
-<div class="nav-item dropdown">
-    <span>Image ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="png-to-jpg.html">PNG to JPG</a>
-        <a href="jpg-to-png.html">JPG to PNG</a>
-        <a href="webp-to-png.html">WEBP to PNG</a>
-        <a href="image-converter.html">Image Converter</a>
-        <a href="image-resizer.html">Resize Image</a>
-        <a href="compress-image.html">Compress Image</a>
-        <a href="remove-bg.html">Remove Background</a>
-        <a href="ai-image-enhancer.html">AI Image Enhancer</a>
-
-        <a href="social-media-image-resizer.html">Social Media Image Resizer</a>
-<a href="all-tools.html" class="view-all">View All →</a>
-    </div>
-</div>
-
-<div class="nav-item dropdown">
-    <span>PDF ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="pdf-to-word.html">PDF to Word</a>
-        <a href="pdf-to-jpg.html">PDF إلى JPG</a>
-        <a href="jpg-to-pdf.html">JPG to PDF</a>
-
-        <a href="merge-pdf.html">Merge PDF</a>
-        <a href="split-pdf.html">تقسيم PDF</a>
-        <a href="rotate-pdf.html">تدوير PDF</a>
-
-        <a href="all-tools.html" class="view-all">View All →</a>
-
-    </div>
-</div>
-
-<div class="nav-item dropdown">
-    <span>الصوت ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="mp3-cutter.html">قص MP3</a>
-        <a href="audio-converter.html">Audio Converter</a>
-        <a href="audio-speed-changer.html">Speed Changer</a>
-
-        <a href="all-tools.html" class="view-all">View All →</a>
-
-    </div>
-</div>
-<div class="nav-item dropdown">
-    <span>More الأدوات ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="qr-generator.html">QR Generator</a>
-        <a href="link-shortener.html">Link Shortener</a>
-        <a href="password-generator.html">Password Generator</a>
-        <a href="word-counter.html">Word Counter</a>
-        <a href="text-formatter.html">Text Formatter</a>
-        <a href="unit-converter.html">Unit Converter</a>
-        <a href="meme-generator.html">Meme Generator</a>
-
-        <a href="all-tools.html" class="view-all">View All →</a>
-
-    </div>
-</div>
-    <a href="all-tools.html" class="nav-all-tools">كل الأدوات ←</a>
-
-<a href="about.html">عن الموقع</a>
-<a href="contact.html">تواصل معنا</a>
-
-</nav>
-
-<div class="nav-icon faq-wrapper">
-    <a href="/faq.html" class="faq-link-block">
-
-        <!-- ICON -->
-        <div class="faq-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
-                <circle cx="12" cy="17" r="1"></circle>
-            </svg>
-        </div>
-
-        <!-- TEXT -->
-        <span class="faq-text">المساعدة</span></a>
-
+<a class="skip-link" href="#main-content">تخطي إلى المحتوى</a>
+<header class="site-header ar-site-header">
+  <div class="header-left"><a href="/ar/" class="logo"><img src="/convertios-logo.png" alt="شعار Convertios" width="2211" height="1234"></a></div>
+  <nav class="nav-menu" aria-label="التنقل الرئيسي">
+    <a href="/ar/">الرئيسية</a>
+    <div class="nav-item dropdown"><span>الصور ▾</span><div class="dropdown-menu"><a href="/ar/png-to-jpg.html">PNG إلى JPG</a>
+<a href="/ar/jpg-to-png.html">JPG إلى PNG</a>
+<a href="/ar/webp-to-png.html">WEBP إلى PNG</a>
+<a href="/ar/image-converter.html">محول الصور</a>
+<a href="/ar/image-resizer.html">تغيير حجم الصورة</a>
+<a href="/ar/compress-image.html">ضغط الصور</a>
+<a href="/ar/social-media-image-resizer.html">صور السوشيال ميديا</a>
+<a href="/ar/ai-image-enhancer.html">تحسين الصور بالذكاء الاصطناعي</a><a href="/ar/image-tools.html" class="view-all">عرض الكل ←</a></div></div>
+    <div class="nav-item dropdown"><span>PDF ▾</span><div class="dropdown-menu"><a href="/ar/pdf-to-word.html">PDF إلى Word</a>
+<a href="/ar/pdf-to-jpg.html">PDF إلى JPG</a>
+<a href="/ar/jpg-to-pdf.html">JPG إلى PDF</a>
+<a href="/ar/merge-pdf.html">دمج PDF</a>
+<a href="/ar/split-pdf.html">تقسيم PDF</a>
+<a href="/ar/rotate-pdf.html">تدوير PDF</a><a href="/ar/pdf-tools.html" class="view-all">عرض الكل ←</a></div></div>
+    <div class="nav-item dropdown"><span>الصوت ▾</span><div class="dropdown-menu"><a href="/ar/mp3-cutter.html">قص MP3</a><a href="/ar/audio-tools.html" class="view-all">عرض الكل ←</a></div></div>
+    <a href="/ar/all-tools.html">كل الأدوات</a>
+  </nav>
+  <div class="nav-icon faq-wrapper"><a href="/faq.html" class="faq-link-block"><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path><circle cx="12" cy="17" r="1"></circle></svg></div><span class="faq-text">الأسئلة</span></a></div>
+  <div class="header-language-switch" aria-label="اختيار اللغة"><a href="https://convertios.com/mp3-cutter.html">EN</a><span> / </span><a href="https://convertios.com/ar/mp3-cutter.html" aria-current="page">AR</a></div>
 </header>
-
-<div class="tool-container" id="main-content">
-
-<h1>قص MP3 Online – Trim Audio Instantly</h1>
-<p>قص ملفات MP3 باستخدام محرر موجة دقيق. حدد الجزء المطلوب ونزّل النتيجة بدون رفع الملف.</p>
-
-<label class="upload-btn">
-Upload MP3
-<input type="file" id="audio" accept="audio/*" aria-label="اختر ملفًا للمعالجة">
-</label>
-
-<div id="waveform"></div>
-<div id="timeline"></div>
-
-<div class="control-bar">
-
-<button id="play">تشغيل</button>
-
-<div class="time-group">
-<span id="start">0:00</span>
-<span>→</span>
-<span id="end">0:00</span>
-</div>
-
-<input type="range" id="zoom" min="10" max="200" value="50">
-
-<button id="export">تنزيل MP3 المقصوص</button>
-</div>
-
-</div>
-
-
-
-
-<section class="tool-info-block" aria-labelledby="tool-info-heading">
-<h2 id="tool-info-heading">معلومات الأداة</h2>
-<div class="tool-info-grid">
-<div><strong>يعمل داخل المتصفح:</strong><span>نعم</span></div>
-<div><strong>يتطلب رفع الملف:</strong><span>لا - processed locally in your browser</span></div>
-<div><strong>معالجة عبر طرف خارجي:</strong><span>لا يوجد</span></div>
-<div><strong>الاحتفاظ بالملف:</strong><span>Files stay on your device and are not stored by Convertios.</span></div>
-<div><strong>الحد الأقصى للحجم:</strong><span>100 MB</span></div>
-<div><strong>الصيغ المدعومة:</strong><span>MP3 and browser-supported audio → Trimmed audio file where supported</span></div>
-</div>
-
-</section>
-
-
-<!-- SEO CONTENT -->
-<div class="seo-content">
-
-<h2>Free قص MP3 Tool</h2>
-
-<p>
-Convertios offers a fast and precise MP3 cutter that allows you to trim audio files directly in your browser. Whether you want to cut a specific part of a song, remove unwanted sections, or extract audio clips, this tool makes the process simple and efficient.
-</p>
-
-<p>
-لا uploads are required — all processing happens locally on your device, ensuring maximum speed, privacy, and security.
-</p>
-
-</div>
-
-<!-- SEO BOOST -->
-
-<div class="tool-description">
-
-<h2>ماذا تفعل الأداة؟</h2>
-<p>
-This MP3 cutter lets you trim audio files with high accuracy using an interactive waveform editor. You can select exact start and end points to cut your audio precisely without affecting overall quality.
-</p>
-
-<p>
-The tool works entirely in your browser, allowing you to edit audio instantly without installing any software.
-</p>
-
-<h2>طريقة الاستخدام</h2>
-<ul>
-<li>Upload or drag and drop your audio file</li>
-<li>Select the desired segment using the waveform editor</li>
-<li>Preview the selected portion in real time</li>
-<li>صدّر الملف الصوتي المقصوص ونزّله</li>
-</ul>
-
-<p>
-The process is fast and user-friendly, making it easy to cut audio even if you have no editing experience.
-</p>
-
-<h2>المزايا</h2>
-<ul>
-<li>Precise waveform-based audio trimming</li>
-<li>High-quality output without distortion</li>
-<li>Fast browser-based processing</li>
-<li>لا installation or registration required</li>
-<li>Secure editing with no file uploads</li>
-<li>Works on mobile, tablet, and desktop devices</li>
-</ul>
-
-<h2>Why use an MP3 cutter?</h2>
-<p>
-Cutting audio files allows you to extract only the parts you need. Whether you are creating ringtones, editing music clips, or removing unnecessary sections, an MP3 cutter helps you customize audio easily.
-</p>
-
-<p>
-It also improves efficiency by allowing you to work with shorter, more relevant audio segments.
-</p>
-
-<h2>استخدامات شائعة</h2>
-<p>
-This tool is ideal for musicians, content creators, students, and everyday users. You can use it to create ringtones, edit podcast clips, prepare audio for videos, or extract highlights from longer recordings.
-</p>
-
-<p>
-It is especially useful for quick edits when you don’t want to use complex audio software.
-</p>
-
-<h2>المساعدة</h2>
-
-<p><strong>Is this MP3 cutter free?</strong><br>
-نعم, the tool is completely free with no hidden costs.</p>
-
-<p><strong>Are my files uploaded?</strong><br>
-لا, all processing is done locally in your browser for full privacy.</p>
-
-<p><strong>Will audio quality be affected?</strong><br>
-لا, the tool preserves the original quality of your audio during trimming.</p>
-
-<p><strong>Can I use this on mobile?</strong><br>
-نعم, the tool works on all modern devices including smartphones and tablets.</p>
-
-</div>
-<!-- MORE TOOLS -->
-
-<div class="more-tools">
-
-<h3>أدوات أخرى</h3>
-
-<div class="more-tools-grid">
-
-<a href="audio-converter.html" class="more-tool-card">
-<span>🎧</span>
-<p>Audio Converter</p>
-</a>
-
-<a href="image-converter.html" class="more-tool-card">
-<span>🖼️</span>
-<p>Image Converter</p>
-</a>
-
-<a href="link-shortener.html" class="more-tool-card">
-<span>🔗</span>
-<p>Link Shortener</p>
-</a>
-
-<a href="jpg-to-pdf.html" class="more-tool-card">
-<span>📄</span>
-<p>JPG to PDF</p>
-</a>
-
-</div>
-
-</div>
-
-<footer class="site-footer">
-
-<div class="footer-container">
-
-    <div class="footer-brand">
-        <h3>Convertios</h3>
-        <p>أدوات مجانية لمعالجة الصور والملفات من المتصفح.</p>
-    </div>
-
-    <div class="footer-links">
-        <a href="all-tools.html">الأدوات</a>
-        <a href="about.html">عن الموقع</a>
-        <a href="contact.html">تواصل معنا</a>
-      <a href="/security.html">الأمان</a>
-        <a href="privacy.html">الخصوصية</a>
-        <a href="terms.html">الشروط</a>
-    </div>
-
-</div>
-<div class="lang-switch">
-  <span>Language:</span>
-  <a href="/mp3-cutter.html">EN</a> |
-  <a href="/es/mp3-cutter.html">ES</a>
-</div>
-<p class="footer-bottom">
-© 2026 Convertios • جميع الحقوق محفوظة
-</p>
-
-</footer>
+<main id="main-content" class="ar-page"><section class="tool-container ar-tool-intro"><h1>قص MP3 أونلاين</h1><p>أداة عربية لقص الصوت وتجهيز مقاطع قصيرة للرنين أو الفيديوهات أو المشاركة.</p><div class="ar-tool-action"><a class="main-button" href="/mp3-cutter.html" hreflang="en">افتح الأداة واستخدمها</a><p class="tool-note">هذه صفحة عربية مستقلة تشرح الأداة وسياقات استخدامها باللغة العربية، مع روابط داخلية عربية للأدوات المرتبطة وتعليمات واضحة قبل بدء العمل.</p></div></section><section class="tool-description"><h2>متى تستخدم قص MP3 أونلاين؟</h2><p>أداة عربية لقص الصوت وتجهيز مقاطع قصيرة للرنين أو الفيديوهات أو المشاركة. هذه الأداة مفيدة عندما تحتاج إلى نتيجة سريعة بدون تثبيت برامج إضافية، خصوصًا عند تجهيز ملفات للمدرسة أو العمل أو السوشيال ميديا.</p><h2>طريقة الاستخدام</h2><ol><li>افتح الأداة من زر الاستخدام.</li><li>اختر الملف أو الصورة المطلوبة من جهازك.</li><li>اضبط الإعدادات المتاحة حسب حاجتك.</li><li>حمّل النتيجة النهائية واحفظها باسم واضح.</li></ol><h2>نصائح للحصول على نتيجة أفضل</h2><ul><li>استخدم ملفات واضحة وغير تالفة قبل التحويل أو التعديل.</li><li>راجع حجم الملف النهائي إذا كان مطلوبًا لمنصة أو نموذج إلكتروني.</li><li>احتفظ بنسخة أصلية من الملف قبل إجراء أي تعديل.</li></ul><h2>أسئلة شائعة</h2><p><strong>هل الأداة مجانية؟</strong><br>نعم، يمكن استخدام أدوات Convertios الأساسية مجانًا من المتصفح.</p><p><strong>هل أحتاج إلى تثبيت برنامج؟</strong><br>لا، تعمل الأدوات من صفحة الويب مباشرة.</p><p><strong>هل يتم تغيير امتدادات مثل JPG وPNG وPDF؟</strong><br>لا تتم ترجمة أسماء الامتدادات التقنية حتى تبقى واضحة ومتوافقة مع الاستخدام العالمي.</p></section><div class="more-tools"><h3>أدوات مرتبطة</h3><div class="more-tools-grid"><a href="/ar/audio-tools.html" class="more-tool-card"><span>🎵</span><p>أدوات الصوت</p></a></div></div></main>
+<footer class="site-footer ar-footer"><div class="footer-container"><div class="footer-brand"><h3>Convertios</h3><p>أدوات مجانية لتحويل الملفات والصور وPDF والصوت بسرعة ووضوح.</p></div><div class="footer-links"><a href="/ar/all-tools.html">الأدوات</a><a href="/about.html">عن الموقع</a><a href="/contact.html">تواصل معنا</a><a href="/security.html">الأمان</a><a href="/privacy.html">الخصوصية</a><a href="/terms.html">الشروط</a></div></div><p class="footer-bottom">© 2026 Convertios • جميع الحقوق محفوظة</p></footer>
+<script src="/script.js" defer></script>
+</body>
+</html>
 <script>
 
 const wavesurfer = WaveSurfer.create({
@@ -538,7 +122,7 @@ document.getElementById("end").innerText=formatTime(region.end)
 
 document.getElementById("play").onclick=function(){
 wavesurfer.playPause()
-this.innerText = wavesurfer.isPlaying() ? "إيقاف مؤقت" : "تشغيل"
+this.innerText = wavesurfer.isPlaying() ? "Pause" : "Play"
 }
 
 document.getElementById("zoom").oninput=function(){
@@ -615,7 +199,7 @@ return box;
 }
 window.showToolMessage=function(message,canRetry){
 const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">إعادة المحاولة</button>':'');
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
 box.style.display='block';
 const retry=document.getElementById('commonToolRetry');
 if(retry){
@@ -639,6 +223,6 @@ window.showToolMessage('The tool could not complete the request. Check your file
 })();
 </script>
 
-<script src="../script.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>
