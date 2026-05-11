@@ -1,0 +1,70 @@
+html[dir="rtl"] body{
+    direction:rtl;
+    text-align:right;
+    font-family:"Tahoma","Arial",sans-serif;
+}
+
+html[dir="rtl"] .site-header,
+html[dir="rtl"] .nav-menu,
+html[dir="rtl"] .footer-container,
+html[dir="rtl"] .hero,
+html[dir="rtl"] .tool-grid,
+html[dir="rtl"] .actions{
+    direction:rtl;
+}
+
+html[dir="rtl"] .dropdown-menu{
+    right:0;
+    left:auto;
+    text-align:right;
+}
+
+html[dir="rtl"] .tool-description,
+html[dir="rtl"] .tool-container,
+html[dir="rtl"] .seo-content,
+html[dir="rtl"] .tool-info-block{
+    text-align:right;
+}
+
+html[dir="rtl"] .tool-description ul,
+html[dir="rtl"] .tool-description ol{
+    padding-right:1.4rem;
+    padding-left:0;
+}
+
+html[dir="rtl"] .more-tool-card,
+html[dir="rtl"] .tool-card,
+html[dir="rtl"] .header-language-switch{
+    direction:rtl;
+}
+
+.ar-tool-action{
+    margin-top:22px;
+}
+
+.ar-tool-action .tool-note{
+    max-width:720px;
+    margin:16px auto 0;
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+.ar-hero .hero-content,
+.ar-page .tool-desc{
+    text-align:right;
+}
+
+.ar-tools-grid .tool-card{
+    text-align:right;
+}
+
+@media (max-width:768px){
+    html[dir="rtl"] .site-header,
+    html[dir="rtl"] .nav-menu{
+        align-items:stretch;
+    }
+
+    .header-language-switch{
+        margin:10px auto;
+    }
+}

@@ -2375,3 +2375,37 @@ UNIFIED TOOL PAGE UI
     color:#64748b !important;
     opacity:1 !important;
 }
+
+/* Header language switcher */
+.header-language-switch{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    margin-left:12px;
+    padding:7px 10px;
+    border:1px solid #dbe4ee;
+    border-radius:999px;
+    background:#ffffff;
+    color:#071a33;
+    font-size:13px;
+    font-weight:700;
+    line-height:1;
+    white-space:nowrap;
+}
+
+.header-language-switch a{
+    color:#071a33;
+    text-decoration:none;
+}
+
+.header-language-switch a:hover,
+.header-language-switch a[aria-current="page"]{
+    color:#3a78ff;
+}
+
+@media (max-width:768px){
+    .header-language-switch{
+        margin:10px auto 0;
+    }
+}
