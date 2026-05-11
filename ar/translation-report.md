@@ -35,7 +35,7 @@ The first Arabic rollout includes 20 high-value pages under `/ar/`:
 
 ## Pages needing manual review
 
-- Tool pages currently provide Arabic SEO copy, Arabic navigation, hreflang, canonical, and internal Arabic links. Full Arabic tool-control parity should be reviewed before the next rollout for every converter that has complex client-side controls.
+- Tool pages currently provide Arabic localized copy, Arabic navigation, hreflang, canonical, and internal Arabic links. Full Arabic tool-control parity should be reviewed before the next rollout for every converter that has complex client-side controls.
 - API-backed pages such as AI image enhancer and PDF to Word should be reviewed for Arabic error handling, upload limits, and service downtime messages.
 - Audio and PDF tools should be tested on mobile in RTL layout.
 
@@ -56,7 +56,7 @@ The first Arabic rollout includes 20 high-value pages under `/ar/`:
 ## Premium copy refinement
 
 - Refined the Arabic homepage and five priority pages: `/ar/compress-image.html`, `/ar/image-resizer.html`, `/ar/social-media-image-resizer.html`, `/ar/pdf-to-word.html`, and `/ar/mp3-cutter.html`.
-- Replaced mechanical phrases such as “أداة عربية” with natural product copy focused on speed, clarity, trust, and practical workflows.
+- Replaced mechanical tool-first phrasing with natural product copy focused on speed, clarity, trust, and practical workflows.
 - Reworked the header language control into an accessible dropdown-style selector and improved RTL spacing/visual hierarchy in `/ar/rtl.css`.
 
 
@@ -64,4 +64,14 @@ The first Arabic rollout includes 20 high-value pages under `/ar/`:
 
 - Arabic localization work is now isolated on the `arabic-localization-dev` branch for quality review before any production merge.
 - This pass keeps the rollout scope unchanged and focuses only on the homepage, global Arabic header/footer, the language selector, RTL polish, and five priority pages.
-- Priority copy was rewritten to avoid keyword-stuffed or mechanical Arabic and to emphasize clarity, trust, and practical workflows.
+- Priority copy was rewritten to avoid keyword-stuffed or mechanical Arabic copy and to emphasize clarity, trust, and practical workflows.
+
+
+## Full Arabic copy polish pass
+
+- Polished all existing Arabic pages without adding new URLs.
+- Replaced generic boilerplate sections with shorter, more useful copy that explains intent, context, and next steps.
+- Kept `/ar/`, `/es/`, and English URL structure unchanged, with Arabic self canonicals and existing hreflang signals intact.
+- Tightened RTL CSS for Arabic line-height, card spacing, section rhythm, CTA alignment, dropdown positioning, and mobile stacking.
+- Language selector remains a compact dropdown that preserves each page’s Arabic/English equivalent URL.
+- Pages still needing manual QA: API-backed pages and pages whose actual tool controls are still inherited from English implementations.
