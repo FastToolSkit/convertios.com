@@ -3,6 +3,15 @@
 <html lang="en">
 
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-0CH8NE5WDH');
+</script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -118,6 +127,9 @@ line-height:1.8;
 
 <link rel="canonical" href="https://convertios.com/image-converter.html">
 
+<link rel="alternate" hreflang="en" href="https://convertios.com/image-converter.html">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-converter.html">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/image-converter.html">
 <!-- Convertios SEO social metadata -->
 <meta property="og:title" content="Image Converter Online | Convertios">
 <meta property="og:description" content="Use Image Converter Online on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.">
@@ -284,6 +296,13 @@ line-height:1.8;
 
         <!-- TEXT -->
         <span class="faq-text">FAQ</span> </a>
+<details class="language-selector">
+    <summary aria-label="Language selector"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">English</span></summary>
+    <div class="language-selector__menu" role="listbox">
+        <a href="https://convertios.com/image-converter.html" hreflang="en" aria-current="page">English</a>
+        <a href="https://convertios.com/ar/image-converter.html" lang="ar" dir="rtl" hreflang="ar">العربية</a>
+    </div>
+  </details>
 </header>
 <!-- TOOL -->
 
@@ -509,7 +528,16 @@ showPreview();
 
 fileInput.addEventListener("change",showPreview);
 
+function showImageConverterMessage(message){
+if(typeof window.showToolMessage==="function"){
+window.showToolMessage(message,false);
+}else{
+alert(message);
+}
+}
+
 function showPreview(){
+convertedImages=[];
 preview.innerHTML="";
 let files=fileInput.files;
 for(let i=0;i<files.length;i++){
@@ -577,6 +605,11 @@ link.click();
 }
 
 function downloadZip(){
+if(!convertedImages || convertedImages.length===0){
+showImageConverterMessage("Please convert at least one image before downloading ZIP.");
+return;
+}
+
 let zip=new JSZip();
 for(let i=0;i<convertedImages.length;i++){
 let base64=convertedImages[i].data.split(',')[1];
