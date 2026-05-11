@@ -1,606 +1,70 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
-
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
+gtag('config', 'G-0CH8NE5WDH');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>دمج ملفات PDF | Convertios</title>
-
-<meta name="description" content="ادمج عدة ملفات PDF داخل ملف واحد من داخل الصفحة بواجهة عربية.">
-
-
-<meta name="robots" content="noindex, nofollow">
-
-<link rel="stylesheet" href="../style.css">
+<title>دمج ملفات PDF أونلاين | Convertios</title>
+<meta name="description" content="ادمج عدة ملفات PDF في ملف واحد مرتب بدون تثبيت برامج.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://convertios.com/ar/merge-pdf.html">
+<link rel="alternate" hreflang="en" href="https://convertios.com/merge-pdf.html">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/merge-pdf.html">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/merge-pdf.html">
+<link rel="stylesheet" href="/style.css?v=8">
+<link rel="stylesheet" href="/ar/rtl.css">
 <link rel="icon" href="/favicon.ico">
-
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
-
-<style>
-
-/* (UNCHANGED STYLES) */
-
-.tool-container{
-max-width:900px;
-margin:80px auto 30px;
-background:#071a33;
-color:white;
-padding:40px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 20px 50px rgba(0,0,0,0.3);
-}
-
-.tool-container p{
-color:#cbd5e1;
-}
-
-.drop-area{
-border:2px dashed #4b5d75;
-padding:40px;
-border-radius:12px;
-background:#0c2547;
-margin-top:20px;
-cursor:pointer;
-}
-
-.preview-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-margin-top:25px;
-}
-
-.preview-item{
-background:#0c2547;
-padding:15px;
-border-radius:10px;
-}
-
-.main-button{
-margin-top:20px;
-padding:12px 22px;
-background:#3a78ff;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-}
-
-.move-btn{
-margin:5px;
-padding:6px 10px;
-border:none;
-background:#1e40af;
-color:white;
-border-radius:6px;
-cursor:pointer;
-}
-
-.seo-content{
-max-width:900px;
-margin:20px auto;
-background:#071a33;
-color:white;
-padding:35px;
-border-radius:20px;
-}
-
-.tool-description{
-max-width:900px;
-margin:30px auto 80px;
-background:white;
-padding:40px;
-border-radius:16px;
-color:#1e293b;
-line-height:1.8;
-}
-
-</style>
-
-<link rel="canonical" href="https://convertios.com/ar/merge-pdf.html">
-
-<!-- Convertios SEO social metadata -->
-<meta property="og:title" content="Merge PDF Online | Convertios">
-<meta property="og:description" content="Use Merge PDF Online on Convertios with clear processing details, supported PDF formats, practical guidance, and related PDF tools.">
+<meta property="og:title" content="دمج ملفات PDF أونلاين | Convertios">
+<meta property="og:description" content="ادمج عدة ملفات PDF في ملف واحد مرتب بدون تثبيت برامج.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://convertios.com/merge-pdf.html">
+<meta property="og:url" content="https://convertios.com/ar/merge-pdf.html">
 <meta property="og:image" content="https://convertios.com/convertios-logo.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Merge PDF Online | Convertios">
-<meta name="twitter:description" content="Use Merge PDF Online on Convertios with clear processing details, supported PDF formats, practical guidance, and related PDF tools.">
+<meta name="twitter:title" content="دمج ملفات PDF أونلاين | Convertios">
+<meta name="twitter:description" content="ادمج عدة ملفات PDF في ملف واحد مرتب بدون تثبيت برامج.">
 <meta name="twitter:image" content="https://convertios.com/convertios-logo.png">
-<!-- /Convertios SEO social metadata -->
-
-<!-- Convertios structured data -->
-<script type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Merge PDF Online | Convertios",
-    "description": "Use Merge PDF Online on Convertios with clear processing details, supported PDF formats, practical guidance, and related PDF tools.",
-    "url": "https://convertios.com/merge-pdf.html",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "Convertios",
-      "url": "https://convertios.com"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Merge PDF Online",
-    "url": "https://convertios.com/merge-pdf.html",
-    "description": "Use Merge PDF Online on Convertios with clear processing details, supported PDF formats, practical guidance, and related PDF tools.",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "browserRequirements": "Requires a modern web browser",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "الرئيسية",
-        "item": "https://convertios.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Merge PDF Online",
-        "item": "https://convertios.com/merge-pdf.html"
-      }
-    ]
-  }
-]
-</script>
-<!-- /Convertios structured data -->
-
-<link rel="stylesheet" href="rtl.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"دمج ملفات PDF أونلاين | Convertios","description":"ادمج عدة ملفات PDF في ملف واحد مرتب بدون تثبيت برامج.","url":"https://convertios.com/ar/merge-pdf.html","inLanguage":"ar","isPartOf":{"@type":"WebSite","name":"Convertios","url":"https://convertios.com"}}</script>
 </head>
-
 <body>
-<a class="skip-link" href="#main-content">Skip to content</a>
-
-<header class="site-header">
-
-<div class="header-left">
-    <a href="index.html" class="logo">
-        <img src="../convertios-logo.png" alt="شعار Convertios" width="2211" height="1234">
-    </a>
-</div>
-
-<nav class="nav-menu">
-
-<a href="index.html" class="active">الرئيسية</a>
-
-
-<div class="nav-item dropdown">
-    <span>Image ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="png-to-jpg.html">PNG to JPG</a>
-        <a href="jpg-to-png.html">JPG to PNG</a>
-        <a href="webp-to-png.html">WEBP to PNG</a>
-        <a href="image-converter.html">Image Converter</a>
-        <a href="image-resizer.html">Resize Image</a>
-        <a href="compress-image.html">Compress Image</a>
-        <a href="remove-bg.html">Remove Background</a>
-        <a href="ai-image-enhancer.html">AI Image Enhancer</a>
-
-        <a href="social-media-image-resizer.html">Social Media Image Resizer</a>
-<a href="all-tools.html" class="view-all">View All →</a>
-    </div>
-</div>
-
-<div class="nav-item dropdown">
-    <span>PDF ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="pdf-to-word.html">PDF to Word</a>
-        <a href="pdf-to-jpg.html">PDF إلى JPG</a>
-        <a href="jpg-to-pdf.html">JPG to PDF</a>
-
-        <a href="merge-pdf.html">Merge PDF</a>
-        <a href="split-pdf.html">تقسيم PDF</a>
-        <a href="rotate-pdf.html">تدوير PDF</a>
-
-        <a href="all-tools.html" class="view-all">View All →</a>
-
-    </div>
-</div>
-
-<div class="nav-item dropdown">
-    <span>الصوت ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="mp3-cutter.html">قص MP3</a>
-        <a href="audio-converter.html">Audio Converter</a>
-        <a href="audio-speed-changer.html">Speed Changer</a>
-
-        <a href="all-tools.html" class="view-all">View All →</a>
-
-    </div>
-</div>
-<div class="nav-item dropdown">
-    <span>More الأدوات ▾</span>
-    <div class="dropdown-menu">
-
-        <a href="qr-generator.html">QR Generator</a>
-        <a href="link-shortener.html">Link Shortener</a>
-        <a href="password-generator.html">Password Generator</a>
-        <a href="word-counter.html">Word Counter</a>
-        <a href="text-formatter.html">Text Formatter</a>
-        <a href="unit-converter.html">Unit Converter</a>
-        <a href="meme-generator.html">Meme Generator</a>
-
-        <a href="all-tools.html" class="view-all">View All →</a>
-
-    </div>
-</div>
-    <a href="all-tools.html" class="nav-all-tools">كل الأدوات ←</a>
-
-<a href="about.html">عن الموقع</a>
-<a href="contact.html">تواصل معنا</a>
-
-</nav>
-
-<div class="nav-icon faq-wrapper">
-    <a href="/faq.html" class="faq-link-block">
-
-        <!-- ICON -->
-        <div class="faq-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
-                <circle cx="12" cy="17" r="1"></circle>
-            </svg>
-        </div>
-
-        <!-- TEXT -->
-        <span class="faq-text">المساعدة</span></a>
+<a class="skip-link" href="#main-content">تخطي إلى المحتوى</a>
+<header class="site-header ar-site-header">
+  <div class="header-left"><a href="/ar/" class="logo"><img src="/convertios-logo.png" alt="شعار Convertios" width="2211" height="1234"></a></div>
+  <nav class="nav-menu" aria-label="التنقل الرئيسي">
+    <a href="/ar/">الرئيسية</a>
+    <div class="nav-item dropdown"><span>الصور ▾</span><div class="dropdown-menu"><a href="/ar/png-to-jpg.html">PNG إلى JPG</a>
+<a href="/ar/jpg-to-png.html">JPG إلى PNG</a>
+<a href="/ar/webp-to-png.html">WEBP إلى PNG</a>
+<a href="/ar/image-converter.html">محول الصور</a>
+<a href="/ar/image-resizer.html">تغيير حجم الصورة</a>
+<a href="/ar/compress-image.html">ضغط الصور</a>
+<a href="/ar/social-media-image-resizer.html">صور السوشيال ميديا</a>
+<a href="/ar/ai-image-enhancer.html">تحسين الصور بالذكاء الاصطناعي</a><a href="/ar/image-tools.html" class="view-all">عرض الكل ←</a></div></div>
+    <div class="nav-item dropdown"><span>PDF ▾</span><div class="dropdown-menu"><a href="/ar/pdf-to-word.html">PDF إلى Word</a>
+<a href="/ar/pdf-to-jpg.html">PDF إلى JPG</a>
+<a href="/ar/jpg-to-pdf.html">JPG إلى PDF</a>
+<a href="/ar/merge-pdf.html">دمج PDF</a>
+<a href="/ar/split-pdf.html">تقسيم PDF</a>
+<a href="/ar/rotate-pdf.html">تدوير PDF</a><a href="/ar/pdf-tools.html" class="view-all">عرض الكل ←</a></div></div>
+    <div class="nav-item dropdown"><span>الصوت ▾</span><div class="dropdown-menu"><a href="/ar/mp3-cutter.html">قص MP3</a><a href="/ar/audio-tools.html" class="view-all">عرض الكل ←</a></div></div>
+    <a href="/ar/all-tools.html">كل الأدوات</a>
+  </nav>
+  <div class="nav-icon faq-wrapper"><a href="/faq.html" class="faq-link-block"><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path><circle cx="12" cy="17" r="1"></circle></svg></div><span class="faq-text">الأسئلة</span></a></div>
+  <div class="header-language-switch" aria-label="اختيار اللغة"><a href="https://convertios.com/merge-pdf.html">EN</a><span> / </span><a href="https://convertios.com/ar/merge-pdf.html" aria-current="page">AR</a></div>
 </header>
-<!-- TOOL -->
-
-<div class="tool-container" id="main-content">
-
-<h1>Merge PDF Online</h1>
-
-<p>Combine multiple PDF files into one document instantly with high quality.</p>
-
-<div class="drop-area" id="drop-area">
-<p>Drag PDF files or click to upload</p>
-<input type="file" id="file-input" accept=".pdf" multiple hidden aria-label="اختر ملفًا للمعالجة">
-</div>
-
-<div class="preview-grid" id="preview"></div>
-
-<button class="main-button" onclick="mergePDF()" aria-label="تشغيل الأداة">دمج PDF</button>
-
-<a id="downloadLink"></a>
-
-</div>
-
-
-
-
-<section class="tool-info-block" aria-labelledby="tool-info-heading">
-<h2 id="tool-info-heading">معلومات الأداة</h2>
-<div class="tool-info-grid">
-<div><strong>يعمل داخل المتصفح:</strong><span>نعم</span></div>
-<div><strong>يتطلب رفع الملف:</strong><span>لا - processed locally in your browser</span></div>
-<div><strong>معالجة عبر طرف خارجي:</strong><span>لا يوجد</span></div>
-<div><strong>الاحتفاظ بالملف:</strong><span>Files stay on your device and are not stored by Convertios.</span></div>
-<div><strong>الحد الأقصى للحجم:</strong><span>100 MB</span></div>
-<div><strong>الصيغ المدعومة:</strong><span>PDF files → Single merged PDF</span></div>
-</div>
-
-</section>
-
-
-<!-- SEO CONTENT -->
-
-<div class="seo-content">
-
-<h2>Free PDF Merger Tool</h2>
-
-<p>
-Convertios provides a fast and reliable PDF merger that allows you to combine multiple PDF files into a single document instantly. Whether you need to organize documents, merge reports, or prepare files for sharing, this tool makes the process simple and efficient.
-</p>
-
-<p>
-All processing is done locally in your browser, ensuring maximum speed, privacy, and security. Your files are never uploaded to any server.
-</p>
-
-</div>
-
-<!-- SEO BOOST -->
-
-<div class="tool-description">
-
-<h2>ماذا تفعل الأداة؟</h2>
-<p>
-This PDF merger allows you to combine multiple PDF files into one organized document while preserving the original layout, formatting, and quality. It is designed for quick and seamless merging without the need for any additional software.
-</p>
-
-<p>
-Because the tool runs entirely in your browser, you can merge PDF files instantly while keeping your documents secure and private.
-</p>
-
-<h2>طريقة الاستخدام</h2>
-<ul>
-<li>Upload or drag and drop your PDF files</li>
-<li>Arrange the files in your desired order</li>
-<li>Click the merge button to combine them</li>
-<li>Download your final merged PDF</li>
-</ul>
-
-<p>
-The process takes only a few seconds and works smoothly across all devices.
-</p>
-
-<h2>المزايا</h2>
-<ul>
-<li>Merge multiple PDF files into one document easily</li>
-<li>Preserve original formatting and layout</li>
-<li>Fast browser-based processing with instant results</li>
-<li>لا installation or registration required</li>
-<li>Secure processing with no file uploads</li>
-<li>Works on mobile, tablet, and desktop devices</li>
-</ul>
-
-<h2>Why merge PDF files?</h2>
-<p>
-Merging PDF files helps you organize multiple documents into a single file, making them easier to share, store, and manage. Instead of sending multiple files, you can combine everything into one clean and professional document.
-</p>
-
-<p>
-This is especially useful for reports, assignments, contracts, and presentations where multiple pages need to be grouped together.
-</p>
-
-<h2>استخدامات شائعة</h2>
-<p>
-This tool is ideal for students, professionals, and businesses. You can use it to merge scanned documents, combine reports, organize invoices, or prepare files for submission to online platforms.
-</p>
-
-<p>
-It is also helpful for creating a single PDF from multiple sources to simplify sharing and improve organization.
-</p>
-
-<h2>المساعدة</h2>
-
-<p><strong>Is this PDF merger free?</strong><br>
-نعم, the tool is completely free with no hidden costs.</p>
-
-<p><strong>Are my files uploaded?</strong><br>
-لا, all files are processed locally in your browser for full privacy.</p>
-
-<p><strong>Will formatting be preserved?</strong><br>
-نعم, the tool is designed to maintain the original layout and quality of your PDF files.</p>
-
-<p><strong>Can I reorder files before merging?</strong><br>
-نعم, you can arrange your PDF files in any order before combining them.</p>
-
-</div>
-<!-- MORE TOOLS -->
-
-<div class="more-tools">
-
-<h3>أدوات أخرى</h3>
-
-<div class="more-tools-grid">
-
-<a href="split-pdf.html" class="more-tool-card">
-<span>✂️</span>
-<p>تقسيم PDF</p>
-</a>
-
-<a href="rotate-pdf.html" class="more-tool-card">
-<span>🔄</span>
-<p>تدوير PDF</p>
-</a>
-
-<a href="pdf-to-word.html" class="more-tool-card">
-<span>📑</span>
-<p>PDF to Word</p>
-</a>
-
-<a href="pdf-to-jpg.html" class="more-tool-card">
-<span>🖼️</span>
-<p>PDF إلى JPG</p>
-</a>
-</div>
-
-</div>
-
-<footer class="site-footer">
-
-<div class="footer-container">
-
-    <div class="footer-brand">
-        <h3>Convertios</h3>
-        <p>أدوات مجانية لمعالجة الصور والملفات من المتصفح.</p>
-    </div>
-
-    <div class="footer-links">
-        <a href="all-tools.html">الأدوات</a>
-        <a href="about.html">عن الموقع</a>
-        <a href="contact.html">تواصل معنا</a>
-        <a href="/security.html">الأمان</a>
-        <a href="privacy.html">الخصوصية</a>
-        <a href="terms.html">الشروط</a>
-    </div>
-
-</div>
-
-<p class="footer-bottom">
-© 2026 Convertios • جميع الحقوق محفوظة
-</p>
-
-</footer>
-<script>
-
-const dropArea = document.getElementById("drop-area");
-const fileInput = document.getElementById("file-input");
-const preview = document.getElementById("preview");
-
-let files = [];
-
-dropArea.onclick = () => fileInput.click();
-
-dropArea.addEventListener("dragover", e=>e.preventDefault());
-
-dropArea.addEventListener("drop", e=>{
-e.preventDefault();
-handleFiles(e.dataTransfer.files);
-});
-
-fileInput.addEventListener("change", ()=>handleFiles(fileInput.files));
-
-function handleFiles(newFiles){
-
-for(let file of newFiles){
-if(file.type !== "application/pdf") continue;
-files.push(file);
-}
-
-renderPreview();
-
-}
-
-function renderPreview(){
-
-preview.innerHTML="";
-
-files.forEach((file,index)=>{
-
-const div=document.createElement("div");
-
-div.className="preview-item";
-
-div.innerHTML=`
-📄 ${file.name}
-<br><br>
-<button class="move-btn" onclick="moveUp(${index})">↑</button>
-<button class="move-btn" onclick="moveDown(${index})">↓</button>
-`;
-
-preview.appendChild(div);
-
-});
-
-}
-
-function moveUp(index){
-if(index===0) return;
-[files[index-1],files[index]]=[files[index],files[index-1]];
-renderPreview();
-}
-
-function moveDown(index){
-if(index===files.length-1) return;
-[files[index+1],files[index]]=[files[index],files[index+1]];
-renderPreview();
-}
-
-async function mergePDF(){
-
-if(files.length===0){
-alert("Upload PDFs first");
-return;
-}
-
-const { PDFDocument } = PDFLib;
-const mergedPDF = await PDFDocument.create();
-
-for(const file of files){
-
-const bytes = await file.arrayBuffer();
-const pdf = await PDFDocument.load(bytes);
-
-const pages = await mergedPDF.copyPages(pdf,pdf.getPageIndices());
-pages.forEach(p => mergedPDF.addPage(p));
-
-}
-
-const pdfBytes = await mergedPDF.save();
-
-const blob = new Blob([pdfBytes],{type:"application/pdf"});
-
-const link = document.getElementById("downloadLink");
-
-link.href = URL.createObjectURL(blob);
-link.download = "merged.pdf";
-link.innerText = "تنزيل PDF";
-link.className = "main-button";
-
-}
-
-</script>
-
-
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canRetry){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">إعادة المحاولة</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolRetry');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
-});
-})();
-</script>
-
-<script src="../script.js" defer></script>
+<main id="main-content" class="ar-page"><section class="tool-container ar-tool-intro"><h1>دمج ملفات PDF</h1><p>اجمع مستندات PDF متعددة داخل ملف واحد لتسهيل الإرسال والتنظيم.</p><div class="ar-tool-action"><a class="main-button" href="/merge-pdf.html" hreflang="en">افتح الأداة واستخدمها</a><p class="tool-note">هذه صفحة عربية مستقلة تشرح الأداة وسياقات استخدامها باللغة العربية، مع روابط داخلية عربية للأدوات المرتبطة وتعليمات واضحة قبل بدء العمل.</p></div></section><section class="tool-description"><h2>متى تستخدم دمج ملفات PDF؟</h2><p>اجمع مستندات PDF متعددة داخل ملف واحد لتسهيل الإرسال والتنظيم. هذه الأداة مفيدة عندما تحتاج إلى نتيجة سريعة بدون تثبيت برامج إضافية، خصوصًا عند تجهيز ملفات للمدرسة أو العمل أو السوشيال ميديا.</p><h2>طريقة الاستخدام</h2><ol><li>افتح الأداة من زر الاستخدام.</li><li>اختر الملف أو الصورة المطلوبة من جهازك.</li><li>اضبط الإعدادات المتاحة حسب حاجتك.</li><li>حمّل النتيجة النهائية واحفظها باسم واضح.</li></ol><h2>نصائح للحصول على نتيجة أفضل</h2><ul><li>استخدم ملفات واضحة وغير تالفة قبل التحويل أو التعديل.</li><li>راجع حجم الملف النهائي إذا كان مطلوبًا لمنصة أو نموذج إلكتروني.</li><li>احتفظ بنسخة أصلية من الملف قبل إجراء أي تعديل.</li></ul><h2>أسئلة شائعة</h2><p><strong>هل الأداة مجانية؟</strong><br>نعم، يمكن استخدام أدوات Convertios الأساسية مجانًا من المتصفح.</p><p><strong>هل أحتاج إلى تثبيت برنامج؟</strong><br>لا، تعمل الأدوات من صفحة الويب مباشرة.</p><p><strong>هل يتم تغيير امتدادات مثل JPG وPNG وPDF؟</strong><br>لا تتم ترجمة أسماء الامتدادات التقنية حتى تبقى واضحة ومتوافقة مع الاستخدام العالمي.</p></section><div class="more-tools"><h3>أدوات مرتبطة</h3><div class="more-tools-grid"><a href="/ar/split-pdf.html" class="more-tool-card"><span>📄</span><p>تقسيم PDF</p></a><a href="/ar/rotate-pdf.html" class="more-tool-card"><span>📄</span><p>تدوير صفحات PDF</p></a><a href="/ar/pdf-to-word.html" class="more-tool-card"><span>📄</span><p>تحويل PDF إلى Word</p></a><a href="/ar/pdf-to-jpg.html" class="more-tool-card"><span>📄</span><p>تحويل PDF إلى JPG</p></a></div></div></main>
+<footer class="site-footer ar-footer"><div class="footer-container"><div class="footer-brand"><h3>Convertios</h3><p>أدوات مجانية لتحويل الملفات والصور وPDF والصوت بسرعة ووضوح.</p></div><div class="footer-links"><a href="/ar/all-tools.html">الأدوات</a><a href="/about.html">عن الموقع</a><a href="/contact.html">تواصل معنا</a><a href="/security.html">الأمان</a><a href="/privacy.html">الخصوصية</a><a href="/terms.html">الشروط</a></div></div><p class="footer-bottom">© 2026 Convertios • جميع الحقوق محفوظة</p></footer>
+<script src="/script.js" defer></script>
 </body>
 </html>
