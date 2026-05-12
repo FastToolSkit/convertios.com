@@ -63,15 +63,44 @@ gtag('config', 'G-0CH8NE5WDH');
   <div class="nav-icon faq-wrapper"><a href="/faq.html" class="faq-link-block"><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path><circle cx="12" cy="17" r="1"></circle></svg></div><span class="faq-text">الأسئلة</span></a></div>
   <div class="header-language-switch" aria-label="اختيار اللغة"><a href="https://convertios.com/jpg-to-png.html">EN</a><span> / </span><a href="https://convertios.com/ar/jpg-to-png.html" aria-current="page">AR</a></div>
 </header>
-<main id="main-content" class="ar-page"><section class="tool-container ar-tool-intro"><h1>تحويل JPG إلى PNG</h1><p>استخدم هذه الصفحة عندما تحتاج نسخة PNG من صورة JPG للتصميم أو التعديل أو الاحتفاظ بجودة أفضل.</p><div class="ar-tool-action"><a class="main-button" href="/jpg-to-png.html" hreflang="en">افتح الأداة واستخدمها</a><p class="tool-note">هذه صفحة عربية مستقلة تشرح الأداة وسياقات استخدامها باللغة العربية، مع روابط داخلية عربية للأدوات المرتبطة وتعليمات واضحة قبل بدء العمل.</p></div></section><section class="tool-description"><h2>متى تستخدم تحويل JPG إلى PNG؟</h2><p>استخدم هذه الصفحة عندما تحتاج نسخة PNG من صورة JPG للتصميم أو التعديل أو الاحتفاظ بجودة أفضل. هذه الأداة مفيدة عندما تحتاج إلى نتيجة سريعة بدون تثبيت برامج إضافية، خصوصًا عند تجهيز ملفات للمدرسة أو العمل أو السوشيال ميديا.</p><h2>طريقة الاستخدام</h2><ol><li>افتح الأداة من زر الاستخدام.</li><li>اختر الملف أو الصورة المطلوبة من جهازك.</li><li>اضبط الإعدادات المتاحة حسب حاجتك.</li><li>حمّل النتيجة النهائية واحفظها باسم واضح.</li></ol><h2>نصائح للحصول على نتيجة أفضل</h2><ul><li>استخدم ملفات واضحة وغير تالفة قبل التحويل أو التعديل.</li><li>راجع حجم الملف النهائي إذا كان مطلوبًا لمنصة أو نموذج إلكتروني.</li><li>احتفظ بنسخة أصلية من الملف قبل إجراء أي تعديل.</li></ul><h2>أسئلة شائعة</h2><p><strong>هل الأداة مجانية؟</strong><br>نعم، يمكن استخدام أدوات Convertios الأساسية مجانًا من المتصفح.</p><p><strong>هل أحتاج إلى تثبيت برنامج؟</strong><br>لا، تعمل الأدوات من صفحة الويب مباشرة.</p><p><strong>هل يتم تغيير امتدادات مثل JPG وPNG وPDF؟</strong><br>لا تتم ترجمة أسماء الامتدادات التقنية حتى تبقى واضحة ومتوافقة مع الاستخدام العالمي.</p></section><div class="more-tools"><h3>أدوات مرتبطة</h3><div class="more-tools-grid"><a href="/ar/png-to-jpg.html" class="more-tool-card"><span>🛠️</span><p>تحويل PNG إلى JPG</p></a><a href="/ar/webp-to-png.html" class="more-tool-card"><span>🛠️</span><p>تحويل WEBP إلى PNG</p></a><a href="/ar/image-converter.html" class="more-tool-card"><span>🛠️</span><p>محول الصور</p></a><a href="/ar/image-resizer.html" class="more-tool-card"><span>📐</span><p>تغيير حجم الصورة</p></a></div></div></main>
+<main id="main-content" class="ar-page">
+  <section class="tool-container">
+
+<h1>تحويل JPG إلى PNG</h1>
+
+<p>
+حوّل صور JPG إلى PNG بسهولة مع الحفاظ على الجودة والشفافية عند الحاجة.
+</p>
+
+<label id="drop-area" class="upload-box" for="upload">
+    <p>اسحب الصور هنا أو اضغط لاختيار الملفات</p>
+</label>
+<input type="file" id="upload" accept="image/jpeg,image/jpg" multiple style="display:none;">
+<div id="preview" class="preview-area"></div>
+
+<button class="main-button" onclick="convert()">
+    تحويل الصور
+</button>
+
+<div id="downloads" class="downloads-area"></div>
+
+</section>
+  <section class="tool-description"><h2>متى تستخدم تحويل JPG إلى PNG؟</h2><p>استخدم هذه الصفحة عندما تحتاج نسخة PNG من صورة JPG للتصميم أو التعديل أو الاحتفاظ بجودة أفضل. هذه الأداة مفيدة عندما تحتاج إلى نتيجة سريعة بدون تثبيت برامج إضافية، خصوصًا عند تجهيز ملفات للمدرسة أو العمل أو السوشيال ميديا.</p><h2>طريقة الاستخدام</h2><ol><li><li>اضغط على منطقة رفع الصور أو اسحب الصور داخلها.</li></li><li>اختر الملف أو الصورة المطلوبة من جهازك.</li><li>اضبط الإعدادات المتاحة حسب حاجتك.</li><li>حمّل النتيجة النهائية واحفظها باسم واضح.</li></ol><h2>نصائح للحصول على نتيجة أفضل</h2><ul><li>استخدم ملفات واضحة وغير تالفة قبل التحويل أو التعديل.</li><li>راجع حجم الملف النهائي إذا كان مطلوبًا لمنصة أو نموذج إلكتروني.</li><li>احتفظ بنسخة أصلية من الملف قبل إجراء أي تعديل.</li></ul><h2>أسئلة شائعة</h2><p><strong>هل الأداة مجانية؟</strong><br>نعم، يمكن استخدام أدوات Convertios الأساسية مجانًا من المتصفح.</p><p><strong>هل أحتاج إلى تثبيت برنامج؟</strong><br>لا، تعمل الأدوات من صفحة الويب مباشرة.</p><p><strong>هل يتم تغيير امتدادات مثل JPG وPNG وPDF؟</strong><br>لا تتم ترجمة أسماء الامتدادات التقنية حتى تبقى واضحة ومتوافقة مع الاستخدام العالمي.</p></section><div class="more-tools"><h3>أدوات مرتبطة</h3><div class="more-tools-grid"><a href="/ar/png-to-jpg.html" class="more-tool-card"><span>🛠️</span><p>تحويل PNG إلى JPG</p></a><a href="/ar/webp-to-png.html" class="more-tool-card"><span>🛠️</span><p>تحويل WEBP إلى PNG</p></a><a href="/ar/image-converter.html" class="more-tool-card"><span>🛠️</span><p>محول الصور</p></a><a href="/ar/image-resizer.html" class="more-tool-card"><span>📐</span><p>تغيير حجم الصورة</p></a></div></div></main>
 <footer class="site-footer ar-footer"><div class="footer-container"><div class="footer-brand"><h3>Convertios</h3><p>أدوات مجانية لتحويل الملفات والصور وPDF والصوت بسرعة ووضوح.</p></div><div class="footer-links"><a href="/ar/all-tools.html">الأدوات</a><a href="/about.html">عن الموقع</a><a href="/contact.html">تواصل معنا</a><a href="/security.html">الأمان</a><a href="/privacy.html">الخصوصية</a><a href="/terms.html">الشروط</a></div></div><p class="footer-bottom">© 2026 Convertios • جميع الحقوق محفوظة</p></footer>
-<script src="/script.js" defer></script>
-</body>
-</html>
+
 <script>
 
-let dropArea=document.getElementById("drop-area");
-let fileInput=document.getElementById("upload");
+if (dropArea && fileInput && preview) {
+    dropArea.addEventListener("dragover", e => e.preventDefault());
+
+    dropArea.addEventListener("drop", e => {
+        e.preventDefault();
+        fileInput.files = e.dataTransfer.files;
+        showPreview();
+    });
+
+    fileInput.addEventListener("change", showPreview);
+}let fileInput=document.getElementById("upload");
 let preview=document.getElementById("preview");
 
 dropArea.onclick=()=>fileInput.click();
@@ -104,8 +133,7 @@ let downloads=document.getElementById("downloads");
 downloads.innerHTML="";
 
 if(!files || files.length===0){
-alert("اختر صور JPG أولًا.");
-return;
+alert("ارفع الصور أولًا");return;
 }
 
 for(let i=0;i<files.length;i++){
@@ -132,8 +160,7 @@ let png=canvas.toDataURL("image/png");
 let link=document.createElement("a");
 link.href=png;
 link.download="converted_"+(i+1)+".png";
-link.innerHTML="تنزيل الصورة "+(i+1);
-
+link.innerHTML="تحميل الصورة "+(i+1);
 downloads.appendChild(link);
 
 }
@@ -194,6 +221,5 @@ window.showToolMessage('تعذّر إكمال العملية. تحقق من ال
 })();
 </script>
 
-<script src="../script.js" defer></script>
 </body>
 </html>
