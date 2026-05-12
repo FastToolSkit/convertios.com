@@ -66,7 +66,6 @@ No Arabic URLs are currently present in `sitemap.xml`, so no sitemap removal was
 - Searched Arabic HTML pages for the redirect-style Arabic CTA phrases called out in the review; none remain in `.html` files.
 - Removed the leftover footer language shortcut on `/ar/mp3-cutter.html` that linked directly to the English MP3 cutter outside the page language selector.
 - Confirmed approved Arabic image pages do not use primary CTAs to English pages; their upload controls, processing buttons, result areas, download controls, and inline/shared JavaScript remain on the Arabic pages.
-- Rechecked the nine non-size Arabic image tools against their English counterparts and fixed the WEBP upload accept attribute so the Arabic WEBP converter uses the real file picker and conversion script.
 - Rechecked the restored in-page tool UI on PDF and MP3 Arabic pages; these pages remain `noindex, nofollow` until manual browser QA is complete.
 
 ## Remaining risks

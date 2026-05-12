@@ -15,22 +15,10 @@ html[dir="rtl"] .actions{
     direction:rtl;
 }
 
-.ar-site-header{
-    gap:14px;
-}
-
-.ar-site-header .nav-menu{
-    gap:18px;
-}
-
 html[dir="rtl"] .dropdown-menu{
     right:0;
     left:auto;
     text-align:right;
-}
-
-.ar-site-header .dropdown-menu a{
-    line-height:1.5;
 }
 
 html[dir="rtl"] .tool-description,
