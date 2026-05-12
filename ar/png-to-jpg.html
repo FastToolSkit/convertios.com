@@ -216,81 +216,112 @@
 
 <main id="main-content" class="ar-page">
 
-<section class="tool-container">
-  <h1>تحويل PNG إلى JPG</h1>
-  <p>حوّل صور PNG إلى JPG بسرعة مباشرة من المتصفح.</p>
+<div class="tool-container">
 
-  <label id="drop-area" for="upload">
-    <p>اسحب صور PNG هنا أو اضغط لاختيار الملفات</p>
-  </label>
+<h1>تحويل PNG إلى JPG</h1>
 
-  <input type="file" id="upload" accept="image/png" multiple style="display:none;">
+<p>حوّل صور PNG إلى JPG بسرعة مباشرة من المتصفح.</p>
 
-  <div id="preview"></div>
-
-  <button class="main-button" type="button" onclick="convert()">تحويل إلى JPG</button>
-
-  <div id="downloads"></div>
-</section>
-
-<div id="toolMessage" class="tool-message-box" role="status" aria-live="polite"></div>
-
-<section class="tool-description">
-  <h2>متى تحتاج إلى تحويل PNG إلى JPG؟</h2>
-  <p>
-    استخدم هذه الأداة عندما تحتاج إلى صورة أخف وأسهل للمشاركة أو الرفع على النماذج والمواقع. تحويل PNG إلى JPG يساعد على تقليل حجم الملف وتحسين التوافق مع كثير من المنصات.
-  </p>
-
-  <h2>طريقة الاستخدام</h2>
-  <ol>
-    <li>اسحب صور PNG إلى منطقة الرفع أو اضغط لاختيار الملفات.</li>
-    <li>اضغط على زر تحويل إلى JPG.</li>
-    <li>حمّل الصور الناتجة بصيغة JPG.</li>
-  </ol>
-
-  <h2>نصائح للحصول على نتيجة أفضل</h2>
-  <ul>
-    <li>استخدم صور PNG واضحة وغير تالفة.</li>
-    <li>إذا كانت الصورة تحتوي على شفافية، سيتم وضع خلفية بيضاء عند تحويلها إلى JPG.</li>
-    <li>احتفظ بنسخة أصلية من الصورة قبل التحويل.</li>
-  </ul>
-
-  <h2>أسئلة شائعة</h2>
-  <p><strong>هل تعمل الأداة من المتصفح؟</strong><br>نعم، يتم التحويل مباشرة داخل المتصفح.</p>
-  <p><strong>هل يحافظ JPG على الشفافية؟</strong><br>لا، صيغة JPG لا تدعم الشفافية، لذلك يتم استخدام خلفية بيضاء.</p>
-</section>
-
-<div class="more-tools">
-  <h3>أدوات مرتبطة</h3>
-  <div class="more-tools-grid">
-    <a href="/ar/jpg-to-png.html" class="more-tool-card"><span>🛠️</span><p>تحويل JPG إلى PNG</p></a>
-    <a href="/ar/webp-to-png.html" class="more-tool-card"><span>🛠️</span><p>تحويل WEBP إلى PNG</p></a>
-    <a href="/ar/compress-image.html" class="more-tool-card"><span>📦</span><p>ضغط الصور</p></a>
-    <a href="/ar/image-converter.html" class="more-tool-card"><span>🛠️</span><p>محول الصور</p></a>
-  </div>
+<div id="drop-area">
+<p>اسحب صور PNG هنا أو اضغط لاختيار الملفات</p>
+<input type="file" id="upload" multiple accept="image/png" hidden aria-label="اختر صور PNG للتحويل">
 </div>
 
+<div id="preview"></div>
+
+<button class="main-button" onclick="convert()" aria-label="تشغيل أداة تحويل PNG إلى JPG">تحويل إلى JPG</button>
+
+<div id="downloads"></div>
+
+</div>
+
+<section class="tool-info-block" aria-labelledby="tool-info-heading">
+<h2 id="tool-info-heading">معلومات الأداة</h2>
+<div class="tool-info-grid">
+<div><strong>تعمل داخل المتصفح:</strong><span>نعم</span></div>
+<div><strong>هل يلزم الرفع إلى الخادم:</strong><span>لا، تتم المعالجة محليًا داخل متصفحك</span></div>
+<div><strong>معالجة خارجية:</strong><span>لا توجد</span></div>
+<div><strong>الاحتفاظ بالملفات:</strong><span>تبقى الصور على جهازك ولا يتم تخزينها بواسطة Convertios.</span></div>
+<div><strong>الحد الأقصى لحجم الملف:</strong><span>25 MB</span></div>
+<div><strong>الصيغ المدعومة:</strong><span>صور PNG ← صور JPG</span></div>
+</div>
+</section>
+
+<div class="seo-content">
+
+<h2>محول PNG إلى JPG مجاني</h2>
+
+<p>
+يتيح لك Convertios تحويل صور PNG إلى JPG بسرعة مع جودة مناسبة وحجم ملف أخف. استخدم الأداة عندما تحتاج إلى صورة متوافقة أكثر مع المواقع والتطبيقات أو أسهل للمشاركة.
+</p>
+
+<p>
+تتم المعالجة محليًا في متصفحك، لذلك لا يتم رفع صورك إلى أي خادم أثناء التحويل.
+</p>
+
+</div>
+
+<div class="tool-description">
+
+<h2>ماذا تفعل هذه الأداة؟</h2>
+<p>
+تحوّل هذه الأداة صور PNG إلى صيغة JPG مع خلفية بيضاء وجودة جيدة. تساعد ملفات JPG على تقليل الحجم وتسهيل الاستخدام في الويب والبريد الإلكتروني والنماذج.
+</p>
+
+<p>
+تعمل الأداة بالكامل داخل صفحة الويب، ويمكنك معاينة الصور قبل التحويل ثم تنزيل ملفات JPG الناتجة مباشرة.
+</p>
+
+<h2>طريقة الاستخدام</h2>
+<ul>
+<li>اسحب صور PNG إلى منطقة الرفع أو اضغط لاختيار الملفات من جهازك.</li>
+<li>راجع المعاينة للتأكد من اختيار الصور الصحيحة.</li>
+<li>اضغط زر تحويل إلى JPG.</li>
+<li>حمّل ملفات JPG الناتجة واحفظها على جهازك.</li>
+</ul>
+
+<h2>المزايا</h2>
+<ul>
+<li>تحويل صور PNG إلى ملفات JPG أصغر حجمًا.</li>
+<li>معالجة محلية داخل المتصفح بدون رفع الملفات.</li>
+<li>دعم اختيار أكثر من صورة في العملية نفسها.</li>
+<li>لا تحتاج إلى تثبيت برنامج أو إنشاء حساب.</li>
+<li>تعمل على الجوال والتابلت والكمبيوتر.</li>
+</ul>
+
+<h2>لماذا تحوّل PNG إلى JPG؟</h2>
+<p>
+تكون ملفات PNG مناسبة للشفافية والجودة العالية، لكنها قد تكون أكبر حجمًا. تحويلها إلى JPG يساعد على تقليل الحجم وتحسين سهولة المشاركة والرفع.
+</p>
+
+<h2>أسئلة شائعة</h2>
+
+<p><strong>هل محول PNG إلى JPG مجاني؟</strong><br>
+نعم، يمكن استخدام الأداة مجانًا من المتصفح.</p>
+
+<p><strong>هل يتم رفع صوري؟</strong><br>
+لا، تتم عملية التحويل داخل متصفحك وتبقى الصور على جهازك.</p>
+
+<p><strong>هل تتغير الجودة؟</strong><br>
+تستخدم صيغة JPG ضغطًا للصور، لذلك قد يحدث انخفاض بسيط في الجودة مقابل حجم ملف أصغر.</p>
+
+<p><strong>هل تعمل الأداة على الهاتف؟</strong><br>
+نعم، تعمل على المتصفحات الحديثة في الهاتف والتابلت والكمبيوتر.</p>
+
+</div>
+
+<div class="more-tools">
+<h3>أدوات مرتبطة</h3>
+<div class="more-tools-grid">
+<a href="/ar/jpg-to-png.html" class="more-tool-card"><span>🔁</span><p>تحويل JPG إلى PNG</p></a>
+<a href="/ar/webp-to-png.html" class="more-tool-card"><span>🖼️</span><p>تحويل WEBP إلى PNG</p></a>
+<a href="/ar/image-converter.html" class="more-tool-card"><span>🖼️</span><p>محول الصور</p></a>
+<a href="/ar/compress-image.html" class="more-tool-card"><span>📦</span><p>ضغط الصور</p></a>
+</div>
+</div>
 </main>
 
-<footer class="site-footer ar-footer">
-  <div class="footer-container">
-    <div class="footer-brand">
-      <h3>Convertios</h3>
-      <p>أدوات مجانية لتحويل الملفات والصور وPDF والصوت بسرعة ووضوح.</p>
-    </div>
-
-    <div class="footer-links">
-      <a href="/ar/all-tools.html">الأدوات</a>
-      <a href="/about.html">عن الموقع</a>
-      <a href="/contact.html">تواصل معنا</a>
-      <a href="/security.html">الأمان</a>
-      <a href="/privacy.html">الخصوصية</a>
-      <a href="/terms.html">الشروط</a>
-    </div>
-  </div>
-
-  <p class="footer-bottom">© 2026 Convertios • جميع الحقوق محفوظة</p>
-</footer>
+<footer class="site-footer ar-footer"><div class="footer-container"><div class="footer-brand"><h3>Convertios</h3><p>أدوات مجانية لتحويل الملفات والصور وPDF والصوت بسرعة ووضوح.</p></div><div class="footer-links"><a href="/ar/all-tools.html">الأدوات</a><a href="/about.html">عن الموقع</a><a href="/contact.html">تواصل معنا</a><a href="/security.html">الأمان</a><a href="/privacy.html">الخصوصية</a><a href="/terms.html">الشروط</a></div></div><p class="footer-bottom">© 2026 Convertios • جميع الحقوق محفوظة</p></footer>
 
 <script>
 document.querySelectorAll(".dropdown span").forEach(item => {
@@ -409,19 +440,39 @@ function convert(){
                 downloads.appendChild(link);
             };
 
-            img.onerror = function(){
-                showMessage("تعذّر قراءة الصورة. جرّب صورة PNG أخرى.");
-            };
-        };
-
-        reader.onerror = function(){
-            showMessage("تعذّر تحميل الملف. جرّب مرة أخرى.");
-        };
-
-        reader.readAsDataURL(file);
-    });
+<script>
+(function(){
+let lastActionButton=null;
+document.addEventListener('click',function(event){
+const button=event.target.closest('button');
+if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
+},true);
+function ensureToolMessage(){
+let box=document.getElementById('toolMessage');
+if(!box){
+box=document.createElement('div');
+box.id='toolMessage';
+box.className='tool-message-box';
+box.setAttribute('role','status');
+box.setAttribute('aria-live','polite');
+const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
+anchor.insertAdjacentElement('afterend',box);
+}
+return box;
+}
+window.showToolMessage=function(message,canRetry){
+const box=ensureToolMessage();
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">إعادة المحاولة</button>':'');
+box.style.display='block';
+const retry=document.getElementById('commonToolRetry');
+if(retry){
+retry.addEventListener('click',function(){
+box.style.display='none';
+if(lastActionButton) lastActionButton.click();
+});
 }
 </script>
 
+<script src="/script.js" defer></script>
 </body>
 </html>
