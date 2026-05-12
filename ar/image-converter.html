@@ -144,7 +144,7 @@ preview.appendChild(img);
 function convertImage(){
 let files=fileInput.files;
 if(!files || files.length===0){
-alert("Upload image first");
+alert("ارفع صورة أولًا");
 return;
 }
 
@@ -200,8 +200,8 @@ link.click();
 
 function downloadZip(){
 if(!convertedImages || convertedImages.length===0){
-showImageConverterMessage("Please convert at least one image before downloading ZIP.");
-return;
+showImageConverterMessage("حوّل صورة واحدة على الأقل قبل تحميل ملف ZIP.");
+  return;
 }
 
 let zip=new JSZip();
@@ -247,7 +247,7 @@ const box=ensureToolMessage();
 box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
 box.style.display='block';
 const retry=document.getElementById('commonToolRetry');
-if(retry){
+if(retrya=){
 retry.addEventListener('click',function(){
 box.style.display='none';
 if(lastActionButton) lastActionButton.click();
@@ -268,6 +268,5 @@ window.showToolMessage('The tool could not complete the request. Check your file
 })();
 </script>
 
-<script src="script.js" defer></script>
 </body>
 </html>
