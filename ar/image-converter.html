@@ -66,5 +66,174 @@ gtag('config', 'G-0CH8NE5WDH');
 <main id="main-content" class="ar-page"><section class="tool-container ar-tool-intro"><h1>محول الصور</h1><p>محول صور عربي يساعدك على تغيير صيغة الصورة حسب متطلبات المواقع والتطبيقات.</p><div class="ar-tool-action"><a class="main-button" href="/image-converter.html" hreflang="en">افتح الأداة واستخدمها</a><p class="tool-note">هذه صفحة عربية مستقلة تشرح الأداة وسياقات استخدامها باللغة العربية، مع روابط داخلية عربية للأدوات المرتبطة وتعليمات واضحة قبل بدء العمل.</p></div></section><section class="tool-description"><h2>متى تستخدم محول الصور؟</h2><p>محول صور عربي يساعدك على تغيير صيغة الصورة حسب متطلبات المواقع والتطبيقات. هذه الأداة مفيدة عندما تحتاج إلى نتيجة سريعة بدون تثبيت برامج إضافية، خصوصًا عند تجهيز ملفات للمدرسة أو العمل أو السوشيال ميديا.</p><h2>طريقة الاستخدام</h2><ol><li>افتح الأداة من زر الاستخدام.</li><li>اختر الملف أو الصورة المطلوبة من جهازك.</li><li>اضبط الإعدادات المتاحة حسب حاجتك.</li><li>حمّل النتيجة النهائية واحفظها باسم واضح.</li></ol><h2>نصائح للحصول على نتيجة أفضل</h2><ul><li>استخدم ملفات واضحة وغير تالفة قبل التحويل أو التعديل.</li><li>راجع حجم الملف النهائي إذا كان مطلوبًا لمنصة أو نموذج إلكتروني.</li><li>احتفظ بنسخة أصلية من الملف قبل إجراء أي تعديل.</li></ul><h2>أسئلة شائعة</h2><p><strong>هل الأداة مجانية؟</strong><br>نعم، يمكن استخدام أدوات Convertios الأساسية مجانًا من المتصفح.</p><p><strong>هل أحتاج إلى تثبيت برنامج؟</strong><br>لا، تعمل الأدوات من صفحة الويب مباشرة.</p><p><strong>هل يتم تغيير امتدادات مثل JPG وPNG وPDF؟</strong><br>لا تتم ترجمة أسماء الامتدادات التقنية حتى تبقى واضحة ومتوافقة مع الاستخدام العالمي.</p></section><div class="more-tools"><h3>أدوات مرتبطة</h3><div class="more-tools-grid"><a href="/ar/png-to-jpg.html" class="more-tool-card"><span>🛠️</span><p>تحويل PNG إلى JPG</p></a><a href="/ar/jpg-to-png.html" class="more-tool-card"><span>🛠️</span><p>تحويل JPG إلى PNG</p></a><a href="/ar/webp-to-png.html" class="more-tool-card"><span>🛠️</span><p>تحويل WEBP إلى PNG</p></a><a href="/ar/compress-image.html" class="more-tool-card"><span>📦</span><p>ضغط الصور</p></a></div></div></main>
 <footer class="site-footer ar-footer"><div class="footer-container"><div class="footer-brand"><h3>Convertios</h3><p>أدوات مجانية لتحويل الملفات والصور وPDF والصوت بسرعة ووضوح.</p></div><div class="footer-links"><a href="/ar/all-tools.html">الأدوات</a><a href="/about.html">عن الموقع</a><a href="/contact.html">تواصل معنا</a><a href="/security.html">الأمان</a><a href="/privacy.html">الخصوصية</a><a href="/terms.html">الشروط</a></div></div><p class="footer-bottom">© 2026 Convertios • جميع الحقوق محفوظة</p></footer>
 <script src="/script.js" defer></script>
+  <script>
+
+/* YOUR ORIGINAL JS (UNCHANGED) */
+
+let dropArea=document.getElementById("drop-area");
+let fileInput=document.getElementById("upload");
+let preview=document.getElementById("preview");
+
+let convertedImages=[];
+
+dropArea.onclick=()=>fileInput.click();
+
+dropArea.addEventListener("dragover",e=>{e.preventDefault();});
+
+dropArea.addEventListener("drop",e=>{
+e.preventDefault();
+fileInput.files=e.dataTransfer.files;
+showPreview();
+});
+
+fileInput.addEventListener("change",showPreview);
+
+function showImageConverterMessage(message){
+if(typeof window.showToolMessage==="function"){
+window.showToolMessage(message,false);
+}else{
+alert(message);
+}
+}
+
+function showPreview(){
+convertedImages=[];
+preview.innerHTML="";
+let files=fileInput.files;
+for(let i=0;i<files.length;i++){
+let img=document.createElement("img");
+img.src=URL.createObjectURL(files[i]);
+preview.appendChild(img);
+}
+}
+
+function convertImage(){
+let files=fileInput.files;
+if(!files || files.length===0){
+alert("Upload image first");
+return;
+}
+
+convertedImages=[];
+let format=document.getElementById("format").value;
+
+for(let i=0;i<files.length;i++){
+let file=files[i];
+let img=new Image();
+let reader=new FileReader();
+
+reader.onload=function(e){
+img.src=e.target.result;
+
+img.onload=function(){
+let canvas=document.createElement("canvas");
+canvas.width=img.width;
+canvas.height=img.height;
+
+let ctx=canvas.getContext("2d");
+ctx.drawImage(img,0,0);
+
+let converted=canvas.toDataURL(format);
+let extension=format.split("/")[1];
+if(extension==="jpeg") extension="jpg";
+
+convertedImages.push({
+data:converted,
+name:"converted_"+(i+1)+"."+extension
+});
+}
+}
+
+reader.readAsDataURL(file);
+}
+
+document.getElementById("downloadMenu").style.display="block";
+}
+
+function toggleMenu(){
+let menu=document.getElementById("menu");
+menu.style.display = menu.style.display==="block" ? "none" : "block";
+}
+
+function downloadImages(){
+for(let i=0;i<convertedImages.length;i++){
+let link=document.createElement("a");
+link.href=convertedImages[i].data;
+link.download=convertedImages[i].name;
+link.click();
+}
+}
+
+function downloadZip(){
+if(!convertedImages || convertedImages.length===0){
+showImageConverterMessage("Please convert at least one image before downloading ZIP.");
+return;
+}
+
+let zip=new JSZip();
+for(let i=0;i<convertedImages.length;i++){
+let base64=convertedImages[i].data.split(',')[1];
+zip.file(convertedImages[i].name,base64,{base64:true});
+}
+
+zip.generateAsync({type:"blob"}).then(function(content){
+let link=document.createElement("a");
+link.href=URL.createObjectURL(content);
+link.download="converted_images.zip";
+link.click();
+});
+}
+
+</script>
+
+
+
+<script>
+(function(){
+let lastActionButton=null;
+document.addEventListener('click',function(event){
+const button=event.target.closest('button');
+if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
+},true);
+function ensureToolMessage(){
+let box=document.getElementById('toolMessage');
+if(!box){
+box=document.createElement('div');
+box.id='toolMessage';
+box.className='tool-message-box';
+box.setAttribute('role','status');
+box.setAttribute('aria-live','polite');
+const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
+anchor.insertAdjacentElement('afterend',box);
+}
+return box;
+}
+window.showToolMessage=function(message,canRetry){
+const box=ensureToolMessage();
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
+box.style.display='block';
+const retry=document.getElementById('commonToolRetry');
+if(retry){
+retry.addEventListener('click',function(){
+box.style.display='none';
+if(lastActionButton) lastActionButton.click();
+});
+}
+};
+const nativeAlert=window.alert;
+window.alert=function(message){
+window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
+if(nativeAlert && !document.body) nativeAlert(message);
+};
+window.addEventListener('error',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+window.addEventListener('unhandledrejection',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+})();
+</script>
+
+<script src="script.js" defer></script>
 </body>
 </html>
