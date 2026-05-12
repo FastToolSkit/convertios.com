@@ -1,33 +1,129 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
 
-gtag('config', 'G-0CH8NE5WDH');
-</script>
+<html lang="ar" dir="rtl">
+
+<head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>محول الصور أونلاين | Convertios</title>
-<meta name="description" content="حوّل الصور بين JPG وPNG وWEBP وBMP وGIF من المتصفح مع شرح عربي واضح.">
+
+<title>محول الصور | Convertios</title>
+
+<meta name="description" content="حوّل الصور بين JPG وPNG وWEBP وBMP وGIF بسهولة خلال ثوانٍ.">
+
+<meta name="keywords" content="image converter, jpg to png, png to webp, convert images online, free image converter">
+
 <meta name="robots" content="index, follow">
+
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="/favicon.ico">
+
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<style>
+
+/* (UNCHANGED STYLES) */
+
+.tool-container{
+max-width:900px;
+margin:80px auto 30px;
+background:#071a33;
+color:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
+}
+
+.tool-container p{
+color:#cbd5e1;
+}
+
+#drop-area{
+border:2px dashed #4b5d75;
+padding:40px;
+margin:20px auto;
+background:#0c2547;
+cursor:pointer;
+border-radius:12px;
+}
+
+#preview img{
+width:100px;
+margin:10px;
+border-radius:8px;
+}
+
+select{
+padding:10px;
+border-radius:8px;
+border:none;
+background:#0c2547;
+color:white;
+margin-top:10px;
+}
+
+button{
+margin-top:20px;
+padding:12px 20px;
+background:#3a78ff;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#2a66e6;
+}
+
+#menu{
+display:none;
+background:#071a33;
+border-radius:8px;
+margin-top:10px;
+}
+
+#menu button{
+display:block;
+width:100%;
+margin:5px 0;
+}
+
+.seo-content{
+max-width:900px;
+margin:20px auto;
+background:#071a33;
+color:white;
+padding:35px;
+border-radius:20px;
+}
+
+.tool-description{
+max-width:900px;
+margin:30px auto 80px;
+background:white;
+padding:40px;
+border-radius:16px;
+color:#1e293b;
+line-height:1.8;
+}
+
+</style>
+
 <link rel="canonical" href="https://convertios.com/ar/image-converter.html">
 <link rel="alternate" hreflang="en" href="https://convertios.com/image-converter.html">
 <link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-converter.html">
 <link rel="alternate" hreflang="x-default" href="https://convertios.com/image-converter.html">
-<link rel="stylesheet" href="/style.css?v=8">
-<link rel="stylesheet" href="/ar/rtl.css">
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta property="og:title" content="محول الصور أونلاين | Convertios">
-<meta property="og:description" content="حوّل الصور بين JPG وPNG وWEBP وBMP وGIF من المتصفح مع شرح عربي واضح.">
+
+<!-- Convertios SEO social metadata -->
+<meta property="og:title" content="محول الصور | Convertios">
+<meta property="og:description" content="حوّل الصور بين JPG وPNG وWEBP وBMP وGIF بسهولة خلال ثوانٍ.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://convertios.com/ar/image-converter.html">
 <meta property="og:image" content="https://convertios.com/convertios-logo.png">

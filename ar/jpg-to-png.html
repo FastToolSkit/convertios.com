@@ -104,7 +104,7 @@ let downloads=document.getElementById("downloads");
 downloads.innerHTML="";
 
 if(!files || files.length===0){
-alert("Upload images first");
+alert("اختر صور JPG أولًا.");
 return;
 }
 
@@ -132,7 +132,7 @@ let png=canvas.toDataURL("image/png");
 let link=document.createElement("a");
 link.href=png;
 link.download="converted_"+(i+1)+".png";
-link.innerHTML="Download Image "+(i+1);
+link.innerHTML="تنزيل الصورة "+(i+1);
 
 downloads.appendChild(link);
 
@@ -170,7 +170,7 @@ return box;
 }
 window.showToolMessage=function(message,canRetry){
 const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">إعادة المحاولة</button>':'');
 box.style.display='block';
 const retry=document.getElementById('commonToolRetry');
 if(retry){
@@ -182,18 +182,18 @@ if(lastActionButton) lastActionButton.click();
 };
 const nativeAlert=window.alert;
 window.alert=function(message){
-window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
+window.showToolMessage(String(message || 'تحقق من المدخلات ثم جرّب مرة أخرى.'), true);
 if(nativeAlert && !document.body) nativeAlert(message);
 };
 window.addEventListener('error',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+window.showToolMessage('تعذّر إكمال العملية. تحقق من الملف أو الإعدادات ثم جرّب مرة أخرى.', true);
 });
 window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+window.showToolMessage('تعذّر إكمال العملية. تحقق من الملف أو الإعدادات ثم جرّب مرة أخرى.', true);
 });
 })();
 </script>
 
-<script src="script.js" defer></script>
+<script src="../script.js" defer></script>
 </body>
 </html>
