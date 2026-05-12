@@ -197,7 +197,7 @@ return box;
 }
 window.showToolMessage=function(message,canRetry){
 const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">إعادة المحاولة</button>':'');
 box.style.display='block';
 const retry=document.getElementById('commonToolRetry');
 if(retry){
@@ -209,14 +209,14 @@ if(lastActionButton) lastActionButton.click();
 };
 const nativeAlert=window.alert;
 window.alert=function(message){
-window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
+window.showToolMessage(String(message || 'تحقق من المدخلات ثم جرّب مرة أخرى.'), true);
 if(nativeAlert && !document.body) nativeAlert(message);
 };
 window.addEventListener('error',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+window.showToolMessage('تعذّر إكمال العملية. تحقق من الملف أو الإعدادات ثم جرّب مرة أخرى.', true);
 });
 window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+window.showToolMessage('تعذّر إكمال العملية. تحقق من الملف أو الإعدادات ثم جرّب مرة أخرى.', true);
 });
 })();
 </script>

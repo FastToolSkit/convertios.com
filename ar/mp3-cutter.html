@@ -122,7 +122,7 @@ document.getElementById("end").innerText=formatTime(region.end)
 
 document.getElementById("play").onclick=function(){
 wavesurfer.playPause()
-this.innerText = wavesurfer.isPlaying() ? "Pause" : "Play"
+this.innerText = wavesurfer.isPlaying() ? "إيقاف مؤقت" : "تشغيل"
 }
 
 document.getElementById("zoom").oninput=function(){
@@ -199,7 +199,7 @@ return box;
 }
 window.showToolMessage=function(message,canRetry){
 const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">إعادة المحاولة</button>':'');
 box.style.display='block';
 const retry=document.getElementById('commonToolRetry');
 if(retry){
@@ -223,6 +223,6 @@ window.showToolMessage('The tool could not complete the request. Check your file
 })();
 </script>
 
-<script src="script.js" defer></script>
+<script src="../script.js" defer></script>
 </body>
 </html>
