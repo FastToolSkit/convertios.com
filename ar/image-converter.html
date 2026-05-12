@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>محول الصور | Convertios</title>
+
+<meta name="description" content="حوّل الصور بين JPG وPNG وWEBP وBMP وGIF بسهولة خلال ثوانٍ.">
+
+<meta name="keywords" content="image converter, jpg to png, png to webp, convert images online, free image converter">
+
+<meta name="robots" content="index, follow">
+
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="/favicon.ico">
+
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<style>
+
+/* (UNCHANGED STYLES) */
+
+.tool-container{
+max-width:900px;
+margin:80px auto 30px;
+background:#071a33;
+color:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
+}
+
+.tool-container p{
+color:#cbd5e1;
+}
+
+#drop-area{
+border:2px dashed #4b5d75;
+padding:40px;
+margin:20px auto;
+background:#0c2547;
+cursor:pointer;
+border-radius:12px;
+}
+
+#preview img{
+width:100px;
+margin:10px;
+border-radius:8px;
+}
+
+select{
+padding:10px;
+border-radius:8px;
+border:none;
+background:#0c2547;
+color:white;
+margin-top:10px;
+}
+
+button{
+margin-top:20px;
+padding:12px 20px;
+background:#3a78ff;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#2a66e6;
+}
+
+#menu{
+display:none;
+background:#071a33;
+border-radius:8px;
+margin-top:10px;
+}
+
+#menu button{
+display:block;
+width:100%;
+margin:5px 0;
+}
+
+.seo-content{
+max-width:900px;
+margin:20px auto;
+background:#071a33;
+color:white;
+padding:35px;
+border-radius:20px;
+}
+
+.tool-description{
+max-width:900px;
+margin:30px auto 80px;
+background:white;
+padding:40px;
+border-radius:16px;
+color:#1e293b;
+line-height:1.8;
+}
+
+</style>
+
+<link rel="canonical" href="https://convertios.com/ar/image-converter.html">
+<link rel="alternate" hreflang="en" href="https://convertios.com/image-converter.html">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-converter.html">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/image-converter.html">
+
+<!-- Convertios SEO social metadata -->
+<meta property="og:title" content="محول الصور | Convertios">
+<meta property="og:description" content="حوّل الصور بين JPG وPNG وWEBP وBMP وGIF بسهولة خلال ثوانٍ.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://convertios.com/ar/image-converter.html">
+<meta property="og:image" content="https://convertios.com/convertios-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="محول الصور أونلاين | Convertios">
+<meta name="twitter:description" content="حوّل الصور بين JPG وPNG وWEBP وBMP وGIF من المتصفح مع شرح عربي واضح.">
+<meta name="twitter:image" content="https://convertios.com/convertios-logo.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"محول الصور أونلاين | Convertios","description":"حوّل الصور بين JPG وPNG وWEBP وBMP وGIF من المتصفح مع شرح عربي واضح.","url":"https://convertios.com/ar/image-converter.html","inLanguage":"ar","isPartOf":{"@type":"WebSite","name":"Convertios","url":"https://convertios.com"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">تخطي إلى المحتوى</a>
+<header class="site-header ar-site-header">
+  <div class="header-left"><a href="/ar/" class="logo"><img src="/convertios-logo.png" alt="شعار Convertios" width="2211" height="1234"></a></div>
+  <nav class="nav-menu" aria-label="التنقل الرئيسي">
+    <a href="/ar/">الرئيسية</a>
+    <div class="nav-item dropdown"><span>الصور ▾</span><div class="dropdown-menu"><a href="/ar/png-to-jpg.html">PNG إلى JPG</a>
+<a href="/ar/jpg-to-png.html">JPG إلى PNG</a>
+<a href="/ar/webp-to-png.html">WEBP إلى PNG</a>
+<a href="/ar/image-converter.html">محول الصور</a>
+<a href="/ar/image-resizer.html">تغيير حجم الصورة</a>
+<a href="/ar/compress-image.html">ضغط الصور</a>
+<a href="/ar/social-media-image-resizer.html">صور السوشيال ميديا</a>
+<a href="/ar/ai-image-enhancer.html">تحسين الصور بالذكاء الاصطناعي</a><a href="/ar/image-tools.html" class="view-all">عرض الكل ←</a></div></div>
+    <div class="nav-item dropdown"><span>PDF ▾</span><div class="dropdown-menu"><a href="/ar/pdf-to-word.html">PDF إلى Word</a>
+<a href="/ar/pdf-to-jpg.html">PDF إلى JPG</a>
+<a href="/ar/jpg-to-pdf.html">JPG إلى PDF</a>
+<a href="/ar/merge-pdf.html">دمج PDF</a>
+<a href="/ar/split-pdf.html">تقسيم PDF</a>
+<a href="/ar/rotate-pdf.html">تدوير PDF</a><a href="/ar/pdf-tools.html" class="view-all">عرض الكل ←</a></div></div>
+    <div class="nav-item dropdown"><span>الصوت ▾</span><div class="dropdown-menu"><a href="/ar/mp3-cutter.html">قص MP3</a><a href="/ar/audio-tools.html" class="view-all">عرض الكل ←</a></div></div>
+    <a href="/ar/all-tools.html">كل الأدوات</a>
+  </nav>
+  <div class="nav-icon faq-wrapper"><a href="/faq.html" class="faq-link-block"><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path><circle cx="12" cy="17" r="1"></circle></svg></div><span class="faq-text">الأسئلة</span></a></div>
+<details class="language-selector ar-language-selector"><summary aria-label="تغيير اللغة"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">العربية</span></summary><div class="language-selector__menu" role="menu" aria-label="خيارات اللغة"><a href="https://convertios.com/ar/image-converter.html" lang="ar" dir="rtl" hreflang="ar" aria-current="page" role="menuitem">العربية</a><a href="https://convertios.com/image-converter.html" lang="en" hreflang="en" role="menuitem">English</a></div></details>
+</header>
+<main id="main-content" class="ar-page"><section
+                                         <section class="tool-container">
+
+<h1>محول الصور</h1>
+<p>حوّل الصور بين JPG وPNG وWEBP بسهولة مباشرة من المتصفح.</p>
+
+<div id="drop-area" class="upload-box">
+    <p>اسحب الصور هنا أو اضغط لاختيار الملفات</p>
+    <input type="file" id="upload" accept="image/*" multiple hidden>
+</div>
+
+<div id="preview" class="preview-area"></div>
+
+<div class="tool-options">
+    <label for="format">اختر الصيغة:</label>
+    <select id="format">
+        <option value="image/jpeg">JPG</option>
+        <option value="image/png">PNG</option>
+        <option value="image/webp">WEBP</option>
+    </select>
+</div>
+
+<button class="main-button" onclick="convertImage()">تحويل الصور</button>
+
+<div id="downloadMenu" class="download-menu" style="display:none;">
+    <button class="main-button" onclick="toggleMenu()">تحميل النتيجة</button>
+
+    <div id="menu" class="download-options" style="display:none;">
+        <button onclick="downloadImages()">تحميل الصور</button>
+        <button onclick="downloadZip()">تحميل ملف ZIP</button>
+    </div>
+</div>
+
+</section>
+  <section class="tool-description"><h2>متى تستخدم محول الصور؟</h2><p>محول صور عربي يساعدك على تغيير صيغة الصورة حسب متطلبات المواقع والتطبيقات. هذه الأداة مفيدة عندما تحتاج إلى نتيجة سريعة بدون تثبيت برامج إضافية، خصوصًا عند تجهيز ملفات للمدرسة أو العمل أو السوشيال ميديا.</p><h2>طريقة الاستخدام</h2><ol><li>افتح الأداة من زر الاستخدام.</li><li>اختر الملف أو الصورة المطلوبة من جهازك.</li><li>اضبط الإعدادات المتاحة حسب حاجتك.</li><li>حمّل النتيجة النهائية واحفظها باسم واضح.</li></ol><h2>نصائح للحصول على نتيجة أفضل</h2><ul><li>استخدم ملفات واضحة وغير تالفة قبل التحويل أو التعديل.</li><li>راجع حجم الملف النهائي إذا كان مطلوبًا لمنصة أو نموذج إلكتروني.</li><li>احتفظ بنسخة أصلية من الملف قبل إجراء أي تعديل.</li></ul><h2>أسئلة شائعة</h2><p><strong>هل الأداة مجانية؟</strong><br>نعم، يمكن استخدام أدوات Convertios الأساسية مجانًا من المتصفح.</p><p><strong>هل أحتاج إلى تثبيت برنامج؟</strong><br>لا، تعمل الأدوات من صفحة الويب مباشرة.</p><p><strong>هل يتم تغيير امتدادات مثل JPG وPNG وPDF؟</strong><br>لا تتم ترجمة أسماء الامتدادات التقنية حتى تبقى واضحة ومتوافقة مع الاستخدام العالمي.</p></section><div class="more-tools"><h3>أدوات مرتبطة</h3><div class="more-tools-grid"><a href="/ar/png-to-jpg.html" class="more-tool-card"><span>🛠️</span><p>تحويل PNG إلى JPG</p></a><a href="/ar/jpg-to-png.html" class="more-tool-card"><span>🛠️</span><p>تحويل JPG إلى PNG</p></a><a href="/ar/webp-to-png.html" class="more-tool-card"><span>🛠️</span><p>تحويل WEBP إلى PNG</p></a><a href="/ar/compress-image.html" class="more-tool-card"><span>📦</span><p>ضغط الصور</p></a></div></div></main>
+<footer class="site-footer ar-footer"><div class="footer-container"><div class="footer-brand"><h3>Convertios</h3><p>أدوات مجانية لتحويل الملفات والصور وPDF والصوت بسرعة ووضوح.</p></div><div class="footer-links"><a href="/ar/all-tools.html">الأدوات</a><a href="/about.html">عن الموقع</a><a href="/contact.html">تواصل معنا</a><a href="/security.html">الأمان</a><a href="/privacy.html">الخصوصية</a><a href="/terms.html">الشروط</a></div></div><p class="footer-bottom">© 2026 Convertios • جميع الحقوق محفوظة</p></footer>
+<script src="/script.js" defer></script>
+  <script>
+
+/* YOUR ORIGINAL JS (UNCHANGED) */
+
+let dropArea=document.getElementById("drop-area");
+let fileInput=document.getElementById("upload");
+let preview=document.getElementById("preview");
+
+let convertedImages=[];
+
+dropArea.onclick=()=>fileInput.click();
+
+dropArea.addEventListener("dragover",e=>{e.preventDefault();});
+
+dropArea.addEventListener("drop",e=>{
+e.preventDefault();
+fileInput.files=e.dataTransfer.files;
+showPreview();
+});
+
+fileInput.addEventListener("change",showPreview);
+
+function showImageConverterMessage(message){
+if(typeof window.showToolMessage==="function"){
+window.showToolMessage(message,false);
+}else{
+alert(message);
+}
+}
+
+function showPreview(){
+convertedImages=[];
+preview.innerHTML="";
+let files=fileInput.files;
+for(let i=0;i<files.length;i++){
+let img=document.createElement("img");
+img.src=URL.createObjectURL(files[i]);
+preview.appendChild(img);
+}
+}
+
+function convertImage(){
+let files=fileInput.files;
+if(!files || files.length===0){
+alert("ارفع صورة أولًا");
+return;
+}
+
+convertedImages=[];
+let format=document.getElementById("format").value;
+
+for(let i=0;i<files.length;i++){
+let file=files[i];
+let img=new Image();
+let reader=new FileReader();
+
+reader.onload=function(e){
+img.src=e.target.result;
+
+img.onload=function(){
+let canvas=document.createElement("canvas");
+canvas.width=img.width;
+canvas.height=img.height;
+
+let ctx=canvas.getContext("2d");
+ctx.drawImage(img,0,0);
+
+let converted=canvas.toDataURL(format);
+let extension=format.split("/")[1];
+if(extension==="jpeg") extension="jpg";
+
+convertedImages.push({
+data:converted,
+name:"converted_"+(i+1)+"."+extension
+});
+}
+}
+
+reader.readAsDataURL(file);
+}
+
+document.getElementById("downloadMenu").style.display="block";
+}
+
+function toggleMenu(){
+let menu=document.getElementById("menu");
+menu.style.display = menu.style.display==="block" ? "none" : "block";
+}
+
+function downloadImages(){
+for(let i=0;i<convertedImages.length;i++){
+let link=document.createElement("a");
+link.href=convertedImages[i].data;
+link.download=convertedImages[i].name;
+link.click();
+}
+}
+
+function downloadZip(){
+if(!convertedImages || convertedImages.length===0){
+showImageConverterMessage("حوّل صورة واحدة على الأقل قبل تحميل ملف ZIP.");
+  return;
+}
+
+let zip=new JSZip();
+for(let i=0;i<convertedImages.length;i++){
+let base64=convertedImages[i].data.split(',')[1];
+zip.file(convertedImages[i].name,base64,{base64:true});
+}
+
+zip.generateAsync({type:"blob"}).then(function(content){
+let link=document.createElement("a");
+link.href=URL.createObjectURL(content);
+link.download="converted_images.zip";
+link.click();
+});
+}
+
+</script>
+
+
+
+<script>
+(function(){
+let lastActionButton=null;
+document.addEventListener('click',function(event){
+const button=event.target.closest('button');
+if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
+},true);
+function ensureToolMessage(){
+let box=document.getElementById('toolMessage');
+if(!box){
+box=document.createElement('div');
+box.id='toolMessage';
+box.className='tool-message-box';
+box.setAttribute('role','status');
+box.setAttribute('aria-live','polite');
+const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
+anchor.insertAdjacentElement('afterend',box);
+}
+return box;
+}
+window.showToolMessage=function(message,canRetry){
+const box=ensureToolMessage();
+box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
+box.style.display='block';
+const retry=document.getElementById('commonToolRetry');
+if(retrya=){
+retry.addEventListener('click',function(){
+box.style.display='none';
+if(lastActionButton) lastActionButton.click();
+});
+}
+};
+const nativeAlert=window.alert;
+window.alert=function(message){
+window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
+if(nativeAlert && !document.body) nativeAlert(message);
+};
+window.addEventListener('error',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+window.addEventListener('unhandledrejection',function(event){
+window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
+});
+})();
+</script>
+
+</body>
+</html>
