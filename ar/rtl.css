@@ -47,18 +47,40 @@ html[lang="ar"][dir="rtl"] .tool-container p,
 html[lang="ar"][dir="rtl"] .seo-content p,
 html[lang="ar"][dir="rtl"] .tool-description p,
 html[lang="ar"][dir="rtl"] .tool-info-block p,
-html[lang="ar"][dir="rtl"] li{
-    text-align: start;
+html[lang="ar"][dir="rtl"] li {
+    text-align: right;
     line-height: 2;
 }
 
 html[lang="ar"][dir="rtl"] .tool-description ul,
 html[lang="ar"][dir="rtl"] .tool-description ol,
 html[lang="ar"][dir="rtl"] .seo-content ul,
-html[lang="ar"][dir="rtl"] .seo-content ol{
-    padding-inline-start: 0;
-    padding-inline-end: 1.35rem;
+html[lang="ar"][dir="rtl"] .seo-content ol {
+    direction: rtl;
+    text-align: right;
+    padding-right: 1.6rem;
+    padding-left: 0;
     margin: .75rem 0 1.2rem;
+    list-style-position: outside;
+}
+
+html[lang="ar"][dir="rtl"] .tool-description li,
+html[lang="ar"][dir="rtl"] .seo-content li {
+    direction: rtl;
+    text-align: right;
+    margin-bottom: 8px;
+    padding-right: 4px;
+}
+
+html[lang="ar"][dir="rtl"] .tool-description ol,
+html[lang="ar"][dir="rtl"] .seo-content ol {
+    list-style-type: decimal;
+}
+
+html[lang="ar"][dir="rtl"] .tool-description p,
+html[lang="ar"][dir="rtl"] .seo-content p {
+    direction: rtl;
+    text-align: right;
 }
 
 html[lang="ar"][dir="rtl"] .tool-info-grid{
@@ -72,7 +94,26 @@ html[lang="ar"][dir="rtl"] .tool-card{
 }
 
 html[lang="ar"][dir="rtl"] .footer-container{
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+html[lang="ar"][dir="rtl"] .footer-brand,
+html[lang="ar"][dir="rtl"] .footer-brand h3,
+html[lang="ar"][dir="rtl"] .footer-brand p {
+    text-align: center;
+    width: 100%;
+}
+
+html[lang="ar"][dir="rtl"] .footer-links {
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+html[lang="ar"][dir="rtl"] .footer-bottom {
+    text-align: center;
 }
 
 .ar-page{color:#0f172a;}
