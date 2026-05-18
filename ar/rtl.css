@@ -47,8 +47,8 @@ html[lang="ar"][dir="rtl"] .tool-container p,
 html[lang="ar"][dir="rtl"] .seo-content p,
 html[lang="ar"][dir="rtl"] .tool-description p,
 html[lang="ar"][dir="rtl"] .tool-info-block p,
-html[lang="ar"][dir="rtl"] li{
-    text-align: start;
+html[lang="ar"][dir="rtl"] li {
+    text-align: right;
     line-height: 2;
 }
 
