@@ -1,9 +1,12 @@
-html[dir="rtl"] body{
-    direction:rtl;
-    text-align:right;
-    font-family:"Tahoma","Arial",sans-serif;
-    line-height:1.75;
-    letter-spacing:0;
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+html[lang="ar"][dir="rtl"] body{
+    direction: rtl;
+    text-align: start;
+    font-family: "Cairo", "Tajawal", "Tahoma", "Arial", sans-serif;
+    line-height: 1.9;
+    letter-spacing: 0;
+    word-spacing: .02em;
 }
 
 html[dir="rtl"] .site-header,
@@ -12,33 +15,68 @@ html[dir="rtl"] .footer-container,
 html[dir="rtl"] .hero,
 html[dir="rtl"] .tool-grid,
 html[dir="rtl"] .actions{
-    direction:rtl;
+    direction: rtl;
 }
 
 html[dir="rtl"] .dropdown-menu{
-    right:0;
-    left:auto;
-    text-align:right;
+    right: 0;
+    left: auto;
+    text-align: start;
 }
 
-html[dir="rtl"] .tool-description,
-html[dir="rtl"] .tool-container,
-html[dir="rtl"] .seo-content,
-html[dir="rtl"] .tool-info-block{
-    text-align:right;
+html[lang="ar"][dir="rtl"] .tool-container,
+html[lang="ar"][dir="rtl"] .seo-content,
+html[lang="ar"][dir="rtl"] .tool-description,
+html[lang="ar"][dir="rtl"] .tool-info-block,
+html[lang="ar"][dir="rtl"] .more-tools,
+html[lang="ar"][dir="rtl"] .footer-container{
+    direction: rtl;
+    text-align: start;
 }
 
-html[dir="rtl"] .tool-description ul,
-html[dir="rtl"] .tool-description ol{
-    padding-right:1.4rem;
-    padding-left:0;
+html[lang="ar"][dir="rtl"] .tool-container,
+html[lang="ar"][dir="rtl"] .seo-content,
+html[lang="ar"][dir="rtl"] .tool-description,
+html[lang="ar"][dir="rtl"] .tool-info-block,
+html[lang="ar"][dir="rtl"] .more-tools{
+    max-width: min(920px, calc(100% - 2rem));
+    margin-inline: auto;
 }
 
-html[dir="rtl"] .more-tool-card,
-html[dir="rtl"] .tool-card{
-    direction:rtl;
+html[lang="ar"][dir="rtl"] .tool-container p,
+html[lang="ar"][dir="rtl"] .seo-content p,
+html[lang="ar"][dir="rtl"] .tool-description p,
+html[lang="ar"][dir="rtl"] .tool-info-block p,
+html[lang="ar"][dir="rtl"] li{
+    text-align: start;
+    line-height: 2;
 }
 
+html[lang="ar"][dir="rtl"] .tool-description ul,
+html[lang="ar"][dir="rtl"] .tool-description ol,
+html[lang="ar"][dir="rtl"] .seo-content ul,
+html[lang="ar"][dir="rtl"] .seo-content ol{
+    padding-inline-start: 0;
+    padding-inline-end: 1.35rem;
+    margin: .75rem 0 1.2rem;
+}
+
+html[lang="ar"][dir="rtl"] .tool-info-grid{
+    gap: 12px;
+}
+
+html[lang="ar"][dir="rtl"] .tool-info-grid > div,
+html[lang="ar"][dir="rtl"] .more-tool-card,
+html[lang="ar"][dir="rtl"] .tool-card{
+    text-align: start;
+}
+
+html[lang="ar"][dir="rtl"] .footer-container{
+    align-items: flex-start;
+}
+
+.ar-page{color:#0f172a;}
+/* keep existing custom ar styles */
 .ar-page{
     color:#0f172a;
 }
