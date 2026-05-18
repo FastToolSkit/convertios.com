@@ -55,32 +55,25 @@ html[lang="ar"][dir="rtl"] li {
 html[lang="ar"][dir="rtl"] .tool-description ul,
 html[lang="ar"][dir="rtl"] .tool-description ol,
 html[lang="ar"][dir="rtl"] .seo-content ul,
-html[lang="ar"][dir="rtl"] .seo-content ol {
-    direction: rtl;
-    text-align: right;
-    padding-right: 1.6rem;
-    padding-left: 0;
+html[lang="ar"][dir="rtl"] .seo-content ol{
+    padding-inline-start: 0;
+    padding-inline-end: 1.6rem;
     margin: .75rem 0 1.2rem;
     list-style-position: outside;
+    direction: rtl;
+    text-align: right;
 }
 
 html[lang="ar"][dir="rtl"] .tool-description li,
 html[lang="ar"][dir="rtl"] .seo-content li {
-    direction: rtl;
     text-align: right;
+    direction: rtl;
     margin-bottom: 8px;
-    padding-right: 4px;
 }
 
-html[lang="ar"][dir="rtl"] .tool-description ol,
-html[lang="ar"][dir="rtl"] .seo-content ol {
+html[lang="ar"][dir="rtl"] .tool-description ol {
+    counter-reset: arabic-counter;
     list-style-type: decimal;
-}
-
-html[lang="ar"][dir="rtl"] .tool-description p,
-html[lang="ar"][dir="rtl"] .seo-content p {
-    direction: rtl;
-    text-align: right;
 }
 
 html[lang="ar"][dir="rtl"] .tool-info-grid{
