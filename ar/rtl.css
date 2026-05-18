@@ -57,8 +57,23 @@ html[lang="ar"][dir="rtl"] .tool-description ol,
 html[lang="ar"][dir="rtl"] .seo-content ul,
 html[lang="ar"][dir="rtl"] .seo-content ol{
     padding-inline-start: 0;
-    padding-inline-end: 1.35rem;
+    padding-inline-end: 1.6rem;
     margin: .75rem 0 1.2rem;
+    list-style-position: outside;
+    direction: rtl;
+    text-align: right;
+}
+
+html[lang="ar"][dir="rtl"] .tool-description li,
+html[lang="ar"][dir="rtl"] .seo-content li {
+    text-align: right;
+    direction: rtl;
+    margin-bottom: 8px;
+}
+
+html[lang="ar"][dir="rtl"] .tool-description ol {
+    counter-reset: arabic-counter;
+    list-style-type: decimal;
 }
 
 html[lang="ar"][dir="rtl"] .tool-info-grid{
@@ -72,7 +87,26 @@ html[lang="ar"][dir="rtl"] .tool-card{
 }
 
 html[lang="ar"][dir="rtl"] .footer-container{
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+html[lang="ar"][dir="rtl"] .footer-brand,
+html[lang="ar"][dir="rtl"] .footer-brand h3,
+html[lang="ar"][dir="rtl"] .footer-brand p {
+    text-align: center;
+    width: 100%;
+}
+
+html[lang="ar"][dir="rtl"] .footer-links {
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+html[lang="ar"][dir="rtl"] .footer-bottom {
+    text-align: center;
 }
 
 .ar-page{color:#0f172a;}
