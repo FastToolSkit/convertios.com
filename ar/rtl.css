@@ -406,3 +406,17 @@ html[dir="rtl"] .ar-copy-card ul{
         transform:translateX(50%);
     }
 }
+
+html[lang="ar"][dir="rtl"] .tool-description ol,
+html[lang="ar"][dir="rtl"] .seo-content ol {
+    list-style: none;
+    padding: 0;
+    margin: .75rem 0 1.2rem;
+}
+
+html[lang="ar"][dir="rtl"] .tool-description ul,
+html[lang="ar"][dir="rtl"] .seo-content ul {
+    list-style: none;
+    padding: 0;
+    margin: .75rem 0 1.2rem;
+}
