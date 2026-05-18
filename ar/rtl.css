@@ -1,9 +1,16 @@
-html[dir="rtl"] body{
-    direction:rtl;
-    text-align:right;
-    font-family:"Tahoma","Arial",sans-serif;
-    line-height:1.75;
-    letter-spacing:0;
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+html[lang="ar"][dir="rtl"] body{
+    direction: rtl;
+    text-align: start;
+    font-family: "Cairo", "Tajawal", "Tahoma", "Arial", sans-serif;
+    line-height: 1.9;
+    letter-spacing: 0;
+    word-spacing: .02em;
+}
+
+html[lang="ar"][dir="rtl"] *{
+    box-sizing: border-box;
 }
 
 html[dir="rtl"] .site-header,
@@ -12,33 +19,221 @@ html[dir="rtl"] .footer-container,
 html[dir="rtl"] .hero,
 html[dir="rtl"] .tool-grid,
 html[dir="rtl"] .actions{
-    direction:rtl;
+    direction: rtl;
+}
+
+html[lang="ar"][dir="rtl"] .site-header{
+    direction: rtl;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+html[lang="ar"][dir="rtl"] .header-left{
+    margin-inline-end: 0;
+}
+
+html[lang="ar"][dir="rtl"] .nav-menu{
+    justify-content: center;
+    gap: 10px 14px;
+}
+
+html[lang="ar"][dir="rtl"] .nav-menu a,
+html[lang="ar"][dir="rtl"] .nav-item > span{
+    text-align: start;
 }
 
 html[dir="rtl"] .dropdown-menu{
-    right:0;
-    left:auto;
-    text-align:right;
+    right: 0;
+    left: auto;
+    text-align: start;
 }
 
-html[dir="rtl"] .tool-description,
-html[dir="rtl"] .tool-container,
-html[dir="rtl"] .seo-content,
-html[dir="rtl"] .tool-info-block{
-    text-align:right;
+html[lang="ar"][dir="rtl"] .tool-container,
+html[lang="ar"][dir="rtl"] .seo-content,
+html[lang="ar"][dir="rtl"] .tool-description,
+html[lang="ar"][dir="rtl"] .tool-info-block,
+html[lang="ar"][dir="rtl"] .more-tools,
+html[lang="ar"][dir="rtl"] .footer-container{
+    direction: rtl;
+    text-align: start;
 }
 
-html[dir="rtl"] .tool-description ul,
-html[dir="rtl"] .tool-description ol{
-    padding-right:1.4rem;
-    padding-left:0;
+html[lang="ar"][dir="rtl"] .tool-container,
+html[lang="ar"][dir="rtl"] .seo-content,
+html[lang="ar"][dir="rtl"] .tool-description,
+html[lang="ar"][dir="rtl"] .tool-info-block,
+html[lang="ar"][dir="rtl"] .more-tools{
+    max-width: min(920px, calc(100% - 2rem));
+    margin-inline: auto;
 }
 
-html[dir="rtl"] .more-tool-card,
-html[dir="rtl"] .tool-card{
-    direction:rtl;
+html[lang="ar"][dir="rtl"] .tool-container{
+    margin-top: 88px;
 }
 
+html[lang="ar"][dir="rtl"] .tool-container p,
+html[lang="ar"][dir="rtl"] .seo-content p,
+html[lang="ar"][dir="rtl"] .tool-description p,
+html[lang="ar"][dir="rtl"] .tool-info-block p,
+html[lang="ar"][dir="rtl"] li{
+    text-align: start;
+    line-height: 2;
+}
+
+html[lang="ar"][dir="rtl"] .tool-description ul,
+html[lang="ar"][dir="rtl"] .tool-description ol,
+html[lang="ar"][dir="rtl"] .seo-content ul,
+html[lang="ar"][dir="rtl"] .seo-content ol{
+    padding-inline-start: 0;
+    padding-inline-end: 1.35rem;
+    margin: .75rem 0 1.2rem;
+}
+
+html[lang="ar"][dir="rtl"] .tool-info-grid{
+    gap: 12px;
+}
+
+html[lang="ar"][dir="rtl"] .more-tools-grid{
+    direction: rtl;
+}
+
+html[lang="ar"][dir="rtl"] .tool-info-grid > div,
+html[lang="ar"][dir="rtl"] .more-tool-card,
+html[lang="ar"][dir="rtl"] .tool-card{
+    text-align: start;
+}
+
+html[lang="ar"][dir="rtl"] .footer-container{
+    align-items: flex-start;
+}
+
+/* Arabic footer redesign (all /ar pages) */
+html[lang="ar"][dir="rtl"] .site-footer{
+    padding: 44px 20px 20px;
+}
+
+html[lang="ar"][dir="rtl"] .site-footer .footer-container{
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) minmax(340px, 1.35fr);
+    gap: 26px 48px;
+    align-items: start;
+    text-align: start;
+}
+
+html[lang="ar"][dir="rtl"] .site-footer .footer-brand{
+    justify-self: start;
+    max-width: 360px;
+}
+
+html[lang="ar"][dir="rtl"] .site-footer .footer-brand h3{
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    line-height: 1.3;
+}
+
+html[lang="ar"][dir="rtl"] .site-footer .footer-brand p{
+    margin: 0;
+    line-height: 1.85;
+    color: #c6d0df;
+}
+
+html[lang="ar"][dir="rtl"] .site-footer .footer-links{
+    justify-self: end;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(120px, max-content));
+    justify-content: end;
+    gap: 12px 22px;
+    text-align: start;
+}
+
+html[lang="ar"][dir="rtl"] .site-footer .footer-links a{
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+html[lang="ar"][dir="rtl"] .site-footer .footer-bottom{
+    margin-top: 26px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    text-align: center;
+}
+
+/* Compact RTL language selector near footer */
+html[lang="ar"][dir="rtl"] .site-footer + .language-selector,
+html[lang="ar"][dir="rtl"] .language-selector.ar-language-selector{
+    margin-inline: auto;
+}
+
+html[lang="ar"][dir="rtl"] .language-selector summary{
+    min-height: 34px;
+    padding: 6px 11px;
+    font-size: 12.5px;
+    border-color: #c8d5e6;
+}
+
+html[lang="ar"][dir="rtl"] .language-selector__menu{
+    right: 0;
+    left: auto;
+    min-width: 140px;
+    text-align: start;
+}
+
+@media (max-width: 920px){
+    html[lang="ar"][dir="rtl"] .site-header{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    html[lang="ar"][dir="rtl"] .nav-menu{
+        justify-content: center;
+    }
+
+    html[lang="ar"][dir="rtl"] .site-footer .footer-container{
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    html[lang="ar"][dir="rtl"] .site-footer .footer-brand,
+    html[lang="ar"][dir="rtl"] .site-footer .footer-links{
+        justify-self: stretch;
+    }
+
+    html[lang="ar"][dir="rtl"] .site-footer .footer-links{
+        grid-template-columns: repeat(2, minmax(130px, 1fr));
+        justify-content: stretch;
+    }
+}
+
+@media (max-width: 560px){
+    html[lang="ar"][dir="rtl"] .site-footer{
+        padding: 36px 16px 18px;
+    }
+
+    html[lang="ar"][dir="rtl"] .site-footer .footer-links{
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    html[lang="ar"][dir="rtl"] .site-footer .footer-links a{
+        min-height: 28px;
+    }
+
+    html[lang="ar"][dir="rtl"] .tool-container,
+    html[lang="ar"][dir="rtl"] .seo-content,
+    html[lang="ar"][dir="rtl"] .tool-description,
+    html[lang="ar"][dir="rtl"] .tool-info-block,
+    html[lang="ar"][dir="rtl"] .more-tools{
+        max-width: calc(100% - 1rem);
+    }
+}
+
+.ar-page{color:#0f172a;}
+/* keep existing custom ar styles */
 .ar-page{
     color:#0f172a;
 }
