@@ -2399,3 +2399,35 @@ UNIFIED TOOL PAGE UI
         margin:10px auto 0;
     }
 }
+.rtl-steps,
+.rtl-bullets {
+    direction: rtl;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.rtl-steps div,
+.rtl-bullets div {
+    direction: rtl;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.6rem;
+}
+
+.rtl-steps span,
+.rtl-bullets span {
+    flex: 0 0 auto;
+    font-weight: 700;
+    color: #071a33;
+}
+
+.rtl-steps p,
+.rtl-bullets p {
+    margin: 0;
+    direction: rtl;
+    text-align: right;
+}
