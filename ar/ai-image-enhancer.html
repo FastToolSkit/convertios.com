@@ -37,6 +37,39 @@ gtag('config', 'G-0CH8NE5WDH');
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .status{margin-top:12px;font-size:14px;color:#c4d6ff;min-height:20px}
 .result-wrap{margin-top:16px}
+#main-content.tool-page-readable .tool-description,
+#main-content.tool-page-readable .tool-description h2,
+#main-content.tool-page-readable .tool-description h3,
+#main-content.tool-page-readable .tool-description p,
+#main-content.tool-page-readable .tool-description li,
+#main-content.tool-page-readable .tool-info-block,
+#main-content.tool-page-readable .tool-info-block h2,
+#main-content.tool-page-readable .tool-info-block p,
+#main-content.tool-page-readable .tool-info-block div {
+    direction: rtl !important;
+    text-align: right !important;
+    unicode-bidi: isolate;
+}
+
+#main-content.tool-page-readable .tool-description ol,
+#main-content.tool-page-readable .tool-description ul {
+    direction: rtl !important;
+    text-align: right !important;
+    padding-right: 1.5rem !important;
+    padding-left: 0 !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    list-style-position: outside !important;
+}
+
+#main-content.tool-page-readable .tool-description li {
+    direction: rtl !important;
+    text-align: right !important;
+    padding-right: 0.5rem !important;
+    padding-left: 0 !important;
+    margin: 0 0 0.75rem 0 !important;
+    unicode-bidi: isolate;
+}
 @media (max-width:900px){.tool-grid{grid-template-columns:1fr}}
 </style>
 <link rel="canonical" href="https://convertios.com/ar/ai-image-enhancer.html">
@@ -148,9 +181,9 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <main id="main-content" class="tool-page-readable">
 <div class="tool-wrap">
-<h1>تحسين الصور بالذكاء الاصطناعي</h1>
-<p>حسّن الصور غير الواضحة أو منخفضة الدقة باستخدام معالجة مدعومة بالذكاء الاصطناعي. يمكن للأداة تحسين الحدة والتفاصيل وإنتاج صورة أنظف خلال خطوات قليلة.</p>
-<p class="temporary-tool-notice" role="status">يجري تحسين هذه الأداة حاليًا. قد لا تعمل بعض الميزات بعد.</p>
+<h1 dir="rtl">تحسين الصور بالذكاء الاصطناعي</h1>
+<p dir="rtl">حسّن الصور غير الواضحة أو منخفضة الدقة باستخدام معالجة مدعومة بالذكاء الاصطناعي. يمكن للأداة تحسين الحدة والتفاصيل وإنتاج صورة أنظف خلال خطوات قليلة.</p>
+<p class="temporary-tool-notice" dir="rtl" role="status">يجري تحسين هذه الأداة حاليًا. قد لا تعمل بعض الميزات بعد.</p>
 <div class="tool-grid">
 <section class="panel">
 <h2>رفع الصورة</h2>
@@ -179,53 +212,53 @@ gtag('config', 'G-0CH8NE5WDH');
 
 
 
-<section class="tool-info-block" aria-labelledby="tool-info-heading">
-<h2 id="tool-info-heading">معلومات الأداة</h2>
+<section class="tool-info-block" dir="rtl" aria-labelledby="tool-info-heading">
+<h2 id="tool-info-heading" dir="rtl">معلومات الأداة</h2>
 <div class="tool-info-grid">
 <div><strong>تعمل داخل المتصفح:</strong><span>لا</span></div>
 <div><strong>هل يلزم الرفع:</strong><span>نعم</span></div>
-<div><strong>معالجة خارجية:</strong><span>رفع غير موقّع إلى Cloudinary وسير عمل تحسين عبر n8n</span></div>
-<div><strong>الاحتفاظ بالملفات:</strong><span>تُرفع الصورة أولًا إلى Cloudinary، ثم يُرسل رابط الصورة العام إلى n8n للتحسين.</span></div>
-<div><strong>الحد الأقصى لحجم الملف:</strong><span>تطبق حدود إعداد الرفع غير الموقّع في Cloudinary</span></div>
-<div><strong>الصيغ المدعومة:</strong><span>رفع صور JPG وPNG وWEBP → رابط صورة محسّنة</span></div>
+<div><strong>معالجة خارجية:</strong><span>رفع غير موقّع إلى <bdi>Cloudinary</bdi> وسير عمل تحسين عبر <bdi>n8n</bdi></span></div>
+<div><strong>الاحتفاظ بالملفات:</strong><span>تُرفع الصورة أولًا إلى <bdi>Cloudinary</bdi>، ثم يُرسل رابط الصورة العام إلى <bdi>n8n</bdi> للتحسين.</span></div>
+<div><strong>الحد الأقصى لحجم الملف:</strong><span>تطبق حدود إعداد الرفع غير الموقّع في <bdi>Cloudinary</bdi></span></div>
+<div><strong>الصيغ المدعومة:</strong><span>رفع صور <bdi>JPG</bdi> و<bdi>PNG</bdi> و<bdi>WEBP</bdi> → رابط صورة محسّنة</span></div>
 </div>
-<p class="transparency-note"><strong>ملاحظة الشفافية:</strong> ترفع هذه الأداة الصور إلى Cloudinary باستخدام إعداد غير موقّع، ثم ترسل رابط الصورة العام إلى سير عمل تحسين الصور بالذكاء الاصطناعي في Convertios عبر n8n.</p>
+<p class="transparency-note"><strong>ملاحظة الشفافية:</strong> ترفع هذه الأداة الصور إلى <bdi>Cloudinary</bdi> باستخدام إعداد غير موقّع، ثم ترسل رابط الصورة العام إلى سير عمل تحسين الصور بالذكاء الاصطناعي في Convertios عبر <bdi>n8n</bdi>.</p>
 </section>
 
 
-<section class="tool-description">
-<h2>طريقة الاستخدام</h2>
-<ol>
-<li>ارفع صورة بسحبها وإفلاتها أو بالضغط على <strong>اختر صورة</strong>.</li>
-<li>تأكد من اسم الملف المحدد والمعاينة.</li>
-<li>اضغط <strong>تحسين الصورة</strong> لمعالجة الصورة بالذكاء الاصطناعي.</li>
-<li>انتظر أثناء ظهور رسالة <strong>جارٍ تحسين الصورة بالذكاء الاصطناعي...</strong>.</li>
-<li>عاين نتيجة الصورة المحسّنة ثم نزّلها.</li>
+<section class="tool-description" dir="rtl" style="direction: rtl !important; text-align: right !important;">
+<h2 dir="rtl" style="direction: rtl !important; text-align: right !important;">طريقة الاستخدام</h2>
+<ol dir="rtl" style="direction: rtl !important; text-align: right !important; padding-right: 1.5rem !important; padding-left: 0 !important; margin-right: 0 !important; margin-left: 0 !important;">
+<li dir="rtl" style="direction: rtl !important; text-align: right !important; padding-right: 0.5rem !important; padding-left: 0 !important;">ارفع صورة بسحبها وإفلاتها أو بالضغط على <strong>اختر صورة</strong>.</li>
+<li dir="rtl" style="direction: rtl !important; text-align: right !important; padding-right: 0.5rem !important; padding-left: 0 !important;">تأكد من اسم الملف المحدد والمعاينة.</li>
+<li dir="rtl" style="direction: rtl !important; text-align: right !important; padding-right: 0.5rem !important; padding-left: 0 !important;">اضغط <strong>تحسين الصورة</strong> لمعالجة الصورة بالذكاء الاصطناعي.</li>
+<li dir="rtl" style="direction: rtl !important; text-align: right !important; padding-right: 0.5rem !important; padding-left: 0 !important;">انتظر أثناء ظهور رسالة <strong>جارٍ تحسين الصورة بالذكاء الاصطناعي...</strong>.</li>
+<li dir="rtl" style="direction: rtl !important; text-align: right !important; padding-right: 0.5rem !important; padding-left: 0 !important;">عاين نتيجة الصورة المحسّنة ثم نزّلها.</li>
 </ol>
 
-<h2>لماذا تستخدم هذه الأداة</h2>
-<ul>
-<li>تحسين مدعوم بالذكاء الاصطناعي لصور أكثر حدة ونظافة.</li>
-<li>يحسّن الجودة عبر تنقية التفاصيل ورفع الدقة.</li>
-<li>سير عمل سريع وبسيط مع معاينة وتنزيل مباشرين.</li>
+<h2 dir="rtl" style="direction: rtl !important; text-align: right !important;">لماذا تستخدم هذه الأداة</h2>
+<ul dir="rtl" style="direction: rtl !important; text-align: right !important; padding-right: 1.5rem !important; padding-left: 0 !important; margin-right: 0 !important; margin-left: 0 !important;">
+<li dir="rtl" style="direction: rtl !important; text-align: right !important; padding-right: 0.5rem !important; padding-left: 0 !important;">تحسين مدعوم بالذكاء الاصطناعي لصور أكثر حدة ونظافة.</li>
+<li dir="rtl" style="direction: rtl !important; text-align: right !important; padding-right: 0.5rem !important; padding-left: 0 !important;">يحسّن الجودة عبر تنقية التفاصيل ورفع الدقة.</li>
+<li dir="rtl" style="direction: rtl !important; text-align: right !important; padding-right: 0.5rem !important; padding-left: 0 !important;">سير عمل سريع وبسيط مع معاينة وتنزيل مباشرين.</li>
 </ul>
 </section>
 
 
-<section class="tool-description" aria-labelledby="ai-enhancer-faq-heading">
-<h2 id="ai-enhancer-faq-heading">الأسئلة الشائعة حول تحسين الصور بالذكاء الاصطناعي</h2>
+<section class="tool-description" dir="rtl" aria-labelledby="ai-enhancer-faq-heading">
+<h2 id="ai-enhancer-faq-heading" dir="rtl">الأسئلة الشائعة حول تحسين الصور بالذكاء الاصطناعي</h2>
 <h3>ماذا تفعل أداة تحسين الصور بالذكاء الاصطناعي؟</h3>
 <p>تحسّن جودة الصورة وحدتها ووضوحها باستخدام سير عمل مدعوم بالذكاء الاصطناعي، ثم تعرض الصورة المحسّنة للمعاينة والتنزيل.</p>
 <h3>هل استخدامها مجاني؟</h3>
 <p>نعم. تتوفر أداة تحسين الصور بالذكاء الاصطناعي مجانًا من Convertios.</p>
 <h3>هل يتم رفع صوري؟</h3>
-<p>نعم. يتم رفع الصورة المحددة إلى Cloudinary باستخدام إعداد رفع غير موقّع، ثم يُرسل رابط الصورة العام الناتج إلى سير عمل التحسين عبر n8n.</p>
+<p>نعم. يتم رفع الصورة المحددة إلى <bdi>Cloudinary</bdi> باستخدام إعداد رفع غير موقّع، ثم يُرسل رابط الصورة العام الناتج إلى سير عمل التحسين عبر <bdi>n8n</bdi>.</p>
 <h3>ما صيغ الصور المدعومة؟</h3>
-<p>تُدعم صيغ الصور الشائعة على الويب مثل JPG وPNG وWEBP حسب إعداد الرفع في Cloudinary واختيار الملف في المتصفح.</p>
+<p>تُدعم صيغ الصور الشائعة على الويب مثل <bdi>JPG</bdi> و<bdi>PNG</bdi> و<bdi>WEBP</bdi> حسب إعداد الرفع في <bdi>Cloudinary</bdi> واختيار الملف في المتصفح.</p>
 <h3>لماذا يستغرق التحسين بعض الوقت؟</h3>
 <p>ترفع الأداة صورتك أولًا ثم تنتظر معالجة سير العمل بالذكاء الاصطناعي. قد تزيد الصور الكبيرة أو ضغط الخدمة المؤقت مدة المعالجة.</p>
 <h3>ماذا أفعل إذا فشل التحسين؟</h3>
-<p>جرّب ملف JPG أو PNG أو WEBP أصغر، وتحقق من اتصالك، ثم أعد المحاولة. إذا استمرت المشكلة فقد يحتاج إعداد Cloudinary أو سير عمل n8n إلى ضبط.</p>
+<p>جرّب ملف <bdi>JPG</bdi> أو <bdi>PNG</bdi> أو <bdi>WEBP</bdi> أصغر، وتحقق من اتصالك، ثم أعد المحاولة. إذا استمرت المشكلة فقد يحتاج إعداد <bdi>Cloudinary</bdi> أو سير عمل <bdi>n8n</bdi> إلى ضبط.</p>
 <h3>هل تعمل على الهاتف؟</h3>
 <p>نعم. تعمل الأداة في متصفحات الهاتف الحديثة، لكن سرعة الرفع والمعالجة تعتمد على جهازك وحجم الصورة واتصال الشبكة.</p>
 </section>
