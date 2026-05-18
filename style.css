@@ -2431,3 +2431,38 @@ UNIFIED TOOL PAGE UI
     direction: rtl;
     text-align: right;
 }
+
+[dir="rtl"] .footer-container,
+[lang="ar"] .footer-container {
+    text-align: center;
+    direction: rtl;
+}
+
+[dir="rtl"] .footer-brand,
+[lang="ar"] .footer-brand {
+    text-align: center;
+    width: 100%;
+}
+
+[dir="rtl"] .footer-brand h3,
+[dir="rtl"] .footer-brand p,
+[lang="ar"] .footer-brand h3,
+[lang="ar"] .footer-brand p {
+    text-align: center;
+}
+
+[dir="rtl"] .footer-links,
+[lang="ar"] .footer-links {
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+[dir="rtl"] .footer-lang,
+[dir="rtl"] .footer-bottom,
+[lang="ar"] .footer-lang,
+[lang="ar"] .footer-bottom {
+    text-align: center;
+    direction: rtl;
+}
