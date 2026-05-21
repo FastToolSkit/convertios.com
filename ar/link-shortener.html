@@ -207,16 +207,16 @@ gtag('config', 'G-0CH8NE5WDH');
 <div class="tool-container" id="main-content">
 
 <h1>اختصار الروابط عبر الإنترنت</h1>
-<p>Turn long URLs into clean, short links instantly.</p>
-<p class="temporary-tool-notice" role="status">This tool is currently being improved. Some features may not work yet.</p>
+<p>حوّل الروابط الطويلة إلى روابط قصيرة ونظيفة فورًا.</p>
+<p class="temporary-tool-notice" role="status">يتم تحسين هذه الأداة حاليًا. قد لا تعمل بعض الميزات بعد.</p>
 
-<input type="text" id="url" placeholder="Paste your long URL here...">
+<input type="text" id="url" placeholder="الصق الرابط الطويل هنا...">
 
 <button id="shortenBtn" onclick="shorten()" aria-label="تشغيل الأداة">اختصار الرابط</button>
 
 <div class="result-box">
 
-<input type="text" id="result" readonly placeholder="Short link will appear here">
+<input type="text" id="result" readonly placeholder="سيظهر الرابط المختصر هنا.">
 
 <button id="copyBtn" onclick="copyLink()">نسخ</button>
 
@@ -244,7 +244,7 @@ gtag('config', 'G-0CH8NE5WDH');
 <h2>Free اختصار الروابط عبر الإنترنت</h2>
 
 <p>
-Convertios provides a simple and fast link shortener that allows you to turn long URLs into clean, short links instantly. Whether you are sharing links on social media, messaging apps, or emails, this tool helps make your URLs more readable and easier to manage.
+يوفر Convertios a simple and fast link shortener that allows you to turn long URLs into clean, short links instantly. Whether you are sharing links on social media, messaging apps, or emails, this tool helps make your URLs more readable and easier to manage.
 </p>
 
 <p>
@@ -257,12 +257,12 @@ This link shortener converts long and complex URLs into shorter versions that ar
 </p>
 
 <p>
-Shortened links improve readability and can make your content look more professional when shared online.
+تُحسّن الروابط المختصرة قابلية القراءة وقد تجعل المحتوى يبدو أكثر احترافية عند مشاركته عبر الإنترنت.
 </p>
 
 <h2>طريقة الاستخدام</h2>
 <ul>
-<li>Paste your long URL into the input field</li>
+<li>الصق الرابط الطويل في حقل الإدخال</li>
 <li>Click the shorten button</li>
 <li>نسخ the generated short link</li>
 <li>Share your link anywhere you want</li>
@@ -270,15 +270,15 @@ Shortened links improve readability and can make your content look more professi
 
 <h2>المزايا</h2>
 <ul>
-<li>Create short and clean URLs instantly</li>
+<li>أنشئ روابط قصيرة ونظيفة فورًا</li>
 <li>Improve link appearance for sharing</li>
 <li>Fast and simple interface</li>
 <li>لا complex setup required</li>
-<li>Works on all devices</li>
+<li>تعمل على جميع الأجهزة</li>
 <li>مجانية الاستخدام</li>
 </ul>
 
-<h2>Why use a link shortener?</h2>
+<h2>لماذا استخدام أداة اختصار الروابط؟</h2>
 <p>
 Long URLs can be difficult to read, share, and manage. A link shortener makes URLs more compact and easier to use across different platforms such as social media, emails, and messaging apps.
 </p>
@@ -301,7 +301,7 @@ It is especially helpful when dealing with long links that include tracking para
 <p><strong>هل أداة اختصار الروابط مجانية؟</strong><br>
 نعم, it is completely free to use.</p>
 
-<p><strong>Is it safe to use?</strong><br>
+<p><strong>هل هي آمنة للاستخدام؟</strong><br>
 نعم, the tool is designed for simple link shortening without storing personal data.</p>
 
 <p><strong>هل يمكنني استخدامها على الجوال؟</strong><br>
@@ -375,7 +375,7 @@ let button = document.getElementById("shortenBtn");
 let result = document.getElementById("result");
 
 if(!url){
-alert("Enter a URL");
+alert("أدخل رابطًا");
 return;
 }
 
@@ -386,11 +386,11 @@ url = "https://" + url;
 try{
 new URL(url);
 }catch{
-alert("Invalid URL");
+alert("رابط غير صالح");
 return;
 }
 
-button.innerText = "Shortening...";
+button.innerText = "جارٍ الاختصار...";
 button.disabled = true;
 
 let attempts = 0;
@@ -431,7 +431,7 @@ result.insertAdjacentElement("afterend", retry);
 }
 }
 
-button.innerText = "Shorten Link";
+button.innerText = "اختصار الرابط";
 button.disabled = false;
 
 }
