@@ -2377,7 +2377,9 @@ UNIFIED TOOL PAGE UI
     list-style:none;
     display:flex;
     align-items:center;
+    justify-content:center;
     gap:9px;
+    width:170px;
     min-height:46px;
     padding:10px 16px;
     border:1px solid #dbe4ee;
@@ -2415,6 +2417,8 @@ UNIFIED TOOL PAGE UI
 
 
 .language-selector__label{
+    min-width:72px;
+    text-align:center;
     font-size:16px;
     font-weight:800;
     line-height:1;
