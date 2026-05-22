@@ -34,7 +34,9 @@ gtag('config', 'G-0CH8NE5WDH');
 .upload-btn input{display:none}
 .accordion details{background:#0d2444;border-radius:10px;padding:10px 12px;margin-bottom:10px}
 .accordion summary{cursor:pointer;font-weight:700}
-.option{display:flex;align-items:center;gap:8px;margin:8px 0}
+.option{display:flex;align-items:center;gap:8px;margin:8px 0;justify-content:flex-start;text-align:right}
+.option .size-en{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.option .label-en{direction:ltr;unicode-bidi:isolate;display:inline-block}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .btn{background:#3a78ff;border:none;color:#fff;padding:10px 16px;border-radius:8px;cursor:pointer}
 .btn:disabled{opacity:.5;cursor:not-allowed}
@@ -342,14 +344,14 @@ gtag('config', 'G-0CH8NE5WDH');
 </footer>
 <script>
 const groups={
-"Instagram":[["Profile",320,320],["Story",1080,1920],["Landscape",1080,566],["Square",1080,1080],["IGTV Cover",420,645],["Portrait",1080,1350],["Thumbnail",161,161]],
-"Facebook":[["Profile",170,170],["Landscape",1200,630],["Portrait",630,1200],["Square",1200,1200],["Stories",1080,1920],["Event Cover",1920,1005],["Banner",851,315]],
-"YouTube":[["Thumbnail",1280,720],["Channel Banner",2560,1440]],
-"X (Twitter)":[["Post",1200,675],["Header",1500,500]],
-"LinkedIn":[["Post",1200,627],["Profile",400,400],["Banner",1584,396]],
-"TikTok":[["Video",1080,1920]],
-"Snapchat":[["Story",1080,1920]],
-"Other Sizes":[["1:1 (Square)",1000,1000],["2:3",1000,1500],["3:2",1500,1000],["4:3",1200,900],["9:16",1080,1920],["16:9",1920,1080]]
+"Instagram":[["صورة الملف الشخصي","Profile",320,320],["قصة","Story",1080,1920],["أفقي","Landscape",1080,566],["مربع","Square",1080,1080],["غلاف IGTV","IGTV Cover",420,645],["عمودي","Portrait",1080,1350],["صورة مصغرة","Thumbnail",161,161]],
+"Facebook":[["صورة الملف الشخصي","Profile",170,170],["أفقي","Landscape",1200,630],["عمودي","Portrait",630,1200],["مربع","Square",1200,1200],["قصص","Stories",1080,1920],["غلاف حدث","Event Cover",1920,1005],["لافتة","Banner",851,315]],
+"YouTube":[["صورة مصغرة","Thumbnail",1280,720],["لافتة القناة","Channel Banner",2560,1440]],
+"X (Twitter)":[["منشور","Post",1200,675],["ترويسة","Header",1500,500]],
+"LinkedIn":[["منشور","Post",1200,627],["صورة الملف الشخصي","Profile",400,400],["لافتة","Banner",1584,396]],
+"TikTok":[["فيديو","Video",1080,1920]],
+"Snapchat":[["قصة","Story",1080,1920]],
+"مقاسات أخرى":[["مربع 1:1","1:1 (Square)",1000,1000],["2:3","2:3",1000,1500],["3:2","3:2",1500,1000],["4:3","4:3",1200,900],["9:16","9:16",1080,1920],["16:9","16:9",1920,1080]]
 };
 const panel=document.getElementById('sizePanel');
 const seoNotes={
@@ -361,7 +363,7 @@ const seoNotes={
 "TikTok":"يعتمد محتوى TikTok غالبًا على العرض العمودي والهاتف أولًا. استخدام الصيغة المناسبة يحسن الجودة البصرية ويجعل الصورة تملأ الشاشة بشكل طبيعي.",
 "Snapchat":"تُعرض قصص Snapchat بتنسيق عمودي كامل الشاشة. مطابقة الأبعاد المتوقعة تمنع التمدد والتشوه والقص غير المقصود للعناصر المهمة."
 };
-Object.entries(groups).forEach(([name,opts])=>{const d=document.createElement('details');d.innerHTML=`<summary>${name}</summary><p class=\"status\">${seoNotes[name]||''}</p>`+opts.map(o=>`<label class="option"><input type="checkbox" data-label="${name} - ${o[0]}" data-w="${o[1]}" data-h="${o[2]}"> ${o[0]} (${o[1]}x${o[2]})</label>`).join('');panel.appendChild(d);});
+Object.entries(groups).forEach(([name,opts])=>{const d=document.createElement('details');d.innerHTML=`<summary>${name}</summary><p class=\"status\">${seoNotes[name]||''}</p>`+opts.map(o=>`<label class="option"><input type="checkbox" data-label="${name} - ${o[1]}" data-w="${o[2]}" data-h="${o[3]}"> ${o[0]} <span class="label-en">(${o[1]})</span> <span class="size-en">${o[2]}×${o[3]}</span></label>`).join('');panel.appendChild(d);});
 [...panel.querySelectorAll('summary')].forEach(s=>s.addEventListener('click',e=>{e.preventDefault();const d=s.parentElement;d.open=!d.open;}));
 
 const fileInput=document.getElementById('fileInput'), dropzone=document.getElementById('dropzone'), preview=document.getElementById('preview');
