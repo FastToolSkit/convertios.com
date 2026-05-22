@@ -2383,7 +2383,29 @@ UNIFIED TOOL PAGE UI
     background:#ffffff;
     color:#071a33;
     font-size:13px;
-    font-weight:700;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 8px 22px rgba(15,23,42,.06);
+    transition:background-color .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+
+.language-selector summary::-webkit-details-marker{display:none;}
+
+.language-selector summary::after{
+    content:"▾";
+    font-size:11px;
+    color:#64748b;
+}
+
+.language-selector[open] summary,
+.language-selector summary:hover{
+    border-color:#93c5fd;
+    background:#f8fafc;
+    box-shadow:0 12px 26px rgba(15,23,42,.1);
+}
+
+.language-selector__globe{
+    font-size:15px;
     line-height:1;
     cursor:pointer;
     white-space:nowrap;
@@ -2421,6 +2443,11 @@ UNIFIED TOOL PAGE UI
 @media (max-width:768px){
     .language-selector{
         margin:10px auto 0;
+    }
+
+    .language-selector__menu{
+        right:50%;
+        transform:translateX(50%);
     }
 }
 .rtl-steps,
