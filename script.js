@@ -42,49 +42,6 @@
     }
   }
 
-
-
-  function upgradeHeaderLanguageSwitcher(){
-    document.querySelectorAll('.header-language-switch').forEach(function(container){
-      if(container.closest('.language-selector')) return;
-      if(container.tagName.toLowerCase()==='details' && container.classList.contains('language-selector')) return;
-
-      const links=container.querySelectorAll('a');
-      if(links.length<2) return;
-
-      const details=document.createElement('details');
-      details.className='language-selector ar-language-selector';
-
-      const summary=document.createElement('summary');
-      summary.setAttribute('aria-label','Language selector');
-      summary.innerHTML='<span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">العربية</span>';
-
-      const menu=document.createElement('div');
-      menu.className='language-selector__menu';
-      menu.setAttribute('role','menu');
-      menu.setAttribute('aria-label','Language options');
-
-      const enLink=links[0].cloneNode(true);
-      const arLink=links[1].cloneNode(true);
-
-      arLink.setAttribute('lang','ar');
-      arLink.setAttribute('dir','rtl');
-      enLink.setAttribute('hreflang','en');
-      enLink.textContent='English';
-      arLink.textContent='العربية';
-      enLink.removeAttribute('aria-current');
-      arLink.removeAttribute('aria-current');
-      enLink.setAttribute('role','menuitem');
-      arLink.setAttribute('role','menuitem');
-
-      menu.appendChild(arLink);
-      menu.appendChild(enLink);
-      details.appendChild(summary);
-      details.appendChild(menu);
-      container.replaceWith(details);
-    });
-  }
-
   function updateLanguageSwitcherLinks(){
     const pathname=window.location.pathname || '/';
     const currentIsArabic=pathname==='/ar' || pathname.startsWith('/ar/');
@@ -164,7 +121,6 @@
       });
     });
 
-    upgradeHeaderLanguageSwitcher();
     updateLanguageSwitcherLinks();
 
     document.querySelectorAll('.dropzone').forEach(function(dropzone){
