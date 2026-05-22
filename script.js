@@ -11,6 +11,71 @@
     if(trigger) trigger.setAttribute('aria-expanded','true');
   }
 
+
+
+  function getLanguageCounterpartPath(pathname,targetLang){
+    const cleanPath=(pathname||'/').split('#')[0].split('?')[0];
+    const normalized=cleanPath.startsWith('/')?cleanPath:'/'+cleanPath;
+    const isArabicPath=normalized==='\/ar' || normalized.startsWith('/ar/');
+    const pathWithoutAr=isArabicPath?normalized.replace(/^\/ar(?=\/|$)/,'')||'/':normalized;
+
+    if(targetLang==='ar'){
+      if(pathWithoutAr==='/' || pathWithoutAr==='') return '/ar/';
+      return '/ar'+pathWithoutAr;
+    }
+
+    if(targetLang==='en'){
+      if(pathWithoutAr==='') return '/';
+      return pathWithoutAr;
+    }
+
+    return normalized;
+  }
+
+  function inferTargetLanguage(link,currentIsArabic){
+    const text=(link.textContent||'').trim().toLowerCase();
+    const hreflang=(link.getAttribute('hreflang')||'').toLowerCase();
+    const lang=(link.getAttribute('lang')||'').toLowerCase();
+
+    if(hreflang==='ar' || lang==='ar' || text==='ar' || text.includes('العربية')) return 'ar';
+    if(hreflang==='en' || lang==='en' || text==='en' || text.includes('english') || text.includes('الإنجليزية')) return 'en';
+
+    return currentIsArabic?'en':'ar';
+  }
+
+  function updateLanguageSwitcherLinks(){
+    const pathname=window.location.pathname || '/';
+    const currentIsArabic=pathname==='\/ar' || pathname.startsWith('/ar/');
+    const selectors=[
+      '.header-language-switch a',
+      '.language-selector__menu a',
+      '.lang-switch a'
+    ];
+
+    document.querySelectorAll(selectors.join(',')).forEach(function(link){
+      const href=link.getAttribute('href')||'';
+      if(!href || /^https?:\/\//i.test(href) && !/convertios\.com/i.test(href)) return;
+
+      const targetLang=inferTargetLanguage(link,currentIsArabic);
+      const targetPath=getLanguageCounterpartPath(pathname,targetLang);
+
+      link.setAttribute('href',targetPath);
+      if(/^https?:\/\//i.test(href) && /convertios\.com/i.test(href)){
+        try{
+          const url=new URL(href);
+          url.pathname=targetPath;
+          url.search='';
+          url.hash='';
+          link.setAttribute('href',url.toString());
+        }catch(_err){}
+      }
+      if(targetLang==='ar'){
+        link.setAttribute('lang','ar');
+        link.setAttribute('dir','rtl');
+      }
+    });
+  }
+
   document.addEventListener('DOMContentLoaded',function(){
     document.querySelectorAll('.nav-item.dropdown').forEach(function(dropdown,index){
       const menu=dropdown.querySelector('.dropdown-menu');
@@ -56,6 +121,8 @@
         if(!dropdown.contains(event.target)) closeDropdown(dropdown);
       });
     });
+
+    updateLanguageSwitcherLinks();
 
     document.querySelectorAll('.dropzone').forEach(function(dropzone){
       if(!dropzone.hasAttribute('tabindex')) dropzone.setAttribute('tabindex','0');
