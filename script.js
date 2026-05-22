@@ -42,6 +42,91 @@
     }
   }
 
+
+
+  function ensureHeaderLanguageSwitcher(){
+    const existingHeaders=document.querySelectorAll('.header-language-switch');
+
+    existingHeaders.forEach(function(container){
+      if(container.closest('.language-selector')) return;
+      if(container.tagName.toLowerCase()==='details' && container.classList.contains('language-selector')) return;
+
+      const links=container.querySelectorAll('a');
+      if(links.length<2) return;
+
+      const details=document.createElement('details');
+      details.className='language-selector ar-language-selector';
+
+      const summary=document.createElement('summary');
+      summary.setAttribute('aria-label','Language selector');
+      summary.innerHTML='<span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">العربية</span>';
+
+      const menu=document.createElement('div');
+      menu.className='language-selector__menu';
+      menu.setAttribute('role','menu');
+      menu.setAttribute('aria-label','Language options');
+
+      const enLink=links[0].cloneNode(true);
+      const arLink=links[1].cloneNode(true);
+
+      arLink.setAttribute('lang','ar');
+      arLink.setAttribute('dir','rtl');
+      enLink.setAttribute('hreflang','en');
+      enLink.textContent='English';
+      arLink.textContent='العربية';
+      enLink.removeAttribute('aria-current');
+      arLink.removeAttribute('aria-current');
+      enLink.setAttribute('role','menuitem');
+      arLink.setAttribute('role','menuitem');
+
+      menu.appendChild(arLink);
+      menu.appendChild(enLink);
+      details.appendChild(summary);
+      details.appendChild(menu);
+      container.replaceWith(details);
+    });
+
+
+    if(!document.querySelector('.site-header .language-selector')){
+      const host=document.querySelector('.site-header .faq-wrapper') || document.querySelector('.site-header .nav-icon') || document.querySelector('.site-header');
+      if(host){
+        const details=document.createElement('details');
+        details.className='language-selector ar-language-selector';
+
+        const summary=document.createElement('summary');
+        summary.setAttribute('aria-label','Language selector');
+        summary.innerHTML='<span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">العربية</span>';
+
+        const menu=document.createElement('div');
+        menu.className='language-selector__menu';
+        menu.setAttribute('role','menu');
+        menu.setAttribute('aria-label','Language options');
+
+        const arLink=document.createElement('a');
+        arLink.href='/ar/';
+        arLink.lang='ar';
+        arLink.dir='rtl';
+        arLink.textContent='العربية';
+        arLink.setAttribute('role','menuitem');
+
+        const enLink=document.createElement('a');
+        enLink.href='/';
+        enLink.hreflang='en';
+        enLink.textContent='English';
+        enLink.setAttribute('role','menuitem');
+
+        menu.appendChild(arLink);
+        menu.appendChild(enLink);
+        details.appendChild(summary);
+        details.appendChild(menu);
+
+        if(host.classList.contains('faq-wrapper') || host.classList.contains('nav-icon')) host.appendChild(details);
+        else host.insertBefore(details,host.firstChild);
+      }
+    }
+
+  }
+
   function updateLanguageSwitcherLinks(){
     const pathname=window.location.pathname || '/';
     const currentIsArabic=pathname==='/ar' || pathname.startsWith('/ar/');
@@ -121,6 +206,7 @@
       });
     });
 
+    ensureHeaderLanguageSwitcher();
     updateLanguageSwitcherLinks();
 
     document.querySelectorAll('.dropzone').forEach(function(dropzone){
