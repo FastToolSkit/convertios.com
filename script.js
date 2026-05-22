@@ -11,6 +11,113 @@
     if(trigger) trigger.setAttribute('aria-expanded','true');
   }
 
+  function getLanguageCounterpartPath(pathname,targetLang){
+    const cleanPath=(pathname||'/').split('#')[0].split('?')[0];
+    const normalized=cleanPath.startsWith('/') ? cleanPath : '/'+cleanPath;
+    const isArabicPath=normalized==='/ar' || normalized.startsWith('/ar/');
+    const pathWithoutAr=isArabicPath ? (normalized.replace(/^\/ar(?=\/|$)/,'') || '/') : normalized;
+
+    if(targetLang==='ar') return pathWithoutAr==='/' ? '/ar/' : '/ar'+pathWithoutAr;
+    if(targetLang==='en') return pathWithoutAr || '/';
+    return normalized;
+  }
+
+  function inferTargetLanguage(link,currentIsArabic){
+    const text=(link.textContent||'').trim().toLowerCase();
+    const hreflang=(link.getAttribute('hreflang')||'').toLowerCase();
+    const lang=(link.getAttribute('lang')||'').toLowerCase();
+
+    if(hreflang==='ar' || lang==='ar' || text==='ar' || text.includes('العربية')) return 'ar';
+    if(hreflang==='en' || lang==='en' || text==='en' || text.includes('english') || text.includes('الإنجليزية')) return 'en';
+
+    return currentIsArabic ? 'en' : 'ar';
+  }
+
+  function isExternalNonConvertios(href){
+    if(!/^https?:\/\//i.test(href)) return false;
+    try{
+      return !/convertios\.com$/i.test(new URL(href).hostname);
+    }catch(_err){
+      return true;
+    }
+  }
+
+
+
+  function upgradeHeaderLanguageSwitcher(){
+    document.querySelectorAll('.header-language-switch').forEach(function(container){
+      if(container.closest('.language-selector')) return;
+      if(container.tagName.toLowerCase()==='details' && container.classList.contains('language-selector')) return;
+
+      const links=container.querySelectorAll('a');
+      if(links.length<2) return;
+
+      const details=document.createElement('details');
+      details.className='language-selector ar-language-selector';
+
+      const summary=document.createElement('summary');
+      summary.setAttribute('aria-label','Language selector');
+      summary.innerHTML='<span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">العربية</span>';
+
+      const menu=document.createElement('div');
+      menu.className='language-selector__menu';
+      menu.setAttribute('role','menu');
+      menu.setAttribute('aria-label','Language options');
+
+      const enLink=links[0].cloneNode(true);
+      const arLink=links[1].cloneNode(true);
+
+      arLink.setAttribute('lang','ar');
+      arLink.setAttribute('dir','rtl');
+      enLink.setAttribute('hreflang','en');
+      enLink.textContent='English';
+      arLink.textContent='العربية';
+      enLink.removeAttribute('aria-current');
+      arLink.removeAttribute('aria-current');
+      enLink.setAttribute('role','menuitem');
+      arLink.setAttribute('role','menuitem');
+
+      menu.appendChild(arLink);
+      menu.appendChild(enLink);
+      details.appendChild(summary);
+      details.appendChild(menu);
+      container.replaceWith(details);
+    });
+  }
+
+  function updateLanguageSwitcherLinks(){
+    const pathname=window.location.pathname || '/';
+    const currentIsArabic=pathname==='/ar' || pathname.startsWith('/ar/');
+    const selectors=['.header-language-switch a','.language-selector__menu a','.lang-switch a'];
+
+    document.querySelectorAll(selectors.join(',')).forEach(function(link){
+      const href=link.getAttribute('href')||'';
+      if(!href || isExternalNonConvertios(href)) return;
+
+      const targetLang=inferTargetLanguage(link,currentIsArabic);
+      const targetPath=getLanguageCounterpartPath(pathname,targetLang);
+
+      if(/^https?:\/\//i.test(href)){
+        try{
+          const url=new URL(href);
+          url.pathname=targetPath;
+          url.search='';
+          url.hash='';
+          link.setAttribute('href',url.toString());
+        }catch(_err){
+          link.setAttribute('href',targetPath);
+        }
+      }else{
+        link.setAttribute('href',targetPath);
+      }
+
+      if(targetLang==='ar'){
+        link.setAttribute('lang','ar');
+        link.setAttribute('dir','rtl');
+      }
+    });
+  }
+
   document.addEventListener('DOMContentLoaded',function(){
     document.querySelectorAll('.nav-item.dropdown').forEach(function(dropdown,index){
       const menu=dropdown.querySelector('.dropdown-menu');
@@ -56,6 +163,9 @@
         if(!dropdown.contains(event.target)) closeDropdown(dropdown);
       });
     });
+
+    upgradeHeaderLanguageSwitcher();
+    updateLanguageSwitcherLinks();
 
     document.querySelectorAll('.dropzone').forEach(function(dropzone){
       if(!dropzone.hasAttribute('tabindex')) dropzone.setAttribute('tabindex','0');
