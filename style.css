@@ -2366,13 +2366,17 @@ UNIFIED TOOL PAGE UI
   opacity: 1 !important;
 }
 
-/* Header language switcher */
-.header-language-switch{
+/* Header language selector dropdown */
+.language-selector{
+    position:relative;
+    margin-left:12px;
+}
+
+.language-selector summary{
+    list-style:none;
     display:flex;
     align-items:center;
-    justify-content:center;
-    gap:4px;
-    margin-left:12px;
+    gap:6px;
     padding:7px 10px;
     border:1px solid #dbe4ee;
     border-radius:999px;
@@ -2381,21 +2385,41 @@ UNIFIED TOOL PAGE UI
     font-size:13px;
     font-weight:700;
     line-height:1;
+    cursor:pointer;
     white-space:nowrap;
 }
 
-.header-language-switch a{
-    color:#071a33;
-    text-decoration:none;
+.language-selector summary::-webkit-details-marker{display:none;}
+
+.language-selector__menu{
+    position:absolute;
+    top:calc(100% + 8px);
+    right:0;
+    min-width:170px;
+    border:1px solid #dbe4ee;
+    border-radius:10px;
+    background:#ffffff;
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    padding:8px 0;
+    z-index:2000;
 }
 
-.header-language-switch a:hover,
-.header-language-switch a[aria-current="page"]{
+.language-selector__menu a{
+    display:block;
+    padding:9px 12px;
+    color:#071a33;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.language-selector__menu a:hover,
+.language-selector__menu a[aria-current="page"]{
+    background:#f1f5f9;
     color:#3a78ff;
 }
 
 @media (max-width:768px){
-    .header-language-switch{
+    .language-selector{
         margin:10px auto 0;
     }
 }
