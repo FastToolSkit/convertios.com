@@ -2519,3 +2519,33 @@ UNIFIED TOOL PAGE UI
     text-align: center;
     direction: rtl;
 }
+/* FINAL FORCE OVERRIDE - language selector */
+.site-header .language-selector summary{
+    width:auto !important;
+    min-width:0 !important;
+    height:auto !important;
+    min-height:0 !important;
+    padding:5px 0 !important;
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    color:#cbd5e1 !important;
+    font-size:15px !important;
+    font-weight:600 !important;
+    gap:5px !important;
+}
+
+.site-header .language-selector__globe{
+    display:none !important;
+}
+
+.site-header .language-selector__label{
+    min-width:0 !important;
+    flex:0 0 auto !important;
+}
+
+.site-header .language-selector summary::after{
+    font-size:11px !important;
+    margin-inline-start:3px !important;
+}
