@@ -2367,6 +2367,19 @@ UNIFIED TOOL PAGE UI
 }
 
 /* Header language selector dropdown */
+.language-selector summary{
+    box-sizing:border-box;
+}
+
+.language-selector__globe,
+.language-selector summary::after{
+    flex:0 0 auto;
+}
+
+.language-selector__label{
+    flex:1;
+    text-align:center;
+}
 .language-selector{
     position:relative;
     margin-inline-start:12px;
