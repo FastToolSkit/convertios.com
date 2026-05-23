@@ -2391,19 +2391,65 @@ UNIFIED TOOL PAGE UI
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:9px;
-    width:135px;
-    min-height:46px; 
-    padding:10px 16px;
+
+    gap:6px;
+
+    width:128px;
+    height:44px;
+
+    padding:0 12px;
+
     border:1px solid #dbe4ee;
     border-radius:999px;
+
     background:#ffffff;
     color:#071a33;
-    font-size:16px;
-    font-weight:800;
+
+    font-size:15px;
+    font-weight:700;
+
     cursor:pointer;
-    box-shadow:0 8px 22px rgba(15,23,42,.06);
-    transition:background-color .2s ease,border-color .2s ease,box-shadow .2s ease;
+
+    box-shadow:0 6px 18px rgba(15,23,42,.06);
+
+    transition:
+        background-color .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+
+    box-sizing:border-box;
+}.language-selector summary{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:6px;
+
+    width:128px;
+    height:44px;
+
+    padding:0 12px;
+
+    border:1px solid #dbe4ee;
+    border-radius:999px;
+
+    background:#ffffff;
+    color:#071a33;
+
+    font-size:15px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:0 6px 18px rgba(15,23,42,.06);
+
+    transition:
+        background-color .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+
+    box-sizing:border-box;
 }
 
 .language-selector summary::-webkit-details-marker{display:none;}
