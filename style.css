@@ -2485,3 +2485,54 @@ UNIFIED TOOL PAGE UI
     text-align: center;
     direction: rtl;
 }
+
+/* ===============================
+MOBILE HOMEPAGE PERFORMANCE OVERRIDES
+=============================== */
+@media (max-width: 768px) {
+  .hero {
+    background: #f8fbff;
+    padding: 48px 16px;
+  }
+
+  .hero-bg,
+  .hero-right,
+  .hero-right::before {
+    display: none !important;
+  }
+
+  .hero-container {
+    gap: 18px;
+  }
+
+  .hero-left h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .hero-sub {
+    margin-top: 8px;
+  }
+
+  .hero-search {
+    max-width: 100%;
+  }
+
+  .hero-search input {
+    box-shadow: none;
+  }
+
+  .search-results {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  }
+
+  .site-header {
+    background: #0f172a;
+    border-bottom: 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.14);
+  }
+
+  .logo img {
+    height: 52px;
+  }
+}
