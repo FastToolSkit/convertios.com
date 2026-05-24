@@ -2514,6 +2514,10 @@ MOBILE HOMEPAGE PERFORMANCE OVERRIDES
     margin-top: 8px;
   }
 
+  .hero-badge {
+    background: #e6f0ff;
+  }
+
   .hero-search {
     max-width: 100%;
   }
@@ -2523,13 +2527,13 @@ MOBILE HOMEPAGE PERFORMANCE OVERRIDES
   }
 
   .search-results {
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    box-shadow: none;
   }
 
   .site-header {
     background: #0f172a;
     border-bottom: 0;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.14);
+    box-shadow: none;
   }
 
   .logo img {
