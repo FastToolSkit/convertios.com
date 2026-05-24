@@ -178,6 +178,61 @@
     });
   }
 
+
+
+  function initHomepageToolSearch(){
+    const searchInput=document.getElementById('toolSearch');
+    const resultsBox=document.getElementById('searchResults');
+    if(!searchInput || !resultsBox) return;
+
+    const toolsData=[
+      { name: 'PDF to Word', url: 'pdf-to-word.html', keywords: 'pdf word document' },
+      { name: 'PDF to JPG', url: 'pdf-to-jpg.html', keywords: 'pdf image jpg' },
+      { name: 'JPG to PDF', url: 'jpg-to-pdf.html', keywords: 'jpg pdf image' },
+      { name: 'Merge PDF', url: 'merge-pdf.html', keywords: 'merge pdf combine' },
+      { name: 'Split PDF', url: 'split-pdf.html', keywords: 'split pdf separate' },
+      { name: 'Rotate PDF', url: 'rotate-pdf.html', keywords: 'rotate pdf' },
+      { name: 'PNG to JPG', url: 'png-to-jpg.html', keywords: 'png jpg image convert' },
+      { name: 'JPG to PNG', url: 'jpg-to-png.html', keywords: 'jpg png image' },
+      { name: 'WEBP to PNG', url: 'webp-to-png.html', keywords: 'webp png image' },
+      { name: 'Image Converter', url: 'image-converter.html', keywords: 'image convert' },
+      { name: 'Image Resizer', url: 'image-resizer.html', keywords: 'resize image' },
+      { name: 'Compress Image', url: 'compress-image.html', keywords: 'compress image reduce size' },
+      { name: 'Remove Background', url: 'remove-bg.html', keywords: 'remove background image' },
+      { name: 'MP3 Cutter', url: 'mp3-cutter.html', keywords: 'mp3 audio cut trim' },
+      { name: 'Audio Converter', url: 'audio-converter.html', keywords: 'audio convert mp3 wav' },
+      { name: 'Audio Speed Changer', url: 'audio-speed-changer.html', keywords: 'audio speed change' },
+      { name: 'QR Code Generator', url: 'qr-generator.html', keywords: 'qr code generator' },
+      { name: 'Link Shortener', url: 'link-shortener.html', keywords: 'shorten link url' },
+      { name: 'Password Generator', url: 'password-generator.html', keywords: 'generate password' },
+      { name: 'Word Counter', url: 'word-counter.html', keywords: 'count words text' },
+      { name: 'Text Formatter', url: 'text-formatter.html', keywords: 'format text clean' },
+      { name: 'Unit Converter', url: 'unit-converter.html', keywords: 'convert units' },
+      { name: 'Meme Generator', url: 'meme-generator.html', keywords: 'meme generator create' }
+    ];
+
+    searchInput.addEventListener('input',function(){
+      const value=this.value.toLowerCase().trim();
+      resultsBox.innerHTML='';
+      if(!value){ resultsBox.style.display='none'; return; }
+      const filtered=toolsData.filter(tool => tool.name.toLowerCase().includes(value) || tool.keywords.toLowerCase().includes(value));
+      if(!filtered.length){ resultsBox.style.display='none'; return; }
+      filtered.forEach(tool => {
+        const div=document.createElement('div');
+        div.className='search-item';
+        div.textContent=tool.name;
+        div.addEventListener('click',() => { window.location.href=tool.url; });
+        resultsBox.appendChild(div);
+      });
+      resultsBox.style.display='block';
+    });
+
+    document.addEventListener('click',function(e){
+      const wrapper=document.querySelector('.hero-search');
+      if(wrapper && !wrapper.contains(e.target)) resultsBox.style.display='none';
+    });
+  }
+
   document.addEventListener('DOMContentLoaded',function(){
     document.querySelectorAll('.nav-item.dropdown').forEach(function(dropdown,index){
       const menu=dropdown.querySelector('.dropdown-menu');
@@ -227,6 +282,7 @@
     ensureHeaderLanguageSwitcher();
     normalizeLanguageSelectorLabels();
     updateLanguageSwitcherLinks();
+    initHomepageToolSearch();
 
     document.querySelectorAll('.dropzone').forEach(function(dropzone){
       if(!dropzone.hasAttribute('tabindex')) dropzone.setAttribute('tabindex','0');

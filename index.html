@@ -13,6 +13,8 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
     
 
 <title>Convertios - Free Online Tools for Files, Images & PDFs</title>
@@ -21,6 +23,20 @@ gtag('config', 'G-0CH8NE5WDH');
     <meta name="robots" content="index, follow">
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
 <meta name="yandex-verification" content="93fda3d8632afa38" />
+<style>
+/* Critical above-the-fold mobile styles to reduce LCP render delay */
+@media (max-width:768px){
+  .site-header{display:flex;flex-direction:column;gap:10px;padding:10px;background:#0f172a;box-shadow:0 1px 4px rgba(0,0,0,.14)}
+  .logo img{height:52px;width:auto}
+  .hero{padding:48px 16px;background:#f8fbff;overflow:hidden}
+  .hero-container{display:flex;flex-direction:column;text-align:center;gap:18px}
+  .hero-bg,.hero-right,.hero-right::before{display:none!important}
+  .hero-left h1{font-size:2rem;line-height:1.2}
+  .hero-sub{margin-top:8px}
+  .hero-search{max-width:100%}
+  .hero-search input{width:100%;max-width:400px;box-shadow:none}
+}
+</style>
 <link rel="stylesheet" href="style.css?v=7">
 <link rel="icon" href="/favicon.ico">
 <link rel="canonical" href="https://convertios.com/">
@@ -120,7 +136,7 @@ else {
 
 <div class="header-left">
     <a href="index.html" class="logo">
-        <img src="convertios-logo.png" alt="Convertios Logo" width="2211" height="1234">
+        <img src="convertios-logo.png" alt="Convertios Logo" width="221" height="123" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -499,121 +515,8 @@ The platform is optimized for performance and usability, ensuring fast loading t
 
 </footer>
 <script>
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
-
-window.onload = function() {
-    window.scrollTo(0, 0);
-};
-// ==========================
-// DROPDOWN
-// ==========================
-document.querySelectorAll(".dropdown span").forEach(item => {
-    item.addEventListener("click", function(e){
-        e.stopPropagation();
-
-        document.querySelectorAll(".dropdown-menu").forEach(menu => {
-            if(menu !== this.nextElementSibling){
-                menu.style.display = "none";
-            }
-        });
-
-        const menu = this.nextElementSibling;
-        menu.style.display = (menu.style.display === "block") ? "none" : "block";
-    });
-});
-
-document.addEventListener("click", () => {
-    document.querySelectorAll(".dropdown-menu").forEach(menu => {
-        menu.style.display = "none";
-    });
-});
-
-
-// ==========================
-// SEARCH SYSTEM
-// ==========================
-const searchInput = document.getElementById("toolSearch");
-const resultsBox = document.getElementById("searchResults");
-
-const toolsData = [
-    { name: "PDF to Word", url: "pdf-to-word.html", keywords: "pdf word document" },
-    { name: "PDF to JPG", url: "pdf-to-jpg.html", keywords: "pdf image jpg" },
-    { name: "JPG to PDF", url: "jpg-to-pdf.html", keywords: "jpg pdf image" },
-    { name: "Merge PDF", url: "merge-pdf.html", keywords: "merge pdf combine" },
-    { name: "Split PDF", url: "split-pdf.html", keywords: "split pdf separate" },
-    { name: "Rotate PDF", url: "rotate-pdf.html", keywords: "rotate pdf" },
-
-    { name: "PNG to JPG", url: "png-to-jpg.html", keywords: "png jpg image convert" },
-    { name: "JPG to PNG", url: "jpg-to-png.html", keywords: "jpg png image" },
-    { name: "WEBP to PNG", url: "webp-to-png.html", keywords: "webp png image" },
-    { name: "Image Converter", url: "image-converter.html", keywords: "image convert" },
-    { name: "Image Resizer", url: "image-resizer.html", keywords: "resize image" },
-    { name: "Compress Image", url: "compress-image.html", keywords: "compress image reduce size" },
-    { name: "Remove Background", url: "remove-bg.html", keywords: "remove background image" },
-
-    { name: "MP3 Cutter", url: "mp3-cutter.html", keywords: "mp3 audio cut trim" },
-    { name: "Audio Converter", url: "audio-converter.html", keywords: "audio convert mp3 wav" },
-    { name: "Audio Speed Changer", url: "audio-speed-changer.html", keywords: "audio speed change" },
-
-    { name: "QR Code Generator", url: "qr-generator.html", keywords: "qr code generator" },
-    { name: "Link Shortener", url: "link-shortener.html", keywords: "shorten link url" },
-    { name: "Password Generator", url: "password-generator.html", keywords: "generate password" },
-    { name: "Word Counter", url: "word-counter.html", keywords: "count words text" },
-    { name: "Text Formatter", url: "text-formatter.html", keywords: "format text clean" },
-    { name: "Unit Converter", url: "unit-converter.html", keywords: "convert units" },
-    { name: "Meme Generator", url: "meme-generator.html", keywords: "meme generator create" }
-];
-
-// ✅ prevent errors on pages without search
-if (searchInput && resultsBox) {
-
-    searchInput.addEventListener("input", function() {
-        const value = this.value.toLowerCase().trim();
-
-        resultsBox.innerHTML = "";
-
-        if (value === "") {
-            resultsBox.style.display = "none";
-            return;
-        }
-
-        const filtered = toolsData.filter(tool =>
-            tool.name.toLowerCase().includes(value) ||
-            tool.keywords.toLowerCase().includes(value)
-        );
-
-        if (filtered.length === 0) {
-            resultsBox.style.display = "none";
-            return;
-        }
-
-        filtered.forEach(tool => {
-            const div = document.createElement("div");
-            div.classList.add("search-item");
-            div.textContent = tool.name;
-
-            div.addEventListener("click", () => {
-                window.location.href = tool.url;
-            });
-
-            resultsBox.appendChild(div);
-        });
-
-        resultsBox.style.display = "block";
-    });
-
-    // hide when clicking outside
-    document.addEventListener("click", (e) => {
-        if (!document.querySelector(".hero-search")?.contains(e.target)) {
-            resultsBox.style.display = "none";
-        }
-    });
-}
-
-
-
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.addEventListener('load', () => window.scrollTo(0, 0), { once: true });
 </script>
 <script src="script.js" defer></script>
 </body>
