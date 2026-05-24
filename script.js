@@ -129,6 +129,22 @@
 
   }
 
+  function normalizeLanguageSelectorLabels(){
+    const pathname=window.location.pathname || '/';
+    const currentIsArabic=pathname==='/ar' || pathname.startsWith('/ar/');
+    const labelText=currentIsArabic ? 'العربية' : 'English';
+    const ariaLabel=currentIsArabic ? 'اختيار اللغة' : 'Change language';
+
+    document.querySelectorAll('.language-selector').forEach(function(selector){
+      selector.classList.toggle('ar-language-selector',currentIsArabic);
+      const summary=selector.querySelector('summary');
+      if(!summary) return;
+      summary.setAttribute('aria-label',ariaLabel);
+      const label=summary.querySelector('.language-selector__label');
+      if(label) label.textContent=labelText;
+    });
+  }
+
   function updateLanguageSwitcherLinks(){
     const pathname=window.location.pathname || '/';
     const currentIsArabic=pathname==='/ar' || pathname.startsWith('/ar/');
@@ -209,6 +225,7 @@
     });
 
     ensureHeaderLanguageSwitcher();
+    normalizeLanguageSelectorLabels();
     updateLanguageSwitcherLinks();
 
     document.querySelectorAll('.dropzone').forEach(function(dropzone){
