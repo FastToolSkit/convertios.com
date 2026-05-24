@@ -23,6 +23,20 @@ gtag('config', 'G-0CH8NE5WDH');
     <meta name="robots" content="index, follow">
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
 <meta name="yandex-verification" content="93fda3d8632afa38" />
+<style>
+/* Critical above-the-fold mobile styles to reduce LCP render delay */
+@media (max-width:768px){
+  .site-header{display:flex;flex-direction:column;gap:10px;padding:10px;background:#0f172a;box-shadow:0 1px 4px rgba(0,0,0,.14)}
+  .logo img{height:52px;width:auto}
+  .hero{padding:48px 16px;background:#f8fbff;overflow:hidden}
+  .hero-container{display:flex;flex-direction:column;text-align:center;gap:18px}
+  .hero-bg,.hero-right,.hero-right::before{display:none!important}
+  .hero-left h1{font-size:2rem;line-height:1.2}
+  .hero-sub{margin-top:8px}
+  .hero-search{max-width:100%}
+  .hero-search input{width:100%;max-width:400px;box-shadow:none}
+}
+</style>
 <link rel="stylesheet" href="style.css?v=7">
 <link rel="icon" href="/favicon.ico">
 <link rel="canonical" href="https://convertios.com/">
@@ -122,7 +136,7 @@ else {
 
 <div class="header-left">
     <a href="index.html" class="logo">
-        <img src="convertios-logo.png" alt="Convertios Logo" width="221" height="123">
+        <img src="convertios-logo.png" alt="Convertios Logo" width="221" height="123" fetchpriority="high" decoding="async">
     </a>
 </div>
 
