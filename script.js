@@ -45,6 +45,8 @@
 
 
   function ensureHeaderLanguageSwitcher(){
+    const pathname=window.location.pathname || '/';
+    const currentIsArabic=pathname==='/ar' || pathname.startsWith('/ar/');
     const existingHeaders=document.querySelectorAll('.header-language-switch');
 
     existingHeaders.forEach(function(container){
@@ -55,11 +57,11 @@
       if(links.length<2) return;
 
       const details=document.createElement('details');
-      details.className='language-selector ar-language-selector';
+      details.className=currentIsArabic ? 'language-selector ar-language-selector' : 'language-selector';
 
       const summary=document.createElement('summary');
-      summary.setAttribute('aria-label','Language selector');
-      summary.innerHTML='<span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">العربية</span>';
+      summary.setAttribute('aria-label',currentIsArabic ? 'اختيار اللغة' : 'Change language');
+      summary.innerHTML='<span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">'+(currentIsArabic ? 'العربية' : 'English')+'</span>';
 
       const menu=document.createElement('div');
       menu.className='language-selector__menu';
@@ -91,11 +93,11 @@
       const host=document.querySelector('.site-header .faq-wrapper') || document.querySelector('.site-header .nav-icon') || document.querySelector('.site-header');
       if(host){
         const details=document.createElement('details');
-        details.className='language-selector ar-language-selector';
+        details.className=currentIsArabic ? 'language-selector ar-language-selector' : 'language-selector';
 
         const summary=document.createElement('summary');
-        summary.setAttribute('aria-label','Language selector');
-        summary.innerHTML='<span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">العربية</span>';
+        summary.setAttribute('aria-label',currentIsArabic ? 'اختيار اللغة' : 'Change language');
+        summary.innerHTML='<span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">'+(currentIsArabic ? 'العربية' : 'English')+'</span>';
 
         const menu=document.createElement('div');
         menu.className='language-selector__menu';
