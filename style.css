@@ -1181,6 +1181,15 @@ margin-bottom:8px;
 .security-item:hover{
     background: rgba(255,255,255,0.05);
 }
+
+.security-page h1{
+    text-align:center;
+    margin:32px 0 24px;
+}
+
+.security-page .security-item:last-of-type{
+    margin-bottom:56px;
+}
 /* MOBILE */
 @media (max-width:768px){
     .security-grid{
