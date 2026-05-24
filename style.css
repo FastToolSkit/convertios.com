@@ -1190,6 +1190,10 @@ margin-bottom:8px;
 .security-page .security-item:last-of-type{
     margin-bottom:56px;
 }
+
+.security-page .site-footer{
+    margin-top:56px;
+}
 /* MOBILE */
 @media (max-width:768px){
     .security-grid{
