@@ -14,23 +14,42 @@
   function getLanguageCounterpartPath(pathname,targetLang){
     const cleanPath=(pathname||'/').split('#')[0].split('?')[0];
     const normalized=cleanPath.startsWith('/') ? cleanPath : '/'+cleanPath;
-    const isArabicPath=normalized==='/ar' || normalized.startsWith('/ar/');
-    const pathWithoutAr=isArabicPath ? (normalized.replace(/^\/ar(?=\/|$)/,'') || '/') : normalized;
+    const pathWithoutLanguage=normalized.replace(/^\/(?:ar|es)(?=\/|$)/,'') || '/';
 
-    if(targetLang==='ar') return pathWithoutAr==='/' ? '/ar/' : '/ar'+pathWithoutAr;
-    if(targetLang==='en') return pathWithoutAr || '/';
-    return normalized;
+    if(targetLang==='ar') return pathWithoutLanguage==='/' ? '/ar/' : '/ar'+pathWithoutLanguage;
+    if(targetLang==='es') return pathWithoutLanguage==='/' ? '/es/' : '/es'+pathWithoutLanguage;
+    return pathWithoutLanguage || '/';
   }
 
-  function inferTargetLanguage(link,currentIsArabic){
+  function getCurrentLanguage(pathname){
+    const normalized=(pathname||'/').startsWith('/') ? (pathname||'/') : '/'+pathname;
+    if(normalized==='/ar' || normalized.startsWith('/ar/')) return 'ar';
+    if(normalized==='/es' || normalized.startsWith('/es/')) return 'es';
+    return 'en';
+  }
+
+  function languageLabel(language){
+    if(language==='ar') return 'العربية';
+    if(language==='es') return 'Español';
+    return 'English';
+  }
+
+  function languageAriaLabel(language){
+    if(language==='ar') return 'اختيار اللغة';
+    if(language==='es') return 'Cambiar idioma';
+    return 'Change language';
+  }
+
+  function inferTargetLanguage(link,currentLanguage){
     const text=(link.textContent||'').trim().toLowerCase();
     const hreflang=(link.getAttribute('hreflang')||'').toLowerCase();
     const lang=(link.getAttribute('lang')||'').toLowerCase();
 
     if(hreflang==='ar' || lang==='ar' || text==='ar' || text.includes('العربية')) return 'ar';
+    if(hreflang==='es' || lang==='es' || text==='es' || text.includes('español')) return 'es';
     if(hreflang==='en' || lang==='en' || text==='en' || text.includes('english') || text.includes('الإنجليزية')) return 'en';
 
-    return currentIsArabic ? 'en' : 'ar';
+    return currentLanguage;
   }
 
   function isExternalNonConvertios(href){
@@ -46,7 +65,8 @@
 
   function ensureHeaderLanguageSwitcher(){
     const pathname=window.location.pathname || '/';
-    const currentIsArabic=pathname==='/ar' || pathname.startsWith('/ar/');
+    const currentLanguage=getCurrentLanguage(pathname);
+    const currentIsArabic=currentLanguage==='ar';
     const existingHeaders=document.querySelectorAll('.header-language-switch');
 
     existingHeaders.forEach(function(container){
@@ -60,8 +80,8 @@
       details.className=currentIsArabic ? 'language-selector ar-language-selector' : 'language-selector';
 
       const summary=document.createElement('summary');
-      summary.setAttribute('aria-label',currentIsArabic ? 'اختيار اللغة' : 'Change language');
-      summary.innerHTML='<span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">'+(currentIsArabic ? 'العربية' : 'English')+'</span>';
+      summary.setAttribute('aria-label',languageAriaLabel(currentLanguage));
+      summary.innerHTML='<span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">'+languageLabel(currentLanguage)+'</span>';
 
       const menu=document.createElement('div');
       menu.className='language-selector__menu';
@@ -96,8 +116,8 @@
         details.className=currentIsArabic ? 'language-selector ar-language-selector' : 'language-selector';
 
         const summary=document.createElement('summary');
-        summary.setAttribute('aria-label',currentIsArabic ? 'اختيار اللغة' : 'Change language');
-        summary.innerHTML='<span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">'+(currentIsArabic ? 'العربية' : 'English')+'</span>';
+        summary.setAttribute('aria-label',languageAriaLabel(currentLanguage));
+        summary.innerHTML='<span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">'+languageLabel(currentLanguage)+'</span>';
 
         const menu=document.createElement('div');
         menu.className='language-selector__menu';
@@ -131,9 +151,10 @@
 
   function normalizeLanguageSelectorLabels(){
     const pathname=window.location.pathname || '/';
-    const currentIsArabic=pathname==='/ar' || pathname.startsWith('/ar/');
-    const labelText=currentIsArabic ? 'العربية' : 'English';
-    const ariaLabel=currentIsArabic ? 'اختيار اللغة' : 'Change language';
+    const currentLanguage=getCurrentLanguage(pathname);
+    const currentIsArabic=currentLanguage==='ar';
+    const labelText=languageLabel(currentLanguage);
+    const ariaLabel=languageAriaLabel(currentLanguage);
 
     document.querySelectorAll('.language-selector').forEach(function(selector){
       selector.classList.toggle('ar-language-selector',currentIsArabic);
@@ -147,14 +168,14 @@
 
   function updateLanguageSwitcherLinks(){
     const pathname=window.location.pathname || '/';
-    const currentIsArabic=pathname==='/ar' || pathname.startsWith('/ar/');
+    const currentLanguage=getCurrentLanguage(pathname);
     const selectors=['.header-language-switch a','.language-selector__menu a','.lang-switch a'];
 
     document.querySelectorAll(selectors.join(',')).forEach(function(link){
       const href=link.getAttribute('href')||'';
       if(!href || isExternalNonConvertios(href)) return;
 
-      const targetLang=inferTargetLanguage(link,currentIsArabic);
+      const targetLang=inferTargetLanguage(link,currentLanguage);
       const targetPath=getLanguageCounterpartPath(pathname,targetLang);
 
       if(/^https?:\/\//i.test(href)){
