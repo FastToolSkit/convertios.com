@@ -3,375 +3,440 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
 <url>
-<loc>https://convertios.com/</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/"/>
+  <loc>https://convertios.com/about/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/all-tools.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/all-tools.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/all-tools.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/all-tools.html"/>
+  <loc>https://convertios.com/ai-image-enhancer/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/ai-image-enhancer/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/ai-image-enhancer/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/ai-image-enhancer/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/mp3-cutter.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/mp3-cutter.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/mp3-cutter.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/mp3-cutter.html"/>
+  <loc>https://convertios.com/all-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/all-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/all-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/all-tools/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/trim-audio-online.html</loc>
+  <loc>https://convertios.com/ar/about/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/audio-converter.html</loc>
+  <loc>https://convertios.com/ar/ai-image-enhancer/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/ai-image-enhancer/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/ai-image-enhancer/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/ai-image-enhancer/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/audio-speed-changer.html</loc>
+  <loc>https://convertios.com/ar/all-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/all-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/all-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/all-tools/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/compress-image.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image.html"/>
+  <loc>https://convertios.com/ar/audio-converter/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/compress-image-to-20kb.html</loc>
+  <loc>https://convertios.com/ar/audio-speed-changer/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/compress-image-to-50kb.html</loc>
+  <loc>https://convertios.com/ar/audio-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/audio-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/audio-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/audio-tools/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/compress-image-to-100kb.html</loc>
+  <loc>https://convertios.com/ar/compress-image/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/image-converter.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-converter.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-converter.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-converter.html"/>
+  <loc>https://convertios.com/ar/compress-image-to-100kb/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image-to-100kb/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image-to-100kb/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image-to-100kb/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/image-resizer.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-resizer.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-resizer.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-resizer.html"/>
+  <loc>https://convertios.com/ar/compress-image-to-20kb/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image-to-20kb/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image-to-20kb/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image-to-20kb/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/remove-bg.html</loc>
+  <loc>https://convertios.com/ar/compress-image-to-50kb/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image-to-50kb/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image-to-50kb/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image-to-50kb/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/webp-to-png.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/webp-to-png.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/webp-to-png.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/webp-to-png.html"/>
+  <loc>https://convertios.com/ar/contact/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/png-to-jpg.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/png-to-jpg.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/png-to-jpg.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/png-to-jpg.html"/>
+  <loc>https://convertios.com/ar/faq/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/jpg-to-png.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/jpg-to-png.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/jpg-to-png.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/jpg-to-png.html"/>
+  <loc>https://convertios.com/ar/image-converter/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-converter/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-converter/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-converter/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/pdf-to-word.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-to-word.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-to-word.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-to-word.html"/>
+  <loc>https://convertios.com/ar/image-resizer/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-resizer/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/pdf-to-jpg.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-to-jpg.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-to-jpg.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-to-jpg.html"/>
+  <loc>https://convertios.com/ar/image-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-tools/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/jpg-to-pdf.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/jpg-to-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/jpg-to-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/jpg-to-pdf.html"/>
+  <loc>https://convertios.com/ar/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/merge-pdf.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/merge-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/merge-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/merge-pdf.html"/>
+  <loc>https://convertios.com/ar/jpg-to-png/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/jpg-to-png/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/jpg-to-png/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/jpg-to-png/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/split-pdf.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/split-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/split-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/split-pdf.html"/>
+  <loc>https://convertios.com/ar/link-shortener/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/rotate-pdf.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/rotate-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/rotate-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/rotate-pdf.html"/>
+  <loc>https://convertios.com/ar/meme-generator/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/es/mp3-cutter.html</loc>
+  <loc>https://convertios.com/ar/mp3-cutter/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/mp3-cutter/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/mp3-cutter/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/mp3-cutter/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/es/image-converter.html</loc>
+  <loc>https://convertios.com/ar/other-tools/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/qr-generator.html</loc>
+  <loc>https://convertios.com/ar/password-generator/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/password-generator.html</loc>
+  <loc>https://convertios.com/ar/pdf-to-word/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-to-word/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-to-word/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-to-word/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/word-counter.html</loc>
+  <loc>https://convertios.com/ar/png-to-jpg/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/png-to-jpg/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/png-to-jpg/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/png-to-jpg/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/text-formatter.html</loc>
+  <loc>https://convertios.com/ar/privacy/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/unit-converter.html</loc>
+  <loc>https://convertios.com/ar/qr-generator/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/meme-generator.html</loc>
+  <loc>https://convertios.com/ar/remove-bg/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/remove-bg/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/remove-bg/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/remove-bg/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/about.html</loc>
+  <loc>https://convertios.com/ar/rotate-pdf/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/rotate-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/rotate-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/rotate-pdf/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/contact.html</loc>
+  <loc>https://convertios.com/ar/security/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/privacy.html</loc>
+  <loc>https://convertios.com/ar/social-media-image-resizer/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/social-media-image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/social-media-image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/social-media-image-resizer/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/terms.html</loc>
+  <loc>https://convertios.com/ar/terms/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/security.html</loc>
+  <loc>https://convertios.com/ar/text-formatter/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/faq.html</loc>
+  <loc>https://convertios.com/ar/trim-audio-online/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/ai-image-enhancer.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/ai-image-enhancer.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/ai-image-enhancer.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/ai-image-enhancer.html"/>
+  <loc>https://convertios.com/ar/unit-converter/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/audio-tools.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/audio-tools.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/audio-tools.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/audio-tools.html"/>
+  <loc>https://convertios.com/ar/webp-to-png/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/webp-to-png/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/webp-to-png/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/webp-to-png/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/image-tools.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-tools.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-tools.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-tools.html"/>
+  <loc>https://convertios.com/ar/word-counter/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/link-shortener.html</loc>
+  <loc>https://convertios.com/audio-converter/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/other-tools.html</loc>
+  <loc>https://convertios.com/audio-speed-changer/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/pdf-tools.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-tools.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-tools.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-tools.html"/>
+  <loc>https://convertios.com/audio-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/audio-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/audio-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/audio-tools/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/social-media-image-resizer.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/social-media-image-resizer.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/social-media-image-resizer.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/social-media-image-resizer.html"/>
+  <loc>https://convertios.com/compress-image/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/"/>
+  <loc>https://convertios.com/compress-image-to-100kb/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/all-tools.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/all-tools.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/all-tools.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/all-tools.html"/>
+  <loc>https://convertios.com/compress-image-to-20kb/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/image-tools.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-tools.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-tools.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-tools.html"/>
+  <loc>https://convertios.com/compress-image-to-50kb/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/pdf-tools.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-tools.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-tools.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-tools.html"/>
+  <loc>https://convertios.com/contact/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/audio-tools.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/audio-tools.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/audio-tools.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/audio-tools.html"/>
+  <loc>https://convertios.com/es/image-converter/</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/image-converter/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-converter/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/png-to-jpg.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/png-to-jpg.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/png-to-jpg.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/png-to-jpg.html"/>
+  <loc>https://convertios.com/es/mp3-cutter/</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/mp3-cutter/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/mp3-cutter/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/jpg-to-png.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/jpg-to-png.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/jpg-to-png.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/jpg-to-png.html"/>
+  <loc>https://convertios.com/faq/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/webp-to-png.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/webp-to-png.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/webp-to-png.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/webp-to-png.html"/>
+  <loc>https://convertios.com/image-converter/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-converter/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-converter/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-converter/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/image-converter.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-converter.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-converter.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-converter.html"/>
+  <loc>https://convertios.com/image-resizer/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-resizer/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/image-resizer.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-resizer.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-resizer.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-resizer.html"/>
+  <loc>https://convertios.com/image-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-tools/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/compress-image.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image.html"/>
+  <loc>https://convertios.com/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/social-media-image-resizer.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/social-media-image-resizer.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/social-media-image-resizer.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/social-media-image-resizer.html"/>
+  <loc>https://convertios.com/jpg-to-pdf/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/jpg-to-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/jpg-to-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/jpg-to-pdf/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/ai-image-enhancer.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/ai-image-enhancer.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/ai-image-enhancer.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/ai-image-enhancer.html"/>
+  <loc>https://convertios.com/jpg-to-png/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/jpg-to-png/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/jpg-to-png/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/jpg-to-png/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/pdf-to-word.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-to-word.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-to-word.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-to-word.html"/>
+  <loc>https://convertios.com/link-shortener/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/pdf-to-jpg.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-to-jpg.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-to-jpg.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-to-jpg.html"/>
+  <loc>https://convertios.com/meme-generator/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/jpg-to-pdf.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/jpg-to-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/jpg-to-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/jpg-to-pdf.html"/>
+  <loc>https://convertios.com/merge-pdf/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/merge-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/merge-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/merge-pdf/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/merge-pdf.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/merge-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/merge-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/merge-pdf.html"/>
+  <loc>https://convertios.com/mp3-cutter/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/mp3-cutter/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/mp3-cutter/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/mp3-cutter/"/>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/split-pdf.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/split-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/split-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/split-pdf.html"/>
+  <loc>https://convertios.com/other-tools/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/rotate-pdf.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/rotate-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/rotate-pdf.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/rotate-pdf.html"/>
+  <loc>https://convertios.com/password-generator/</loc>
 </url>
 
 <url>
-<loc>https://convertios.com/ar/mp3-cutter.html</loc>
-<xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/mp3-cutter.html"/>
-<xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/mp3-cutter.html"/>
-<xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/mp3-cutter.html"/>
+  <loc>https://convertios.com/pdf-to-jpg/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-to-jpg/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-to-jpg/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-to-jpg/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pdf-to-word/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-to-word/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-to-word/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-to-word/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pdf-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-tools/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/png-to-jpg/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/png-to-jpg/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/png-to-jpg/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/png-to-jpg/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/privacy/</loc>
+</url>
+
+<url>
+  <loc>https://convertios.com/qr-generator/</loc>
+</url>
+
+<url>
+  <loc>https://convertios.com/remove-bg/</loc>
+</url>
+
+<url>
+  <loc>https://convertios.com/rotate-pdf/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/rotate-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/rotate-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/rotate-pdf/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/security/</loc>
+</url>
+
+<url>
+  <loc>https://convertios.com/social-media-image-resizer/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/social-media-image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/social-media-image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/social-media-image-resizer/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/split-pdf/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/split-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/split-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/split-pdf/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/terms/</loc>
+</url>
+
+<url>
+  <loc>https://convertios.com/text-formatter/</loc>
+</url>
+
+<url>
+  <loc>https://convertios.com/trim-audio-online/</loc>
+</url>
+
+<url>
+  <loc>https://convertios.com/unit-converter/</loc>
+</url>
+
+<url>
+  <loc>https://convertios.com/webp-to-png/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/webp-to-png/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/webp-to-png/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/webp-to-png/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/word-counter/</loc>
 </url>
 
 </urlset>
