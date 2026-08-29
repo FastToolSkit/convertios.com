@@ -113,6 +113,7 @@ line-height:1.8;
 <link rel="canonical" href="https://convertios.com/webp-to-png/">
 <link rel="alternate" hreflang="en" href="https://convertios.com/webp-to-png/">
 <link rel="alternate" hreflang="ar" href="https://convertios.com/ar/webp-to-png/">
+<link rel="alternate" hreflang="es" href="https://convertios.com/es/webp-to-png/">
 <link rel="alternate" hreflang="x-default" href="https://convertios.com/webp-to-png/">
 <!-- Convertios SEO social metadata -->
 <meta property="og:title" content="WEBP to PNG Converter Online | Convertios">
@@ -285,6 +286,7 @@ line-height:1.8;
   <div class="language-selector__menu" role="menu" aria-label="Language options">
     <a href="https://convertios.com/webp-to-png/" aria-current="page" role="menuitem">English</a>
     <a href="https://convertios.com/ar/webp-to-png/" lang="ar" dir="rtl" hreflang="ar" role="menuitem">العربية</a>
+    <a href="https://convertios.com/es/webp-to-png/" hreflang="es" role="menuitem">Español</a>
   </div>
 </details>
 </header>
@@ -296,7 +298,7 @@ Convert WEBP images to PNG instantly with optimized quality.
   
 <div id="drop-area">
 <p>Click or drag images here</p>
-<input type="file" id="upload" multiple accept="accept="image/webp" aria-label="Choose a file to process">
+<input type="file" id="upload" multiple accept="image/webp" aria-label="Choose a file to process">
 </div>
 
 <div id="preview"></div>
@@ -528,7 +530,7 @@ ctx.drawImage(img,0,0);
 
 let png = canvas.toDataURL("image/png");
 let link=document.createElement("a");
-link.href=jpg;
+link.href=png;
 link.download = "converted_"+(i+1)+".png";
   link.innerText="Download Image "+(i+1);
 
