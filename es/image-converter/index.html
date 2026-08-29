@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-0CH8NE5WDH');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Convertidor de Imágenes Online – JPG, PNG, WEBP Gratis | Convertios</title>
+
+<meta name="description" content="Convierte imágenes online gratis. Cambia JPG, PNG, WEBP, BMP y GIF al instante. Rápido, seguro y sin subir archivos.">
+
+<link rel="canonical" href="https://convertios.com/es/image-converter/">
+
+<!-- hreflang (IMPORTANT) -->
+<link rel="alternate" hreflang="es" href="https://convertios.com/es/image-converter/">
+<link rel="alternate" hreflang="en" href="https://convertios.com/image-converter/">
+
+<meta name="keywords" content="convertidor de imágenes, convertir JPG a PNG, PNG a WEBP, convertir imágenes online, convertidor de imágenes gratis">
+
+<meta name="robots" content="index, follow">
+
+<link rel="stylesheet" href="/style.css">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<style>
+
+/* (UNCHANGED STYLES) */
+
+.tool-container{
+max-width:900px;
+margin:80px auto 30px;
+background:#071a33;
+color:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
+}
+
+.tool-container p{
+color:#cbd5e1;
+}
+
+#drop-area{
+border:2px dashed #4b5d75;
+padding:40px;
+margin:20px auto;
+background:#0c2547;
+cursor:pointer;
+border-radius:12px;
+}
+
+#preview img{
+width:100px;
+margin:10px;
+border-radius:8px;
+}
+
+select{
+padding:10px;
+border-radius:8px;
+border:none;
+background:#0c2547;
+color:white;
+margin-top:10px;
+}
+
+button{
+margin-top:20px;
+padding:12px 20px;
+background:#3a78ff;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#2a66e6;
+}
+
+#menu{
+display:none;
+background:#071a33;
+border-radius:8px;
+margin-top:10px;
+}
+
+#menu button{
+display:block;
+width:100%;
+margin:5px 0;
+}
+
+.seo-content{
+max-width:900px;
+margin:20px auto;
+background:#071a33;
+color:white;
+padding:35px;
+border-radius:20px;
+}
+
+.tool-description{
+max-width:900px;
+margin:30px auto 80px;
+background:white;
+padding:40px;
+border-radius:16px;
+color:#1e293b;
+line-height:1.8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="header-left">
+    <a href="/" class="logo">
+        <img src="/convertios-logo.png" alt="Logo de Convertios">
+    </a>
+</div>
+
+<nav class="nav-menu">
+
+<a href="/" class="active">Inicio</a>
+
+<div class="nav-item dropdown">
+    <span>Imagen ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/png-to-jpg/">PNG a JPG</a>
+        <a href="/jpg-to-png/">JPG a PNG</a>
+        <a href="/webp-to-png/">WEBP a PNG</a>
+        <a href="/image-converter/">Convertidor de Imágenes</a>
+        <a href="/image-resizer/">Redimensionar Imagen</a>
+        <a href="/compress-image/">Comprimir Imagen</a>
+        <a href="/remove-bg/">Eliminar Fondo</a>
+
+        <a href="/ai-image-enhancer/">AI Image Enhancer</a>
+        <a href="/social-media-image-resizer/">Social Media Image Resizer</a>
+        <a href="/all-tools/" class="view-all">Ver todo →</a>
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>PDF ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/pdf-to-word/">PDF a Word</a>
+        <a href="/pdf-to-jpg/">PDF a JPG</a>
+        <a href="/jpg-to-pdf/">JPG a PDF</a>
+
+        <a href="/merge-pdf/">Unir PDF</a>
+        <a href="/split-pdf/">Dividir PDF</a>
+        <a href="/rotate-pdf/">Rotar PDF</a>
+
+        <a href="/all-tools/" class="view-all">Ver todo →</a>
+
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>Audio ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/mp3-cutter/">Cortar MP3</a>
+        <a href="/audio-converter/">Convertidor de Audio</a>
+        <a href="/audio-speed-changer/">Cambiar Velocidad</a>
+
+        <a href="/all-tools/" class="view-all">Ver todo →</a>
+
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>Más Herramientas ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/qr-generator/">Generador QR</a>
+        <a href="/link-shortener/">Acortador de Enlaces</a>
+        <a href="/password-generator/">Generador de Contraseñas</a>
+        <a href="/word-counter/">Contador de Palabras</a>
+        <a href="/text-formatter/">Formateador de Texto</a>
+        <a href="/unit-converter/">Convertidor de Unidades</a>
+        <a href="/meme-generator/">Generador de Memes</a>
+
+        <a href="/all-tools/" class="view-all">Ver todo →</a>
+
+    </div>
+</div>
+
+<a href="/all-tools/" class="nav-all-tools">Todas las herramientas →</a>
+
+<a href="/about/">Acerca de</a>
+<a href="/contact/">Contacto</a>
+
+</nav>
+
+<div class="nav-icon faq-wrapper">
+    <a href="/faq/" class="faq-link-block">
+
+        <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
+                <circle cx="12" cy="17" r="1"></circle>
+            </svg>
+        </div>
+
+        <span class="faq-text">FAQ</span>
+    </a>
+</div>
+
+</header>
+<!-- TOOL -->
+
+<div class="tool-container">
+
+<h1>Convertidor de Imágenes Online</h1>
+
+<p>
+Convierte imágenes entre formatos JPG, PNG, WEBP, BMP y GIF al instante con alta calidad.
+</p>
+
+<div id="drop-area">
+<p>Arrastra y suelta imágenes o haz clic para subir</p>
+<input type="file" id="upload" multiple accept="image/*" hidden>
+</div>
+
+<select id="format">
+<option value="image/jpeg">Convertir a JPG</option>
+<option value="image/png">Convertir a PNG</option>
+<option value="image/webp">Convertir a WEBP</option>
+<option value="image/bmp">Convertir a BMP</option>
+<option value="image/gif">Convertir a GIF</option>
+</select>
+
+<div id="preview"></div>
+
+<button onclick="convertImage()">Convertir</button>
+
+<div id="downloadMenu">
+
+<button onclick="toggleMenu()">Descargar ▼</button>
+
+<div id="menu">
+<button onclick="downloadImages()">Descargar individualmente</button>
+<button onclick="downloadZip()">Descargar como ZIP</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- SEO CONTENT -->
+<div class="seo-content">
+
+<h2>Herramienta Gratuita para Convertir Imágenes</h2>
+
+<p>
+Convertios ofrece un convertidor de imágenes potente y fácil de usar que te permite cambiar formatos al instante sin necesidad de instalar ningún software. Ya sea para compatibilidad, edición u optimización, esta herramienta ofrece una solución rápida y confiable.
+</p>
+
+<p>
+Todo el proceso se realiza localmente en tu navegador, garantizando máxima velocidad, privacidad y seguridad. Tus imágenes nunca se suben a ningún servidor.
+</p>
+
+</div>
+<!-- SEO BOOST -->
+<div class="tool-description">
+
+<h2>Qué hace esta herramienta</h2>
+<p>
+Este convertidor de imágenes te permite cambiar formatos entre JPG, PNG, WEBP, BMP y GIF de forma rápida y eficiente. Está diseñado para ayudarte a trabajar con diferentes formatos de archivo para múltiples usos, como optimización web, edición y compartir imágenes.
+</p>
+
+<p>
+Como la herramienta funciona directamente en tu navegador, puedes convertir imágenes al instante sin necesidad de descargar software. Tus archivos permanecen en tu dispositivo en todo momento, garantizando un proceso rápido y seguro.
+</p>
+
+<h2>Cómo usar</h2>
+<ul>
+<li>Sube o arrastra tu archivo de imagen</li>
+<li>Selecciona el formato de salida (JPG, PNG, WEBP, BMP o GIF)</li>
+<li>Haz clic en el botón convertir para iniciar el proceso</li>
+<li>Descarga tu imagen convertida al instante</li>
+</ul>
+
+<p>
+Todo el proceso tarda solo unos segundos y funciona perfectamente en todos los dispositivos modernos.
+</p>
+
+<h2>Beneficios</h2>
+<ul>
+<li>Convierte entre múltiples formatos de imagen fácilmente</li>
+<li>Mantiene alta calidad durante la conversión</li>
+<li>Procesamiento rápido directamente en el navegador</li>
+<li>No requiere instalación ni registro</li>
+<li>Conversión segura sin subir archivos</li>
+<li>Funciona en móvil, tablet y computadora</li>
+</ul>
+
+<h2>¿Por qué usar un convertidor de imágenes?</h2>
+<p>
+Diferentes plataformas y herramientas requieren formatos específicos. Por ejemplo, JPG es ideal para fotografías, PNG es perfecto para imágenes con transparencia y WEBP se utiliza para optimización web. Convertir entre formatos asegura que tus imágenes sean compatibles con distintos sistemas y aplicaciones.
+</p>
+
+<p>
+Usar un convertidor de imágenes online ahorra tiempo y elimina la necesidad de software pesado, convirtiéndose en una solución práctica para el uso diario.
+</p>
+
+<h2>Casos de uso</h2>
+<p>
+Esta herramienta es ideal para diseñadores, desarrolladores, estudiantes y usuarios en general. Puedes usarla para preparar imágenes para sitios web, convertir archivos para edición, subir imágenes a plataformas con restricciones de formato o simplemente organizar tus archivos.
+</p>
+
+<p>
+Es especialmente útil cuando trabajas con imágenes descargadas de internet que necesitan convertirse a un formato más adecuado.
+</p>
+
+<h2>Preguntas Frecuentes</h2>
+
+<p><strong>¿Puedo convertir PNG a JPG o JPG a PNG?</strong><br>
+Sí, puedes convertir entre todos los formatos compatibles como PNG, JPG, WEBP, BMP y GIF.</p>
+
+<p><strong>¿Se pierde calidad al convertir imágenes?</strong><br>
+La herramienta está optimizada para mantener la mejor calidad posible según el formato seleccionado.</p>
+
+<p><strong>¿Es seguro este convertidor de imágenes?</strong><br>
+Sí, todos los archivos se procesan localmente en tu navegador y nunca se suben a ningún servidor.</p>
+
+<p><strong>¿Puedo usarlo en el móvil?</strong><br>
+Sí, funciona en teléfonos, tablets y computadoras sin problema.</p>
+
+</div>
+
+<!-- MORE TOOLS -->
+<div class="more-tools">
+
+<h3>Descubre más herramientas</h3>
+
+<div class="more-tools-grid">
+
+<a href="/audio-speed-changer/" class="more-tool-card">
+<span>⚡</span>
+<p>Cambiar Velocidad de Audio</p>
+</a>
+
+<a href="/audio-converter/" class="more-tool-card">
+<span>🎧</span>
+<p>Convertidor de Audio</p>
+</a>
+
+<a href="/mp3-cutter/" class="more-tool-card">
+<span>✂️</span>
+<p>Cortar MP3</p>
+</a>
+
+<a href="/compress-image/" class="more-tool-card">
+<span>🖼️</span>
+<p>Comprimir Imagen</p>
+</a>
+
+</div>
+
+</div>
+
+<footer class="site-footer">
+
+<div class="footer-container">
+
+    <div class="footer-brand">
+        <h3>Convertios</h3>
+        <p>Herramientas online gratuitas para convertir archivos, imágenes y más.</p>
+    </div>
+
+    <div class="footer-links">
+        <a href="/all-tools/">Herramientas</a>
+        <a href="/about/">Acerca de</a>
+        <a href="/contact/">Contacto</a>
+        <a href="/security/">Seguridad</a>
+        <a href="/privacy/">Privacidad</a>
+        <a href="/terms/">Términos</a>
+    </div>
+
+</div>
+
+
+    <div class="lang-switch">
+  <span>Idioma:</span>
+  <a href="/image-converter/">EN</a> |
+  <a href="/es/image-converter/">ES</a>
+</div>
+
+<p class="footer-bottom">
+© 2026 Convertios • Todos los derechos reservados
+</p>
+
+</footer>
+<script>
+
+/* YOUR ORIGINAL JS (UNCHANGED) */
+
+let dropArea=document.getElementById("drop-area");
+let fileInput=document.getElementById("upload");
+let preview=document.getElementById("preview");
+
+let convertedImages=[];
+
+dropArea.onclick=()=>fileInput.click();
+
+dropArea.addEventListener("dragover",e=>{e.preventDefault();});
+
+dropArea.addEventListener("drop",e=>{
+e.preventDefault();
+fileInput.files=e.dataTransfer.files;
+showPreview();
+});
+
+fileInput.addEventListener("change",showPreview);
+
+function showPreview(){
+preview.innerHTML="";
+let files=fileInput.files;
+for(let i=0;i<files.length;i++){
+let img=document.createElement("img");
+img.src=URL.createObjectURL(files[i]);
+preview.appendChild(img);
+}
+}
+
+function convertImage(){
+let files=fileInput.files;
+if(!files || files.length===0){
+alert("Upload image first");
+return;
+}
+
+convertedImages=[];
+let format=document.getElementById("format").value;
+
+for(let i=0;i<files.length;i++){
+let file=files[i];
+let img=new Image();
+let reader=new FileReader();
+
+reader.onload=function(e){
+img.src=e.target.result;
+
+img.onload=function(){
+let canvas=document.createElement("canvas");
+canvas.width=img.width;
+canvas.height=img.height;
+
+let ctx=canvas.getContext("2d");
+ctx.drawImage(img,0,0);
+
+let converted=canvas.toDataURL(format);
+let extension=format.split("/")[1];
+if(extension==="jpeg") extension="jpg";
+
+convertedImages.push({
+data:converted,
+name:"converted_"+(i+1)+"."+extension
+});
+}
+}
+
+reader.readAsDataURL(file);
+}
+
+document.getElementById("downloadMenu").style.display="block";
+}
+
+function toggleMenu(){
+let menu=document.getElementById("menu");
+menu.style.display = menu.style.display==="block" ? "none" : "block";
+}
+
+function downloadImages(){
+for(let i=0;i<convertedImages.length;i++){
+let link=document.createElement("a");
+link.href=convertedImages[i].data;
+link.download=convertedImages[i].name;
+link.click();
+}
+}
+
+function downloadZip(){
+let zip=new JSZip();
+for(let i=0;i<convertedImages.length;i++){
+let base64=convertedImages[i].data.split(',')[1];
+zip.file(convertedImages[i].name,base64,{base64:true});
+}
+
+zip.generateAsync({type:"blob"}).then(function(content){
+let link=document.createElement("a");
+link.href=URL.createObjectURL(content);
+link.download="converted_images.zip";
+link.click();
+});
+}
+
+</script>
+
+
+</body>
+</html>
