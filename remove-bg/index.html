@@ -107,6 +107,9 @@ line-height:1.8;
 </style>
 
 <link rel="canonical" href="https://convertios.com/remove-bg/">
+<link rel="alternate" hreflang="en" href="https://convertios.com/remove-bg/">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/remove-bg/">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/remove-bg/">
 
 <!-- Convertios SEO social metadata -->
 <meta property="og:title" content="Remove Background Online | Convertios">
@@ -479,7 +482,7 @@ try{
 const formData = new FormData();
 formData.append("image_file", file);
 
-const response = await fetch("/remove-background", {
+const response = await fetch("https://convertios-com-3.onrender.com/remove-background", {
 method: "POST",
 body: formData
 });
