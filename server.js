@@ -1,9 +1,10 @@
 const FormData = require('form-data');
-const express = require('express');const cors = require('cors');const multer = require('multer');const fetch = require('node-fetch'); // ✅ FIX
+const express = require('express');const cors = require('cors');const multer = require('multer');const fetch = require('node-fetch');
 
-const app = express();const upload = multer({ storage: multer.memoryStorage() });const PORT = process.env.PORT || 3000;const REPLICATE_API_URL = 'https://api.replicate.com/v1/predictions';const REPLICATE_MODEL = 'nightmareai/real-esrgan:42fed1c4974146d4d2414e2be2c5277c7fcf05fcc3a73abf41610695738c1d7b';const REPLICATE_MODEL_VERSION = REPLICATE_MODEL.split(':').pop();const MAX_ENHANCE_IMAGE_BYTES = 10 * 1024 * 1024;const enhanceUpload = multer({storage: multer.memoryStorage(),limits: { fileSize: MAX_ENHANCE_IMAGE_BYTES }});
+const app = express();const PORT = process.env.PORT || 3000;const REPLICATE_API_URL = 'https://api.replicate.com/v1/predictions';const REPLICATE_MODEL = 'nightmareai/real-esrgan:42fed1c4974146d4d2414e2be2c5277c7fcf05fcc3a73abf41610695738c1d7b';const REPLICATE_MODEL_VERSION = REPLICATE_MODEL.split(':').pop();const MAX_ENHANCE_IMAGE_BYTES = 10 * 1024 * 1024;const MAX_DOCUMENT_BYTES = 25 * 1024 * 1024;const upload = multer({storage: multer.memoryStorage(),limits: { fileSize: MAX_DOCUMENT_BYTES }});const enhanceUpload = multer({storage: multer.memoryStorage(),limits: { fileSize: MAX_ENHANCE_IMAGE_BYTES }});const removeBgUpload = multer({storage: multer.memoryStorage(),limits: { fileSize: MAX_ENHANCE_IMAGE_BYTES }});
 
-app.use(cors());app.use(express.json({ limit: '10mb' }));
+const allowedOrigins = new Set(['https://convertios.com', 'https://www.convertios.com']);
+app.use(cors({origin(origin, callback) {if (!origin || allowedOrigins.has(origin)) return callback(null, true);return callback(new Error('Origin not allowed by CORS'));}}));app.use(express.json({ limit: '10mb' }));
 
 function getAuthHeaders({ wait = false } = {}) {const token = process.env.REPLICATE_API_TOKEN;if (!token) {throw new Error('Missing REPLICATE_API_TOKEN environment variable');}
 
@@ -13,7 +14,7 @@ const headers = {
 };                                                
 if (wait) {headers.Prefer = 'wait';}
 
-console.log("TOKEN VALUE:", process.env.REPLICATE_API_TOKEN);return headers;}
+return headers;}
 
 function sleep(ms) {return new Promise((resolve) => setTimeout(resolve, ms));}
 
@@ -110,8 +111,6 @@ stage = 'encoding';
 const mimeType = req.file.mimetype || 'image/png';
 const base64 = req.file.buffer.toString('base64');
 const dataUri = `data:${mimeType};base64,${base64}`;
-const replicateInputImage = 'https://replicate.delivery/pbxt/sample.png';
-
 console.log('[POST /enhance] Encoded image for Replicate', {
   requestId,
   mimeType,
@@ -190,6 +189,10 @@ function sanitizeDownloadName(name, fallback) {return (name || fallback).replace
 app.post('/convert/pdf-to-word', upload.single('file'), async (req, res) => {console.log('[POST /convert/pdf-to-word] Incoming request');
 
 try {if (!req.file) {return res.status(400).json({ error: 'No PDF uploaded. Use FormData field name "file".' });}
+
+if (req.file.mimetype !== 'application/pdf' && !/\.pdf$/i.test(req.file.originalname || '')) {
+  return res.status(400).json({ error: 'Uploaded file must be a PDF.' });
+}
 
 const token = getEnvToken('CLOUDCONVERT_API_TOKEN');
 const jobResponse = await fetch('https://api.cloudconvert.com/v2/jobs', {
@@ -294,12 +297,19 @@ return res.send(convertedBuffer);
 
 } catch (error) {console.error('[POST /convert/pdf-to-word] Unexpected error', error);return res.status(500).json({ error: 'PDF to Word conversion failed', details: error.message });}});
 
-app.post('/remove-background', upload.single('image_file'), async (req, res) => {console.log('[POST /remove-background] Incoming request');
+app.post('/remove-background', removeBgUpload.single('image_file'), async (req, res) => {console.log('[POST /remove-background] Incoming request');
 
 try {if (!req.file) {return res.status(400).json({ error: 'No image uploaded. Use FormData field name "image_file".' });}
 
+if (!req.file.mimetype?.startsWith('image/')) {
+  return res.status(400).json({ error: 'Uploaded file must be an image.' });
+}
+
 const formData = new FormData();
-formData.append('image_file', new Blob([req.file.buffer], { type: req.file.mimetype || 'image/png' }), req.file.originalname || 'image.png');
+formData.append('image_file', req.file.buffer, {
+  filename: req.file.originalname || 'image.png',
+  contentType: req.file.mimetype || 'image/png'
+});
 formData.append('size', 'auto');
 
 const response = await fetch('https://api.remove.bg/v1.0/removebg', {
@@ -329,6 +339,9 @@ app.use((_req, res) => {
 });
 
 app.use((error, _req, res, _next) => {
+  if (error instanceof multer.MulterError && error.code === 'LIMIT_FILE_SIZE') {
+    return res.status(413).json({ error: 'Uploaded file is too large.' });
+  }
   console.error('[server] Unhandled request error', error);
   return res.status(500).json({
     error: 'Request failed',
