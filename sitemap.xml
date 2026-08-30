@@ -69,6 +69,7 @@
   <loc>https://convertios.com/ar/compress-image/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/compress-image/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image/"/>
 </url>
 
@@ -119,6 +120,7 @@
   <loc>https://convertios.com/ar/image-resizer/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-resizer/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/image-resizer/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-resizer/"/>
 </url>
 
@@ -241,6 +243,7 @@
   <loc>https://convertios.com/ar/remove-bg/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/remove-bg/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/remove-bg/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/remove-bg/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/remove-bg/"/>
 </url>
 
@@ -340,6 +343,7 @@
   <loc>https://convertios.com/compress-image/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/compress-image/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image/"/>
 </url>
 
@@ -372,11 +376,27 @@
 </url>
 
 <url>
+  <loc>https://convertios.com/es/compress-image/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/compress-image/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image/"/>
+</url>
+
+<url>
   <loc>https://convertios.com/es/image-converter/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-converter/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-converter/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/image-converter/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-converter/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/image-resizer/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-resizer/"/>
 </url>
 
 <url>
@@ -401,6 +421,14 @@
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/png-to-jpg/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/png-to-jpg/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/png-to-jpg/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/remove-bg/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/remove-bg/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/remove-bg/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/remove-bg/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/remove-bg/"/>
 </url>
 
 <url>
@@ -430,6 +458,7 @@
   <loc>https://convertios.com/image-resizer/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-resizer/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/image-resizer/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-resizer/"/>
 </url>
 
@@ -552,6 +581,7 @@
   <loc>https://convertios.com/remove-bg/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/remove-bg/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/remove-bg/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/remove-bg/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/remove-bg/"/>
 </url>
 

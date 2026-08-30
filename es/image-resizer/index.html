@@ -16,11 +16,11 @@ gtag('config', 'G-0CH8NE5WDH');
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convertidor de WEBP a PNG Online | Convertios</title>
+<title>Redimensionar Imágenes Online | Convertios</title>
 
-<meta name="description" content="Convierte imágenes WEBP a PNG online gratis, conserva la transparencia y protege tu privacidad con procesamiento local en el navegador.">
+<meta name="description" content="Redimensiona, recorta, gira y amplía imágenes online gratis con privacidad total y procesamiento local en tu navegador.">
 
-<meta name="keywords" content="webp to png, convert webp to png, image converter png, webp converter online">
+<meta name="keywords" content="resize image, crop image online, image resizer, rotate image, edit images online free">
 
 <meta name="robots" content="index, follow">
 
@@ -31,7 +31,12 @@ gtag('config', 'G-0CH8NE5WDH');
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><style>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
+<style>
+
+/* (UNCHANGED STYLES) */
 
 .tool-container{
 max-width:900px;
@@ -41,52 +46,43 @@ color:white;
 padding:40px;
 border-radius:20px;
 text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
 }
 
 .tool-container p{
 color:#cbd5e1;
 }
 
-#drop-area{
-border:2px dashed #3a78ff;
-padding:50px;
-border-radius:14px;
-background:#0c2547;
+#image{
+max-width:100%;
+border-radius:12px;
 margin-top:20px;
-cursor:pointer;
 }
 
-#drop-area:hover{
-background:#12305a;
-}
-
-#preview{
+.controls{
 margin-top:25px;
 display:flex;
+gap:10px;
 flex-wrap:wrap;
 justify-content:center;
-gap:12px;
 }
 
-#preview img{
-width:100px;
-border-radius:8px;
-}
-
-button{
-margin-top:20px;
-padding:14px 20px;
+.controls button{
+padding:12px 18px;
+border:none;
 background:#3a78ff;
 color:white;
-border:none;
-border-radius:10px;
+border-radius:8px;
 cursor:pointer;
 }
 
-#downloads a{
-display:block;
-margin-top:10px;
-color:#3a78ff;
+.controls button:hover{
+background:#2a66e6;
+}
+
+input[type="file"]{
+margin-top:15px;
+color:white;
 }
 
 .seo-content{
@@ -110,20 +106,20 @@ line-height:1.8;
 
 </style>
 
-<link rel="canonical" href="https://convertios.com/es/webp-to-png/">
-<link rel="alternate" hreflang="en" href="https://convertios.com/webp-to-png/">
-<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/webp-to-png/">
-<link rel="alternate" hreflang="es" href="https://convertios.com/es/webp-to-png/">
-<link rel="alternate" hreflang="x-default" href="https://convertios.com/webp-to-png/">
+<link rel="canonical" href="https://convertios.com/es/image-resizer/">
+<link rel="alternate" hreflang="en" href="https://convertios.com/image-resizer/">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-resizer/">
+<link rel="alternate" hreflang="es" href="https://convertios.com/es/image-resizer/">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/image-resizer/">
 <!-- Convertios SEO social metadata -->
-<meta property="og:title" content="Convertidor de WEBP a PNG Online | Convertios">
-<meta property="og:description" content="Convierte imágenes WEBP a PNG online gratis, conserva la transparencia y protege tu privacidad con procesamiento local en el navegador.">
+<meta property="og:title" content="Redimensionar Imágenes Online | Convertios">
+<meta property="og:description" content="Redimensiona, recorta, gira y amplía imágenes online gratis con privacidad total y procesamiento local en tu navegador.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://convertios.com/es/webp-to-png/">
+<meta property="og:url" content="https://convertios.com/es/image-resizer/">
 <meta property="og:image" content="https://convertios.com/convertios-logo.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Convertidor de WEBP a PNG Online | Convertios">
-<meta name="twitter:description" content="Convierte imágenes WEBP a PNG online gratis, conserva la transparencia y protege tu privacidad con procesamiento local en el navegador.">
+<meta name="twitter:title" content="Redimensionar Imágenes Online | Convertios">
+<meta name="twitter:description" content="Redimensiona, recorta, gira y amplía imágenes online gratis con privacidad total y procesamiento local en tu navegador.">
 <meta name="twitter:image" content="https://convertios.com/convertios-logo.png">
 <!-- /Convertios SEO social metadata -->
 
@@ -133,9 +129,9 @@ line-height:1.8;
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Convertidor de WEBP a PNG Online | Convertios",
-    "description": "Convierte imágenes WEBP a PNG online gratis, conserva la transparencia y protege tu privacidad con procesamiento local en el navegador.",
-    "url": "https://convertios.com/es/webp-to-png/",
+    "name": "Redimensionar Imágenes Online | Convertios",
+    "description": "Redimensiona, recorta, gira y amplía imágenes online gratis con privacidad total y procesamiento local en tu navegador.",
+    "url": "https://convertios.com/es/image-resizer/",
     "isPartOf": {
       "@type": "WebSite",
       "name": "Convertios",
@@ -145,12 +141,12 @@ line-height:1.8;
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Convertidor de WEBP a PNG online",
-    "url": "https://convertios.com/es/webp-to-png/",
-    "description": "Convierte imágenes WEBP a PNG online gratis, conserva la transparencia y protege tu privacidad con procesamiento local en el navegador.",
+    "name": "Redimensionar imágenes online",
+    "url": "https://convertios.com/es/image-resizer/",
+    "description": "Redimensiona, recorta, gira y amplía imágenes online gratis con privacidad total y procesamiento local en tu navegador.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any",
-        "browserRequirements": "Requiere un navegador web moderno",
+    "browserRequirements": "Requiere un navegador web moderno",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -170,8 +166,8 @@ line-height:1.8;
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Convertidor de WEBP a PNG online",
-        "item": "https://convertios.com/es/webp-to-png/"
+        "name": "Redimensionar imágenes online",
+        "item": "https://convertios.com/es/image-resizer/"
       }
     ]
   }
@@ -183,7 +179,6 @@ line-height:1.8;
 
 <body>
 <a class="skip-link" href="#main-content">Saltar al contenido</a>
-
 <header class="site-header">
 
 <div class="header-left">
@@ -284,30 +279,39 @@ line-height:1.8;
 <details class="language-selector">
   <summary aria-label="Cambiar idioma"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">Español</span></summary>
   <div class="language-selector__menu" role="menu" aria-label="Opciones de idioma">
-    <a href="https://convertios.com/webp-to-png/" role="menuitem">English</a>
-    <a href="https://convertios.com/ar/webp-to-png/" lang="ar" dir="rtl" hreflang="ar" role="menuitem">العربية</a>
-    <a href="https://convertios.com/es/webp-to-png/" hreflang="es" aria-current="page" role="menuitem">Español</a>
+    <a href="https://convertios.com/image-resizer/" role="menuitem">English</a>
+    <a href="https://convertios.com/ar/image-resizer/" lang="ar" dir="rtl" hreflang="ar" role="menuitem">العربية</a>
+    <a href="https://convertios.com/es/image-resizer/" hreflang="es" aria-current="page" role="menuitem">Español</a>
   </div>
 </details>
 </header>
+<!-- TOOL -->
+
 <div class="tool-container" id="main-content">
 
-<h1>Convertidor de WEBP a PNG online</h1>
+<h1>Redimensionar imágenes online</h1>
 
-Convierte imágenes WEBP a PNG al instante con calidad optimizada.
+<p>
+Redimensiona, recorta, amplía y gira imágenes fácilmente con este editor online rápido y gratuito.
+</p>
 
-<div id="drop-area">
-<p>Haz clic o arrastra aquí tus imágenes</p>
-<input type="file" id="upload" multiple accept="image/webp" aria-label="Elegir un archivo para procesar">
+<input type="file" id="upload" accept="image/*" aria-label="Elegir un archivo para procesar">
+
+<img id="image">
+
+<div class="controls">
+
+<button onclick="cropper.rotate(-90)" aria-label="Ejecutar esta herramienta">Girar a la izquierda</button> <button onclick="cropper.rotate(90)" aria-label="Ejecutar esta herramienta">Girar a la derecha</button>
+
+<button onclick="cropper.zoom(0.1)">Acercar</button> <button onclick="cropper.zoom(-0.1)">Alejar</button>
+
+<button onclick="downloadImage()">Descargar</button>
+
 </div>
 
-<div id="preview"></div>
-
-<button onclick="convert()" aria-label="Ejecutar esta herramienta">Convertir a PNG</button>
-
-<div id="downloads"></div>
-
 </div>
+
+
 
 
 <section class="tool-info-block" aria-labelledby="tool-info-heading">
@@ -318,98 +322,97 @@ Convierte imágenes WEBP a PNG al instante con calidad optimizada.
 <div><strong>Procesamiento por terceros:</strong><span>Ninguno</span></div>
 <div><strong>Conservación de archivos:</strong><span>Los archivos permanecen en tu dispositivo y Convertios no los almacena.</span></div>
 <div><strong>Tamaño máximo:</strong><span>25 MB</span></div>
-<div><strong>Formatos compatibles:</strong><span>Imágenes WEBP → imagen PNG</span></div>
+<div><strong>Formatos compatibles:</strong><span>JPG, PNG, WEBP e imágenes compatibles con el navegador → descarga de imagen redimensionada</span></div>
 </div>
 
 </section>
 
 
-<!-- SEO -->
+<!-- SEO CONTENT -->
 
 <div class="seo-content">
 
-<h2>Convertidor gratuito de WEBP a PNG</h2>
+<h2>Redimensionador de imágenes gratuito</h2>
 
 <p>
-Convertios te permite convertir imágenes WEBP al formato PNG de forma rápida y sencilla, sin subir archivos.
+Convertios ofrece un potente redimensionador que permite recortar, cambiar el tamaño, girar y ampliar imágenes directamente en el navegador.
 </p>
 
 <p>
-Todo el procesamiento se realiza localmente en tu navegador para ofrecer la máxima velocidad y privacidad.
+No requiere subir archivos ni instalar programas, por lo que es rápido, seguro y respetuoso con tu privacidad.
 </p>
 
 </div>
 
 <!-- SEO BOOST -->
 
-
 <div class="tool-description">
 
 <h2>Qué hace esta herramienta</h2>
 <p>
-Esta herramienta online gratuita convierte imágenes WEBP al formato PNG de forma rápida y sencilla. WEBP es un formato moderno optimizado para la web, pero no todos los dispositivos, programas o plataformas lo admiten. Al convertir WEBP a PNG, consigues máxima compatibilidad y conservas la calidad y la transparencia.
+Este editor online permite redimensionar, recortar, girar y ampliar imágenes con precisión manteniendo una alta calidad. Tanto si necesitas ajustar dimensiones, eliminar zonas no deseadas o preparar imágenes para distintas plataformas, ofrece una solución rápida y sencilla desde el navegador.
 </p>
 
 <p>
-A diferencia de muchos convertidores online, esta herramienta funciona directamente en tu navegador. Tus imágenes nunca se suben a un servidor, de modo que tus datos permanecen privados y seguros.
+Toda la edición se realiza localmente en tu dispositivo; las imágenes nunca se suben a un servidor. Así obtienes privacidad total, mayor rapidez y una experiencia fluida en cualquier dispositivo.
 </p>
 
 <h2>Cómo usarla</h2>
 <ul>
-<li>Haz clic o arrastra y suelta tus imágenes WEBP en el área de carga</li>
-<li>Espera a que la vista previa aparezca en el navegador</li>
-<li>Haz clic en el botón «Convertir a PNG» para procesar tus imágenes</li>
-<li>Descarga cada archivo PNG convertido por separado</li>
+<li>Sube tu imagen o arrástrala y suéltala en el editor</li>
+<li>Cambia el tamaño o ajusta el área de recorte</li>
+<li>Gira o amplía la imagen para colocarla mejor</li>
+<li>Previsualiza los cambios en tiempo real</li>
+<li>Descarga la imagen editada al instante</li>
 </ul>
 
 <p>
-El proceso es rápido y no requiere instalación ni registro. Todo ocurre localmente en tu dispositivo.
+La herramienta es sencilla e intuitiva y permite editar imágenes rápidamente sin conocimientos técnicos.
 </p>
 
 <h2>Ventajas</h2>
 <ul>
-<li>Conversión rápida en el navegador y sin esperas</li>
-<li>Sin subida de archivos, para garantizar privacidad y seguridad</li>
-<li>Permite convertir varias imágenes a la vez</li>
-<li>Conserva la calidad y la transparencia</li>
-<li>Funciona en móviles, tabletas y ordenadores</li>
-<li>Completamente gratuito y sin límites ocultos</li>
+<li>Edición de alta calidad sin perder nitidez</li>
+<li>Procesamiento rápido en el navegador con vista previa en tiempo real</li>
+<li>No requiere instalar programas ni registrarse</li>
+<li>Edición segura sin subir archivos</li>
+<li>Funciona en ordenadores, tabletas y móviles</li>
+<li>Interfaz fácil de usar para ajustes rápidos</li>
 </ul>
 
-<h2>¿Por qué convertir WEBP a PNG?</h2>
+<h2>¿Por qué redimensionar y recortar imágenes?</h2>
 <p>
-Las imágenes WEBP son eficientes para sitios web, pero algunos programas de edición, navegadores antiguos o plataformas no las admiten. PNG, en cambio, ofrece amplia compatibilidad y es ideal para gráficos, diseño e imágenes con transparencia.
+Redimensionar y recortar imágenes es esencial para muchas tareas online. Cada plataforma exige dimensiones concretas; un tamaño adecuado mejora la apariencia, la velocidad de carga y el rendimiento. El recorte permite destacar la parte importante y eliminar elementos innecesarios.
 </p>
 
 <p>
-Al convertir WEBP a PNG, facilitas la edición, el uso compartido y la reutilización de tus imágenes en distintas herramientas sin problemas de compatibilidad.
+Optimizar las imágenes también reduce su tamaño y facilita subirlas y compartirlas en webs y aplicaciones.
 </p>
 
 <h2>Casos de uso</h2>
 <p>
-Esta herramienta es perfecta para diseñadores, desarrolladores, estudiantes y cualquier usuario que necesite cambiar rápidamente el formato de una imagen. Ya sea para preparar imágenes para una web, editar gráficos, subir contenido a plataformas que no admiten WEBP u organizar archivos, el convertidor simplifica el proceso.
+Es perfecta para crear publicaciones sociales, fotos de perfil, miniaturas, imágenes web y recursos de marketing. También ayuda a estudiantes, diseñadores y profesionales que necesitan ajustes rápidos sin programas avanzados.
 </p>
 
 <p>
-Resulta especialmente útil con imágenes descargadas de sitios web, ya que muchas páginas modernas utilizan WEBP de forma predeterminada.
+Ya sea para preparar imágenes para Instagram, adaptar fotos a una web o recortar imágenes para presentaciones, la herramienta simplifica el proceso.
 </p>
 
 <h2>FAQ</h2>
 
-<p><strong>¿Esta herramienta es gratuita?</strong><br>
-Sí, este convertidor de WEBP a PNG es completamente gratuito y no tiene costes ocultos.</p>
+<p><strong>¿Este editor de imágenes es gratuito?</strong><br>
+Sí, la herramienta es completamente gratuita y no tiene costes ocultos.</p>
 
-<p><strong>¿Se suben mis archivos a un servidor?</strong><br>
-No. Todas las conversiones se realizan directamente en tu navegador para que tus archivos permanezcan privados.</p>
+<p><strong>¿Se suben mis imágenes?</strong><br>
+No. Toda la edición se realiza localmente en el navegador para proteger tu privacidad.</p>
 
-<p><strong>¿Perderé calidad de imagen?</strong><br>
-PNG es un formato sin pérdida, por lo que la calidad de la imagen se conserva durante la conversión.</p>
+<p><strong>¿Cambiar el tamaño reducirá la calidad?</strong><br>
+La herramienta está optimizada para conservar una alta calidad, aunque los cambios extremos pueden afectar ligeramente la nitidez.</p>
 
-<p><strong>¿Puedo convertir varias imágenes?</strong><br>
-Sí, puedes subir y convertir varias imágenes WEBP a la vez.</p>
+<p><strong>¿Puedo usarla en el móvil?</strong><br>
+Sí, funciona en todos los dispositivos modernos, incluidos móviles y tabletas.</p>
 
 </div>
-
 
 <!-- MORE TOOLS -->
 
@@ -420,14 +423,9 @@ Sí, puedes subir y convertir varias imágenes WEBP a la vez.</p>
 <div class="more-tools-grid">
 <a href="/ai-image-enhancer/" class="more-tool-card"><span>✨</span><p>Mejorador de imágenes con IA</p></a>
 
-<a href="/es/jpg-to-png/" class="more-tool-card">
-<span>🖼️</span>
-<p>JPG a PNG</p>
-</a>
-
-<a href="/es/png-to-jpg/" class="more-tool-card">
-<span>🔄</span>
-<p>PNG a JPG</p>
+<a href="/es/compress-image/" class="more-tool-card">
+<span>📦</span>
+<p>Compresor de imágenes</p>
 </a>
 
 <a href="/es/image-converter/" class="more-tool-card">
@@ -435,9 +433,14 @@ Sí, puedes subir y convertir varias imágenes WEBP a la vez.</p>
 <p>Convertidor de imágenes</p>
 </a>
 
-<a href="/es/compress-image/" class="more-tool-card">
-<span>📦</span>
-<p>Compresor de imágenes</p>
+<a href="/es/png-to-jpg/" class="more-tool-card">
+<span>🔄</span>
+<p>PNG a JPG</p>
+</a>
+
+<a href="/social-media-image-resizer/" class="more-tool-card">
+<span>📱</span>
+<p>Redimensionador para redes sociales</p>
 </a>
 </div>
 
@@ -456,7 +459,7 @@ Sí, puedes subir y convertir varias imágenes WEBP a la vez.</p>
         <a href="/all-tools/">Herramientas</a>
         <a href="/about/">Acerca de</a>
         <a href="/contact/">Contacto</a>
-              <a href="/security/">Seguridad</a>
+        <a href="/security/">Seguridad</a>
         <a href="/privacy/">Privacidad</a>
         <a href="/terms/">Términos</a>
     </div>
@@ -468,81 +471,53 @@ Sí, puedes subir y convertir varias imágenes WEBP a la vez.</p>
 </p>
 
 </footer>
+
 <script>
 
-let dropArea=document.getElementById("drop-area");
-let fileInput=document.getElementById("upload");
-let preview=document.getElementById("preview");
+let cropper;
 
-dropArea.onclick=()=>fileInput.click();
+document.getElementById("upload").addEventListener("change",function(){
 
-dropArea.addEventListener("dragover",e=>e.preventDefault());
+const file = this.files[0];
+if(!file) return;
 
-dropArea.addEventListener("drop",e=>{
-e.preventDefault();
-fileInput.files=e.dataTransfer.files;
-showPreview();
+const reader = new FileReader();
+
+reader.onload = function(e){
+
+const image = document.getElementById("image");
+image.src = e.target.result;
+
+if(cropper){
+cropper.destroy();
+}
+
+cropper = new Cropper(image,{
+viewMode:1,
+autoCropArea:1,
+responsive:true
 });
 
-fileInput.addEventListener("change",showPreview);
-
-function showPreview(){
-
-preview.innerHTML="";
-
-let files=fileInput.files;
-
-for(let file of files){
-
-let img=document.createElement("img");
-img.src=URL.createObjectURL(file);
-preview.appendChild(img);
-
-}
-
-}
-
-function convert(){
-
-let files=fileInput.files;
-let downloads=document.getElementById("downloads");
-downloads.innerHTML="";
-
-for(let i=0;i<files.length;i++){
-
-let file=files[i];
-
-let img=new Image();
-let reader=new FileReader();
-
-reader.onload=function(e){
-
-img.src=e.target.result;
-
-img.onload=function(){
-
-let canvas=document.createElement("canvas");
-canvas.width=img.width;
-canvas.height=img.height;
-
-let ctx=canvas.getContext("2d");
-ctx.drawImage(img,0,0);
-
-let png = canvas.toDataURL("image/png");
-let link=document.createElement("a");
-link.href=png;
-link.download = "converted_"+(i+1)+".png";
-  link.innerText="Descargar imagen "+(i+1);
-
-downloads.appendChild(link);
-
-}
-
-}
+};
 
 reader.readAsDataURL(file);
 
+});
+
+function downloadImage(){
+
+if(!cropper){
+alert("Primero sube una imagen");
+return;
 }
+
+const canvas = cropper.getCroppedCanvas();
+
+const link = document.createElement("a");
+
+link.download = "edited-image.png";
+link.href = canvas.toDataURL();
+link.click();
 
 }
 
