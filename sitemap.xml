@@ -52,6 +52,7 @@
   <loc>https://convertios.com/ar/audio-converter/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/audio-converter/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/audio-converter/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/audio-converter/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/audio-converter/"/>
 </url>
 
@@ -59,6 +60,7 @@
   <loc>https://convertios.com/ar/audio-speed-changer/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/audio-speed-changer/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/audio-speed-changer/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/audio-speed-changer/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/audio-speed-changer/"/>
 </url>
 
@@ -66,6 +68,7 @@
   <loc>https://convertios.com/ar/audio-tools/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/audio-tools/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/audio-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/audio-tools/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/audio-tools/"/>
 </url>
 
@@ -310,6 +313,7 @@
   <loc>https://convertios.com/ar/trim-audio-online/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/trim-audio-online/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/trim-audio-online/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/trim-audio-online/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/trim-audio-online/"/>
 </url>
 
@@ -339,6 +343,7 @@
   <loc>https://convertios.com/audio-converter/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/audio-converter/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/audio-converter/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/audio-converter/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/audio-converter/"/>
 </url>
 
@@ -346,6 +351,7 @@
   <loc>https://convertios.com/audio-speed-changer/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/audio-speed-changer/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/audio-speed-changer/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/audio-speed-changer/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/audio-speed-changer/"/>
 </url>
 
@@ -353,6 +359,7 @@
   <loc>https://convertios.com/audio-tools/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/audio-tools/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/audio-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/audio-tools/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/audio-tools/"/>
 </url>
 
@@ -409,6 +416,30 @@
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/all-tools/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/all-tools/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/all-tools/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/audio-converter/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/audio-converter/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/audio-converter/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/audio-converter/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/audio-converter/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/audio-speed-changer/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/audio-speed-changer/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/audio-speed-changer/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/audio-speed-changer/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/audio-speed-changer/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/audio-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/audio-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/audio-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/audio-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/audio-tools/"/>
 </url>
 
 <url>
@@ -569,6 +600,14 @@
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/split-pdf/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/split-pdf/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/split-pdf/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/trim-audio-online/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/trim-audio-online/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/trim-audio-online/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/trim-audio-online/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/trim-audio-online/"/>
 </url>
 
 <url>
@@ -781,6 +820,7 @@
   <loc>https://convertios.com/trim-audio-online/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/trim-audio-online/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/trim-audio-online/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/trim-audio-online/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/trim-audio-online/"/>
 </url>
 
