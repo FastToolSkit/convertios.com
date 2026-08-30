@@ -151,6 +151,7 @@
   <loc>https://convertios.com/ar/jpg-to-pdf/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/jpg-to-pdf/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/jpg-to-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/jpg-to-pdf/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/jpg-to-pdf/"/>
 </url>
 
@@ -180,6 +181,7 @@
   <loc>https://convertios.com/ar/merge-pdf/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/merge-pdf/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/merge-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/merge-pdf/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/merge-pdf/"/>
 </url>
 
@@ -209,6 +211,7 @@
   <loc>https://convertios.com/ar/pdf-to-jpg/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-to-jpg/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-to-jpg/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/pdf-to-jpg/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-to-jpg/"/>
 </url>
 
@@ -223,6 +226,7 @@
   <loc>https://convertios.com/ar/pdf-tools/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-tools/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/pdf-tools/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-tools/"/>
 </url>
 
@@ -282,6 +286,7 @@
   <loc>https://convertios.com/ar/split-pdf/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/split-pdf/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/split-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/split-pdf/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/split-pdf/"/>
 </url>
 
@@ -469,6 +474,14 @@
 </url>
 
 <url>
+  <loc>https://convertios.com/es/jpg-to-pdf/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/jpg-to-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/jpg-to-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/jpg-to-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/jpg-to-pdf/"/>
+</url>
+
+<url>
   <loc>https://convertios.com/es/jpg-to-png/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/jpg-to-png/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/jpg-to-png/"/>
@@ -477,11 +490,35 @@
 </url>
 
 <url>
+  <loc>https://convertios.com/es/merge-pdf/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/merge-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/merge-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/merge-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/merge-pdf/"/>
+</url>
+
+<url>
   <loc>https://convertios.com/es/mp3-cutter/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/mp3-cutter/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/mp3-cutter/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/mp3-cutter/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/mp3-cutter/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/pdf-to-jpg/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-to-jpg/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-to-jpg/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/pdf-to-jpg/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-to-jpg/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/pdf-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/pdf-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-tools/"/>
 </url>
 
 <url>
@@ -506,6 +543,14 @@
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/social-media-image-resizer/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/social-media-image-resizer/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/social-media-image-resizer/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/split-pdf/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/split-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/split-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/split-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/split-pdf/"/>
 </url>
 
 <url>
@@ -559,6 +604,7 @@
   <loc>https://convertios.com/jpg-to-pdf/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/jpg-to-pdf/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/jpg-to-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/jpg-to-pdf/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/jpg-to-pdf/"/>
 </url>
 
@@ -588,6 +634,7 @@
   <loc>https://convertios.com/merge-pdf/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/merge-pdf/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/merge-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/merge-pdf/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/merge-pdf/"/>
 </url>
 
@@ -617,6 +664,7 @@
   <loc>https://convertios.com/pdf-to-jpg/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-to-jpg/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-to-jpg/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/pdf-to-jpg/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-to-jpg/"/>
 </url>
 
@@ -631,6 +679,7 @@
   <loc>https://convertios.com/pdf-tools/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/pdf-tools/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/pdf-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/pdf-tools/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/pdf-tools/"/>
 </url>
 
@@ -690,6 +739,7 @@
   <loc>https://convertios.com/split-pdf/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/split-pdf/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/split-pdf/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/split-pdf/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/split-pdf/"/>
 </url>
 
