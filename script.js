@@ -236,7 +236,8 @@
       'all-tools','image-tools','png-to-jpg','jpg-to-png','webp-to-png',
       'image-converter','image-resizer','compress-image','remove-bg','mp3-cutter',
       'ai-image-enhancer','social-media-image-resizer','compress-image-to-20kb',
-      'compress-image-to-50kb','compress-image-to-100kb'
+      'compress-image-to-50kb','compress-image-to-100kb','pdf-tools','jpg-to-pdf',
+      'pdf-to-jpg','merge-pdf','split-pdf'
     ]);
 
     function localizedToolUrl(url){
