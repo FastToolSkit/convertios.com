@@ -13,6 +13,7 @@
   <loc>https://convertios.com/ai-image-enhancer/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/ai-image-enhancer/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/ai-image-enhancer/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/ai-image-enhancer/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/ai-image-enhancer/"/>
 </url>
 
@@ -35,6 +36,7 @@
   <loc>https://convertios.com/ar/ai-image-enhancer/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/ai-image-enhancer/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/ai-image-enhancer/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/ai-image-enhancer/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/ai-image-enhancer/"/>
 </url>
 
@@ -79,6 +81,7 @@
   <loc>https://convertios.com/ar/compress-image-to-100kb/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image-to-100kb/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image-to-100kb/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/compress-image-to-100kb/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image-to-100kb/"/>
 </url>
 
@@ -86,6 +89,7 @@
   <loc>https://convertios.com/ar/compress-image-to-20kb/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image-to-20kb/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image-to-20kb/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/compress-image-to-20kb/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image-to-20kb/"/>
 </url>
 
@@ -93,6 +97,7 @@
   <loc>https://convertios.com/ar/compress-image-to-50kb/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image-to-50kb/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image-to-50kb/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/compress-image-to-50kb/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image-to-50kb/"/>
 </url>
 
@@ -269,6 +274,7 @@
   <loc>https://convertios.com/ar/social-media-image-resizer/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/social-media-image-resizer/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/social-media-image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/social-media-image-resizer/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/social-media-image-resizer/"/>
 </url>
 
@@ -355,6 +361,7 @@
   <loc>https://convertios.com/compress-image-to-100kb/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image-to-100kb/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image-to-100kb/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/compress-image-to-100kb/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image-to-100kb/"/>
 </url>
 
@@ -362,6 +369,7 @@
   <loc>https://convertios.com/compress-image-to-20kb/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image-to-20kb/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image-to-20kb/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/compress-image-to-20kb/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image-to-20kb/"/>
 </url>
 
@@ -369,6 +377,7 @@
   <loc>https://convertios.com/compress-image-to-50kb/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image-to-50kb/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image-to-50kb/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/compress-image-to-50kb/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image-to-50kb/"/>
 </url>
 
@@ -377,6 +386,14 @@
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/contact/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/contact/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/contact/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/ai-image-enhancer/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/ai-image-enhancer/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/ai-image-enhancer/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/ai-image-enhancer/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/ai-image-enhancer/"/>
 </url>
 
 <url>
@@ -393,6 +410,30 @@
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/compress-image/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/compress-image-to-100kb/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image-to-100kb/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image-to-100kb/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/compress-image-to-100kb/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image-to-100kb/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/compress-image-to-20kb/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image-to-20kb/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image-to-20kb/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/compress-image-to-20kb/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image-to-20kb/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/compress-image-to-50kb/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image-to-50kb/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image-to-50kb/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/compress-image-to-50kb/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image-to-50kb/"/>
 </url>
 
 <url>
@@ -457,6 +498,14 @@
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/remove-bg/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/remove-bg/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/remove-bg/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/social-media-image-resizer/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/social-media-image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/social-media-image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/social-media-image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/social-media-image-resizer/"/>
 </url>
 
 <url>
@@ -633,6 +682,7 @@
   <loc>https://convertios.com/social-media-image-resizer/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/social-media-image-resizer/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/social-media-image-resizer/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/social-media-image-resizer/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/social-media-image-resizer/"/>
 </url>
 
