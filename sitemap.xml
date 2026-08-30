@@ -20,6 +20,7 @@
   <loc>https://convertios.com/all-tools/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/all-tools/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/all-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/all-tools/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/all-tools/"/>
 </url>
 
@@ -41,6 +42,7 @@
   <loc>https://convertios.com/ar/all-tools/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/all-tools/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/all-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/all-tools/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/all-tools/"/>
 </url>
 
@@ -128,6 +130,7 @@
   <loc>https://convertios.com/ar/image-tools/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-tools/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/image-tools/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-tools/"/>
 </url>
 
@@ -135,6 +138,7 @@
   <loc>https://convertios.com/ar/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/"/>
 </url>
 
@@ -376,6 +380,14 @@
 </url>
 
 <url>
+  <loc>https://convertios.com/es/all-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/all-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/all-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/all-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/all-tools/"/>
+</url>
+
+<url>
   <loc>https://convertios.com/es/compress-image/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/compress-image/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image/"/>
@@ -397,6 +409,22 @@
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-resizer/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/image-resizer/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-resizer/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/image-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/image-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-tools/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/"/>
 </url>
 
 <url>
@@ -466,6 +494,7 @@
   <loc>https://convertios.com/image-tools/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/image-tools/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/image-tools/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/image-tools/"/>
 </url>
 
@@ -473,6 +502,7 @@
   <loc>https://convertios.com/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/"/>
 </url>
 
