@@ -232,6 +232,17 @@
       { name: 'Meme Generator', url: '/meme-generator/', keywords: 'meme generator create' }
     ];
 
+    const spanishPages=new Set([
+      'all-tools','image-tools','png-to-jpg','jpg-to-png','webp-to-png',
+      'image-converter','image-resizer','compress-image','remove-bg','mp3-cutter'
+    ]);
+
+    function localizedToolUrl(url){
+      if(getCurrentLanguage(window.location.pathname)!=='es') return url;
+      const slug=(url||'').replace(/^\//,'').split('/')[0];
+      return spanishPages.has(slug) ? '/es/'+slug+'/' : url;
+    }
+
     searchInput.addEventListener('input',function(){
       const value=this.value.toLowerCase().trim();
       resultsBox.innerHTML='';
@@ -242,7 +253,7 @@
         const div=document.createElement('div');
         div.className='search-item';
         div.textContent=tool.name;
-        div.addEventListener('click',() => { window.location.href=tool.url; });
+        div.addEventListener('click',() => { window.location.href=localizedToolUrl(tool.url); });
         resultsBox.appendChild(div);
       });
       resultsBox.style.display='block';
