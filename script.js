@@ -238,7 +238,9 @@
       'ai-image-enhancer','social-media-image-resizer','compress-image-to-20kb',
       'compress-image-to-50kb','compress-image-to-100kb','pdf-tools','jpg-to-pdf',
       'pdf-to-jpg','merge-pdf','split-pdf','pdf-to-word','rotate-pdf','audio-tools',
-      'audio-converter','audio-speed-changer','trim-audio-online'
+      'audio-converter','audio-speed-changer','trim-audio-online','other-tools',
+      'qr-generator','link-shortener','password-generator','word-counter',
+      'text-formatter','unit-converter','meme-generator'
     ]);
 
     function localizedToolUrl(url){

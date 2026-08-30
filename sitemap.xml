@@ -170,6 +170,7 @@
   <loc>https://convertios.com/ar/link-shortener/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/link-shortener/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/link-shortener/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/link-shortener/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/link-shortener/"/>
 </url>
 
@@ -177,6 +178,7 @@
   <loc>https://convertios.com/ar/meme-generator/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/meme-generator/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/meme-generator/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/meme-generator/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/meme-generator/"/>
 </url>
 
@@ -200,6 +202,7 @@
   <loc>https://convertios.com/ar/other-tools/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/other-tools/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/other-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/other-tools/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/other-tools/"/>
 </url>
 
@@ -207,6 +210,7 @@
   <loc>https://convertios.com/ar/password-generator/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/password-generator/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/password-generator/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/password-generator/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/password-generator/"/>
 </url>
 
@@ -253,6 +257,7 @@
   <loc>https://convertios.com/ar/qr-generator/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/qr-generator/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/qr-generator/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/qr-generator/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/qr-generator/"/>
 </url>
 
@@ -306,6 +311,7 @@
   <loc>https://convertios.com/ar/text-formatter/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/text-formatter/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/text-formatter/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/text-formatter/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/text-formatter/"/>
 </url>
 
@@ -321,6 +327,7 @@
   <loc>https://convertios.com/ar/unit-converter/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/unit-converter/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/unit-converter/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/unit-converter/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/unit-converter/"/>
 </url>
 
@@ -336,6 +343,7 @@
   <loc>https://convertios.com/ar/word-counter/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/word-counter/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/word-counter/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/word-counter/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/word-counter/"/>
 </url>
 
@@ -523,6 +531,22 @@
 </url>
 
 <url>
+  <loc>https://convertios.com/es/link-shortener/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/link-shortener/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/link-shortener/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/link-shortener/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/link-shortener/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/meme-generator/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/meme-generator/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/meme-generator/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/meme-generator/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/meme-generator/"/>
+</url>
+
+<url>
   <loc>https://convertios.com/es/merge-pdf/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/merge-pdf/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/merge-pdf/"/>
@@ -536,6 +560,22 @@
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/mp3-cutter/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/mp3-cutter/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/mp3-cutter/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/other-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/other-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/other-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/other-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/other-tools/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/password-generator/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/password-generator/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/password-generator/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/password-generator/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/password-generator/"/>
 </url>
 
 <url>
@@ -571,6 +611,14 @@
 </url>
 
 <url>
+  <loc>https://convertios.com/es/qr-generator/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/qr-generator/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/qr-generator/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/qr-generator/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/qr-generator/"/>
+</url>
+
+<url>
   <loc>https://convertios.com/es/remove-bg/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/remove-bg/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/remove-bg/"/>
@@ -603,6 +651,14 @@
 </url>
 
 <url>
+  <loc>https://convertios.com/es/text-formatter/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/text-formatter/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/text-formatter/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/text-formatter/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/text-formatter/"/>
+</url>
+
+<url>
   <loc>https://convertios.com/es/trim-audio-online/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/trim-audio-online/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/trim-audio-online/"/>
@@ -611,11 +667,27 @@
 </url>
 
 <url>
+  <loc>https://convertios.com/es/unit-converter/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/unit-converter/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/unit-converter/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/unit-converter/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/unit-converter/"/>
+</url>
+
+<url>
   <loc>https://convertios.com/es/webp-to-png/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/webp-to-png/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/webp-to-png/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/webp-to-png/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/webp-to-png/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/word-counter/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/word-counter/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/word-counter/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/word-counter/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/word-counter/"/>
 </url>
 
 <url>
@@ -677,6 +749,7 @@
   <loc>https://convertios.com/link-shortener/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/link-shortener/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/link-shortener/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/link-shortener/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/link-shortener/"/>
 </url>
 
@@ -684,6 +757,7 @@
   <loc>https://convertios.com/meme-generator/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/meme-generator/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/meme-generator/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/meme-generator/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/meme-generator/"/>
 </url>
 
@@ -707,6 +781,7 @@
   <loc>https://convertios.com/other-tools/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/other-tools/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/other-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/other-tools/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/other-tools/"/>
 </url>
 
@@ -714,6 +789,7 @@
   <loc>https://convertios.com/password-generator/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/password-generator/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/password-generator/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/password-generator/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/password-generator/"/>
 </url>
 
@@ -760,6 +836,7 @@
   <loc>https://convertios.com/qr-generator/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/qr-generator/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/qr-generator/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/qr-generator/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/qr-generator/"/>
 </url>
 
@@ -813,6 +890,7 @@
   <loc>https://convertios.com/text-formatter/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/text-formatter/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/text-formatter/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/text-formatter/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/text-formatter/"/>
 </url>
 
@@ -828,6 +906,7 @@
   <loc>https://convertios.com/unit-converter/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/unit-converter/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/unit-converter/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/unit-converter/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/unit-converter/"/>
 </url>
 
@@ -843,6 +922,7 @@
   <loc>https://convertios.com/word-counter/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/word-counter/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/word-counter/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/word-counter/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/word-counter/"/>
 </url>
 
