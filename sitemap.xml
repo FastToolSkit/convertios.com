@@ -6,6 +6,7 @@
   <loc>https://convertios.com/about/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/about/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/about/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/about/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/about/"/>
 </url>
 
@@ -29,6 +30,7 @@
   <loc>https://convertios.com/ar/about/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/about/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/about/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/about/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/about/"/>
 </url>
 
@@ -108,6 +110,7 @@
   <loc>https://convertios.com/ar/contact/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/contact/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/contact/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/contact/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/contact/"/>
 </url>
 
@@ -115,6 +118,7 @@
   <loc>https://convertios.com/ar/faq/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/faq/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/faq/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/faq/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/faq/"/>
 </url>
 
@@ -250,6 +254,7 @@
   <loc>https://convertios.com/ar/privacy/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/privacy/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/privacy/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/privacy/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/privacy/"/>
 </url>
 
@@ -281,6 +286,7 @@
   <loc>https://convertios.com/ar/security/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/security/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/security/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/security/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/security/"/>
 </url>
 
@@ -304,6 +310,7 @@
   <loc>https://convertios.com/ar/terms/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/terms/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/terms/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/terms/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/terms/"/>
 </url>
 
@@ -407,7 +414,16 @@
   <loc>https://convertios.com/contact/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/contact/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/contact/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/contact/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/contact/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/about/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/about/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/about/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/about/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/about/"/>
 </url>
 
 <url>
@@ -480,6 +496,22 @@
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image-to-50kb/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/compress-image-to-50kb/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/compress-image-to-50kb/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/contact/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/contact/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/contact/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/contact/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/contact/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/faq/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/faq/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/faq/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/faq/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/faq/"/>
 </url>
 
 <url>
@@ -611,6 +643,14 @@
 </url>
 
 <url>
+  <loc>https://convertios.com/es/privacy/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/privacy/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/privacy/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/privacy/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/privacy/"/>
+</url>
+
+<url>
   <loc>https://convertios.com/es/qr-generator/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/qr-generator/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/qr-generator/"/>
@@ -635,6 +675,14 @@
 </url>
 
 <url>
+  <loc>https://convertios.com/es/security/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/security/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/security/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/security/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/security/"/>
+</url>
+
+<url>
   <loc>https://convertios.com/es/social-media-image-resizer/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/social-media-image-resizer/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/social-media-image-resizer/"/>
@@ -648,6 +696,14 @@
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/split-pdf/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/split-pdf/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/split-pdf/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/terms/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/terms/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/terms/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/terms/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/terms/"/>
 </url>
 
 <url>
@@ -694,6 +750,7 @@
   <loc>https://convertios.com/faq/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/faq/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/faq/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/faq/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/faq/"/>
 </url>
 
@@ -829,6 +886,7 @@
   <loc>https://convertios.com/privacy/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/privacy/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/privacy/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/privacy/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/privacy/"/>
 </url>
 
@@ -860,6 +918,7 @@
   <loc>https://convertios.com/security/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/security/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/security/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/security/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/security/"/>
 </url>
 
@@ -883,6 +942,7 @@
   <loc>https://convertios.com/terms/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/terms/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/terms/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/terms/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/terms/"/>
 </url>
 

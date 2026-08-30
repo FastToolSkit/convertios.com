@@ -240,7 +240,8 @@
       'pdf-to-jpg','merge-pdf','split-pdf','pdf-to-word','rotate-pdf','audio-tools',
       'audio-converter','audio-speed-changer','trim-audio-online','other-tools',
       'qr-generator','link-shortener','password-generator','word-counter',
-      'text-formatter','unit-converter','meme-generator'
+      'text-formatter','unit-converter','meme-generator','about','contact','faq',
+      'privacy','security','terms'
     ]);
 
     function localizedToolUrl(url){
