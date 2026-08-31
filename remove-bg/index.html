@@ -313,12 +313,12 @@ line-height:1.8;
 <div class="tool-info-grid">
 <div><strong>Runs in browser:</strong><span>No</span></div>
 <div><strong>Upload required:</strong><span>Yes</span></div>
-<div><strong>Third-party processing:</strong><span>Convertios backend + remove.bg</span></div>
-<div><strong>File retention:</strong><span>Processed by remove.bg for background removal and not stored by Convertios.</span></div>
+<div><strong>Third-party processing:</strong><span>Convertios self-hosted backend using a local rembg model</span></div>
+<div><strong>File retention:</strong><span>Processed temporarily by Convertios and deleted immediately after the request.</span></div>
 <div><strong>Max file size:</strong><span>12 MB</span></div>
-<div><strong>Supported formats:</strong><span>JPG, PNG and supported image uploads → Transparent PNG from remove.bg</span></div>
+<div><strong>Supported formats:</strong><span>JPG, PNG and WEBP → transparent PNG from the local model</span></div>
 </div>
-<p class="transparency-note"><strong>Transparency note:</strong> This tool requires secure third-party processing through the Convertios backend using remove.bg. Files are uploaded only for the requested task, so it is not a browser-only tool.</p>
+<p class="transparency-note"><strong>Transparency note:</strong> This tool sends the image securely to the self-hosted Convertios backend, where a local open-source AI model removes the background. Temporary files are deleted immediately after the request.</p>
 </section>
 
 
@@ -332,7 +332,7 @@ Convertios provides a powerful AI background remover that allows you to remove i
 </p>
 
 <p>
-No design skills are required — upload your image, let the secure remove.bg processing step isolate the subject, and download a transparent PNG result.
+No design skills are required — upload your image, let the self-hosted AI model isolate the subject, and download a transparent PNG result.
 </p>
 
 </div>
@@ -397,7 +397,7 @@ It is especially useful when you need a transparent background for logos, produc
 Yes, the tool is completely free with no hidden costs.</p>
 
 <p><strong>Are my images uploaded?</strong><br>
-No. This tool uploads the image securely through the Convertios backend for remove.bg processing. Convertios does not store the image after processing.</p>
+No. This tool uploads the image securely to the self-hosted Convertios backend for local processing. The temporary image is deleted immediately afterward.</p>
 
 <p><strong>Does it work with all images?</strong><br>
 The tool works best with clear subjects but can handle most images effectively.</p>

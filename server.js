@@ -1,354 +1,179 @@
-const FormData = require('form-data');
-const express = require('express');const cors = require('cors');const multer = require('multer');const fetch = require('node-fetch');
+const crypto = require('crypto');
+const fs = require('fs/promises');
+const os = require('os');
+const path = require('path');
+const { spawn } = require('child_process');
+const cors = require('cors');
+const express = require('express');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const multer = require('multer');
 
-const app = express();const PORT = process.env.PORT || 3000;const REPLICATE_API_URL = 'https://api.replicate.com/v1/predictions';const REPLICATE_MODEL = 'nightmareai/real-esrgan:42fed1c4974146d4d2414e2be2c5277c7fcf05fcc3a73abf41610695738c1d7b';const REPLICATE_MODEL_VERSION = REPLICATE_MODEL.split(':').pop();const MAX_ENHANCE_IMAGE_BYTES = 10 * 1024 * 1024;const MAX_DOCUMENT_BYTES = 25 * 1024 * 1024;const upload = multer({storage: multer.memoryStorage(),limits: { fileSize: MAX_DOCUMENT_BYTES }});const enhanceUpload = multer({storage: multer.memoryStorage(),limits: { fileSize: MAX_ENHANCE_IMAGE_BYTES }});const removeBgUpload = multer({storage: multer.memoryStorage(),limits: { fileSize: MAX_ENHANCE_IMAGE_BYTES }});
+const app = express();
+const PORT = Number(process.env.PORT || 3000);
+const PYTHON_BIN = process.env.PYTHON_BIN || 'python3';
+const MAX_DOCUMENT_BYTES = 25 * 1024 * 1024;
+const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
+const PROCESS_TIMEOUT_MS = 120_000;
+const MAX_ACTIVE_JOBS = Math.max(1, Number(process.env.MAX_ACTIVE_JOBS || 2));
+const allowedOrigins = new Set([
+  'https://convertios.com',
+  'https://www.convertios.com',
+  ...(process.env.EXTRA_ALLOWED_ORIGINS || '').split(',').map((value) => value.trim()).filter(Boolean)
+]);
 
-const allowedOrigins = new Set(['https://convertios.com', 'https://www.convertios.com']);
-app.use(cors({origin(origin, callback) {if (!origin || allowedOrigins.has(origin)) return callback(null, true);return callback(new Error('Origin not allowed by CORS'));}}));app.use(express.json({ limit: '10mb' }));
+let activeJobs = 0;
 
-function getAuthHeaders({ wait = false } = {}) {const token = process.env.REPLICATE_API_TOKEN;if (!token) {throw new Error('Missing REPLICATE_API_TOKEN environment variable');}
+const documentUpload = multer({ storage: multer.memoryStorage(), limits: { files: 1, fileSize: MAX_DOCUMENT_BYTES } });
+const imageUpload = multer({ storage: multer.memoryStorage(), limits: { files: 1, fileSize: MAX_IMAGE_BYTES } });
 
-const headers = {
-  Authorization: `Bearer ${token}`,
-  'Content-Type': 'application/json'
-};                                                
-if (wait) {headers.Prefer = 'wait';}
-
-return headers;}
-
-function sleep(ms) {return new Promise((resolve) => setTimeout(resolve, ms));}
-
-function extractPredictionOutput(prediction) {let outputUrl = null;
-
-if (Array.isArray(prediction?.output)) {outputUrl = prediction.output[0] || null;} else if (typeof prediction?.output === 'string') {outputUrl = prediction.output;}
-
-return outputUrl;}
-
-function safeReplicateDetails(value) {if (!value) return value;
-
-return {id: value.id,status: value.status,error: value.error,output: value.output,logs: value.logs,urls: value.urls};}
-
-function sendEnhanceError(res, status, details, extra = {}) {return res.status(status).json({error: 'Enhancement failed',details,...extra});}
-
-async function pollReplicatePrediction(prediction, requestId) {
-  if (!prediction?.urls?.get) {
-    throw new Error('Replicate prediction is missing a polling URL');
-  }
-
-  let current = prediction;
-  const maxAttempts = 30;
-
-  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
-    if (['failed', 'canceled'].includes(current.status)) {
-      throw new Error(current.error || `Replicate prediction ${current.status}`);
-    }
-
-    const outputUrl = extractPredictionOutput(current);
-    if (outputUrl) {
-      return { prediction: current, outputUrl };
-    }
-
-    if (current.status === 'succeeded') {
-      break;
-    }
-
-    await sleep(2000);
-
-    console.log(`[POST /enhance] [${requestId}] Polling Replicate prediction attempt ${attempt}, current status: ${current.status}`);
-
-    const pollResponse = await fetch(prediction.urls.get, {
-      method: 'GET',
-      headers: getAuthHeaders()
-    });
-
-    if (!pollResponse.ok) {
-      const details = await pollResponse.text();
-      throw new Error(`Replicate polling failed (${pollResponse.status}): ${details}`);
-    }
-
-    current = await pollResponse.json();
-
-    console.log('📡 Replicate response:', {
-      requestId,
-      prediction: safeReplicateDetails(current)
-    });
-  }
-
-  return {
-    prediction: current,
-    outputUrl: extractPredictionOutput(current)
-  };
-}
-
-app.post(
-  '/enhance',
-  (req, res, next) => {
-    enhanceUpload.single('image')(req, res, (error) => {
-      if (!error) {
-        return next();
-      }
-
-      if (error instanceof multer.MulterError && error.code === 'LIMIT_FILE_SIZE') {
-        return sendEnhanceError(res, 413, 'Image must be smaller than 10MB.');
-      }
-
-      return sendEnhanceError(res, 400, error.message || 'Invalid image upload.');
-    });
+app.disable('x-powered-by');
+app.set('trust proxy', 1);
+app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
+app.use(cors({
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.has(origin)) return callback(null, true);
+    return callback(new Error('Origin not allowed by CORS'));
   },
-  async (req, res) => {const requestId = `${Date.now()}-${Math.random().toString(16).slice(2)}`;let prediction = null;let stage = 'received';
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
+}));
+app.use(rateLimit({ windowMs: 15 * 60 * 1000, limit: 30, standardHeaders: true, legacyHeaders: false }));
 
-try {console.log('🔥 Request received', { requestId, path: req.path, method: req.method });console.log('📦 File size:', req.file?.size);console.log('[POST /enhance] Upload metadata:', {requestId,fieldName: req.file?.fieldname,originalName: req.file?.originalname,mimetype: req.file?.mimetype,bufferBytes: req.file?.buffer?.length});console.log("🔥 NEW VERSION LIVE");console.log('🔑 Token exists:', !!process.env.REPLICATE_API_TOKEN);if (!req.file) {return sendEnhanceError(res, 400, 'No image uploaded. Use FormData field name "image".', { requestId, stage: 'validation' });}
-
-if (!req.file.mimetype?.startsWith('image/')) {
-  return sendEnhanceError(res, 400, 'Uploaded file must be an image.', { requestId, stage: 'validation' });
+function safeDownloadName(name, extension, fallback) {
+  const base = path.basename(name || fallback, path.extname(name || fallback));
+  const safeBase = base.normalize('NFKD').replace(/[^a-z0-9_-]+/gi, '-').replace(/^-+|-+$/g, '');
+  return `${safeBase || fallback}${extension}`;
 }
 
-if (req.file.size >= MAX_ENHANCE_IMAGE_BYTES) {
-  return sendEnhanceError(res, 413, 'Image must be smaller than 10MB.', { requestId, stage: 'validation' });
+function runPython(scriptName, args) {
+  const scriptPath = path.join(__dirname, 'backend', scriptName);
+  return new Promise((resolve, reject) => {
+    const child = spawn(PYTHON_BIN, [scriptPath, ...args], {
+      stdio: ['ignore', 'ignore', 'pipe'],
+      env: { ...process.env, PYTHONUNBUFFERED: '1' }
+    });
+    let stderr = '';
+    const timer = setTimeout(() => {
+      child.kill('SIGKILL');
+      reject(new Error('Processing timed out. Try a smaller file.'));
+    }, PROCESS_TIMEOUT_MS);
+
+    child.stderr.on('data', (chunk) => {
+      if (stderr.length < 8_000) stderr += chunk.toString();
+    });
+    child.on('error', (error) => {
+      clearTimeout(timer);
+      reject(error);
+    });
+    child.on('close', (code) => {
+      clearTimeout(timer);
+      if (code === 0) return resolve();
+      return reject(new Error(stderr.trim() || `Processor exited with code ${code}`));
+    });
+  });
 }
 
-stage = 'encoding';
-const mimeType = req.file.mimetype || 'image/png';
-const base64 = req.file.buffer.toString('base64');
-const dataUri = `data:${mimeType};base64,${base64}`;
-console.log('[POST /enhance] Encoded image for Replicate', {
-  requestId,
-  mimeType,
-  base64Length: base64.length,
-  dataUriLength: dataUri.length
-});
-
-const createPayload = {
-  version: REPLICATE_MODEL_VERSION,
-  input: {
-
-image: dataUri,scale: 2,face_enhance: false}};
-
-stage = 'replicate_create';
-console.log('[POST /enhance] Creating Replicate prediction', {
-  requestId,
-  model: REPLICATE_MODEL,
-  version: REPLICATE_MODEL_VERSION,
-  mimeType,
-  originalName: req.file.originalname,
-  inputKeys: Object.keys(createPayload.input)
-});
-
-const createResponse = await fetch(REPLICATE_API_URL, {
-  method: 'POST',
-  headers: getAuthHeaders({ wait: true }),
-  body: JSON.stringify(createPayload)
-});
-
-const responseText = await createResponse.text();
-
-try {
-  prediction = responseText ? JSON.parse(responseText) : null;
-} catch (parseError) {
-  throw new Error(`Replicate returned non-JSON response (${createResponse.status}): ${responseText.slice(0, 500)}`);
+async function withJob(res, handler) {
+  if (activeJobs >= MAX_ACTIVE_JOBS) {
+    return res.status(503).json({ error: 'The converter is busy. Please retry in a moment.' });
+  }
+  activeJobs += 1;
+  const jobDir = await fs.mkdtemp(path.join(os.tmpdir(), 'convertios-'));
+  try {
+    return await handler(jobDir);
+  } finally {
+    activeJobs -= 1;
+    await fs.rm(jobDir, { recursive: true, force: true });
+  }
 }
 
-console.log("REPLICATE RESPONSE:", prediction);
-console.log('📡 Replicate response:', {
-  requestId,
-  httpStatus: createResponse.status,
-  prediction: safeReplicateDetails(prediction)
-});
-
-if (!createResponse.ok) {
-  throw new Error(`Replicate prediction failed (${createResponse.status}): ${JSON.stringify(safeReplicateDetails(prediction) || responseText)}`);
-}
-
-stage = 'output_extract';
-let outputUrl = extractPredictionOutput(prediction);
-
-if (!outputUrl && !['failed', 'canceled'].includes(prediction.status)) {
-  stage = 'replicate_poll';
-  const result = await pollReplicatePrediction(prediction, requestId);
-  prediction = result.prediction;
-  outputUrl = result.outputUrl;
-}
-
-if (['failed', 'canceled'].includes(prediction.status)) {
-  throw new Error(prediction.error || `Replicate prediction ${prediction.status}`);
-}
-
-if (!outputUrl) {
-  return sendEnhanceError(res, 502, safeReplicateDetails(prediction) || 'Replicate did not return an output URL.', { requestId, stage });
-}
-
-console.log('[POST /enhance] Enhancement complete', { requestId, outputUrl });
-return res.status(200).json({ enhancedImageUrl: outputUrl });
-
-} catch (error) {console.error('[POST /enhance] Enhancement failed', {requestId,stage,message: error.message,stack: error.stack,replicate: safeReplicateDetails(prediction)});return sendEnhanceError(res, 500, error.message || safeReplicateDetails(prediction), {requestId,stage,replicate: safeReplicateDetails(prediction)});}});
-
-function getEnvToken(name) {const token = process.env[name];if (!token) {throw new Error(`Missing ${name} environment variable`);}return token;}
-
-function sanitizeDownloadName(name, fallback) {return (name || fallback).replace(/[^a-z0-9.-]/gi, '');}
-
-app.post('/convert/pdf-to-word', upload.single('file'), async (req, res) => {console.log('[POST /convert/pdf-to-word] Incoming request');
-
-try {if (!req.file) {return res.status(400).json({ error: 'No PDF uploaded. Use FormData field name "file".' });}
-
-if (req.file.mimetype !== 'application/pdf' && !/\.pdf$/i.test(req.file.originalname || '')) {
-  return res.status(400).json({ error: 'Uploaded file must be a PDF.' });
-}
-
-const token = getEnvToken('CLOUDCONVERT_API_TOKEN');
-const jobResponse = await fetch('https://api.cloudconvert.com/v2/jobs', {
-  method: 'POST',
-  headers: {
-    Authorization: `Bearer ${token}`,
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    tasks: {
-      import_file: {
-        operation: 'import/base64',
-        file: req.file.buffer.toString('base64'),
-        filename: req.file.originalname || 'document.pdf'
-      },
-      convert: {
-        operation: 'convert',
-        input: 'import_file',
-        input_format: 'pdf',
-        output_format: 'docx'
-      },
-      export: {
-        operation: 'export/url',
-        input: 'convert'
-      }
+function uploadSingle(upload, field) {
+  return (req, res, next) => upload.single(field)(req, res, (error) => {
+    if (!error) return next();
+    if (error instanceof multer.MulterError && error.code === 'LIMIT_FILE_SIZE') {
+      return res.status(413).json({ error: 'Uploaded file is too large.' });
     }
-  })
-});
-
-const jobResponseText = await jobResponse.text();
-let job = null;
-
-try {
-  job = jobResponseText ? JSON.parse(jobResponseText) : null;
-  console.log('[POST /convert/pdf-to-word] CloudConvert job creation response', {
-  status: jobResponse.status,
-  ok: jobResponse.ok,
-  body: job
-});
-} catch (parseError) {
-  console.error('[POST /convert/pdf-to-word] CloudConvert job creation returned non-JSON response', {
-    httpStatus: jobResponse.status,
-    body: jobResponseText.slice(0, 500)
+    return res.status(400).json({ error: error.message || 'Invalid upload.' });
   });
 }
 
-if (!jobResponse.ok) {
-  return res.status(502).json({
-    error: 'CloudConvert job creation failed',
-    status: jobResponse.status,
-    details: job || jobResponseText
-  });
-}
+app.get('/', (_req, res) => {
+  res.json({ service: 'Convertios self-hosted conversion backend', status: 'ok' });
+});
 
-     
-let fileUrl = null;
-for (let attempt = 0; attempt < 60 && !fileUrl; attempt += 1) {
-  await sleep(2000);
-  const pollResponse = await fetch(`https://api.cloudconvert.com/v2/jobs/${job.data.id}`, {
-    headers: { Authorization: `Bearer ${token}` }
+app.get('/health', (_req, res) => {
+  res.json({
+    status: 'ok',
+    processing: 'self-hosted',
+    thirdPartyConversionApis: false,
+    activeJobs,
+    maxActiveJobs: MAX_ACTIVE_JOBS,
+    engines: {
+      pdfToWord: 'pdf2docx',
+      backgroundRemoval: 'rembg/u2netp',
+      imageEnhancement: 'not-enabled'
+    }
   });
+});
 
-  if (!pollResponse.ok) {
-    const details = await pollResponse.text();
-    return res.status(502).json({ error: 'CloudConvert polling failed', details });
+app.post('/convert/pdf-to-word', uploadSingle(documentUpload, 'file'), async (req, res) => {
+  if (!req.file) return res.status(400).json({ error: 'No PDF uploaded.' });
+  if (req.file.mimetype !== 'application/pdf' && !/\.pdf$/i.test(req.file.originalname || '')) {
+    return res.status(415).json({ error: 'Uploaded file must be a PDF.' });
   }
 
-  const data = await pollResponse.json();
-  const exportTask = data?.data?.tasks?.find((task) => task.name === 'export');
-  const failedTask = data?.data?.tasks?.find((task) => task.status === 'error');
-
-  console.log('[POST /convert/pdf-to-word] CloudConvert conversion status', {
-    attempt: attempt + 1,
-    jobId: data?.data?.id || job.data.id,
-    tasks: data?.data?.tasks?.map((task) => ({ name: task.name, operation: task.operation, status: task.status }))
+  return withJob(res, async (jobDir) => {
+    const input = path.join(jobDir, `${crypto.randomUUID()}.pdf`);
+    const output = path.join(jobDir, `${crypto.randomUUID()}.docx`);
+    await fs.writeFile(input, req.file.buffer, { mode: 0o600 });
+    await runPython('pdf_to_docx.py', [input, output]);
+    const result = await fs.readFile(output);
+    const downloadName = safeDownloadName(req.file.originalname, '.docx', 'converted');
+    res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+    res.setHeader('Content-Disposition', `attachment; filename="${downloadName}"`);
+    res.setHeader('Cache-Control', 'no-store');
+    return res.send(result);
   });
+});
 
-  if (failedTask) {
-    return res.status(502).json({ error: 'CloudConvert conversion failed', details: failedTask.message || failedTask.code || 'Task error' });
+app.post('/remove-background', uploadSingle(imageUpload, 'image_file'), async (req, res) => {
+  if (!req.file) return res.status(400).json({ error: 'No image uploaded.' });
+  if (!req.file.mimetype?.startsWith('image/')) {
+    return res.status(415).json({ error: 'Uploaded file must be an image.' });
   }
 
-  if (exportTask?.status === 'finished' && exportTask?.result?.files?.length) {
-    fileUrl = exportTask.result.files[0].url;
-    console.log('[POST /convert/pdf-to-word] CloudConvert export URL', { jobId: data?.data?.id || job.data.id, fileUrl });
-  }
-}
-
-if (!fileUrl) {
-  return res.status(504).json({ error: 'PDF to Word conversion timed out' });
-}
-
-const convertedResponse = await fetch(fileUrl);
-if (!convertedResponse.ok) {
-  return res.status(502).json({ error: 'Unable to download converted DOCX from CloudConvert' });
-}
-
-const convertedBuffer = Buffer.from(await convertedResponse.arrayBuffer());
-const downloadName = sanitizeDownloadName((req.file.originalname || 'converted.pdf').replace(/\.pdf$/i, '.docx'), 'converted.docx');
-res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
-res.setHeader('Content-Disposition', `attachment; filename="${downloadName}"`);
-return res.send(convertedBuffer);
-
-} catch (error) {console.error('[POST /convert/pdf-to-word] Unexpected error', error);return res.status(500).json({ error: 'PDF to Word conversion failed', details: error.message });}});
-
-app.post('/remove-background', removeBgUpload.single('image_file'), async (req, res) => {console.log('[POST /remove-background] Incoming request');
-
-try {if (!req.file) {return res.status(400).json({ error: 'No image uploaded. Use FormData field name "image_file".' });}
-
-if (!req.file.mimetype?.startsWith('image/')) {
-  return res.status(400).json({ error: 'Uploaded file must be an image.' });
-}
-
-const formData = new FormData();
-formData.append('image_file', req.file.buffer, {
-  filename: req.file.originalname || 'image.png',
-  contentType: req.file.mimetype || 'image/png'
-});
-formData.append('size', 'auto');
-
-const response = await fetch('https://api.remove.bg/v1.0/removebg', {
-  method: 'POST',
-  headers: { 'X-Api-Key': getEnvToken('REMOVE_BG_API_KEY') },
-  body: formData
+  return withJob(res, async (jobDir) => {
+    const originalExtension = path.extname(req.file.originalname || '').toLowerCase();
+    const extension = ['.png', '.jpg', '.jpeg', '.webp'].includes(originalExtension) ? originalExtension : '.png';
+    const input = path.join(jobDir, `${crypto.randomUUID()}${extension}`);
+    const output = path.join(jobDir, `${crypto.randomUUID()}.png`);
+    await fs.writeFile(input, req.file.buffer, { mode: 0o600 });
+    await runPython('remove_background.py', [input, output]);
+    const result = await fs.readFile(output);
+    const downloadName = safeDownloadName(req.file.originalname, '-no-bg.png', 'image');
+    res.setHeader('Content-Type', 'image/png');
+    res.setHeader('Content-Disposition', `attachment; filename="${downloadName}"`);
+    res.setHeader('Cache-Control', 'no-store');
+    return res.send(result);
+  });
 });
 
-if (!response.ok) {
-  const details = await response.text();
-  return res.status(502).json({ error: 'Background removal failed', details });
-}
-
-const outputBuffer = Buffer.from(await response.arrayBuffer());
-res.setHeader('Content-Type', 'image/png');
-res.setHeader('Content-Disposition', 'attachment; filename="no-bg.png"');
-return res.send(outputBuffer);
-
-} catch (error) {console.error('[POST /remove-background] Unexpected error', error);return res.status(500).json({ error: 'Background removal failed', details: error.message });}});
-
-app.get('/', (req, res) => {
-  res.send('Server running');
+app.post('/enhance', (_req, res) => {
+  return res.status(503).json({
+    error: 'Self-hosted image enhancement is not enabled yet.',
+    details: 'This route will be enabled after a suitable CPU/GPU model is installed.'
+  });
 });
 
-app.use((_req, res) => {
-  return res.status(404).json({ error: 'Not found' });
-});
+app.use((_req, res) => res.status(404).json({ error: 'Not found' }));
 
 app.use((error, _req, res, _next) => {
-  if (error instanceof multer.MulterError && error.code === 'LIMIT_FILE_SIZE') {
-    return res.status(413).json({ error: 'Uploaded file is too large.' });
-  }
-  console.error('[server] Unhandled request error', error);
-  return res.status(500).json({
-    error: 'Request failed',
-    details: error.message || String(error)
-  });
+  console.error('[server] Request failed', error);
+  const status = error.message === 'Origin not allowed by CORS' ? 403 : 500;
+  return res.status(status).json({ error: status === 403 ? error.message : 'Processing failed.' });
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Convertios backend listening on port ${PORT}`);
 });

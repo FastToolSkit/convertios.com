@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: convertios-backend
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: MAX_ACTIVE_JOBS
+        value: "2"

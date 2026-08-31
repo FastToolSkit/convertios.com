@@ -1,0 +1,2 @@
+pdf2docx==0.5.8
+rembg[cpu]==2.0.67

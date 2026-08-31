@@ -233,12 +233,12 @@ gtag('config', 'G-0CH8NE5WDH');
 <div class="tool-info-grid">
 <div><strong>يعمل داخل المتصفح:</strong><span>لا</span></div>
 <div><strong>يتطلب رفع الملف:</strong><span>نعم</span></div>
-<div><strong>معالجة عبر طرف خارجي:</strong><span>خادم Convertios الخلفي + CloudConvert</span></div>
-<div><strong>الاحتفاظ بالملف:</strong><span>تتم المعالجة عبر CloudConvert للتحويل ثم يُحذف الملف وفق سياسة الاحتفاظ الخاصة بمهمة المعالجة.</span></div>
+<div><strong>معالجة عبر طرف خارجي:</strong><span>خادم Convertios الذاتي باستخدام pdf2docx</span></div>
+<div><strong>الاحتفاظ بالملف:</strong><span>تتم المعالجة مؤقتًا على خادم Convertios ثم يُحذف الملف فور انتهاء الطلب.</span></div>
 <div><strong>الحد الأقصى للحجم:</strong><span>100 MB</span></div>
 <div><strong>الصيغ المدعومة:</strong><span>ملفات PDF → مستند DOCX</span></div>
 </div>
-<p class="transparency-note"><strong>ملاحظة الشفافية:</strong> تتطلب هذه الأداة معالجة آمنة عبر طرف خارجي من خلال خادم Convertios باستخدام CloudConvert. يتم رفع الملفات فقط لتنفيذ المهمة المطلوبة، لذا فهي ليست أداة تعمل داخل المتصفح فقط.</p>
+<p class="transparency-note"><strong>ملاحظة الشفافية:</strong> ترسل هذه الأداة ملف PDF بأمان إلى خادم Convertios الذاتي، حيث ينفذ محرك مفتوح المصدر التحويل محليًا، ثم تُحذف الملفات المؤقتة فور انتهاء الطلب.</p>
 </section>
 
 
@@ -253,7 +253,7 @@ gtag('config', 'G-0CH8NE5WDH');
 </p>
 
 <p>
-ترسل هذه الأداة الملف المحدد بأمان إلى CloudConvert عبر خادم Convertios الخلفي لتنفيذ المهمة المطلوبة فقط. ولا يحتفظ Convertios بملفك بعد اكتمال المعالجة.
+ترسل هذه الأداة الملف بأمان إلى خادم Convertios الذاتي، حيث تتم معالجته محليًا ثم يُحذف فور اكتمال التحويل.
 </p>
 
 </div>
@@ -268,7 +268,7 @@ gtag('config', 'G-0CH8NE5WDH');
 </p>
 
 <p>
-ترفع الأداة ملف PDF بأمان عبر خادم Convertios الخلفي لمعالجته بواسطة CloudConvert، ثم تعيد ملف DOCX الناتج للتنزيل.
+ترفع الأداة ملف PDF بأمان إلى خادم Convertios الذاتي، وتحوله محليًا باستخدام pdf2docx، ثم تعيد ملف DOCX للتنزيل.
 </p>
 
 <h2>طريقة الاستخدام</h2>
@@ -317,7 +317,7 @@ gtag('config', 'G-0CH8NE5WDH');
 نعم، الأداة مجانية بالكامل دون أي رسوم خفية.</p>
 
 <p><strong>هل يتم رفع ملفاتي؟</strong><br>
-ترفع هذه الأداة ملف PDF بأمان عبر خادم Convertios الخلفي لمعالجته بواسطة CloudConvert. ولا يحتفظ Convertios بالملف بعد المعالجة.</p>
+ترفع هذه الأداة ملف PDF بأمان إلى خادم Convertios الذاتي، ويُحذف الملف المؤقت فور انتهاء المعالجة.</p>
 
 <p><strong>هل يتم الحفاظ على التنسيق؟</strong><br>
 الأداة مُحسّنة للحفاظ على التخطيط والتنسيق بأكبر قدر ممكن، لكن قد تختلف النتائج حسب ملف PDF الأصلي.</p>
@@ -422,7 +422,7 @@ preview.innerHTML = `
 📄 ${file.name}<br>
 الحجم: ${(file.size/1024/1024).toFixed(2)} MB
 `;
-status.innerText = "الملف جاهز للتحويل. يتم رفع PDF بأمان عبر خادم Convertios لمعالجة CloudConvert.";
+status.innerText = "الملف جاهز للتحويل. ستتم معالجته على خادم Convertios الذاتي وحذفه فور الانتهاء.";
 downloads.innerHTML = "";
 setConvertButtonState(true);
 } else {
