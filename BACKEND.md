@@ -28,9 +28,10 @@ curl http://localhost:3000/health
 
 ## Render deployment
 
-The included `render.yaml` creates a Docker web service. A paid Starter service
-is recommended because local ML and document conversion need more memory and
-CPU than static hosting.
+The included `render.yaml` creates a free Docker web service for initial testing.
+The free instance can sleep when inactive and its 512 MB memory limit might be
+insufficient for background removal. Upgrade only if real testing shows that it
+is necessary.
 
 After deployment, keep the existing Render URL in the pages or attach
 `api.convertios.com` to the service. Add preview domains to
