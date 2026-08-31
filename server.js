@@ -38,7 +38,12 @@ app.use(cors({
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type']
 }));
-app.use(rateLimit({ windowMs: 15 * 60 * 1000, limit: 30, standardHeaders: true, legacyHeaders: false }));
+const conversionRateLimit = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 30,
+  standardHeaders: true,
+  legacyHeaders: false
+});
 
 function safeDownloadName(name, extension, fallback) {
   const base = path.basename(name || fallback, path.extname(name || fallback));
@@ -117,7 +122,7 @@ app.get('/health', (_req, res) => {
   });
 });
 
-app.post('/convert/pdf-to-word', uploadSingle(documentUpload, 'file'), async (req, res) => {
+app.post('/convert/pdf-to-word', conversionRateLimit, uploadSingle(documentUpload, 'file'), async (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'No PDF uploaded.' });
   if (req.file.mimetype !== 'application/pdf' && !/\.pdf$/i.test(req.file.originalname || '')) {
     return res.status(415).json({ error: 'Uploaded file must be a PDF.' });
@@ -137,7 +142,7 @@ app.post('/convert/pdf-to-word', uploadSingle(documentUpload, 'file'), async (re
   });
 });
 
-app.post('/remove-background', uploadSingle(imageUpload, 'image_file'), async (req, res) => {
+app.post('/remove-background', conversionRateLimit, uploadSingle(imageUpload, 'image_file'), async (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'No image uploaded.' });
   if (!req.file.mimetype?.startsWith('image/')) {
     return res.status(415).json({ error: 'Uploaded file must be an image.' });
@@ -159,7 +164,7 @@ app.post('/remove-background', uploadSingle(imageUpload, 'image_file'), async (r
   });
 });
 
-app.post('/enhance', (_req, res) => {
+app.post('/enhance', conversionRateLimit, (_req, res) => {
   return res.status(503).json({
     error: 'Self-hosted image enhancement is not enabled yet.',
     details: 'This route will be enabled after a suitable CPU/GPU model is installed.'
