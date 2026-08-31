@@ -375,12 +375,12 @@ Convertir a Word
 <div class="tool-info-grid">
 <div><strong>Funciona en el navegador:</strong><span>No</span></div>
 <div><strong>Requiere subida:</strong><span>Sí</span></div>
-<div><strong>Procesamiento de terceros:</strong><span>Backend de Convertios y CloudConvert</span></div>
-<div><strong>Conservación de archivos:</strong><span>CloudConvert procesa el archivo y lo elimina de acuerdo con la política de conservación del trabajo.</span></div>
+<div><strong>Procesamiento de terceros:</strong><span>Backend propio de Convertios con pdf2docx</span></div>
+<div><strong>Conservación de archivos:</strong><span>Convertios procesa el archivo temporalmente y lo elimina inmediatamente después de la solicitud.</span></div>
 <div><strong>Tamaño máximo:</strong><span>100 MB</span></div>
 <div><strong>Formatos compatibles:</strong><span>Archivos PDF → documento Word DOCX</span></div>
 </div>
-<p class="transparency-note"><strong>Nota de transparencia:</strong> Esta herramienta requiere procesamiento seguro de terceros mediante el backend de Convertios y CloudConvert. Los archivos se suben únicamente para la tarea solicitada.</p>
+<p class="transparency-note"><strong>Nota de transparencia:</strong> Esta herramienta envía el PDF de forma segura al backend propio de Convertios, donde un motor local de código abierto realiza la conversión. Los archivos temporales se eliminan al terminar.</p>
 </section>
 
 
@@ -395,7 +395,7 @@ Convertios convierte documentos PDF en archivos Word (DOCX) editables al instant
 </p>
 
 <p>
-La herramienta envía el archivo de forma segura a CloudConvert mediante el backend de Convertios solo para la tarea solicitada. Convertios no lo almacena después.
+La herramienta envía el archivo al backend propio de Convertios, lo procesa localmente y lo elimina inmediatamente después de convertirlo.
 </p>
 
 </div>
@@ -410,7 +410,7 @@ Este convertidor transforma archivos PDF en documentos Word editables y conserva
 </p>
 
 <p>
-La herramienta sube el PDF de forma segura mediante el backend de Convertios, CloudConvert lo procesa y devuelve el DOCX para descargar.
+La herramienta sube el PDF al backend propio de Convertios, lo convierte localmente con pdf2docx y devuelve el DOCX para descargar.
 </p>
 
 <h2>Cómo usarla</h2>
@@ -459,7 +459,7 @@ También permite convertir PDF escaneados o compartidos en documentos modificabl
 Sí. La herramienta es totalmente gratuita y no tiene costes ocultos.</p>
 
 <p><strong>¿Se suben mis archivos?</strong><br>
-La herramienta sube el PDF de forma segura mediante el backend de Convertios para que CloudConvert lo procese. Convertios no almacena el archivo después.</p>
+La herramienta sube el PDF al backend propio de Convertios y elimina el archivo temporal inmediatamente después de procesarlo.</p>
 
 <p><strong>¿Se conservará el formato?</strong><br>
 La herramienta intenta conservar el diseño y el formato, aunque el resultado puede variar según el PDF original.</p>
@@ -567,7 +567,7 @@ preview.innerHTML = `
 📄 ${file.name}<br>
 Size: ${(file.size/1024/1024).toFixed(2)} MB
 `;
-status.innerText = "Listo para convertir. El PDF se subirá de forma segura mediante el backend de Convertios para que CloudConvert lo procese.";
+status.innerText = "Listo para convertir. El backend propio de Convertios procesará el PDF y lo eliminará inmediatamente después.";
 downloads.innerHTML = "";
 setConvertButtonState(true);
 } else {

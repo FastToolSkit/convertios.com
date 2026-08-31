@@ -375,12 +375,12 @@ Convert to Word
 <div class="tool-info-grid">
 <div><strong>Runs in browser:</strong><span>No</span></div>
 <div><strong>Upload required:</strong><span>Yes</span></div>
-<div><strong>Third-party processing:</strong><span>Convertios backend + CloudConvert</span></div>
-<div><strong>File retention:</strong><span>Processed by CloudConvert for conversion and deleted according to the processing job retention policy.</span></div>
+<div><strong>Third-party processing:</strong><span>Convertios self-hosted backend using pdf2docx</span></div>
+<div><strong>File retention:</strong><span>Processed temporarily by Convertios and deleted immediately after the request.</span></div>
 <div><strong>Max file size:</strong><span>100 MB</span></div>
 <div><strong>Supported formats:</strong><span>PDF files → DOCX Word document</span></div>
 </div>
-<p class="transparency-note"><strong>Transparency note:</strong> This tool requires secure third-party processing through the Convertios backend using CloudConvert. Files are uploaded only for the requested task, so it is not a browser-only tool.</p>
+<p class="transparency-note"><strong>Transparency note:</strong> This tool sends the PDF securely to the self-hosted Convertios backend, where an open-source local engine performs the conversion. The temporary files are deleted immediately after the request.</p>
 </section>
 
 
@@ -395,7 +395,7 @@ Convertios provides a fast and reliable PDF to Word converter that allows you to
 </p>
 
 <p>
-This tool sends the selected file securely to CloudConvert through the Convertios backend only for the requested task. Convertios does not store your file after processing.
+This tool sends the selected file securely to the self-hosted Convertios backend. It is processed locally and deleted immediately after conversion.
 </p>
 
 </div>
@@ -410,7 +410,7 @@ This PDF to Word converter transforms PDF files into editable Word documents whi
 </p>
 
 <p>
-The tool uploads the PDF securely through the Convertios backend for CloudConvert processing, then returns the converted DOCX file for download.
+The tool uploads the PDF securely to the self-hosted Convertios backend, converts it locally with pdf2docx, and returns the DOCX file for download.
 </p>
 
 <h2>How to use</h2>
@@ -459,7 +459,7 @@ It is also helpful for converting scanned or shared PDFs into documents that can
 Yes, the tool is completely free with no hidden costs.</p>
 
 <p><strong>Are my files uploaded?</strong><br>
-This tool uploads the PDF securely through the Convertios backend for CloudConvert processing. Convertios does not store the file after processing.</p>
+This tool uploads the PDF securely to the self-hosted Convertios backend. Convertios deletes the temporary file immediately after processing.</p>
 
 <p><strong>Will formatting be preserved?</strong><br>
 The tool is optimized to maintain layout and formatting as closely as possible, though results may vary depending on the original PDF.</p>
@@ -567,7 +567,7 @@ preview.innerHTML = `
 📄 ${file.name}<br>
 Size: ${(file.size/1024/1024).toFixed(2)} MB
 `;
-status.innerText = "Ready to convert. This tool uploads the PDF securely through the Convertios backend for CloudConvert processing.";
+status.innerText = "Ready to convert. The PDF will be processed by the self-hosted Convertios backend and deleted immediately afterward.";
 downloads.innerHTML = "";
 setConvertButtonState(true);
 } else {
