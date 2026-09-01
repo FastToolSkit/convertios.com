@@ -1,4 +1,4 @@
-.video-page-main{padding:56px 18px 20px;background:#f8fafc}
+.video-page-main{padding:40px 18px 20px;background:#f8fafc}
 .video-tool-shell{max-width:820px;margin:0 auto;background:#071a33;color:#fff;padding:42px;border-radius:22px;text-align:center;box-shadow:0 20px 50px rgba(15,23,42,.24)}
 .video-tool-shell h1{font-size:clamp(2rem,5vw,2.7rem);line-height:1.15;margin-bottom:12px}
 .video-tool-shell .tool-lead{max-width:660px;margin:0 auto;color:#cbd5e1}
@@ -24,6 +24,6 @@
 .video-faq details{margin:10px 0;padding:15px 18px;border:1px solid #dbe3ee;border-radius:12px;background:#fff}
 .video-faq summary{cursor:pointer;font-weight:700;color:#0f172a}
 .video-faq details p{margin-top:10px}
-.video-breadcrumb{max-width:980px;margin:0 auto 20px;color:#64748b;font-size:.92rem}.video-breadcrumb a{color:#2563eb;text-decoration:none}
+.video-breadcrumb{display:none}
 [dir="rtl"] .video-content{text-align:right}
 @media(max-width:760px){.video-page-main{padding:28px 0 10px}.video-tool-shell{margin:0 14px;padding:30px 18px}.video-settings{flex-direction:column}.video-format-grid,.video-related-grid{grid-template-columns:1fr}.video-breadcrumb{padding:0 18px}}
