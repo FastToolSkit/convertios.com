@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-
 gtag('config', 'G-0CH8NE5WDH');
+
+window.addEventListener('load', function () {
+  const loadAnalytics = function () {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH';
+    document.head.appendChild(script);
+  };
+  if ('requestIdleCallback' in window) requestIdleCallback(loadAnalytics, { timeout: 2500 });
+  else setTimeout(loadAnalytics, 1500);
+}, { once: true });
 </script>
 
 <meta charset="UTF-8">
@@ -121,7 +129,7 @@ else {
 
 <div class="header-left">
     <a href="/ar/" class="logo">
-        <img src="/convertios-logo.png" alt="شعار Convertios" width="2211" height="1234">
+        <img src="/convertios-logo-header.png" alt="شعار Convertios" width="256" height="143" fetchpriority="high" decoding="async">
     </a>
 </div>
 
