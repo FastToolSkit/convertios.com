@@ -223,6 +223,8 @@
       { name: 'MP3 Cutter', url: '/mp3-cutter/', keywords: 'mp3 audio cut trim' },
       { name: 'Audio Converter', url: '/audio-converter/', keywords: 'audio convert mp3 wav' },
       { name: 'Audio Speed Changer', url: '/audio-speed-changer/', keywords: 'audio speed change' },
+      { name: 'Video to MP3', url: '/video-to-mp3/', keywords: 'video mp3 extract audio' },
+      { name: 'Video Format Converter', url: '/video-converter/', keywords: 'video convert mp4 webm mov mkv avi' },
       { name: 'QR Code Generator', url: '/qr-generator/', keywords: 'qr code generator' },
       { name: 'Link Shortener', url: '/link-shortener/', keywords: 'shorten link url' },
       { name: 'Password Generator', url: '/password-generator/', keywords: 'generate password' },
@@ -238,7 +240,8 @@
       'ai-image-enhancer','social-media-image-resizer','compress-image-to-20kb',
       'compress-image-to-50kb','compress-image-to-100kb','pdf-tools','jpg-to-pdf',
       'pdf-to-jpg','merge-pdf','split-pdf','pdf-to-word','rotate-pdf','audio-tools',
-      'audio-converter','audio-speed-changer','trim-audio-online','other-tools',
+      'audio-converter','audio-speed-changer','trim-audio-online','video-to-mp3',
+      'video-converter','other-tools',
       'qr-generator','link-shortener','password-generator','word-counter',
       'text-formatter','unit-converter','meme-generator','about','contact','faq',
       'privacy','security','terms'
