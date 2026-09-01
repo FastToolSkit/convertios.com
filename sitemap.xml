@@ -986,4 +986,46 @@
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/word-counter/"/>
 </url>
 
+<url>
+  <loc>https://convertios.com/video-to-mp3/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/video-to-mp3/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/video-to-mp3/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/video-to-mp3/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/video-to-mp3/"/>
+</url>
+<url>
+  <loc>https://convertios.com/ar/video-to-mp3/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/video-to-mp3/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/video-to-mp3/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/video-to-mp3/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/video-to-mp3/"/>
+</url>
+<url>
+  <loc>https://convertios.com/es/video-to-mp3/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/video-to-mp3/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/video-to-mp3/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/video-to-mp3/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/video-to-mp3/"/>
+</url>
+<url>
+  <loc>https://convertios.com/video-converter/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/video-converter/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/video-converter/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/video-converter/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/video-converter/"/>
+</url>
+<url>
+  <loc>https://convertios.com/ar/video-converter/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/video-converter/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/video-converter/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/video-converter/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/video-converter/"/>
+</url>
+<url>
+  <loc>https://convertios.com/es/video-converter/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/video-converter/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/video-converter/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/video-converter/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/video-converter/"/>
+</url>
 </urlset>
