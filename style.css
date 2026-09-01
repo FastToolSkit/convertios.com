@@ -139,7 +139,7 @@ HERO
 .hero-badge{
     display:inline-block;
     background:#dbeafe;
-    color:#2563eb;
+    color:#1d4ed8;
     padding:6px 14px;
     border-radius:20px;
     font-size:13px;
@@ -152,7 +152,7 @@ HERO
 }
 
 .hero-left h1 span{
-    color:#2563eb;
+    color:#1d4ed8;
 }
 
 .hero-sub{
