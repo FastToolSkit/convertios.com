@@ -93,7 +93,7 @@ function runPython(scriptName, args) {
 
 function videoInputExtension(file) {
   const extension = path.extname(file.originalname || '').toLowerCase();
-  const allowed = new Set(['.mp4', '.mov', '.webm', '.mkv', '.avi', '.m4v', '.mpeg', '.mpg', '.3gp', '.ogv']);
+  const allowed = new Set(['.mp4', '.mov', '.webm', '.mkv', '.avi', '.m4v', '.mpeg', '.mpg', '.3gp', '.ogv', '.flv', '.wmv', '.ts']);
   return allowed.has(extension) ? extension : null;
 }
 
@@ -103,7 +103,15 @@ function videoFormatSettings(format) {
     webm: { extension: '.webm', contentType: 'video/webm', args: ['-c:v', 'libvpx-vp9', '-deadline', 'realtime', '-cpu-used', '8', '-crf', '34', '-b:v', '0', '-c:a', 'libopus', '-b:a', '96k'] },
     mov: { extension: '.mov', contentType: 'video/quicktime', args: ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23', '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart'] },
     mkv: { extension: '.mkv', contentType: 'video/x-matroska', args: ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23', '-c:a', 'aac', '-b:a', '128k'] },
-    avi: { extension: '.avi', contentType: 'video/x-msvideo', args: ['-c:v', 'mpeg4', '-q:v', '5', '-c:a', 'libmp3lame', '-b:a', '128k'] }
+    avi: { extension: '.avi', contentType: 'video/x-msvideo', args: ['-c:v', 'mpeg4', '-q:v', '5', '-c:a', 'libmp3lame', '-b:a', '128k'] },
+    m4v: { extension: '.m4v', contentType: 'video/x-m4v', args: ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23', '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart'] },
+    mpg: { extension: '.mpg', contentType: 'video/mpeg', args: ['-c:v', 'mpeg2video', '-q:v', '5', '-c:a', 'mp2', '-b:a', '192k'] },
+    mpeg: { extension: '.mpeg', contentType: 'video/mpeg', args: ['-c:v', 'mpeg2video', '-q:v', '5', '-c:a', 'mp2', '-b:a', '192k'] },
+    flv: { extension: '.flv', contentType: 'video/x-flv', args: ['-c:v', 'flv', '-q:v', '5', '-c:a', 'libmp3lame', '-b:a', '128k'] },
+    wmv: { extension: '.wmv', contentType: 'video/x-ms-wmv', args: ['-c:v', 'wmv2', '-q:v', '5', '-c:a', 'wmav2', '-b:a', '128k'] },
+    '3gp': { extension: '.3gp', contentType: 'video/3gpp', args: ['-c:v', 'libx264', '-preset', 'veryfast', '-profile:v', 'baseline', '-level', '3.0', '-crf', '25', '-c:a', 'aac', '-b:a', '96k'] },
+    ogv: { extension: '.ogv', contentType: 'video/ogg', args: ['-c:v', 'libtheora', '-q:v', '7', '-c:a', 'libvorbis', '-q:a', '4'] },
+    ts: { extension: '.ts', contentType: 'video/mp2t', args: ['-c:v', 'mpeg2video', '-q:v', '5', '-c:a', 'mp2', '-b:a', '192k'] }
   };
   return settings[format] || null;
 }
