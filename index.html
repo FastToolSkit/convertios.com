@@ -30,6 +30,7 @@ window.addEventListener('load', function () {
     <meta name="robots" content="index, follow">
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
 <meta name="yandex-verification" content="93fda3d8632afa38" />
+<link rel="preload" as="image" href="/convertios-logo-header.png" fetchpriority="high">
 <style>
 /* Critical above-the-fold mobile styles to reduce LCP render delay */
 @media (max-width:768px){
@@ -72,15 +73,17 @@ function triggerAds(){
     }
 }
 
-if (window.innerWidth > 768) {
-    loadAds();
-}
+// Ads must never compete with the header and hero for the initial render.
+window.addEventListener('load', function () {
+    if (window.innerWidth > 768) {
+        if ('requestIdleCallback' in window) requestIdleCallback(triggerAds, { timeout: 2500 });
+        else setTimeout(triggerAds, 1500);
+    }
+}, { once: true });
 
-else {
-    window.addEventListener("scroll", triggerAds);
-    window.addEventListener("touchstart", triggerAds);
-    window.addEventListener("click", triggerAds);
-}
+window.addEventListener("scroll", triggerAds, { once: true, passive: true });
+window.addEventListener("touchstart", triggerAds, { once: true, passive: true });
+window.addEventListener("click", triggerAds, { once: true });
 </script>
 
 <!-- Convertios SEO social metadata -->
