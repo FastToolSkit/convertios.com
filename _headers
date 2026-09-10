@@ -1,0 +1,8 @@
+/sitemap.xml
+  X-Robots-Tag: noindex
+
+/robots.txt
+  X-Robots-Tag: noindex
+
+/*.html
+  X-Robots-Tag: noindex, follow
