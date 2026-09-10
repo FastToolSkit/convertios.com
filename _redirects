@@ -8,9 +8,9 @@
 /ar/other-tools.html /ar/other-tools/ 301
 /ar/terms.html /ar/terms/ 301
 
-# Catch any remaining or future legacy .html aliases, including language folders.
-/*.html /:splat/ 301
-
-# Normalize explicit directory index URLs as well.
+# Normalize explicit directory index URLs before the generic .html rule.
 /*/index.html /:splat/ 301
 /index.html / 301
+
+# Catch any remaining or future legacy .html aliases, including language folders.
+/*.html /:splat/ 301
