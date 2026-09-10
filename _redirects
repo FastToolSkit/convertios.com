@@ -1,3 +1,5 @@
+# Canonical URL policy: public HTML pages use clean trailing-slash URLs.
+# Keep explicit rules first for URLs already reported by Google Search Console.
 /password-generator.html /password-generator/ 301
 /compress-image-to-100kb.html /compress-image-to-100kb/ 301
 /ar/compress-image-to-50kb.html /ar/compress-image-to-50kb/ 301
@@ -5,3 +7,10 @@
 /ar/audio-converter.html /ar/audio-converter/ 301
 /ar/other-tools.html /ar/other-tools/ 301
 /ar/terms.html /ar/terms/ 301
+
+# Catch any remaining or future legacy .html aliases, including language folders.
+/*.html /:splat/ 301
+
+# Normalize explicit directory index URLs as well.
+/*/index.html /:splat/ 301
+/index.html / 301
