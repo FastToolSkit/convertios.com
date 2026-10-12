@@ -195,6 +195,7 @@ line-height:1.8;
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js" defer></script>
 </head>
 
 <body>
@@ -543,52 +544,6 @@ document.execCommand("copy");
 </script>
 
 
-
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canReintentar){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canReintentar?' <button type="button" class="tool-retry-button" id="commonToolReintentar">Reintentar</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolReintentar');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'Se requiere una acción. Revisa los datos e inténtalo de nuevo.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('La herramienta no pudo completar la solicitud. Comprueba los datos e inténtalo de nuevo.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('La herramienta no pudo completar la solicitud. Comprueba los datos e inténtalo de nuevo.', true);
-});
-})();
-</script>
 
 <script src="/script.js" defer></script>
 </body>

@@ -97,6 +97,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js" defer></script>
 </head>
 
 <body>
@@ -212,12 +213,10 @@ gtag('config', 'G-0CH8NE5WDH');
 </details>
 </header>
 
-<div class="tool-container" id="main-content">
+<div class="tool-container" id="main-content" data-uses-backend>
 
 <h1>Acortador de enlaces en línea</h1>
 <p>Convierte URL largas en enlaces cortos y limpios al instante.</p>
-<p class="temporary-tool-notice" role="status">Esta herramienta está en proceso de mejora. Es posible que algunas funciones aún no estén disponibles.</p>
-
 <input type="text" id="url" placeholder="Pega aquí tu URL larga...">
 
 <button id="shortenBtn" onclick="shorten()" aria-label="Ejecutar esta herramienta">Acortar enlace</button>
@@ -238,12 +237,12 @@ gtag('config', 'G-0CH8NE5WDH');
 <div class="tool-info-grid">
 <div><strong>Funciona en el navegador:</strong><span>No</span></div>
 <div><strong>Requiere subida:</strong><span>No se suben archivos</span></div>
-<div><strong>Procesamiento de terceros:</strong><span>API de acortamiento de TinyURL</span></div>
-<div><strong>Conservación de archivos:</strong><span>No se suben archivos; la URL se envía a TinyURL para crear el enlace corto.</span></div>
+<div><strong>Procesamiento de terceros:</strong><span>TinyURL (con is.gd como respaldo), a través del servidor de Convertios</span></div>
+<div><strong>Conservación de archivos:</strong><span>No se suben archivos. La dirección que introduces se envía al servidor de Convertios, que pide a TinyURL (o a is.gd) que cree el enlace corto. Convertios no la guarda.</span></div>
 <div><strong>Tamaño máximo:</strong><span>Solo URL</span></div>
-<div><strong>Formatos compatibles:</strong><span>URL HTTP y HTTPS → URL corta devuelta por TinyURL</span></div>
+<div><strong>Formatos compatibles:</strong><span>Direcciones web HTTP y HTTPS → enlace corto de tinyurl.com o is.gd</span></div>
 </div>
-<p class="transparency-note"><strong>Nota de transparencia:</strong> La URL introducida se envía a TinyURL. No se suben archivos locales.</p>
+<p class="transparency-note"><strong>Nota de transparencia:</strong> La dirección que introduces se envía a TinyURL (o a is.gd si TinyURL no está disponible) a través del servidor de Convertios. Los enlaces cortos son públicos, así que no acortes direcciones con información privada.</p>
 </section>
 
 
@@ -374,135 +373,8 @@ Sí. Funciona en teléfonos y tabletas.</p>
 </p>
 
 </footer>
-<script>
+<script src="/js/link-shortener.js" defer></script>
 
-async function shorten(){
-
-let url = document.getElementById("url").value.trim();
-let button = document.getElementById("shortenBtn");
-let result = document.getElementById("result");
-
-if(!url){
-alert("Introduce una URL");
-return;
-}
-
-if(!url.startsWith("http://") && !url.startsWith("https://")){
-url = "https://" + url;
-}
-
-try{
-new URL(url);
-}catch{
-alert("URL no válida");
-return;
-}
-
-button.innerText = "Acortando...";
-button.disabled = true;
-
-let attempts = 0;
-let success = false;
-
-while(attempts < 3 && !success){
-
-try{
-
-let response = await fetch("https://tinyurl.com/api-create.php?url=" + encodeURIComponent(url));
-let shortUrl = await response.text();
-
-if(shortUrl && shortUrl.startsWith("http")){
-result.value = shortUrl;
-success = true;
-}else{
-throw new Error();
-}
-
-}catch{
-attempts++;
-}
-
-}
-
-if(!success){
-result.value = "";
-result.placeholder = "No se pudo crear el enlace. Revisa la URL e inténtalo de nuevo.";
-let retry = document.getElementById("retryShorten");
-if(!retry){
-retry = document.createElement("button");
-retry.type = "button";
-retry.id = "retryShorten";
-retry.className = "tool-retry-button";
-retry.innerText = "Reintentar";
-retry.onclick = shorten;
-result.insertAdjacentElement("afterend", retry);
-}
-}
-
-button.innerText = "Acortar enlace";
-button.disabled = false;
-
-}
-
-function copyLink(){
-
-let result = document.getElementById("result");
-
-if(!result.value) return;
-
-navigator.clipboard.writeText(result.value);
-alert("¡Copiado!");
-
-}
-
-</script>
-
-
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canReintentar){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canReintentar?' <button type="button" class="tool-retry-button" id="commonToolReintentar">Reintentar</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolReintentar');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'Se requiere una acción. Revisa los datos e inténtalo de nuevo.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('La herramienta no pudo completar la solicitud. Comprueba los datos e inténtalo de nuevo.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('La herramienta no pudo completar la solicitud. Comprueba los datos e inténtalo de nuevo.', true);
-});
-})();
-</script>
 
 <script src="/script.js" defer></script>
 </body>

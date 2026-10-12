@@ -98,6 +98,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js" defer></script>
 </head>
 
 <body>
@@ -213,12 +214,10 @@ gtag('config', 'G-0CH8NE5WDH');
 </details>
 </header>
 
-<div class="tool-container" id="main-content">
+<div class="tool-container" id="main-content" data-uses-backend>
 
 <h1>اختصار الروابط عبر الإنترنت</h1>
 <p>حوّل الروابط الطويلة إلى روابط قصيرة ونظيفة فورًا.</p>
-<p class="temporary-tool-notice" role="status">يتم تحسين هذه الأداة حاليًا. قد لا تعمل بعض الميزات بعد.</p>
-
 <input type="text" id="url" placeholder="الصق الرابط الطويل هنا...">
 
 <button id="shortenBtn" onclick="shorten()" aria-label="تشغيل الأداة">اختصار الرابط</button>
@@ -239,12 +238,12 @@ gtag('config', 'G-0CH8NE5WDH');
 <div class="tool-info-grid">
 <div><strong>يعمل داخل المتصفح:</strong><span>لا</span></div>
 <div><strong>يتطلب رفع الملف:</strong><span>لا يوجد رفع ملفات</span></div>
-<div><strong>معالجة عبر طرف خارجي:</strong><span>واجهة TinyURL لاختصار الروابط</span></div>
-<div><strong>الاحتفاظ بالملف:</strong><span>لا يتم رفع أي ملفات؛ يتم إرسال الرابط المُدخل إلى TinyURL لإنشاء الرابط المختصر.</span></div>
+<div><strong>معالجة عبر طرف خارجي:</strong><span>TinyURL (وis.gd كخدمة احتياطية) عبر خادم Convertios</span></div>
+<div><strong>الاحتفاظ بالملف:</strong><span>لا يتم رفع أي ملفات. يُرسل الرابط الذي تدخله إلى خادم Convertios، الذي يطلب من TinyURL (أو is.gd) إنشاء الرابط المختصر. لا يحتفظ Convertios بالرابط.</span></div>
 <div><strong>الحد الأقصى للحجم:</strong><span>رابط فقط</span></div>
-<div><strong>الصيغ المدعومة:</strong><span>روابط HTTP وHTTPS ←→ رابط مختصر مُعاد من TinyURL</span></div>
+<div><strong>الصيغ المدعومة:</strong><span>روابط HTTP وHTTPS ← رابط مختصر من tinyurl.com أو is.gd</span></div>
 </div>
-<p class="transparency-note"><strong>ملاحظة الشفافية:</strong> يتم إرسال الرابط الذي تدخله إلى TinyURL لإنشاء الرابط المختصر. لا يتم رفع أي ملف محلي.</p>
+<p class="transparency-note"><strong>ملاحظة الشفافية:</strong> يُرسل الرابط الذي تدخله إلى TinyURL (أو is.gd إذا لم تكن TinyURL متاحة) عبر خادم Convertios. الروابط المختصرة عامة، لذا لا تختصر روابط تحتوي على معلومات خاصة.</p>
 </section>
 
 
@@ -375,135 +374,8 @@ gtag('config', 'G-0CH8NE5WDH');
 </p>
 
 </footer>
-<script>
+<script src="/js/link-shortener.js" defer></script>
 
-async function shorten(){
-
-let url = document.getElementById("url").value.trim();
-let button = document.getElementById("shortenBtn");
-let result = document.getElementById("result");
-
-if(!url){
-alert("أدخل رابطًا");
-return;
-}
-
-if(!url.startsWith("http://") && !url.startsWith("https://")){
-url = "https://" + url;
-}
-
-try{
-new URL(url);
-}catch{
-alert("رابط غير صالح");
-return;
-}
-
-button.innerText = "جارٍ الاختصار...";
-button.disabled = true;
-
-let attempts = 0;
-let success = false;
-
-while(attempts < 3 && !success){
-
-try{
-
-let response = await fetch("https://tinyurl.com/api-create.php?url=" + encodeURIComponent(url));
-let shortUrl = await response.text();
-
-if(shortUrl && shortUrl.startsWith("http")){
-result.value = shortUrl;
-success = true;
-}else{
-throw new Error();
-}
-
-}catch{
-attempts++;
-}
-
-}
-
-if(!success){
-result.value = "";
-result.placeholder = "تعذّر إنشاء الرابط. تحقّق من الرابط وأعد المحاولة.";
-let retry = document.getElementById("retryShorten");
-if(!retry){
-retry = document.createElement("button");
-retry.type = "button";
-retry.id = "retryShorten";
-retry.className = "tool-retry-button";
-retry.innerText = "إعادة المحاولة";
-retry.onclick = shorten;
-result.insertAdjacentElement("afterend", retry);
-}
-}
-
-button.innerText = "اختصار الرابط";
-button.disabled = false;
-
-}
-
-function copyLink(){
-
-let result = document.getElementById("result");
-
-if(!result.value) return;
-
-navigator.clipboard.writeText(result.value);
-alert("تم النسخ!");
-
-}
-
-</script>
-
-
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canRetry){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">إعادة المحاولة</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolRetry');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'يلزم اتخاذ إجراء. راجع مدخلات الأداة ثم حاول مرة أخرى.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('تعذر على الأداة إكمال الطلب. تحقق من الملف أو الإدخال ثم حاول مرة أخرى.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('تعذر على الأداة إكمال الطلب. تحقق من الملف أو الإدخال ثم حاول مرة أخرى.', true);
-});
-})();
-</script>
 
 <script src="/script.js" defer></script>
 </body>
