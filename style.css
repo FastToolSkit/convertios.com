@@ -2576,3 +2576,55 @@ MOBILE HOMEPAGE PERFORMANCE OVERRIDES
 .tool-container [style*="display:none"], .tool-wrap [style*="display:none"], .app-container [style*="display:none"]{
     display:none !important;
 }
+
+/* Explore more tools: one shared component on every tool page (EN/AR/ES). */
+main ~ section.more-tools, section.more-tools, .tool-page-readable section.more-tools{
+    max-width:960px !important;
+    margin:40px auto 64px !important;
+    padding:0 16px !important;
+    text-align:center !important;
+    background:none !important;
+    border:0 !important;
+    box-shadow:none !important;
+}
+section.more-tools h2{
+    margin:0 0 4px !important;
+    color:#071a33 !important;
+    font-size:22px !important;
+    font-weight:800 !important;
+}
+section.more-tools .more-tools-grid{
+    display:grid !important;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr)) !important;
+    gap:12px !important;
+    margin-top:16px !important;
+}
+section.more-tools .more-tool-card{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:8px !important;
+    min-height:52px !important;
+    padding:10px 14px !important;
+    background:#ffffff !important;
+    border:1px solid #dbe4ee !important;
+    border-radius:14px !important;
+    color:#071a33 !important;
+    font-size:15px !important;
+    font-weight:700 !important;
+    line-height:1.3 !important;
+    text-decoration:none !important;
+    box-shadow:0 6px 18px rgba(15,23,42,.06) !important;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease !important;
+}
+section.more-tools .more-tool-card:hover, section.more-tools .more-tool-card:focus-visible{
+    transform:translateY(-2px);
+    border-color:#93c5fd !important;
+    box-shadow:0 10px 24px rgba(15,23,42,.11) !important;
+}
+section.more-tools .more-tool-card:visited{color:#071a33 !important;}
+section.more-tools .more-tool-icon{font-size:18px;line-height:1;}
+@media (max-width:520px){
+    section.more-tools .more-tools-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+    section.more-tools .more-tool-card{font-size:14px !important;padding:10px !important;}
+}

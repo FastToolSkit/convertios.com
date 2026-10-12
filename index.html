@@ -30,7 +30,7 @@ window.addEventListener('load', function () {
     <meta name="robots" content="index, follow">
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
 <meta name="yandex-verification" content="93fda3d8632afa38" />
-<link rel="preload" as="image" href="/convertios-logo-header.png" fetchpriority="high">
+<link rel="preload" as="image" href="/convertios-logo-376.png" fetchpriority="high">
 <style>
 /* Critical above-the-fold mobile styles to reduce LCP render delay */
 @media (max-width:768px){
@@ -45,46 +45,19 @@ window.addEventListener('load', function () {
   .hero-search input{width:100%;max-width:400px;box-shadow:none}
 }
 </style>
-<link rel="stylesheet" href="/style.css?v=7">
-<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/style.css?v=76433860">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="canonical" href="https://convertios.com/">
 <link rel="alternate" hreflang="en" href="https://convertios.com/">
 <link rel="alternate" hreflang="ar" href="https://convertios.com/ar/">
 <link rel="alternate" hreflang="es" href="https://convertios.com/es/">
 <link rel="alternate" hreflang="x-default" href="https://convertios.com/">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><script>
-function loadAds(){
-    let script = document.createElement("script");
-    script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072";
-    script.async = true;
-    document.head.appendChild(script);
-}
-
-let loaded = false;
-
-function triggerAds(){
-    if (!loaded){
-        loadAds();
-        loaded = true;
-    }
-}
-
-// Ads must never compete with the header and hero for the initial render.
-window.addEventListener('load', function () {
-    if (window.innerWidth > 768) {
-        if ('requestIdleCallback' in window) requestIdleCallback(triggerAds, { timeout: 2500 });
-        else setTimeout(triggerAds, 1500);
-    }
-}, { once: true });
-
-window.addEventListener("scroll", triggerAds, { once: true, passive: true });
-window.addEventListener("touchstart", triggerAds, { once: true, passive: true });
-window.addEventListener("click", triggerAds, { once: true });
-</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 
 <!-- Convertios SEO social metadata -->
 <meta property="og:title" content="Convertios - Free Online Tools for Files, Images &amp; PDFs">
@@ -147,7 +120,7 @@ window.addEventListener("click", triggerAds, { once: true });
 
 <div class="header-left">
     <a href="/" class="logo">
-        <img src="/convertios-logo-header.png" alt="Convertios Logo" width="256" height="143" fetchpriority="high" decoding="async">
+        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -414,7 +387,7 @@ Try some of the most commonly used tools on Convertios</p>
 <div class="trust-box">
 <span class="trust-icon">🔒</span>
 <h4>Secure & Private</h4>
-<p>Files are not stored</p>
+<p>Most tools run in your browser</p>
 </div>
 
 <div class="trust-box">
@@ -527,6 +500,6 @@ The platform is optimized for performance and usability, ensuring fast loading t
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 window.addEventListener('load', () => window.scrollTo(0, 0), { once: true });
 </script>
-<script src="/script.js" defer></script>
+<script src="/script.js?v=8a72ffa8" defer></script>
 </body>
 </html>
