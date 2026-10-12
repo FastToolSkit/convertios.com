@@ -19,16 +19,15 @@ gtag('config', 'G-0CH8NE5WDH');
 <meta name="description" content="استخدم أداة ضغط الصور المجانية من Convertios مع تفاصيل واضحة للخصوصية والصيغ المدعومة وإرشادات عملية وأدوات صور مرتبطة.">
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/ar/rtl.css">
+<link rel="stylesheet" href="/style.css?v=64664143">
+<link rel="stylesheet" href="/ar/rtl.css?v=2c9440fb">
 
-<link rel="icon" href="/favicon.ico">
-
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <style>
 
 /* ===== HERO (SAME AS PDF PAGE) ===== */
@@ -211,6 +210,7 @@ line-height:1.8;
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
 </head>
 
 <body>
@@ -218,7 +218,7 @@ line-height:1.8;
 
 <div class="header-left">
     <a href="/ar/" class="logo">
-        <img src="/convertios-logo.png" alt="شعار Convertios" width="2211" height="1234">
+        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -340,21 +340,21 @@ line-height:1.8;
 
 <h2>إعدادات الضغط</h2>
 
-<label>حجم الملف المطلوب (KB)</label>
-<input type="number" id="targetKB" placeholder="مثال: 100">
+<label for="targetKB">حجم الملف المطلوب (KB)</label>
+<input type="number" id="targetKB" min="1" max="50000" step="1" inputmode="numeric" placeholder="مثال: 100">
 
-<label>الجودة اليدوية</label>
+<label for="quality">الجودة اليدوية</label>
 <input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.8">
 <span id="qualityValue">0.8</span>
 
-<label>الصيغة</label>
+<label for="format">الصيغة</label>
 <select id="format">
 <option value="image/jpeg">JPG</option>
 <option value="image/png">PNG</option>
 <option value="image/webp">WEBP</option>
 </select>
 
-<button class="main-button" onclick="runCompression()" aria-label="تشغيل هذه الأداة">ضغط</button>
+<button class="main-button" onclick="runCompression()">ضغط</button>
 
 <a id="downloadLink" class="main-button download-btn" style="display:none;"></a>
 
@@ -471,35 +471,15 @@ line-height:1.8;
 نعم، يمكنك ضغط الصور إلى أحجام مطلوبة مثل 100KB و50KB، أو ضبط الجودة يدويًا.</p>
 
 </div>
-<div class="more-tools">
-
-<h3>استكشف المزيد من الأدوات</h3>
-
-<div class="more-tools-grid">
-<a href="/ar/ai-image-enhancer/" class="more-tool-card"><span>✨</span><p>تحسين الصور بالذكاء الاصطناعي</p></a>
-
-<a href="/ar/image-resizer/" class="more-tool-card">
-<span>✂️</span>
-<p>تغيير حجم الصورة</p>
-</a>
-
-<a href="/ar/image-converter/" class="more-tool-card">
-<span>🖼️</span>
-<p>محول الصور</p>
-</a>
-
-<a href="/ar/png-to-jpg/" class="more-tool-card">
-<span>🔄</span>
-<p>PNG إلى JPG</p>
-</a>
-
-<a href="/ar/social-media-image-resizer/" class="more-tool-card">
-<span>📱</span>
-<p>مقاسات صور السوشيال ميديا</p>
-</a>
-</div>
-
-</div>
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">استكشف المزيد من الأدوات</h2>
+  <div class="more-tools-grid">
+    <a href="/ar/compress-image-to-100kb/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🗜️</span><span>ضغط إلى 100KB</span></a>
+    <a href="/ar/compress-image-to-50kb/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🗜️</span><span>ضغط إلى 50KB</span></a>
+    <a href="/ar/compress-image-to-20kb/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🗜️</span><span>ضغط إلى 20KB</span></a>
+    <a href="/ar/image-resizer/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">📐</span><span>تغيير حجم الصورة</span></a>
+  </div>
+</section>
 
 
 <footer class="site-footer">
@@ -528,176 +508,9 @@ line-height:1.8;
 
 </footer>
 
-<script>
-
-const upload = document.getElementById("upload");
-const preview = document.getElementById("preview");
-const qualitySlider = document.getElementById("quality");
-const qualityValue = document.getElementById("qualityValue");
-const downloadLink = document.getElementById("downloadLink");
-const progressBox = document.getElementById("progressBox");
-const progressText = document.getElementById("progressText");
-
-let imageFile = null;
-
-qualitySlider.oninput = () => qualityValue.innerText = qualitySlider.value;
-
-upload.onchange = function(e){
-imageFile = e.target.files[0];
-const reader = new FileReader();
-reader.onload = e => preview.src = e.target.result;
-reader.readAsDataURL(imageFile);
-};
-
-function runCompression(){
-
-if(!imageFile){
-alert("ارفع الصورة أولًا");
-return;
-}
-
-progressBox.style.display = "block";
-progressText.innerText = "0%";
-downloadLink.style.display = "none";
-
-const targetKB = parseInt(document.getElementById("targetKB").value);
-const format = document.getElementById("format").value;
-
-if(targetKB){
-compressToTarget(targetKB, format);
-}else{
-compressManual(format);
-}
-}
-
-function compressManual(format){
-
-const img = new Image();
-img.src = preview.src;
-
-img.onload = function(){
-
-const canvas = document.createElement("canvas");
-const ctx = canvas.getContext("2d");
-
-canvas.width = img.width;
-canvas.height = img.height;
-
-ctx.drawImage(img,0,0);
-
-canvas.toBlob(blob => {
-
-const url = URL.createObjectURL(blob);
-
-downloadLink.href = url;
-downloadLink.download = "compressed";
-downloadLink.innerText = "تنزيل";
-downloadLink.style.display = "block";
-
-progressText.innerText = "تم ✅";
-
-}, format, qualitySlider.value);
-};
-}
-
-function compressToTarget(targetKB, format){
-
-const img = new Image();
-img.src = preview.src;
-
-img.onload = function(){
-
-const canvas = document.createElement("canvas");
-const ctx = canvas.getContext("2d");
-
-canvas.width = img.width;
-canvas.height = img.height;
-
-ctx.drawImage(img,0,0);
-
-let quality = 0.9;
-let attempts = 0;
-
-function loop(){
-
-canvas.toBlob(blob => {
-
-let sizeKB = blob.size / 1024;
-attempts++;
-
-progressText.innerText = Math.min(95, attempts*10) + "%";
-
-if(sizeKB > targetKB && quality > 0.1){
-quality -= 0.05;
-loop();
-}else{
-
-const url = URL.createObjectURL(blob);
-
-downloadLink.href = url;
-downloadLink.download = "compressed";
-downloadLink.innerText = "تنزيل (" + Math.round(sizeKB) + " KB)";
-downloadLink.style.display = "block";
-
-progressText.innerText = "تم ✅";
-}
-
-}, format, quality);
-}
-
-loop();
-};
-}
-
-</script>
+<script src="/js/compress.js?v=7a47d16b" defer></script>
 
 
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canRetry){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">إعادة المحاولة</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolRetry');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'راجع مدخلات الأداة ثم جرّب مرة أخرى.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('تعذّر على الأداة إكمال الطلب. تحقق من الملف أو المدخلات ثم جرّب مرة أخرى.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('تعذّر على الأداة إكمال الطلب. تحقق من الملف أو المدخلات ثم جرّب مرة أخرى.', true);
-});
-})();
-</script>
-
-<script src="/script.js" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

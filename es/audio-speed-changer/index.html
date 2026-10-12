@@ -24,16 +24,15 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css">
-<link rel="icon" href="/favicon.ico">
-
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
+<link rel="stylesheet" href="/style.css?v=64664143">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
-<script src="/audio-mp3.js"></script>
+<script src="/audio-mp3.js?v=3a8c398f"></script>
 
 <style>
 
@@ -188,6 +187,7 @@ line-height:1.8;
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
 </head>
 
 <body>
@@ -197,7 +197,7 @@ line-height:1.8;
 
 <div class="header-left">
     <a href="/es/" class="logo">
-        <img src="/convertios-logo.png" alt="Convertios Logo" width="2211" height="1234">
+        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -319,7 +319,7 @@ Acelera o ralentiza archivos de audio al instante. Ajusta la reproducción y exp
 
 <span>Velocidad</span>
 
-<input type="range" id="speedSlider" min="0.5" max="2" step="0.1" value="1">
+<input aria-label="Velocidad de reproducción" type="range" id="speedSlider" min="0.5" max="2" step="0.1" value="1">
 
 <span id="speedValue">1x</span>
 
@@ -430,19 +430,15 @@ La herramienta conserva la claridad, aunque cambios extremos pueden afectar lige
 Sí. Puedes escuchar el audio en tiempo real antes de exportarlo.</p>
 
 </div>
-<div class="more-tools">
-
-<h3>Explora más herramientas</h3>
-
-<div class="more-tools-grid">
-
-<a href="/es/trim-audio-online/" class="more-tool-card">✂️ Recortar audio en línea</a>
-
-<a href="/es/audio-converter/" class="more-tool-card">🎧 Convertidor de audio</a>
-
-</div>
-
-</div>
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">Explora más herramientas</h2>
+  <div class="more-tools-grid">
+    <a href="/es/mp3-cutter/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🎵</span><span>Cortador de MP3</span></a>
+    <a href="/es/audio-converter/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🎧</span><span>Convertidor de audio</span></a>
+    <a href="/es/trim-audio-online/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">✂️</span><span>Recortar audio</span></a>
+    <a href="/es/video-to-mp3/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🎬</span><span>Vídeo a MP3</span></a>
+  </div>
+</section>
 <footer class="site-footer">
 
 <div class="footer-container">
@@ -500,7 +496,7 @@ audioBuffer = await audioContext.decodeAudioData(arrayBuffer)
 
 async function exportAudio(){
 
-if(!audioBuffer) return
+if(!audioBuffer){if(window.ConvertiosUI){ConvertiosUI.notify(ConvertiosUI.t('noFile'))} return}
 
 const speed = parseFloat(slider.value)
 
@@ -535,52 +531,6 @@ a.click()
 </script>
 
 
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canRetry){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Reintentar</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolRetry');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'Se requiere una acción. Revisa los datos e inténtalo de nuevo.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('La herramienta no pudo completar la solicitud. Comprueba el archivo o los datos e inténtalo de nuevo.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('La herramienta no pudo completar la solicitud. Comprueba el archivo o los datos e inténtalo de nuevo.', true);
-});
-})();
-</script>
-
-<script src="/script.js" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

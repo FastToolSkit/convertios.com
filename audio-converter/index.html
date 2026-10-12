@@ -23,16 +23,15 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css">
-<link rel="icon" href="/favicon.ico">
-
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
+<link rel="stylesheet" href="/style.css?v=64664143">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
-<script src="/audio-mp3.js"></script>
+<script src="/audio-mp3.js?v=3a8c398f"></script>
 
 <style>
 
@@ -198,6 +197,7 @@ text-align:center;
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
 </head>
 
 <body>
@@ -207,7 +207,7 @@ text-align:center;
 
 <div class="header-left">
     <a href="/" class="logo">
-        <img src="/convertios-logo.png" alt="Convertios Logo" width="2211" height="1234">
+        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -330,12 +330,12 @@ Convert audio files online for free. Easily switch between MP3 and WAV formats w
 
 <span>Convert to</span>
 
-<select id="format">
+<select aria-label="Output format" id="format">
 <option value="mp3">MP3</option>
 <option value="wav">WAV</option>
 </select>
 
-<button onclick="convertAudio()" aria-label="Run this tool">Convert</button>
+<button onclick="convertAudio()">Convert</button>
 
 </div>
 
@@ -443,19 +443,15 @@ WAV files retain full quality, while MP3 files use compression. The converter is
 Yes, depending on your device performance, you can convert multiple audio files efficiently.</p>
 
 </div>
-<div class="more-tools">
-
-<h3>Explore More Tools</h3>
-
-<div class="more-tools-grid">
-
-<a href="/trim-audio-online/" class="more-tool-card">✂️ Trim Audio Online</a>
-
-<a href="/audio-speed-changer/" class="more-tool-card">⚡ Audio Speed Changer</a>
-
-</div>
-
-</div>
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">Explore more tools</h2>
+  <div class="more-tools-grid">
+    <a href="/mp3-cutter/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🎵</span><span>MP3 Cutter</span></a>
+    <a href="/audio-speed-changer/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">⏩</span><span>Speed Changer</span></a>
+    <a href="/video-to-mp3/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🎬</span><span>Video to MP3</span></a>
+    <a href="/video-converter/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🎞️</span><span>Video Converter</span></a>
+  </div>
+</section>
 <footer class="site-footer">
 
 <div class="footer-container">
@@ -510,7 +506,7 @@ audioBuffer = await audioContext.decodeAudioData(arrayBuffer)
 
 async function convertAudio(){
 
-if(!audioBuffer) return
+if(!audioBuffer){if(window.ConvertiosUI){ConvertiosUI.notify(ConvertiosUI.t('noFile'))} return}
 
 const format = document.getElementById("format").value
 
@@ -614,52 +610,6 @@ return buffer
 </script>
 
 
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canRetry){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolRetry');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
-});
-})();
-</script>
-
-<script src="/script.js" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

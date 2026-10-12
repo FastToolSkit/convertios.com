@@ -24,14 +24,13 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css">
-<link rel="icon" href="/favicon.ico">
-
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
+<link rel="stylesheet" href="/style.css?v=64664143">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <style>
 
 .tool-container{
@@ -186,6 +185,7 @@ line-height:1.8;
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
 </head>
 
 <body>
@@ -196,7 +196,7 @@ line-height:1.8;
 
 <div class="header-left">
     <a href="/" class="logo">
-        <img src="/convertios-logo.png" alt="Convertios Logo" width="2211" height="1234">
+        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -308,11 +308,11 @@ line-height:1.8;
 
 <p>Format, clean, and convert text instantly.</p>
 
-<textarea id="text" placeholder="Paste your text here..."></textarea>
+<textarea aria-label="Paste your text here..." id="text" placeholder="Paste your text here..."></textarea>
 
 <div class="button-group">
 
-<button onclick="toUpper()">UPPERCASE</button> <button onclick="toLower()">lowercase</button> <button onclick="capitalize()">Capitalize</button> <button onclick="removeSpaces()">Remove Spaces</button>
+<button onclick="toUpper()">UPPERCASE</button> <button onclick="toLower()">lowercase</button> <button onclick="capitalize()">Capitalize</button> <button onclick="removeSpaces()">Remove Extra Spaces</button>
 
 </div>
 
@@ -425,35 +425,15 @@ Yes, formatting is applied instantly as you select options.</p>
 
 <!-- MORE TOOLS -->
 
-<div class="more-tools">
-
-<h3>Explore More Tools</h3>
-
-<div class="more-tools-grid">
-
-<a href="/word-counter/" class="more-tool-card">
-<span>📝</span>
-<p>Word Counter</p>
-</a>
-
-<a href="/password-generator/" class="more-tool-card">
-<span>🔐</span>
-<p>Password Generator</p>
-</a>
-
-<a href="/qr-generator/" class="more-tool-card">
-<span>🔳</span>
-<p>QR Generator</p>
-</a>
-
-<a href="/pdf-to-word/" class="more-tool-card">
-<span>📄</span>
-<p>PDF to Word</p>
-</a>
-
-</div>
-
-</div>
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">Explore more tools</h2>
+  <div class="more-tools-grid">
+    <a href="/word-counter/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🔢</span><span>Word Counter</span></a>
+    <a href="/password-generator/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🔐</span><span>Password Generator</span></a>
+    <a href="/qr-generator/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🔳</span><span>QR Generator</span></a>
+    <a href="/link-shortener/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🔗</span><span>Link Shortener</span></a>
+  </div>
+</section>
 
 <footer class="site-footer">
 
@@ -481,89 +461,10 @@ Yes, formatting is applied instantly as you select options.</p>
 
 </footer>
 
-<script>
-
-function toUpper(){
-let text = document.getElementById("text").value;
-document.getElementById("text").value = text.toUpperCase();
-}
-
-function toLower(){
-let text = document.getElementById("text").value;
-document.getElementById("text").value = text.toLowerCase();
-}
-
-function capitalize(){
-let text = document.getElementById("text").value;
-let result = text.replace(/\b\w/g,l=>l.toUpperCase());
-document.getElementById("text").value = result;
-}
-
-function removeSpaces(){
-let text = document.getElementById("text").value;
-document.getElementById("text").value = text.replace(/\s+/g," ").trim();
-}
-
-function copyText(){
-let text = document.getElementById("text");
-text.select();
-document.execCommand("copy");
-}
-
-function clearText(){
-document.getElementById("text").value="";
-}
-
-</script>
+<script src="/js/text-formatter.js?v=b9550207" defer></script>
 
 
 
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canRetry){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolRetry');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
-});
-})();
-</script>
-
-<script src="/script.js" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

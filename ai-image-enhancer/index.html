@@ -15,12 +15,13 @@ gtag('config', 'G-0CH8NE5WDH');
 <title>AI Image Enhancer | Convertios</title>
 <meta name="description" content="Use AI Image Enhancer on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.">
 <meta name="robots" content="index, follow">
-<link rel="stylesheet" href="/style.css?v=7">
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="stylesheet" href="/style.css?v=64664143">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <style>
 .tool-wrap{max-width:1200px;margin:90px auto 40px;padding:0 20px}
 .tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -38,6 +39,14 @@ gtag('config', 'G-0CH8NE5WDH');
 .result-wrap{margin-top:16px}
 @media (max-width:900px){.tool-grid{grid-template-columns:1fr}}
 </style>
+<meta property="og:title" content="AI Image Enhancer | Convertios">
+<meta property="og:description" content="Use AI Image Enhancer on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://convertios.com/ai-image-enhancer/">
+<meta property="og:image" content="https://convertios.com/convertios-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Image Enhancer | Convertios">
+<meta name="twitter:description" content="Use AI Image Enhancer on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.">
 <link rel="canonical" href="https://convertios.com/ai-image-enhancer/">
 <link rel="alternate" hreflang="en" href="https://convertios.com/ai-image-enhancer/">
 <link rel="alternate" hreflang="ar" href="https://convertios.com/ar/ai-image-enhancer/">
@@ -45,6 +54,7 @@ gtag('config', 'G-0CH8NE5WDH');
 <link rel="alternate" hreflang="x-default" href="https://convertios.com/ai-image-enhancer/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -52,7 +62,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <div class="header-left">
     <a href="/" class="logo">
-        <img src="/convertios-logo.png" alt="Convertios Logo" width="2211" height="1234">
+        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -158,11 +168,10 @@ gtag('config', 'G-0CH8NE5WDH');
 </details>
 </header>
 
-<main id="main-content" class="tool-page-readable">
+<main id="main-content" class="tool-page-readable" data-uses-backend>
 <div class="tool-wrap">
 <h1>AI Image Enhancer</h1>
 <p>Enhance blurry or low-resolution images with AI-powered processing. This tool can improve sharpness, upscale detail, and produce cleaner visuals in just a few clicks.</p>
-<p class="temporary-tool-notice" role="status">This tool is currently being improved. Some features may not work yet.</p>
 <div class="tool-grid">
 <section class="panel">
 <h2>Upload Image</h2>
@@ -178,7 +187,7 @@ gtag('config', 'G-0CH8NE5WDH');
 <section class="panel">
 <h2>Enhancement Result</h2>
 <div class="actions">
-<button id="enhanceBtn" class="btn" disabled aria-label="Run this tool">Enhance Image</button>
+<button id="enhanceBtn" class="btn" disabled>Enhance Image</button>
 <a id="downloadBtn" class="btn" style="display:none" download="enhanced-image.png">Download</a>
 </div>
 <p id="status" class="status">Select an image to begin.</p>
@@ -196,12 +205,12 @@ gtag('config', 'G-0CH8NE5WDH');
 <div class="tool-info-grid">
 <div><strong>Runs in browser:</strong><span>No</span></div>
 <div><strong>Upload required:</strong><span>Yes</span></div>
-<div><strong>Third-party processing:</strong><span>Cloudinary unsigned upload and n8n AI enhancement workflow</span></div>
-<div><strong>File retention:</strong><span>Uploaded to Cloudinary first, then the public image URL is sent to n8n for enhancement.</span></div>
-<div><strong>Max file size:</strong><span>Cloudinary unsigned upload preset limits apply</span></div>
-<div><strong>Supported formats:</strong><span>JPG, PNG, and WEBP image uploads → Enhanced image URL</span></div>
+<div><strong>Third-party processing:</strong><span>Cloudinary (temporary image hosting) and the Convertios AI workflow, through the Convertios server</span></div>
+<div><strong>File retention:</strong><span>Your image is sent to the Convertios server, which passes it to the AI workflow and returns the enhanced image to you. Convertios keeps no copy; the working copy on Cloudinary is handled under Cloudinary’s terms.</span></div>
+<div><strong>Max file size:</strong><span>8 MB</span></div>
+<div><strong>Supported formats:</strong><span>JPG, PNG and WEBP → enhanced image (same format family)</span></div>
 </div>
-<p class="transparency-note"><strong>Transparency note:</strong> This tool uploads images to Cloudinary using an unsigned preset, then sends the public image URL to the Convertios n8n AI enhancement workflow.</p>
+<p class="transparency-note"><strong>Transparency note:</strong> This is not a browser-only tool. Your image leaves your device and is processed by the Convertios server, Cloudinary and an AI enhancement workflow. Do not use it for private or sensitive images.</p>
 </section>
 
 
@@ -231,24 +240,24 @@ gtag('config', 'G-0CH8NE5WDH');
 <h3>Is it free to use?</h3>
 <p>Yes. The AI Image Enhancer is available as a free Convertios tool.</p>
 <h3>Are my images uploaded?</h3>
-<p>Yes. Your selected image is uploaded to Cloudinary using an unsigned upload preset, and the resulting public image URL is sent to the n8n AI enhancement workflow.</p>
+<p>Yes. The image is uploaded to the Convertios server, which sends it to Cloudinary and the AI enhancement workflow and returns the result to you. Use a browser-only tool for private images.</p>
 <h3>What image formats are supported?</h3>
-<p>Common web image formats such as JPG, PNG, and WEBP are supported, depending on the Cloudinary upload preset and browser file selection.</p>
+<p>JPG, PNG and WEBP images up to 8 MB are supported.</p>
 <h3>Why does enhancement take time?</h3>
 <p>The tool first uploads your image and then waits for the AI workflow to process it. Larger images or temporary provider load can increase processing time.</p>
 <h3>What should I do if enhancement fails?</h3>
-<p>Try a smaller JPG, PNG, or WEBP file, check your connection, and retry. If the issue continues, the Cloudinary preset or n8n workflow may need configuration.</p>
+<p>Try a smaller JPG, PNG or WEBP image, check your connection and retry. If the enhancement service is temporarily unavailable, the page tells you so; try again a little later.</p>
 <h3>Does it work on mobile?</h3>
 <p>Yes. The tool works in modern mobile browsers, though upload and processing speed depends on your device, image size, and network connection.</p>
 </section>
 
-<section class="more-tools">
-  <h3>Explore More Tools</h3>
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">Explore more tools</h2>
   <div class="more-tools-grid">
-    <a href="/image-resizer/" class="more-tool-card">✂️ <span>Image Resizer</span></a>
-    <a href="/compress-image/" class="more-tool-card">🗜️ <span>Compress Image</span></a>
-    <a href="/image-converter/" class="more-tool-card">🖼️ <span>Image Converter</span></a>
-    <a href="/remove-bg/" class="more-tool-card">🪄 <span>Remove Background</span></a>
+    <a href="/remove-bg/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">✂️</span><span>Remove Background</span></a>
+    <a href="/image-resizer/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">📐</span><span>Resize Image</span></a>
+    <a href="/compress-image/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🗜️</span><span>Compress Image</span></a>
+    <a href="/image-converter/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🔄</span><span>Image Converter</span></a>
   </div>
 </section>
 </main>
@@ -277,252 +286,8 @@ gtag('config', 'G-0CH8NE5WDH');
 </p>
 
 </footer>
-<script>
-const fileInput=document.getElementById('fileInput');
-const dropzone=document.getElementById('dropzone');
-const fileNameEl=document.getElementById('fileName');
-const preview=document.getElementById('preview');
-const resultPreview=document.getElementById('resultPreview');
-const enhanceBtn=document.getElementById('enhanceBtn');
-const downloadBtn=document.getElementById('downloadBtn');
-const statusEl=document.getElementById('status');
+<script src="/js/image-enhancer.js?v=e0b6df14" defer></script>
 
-const AI_ENHANCE_ENDPOINT = 'https://convertios.app.n8n.cloud/webhook/ai-enhance';
-
-const CLOUDINARY_CLOUD_NAME = 'dd9it0hte';
-const CLOUDINARY_UPLOAD_PRESET = 'convertios_unsigned';
-const CLOUDINARY_UPLOAD_ENDPOINT = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
-let selectedFile=null;
-let currentEnhancedImageUrl=null;
-let currentDownloadObjectUrl=null;
-let previewObjectUrl=null;
-
-function setEnhanceState(enabled){
-enhanceBtn.disabled=!enabled;
-}
-
-function setLoading(isLoading,message){
-setEnhanceState(!isLoading && !!selectedFile);
-if(message) statusEl.textContent=message;
-}
-
-function resetResult(){
-resultPreview.style.display='none';
-resultPreview.removeAttribute('src');
-downloadBtn.style.display='none';
-downloadBtn.removeAttribute('href');
-if(currentDownloadObjectUrl){
-URL.revokeObjectURL(currentDownloadObjectUrl);
-currentDownloadObjectUrl=null;
-}
-currentEnhancedImageUrl=null;
-}
-
-function escapeHtml(value){
-return String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
-}
-
-function getDownloadFileName(){
-const baseName=(selectedFile?.name || 'enhanced-image').replace(/\.[^.]+$/,'');
-return `${baseName}-enhanced.png`;
-}
-
-
-function showError(message){
-statusEl.innerHTML=`Failed to enhance image: ${escapeHtml(message || 'Please try again.')} <button type="button" class="tool-retry-button" id="retryEnhance">Retry</button>`;
-const retry=document.getElementById('retryEnhance');
-if(retry) retry.addEventListener('click',runEnhancement);
-}
-
-function handleFile(file){
-if(!file){
-statusEl.textContent='Please choose an image file.';
-return;
-}
-
-if(!file.type.startsWith('image/')){
-statusEl.textContent='Please choose a valid image file.';
-return;
-}
-
-selectedFile=file;
-fileNameEl.textContent=`Selected: ${file.name}`;
-if(previewObjectUrl) URL.revokeObjectURL(previewObjectUrl);
-previewObjectUrl=URL.createObjectURL(file);
-preview.src=previewObjectUrl;
-preview.style.display='block';
-statusEl.textContent='Ready to enhance.';
-resetResult();
-setEnhanceState(true);
-}
-
-fileInput.addEventListener('change',e=>handleFile(e.target.files[0]));
-['dragenter','dragover'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.add('dragover');}));
-['dragleave','drop'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.remove('dragover');}));
-dropzone.addEventListener('drop',e=>handleFile(e.dataTransfer.files[0]));
-dropzone.addEventListener('click',event=>{if(event.target.closest('label')) return;fileInput.click();});
-
-async function runEnhancement(){
-if(!selectedFile) return;
-
-setLoading(true,'Uploading image...');
-resetResult();
-
-try{
-if(CLOUDINARY_CLOUD_NAME.includes('PASTE_') || CLOUDINARY_UPLOAD_PRESET.includes('PASTE_')){
-  throw new Error('Cloudinary is not configured yet. Add your cloud name and unsigned upload preset.');
-}
-
-const uploadFormData = new FormData();
-uploadFormData.append('file', selectedFile);
-uploadFormData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-
-setLoading(true,'Uploading image to Cloudinary...');
-
-const cloudinaryResponse = await fetch(CLOUDINARY_UPLOAD_ENDPOINT,{
-  method:'POST',
-  body:uploadFormData
-});
-
-const cloudinaryData = await cloudinaryResponse.json().catch(()=>null);
-
-if(!cloudinaryResponse.ok || !cloudinaryData?.secure_url){
-  throw new Error(cloudinaryData?.error?.message || 'Cloudinary upload failed.');
-}
-
-setLoading(true,'Enhancing image with AI...');
-
-const response = await fetch(AI_ENHANCE_ENDPOINT,{
-  method:'POST',
-  headers:{
-    'Content-Type':'application/json'
-  },
-  body:JSON.stringify({
-    image:cloudinaryData.secure_url,
-    message:'Convertios AI image enhancement'
-  })
-});
-
-const data = await response.json().catch(()=>({
-  success:false,
-  error:'Invalid response from AI enhancement server.'
-}));
-
-if(!response.ok || !data.success){
-  throw new Error(data.error || 'The AI enhancement server failed to process the image.');
-}
-
-if(!data.imageUrl){
-  throw new Error('The AI enhancement server did not return an image URL.');
-}
-
-currentEnhancedImageUrl = data.imageUrl;
-resultPreview.src = currentEnhancedImageUrl;
-resultPreview.style.display = 'block';
-
-downloadBtn.href = currentEnhancedImageUrl;
-downloadBtn.style.display = 'inline-block';
-downloadBtn.download = getDownloadFileName();
-
-statusEl.textContent = 'Image enhanced successfully ✅';
-}catch(err){
-console.error('[AI Enhancer] Error', err);
-showError(err.message || 'Please try again.');
-}finally{
-setLoading(false);
-}
-}
-
-async function downloadEnhancedImage(event){
-event.preventDefault();
-
-if(!currentEnhancedImageUrl){
-statusEl.textContent='Enhance an image before downloading.';
-return;
-}
-
-try{
-statusEl.textContent='Preparing download...';
-
-const response = await fetch(currentEnhancedImageUrl);
-
-if(!response.ok){
-  throw new Error('Unable to download the enhanced image.');
-}
-
-const blob = await response.blob();
-
-if(currentDownloadObjectUrl){
-  URL.revokeObjectURL(currentDownloadObjectUrl);
-}
-
-currentDownloadObjectUrl = URL.createObjectURL(blob);
-
-const link = document.createElement('a');
-link.href = currentDownloadObjectUrl;
-link.download = getDownloadFileName();
-document.body.appendChild(link);
-link.click();
-link.remove();
-
-statusEl.textContent='Download started.';
-}catch(err){
-console.error('[AI Enhancer] Download error', err);
-statusEl.textContent=`Download failed: ${err.message || 'Please try again.'}`;
-}
-}
-enhanceBtn.addEventListener('click',runEnhancement);
-downloadBtn.addEventListener('click',downloadEnhancedImage);
-
-setEnhanceState(false);
-</script>
-
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canRetry){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolRetry');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
-});
-})();
-</script>
-
-<script src="/script.js" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

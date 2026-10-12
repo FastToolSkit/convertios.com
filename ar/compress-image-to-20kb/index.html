@@ -10,14 +10,13 @@
 <meta name="description" content="جهّز صورة بحجم قريب من 20KB للنماذج والمواقع التي تفرض حجمًا صغيرًا.">
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css">
-<link rel="icon" href="/favicon.ico">
-
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
+<link rel="stylesheet" href="/style.css?v=64664143">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="canonical" href="https://convertios.com/ar/compress-image-to-20kb/">
 <link rel="alternate" hreflang="en" href="https://convertios.com/compress-image-to-20kb/">
 <link rel="alternate" hreflang="ar" href="https://convertios.com/ar/compress-image-to-20kb/">
@@ -40,7 +39,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"ضغط الصورة إلى 20KB | Convertios","description":"جهّز صورة بحجم قريب من 20KB للنماذج والمواقع التي تفرض حجمًا صغيرًا.","url":"https://convertios.com/ar/compress-image-to-20kb/","inLanguage":"ar","isPartOf":{"@type":"WebSite","name":"Convertios","url":"https://convertios.com"}}</script>
 <!-- /Convertios structured data -->
 
-<link rel="stylesheet" href="/ar/rtl.css">
+<link rel="stylesheet" href="/ar/rtl.css?v=2c9440fb">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
 <script>
@@ -51,6 +50,7 @@ gtag('config', 'G-0CH8NE5WDH');
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
 </head>
 
 <body>
@@ -58,7 +58,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <div class="header-left">
     <a href="/ar/" class="logo">
-        <img src="/convertios-logo.png" alt="شعار Convertios" width="2211" height="1234">
+        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -179,14 +179,14 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <h2>إعدادات ضغط الصورة</h2>
 
-<label>الحجم المطلوب (KB)</label>
-<input type="number" id="targetKB">
+<label for="targetKB">الحجم المطلوب (KB)</label>
+<input type="number" id="targetKB" min="1" max="50000" step="1" inputmode="numeric" data-default-target="20" value="20">
 
-<label>الجودة اليدوية</label>
+<label for="quality">الجودة اليدوية</label>
 <input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.8">
 <span id="qualityValue">0.8</span>
 
-<label>الصيغة</label>
+<label for="format">الصيغة</label>
 <select id="format">
 <option value="image/jpeg">JPG</option>
 <option value="image/png">PNG</option>
@@ -268,40 +268,15 @@ gtag('config', 'G-0CH8NE5WDH');
 
 
 <!-- MORE TOOLS -->
-<div class="more-tools">
-
-<h3>أدوات صور أخرى</h3>
-<p class="tools-subtitle">أدوات سريعة لتحسين صورك</p>
-
-<div class="more-tools-grid">
-<a href="/ar/ai-image-enhancer/" class="more-tool-card"><span>✨</span><p>تحسين الصور</p></a>
-
-<a href="/ar/compress-image-to-100kb/" class="tool-card">
-<span>📦</span>
-<h4>ضغط الصورة إلى 100KB</h4>
-<p>ضغط متوازن</p>
-</a>
-
-<a href="/ar/compress-image-to-50kb/" class="tool-card">
-<span>📦</span>
-<h4>ضغط الصورة إلى 50KB</h4>
-<p>مناسب للنماذج</p>
-</a>
-
-<a href="/ar/compress-image/" class="tool-card">
-<span>🗜️</span>
-<h4>ضغط الصور</h4>
-<p>ضغط عام للصور</p>
-</a>
-
-<a href="/ar/image-resizer/" class="tool-card">
-<span>✂️</span>
-<h4>تغيير المقاس</h4>
-<p>غيّر أبعاد الصورة بسرعة</p>
-</a>
-</div>
-
-</div>
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">استكشف المزيد من الأدوات</h2>
+  <div class="more-tools-grid">
+    <a href="/ar/compress-image-to-50kb/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🗜️</span><span>ضغط إلى 50KB</span></a>
+    <a href="/ar/compress-image-to-100kb/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🗜️</span><span>ضغط إلى 100KB</span></a>
+    <a href="/ar/compress-image/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🗜️</span><span>ضغط الصور</span></a>
+    <a href="/ar/image-resizer/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">📐</span><span>تغيير حجم الصورة</span></a>
+  </div>
+</section>
 <footer class="site-footer">
 
 <div class="footer-container">
@@ -328,151 +303,9 @@ gtag('config', 'G-0CH8NE5WDH');
 
 </footer>
 <!-- SCRIPT -->
-<script>
-
-const upload = document.getElementById("upload");
-const preview = document.getElementById("preview");
-const qualitySlider = document.getElementById("quality");
-const qualityValue = document.getElementById("qualityValue");
-const downloadLink = document.getElementById("downloadLink");
-const progressBox = document.getElementById("progressBox");
-const progressText = document.getElementById("progressText");
-
-let imageFile = null;
-
-/* AUTO SET 20KB */
-window.onload = function(){
-    document.getElementById("targetKB").value = 20;
-};
-
-/* SLIDER */
-qualitySlider.oninput = () => qualityValue.innerText = qualitySlider.value;
-
-/* UPLOAD */
-upload.onchange = function(e){
-    imageFile = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = e => preview.src = e.target.result;
-    reader.readAsDataURL(imageFile);
-};
-
-/* RUN */
-function runCompression(){
-
-    if(!imageFile){
-        alert("ارفع الصورة أولًا");
-        return;
-    }
-
-    progressBox.style.display = "block";
-    progressText.innerText = "0%";
-    downloadLink.style.display = "none";
-
-    const targetKB = 20;
-    const format = document.getElementById("format").value;
-
-    compressToTarget(targetKB, format);
-}
-
-/* COMPRESS LOOP */
-function compressToTarget(targetKB, format){
-
-    const img = new Image();
-    img.src = preview.src;
-
-    img.onload = function(){
-
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-
-        canvas.width = img.width;
-        canvas.height = img.height;
-
-        ctx.drawImage(img,0,0);
-
-        let quality = 0.9;
-        let attempts = 0;
-
-        function loop(){
-
-            canvas.toBlob(blob => {
-
-                let sizeKB = blob.size / 1024;
-                attempts++;
-
-                progressText.innerText = Math.min(95, attempts * 10) + "%";
-
-                if(sizeKB > targetKB && quality > 0.1){
-                    quality -= 0.05;
-                    loop();
-                }else{
-
-                    const url = URL.createObjectURL(blob);
-
-                    downloadLink.href = url;
-                    downloadLink.download = "compressed-20kb.jpg";
-                    downloadLink.innerText = "تنزيل (" + Math.round(sizeKB) + " KB)";
-                    downloadLink.style.display = "block";
-
-                    progressText.innerText = "تم ✅";
-                }
-
-            }, format, quality);
-        }
-
-        loop();
-    };
-}
-
-</script>
+<script src="/js/compress.js?v=7a47d16b" defer></script>
 
 
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canRetry){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">إعادة المحاولة</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolRetry');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'تحقق من المدخلات ثم جرّب مرة أخرى.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('تعذّر إكمال العملية. تحقق من الملف أو الإعدادات ثم جرّب مرة أخرى.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('تعذّر إكمال العملية. تحقق من الملف أو الإعدادات ثم جرّب مرة أخرى.', true);
-});
-})();
-</script>
-
-<script src="/script.js" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

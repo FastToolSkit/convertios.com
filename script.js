@@ -342,3 +342,13 @@
     });
   });
 })();
+
+/* Escape closes an open language menu and returns focus to its toggle. */
+document.addEventListener('keydown', function (event) {
+  if (event.key !== 'Escape') return;
+  document.querySelectorAll('details.language-selector[open]').forEach(function (menu) {
+    menu.open = false;
+    var summary = menu.querySelector('summary');
+    if (summary) summary.focus();
+  });
+});

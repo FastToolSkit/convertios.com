@@ -26,15 +26,14 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="theme-color" content="#071a33">
 
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/ar/rtl.css">
-<link rel="icon" href="/favicon.ico">
-
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
+<link rel="stylesheet" href="/style.css?v=64664143">
+<link rel="stylesheet" href="/ar/rtl.css?v=2c9440fb">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <style>
 
 .tool-container{
@@ -196,6 +195,7 @@ line-height:1.8;
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
 </head>
 
 <body>
@@ -203,7 +203,7 @@ line-height:1.8;
 
 <div class="header-left">
     <a href="/ar/" class="logo">
-        <img src="/convertios-logo.png" alt="شعار Convertios" width="2211" height="1234">
+        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -316,7 +316,7 @@ line-height:1.8;
 
 <p>احسب الكلمات والحروف والجمل والفقرات فورًا.</p>
 
-<textarea id="text" placeholder="الصق النص أو اكتب هنا..."></textarea>
+<textarea aria-label="الصق النص أو اكتب هنا..." id="text" placeholder="الصق النص أو اكتب هنا..."></textarea>
 
 <div class="actions">
 <button onclick="copyText()">نسخ</button>
@@ -451,35 +451,15 @@ line-height:1.8;
 
 <!-- MORE TOOLS -->
 
-<div class="more-tools">
-
-<h3>اكتشف أدوات أخرى</h3>
-
-<div class="more-tools-grid">
-
-<a href="/ar/text-formatter/" class="more-tool-card">
-<span>📝</span>
-<p>منسق النصوص</p>
-</a>
-
-<a href="/ar/unit-converter/" class="more-tool-card">
-<span>📏</span>
-<p>محول الوحدات</p>
-</a>
-
-<a href="/ar/password-generator/" class="more-tool-card">
-<span>🔐</span>
-<p>مولد كلمات المرور</p>
-</a>
-
-<a href="/ar/png-to-jpg/" class="more-tool-card">
-<span>🖼️</span>
-<p>تحويل PNG إلى JPG</p>
-</a>
-
-</div>
-
-</div>
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">استكشف المزيد من الأدوات</h2>
+  <div class="more-tools-grid">
+    <a href="/ar/text-formatter/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">✍️</span><span>منسق النصوص</span></a>
+    <a href="/ar/password-generator/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🔐</span><span>مولد كلمات المرور</span></a>
+    <a href="/ar/qr-generator/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🔳</span><span>مولد QR</span></a>
+    <a href="/ar/unit-converter/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">📏</span><span>محول الوحدات</span></a>
+  </div>
+</section>
 
 <footer class="site-footer">
 
@@ -545,52 +525,6 @@ document.execCommand("copy");
 
 
 
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canRetry){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">إعادة المحاولة</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolRetry');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'يلزم اتخاذ إجراء. راجع مدخلات الأداة ثم حاول مرة أخرى.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('تعذر على الأداة إكمال الطلب. تحقق من الملف أو الإدخال ثم حاول مرة أخرى.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('تعذر على الأداة إكمال الطلب. تحقق من الملف أو الإدخال ثم حاول مرة أخرى.', true);
-});
-})();
-</script>
-
-<script src="/script.js" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

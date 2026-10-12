@@ -1,1 +1,3 @@
 node_modules/
+tests/fixtures/files/
+test-results/

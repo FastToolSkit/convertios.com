@@ -24,14 +24,13 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css">
-<link rel="icon" href="/favicon.ico">
-
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
+<link rel="stylesheet" href="/style.css?v=64664143">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <style>
 
 /* (UNCHANGED STYLES) */
@@ -232,6 +231,7 @@ line-height:1.8;
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
 </head>
 
 <body>
@@ -241,7 +241,7 @@ line-height:1.8;
 
 <div class="header-left">
     <a href="/es/" class="logo">
-        <img src="/convertios-logo.png" alt="Convertios Logo" width="2211" height="1234">
+        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -346,11 +346,11 @@ line-height:1.8;
   </div>
 </details>
 </header>
-<div class="tool-container" id="main-content">
+<div class="tool-container" id="main-content" data-uses-backend>
 
 <h1>Convertidor de PDF a Word en línea</h1>
 
-<p>Convierte archivos PDF en documentos Word (DOCX) totalmente editables al instante.</p>
+<p>Convierte archivos PDF en documentos Word (DOCX) editables en el servidor de Convertios.</p>
 
 <div class="drop-area" id="drop-area">
 <p>Haz clic o arrastra tu archivo PDF aquí</p>
@@ -363,7 +363,7 @@ line-height:1.8;
 <div class="progress-bar" id="progress-bar"></div>
 </div>
 
-<button class="convert-btn" aria-label="Ejecutar esta herramienta">
+<button class="convert-btn">
 Convertir a Word
 </button>
   <div class="status" id="status"></div>
@@ -381,7 +381,7 @@ Convertir a Word
 <div><strong>Requiere subida:</strong><span>Sí</span></div>
 <div><strong>Procesamiento de terceros:</strong><span>Backend propio de Convertios con pdf2docx</span></div>
 <div><strong>Conservación de archivos:</strong><span>Convertios procesa el archivo temporalmente y lo elimina inmediatamente después de la solicitud.</span></div>
-<div><strong>Tamaño máximo:</strong><span>100 MB</span></div>
+<div><strong>Tamaño máximo:</strong><span>25 MB</span></div>
 <div><strong>Formatos compatibles:</strong><span>Archivos PDF → documento Word DOCX</span></div>
 </div>
 <p class="transparency-note"><strong>Nota de transparencia:</strong> Esta herramienta envía el PDF de forma segura al backend propio de Convertios, donde un motor local de código abierto realiza la conversión. Los archivos temporales se eliminan al terminar.</p>
@@ -395,11 +395,11 @@ Convertir a Word
 <h2>Convertidor gratuito de PDF a Word</h2>
 
 <p>
-Convertios convierte documentos PDF en archivos Word (DOCX) editables al instante. Edita texto, actualiza documentos o reutiliza contenido de forma sencilla y eficiente.
+Convertios convierte documentos PDF en archivos Word (DOCX) editables, normalmente en unos segundos. Edita texto, actualiza documentos o reutiliza contenido de forma sencilla y eficiente.
 </p>
 
 <p>
-La herramienta envía el archivo al backend propio de Convertios, lo procesa localmente y lo elimina inmediatamente después de convertirlo.
+La herramienta envía el archivo al backend propio de Convertios, lo procesa en el servidor y lo elimina justo después de convertirlo.
 </p>
 
 </div>
@@ -414,7 +414,7 @@ Este convertidor transforma archivos PDF en documentos Word editables y conserva
 </p>
 
 <p>
-La herramienta sube el PDF al backend propio de Convertios, lo convierte localmente con pdf2docx y devuelve el DOCX para descargar.
+La herramienta sube el PDF al backend propio de Convertios, lo convierte en el servidor con pdf2docx y devuelve el DOCX para descargar.
 </p>
 
 <h2>Cómo usarla</h2>
@@ -433,7 +433,7 @@ El proceso es rápido y funciona correctamente en dispositivos modernos.
 <ul>
 <li>Convierte archivos PDF en documentos Word totalmente editables</li>
 <li>Conserva el diseño, el texto y el formato</li>
-<li>Procesamiento rápido en el navegador con resultados inmediatos</li>
+<li>Conversión en el servidor que suele tardar segundos (hasta un minuto si el servidor estaba inactivo)</li>
 <li>No requiere instalación ni registro</li>
 <li>Conversión segura mediante el servicio indicado</li>
 <li>Funciona en móviles, tabletas y ordenadores</li>
@@ -475,22 +475,15 @@ Sí. Funciona en dispositivos, incluidos teléfonos y tabletas.</p>
 
 <!-- MORE TOOLS -->
 
-<div class="more-tools">
-
-<h3>Explora más herramientas</h3>
-
-<div class="more-tools-grid">
-
-<a href="/es/pdf-to-jpg/" class="more-tool-card">🖼️ PDF a JPG</a>
-
-<a href="/es/jpg-to-pdf/" class="more-tool-card">🧾 JPG a PDF</a>
-
-<a href="/es/merge-pdf/" class="more-tool-card">📄 Unir PDF</a>
-
-<a href="/es/rotate-pdf/" class="more-tool-card">🔄 Girar PDF</a>
-</div>
-
-</div>
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">Explora más herramientas</h2>
+  <div class="more-tools-grid">
+    <a href="/es/pdf-to-jpg/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">📄</span><span>PDF a JPG</span></a>
+    <a href="/es/merge-pdf/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">📚</span><span>Unir PDF</span></a>
+    <a href="/es/split-pdf/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">✂️</span><span>Dividir PDF</span></a>
+    <a href="/es/jpg-to-pdf/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">📄</span><span>JPG a PDF</span></a>
+  </div>
+</section>
 
 <footer class="site-footer">
 
@@ -518,170 +511,8 @@ Sí. Funciona en dispositivos, incluidos teléfonos y tabletas.</p>
 
 </footer>
   
-<script>
+<script src="/js/pdf-to-word.js?v=796da9fa" defer></script>
 
-
-let file = null;
-let lastPdfToWordAttempt = null;
-
-const fileInput = document.getElementById("upload");
-const dropArea = document.getElementById("drop-area");
-const preview = document.getElementById("preview");
-const status = document.getElementById("status");
-const progressBar = document.getElementById("progress-bar");
-const downloads = document.getElementById("downloads");
-const convertBtn = document.querySelector(".convert-btn");
-setConvertButtonState(false);
-
-function setConvertButtonState(enabled){
-convertBtn.disabled = !enabled;
-}
-
-function showReintentar(message){
-status.innerHTML = `<span class="tool-error-message">${message}</span>`;
-downloads.innerHTML = '<button type="button" class="tool-retry-button" id="retryPdfToWord">Reintentar conversión</button>';
-const retryBtn = document.getElementById("retryPdfToWord");
-if(retryBtn && lastPdfToWordAttempt){
-retryBtn.addEventListener("click", lastPdfToWordAttempt);
-}
-setConvertButtonState(!!file);
-}
-
-// CLICK
-dropArea.onclick = () => fileInput.click();
-
-// DRAG
-dropArea.addEventListener("dragover", e => e.preventDefault());
-
-dropArea.addEventListener("drop", e => {
-e.preventDefault();
-fileInput.files = e.dataTransfer.files;
-handleFile();
-});
-
-// SELECT
-fileInput.addEventListener("change", handleFile);
-convertBtn.addEventListener("click", convert);
-
-function handleFile(){
-file = fileInput.files[0];
-
-if(file){
-preview.innerHTML = `
-📄 ${file.name}<br>
-Size: ${(file.size/1024/1024).toFixed(2)} MB
-`;
-status.innerText = "Listo para convertir. El backend propio de Convertios procesará el PDF y lo eliminará inmediatamente después.";
-downloads.innerHTML = "";
-setConvertButtonState(true);
-} else {
-setConvertButtonState(false);
-}
-}
-
-async function convert(){
-lastPdfToWordAttempt = convert;
-
-if(!file){
-showReintentar("Sube un archivo PDF antes de convertir.");
-return;
-}
-
-status.innerText = "Subiendo el PDF para convertirlo de forma segura...";
-progressBar.style.width = "20%";
-downloads.innerHTML = "";
-setConvertButtonState(false);
-
-try{
-const formData = new FormData();
-formData.append("file", file);
-
-const response = await fetch("https://convertios-backend-sn5u.onrender.com/convert/pdf-to-word", {
-method: "POST",
-body: formData
-});
-
-if(!response.ok){
-let message = "La conversión de PDF a Word falló. Inténtalo de nuevo con un PDF válido y sin protección.";
-try{
-const details = await response.json();
-if(details?.error) message = details.error;
-}catch(_err){}
-throw new Error(message);
-}
-
-status.innerText = "Preparando la descarga del DOCX...";
-progressBar.style.width = "85%";
-const blob = await response.blob();
-const url = URL.createObjectURL(blob);
-const fileName = file.name.replace(/\.pdf$/i, ".docx");
-const a = document.createElement("a");
-a.href = url;
-a.download = fileName;
-document.body.appendChild(a);
-a.click();
-a.remove();
-
-progressBar.style.width = "100%";
-status.innerText = "Conversión completada ✅";
-downloads.innerHTML = `<a href="${url}" download="${fileName}" class="download-btn">⬇ Descargar archivo Word</a>`;
-setConvertButtonState(true);
-
-}catch(e){
-console.error(e);
-progressBar.style.width = "0%";
-showReintentar(e.message || "La conversión falló. Inténtalo de nuevo con un PDF más pequeño o sin protección.");
-}
-}
-
-</script>
-
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canReintentar){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canReintentar?' <button type="button" class="tool-retry-button" id="commonToolReintentar">Reintentar</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolReintentar');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'Se requiere una acción. Revisa los datos e inténtalo de nuevo.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('La herramienta no pudo completar la solicitud. Comprueba el archivo o los datos e inténtalo de nuevo.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('La herramienta no pudo completar la solicitud. Comprueba el archivo o los datos e inténtalo de nuevo.', true);
-});
-})();
-</script>
-
-<script src="/script.js" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

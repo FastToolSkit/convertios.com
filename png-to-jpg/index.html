@@ -18,14 +18,13 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="description" content="Use PNG to JPG Converter on Convertios with clear privacy details, supported image formats, practical guidance, and related image tools.">
 
-<link rel="stylesheet" href="/style.css">
-<link rel="icon" href="/favicon.ico">
-
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
+<link rel="stylesheet" href="/style.css?v=64664143">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <style>
 
 /* TOOL CONTAINER */
@@ -196,6 +195,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
 </head>
 
 <body>
@@ -205,7 +205,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <div class="header-left">
     <a href="/" class="logo">
-        <img src="/convertios-logo.png" alt="Convertios Logo" width="2211" height="1234">
+        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -324,7 +324,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <div id="preview"></div>
 
-<button class="main-button" onclick="convert()" aria-label="Run this tool">Convert to JPG</button>
+<button class="main-button" onclick="convert()">Convert to JPG</button>
 
 <div id="downloads"></div>
 
@@ -429,35 +429,15 @@ Yes, the tool works on all modern devices including smartphones and tablets.</p>
 
 </div>
 
-<div class="more-tools">
-
-<h3>Explore More Tools</h3>
-
-<div class="more-tools-grid">
-<a href="/ai-image-enhancer/" class="more-tool-card"><span>✨</span><p>AI Image Enhancer</p></a>
-
-<a href="/jpg-to-png/" class="more-tool-card">
-<span>🔁</span>
-<p>JPG to PNG</p>
-</a>
-
-<a href="/webp-to-png/" class="more-tool-card">
-<span>🖼️</span>
-<p>WEBP to PNG</p>
-</a>
-
-<a href="/image-converter/" class="more-tool-card">
-<span>🖼️</span>
-<p>Image Converter</p>
-</a>
-
-<a href="/compress-image/" class="more-tool-card">
-<span>📦</span>
-<p>Image Compressor</p>
-</a>
-</div>
-
-</div>
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">Explore more tools</h2>
+  <div class="more-tools-grid">
+    <a href="/jpg-to-png/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🖼️</span><span>JPG to PNG</span></a>
+    <a href="/webp-to-png/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🖼️</span><span>WEBP to PNG</span></a>
+    <a href="/image-converter/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🔄</span><span>Image Converter</span></a>
+    <a href="/compress-image/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🗜️</span><span>Compress Image</span></a>
+  </div>
+</section>
 </main>
 
     
@@ -495,127 +475,9 @@ Yes, the tool works on all modern devices including smartphones and tablets.</p>
 </p>
 
 </footer>
-<script>
-
-let dropArea=document.getElementById("drop-area");
-let fileInput=document.getElementById("upload");
-let preview=document.getElementById("preview");
-
-dropArea.onclick=()=>fileInput.click();
-
-dropArea.addEventListener("dragover",e=>e.preventDefault());
-
-dropArea.addEventListener("drop",e=>{
-    e.preventDefault();
-    fileInput.files=e.dataTransfer.files;
-    showPreview();
-});
-
-fileInput.addEventListener("change",showPreview);
-
-function showPreview(){
-    preview.innerHTML="";
-    let files=fileInput.files;
-
-    for(let i=0;i<files.length;i++){
-        let img=document.createElement("img");
-        img.src=URL.createObjectURL(files[i]);
-        preview.appendChild(img);
-    }
-}
-
-function convert(){
-    let files=fileInput.files;
-    let downloads=document.getElementById("downloads");
-
-    downloads.innerHTML="";
-
-    for(let i=0;i<files.length;i++){
-
-        let file=files[i];
-        let img=new Image();
-        let reader=new FileReader();
-
-        reader.onload=function(e){
-            img.src=e.target.result;
-
-            img.onload=function(){
-
-                let canvas=document.createElement("canvas");
-                canvas.width=img.width;
-                canvas.height=img.height;
-
-                let ctx=canvas.getContext("2d");
-
-                ctx.fillStyle="#ffffff";
-                ctx.fillRect(0,0,canvas.width,canvas.height);
-
-                ctx.drawImage(img,0,0);
-
-                let jpg=canvas.toDataURL("image/jpeg",0.95);
-
-                let link=document.createElement("a");
-                link.href=jpg;
-                link.download="converted_"+(i+1)+".jpg";
-                link.innerText="Download Image "+(i+1);
-
-                downloads.appendChild(link);
-            }
-        }
-
-        reader.readAsDataURL(file);
-    }
-}
-
-</script>
+<script src="/js/simple-convert.js?v=40859a69" defer></script>
 
 
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canRetry){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolRetry');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
-});
-})();
-</script>
-
-<script src="/script.js" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

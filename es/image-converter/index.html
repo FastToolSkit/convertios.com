@@ -20,6 +20,14 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="description" content="Convierte imágenes online gratis. Cambia JPG, PNG, WEBP, BMP y GIF al instante. Rápido, seguro y sin subir archivos.">
 
+<meta property="og:title" content="Convertidor de Imágenes Online Gratis | Convertios">
+<meta property="og:description" content="Convierte imágenes online gratis. Cambia JPG, PNG, WEBP, BMP y GIF al instante. Rápido, seguro y sin subir archivos.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://convertios.com/es/image-converter/">
+<meta property="og:image" content="https://convertios.com/convertios-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Convertidor de Imágenes Online Gratis | Convertios">
+<meta name="twitter:description" content="Convierte imágenes online gratis. Cambia JPG, PNG, WEBP, BMP y GIF al instante. Rápido, seguro y sin subir archivos.">
 <link rel="canonical" href="https://convertios.com/es/image-converter/">
 <link rel="alternate" hreflang="en" href="https://convertios.com/image-converter/">
 <link rel="alternate" hreflang="ar" href="https://convertios.com/ar/image-converter/">
@@ -32,14 +40,14 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/style.css?v=64664143">
 
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
 <style>
@@ -135,6 +143,7 @@ line-height:1.8;
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
 </head>
 
 <body>
@@ -143,7 +152,7 @@ line-height:1.8;
 
 <div class="header-left">
     <a href="/es/" class="logo">
-        <img src="/convertios-logo.png" alt="Logo de Convertios">
+        <img src="/convertios-logo-376.png" alt="Logo de Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -260,10 +269,10 @@ Convierte imágenes entre formatos JPG, PNG, WEBP, BMP y GIF al instante con alt
 
 <div id="drop-area">
 <p>Arrastra y suelta imágenes o haz clic para subir</p>
-<input type="file" id="upload" multiple accept="image/*" hidden>
+<input aria-label="Elegir imágenes" type="file" id="upload" multiple accept="image/*" hidden>
 </div>
 
-<select id="format">
+<select aria-label="Formato de salida" id="format">
 <option value="image/jpeg">Convertir a JPG</option>
 <option value="image/png">Convertir a PNG</option>
 <option value="image/webp">Convertir a WEBP</option>
@@ -371,35 +380,15 @@ Sí, funciona en teléfonos, tablets y computadoras sin problema.</p>
 </div>
 
 <!-- MORE TOOLS -->
-<div class="more-tools">
-
-<h3>Descubre más herramientas</h3>
-
-<div class="more-tools-grid">
-
-<a href="/es/audio-speed-changer/" class="more-tool-card">
-<span>⚡</span>
-<p>Cambiar Velocidad de Audio</p>
-</a>
-
-<a href="/es/audio-converter/" class="more-tool-card">
-<span>🎧</span>
-<p>Convertidor de Audio</p>
-</a>
-
-<a href="/es/mp3-cutter/" class="more-tool-card">
-<span>✂️</span>
-<p>Cortar MP3</p>
-</a>
-
-<a href="/es/compress-image/" class="more-tool-card">
-<span>🖼️</span>
-<p>Comprimir Imagen</p>
-</a>
-
-</div>
-
-</div>
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">Explora más herramientas</h2>
+  <div class="more-tools-grid">
+    <a href="/es/png-to-jpg/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🖼️</span><span>PNG a JPG</span></a>
+    <a href="/es/jpg-to-png/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🖼️</span><span>JPG a PNG</span></a>
+    <a href="/es/compress-image/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🗜️</span><span>Comprimir imagen</span></a>
+    <a href="/es/image-resizer/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">📐</span><span>Redimensionar imagen</span></a>
+  </div>
+</section>
 
 <footer class="site-footer">
 
@@ -426,113 +415,9 @@ Sí, funciona en teléfonos, tablets y computadoras sin problema.</p>
 </p>
 
 </footer>
-<script>
-
-/* YOUR ORIGINAL JS (UNCHANGED) */
-
-let dropArea=document.getElementById("drop-area");
-let fileInput=document.getElementById("upload");
-let preview=document.getElementById("preview");
-
-let convertedImages=[];
-
-dropArea.onclick=()=>fileInput.click();
-
-dropArea.addEventListener("dragover",e=>{e.preventDefault();});
-
-dropArea.addEventListener("drop",e=>{
-e.preventDefault();
-fileInput.files=e.dataTransfer.files;
-showPreview();
-});
-
-fileInput.addEventListener("change",showPreview);
-
-function showPreview(){
-preview.innerHTML="";
-let files=fileInput.files;
-for(let i=0;i<files.length;i++){
-let img=document.createElement("img");
-img.src=URL.createObjectURL(files[i]);
-preview.appendChild(img);
-}
-}
-
-function convertImage(){
-let files=fileInput.files;
-if(!files || files.length===0){
-alert("Primero sube una imagen");
-return;
-}
-
-convertedImages=[];
-let format=document.getElementById("format").value;
-
-for(let i=0;i<files.length;i++){
-let file=files[i];
-let img=new Image();
-let reader=new FileReader();
-
-reader.onload=function(e){
-img.src=e.target.result;
-
-img.onload=function(){
-let canvas=document.createElement("canvas");
-canvas.width=img.width;
-canvas.height=img.height;
-
-let ctx=canvas.getContext("2d");
-ctx.drawImage(img,0,0);
-
-let converted=canvas.toDataURL(format);
-let extension=format.split("/")[1];
-if(extension==="jpeg") extension="jpg";
-
-convertedImages.push({
-data:converted,
-name:"converted_"+(i+1)+"."+extension
-});
-}
-}
-
-reader.readAsDataURL(file);
-}
-
-document.getElementById("downloadMenu").style.display="block";
-}
-
-function toggleMenu(){
-let menu=document.getElementById("menu");
-menu.style.display = menu.style.display==="block" ? "none" : "block";
-}
-
-function downloadImages(){
-for(let i=0;i<convertedImages.length;i++){
-let link=document.createElement("a");
-link.href=convertedImages[i].data;
-link.download=convertedImages[i].name;
-link.click();
-}
-}
-
-function downloadZip(){
-let zip=new JSZip();
-for(let i=0;i<convertedImages.length;i++){
-let base64=convertedImages[i].data.split(',')[1];
-zip.file(convertedImages[i].name,base64,{base64:true});
-}
-
-zip.generateAsync({type:"blob"}).then(function(content){
-let link=document.createElement("a");
-link.href=URL.createObjectURL(content);
-link.download="converted_images.zip";
-link.click();
-});
-}
-
-</script>
+<script src="/js/image-converter.js?v=f0435e21" defer></script>
 
 
-<script src="/script.js" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

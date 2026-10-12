@@ -24,14 +24,14 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css">
-<link rel="icon" href="/favicon.ico">
-
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="stylesheet" href="/style.css?v=64664143">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><style>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<style>
 
 .tool-container{
 max-width:900px;
@@ -181,6 +181,7 @@ line-height:1.8;
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
 </head>
 
 <body>
@@ -190,7 +191,7 @@ line-height:1.8;
 
 <div class="header-left">
     <a href="/es/" class="logo">
-        <img src="/convertios-logo.png" alt="Logo de Convertios" width="2211" height="1234">
+        <img src="/convertios-logo-376.png" alt="Logo de Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -307,7 +308,7 @@ Convierte imágenes WEBP a PNG al instante con calidad optimizada.
 
 <div id="preview"></div>
 
-<button onclick="convert()" aria-label="Ejecutar esta herramienta">Convertir a PNG</button>
+<button onclick="convert()">Convertir a PNG</button>
 
 <div id="downloads"></div>
 
@@ -417,35 +418,15 @@ Sí, puedes subir y convertir varias imágenes WEBP a la vez.</p>
 
 <!-- MORE TOOLS -->
 
-<div class="more-tools">
-
-<h3>Explora más herramientas</h3>
-
-<div class="more-tools-grid">
-<a href="/es/ai-image-enhancer/" class="more-tool-card"><span>✨</span><p>Mejorador de imágenes con IA</p></a>
-
-<a href="/es/jpg-to-png/" class="more-tool-card">
-<span>🖼️</span>
-<p>JPG a PNG</p>
-</a>
-
-<a href="/es/png-to-jpg/" class="more-tool-card">
-<span>🔄</span>
-<p>PNG a JPG</p>
-</a>
-
-<a href="/es/image-converter/" class="more-tool-card">
-<span>🖼️</span>
-<p>Convertidor de imágenes</p>
-</a>
-
-<a href="/es/compress-image/" class="more-tool-card">
-<span>📦</span>
-<p>Compresor de imágenes</p>
-</a>
-</div>
-
-</div>
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">Explora más herramientas</h2>
+  <div class="more-tools-grid">
+    <a href="/es/png-to-jpg/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🖼️</span><span>PNG a JPG</span></a>
+    <a href="/es/jpg-to-png/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🖼️</span><span>JPG a PNG</span></a>
+    <a href="/es/image-converter/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🔄</span><span>Convertidor de imágenes</span></a>
+    <a href="/es/compress-image/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🗜️</span><span>Comprimir imagen</span></a>
+  </div>
+</section>
 
 <footer class="site-footer">
 
@@ -472,133 +453,9 @@ Sí, puedes subir y convertir varias imágenes WEBP a la vez.</p>
 </p>
 
 </footer>
-<script>
-
-let dropArea=document.getElementById("drop-area");
-let fileInput=document.getElementById("upload");
-let preview=document.getElementById("preview");
-
-dropArea.onclick=()=>fileInput.click();
-
-dropArea.addEventListener("dragover",e=>e.preventDefault());
-
-dropArea.addEventListener("drop",e=>{
-e.preventDefault();
-fileInput.files=e.dataTransfer.files;
-showPreview();
-});
-
-fileInput.addEventListener("change",showPreview);
-
-function showPreview(){
-
-preview.innerHTML="";
-
-let files=fileInput.files;
-
-for(let file of files){
-
-let img=document.createElement("img");
-img.src=URL.createObjectURL(file);
-preview.appendChild(img);
-
-}
-
-}
-
-function convert(){
-
-let files=fileInput.files;
-let downloads=document.getElementById("downloads");
-downloads.innerHTML="";
-
-for(let i=0;i<files.length;i++){
-
-let file=files[i];
-
-let img=new Image();
-let reader=new FileReader();
-
-reader.onload=function(e){
-
-img.src=e.target.result;
-
-img.onload=function(){
-
-let canvas=document.createElement("canvas");
-canvas.width=img.width;
-canvas.height=img.height;
-
-let ctx=canvas.getContext("2d");
-ctx.drawImage(img,0,0);
-
-let png = canvas.toDataURL("image/png");
-let link=document.createElement("a");
-link.href=png;
-link.download = "converted_"+(i+1)+".png";
-  link.innerText="Descargar imagen "+(i+1);
-
-downloads.appendChild(link);
-
-}
-
-}
-
-reader.readAsDataURL(file);
-
-}
-
-}
-
-</script>
+<script src="/js/simple-convert.js?v=40859a69" defer></script>
 
 
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canRetry){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Reintentar</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolRetry');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'Se requiere una acción. Revisa los datos de la herramienta e inténtalo de nuevo.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('La herramienta no pudo completar la solicitud. Revisa el archivo o los datos e inténtalo de nuevo.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('La herramienta no pudo completar la solicitud. Revisa el archivo o los datos e inténtalo de nuevo.', true);
-});
-})();
-</script>
-
-<script src="/script.js" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

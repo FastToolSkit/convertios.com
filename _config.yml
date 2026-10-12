@@ -1,0 +1,21 @@
+# GitHub Pages (Jekyll) publishing settings for convertios.com.
+# Pages are plain HTML without front matter, so Jekyll copies them unchanged.
+# The entries below stay in the repository but are not published on the website.
+exclude:
+  - server.js
+  - package.json
+  - package-lock.json
+  - Dockerfile
+  - render.yaml
+  - requirements.txt
+  - backend
+  - tests
+  - test-results
+  - scripts
+  - docs
+  - tool-template
+  - README.md
+  - BACKEND.md
+  - convertios-website-report.md
+  - ar/translation-report.md
+  - node_modules

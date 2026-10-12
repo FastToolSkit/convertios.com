@@ -15,12 +15,13 @@ gtag('config', 'G-0CH8NE5WDH');
 <title>Redimensionador de imágenes para redes sociales | Convertios</title>
 <meta name="description" content="Redimensiona imágenes para redes sociales en Convertios con privacidad clara, formatos compatibles e instrucciones prácticas.">
 <meta name="robots" content="index, follow">
-<link rel="stylesheet" href="/style.css?v=7">
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="stylesheet" href="/style.css?v=64664143">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <style>
 .tool-wrap{max-width:1200px;margin:90px auto 40px;padding:0 20px}
@@ -111,6 +112,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Saltar al contenido</a>
@@ -118,7 +120,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <div class="header-left">
     <a href="/es/" class="logo">
-        <img src="/convertios-logo.png" alt="Convertios Logo" width="2211" height="1234">
+        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -228,7 +230,6 @@ gtag('config', 'G-0CH8NE5WDH');
 <div class="tool-wrap">
 <h1>Redimensionador de imágenes para redes sociales</h1>
 <p>Adapta una imagen a varios formatos para redes sociales en segundos. Elige los tamaños de cada plataforma y descarga uno o todos juntos en un ZIP. Todo se procesa de forma rápida y privada en tu navegador.</p>
-<p class="temporary-tool-notice" role="status">Esta herramienta está en proceso de mejora. Es posible que algunas funciones aún no estén disponibles.</p>
 <div class="tool-grid">
 <section class="panel">
 <h2>Subir imagen</h2>
@@ -287,13 +288,13 @@ gtag('config', 'G-0CH8NE5WDH');
 </ul>
 </section>
 
-<section class="more-tools">
-  <h3>Explora más herramientas</h3>
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">Explora más herramientas</h2>
   <div class="more-tools-grid">
-    <a href="/es/image-resizer/" class="more-tool-card">✂️ <span>Redimensionador de imágenes</span></a>
-    <a href="/es/compress-image/" class="more-tool-card">🗜️ <span>Comprimir imagen</span></a>
-    <a href="/es/image-converter/" class="more-tool-card">🖼️ <span>Convertidor de imágenes</span></a>
-    <a href="/es/remove-bg/" class="more-tool-card">🪄 <span>Eliminar fondo</span></a>
+    <a href="/es/image-resizer/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">📐</span><span>Redimensionar imagen</span></a>
+    <a href="/es/compress-image/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🗜️</span><span>Comprimir imagen</span></a>
+    <a href="/es/meme-generator/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">😂</span><span>Generador de memes</span></a>
+    <a href="/es/image-converter/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🔄</span><span>Convertidor de imágenes</span></a>
   </div>
 </section>
 </main>
@@ -359,58 +360,12 @@ panel.addEventListener('change',updateButtons);
 function handleFile(file){if(!file) return;const r=new FileReader();r.onload=()=>{img.onload=()=>{imageLoaded=true;preview.src=r.result;preview.style.display='block';statusEl.textContent='Imagen lista. Elige los tamaños y descarga.';updateButtons();};img.src=r.result;};r.readAsDataURL(file);}
 function resizeBlob(w,h,type='image/png',q=0.92){const c=document.createElement('canvas');c.width=w;c.height=h;const ctx=c.getContext('2d');ctx.drawImage(img,0,0,w,h);return new Promise(res=>c.toBlob(res,type,q));}
 function selectedOptions(){return [...document.querySelectorAll('#sizePanel input:checked')].map(i=>({label:i.dataset.label,w:+i.dataset.w,h:+i.dataset.h}));}
-btnSingle.addEventListener('click',async()=>{const opts=selectedOptions();if(!opts.length)return;const o=opts[0];const blob=await resizeBlob(o.w,o.h);downloadBlob(blob,`${slug(o.label)}.png`);statusEl.textContent=`Descargado ${o.label}`;});
-btnZip.addEventListener('click',async()=>{const opts=selectedOptions();if(opts.length<2)return;const zip=new JSZip();for(const o of opts){const blob=await resizeBlob(o.w,o.h);zip.file(`${slug(o.label)}.png`,blob);}const out=await zip.generateAsync({type:'blob'});downloadBlob(out,'social-media-resized-images.zip');statusEl.textContent=`ZIP descargado con ${opts.length} tamaños.`;});
+btnSingle.addEventListener('click',async()=>{const opts=selectedOptions();if(!opts.length)return;for(const [i,o] of opts.entries()){const blob=await resizeBlob(o.w,o.h);setTimeout(()=>downloadBlob(blob,`${slug(o.label)}-${o.w}x${o.h}.png`),i*400);}const o=opts[opts.length-1];statusEl.textContent=`Descargado ${o.label}`;});
+btnZip.addEventListener('click',async()=>{const opts=selectedOptions();if(!opts.length)return;const zip=new JSZip();for(const o of opts){const blob=await resizeBlob(o.w,o.h);zip.file(`${slug(o.label)}-${o.w}x${o.h}.png`,blob);}const out=await zip.generateAsync({type:'blob'});downloadBlob(out,'social-media-resized-images.zip');statusEl.textContent=`ZIP descargado con ${opts.length} tamaños.`;});
 function downloadBlob(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),800);}
-function slug(t){return t.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
+function slug(t){return t.toLowerCase().replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'')||'image';}
 </script>
 
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canReintentar){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canReintentar?' <button type="button" class="tool-retry-button" id="commonToolReintentar">Reintentar</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolReintentar');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'Se requiere una acción. Revisa los datos de la herramienta e inténtalo de nuevo.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('La herramienta no pudo completar la solicitud. Comprueba el archivo o los datos e inténtalo de nuevo.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('La herramienta no pudo completar la solicitud. Comprueba el archivo o los datos e inténtalo de nuevo.', true);
-});
-})();
-</script>
-
-<script src="/script.js" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

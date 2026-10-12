@@ -19,15 +19,14 @@ gtag('config', 'G-0CH8NE5WDH');
 <meta name="description" content="Comprime imágenes JPG, PNG y WEBP online gratis hasta 100KB, 50KB o un tamaño personalizado, sin subir archivos.">
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/style.css?v=64664143">
 
-<link rel="icon" href="/favicon.ico">
-
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <style>
 
 /* ===== HERO (SAME AS PDF PAGE) ===== */
@@ -210,6 +209,7 @@ line-height:1.8;
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
 </head>
 
 <body>
@@ -219,7 +219,7 @@ line-height:1.8;
 
 <div class="header-left">
     <a href="/es/" class="logo">
-        <img src="/convertios-logo.png" alt="Logo de Convertios" width="2211" height="1234">
+        <img src="/convertios-logo-376.png" alt="Logo de Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -339,21 +339,21 @@ line-height:1.8;
 
 <h2>Ajustes de compresión</h2>
 
-<label>Tamaño objetivo (KB)</label>
-<input type="number" id="targetKB" placeholder="p. ej., 100">
+<label for="targetKB">Tamaño objetivo (KB)</label>
+<input type="number" id="targetKB" min="1" max="50000" step="1" inputmode="numeric" placeholder="p. ej., 100">
 
-<label>Calidad manual</label>
+<label for="quality">Calidad manual</label>
 <input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.8">
 <span id="qualityValue">0.8</span>
 
-<label>Formato</label>
+<label for="format">Formato</label>
 <select id="format">
 <option value="image/jpeg">JPG</option>
 <option value="image/png">PNG</option>
 <option value="image/webp">WEBP</option>
 </select>
 
-<button class="main-button" onclick="runCompression()" aria-label="Ejecutar esta herramienta">Comprimir</button>
+<button class="main-button" onclick="runCompression()">Comprimir</button>
 
 <a id="downloadLink" class="main-button download-btn" style="display:none;"></a>
 
@@ -470,35 +470,15 @@ Está optimizada para mantener la mejor calidad posible al reducir el tamaño.</
 Sí, puedes elegir tamaños como 100KB o 50KB, o ajustar la calidad manualmente.</p>
 
 </div>
-<div class="more-tools">
-
-<h3>Explora más herramientas</h3>
-
-<div class="more-tools-grid">
-<a href="/es/ai-image-enhancer/" class="more-tool-card"><span>✨</span><p>Mejorador de imágenes con IA</p></a>
-
-<a href="/es/image-resizer/" class="more-tool-card">
-<span>✂️</span>
-<p>Redimensionador de imágenes</p>
-</a>
-
-<a href="/es/image-converter/" class="more-tool-card">
-<span>🖼️</span>
-<p>Convertidor de imágenes</p>
-</a>
-
-<a href="/es/png-to-jpg/" class="more-tool-card">
-<span>🔄</span>
-<p>PNG a JPG</p>
-</a>
-
-<a href="/es/social-media-image-resizer/" class="more-tool-card">
-<span>📱</span>
-<p>Redimensionador para redes sociales</p>
-</a>
-</div>
-
-</div>
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">Explora más herramientas</h2>
+  <div class="more-tools-grid">
+    <a href="/es/compress-image-to-100kb/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🗜️</span><span>Comprimir a 100 KB</span></a>
+    <a href="/es/compress-image-to-50kb/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🗜️</span><span>Comprimir a 50 KB</span></a>
+    <a href="/es/compress-image-to-20kb/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🗜️</span><span>Comprimir a 20 KB</span></a>
+    <a href="/es/image-resizer/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">📐</span><span>Redimensionar imagen</span></a>
+  </div>
+</section>
 
 
 <footer class="site-footer">
@@ -527,176 +507,9 @@ Sí, puedes elegir tamaños como 100KB o 50KB, o ajustar la calidad manualmente.
 
 </footer>
 
-<script>
-
-const upload = document.getElementById("upload");
-const preview = document.getElementById("preview");
-const qualitySlider = document.getElementById("quality");
-const qualityValue = document.getElementById("qualityValue");
-const downloadLink = document.getElementById("downloadLink");
-const progressBox = document.getElementById("progressBox");
-const progressText = document.getElementById("progressText");
-
-let imageFile = null;
-
-qualitySlider.oninput = () => qualityValue.innerText = qualitySlider.value;
-
-upload.onchange = function(e){
-imageFile = e.target.files[0];
-const reader = new FileReader();
-reader.onload = e => preview.src = e.target.result;
-reader.readAsDataURL(imageFile);
-};
-
-function runCompression(){
-
-if(!imageFile){
-alert("Primero sube una imagen");
-return;
-}
-
-progressBox.style.display = "block";
-progressText.innerText = "0%";
-downloadLink.style.display = "none";
-
-const targetKB = parseInt(document.getElementById("targetKB").value);
-const format = document.getElementById("format").value;
-
-if(targetKB){
-compressToTarget(targetKB, format);
-}else{
-compressManual(format);
-}
-}
-
-function compressManual(format){
-
-const img = new Image();
-img.src = preview.src;
-
-img.onload = function(){
-
-const canvas = document.createElement("canvas");
-const ctx = canvas.getContext("2d");
-
-canvas.width = img.width;
-canvas.height = img.height;
-
-ctx.drawImage(img,0,0);
-
-canvas.toBlob(blob => {
-
-const url = URL.createObjectURL(blob);
-
-downloadLink.href = url;
-downloadLink.download = "compressed";
-downloadLink.innerText = "Descargar";
-downloadLink.style.display = "block";
-
-progressText.innerText = "Completado ✅";
-
-}, format, qualitySlider.value);
-};
-}
-
-function compressToTarget(targetKB, format){
-
-const img = new Image();
-img.src = preview.src;
-
-img.onload = function(){
-
-const canvas = document.createElement("canvas");
-const ctx = canvas.getContext("2d");
-
-canvas.width = img.width;
-canvas.height = img.height;
-
-ctx.drawImage(img,0,0);
-
-let quality = 0.9;
-let attempts = 0;
-
-function loop(){
-
-canvas.toBlob(blob => {
-
-let sizeKB = blob.size / 1024;
-attempts++;
-
-progressText.innerText = Math.min(95, attempts*10) + "%";
-
-if(sizeKB > targetKB && quality > 0.1){
-quality -= 0.05;
-loop();
-}else{
-
-const url = URL.createObjectURL(blob);
-
-downloadLink.href = url;
-downloadLink.download = "compressed";
-downloadLink.innerText = "Descargar (" + Math.round(sizeKB) + " KB)";
-downloadLink.style.display = "block";
-
-progressText.innerText = "Completado ✅";
-}
-
-}, format, quality);
-}
-
-loop();
-};
-}
-
-</script>
+<script src="/js/compress.js?v=7a47d16b" defer></script>
 
 
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canRetry){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Reintentar</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolRetry');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'Se requiere una acción. Revisa los datos de la herramienta e inténtalo de nuevo.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('La herramienta no pudo completar la solicitud. Revisa el archivo o los datos e inténtalo de nuevo.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('La herramienta no pudo completar la solicitud. Revisa el archivo o los datos e inténtalo de nuevo.', true);
-});
-})();
-</script>
-
-<script src="/script.js" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

@@ -24,15 +24,15 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/ar/rtl.css">
-<link rel="icon" href="/favicon.ico">
-
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="stylesheet" href="/style.css?v=64664143">
+<link rel="stylesheet" href="/ar/rtl.css?v=2c9440fb">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 
 <style>
@@ -178,6 +178,7 @@ line-height:1.8;
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
 </head>
 
 <body>
@@ -185,7 +186,7 @@ line-height:1.8;
 
 <div class="header-left">
     <a href="/ar/" class="logo">
-        <img src="/convertios-logo.png" alt="شعار Convertios" width="2211" height="1234">
+        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -298,21 +299,39 @@ line-height:1.8;
 <h1>تغيير حجم الصور</h1>
 
 <p>
-غيّر حجم الصور واقصصها وكبّرها ودوّرها بسهولة باستخدام هذا المحرر السريع والمجاني على الإنترنت.
+غيّر حجم الصور إلى أبعاد دقيقة بالبكسل أو بنسبة مئوية، ودوّرها، واقصصها فقط إذا اخترت ذلك. تتم كل العمليات داخل متصفحك.
 </p>
 
-<input type="file" id="upload" accept="image/*" aria-label="اختر ملفًا للمعالجة">
+<label class="resize-file-label" for="upload">اختر صورة لتغيير حجمها</label>
+<input type="file" id="upload" accept="image/*">
 
-<img id="image" alt="الصورة المراد تغيير حجمها">
+<div class="resize-stage"><img id="image" alt="" hidden></div>
 
-<div class="controls">
-
-<button onclick="cropper.rotate(-90)" aria-label="تشغيل هذه الأداة">تدوير لليسار</button> <button onclick="cropper.rotate(90)" aria-label="تشغيل هذه الأداة">تدوير لليمين</button>
-
-<button onclick="cropper.zoom(0.1)">تكبير</button> <button onclick="cropper.zoom(-0.1)">تصغير</button>
-
-<button onclick="downloadImage()">تحميل</button>
-
+<div id="resizeControls" class="resize-controls" hidden>
+<p class="resize-dims"><span id="resizeOriginal"></span> <span aria-hidden="true">→</span> <strong id="resizeTarget" aria-live="polite"></strong></p>
+<fieldset class="resize-fieldset">
+<legend>المقاس الجديد</legend>
+<div class="resize-grid">
+<label>العرض <input type="number" id="resizeWidth" min="1" max="8000" step="1" inputmode="numeric"></label>
+<label>الارتفاع <input type="number" id="resizeHeight" min="1" max="8000" step="1" inputmode="numeric"></label>
+<label>النسبة (%) <input type="number" id="resizePercent" min="1" max="1000" step="1" value="100" inputmode="decimal"></label>
+</div>
+<label class="resize-check"><input type="checkbox" id="resizeLock" checked> الحفاظ على نسبة الأبعاد</label>
+<label class="resize-check"><input type="checkbox" id="resizeCrop"> قص الصورة (اسحب الإطار على المعاينة)</label>
+</fieldset>
+<div class="resize-row">
+<button type="button" id="resizeRotateLeft">تدوير لليسار</button>
+<button type="button" id="resizeRotateRight">تدوير لليمين</button>
+<label>صيغة الإخراج
+<select id="resizeFormat">
+<option value="same">نفس صيغة الأصل</option>
+<option value="image/jpeg">JPG</option>
+<option value="image/png">PNG (يحافظ على الشفافية)</option>
+<option value="image/webp">WEBP (يحافظ على الشفافية)</option>
+</select>
+</label>
+</div>
+<button type="button" id="resizeDownload" class="main-button">تنزيل الصورة بعد تغيير حجمها</button>
 </div>
 
 </div>
@@ -422,35 +441,15 @@ line-height:1.8;
 
 <!-- MORE TOOLS -->
 
-<div class="more-tools">
-
-<h3>استكشف المزيد من الأدوات</h3>
-
-<div class="more-tools-grid">
-<a href="/ar/ai-image-enhancer/" class="more-tool-card"><span>✨</span><p>تحسين الصور بالذكاء الاصطناعي</p></a>
-
-<a href="/ar/compress-image/" class="more-tool-card">
-<span>📦</span>
-<p>ضغط الصور</p>
-</a>
-
-<a href="/ar/image-converter/" class="more-tool-card">
-<span>🖼️</span>
-<p>محول الصور</p>
-</a>
-
-<a href="/ar/png-to-jpg/" class="more-tool-card">
-<span>🔄</span>
-<p>PNG إلى JPG</p>
-</a>
-
-<a href="/ar/social-media-image-resizer/" class="more-tool-card">
-<span>📱</span>
-<p>مقاسات صور السوشيال ميديا</p>
-</a>
-</div>
-
-</div>
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">استكشف المزيد من الأدوات</h2>
+  <div class="more-tools-grid">
+    <a href="/ar/social-media-image-resizer/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">📱</span><span>مقاسات صور السوشيال ميديا</span></a>
+    <a href="/ar/compress-image/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🗜️</span><span>ضغط الصور</span></a>
+    <a href="/ar/image-converter/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🔄</span><span>محول الصور</span></a>
+    <a href="/ar/remove-bg/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">✂️</span><span>إزالة الخلفية</span></a>
+  </div>
+</section>
 
 <footer class="site-footer">
 
@@ -478,104 +477,9 @@ line-height:1.8;
 
 </footer>
 
-<script>
-
-let cropper;
-
-document.getElementById("upload").addEventListener("change",function(){
-
-const file = this.files[0];
-if(!file) return;
-
-const reader = new FileReader();
-
-reader.onload = function(e){
-
-const image = document.getElementById("image");
-image.src = e.target.result;
-
-if(cropper){
-cropper.destroy();
-}
-
-cropper = new Cropper(image,{
-viewMode:1,
-autoCropArea:1,
-responsive:true
-});
-
-};
-
-reader.readAsDataURL(file);
-
-});
-
-function downloadImage(){
-
-if(!cropper){
-alert("ارفع الصورة أولًا");
-return;
-}
-
-const canvas = cropper.getCroppedCanvas();
-
-const link = document.createElement("a");
-
-link.download = "edited-image.png";
-link.href = canvas.toDataURL();
-link.click();
-
-}
-
-</script>
+<script src="/js/image-resizer.js?v=12e0bed3" defer></script>
 
 
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canRetry){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">إعادة المحاولة</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolRetry');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'راجع مدخلات الأداة ثم جرّب مرة أخرى.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('حدث خطأ أثناء معالجة الصورة، جرّب مرة أخرى.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('حدث خطأ أثناء معالجة الصورة، جرّب مرة أخرى.', true);
-});
-})();
-</script>
-
-<script src="/script.js" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

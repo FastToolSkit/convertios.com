@@ -24,14 +24,14 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css">
-<link rel="icon" href="/favicon.ico">
-
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="stylesheet" href="/style.css?v=64664143">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><style>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<style>
 
 .tool-container{
 max-width:700px;
@@ -168,6 +168,7 @@ line-height:1.8;
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
 </head>
 
 <body>
@@ -177,7 +178,7 @@ line-height:1.8;
 
 <div class="header-left">
     <a href="/" class="logo">
-        <img src="/convertios-logo.png" alt="Convertios Logo" width="2211" height="1234">
+        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -289,9 +290,9 @@ line-height:1.8;
 
 <p>Convert units instantly with accurate real-time results.</p>
 
-<input type="number" id="value" placeholder="Enter value">
+<input aria-label="Enter value" type="number" id="value" placeholder="Enter value">
 
-<select id="conversion">
+<select aria-label="Conversion" id="conversion">
 <option value="kg-lb">Kilograms → Pounds</option>
 <option value="lb-kg">Pounds → Kilograms</option>
 <option value="g-kg">Grams → Kilograms</option>
@@ -306,7 +307,7 @@ line-height:1.8;
 <option value="f-c">Fahrenheit → Celsius</option>
 </select>
 
-<button onclick="convert()" aria-label="Run this tool">Convert</button>
+<button onclick="convert()">Convert</button>
 
 <h3 id="result">Result: —</h3>
 
@@ -414,35 +415,15 @@ Yes, the tool works on all modern devices including smartphones and tablets.</p>
 
 <!-- MORE TOOLS -->
 
-<div class="more-tools">
-
-<h3>Explore More Tools</h3>
-
-<div class="more-tools-grid">
-
-<a href="/text-formatter/" class="more-tool-card">
-<span>📝</span>
-<p>Text Formatter</p>
-</a>
-
-<a href="/word-counter/" class="more-tool-card">
-<span>📊</span>
-<p>Word Counter</p>
-</a>
-
-<a href="/password-generator/" class="more-tool-card">
-<span>🔐</span>
-<p>Password Generator</p>
-</a>
-
-<a href="/pdf-to-word/" class="more-tool-card">
-<span>📄</span>
-<p>PDF to Word</p>
-</a>
-
-</div>
-
-</div>
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">Explore more tools</h2>
+  <div class="more-tools-grid">
+    <a href="/word-counter/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🔢</span><span>Word Counter</span></a>
+    <a href="/text-formatter/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">✍️</span><span>Text Formatter</span></a>
+    <a href="/password-generator/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🔐</span><span>Password Generator</span></a>
+    <a href="/qr-generator/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🔳</span><span>QR Generator</span></a>
+  </div>
+</section>
 
 <footer class="site-footer">
 
@@ -474,52 +455,6 @@ Yes, the tool works on all modern devices including smartphones and tablets.</p>
 <script> function convert(){ let value = parseFloat(document.getElementById("value").value); let type = document.getElementById("conversion").value; if(isNaN(value)){ document.getElementById("result").innerHTML = "Result: Enter a value"; return; } let result = 0; if(type=="kg-lb") result=value*2.20462; if(type=="lb-kg") result=value/2.20462; if(type=="g-kg") result=value/1000; if(type=="kg-g") result=value*1000; if(type=="m-ft") result=value*3.28084; if(type=="ft-m") result=value/3.28084; if(type=="km-m") result=value*1000; if(type=="m-km") result=value/1000; if(type=="c-f") result=(value*9/5)+32; if(type=="f-c") result=(value-32)*5/9; document.getElementById("result").innerHTML = "Result: " + result.toFixed(3); } </script>
 
 
-<script>
-(function(){
-let lastActionButton=null;
-document.addEventListener('click',function(event){
-const button=event.target.closest('button');
-if(button && !button.classList.contains('tool-retry-button')) lastActionButton=button;
-},true);
-function ensureToolMessage(){
-let box=document.getElementById('toolMessage');
-if(!box){
-box=document.createElement('div');
-box.id='toolMessage';
-box.className='tool-message-box';
-box.setAttribute('role','status');
-box.setAttribute('aria-live','polite');
-const anchor=document.querySelector('.tool-container,.tool-wrap,.app-container,main') || document.body;
-anchor.insertAdjacentElement('afterend',box);
-}
-return box;
-}
-window.showToolMessage=function(message,canRetry){
-const box=ensureToolMessage();
-box.innerHTML='<span>'+message+'</span>'+(canRetry?' <button type="button" class="tool-retry-button" id="commonToolRetry">Retry</button>':'');
-box.style.display='block';
-const retry=document.getElementById('commonToolRetry');
-if(retry){
-retry.addEventListener('click',function(){
-box.style.display='none';
-if(lastActionButton) lastActionButton.click();
-});
-}
-};
-const nativeAlert=window.alert;
-window.alert=function(message){
-window.showToolMessage(String(message || 'Action required. Please review the tool inputs and try again.'), true);
-if(nativeAlert && !document.body) nativeAlert(message);
-};
-window.addEventListener('error',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
-});
-window.addEventListener('unhandledrejection',function(event){
-window.showToolMessage('The tool could not complete the request. Check your file or input and try again.', true);
-});
-})();
-</script>
-
-<script src="/script.js" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

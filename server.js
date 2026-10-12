@@ -8,6 +8,7 @@ const express = require('express');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const multer = require('multer');
+const api = require('./backend/api');
 
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
@@ -18,6 +19,9 @@ const MAX_VIDEO_BYTES = 50 * 1024 * 1024;
 const PROCESS_TIMEOUT_MS = 120_000;
 const VIDEO_PROCESS_TIMEOUT_MS = 300_000;
 const MAX_ACTIVE_JOBS = Math.max(1, Number(process.env.MAX_ACTIVE_JOBS || 2));
+// Render sets RENDER_GIT_COMMIT for every deploy; /health exposes it so a deploy can be verified.
+const SERVICE_VERSION = (process.env.RENDER_GIT_COMMIT || process.env.SERVICE_VERSION || 'local').slice(0, 12);
+const apiConfig = api.loadConfig();
 const allowedOrigins = new Set([
   'https://convertios.com',
   'https://www.convertios.com',
@@ -29,6 +33,7 @@ let activeJobs = 0;
 const documentUpload = multer({ storage: multer.memoryStorage(), limits: { files: 1, fileSize: MAX_DOCUMENT_BYTES } });
 const imageUpload = multer({ storage: multer.memoryStorage(), limits: { files: 1, fileSize: MAX_IMAGE_BYTES } });
 const videoUpload = multer({ storage: multer.memoryStorage(), limits: { files: 1, fileSize: MAX_VIDEO_BYTES } });
+const enhanceUpload = multer({ storage: multer.memoryStorage(), limits: { files: 1, fileSize: api.LIMITS.enhanceUploadBytes } });
 
 app.disable('x-powered-by');
 app.set('trust proxy', 1);
@@ -39,26 +44,27 @@ app.use(cors({
     return callback(new Error('Origin not allowed by CORS'));
   },
   methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type']
+  allowedHeaders: ['Content-Type'],
+  exposedHeaders: ['Content-Disposition']
 }));
-const conversionRateLimit = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  limit: 30,
-  standardHeaders: true,
-  legacyHeaders: false
-});
-const videoConversionRateLimit = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  limit: 10,
-  standardHeaders: true,
-  legacyHeaders: false
-});
 
-function safeDownloadName(name, extension, fallback) {
-  const base = path.basename(name || fallback, path.extname(name || fallback));
-  const safeBase = base.normalize('NFKD').replace(/[^a-z0-9_-]+/gi, '-').replace(/^-+|-+$/g, '');
-  return `${safeBase || fallback}${extension}`;
+// Every error response carries a stable `code` so the pages can show a translated message.
+function fail(res, status, code, message) {
+  return res.status(status).json({ error: message, code });
 }
+
+function limiter(limit) {
+  return rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit,
+    standardHeaders: true,
+    legacyHeaders: false,
+    handler: (_req, res) => fail(res, 429, 'RATE_LIMITED', 'Too many requests. Please wait a few minutes and retry.')
+  });
+}
+const conversionRateLimit = limiter(30);
+const videoConversionRateLimit = limiter(10);
+const shortenRateLimit = limiter(40);
 
 function runProcess(command, args, timeoutMs = PROCESS_TIMEOUT_MS) {
   return new Promise((resolve, reject) => {
@@ -69,7 +75,9 @@ function runProcess(command, args, timeoutMs = PROCESS_TIMEOUT_MS) {
     let stderr = '';
     const timer = setTimeout(() => {
       child.kill('SIGKILL');
-      reject(new Error('Processing timed out. Try a smaller file.'));
+      const timeout = new Error('Processing timed out.');
+      timeout.code = 'PROCESSING_TIMEOUT';
+      reject(timeout);
     }, timeoutMs);
 
     child.stderr.on('data', (chunk) => {
@@ -118,7 +126,7 @@ function videoFormatSettings(format) {
 
 async function withJob(res, handler) {
   if (activeJobs >= MAX_ACTIVE_JOBS) {
-    return res.status(503).json({ error: 'The converter is busy. Please retry in a moment.' });
+    return fail(res, 503, 'BUSY', 'The converter is busy. Please retry in a moment.');
   }
   activeJobs += 1;
   const jobDir = await fs.mkdtemp(path.join(os.tmpdir(), 'convertios-'));
@@ -134,38 +142,63 @@ function uploadSingle(upload, field) {
   return (req, res, next) => upload.single(field)(req, res, (error) => {
     if (!error) return next();
     if (error instanceof multer.MulterError && error.code === 'LIMIT_FILE_SIZE') {
-      return res.status(413).json({ error: 'Uploaded file is too large.' });
+      return fail(res, 413, 'FILE_TOO_LARGE', 'Uploaded file is too large.');
     }
-    return res.status(400).json({ error: error.message || 'Invalid upload.' });
+    return fail(res, 400, 'INVALID_UPLOAD', 'Invalid upload.');
   });
 }
 
+function sendFile(res, buffer, contentType, filename) {
+  res.setHeader('Content-Type', contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+  res.setHeader('Cache-Control', 'no-store');
+  return res.send(buffer);
+}
+
 app.get('/', (_req, res) => {
-  res.json({ service: 'Convertios self-hosted conversion backend', status: 'ok' });
+  res.json({ service: 'Convertios conversion backend', status: 'ok' });
 });
 
 app.get('/health', (_req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
   res.json({
     status: 'ok',
-    processing: 'self-hosted',
-    thirdPartyConversionApis: false,
+    version: SERVICE_VERSION,
     activeJobs,
     maxActiveJobs: MAX_ACTIVE_JOBS,
     engines: {
       pdfToWord: 'pdf2docx',
       backgroundRemoval: 'rembg/u2netp',
-      imageEnhancement: 'not-enabled',
       videoToMp3: 'ffmpeg',
-      videoConverter: 'ffmpeg'
+      videoConverter: 'ffmpeg',
+      linkShortener: apiConfig.shortenerProviders.map((provider) => provider.name).join('+'),
+      imageEnhancement: 'cloudinary+n8n'
     }
   });
 });
 
-app.post('/convert/pdf-to-word', conversionRateLimit, uploadSingle(documentUpload, 'file'), async (req, res) => {
-  if (!req.file) return res.status(400).json({ error: 'No PDF uploaded.' });
-  if (req.file.mimetype !== 'application/pdf' && !/\.pdf$/i.test(req.file.originalname || '')) {
-    return res.status(415).json({ error: 'Uploaded file must be a PDF.' });
+app.post('/api/shorten-url', shortenRateLimit, express.json({ limit: '4kb' }), async (req, res) => {
+  const result = await api.handleShorten(req.body, apiConfig);
+  res.setHeader('Cache-Control', 'no-store');
+  return res.status(result.status).json(result.body);
+});
+
+app.post('/api/enhance-image', conversionRateLimit, uploadSingle(enhanceUpload, 'image'), async (req, res) => {
+  if (!req.file) return fail(res, 400, 'NO_FILE', 'No image uploaded.');
+  if (activeJobs >= MAX_ACTIVE_JOBS) return fail(res, 503, 'BUSY', 'The server is busy. Please retry in a moment.');
+  activeJobs += 1;
+  try {
+    const result = await api.handleEnhance(req.file, apiConfig);
+    if (result.status !== 200) return res.status(result.status).json(result.body);
+    return sendFile(res, result.buffer, result.mime, result.filename);
+  } finally {
+    activeJobs -= 1;
   }
+});
+
+app.post('/convert/pdf-to-word', conversionRateLimit, uploadSingle(documentUpload, 'file'), async (req, res) => {
+  if (!req.file) return fail(res, 400, 'NO_FILE', 'No PDF uploaded.');
+  if (!api.isPdf(req.file.buffer)) return fail(res, 415, 'UNSUPPORTED_FORMAT', 'Uploaded file must be a PDF.');
 
   return withJob(res, async (jobDir) => {
     const input = path.join(jobDir, `${crypto.randomUUID()}.pdf`);
@@ -173,42 +206,29 @@ app.post('/convert/pdf-to-word', conversionRateLimit, uploadSingle(documentUploa
     await fs.writeFile(input, req.file.buffer, { mode: 0o600 });
     await runPython('pdf_to_docx.py', [input, output]);
     const result = await fs.readFile(output);
-    const downloadName = safeDownloadName(req.file.originalname, '.docx', 'converted');
-    res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
-    res.setHeader('Content-Disposition', `attachment; filename="${downloadName}"`);
-    res.setHeader('Cache-Control', 'no-store');
-    return res.send(result);
+    return sendFile(res, result, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', api.safeDownloadName(req.file.originalname, '.docx', 'converted'));
   });
 });
 
 app.post('/remove-background', conversionRateLimit, uploadSingle(imageUpload, 'image_file'), async (req, res) => {
-  if (!req.file) return res.status(400).json({ error: 'No image uploaded.' });
-  if (!req.file.mimetype?.startsWith('image/')) {
-    return res.status(415).json({ error: 'Uploaded file must be an image.' });
-  }
+  if (!req.file) return fail(res, 400, 'NO_FILE', 'No image uploaded.');
+  const type = api.detectImageType(req.file.buffer);
+  if (!type) return fail(res, 415, 'UNSUPPORTED_FORMAT', 'Upload a JPG, PNG or WEBP image.');
 
   return withJob(res, async (jobDir) => {
-    const originalExtension = path.extname(req.file.originalname || '').toLowerCase();
-    const extension = ['.png', '.jpg', '.jpeg', '.webp'].includes(originalExtension) ? originalExtension : '.png';
-    const input = path.join(jobDir, `${crypto.randomUUID()}${extension}`);
+    const input = path.join(jobDir, `${crypto.randomUUID()}${type.ext}`);
     const output = path.join(jobDir, `${crypto.randomUUID()}.png`);
     await fs.writeFile(input, req.file.buffer, { mode: 0o600 });
     await runPython('remove_background.py', [input, output]);
     const result = await fs.readFile(output);
-    const downloadName = safeDownloadName(req.file.originalname, '-no-bg.png', 'image');
-    res.setHeader('Content-Type', 'image/png');
-    res.setHeader('Content-Disposition', `attachment; filename="${downloadName}"`);
-    res.setHeader('Cache-Control', 'no-store');
-    return res.send(result);
+    return sendFile(res, result, 'image/png', api.safeDownloadName(req.file.originalname, '-no-bg.png', 'image'));
   });
 });
 
 app.post('/convert/video-to-mp3', videoConversionRateLimit, uploadSingle(videoUpload, 'file'), async (req, res) => {
-  if (!req.file) return res.status(400).json({ error: 'No video uploaded.' });
+  if (!req.file) return fail(res, 400, 'NO_FILE', 'No video uploaded.');
   const extension = videoInputExtension(req.file);
-  if (!extension || (!req.file.mimetype?.startsWith('video/') && !extension)) {
-    return res.status(415).json({ error: 'Unsupported video file.' });
-  }
+  if (!extension) return fail(res, 415, 'UNSUPPORTED_FORMAT', 'Unsupported video file.');
 
   return withJob(res, async (jobDir) => {
     const input = path.join(jobDir, `${crypto.randomUUID()}${extension}`);
@@ -216,20 +236,17 @@ app.post('/convert/video-to-mp3', videoConversionRateLimit, uploadSingle(videoUp
     await fs.writeFile(input, req.file.buffer, { mode: 0o600 });
     await runProcess('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-nostdin', '-y', '-i', input, '-vn', '-c:a', 'libmp3lame', '-b:a', '192k', output], VIDEO_PROCESS_TIMEOUT_MS);
     const result = await fs.readFile(output);
-    res.setHeader('Content-Type', 'audio/mpeg');
-    res.setHeader('Content-Disposition', `attachment; filename="${safeDownloadName(req.file.originalname, '.mp3', 'audio')}"`);
-    res.setHeader('Cache-Control', 'no-store');
-    return res.send(result);
+    return sendFile(res, result, 'audio/mpeg', api.safeDownloadName(req.file.originalname, '.mp3', 'audio'));
   });
 });
 
 app.post('/convert/video', videoConversionRateLimit, uploadSingle(videoUpload, 'file'), async (req, res) => {
-  if (!req.file) return res.status(400).json({ error: 'No video uploaded.' });
+  if (!req.file) return fail(res, 400, 'NO_FILE', 'No video uploaded.');
   const extension = videoInputExtension(req.file);
   const format = String(req.body?.format || '').toLowerCase();
   const settings = videoFormatSettings(format);
-  if (!extension) return res.status(415).json({ error: 'Unsupported input video file.' });
-  if (!settings) return res.status(400).json({ error: 'Unsupported output format.' });
+  if (!extension) return fail(res, 415, 'UNSUPPORTED_FORMAT', 'Unsupported input video file.');
+  if (!settings) return fail(res, 400, 'UNSUPPORTED_OUTPUT', 'Unsupported output format.');
 
   return withJob(res, async (jobDir) => {
     const input = path.join(jobDir, `${crypto.randomUUID()}${extension}`);
@@ -237,28 +254,25 @@ app.post('/convert/video', videoConversionRateLimit, uploadSingle(videoUpload, '
     await fs.writeFile(input, req.file.buffer, { mode: 0o600 });
     await runProcess('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-nostdin', '-y', '-i', input, ...settings.args, output], VIDEO_PROCESS_TIMEOUT_MS);
     const result = await fs.readFile(output);
-    res.setHeader('Content-Type', settings.contentType);
-    res.setHeader('Content-Disposition', `attachment; filename="${safeDownloadName(req.file.originalname, settings.extension, 'converted-video')}"`);
-    res.setHeader('Cache-Control', 'no-store');
-    return res.send(result);
+    return sendFile(res, result, settings.contentType, api.safeDownloadName(req.file.originalname, settings.extension, 'converted-video'));
   });
 });
 
-app.post('/enhance', conversionRateLimit, (_req, res) => {
-  return res.status(503).json({
-    error: 'Self-hosted image enhancement is not enabled yet.',
-    details: 'This route will be enabled after a suitable CPU/GPU model is installed.'
-  });
-});
-
-app.use((_req, res) => res.status(404).json({ error: 'Not found' }));
+app.use((_req, res) => fail(res, 404, 'NOT_FOUND', 'Not found.'));
 
 app.use((error, _req, res, _next) => {
-  console.error('[server] Request failed', error);
-  const status = error.message === 'Origin not allowed by CORS' ? 403 : 500;
-  return res.status(status).json({ error: status === 403 ? error.message : 'Processing failed.' });
+  if (error.message === 'Origin not allowed by CORS') return fail(res, 403, 'ORIGIN_NOT_ALLOWED', 'Origin not allowed.');
+  if (error.type === 'entity.parse.failed' || error.type === 'entity.too.large') return fail(res, 400, 'INVALID_REQUEST', 'Invalid request.');
+  // Log only a short reason: processor output can contain temporary file paths.
+  console.error('[server] Request failed:', error.code || String(error.message || '').split('\n')[0].slice(0, 200));
+  if (error.code === 'PROCESSING_TIMEOUT') return fail(res, 504, 'PROCESSING_TIMEOUT', 'Processing took too long. Try a smaller file.');
+  return fail(res, 500, 'PROCESSING_FAILED', 'Processing failed. Check the file and try again.');
 });
 
-app.listen(PORT, () => {
-  console.log(`Convertios backend listening on port ${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Convertios backend ${SERVICE_VERSION} listening on port ${PORT}`);
+  });
+}
+
+module.exports = { app };
