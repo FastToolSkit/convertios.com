@@ -324,7 +324,7 @@ Convert images between JPG, PNG, WEBP, BMP, and GIF formats instantly with high 
 <input type="file" id="upload" multiple accept="image/*" hidden aria-label="Choose a file to process">
 </div>
 
-<select id="format">
+<select aria-label="Output format" id="format">
 <option value="image/jpeg">Convert to JPG</option>
 <option value="image/png">Convert to PNG</option>
 <option value="image/webp">Convert to WEBP</option>
@@ -334,7 +334,7 @@ Convert images between JPG, PNG, WEBP, BMP, and GIF formats instantly with high 
 
 <div id="preview"></div>
 
-<button onclick="convertImage()" aria-label="Run this tool">Convert</button>
+<button onclick="convertImage()">Convert</button>
 
 <div id="downloadMenu">
 
@@ -490,6 +490,6 @@ Yes, the tool works on all devices including mobile phones and tablets.</p>
 
 
 
-<script src="/script.js?v=8a72ffa8" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

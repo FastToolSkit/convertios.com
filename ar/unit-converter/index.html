@@ -291,9 +291,9 @@ line-height:1.8;
 
 <p>حوّل الوحدات فورًا بنتائج دقيقة في الوقت الفعلي.</p>
 
-<input type="number" id="value" placeholder="أدخل قيمة">
+<input aria-label="أدخل قيمة" type="number" id="value" placeholder="أدخل قيمة">
 
-<select id="conversion">
+<select aria-label="نوع التحويل" id="conversion">
 <option value="kg-lb">كيلوغرام → رطل</option>
 <option value="lb-kg">رطل → كيلوغرام</option>
 <option value="g-kg">غرام → كيلوغرام</option>
@@ -456,6 +456,6 @@ line-height:1.8;
 <script> function convert(){ let value = parseFloat(document.getElementById("value").value); let type = document.getElementById("conversion").value; if(isNaN(value)){ document.getElementById("result").innerHTML = "النتيجة: أدخل قيمة"; return; } let result = 0; if(type=="kg-lb") result=value*2.20462; if(type=="lb-kg") result=value/2.20462; if(type=="g-kg") result=value/1000; if(type=="kg-g") result=value*1000; if(type=="m-ft") result=value*3.28084; if(type=="ft-m") result=value/3.28084; if(type=="km-m") result=value*1000; if(type=="m-km") result=value/1000; if(type=="c-f") result=(value*9/5)+32; if(type=="f-c") result=(value-32)*5/9; document.getElementById("result").innerHTML = "النتيجة: " + result.toFixed(3); } </script>
 
 
-<script src="/script.js?v=8a72ffa8" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

@@ -313,14 +313,14 @@ line-height:1.8;
 
 <div class="controls">
 
-<input type="text" id="topText" placeholder="Texto superior">
-<input type="text" id="bottomText" placeholder="Texto inferior">
+<input aria-label="Texto superior" type="text" id="topText" placeholder="Texto superior">
+<input aria-label="Texto inferior" type="text" id="bottomText" placeholder="Texto inferior">
 
-<label>Tamaño de fuente</label> <input type="range" id="fontSize" min="20" max="80" value="40">
+<label for="fontSize">Tamaño de fuente</label> <input type="range" id="fontSize" min="20" max="80" value="40">
 
-<label>Color del texto</label> <input type="color" id="textColor" value="#ffffff">
+<label for="textColor">Color del texto</label> <input type="color" id="textColor" value="#ffffff">
 
-<label>Contorno</label> <input type="range" id="strokeWidth" min="1" max="10" value="4">
+<label for="strokeWidth">Contorno</label> <input type="range" id="strokeWidth" min="1" max="10" value="4">
 
 <button onclick="downloadMeme()">Descargar meme</button>
 
@@ -473,6 +473,6 @@ Sí. Funciona en teléfonos, tabletas y ordenadores.</p>
 <script src="/js/meme-generator.js?v=1f9ee3bf" defer></script>
 
 
-<script src="/script.js?v=8a72ffa8" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

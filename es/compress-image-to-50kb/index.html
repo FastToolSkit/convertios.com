@@ -230,21 +230,21 @@ Reduce una imagen a 50 KB al instante. Ideal para formularios, cargas en línea 
 
 <h2>Ajustes de compresión</h2>
 
-<label>Tamaño objetivo (KB)</label>
+<label for="targetKB">Tamaño objetivo (KB)</label>
 <input type="number" id="targetKB" min="1" max="50000" step="1" inputmode="numeric" data-default-target="50" value="50">
 
-<label>Calidad manual</label>
+<label for="quality">Calidad manual</label>
 <input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.8">
 <span id="qualityValue">0.8</span>
 
-<label>Formato</label>
+<label for="format">Formato</label>
 <select id="format">
 <option value="image/jpeg">JPG</option>
 <option value="image/png">PNG</option>
 <option value="image/webp">WEBP</option>
 </select>
 
-<button class="main-button" onclick="runCompression()" aria-label="Ejecutar esta herramienta">Comprimir</button>
+<button class="main-button" onclick="runCompression()">Comprimir</button>
 
 <a id="downloadLink" class="main-button download-btn" style="display:none;"></a>
 
@@ -408,6 +408,6 @@ Sí. Funciona en dispositivos modernos, incluidos teléfonos y tabletas.</p>
 <script src="/js/compress.js?v=7a47d16b" defer></script>
 
 
-<script src="/script.js?v=8a72ffa8" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

@@ -10,7 +10,9 @@
   "scripts": {
     "start": "node server.js",
     "check": "node --check server.js",
-    "test": "node --test tests/"
+    "test": "node --test tests/server.test.js && node tests/site-check.mjs",
+    "test:browser": "node tests/browser/run.mjs",
+    "stamp": "python3 scripts/stamp-assets.py"
   },
   "dependencies": {
     "cors": "^2.8.5",

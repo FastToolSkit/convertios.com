@@ -230,21 +230,21 @@ Reduce image file size to 20KB instantly. Perfect for strict upload limits, gove
 
 <h2>Compression Settings</h2>
 
-<label>Target Size (KB)</label>
+<label for="targetKB">Target Size (KB)</label>
 <input type="number" id="targetKB" min="1" max="50000" step="1" inputmode="numeric" data-default-target="20" value="20">
 
-<label>Manual Quality</label>
+<label for="quality">Manual Quality</label>
 <input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.8">
 <span id="qualityValue">0.8</span>
 
-<label>Format</label>
+<label for="format">Format</label>
 <select id="format">
 <option value="image/jpeg">JPG</option>
 <option value="image/png">PNG</option>
 <option value="image/webp">WEBP</option>
 </select>
 
-<button class="main-button" onclick="runCompression()" aria-label="Run this tool">Compress</button>
+<button class="main-button" onclick="runCompression()">Compress</button>
 
 <a id="downloadLink" class="main-button download-btn" style="display:none;"></a>
 
@@ -408,6 +408,6 @@ Yes, the tool works smoothly on mobile, tablet, and desktop devices.</p>
 <script src="/js/compress.js?v=7a47d16b" defer></script>
 
 
-<script src="/script.js?v=8a72ffa8" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>

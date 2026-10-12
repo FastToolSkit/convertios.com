@@ -314,14 +314,14 @@ line-height:1.8;
 
 <div class="controls">
 
-<input type="text" id="topText" placeholder="نص علوي">
-<input type="text" id="bottomText" placeholder="نص سفلي">
+<input aria-label="نص علوي" type="text" id="topText" placeholder="نص علوي">
+<input aria-label="نص سفلي" type="text" id="bottomText" placeholder="نص سفلي">
 
-<label>حجم الخط</label> <input type="range" id="fontSize" min="20" max="80" value="40">
+<label for="fontSize">حجم الخط</label> <input type="range" id="fontSize" min="20" max="80" value="40">
 
-<label>لون النص</label> <input type="color" id="textColor" value="#ffffff">
+<label for="textColor">لون النص</label> <input type="color" id="textColor" value="#ffffff">
 
-<label>سماكة الحدود</label> <input type="range" id="strokeWidth" min="1" max="10" value="4">
+<label for="strokeWidth">سماكة الحدود</label> <input type="range" id="strokeWidth" min="1" max="10" value="4">
 
 <button onclick="downloadMeme()">تنزيل الميم</button>
 
@@ -474,6 +474,6 @@ line-height:1.8;
 <script src="/js/meme-generator.js?v=1f9ee3bf" defer></script>
 
 
-<script src="/script.js?v=8a72ffa8" defer></script>
+<script src="/script.js?v=859e3276" defer></script>
 </body>
 </html>
