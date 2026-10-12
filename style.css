@@ -2632,3 +2632,24 @@ section.more-tools .more-tool-card{min-width:0 !important;}
 section.more-tools .more-tool-card span{flex:0 1 auto !important;min-width:0;overflow-wrap:anywhere;}
 section.more-tools .more-tool-card .more-tool-icon{flex:0 0 auto !important;}
 .contact-email-box a{overflow-wrap:anywhere;word-break:break-word;}
+
+/* Page-specific guides (long-form help under each tool) */
+.page-guide h3{font-size:19px;margin:22px 0 8px;color:#0f172a;line-height:1.4}
+.page-guide ol{padding-left:22px;margin-bottom:20px}
+.page-guide ol li{margin-bottom:8px}
+[dir="rtl"] .page-guide ul,[dir="rtl"] .page-guide ol{padding-left:0;padding-right:22px}
+.page-guide a{color:#2563eb;text-decoration:underline;text-underline-offset:2px}
+.page-guide code{background:#f1f5f9;border-radius:4px;padding:1px 5px;font-size:.92em;direction:ltr;unicode-bidi:isolate}
+.page-guide .guide-table{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px 0 22px}
+.page-guide table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.5}
+.page-guide th,.page-guide td{border:1px solid #e2e8f0;padding:9px 11px;text-align:start;vertical-align:top}
+.page-guide th{background:#f8fafc;color:#0f172a;font-weight:600}
+.page-guide .guide-note{background:#f0f9ff;border-inline-start:4px solid #0284c7;padding:12px 14px;border-radius:8px;margin:18px 0;color:#0f172a}
+@media (max-width:480px){.page-guide table{font-size:14px}.page-guide th,.page-guide td{padding:7px 8px}}
+.page-guide{box-sizing:border-box;width:100%;max-width:800px;min-width:0}
+.page-guide p,.page-guide li,.page-guide h2,.page-guide h3{overflow-wrap:break-word}
+.page-guide table{word-break:normal;overflow-wrap:normal;hyphens:auto}
+.page-guide ul{list-style:disc outside}
+.page-guide ol{list-style:decimal outside}
+.page-guide li{display:list-item}
+.page-guide .guide-table{max-width:100%}
