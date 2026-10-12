@@ -189,6 +189,8 @@ line-height:1.8;
 </script>
 <!-- /Convertios structured data -->
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8386549343296072">
 </head>
 
 <body>
@@ -204,7 +206,7 @@ line-height:1.8;
 
 <nav class="nav-menu">
 
-<a href="/" class="active">Home</a>
+<a href="/">Home</a>
 
 
 <div class="nav-item dropdown">
@@ -221,7 +223,7 @@ line-height:1.8;
         <a href="/ai-image-enhancer/">AI Image Enhancer</a>
 
         <a href="/social-media-image-resizer/">Social Media Image Resizer</a>
-<a href="/all-tools/" class="view-all">View All →</a>
+<a href="/image-tools/" class="view-all">View All →</a>
     </div>
 </div>
 
@@ -237,7 +239,7 @@ line-height:1.8;
         <a href="/split-pdf/">Split PDF</a>
         <a href="/rotate-pdf/">Rotate PDF</a>
 
-        <a href="/all-tools/" class="view-all">View All →</a>
+        <a href="/pdf-tools/" class="view-all">View All →</a>
 
     </div>
 </div>
@@ -249,8 +251,10 @@ line-height:1.8;
         <a href="/mp3-cutter/">MP3 Cutter</a>
         <a href="/audio-converter/">Audio Converter</a>
         <a href="/audio-speed-changer/">Speed Changer</a>
+        <a href="/video-to-mp3/">Video to MP3</a>
+        <a href="/video-converter/">Video Converter</a>
 
-        <a href="/all-tools/" class="view-all">View All →</a>
+        <a href="/audio-tools/" class="view-all">View All →</a>
 
     </div>
 </div>
@@ -260,17 +264,17 @@ line-height:1.8;
 
         <a href="/qr-generator/">QR Generator</a>
         <a href="/link-shortener/">Link Shortener</a>
-        <a href="/password-generator/">Password Generator</a>
+        <a href="/password-generator/" aria-current="page">Password Generator</a>
         <a href="/word-counter/">Word Counter</a>
         <a href="/text-formatter/">Text Formatter</a>
         <a href="/unit-converter/">Unit Converter</a>
         <a href="/meme-generator/">Meme Generator</a>
 
-        <a href="/all-tools/" class="view-all">View All →</a>
+        <a href="/other-tools/" class="view-all">View All →</a>
 
     </div>
 </div>
-    <a href="/all-tools/" class="nav-all-tools">All Tools →</a>
+    <a href="/all-tools/" class="nav-all-tools">All Tools </a>
 
 <a href="/about/">About</a>
 <a href="/contact/">Contact</a>
@@ -294,7 +298,7 @@ line-height:1.8;
 <details class="language-selector">
   <summary aria-label="Change language"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">English</span></summary>
   <div class="language-selector__menu" role="menu" aria-label="Language options">
-    <a href="https://convertios.com/password-generator/" aria-current="page" role="menuitem">English</a>
+    <a href="https://convertios.com/password-generator/" lang="en" hreflang="en" aria-current="page" role="menuitem">English</a>
     <a href="https://convertios.com/ar/password-generator/" lang="ar" dir="rtl" hreflang="ar" role="menuitem">العربية</a>
     <a href="https://convertios.com/es/password-generator/" hreflang="es" role="menuitem">Español</a>
   </div>
@@ -455,113 +459,40 @@ Perfect for accounts, emails, banking, and online platforms requiring strong pas
 </footer>
 
 <script>
-
-const wavesurfer = WaveSurfer.create({
-container:"#waveform",
-waveColor:"#475569",
-progressColor:"#3a78ff",
-cursorColor:"#3a78ff",
-height:150,
-plugins:[
-WaveSurfer.regions.create(),
-WaveSurfer.timeline.create({container:"#timeline"})
-]
-})
-
-let region
-
-function formatTime(sec){
-sec=Math.floor(sec)
-let m=Math.floor(sec/60)
-let s=sec%60
-if(s<10)s="0"+s
-return m+":"+s
+(function(){
+var SETS={
+uppercase:'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+lowercase:'abcdefghijklmnopqrstuvwxyz',
+numbers:'0123456789',
+symbols:'!@#$%^&*()-_=+[]{};:,.?/'
+};
+function randomIndex(max){
+var limit=Math.floor(4294967296/max)*max,buf=new Uint32Array(1);
+do{crypto.getRandomValues(buf);}while(buf[0]>=limit);
+return buf[0]%max;
 }
-
-document.getElementById("audio").addEventListener("change",function(e){
-const file=e.target.files[0]
-if(!file) return
-wavesurfer.loadBlob(file)
-})
-
-wavesurfer.on("ready",function(){
-
-const duration = wavesurfer.getDuration()
-
-region = wavesurfer.addRegion({
-start:duration*0.2,
-end:duration*0.5,
-color:'rgba(58,120,255,0.2)',
-drag:true,
-resize:true
-})
-
-updateInputs()
-region.on('update', updateInputs)
-
-})
-
-function updateInputs(){
-document.getElementById("start").innerText=formatTime(region.start)
-document.getElementById("end").innerText=formatTime(region.end)
-}
-
-document.getElementById("play").onclick=function(){
-wavesurfer.playPause()
-this.innerText = wavesurfer.isPlaying() ? "Pause" : "Play"
-}
-
-document.getElementById("zoom").oninput=function(){
-wavesurfer.zoom(Number(this.value))
-}
-
-document.getElementById("export").onclick=function(){
-
-if(!region) return
-
-const start=region.start
-const end=region.end
-
-const buffer=wavesurfer.backend.buffer
-const sampleRate=buffer.sampleRate
-
-const startOffset=Math.floor(start*sampleRate)
-const endOffset=Math.floor(end*sampleRate)
-
-const samples=buffer.getChannelData(0).slice(startOffset,endOffset)
-
-const mp3encoder=new lamejs.Mp3Encoder(1,sampleRate,192)
-
-const sampleBlockSize=1152
-let mp3Data=[]
-
-for(let i=0;i<samples.length;i+=sampleBlockSize){
-
-let chunk=samples.subarray(i,i+sampleBlockSize)
-let int16=new Int16Array(chunk.length)
-
-for(let j=0;j<chunk.length;j++){
-int16[j]=chunk[j]*32767
-}
-
-let mp3buf=mp3encoder.encodeBuffer(int16)
-if(mp3buf.length>0) mp3Data.push(mp3buf)
-
-}
-
-let mp3buf=mp3encoder.flush()
-if(mp3buf.length>0) mp3Data.push(mp3buf)
-
-const blob=new Blob(mp3Data,{type:'audio/mp3'})
-const url=URL.createObjectURL(blob)
-
-const a=document.createElement("a")
-a.href=url
-a.download="trimmed.mp3"
-a.click()
-
-}
-
+window.generatePassword=function(){
+var lengthInput=document.getElementById('length');
+var length=Math.min(50,Math.max(6,parseInt(lengthInput.value,10)||12));
+lengthInput.value=length;
+var chosen=Object.keys(SETS).filter(function(k){return document.getElementById(k).checked;});
+if(!chosen.length){alert("Select at least one character type.");return;}
+var pool=chosen.map(function(k){return SETS[k];}).join('');
+var chars=chosen.map(function(k){var s=SETS[k];return s[randomIndex(s.length)];});
+while(chars.length<length) chars.push(pool[randomIndex(pool.length)]);
+for(var i=chars.length-1;i>0;i--){var j=randomIndex(i+1),t=chars[i];chars[i]=chars[j];chars[j]=t;}
+document.getElementById('password').value=chars.join('');
+};
+window.copyPassword=function(){
+var field=document.getElementById('password');
+if(!field.value) return;
+var btn=document.querySelector('.copy-btn');
+var done=function(){if(btn){btn.textContent="Copied!";setTimeout(function(){btn.textContent="Copy";},1500);}};
+if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(field.value).then(done,function(){field.select();document.execCommand('copy');done();});}
+else{field.select();document.execCommand('copy');done();}
+};
+document.addEventListener('DOMContentLoaded',function(){window.generatePassword();});
+})();
 </script>
 
 

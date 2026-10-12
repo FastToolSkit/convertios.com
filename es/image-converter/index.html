@@ -133,6 +133,8 @@ line-height:1.8;
 
 </style>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8386549343296072">
 </head>
 
 <body>
@@ -147,7 +149,8 @@ line-height:1.8;
 
 <nav class="nav-menu">
 
-<a href="/es/" class="active">Inicio</a>
+<a href="/es/">Inicio</a>
+
 
 <div class="nav-item dropdown">
     <span>Imagen ▾</span>
@@ -156,14 +159,14 @@ line-height:1.8;
         <a href="/es/png-to-jpg/">PNG a JPG</a>
         <a href="/es/jpg-to-png/">JPG a PNG</a>
         <a href="/es/webp-to-png/">WEBP a PNG</a>
-        <a href="/es/image-converter/">Convertidor de Imágenes</a>
-        <a href="/es/image-resizer/">Redimensionar Imagen</a>
-        <a href="/es/compress-image/">Comprimir Imagen</a>
-        <a href="/es/remove-bg/">Eliminar Fondo</a>
-
+        <a href="/es/image-converter/" aria-current="page">Convertidor de imágenes</a>
+        <a href="/es/image-resizer/">Redimensionar imagen</a>
+        <a href="/es/compress-image/">Comprimir imagen</a>
+        <a href="/es/remove-bg/">Eliminar fondo</a>
         <a href="/es/ai-image-enhancer/">Mejorador de imágenes con IA</a>
-        <a href="/es/social-media-image-resizer/">Redimensionador de imágenes para redes sociales</a>
-        <a href="/es/all-tools/" class="view-all">Ver todo →</a>
+
+        <a href="/es/social-media-image-resizer/">Redimensionador para redes sociales</a>
+<a href="/es/image-tools/" class="view-all">Ver todo →</a>
     </div>
 </div>
 
@@ -179,7 +182,7 @@ line-height:1.8;
         <a href="/es/split-pdf/">Dividir PDF</a>
         <a href="/es/rotate-pdf/">Rotar PDF</a>
 
-        <a href="/es/all-tools/" class="view-all">Ver todo →</a>
+        <a href="/es/pdf-tools/" class="view-all">Ver todo →</a>
 
     </div>
 </div>
@@ -188,33 +191,33 @@ line-height:1.8;
     <span>Audio ▾</span>
     <div class="dropdown-menu">
 
-        <a href="/es/mp3-cutter/">Cortar MP3</a>
-        <a href="/es/audio-converter/">Convertidor de Audio</a>
-        <a href="/es/audio-speed-changer/">Cambiar Velocidad</a>
+        <a href="/es/mp3-cutter/">Cortador de MP3</a>
+        <a href="/es/audio-converter/">Convertidor de audio</a>
+        <a href="/es/audio-speed-changer/">Cambiador de velocidad</a>
+        <a href="/es/video-to-mp3/">Vídeo a MP3</a>
+        <a href="/es/video-converter/">Convertidor de vídeo</a>
 
-        <a href="/es/all-tools/" class="view-all">Ver todo →</a>
+        <a href="/es/audio-tools/" class="view-all">Ver todo →</a>
 
     </div>
 </div>
-
 <div class="nav-item dropdown">
-    <span>Más Herramientas ▾</span>
+    <span>Más herramientas ▾</span>
     <div class="dropdown-menu">
 
-        <a href="/es/qr-generator/">Generador QR</a>
-        <a href="/es/link-shortener/">Acortador de Enlaces</a>
-        <a href="/es/password-generator/">Generador de Contraseñas</a>
-        <a href="/es/word-counter/">Contador de Palabras</a>
-        <a href="/es/text-formatter/">Formateador de Texto</a>
-        <a href="/es/unit-converter/">Convertidor de Unidades</a>
-        <a href="/es/meme-generator/">Generador de Memes</a>
+        <a href="/es/qr-generator/">Generador de códigos QR</a>
+        <a href="/es/link-shortener/">Acortador de enlaces</a>
+        <a href="/es/password-generator/">Generador de contraseñas</a>
+        <a href="/es/word-counter/">Contador de palabras</a>
+        <a href="/es/text-formatter/">Formateador de texto</a>
+        <a href="/es/unit-converter/">Conversor de unidades</a>
+        <a href="/es/meme-generator/">Generador de memes</a>
 
-        <a href="/es/all-tools/" class="view-all">Ver todo →</a>
+        <a href="/es/other-tools/" class="view-all">Ver todo →</a>
 
     </div>
 </div>
-
-<a href="/es/all-tools/" class="nav-all-tools">Todas las herramientas →</a>
+    <a href="/es/all-tools/" class="nav-all-tools">Todas las herramientas </a>
 
 <a href="/es/about/">Acerca de</a>
 <a href="/es/contact/">Contacto</a>
@@ -239,7 +242,7 @@ line-height:1.8;
 <details class="language-selector">
   <summary aria-label="Cambiar idioma"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">Español</span></summary>
   <div class="language-selector__menu" role="menu" aria-label="Opciones de idioma">
-    <a href="https://convertios.com/image-converter/" role="menuitem">English</a>
+    <a href="https://convertios.com/image-converter/" lang="en" hreflang="en" role="menuitem">English</a>
     <a href="https://convertios.com/ar/image-converter/" lang="ar" dir="rtl" hreflang="ar" role="menuitem">العربية</a>
     <a href="https://convertios.com/es/image-converter/" hreflang="es" aria-current="page" role="menuitem">Español</a>
   </div>
@@ -458,7 +461,7 @@ preview.appendChild(img);
 function convertImage(){
 let files=fileInput.files;
 if(!files || files.length===0){
-alert("Upload image first");
+alert("Primero sube una imagen");
 return;
 }
 
@@ -530,5 +533,6 @@ link.click();
 </script>
 
 
+<script src="/script.js" defer></script>
 </body>
 </html>

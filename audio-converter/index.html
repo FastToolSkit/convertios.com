@@ -32,6 +32,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
+<script src="/audio-mp3.js"></script>
 
 <style>
 
@@ -195,6 +196,8 @@ text-align:center;
 </script>
 <!-- /Convertios structured data -->
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8386549343296072">
 </head>
 
 <body>
@@ -210,7 +213,7 @@ text-align:center;
 
 <nav class="nav-menu">
 
-<a href="/" class="active">Home</a>
+<a href="/">Home</a>
 
 
 <div class="nav-item dropdown">
@@ -227,7 +230,7 @@ text-align:center;
         <a href="/ai-image-enhancer/">AI Image Enhancer</a>
 
         <a href="/social-media-image-resizer/">Social Media Image Resizer</a>
-<a href="/all-tools/" class="view-all">View All →</a>
+<a href="/image-tools/" class="view-all">View All →</a>
     </div>
 </div>
 
@@ -243,7 +246,7 @@ text-align:center;
         <a href="/split-pdf/">Split PDF</a>
         <a href="/rotate-pdf/">Rotate PDF</a>
 
-        <a href="/all-tools/" class="view-all">View All →</a>
+        <a href="/pdf-tools/" class="view-all">View All →</a>
 
     </div>
 </div>
@@ -253,10 +256,12 @@ text-align:center;
     <div class="dropdown-menu">
 
         <a href="/mp3-cutter/">MP3 Cutter</a>
-        <a href="/audio-converter/">Audio Converter</a>
+        <a href="/audio-converter/" aria-current="page">Audio Converter</a>
         <a href="/audio-speed-changer/">Speed Changer</a>
+        <a href="/video-to-mp3/">Video to MP3</a>
+        <a href="/video-converter/">Video Converter</a>
 
-        <a href="/all-tools/" class="view-all">View All →</a>
+        <a href="/audio-tools/" class="view-all">View All →</a>
 
     </div>
 </div>
@@ -272,11 +277,11 @@ text-align:center;
         <a href="/unit-converter/">Unit Converter</a>
         <a href="/meme-generator/">Meme Generator</a>
 
-        <a href="/all-tools/" class="view-all">View All →</a>
+        <a href="/other-tools/" class="view-all">View All →</a>
 
     </div>
 </div>
-    <a href="/all-tools/" class="nav-all-tools">All Tools →</a>
+    <a href="/all-tools/" class="nav-all-tools">All Tools </a>
 
 <a href="/about/">About</a>
 <a href="/contact/">Contact</a>
@@ -301,7 +306,7 @@ text-align:center;
 <details class="language-selector">
   <summary aria-label="Change language"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">English</span></summary>
   <div class="language-selector__menu" role="menu" aria-label="Language options">
-    <a href="https://convertios.com/audio-converter/" aria-current="page" role="menuitem">English</a>
+    <a href="https://convertios.com/audio-converter/" lang="en" hreflang="en" aria-current="page" role="menuitem">English</a>
     <a href="https://convertios.com/ar/audio-converter/" lang="ar" dir="rtl" hreflang="ar" role="menuitem">العربية</a>
     <a href="https://convertios.com/es/audio-converter/" hreflang="es" role="menuitem">Español</a>
   </div>
@@ -532,35 +537,7 @@ downloadFile(wav,"converted.wav","audio/wav")
 
 if(format === "mp3"){
 
-const samples = rendered.getChannelData(0)
-
-const mp3encoder = new lamejs.Mp3Encoder(1, rendered.sampleRate, 192)
-
-const sampleBlockSize = 1152
-let mp3Data = []
-
-for(let i=0;i<samples.length;i+=sampleBlockSize){
-
-let chunk = samples.subarray(i,i+sampleBlockSize)
-let int16 = new Int16Array(chunk.length)
-
-for(let j=0;j<chunk.length;j++){
-int16[j] = chunk[j]*32767
-}
-
-let mp3buf = mp3encoder.encodeBuffer(int16)
-
-if(mp3buf.length>0){
-mp3Data.push(mp3buf)
-}
-
-}
-
-let mp3buf = mp3encoder.flush()
-
-if(mp3buf.length>0){
-mp3Data.push(mp3buf)
-}
+let mp3Data = encodeMp3(rendered)
 
 const blob = new Blob(mp3Data,{type:"audio/mp3"})
 downloadFile(blob,"converted.mp3","audio/mp3")
