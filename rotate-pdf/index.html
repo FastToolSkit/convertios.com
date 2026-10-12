@@ -24,7 +24,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css?v=64664143">
+<link rel="stylesheet" href="/style.css?v=2a74ce62">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
@@ -379,89 +379,39 @@ Download Rotated PDF
 
 
 <!-- SEO -->
-<div class="seo-content">
+<section class="tool-description page-guide" aria-labelledby="guide-heading">
+<h2 id="guide-heading">Fix sideways and upside-down pages</h2>
+<p>Scanners and phone scanning apps often save a page or two in the wrong direction, and reports frequently contain a wide table placed on a landscape page. Rotating fixes how those pages are displayed, so the document reads properly on screen and prints the right way up.</p>
+<h2>Rotating page by page</h2>
+<ul>
+<li>After you open the PDF, every page appears as a thumbnail with its own <strong>Rotate</strong> button.</li>
+<li>Each click turns that page 90&deg; clockwise. Click twice for an upside-down page and three times to turn a page 90&deg; counter-clockwise.</li>
+<li>Only the pages you click are changed; all other pages stay as they are.</li>
+<li>The thumbnails update immediately, so you can check every page before downloading <code>rotated.pdf</code>.</li>
+</ul>
+<h2>Lossless rotation</h2>
+<p>The tool does not redraw or re-scan your pages. It changes the rotation setting that every PDF page has, the same thing professional PDF editors do. Text stays sharp and selectable, signatures and images are untouched, and the file size stays practically the same. Pages that were already rotated in the original keep that rotation, and your clicks are added on top of it.</p>
+<h2>Common situations</h2>
+<div class="guide-table"><table>
+<thead><tr><th>Problem</th><th>What to click</th></tr></thead>
+<tbody>
+<tr><td>Scanned page lying on its left side</td><td>Rotate once</td></tr>
+<tr><td>Page scanned upside down</td><td>Rotate twice</td></tr>
+<tr><td>Page lying on its right side</td><td>Rotate three times</td></tr>
+</tbody></table></div>
+<p>If the document also contains pages you do not need, remove them with <a href="/split-pdf/">Split PDF</a>. To combine the corrected file with others, use <a href="/merge-pdf/">Merge PDF</a>.</p>
+<h2>Questions about rotating PDFs</h2>
+<h3>Will rotating reduce the quality?</h3>
+<p>No. The page content is not changed, only the direction in which it is shown.</p>
+<h3>Is my PDF uploaded?</h3>
+<p>No. The document is opened and rotated in your browser.</p>
+</section>
 
-<h2>Rotate PDF Pages Online Free</h2>
-
-<p>
-Convertios provides a fast and easy way to rotate PDF pages and fix incorrect orientation instantly. Whether your document is scanned sideways or upside down, this tool helps you correct it in seconds.
-</p>
-
-<p>
-Preview changes before downloading your updated file. All processing happens locally in your browser, ensuring maximum speed, privacy, and security.
-</p>
-
-</div>
 
 <!-- SEO BOOST -->
 
 
-<div class="tool-description">
 
-<h2>What this tool does</h2>
-<p>
-This PDF rotation tool allows you to rotate individual pages or entire documents to the correct orientation. It is especially useful for fixing scanned documents, presentations, or files that were saved incorrectly.
-</p>
-
-<p>
-The tool works directly in your browser, allowing you to make quick adjustments without installing any software.
-</p>
-
-<h2>How to use</h2>
-<ul>
-<li>Upload or drag and drop your PDF file</li>
-<li>Preview all pages of your document</li>
-<li>Rotate pages as needed (left or right)</li>
-<li>Download your corrected PDF file</li>
-</ul>
-
-<p>
-The process is simple and works smoothly on all devices.
-</p>
-
-<h2>Benefits</h2>
-<ul>
-<li>Rotate PDF pages instantly</li>
-<li>Fix incorrect orientation with ease</li>
-<li>Fast browser-based processing</li>
-<li>No installation or registration required</li>
-<li>Secure editing with no file uploads</li>
-<li>Works on mobile, tablet, and desktop devices</li>
-</ul>
-
-<h2>Why rotate PDF pages?</h2>
-<p>
-PDF files often come with incorrect orientation, especially when scanned or exported from different devices. Rotating pages ensures your document is easy to read and properly formatted.
-</p>
-
-<p>
-Correct orientation improves usability and makes documents more professional for sharing or printing.
-</p>
-
-<h2>Use cases</h2>
-<p>
-This tool is ideal for students, professionals, and businesses. You can use it to fix scanned documents, rotate presentation slides, adjust reports, or correct any PDF with misaligned pages.
-</p>
-
-<p>
-It is especially useful when preparing documents for submission or presentation.
-</p>
-
-<h2>FAQ</h2>
-
-<p><strong>Is this PDF rotation tool free?</strong><br>
-Yes, the tool is completely free with no hidden costs.</p>
-
-<p><strong>Are my files uploaded?</strong><br>
-No, all files are processed locally in your browser for full privacy.</p>
-
-<p><strong>Can I rotate specific pages only?</strong><br>
-Yes, you can rotate individual pages or the entire document.</p>
-
-<p><strong>Does it work on mobile?</strong><br>
-Yes, the tool works on all modern devices including smartphones and tablets.</p>
-
-</div>
 
 
 <!-- MORE TOOLS -->
@@ -565,7 +515,7 @@ rotations[i-1] = (rotations[i-1] + 90) % 360;
 const page = await pdf.getPage(i);
 const viewport = page.getViewport({
 scale:0.6,
-rotation: rotations[i-1]
+rotation: (page.rotate + rotations[i-1]) % 360
 });
 
 canvas.width = viewport.width;
@@ -601,7 +551,7 @@ const pdfDoc = await PDFLib.PDFDocument.load(bytes);
 const pages = pdfDoc.getPages();
 
 pages.forEach((page,i)=>{
-page.setRotation(PDFLib.degrees(rotations[i]));
+page.setRotation(PDFLib.degrees((page.getRotation().angle + rotations[i]) % 360)); // keep any rotation the page already had
 });
 
 const newBytes = await pdfDoc.save();

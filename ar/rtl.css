@@ -420,3 +420,8 @@ html[lang="ar"][dir="rtl"] .seo-content ul {
     padding: 0;
     margin: .75rem 0 1.2rem;
 }
+
+/* Page guides keep visible list markers */
+html[lang="ar"][dir="rtl"] .tool-description.page-guide ul { list-style: disc outside; padding: 0 1.4rem 0 0; }
+html[lang="ar"][dir="rtl"] .tool-description.page-guide ol { list-style: decimal outside; padding: 0 1.6rem 0 0; }
+html[lang="ar"][dir="rtl"] .tool-description.page-guide li { text-align: right; }
