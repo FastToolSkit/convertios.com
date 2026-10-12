@@ -140,7 +140,14 @@ async function withJob(res, handler) {
 
 function uploadSingle(upload, field) {
   return (req, res, next) => upload.single(field)(req, res, (error) => {
-    if (!error) return next();
+    if (!error) {
+      // multer reports non-ASCII file names as latin1; restore the UTF-8 name.
+      if (req.file && req.file.originalname) {
+        const utf8 = Buffer.from(req.file.originalname, 'latin1').toString('utf8');
+        if (!utf8.includes('\uFFFD')) req.file.originalname = utf8;
+      }
+      return next();
+    }
     if (error instanceof multer.MulterError && error.code === 'LIMIT_FILE_SIZE') {
       return fail(res, 413, 'FILE_TOO_LARGE', 'Uploaded file is too large.');
     }

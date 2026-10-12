@@ -197,6 +197,8 @@ test('file signature helpers', () => {
   assert.ok(!api.isPdf(Buffer.from('hello world')));
   assert.equal(api.safeDownloadName('a/b/../evil name.pdf', '.docx', 'converted'), 'evil-name.docx');
   assert.equal(api.safeDownloadName('', '.mp3', 'audio'), 'audio.mp3');
+  assert.equal(api.safeDownloadName('صورة.jpg', '-enhanced.jpg', 'image'), 'image-enhanced.jpg');
+  assert.equal(api.safeDownloadName('Canción ñ.pdf', '.docx', 'converted'), 'Cancion-n.docx');
 });
 
 test('server wiring references every handler (static check)', () => {
