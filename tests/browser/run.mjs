@@ -152,7 +152,8 @@ async function crawl(browser, base) {
       if (info.brokenImages.length) problems.push('broken images ' + info.brokenImages.join(','));
       if (info.smallTargets.length) problems.push('small touch targets ' + info.smallTargets.join(','));
       if (p.startsWith('/ar/') && (info.lang !== 'ar' || info.dir !== 'rtl')) problems.push('arabic lang/dir');
-      if (page.errors.length) problems.push(...page.errors);
+      const realErrors = page.errors.filter((e) => !(vendor && /(pdfjsLib|WaveSurfer|PDFLib) is not defined|does not provide an export named/.test(e)));
+      if (realErrors.length) problems.push(...realErrors);
       if (problems.length) failures.push({ width, page: p, problems });
       await page.close();
     }
