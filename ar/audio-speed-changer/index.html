@@ -34,6 +34,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
+<script src="/audio-mp3.js"></script>
 
 <style>
 
@@ -172,7 +173,7 @@ line-height:1.8;
         "@type": "ListItem",
         "position": 1,
         "name": "الرئيسية",
-        "item": "https://convertios.com/"
+        "item": "https://convertios.com/ar/"
       },
       {
         "@type": "ListItem",
@@ -186,6 +187,8 @@ line-height:1.8;
 </script>
 <!-- /Convertios structured data -->
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8386549343296072">
 </head>
 
 <body>
@@ -199,7 +202,7 @@ line-height:1.8;
 
 <nav class="nav-menu">
 
-<a href="/ar/" class="active">الرئيسية</a>
+<a href="/ar/">الرئيسية</a>
 
 
 <div class="nav-item dropdown">
@@ -216,7 +219,7 @@ line-height:1.8;
         <a href="/ar/ai-image-enhancer/">تحسين الصور بالذكاء الاصطناعي</a>
 
         <a href="/ar/social-media-image-resizer/">مقاسات صور السوشيال ميديا</a>
-<a href="/ar/all-tools/" class="view-all">عرض الكل →</a>
+<a href="/ar/image-tools/" class="view-all">عرض الكل →</a>
     </div>
 </div>
 
@@ -228,11 +231,11 @@ line-height:1.8;
         <a href="/ar/pdf-to-jpg/">PDF إلى JPG</a>
         <a href="/ar/jpg-to-pdf/">JPG إلى PDF</a>
 
-        <a href="/ar/merge-pdf/">دمج ملفات PDF</a>
-        <a href="/ar/split-pdf/">تقسيم ملف PDF</a>
-        <a href="/ar/rotate-pdf/">تدوير ملف PDF</a>
+        <a href="/ar/merge-pdf/">دمج PDF</a>
+        <a href="/ar/split-pdf/">تقسيم PDF</a>
+        <a href="/ar/rotate-pdf/">تدوير PDF</a>
 
-        <a href="/ar/all-tools/" class="view-all">عرض الكل →</a>
+        <a href="/ar/pdf-tools/" class="view-all">عرض الكل →</a>
 
     </div>
 </div>
@@ -243,9 +246,11 @@ line-height:1.8;
 
         <a href="/ar/mp3-cutter/">قص MP3</a>
         <a href="/ar/audio-converter/">محول الصوت</a>
-        <a href="/ar/audio-speed-changer/">تغيير سرعة الصوت</a>
+        <a href="/ar/audio-speed-changer/" aria-current="page">تغيير سرعة الصوت</a>
+        <a href="/ar/video-to-mp3/">فيديو إلى MP3</a>
+        <a href="/ar/video-converter/">محول الفيديو</a>
 
-        <a href="/ar/all-tools/" class="view-all">عرض الكل →</a>
+        <a href="/ar/audio-tools/" class="view-all">عرض الكل →</a>
 
     </div>
 </div>
@@ -261,7 +266,7 @@ line-height:1.8;
         <a href="/ar/unit-converter/">محول الوحدات</a>
         <a href="/ar/meme-generator/">مولد الميمات</a>
 
-        <a href="/ar/all-tools/" class="view-all">عرض الكل →</a>
+        <a href="/ar/other-tools/" class="view-all">عرض الكل →</a>
 
     </div>
 </div>
@@ -292,7 +297,7 @@ line-height:1.8;
 <details class="language-selector ar-language-selector">
   <summary aria-label="اختيار اللغة"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">العربية</span></summary>
   <div class="language-selector__menu" role="menu" aria-label="خيارات اللغة">
-    <a href="https://convertios.com/audio-speed-changer/" role="menuitem">English</a>
+    <a href="https://convertios.com/audio-speed-changer/" lang="en" hreflang="en" role="menuitem">English</a>
     <a href="https://convertios.com/ar/audio-speed-changer/" lang="ar" dir="rtl" hreflang="ar" aria-current="page" role="menuitem">العربية</a>
     <a href="https://convertios.com/es/audio-speed-changer/" hreflang="es" role="menuitem">Español</a>
   </div>
@@ -515,36 +520,7 @@ source.start()
 
 const renderedBuffer = await offline.startRendering()
 
-const samples = renderedBuffer.getChannelData(0)
-
-const mp3encoder = new lamejs.Mp3Encoder(1, renderedBuffer.sampleRate, 192)
-
-const sampleBlockSize = 1152
-let mp3Data = []
-
-for(let i=0;i<samples.length;i+=sampleBlockSize){
-
-let chunk = samples.subarray(i,i+sampleBlockSize)
-
-let int16 = new Int16Array(chunk.length)
-
-for(let j=0;j<chunk.length;j++){
-int16[j] = chunk[j] * 32767
-}
-
-let mp3buf = mp3encoder.encodeBuffer(int16)
-
-if(mp3buf.length>0){
-mp3Data.push(mp3buf)
-}
-
-}
-
-let mp3buf = mp3encoder.flush()
-
-if(mp3buf.length>0){
-mp3Data.push(mp3buf)
-}
+let mp3Data = encodeMp3(renderedBuffer)
 
 const blob = new Blob(mp3Data,{type:'audio/mp3'})
 

@@ -33,6 +33,7 @@ gtag('config', 'G-0CH8NE5WDH');
 <script src="https://unpkg.com/wavesurfer.js@6/dist/plugin/wavesurfer.regions.min.js"></script>
 <script src="https://unpkg.com/wavesurfer.js@6/dist/plugin/wavesurfer.timeline.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.0/lame.min.js"></script>
+<script src="/audio-mp3.js"></script>
 
 <style>
 
@@ -193,6 +194,8 @@ line-height:1.8;
 </script>
 <!-- /Convertios structured data -->
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8386549343296072">
 </head>
 
 <body>
@@ -208,7 +211,7 @@ line-height:1.8;
 
 <nav class="nav-menu">
 
-<a href="/" class="active">Home</a>
+<a href="/">Home</a>
 
 
 <div class="nav-item dropdown">
@@ -225,7 +228,7 @@ line-height:1.8;
         <a href="/ai-image-enhancer/">AI Image Enhancer</a>
 
         <a href="/social-media-image-resizer/">Social Media Image Resizer</a>
-<a href="/all-tools/" class="view-all">View All →</a>
+<a href="/image-tools/" class="view-all">View All →</a>
     </div>
 </div>
 
@@ -241,7 +244,7 @@ line-height:1.8;
         <a href="/split-pdf/">Split PDF</a>
         <a href="/rotate-pdf/">Rotate PDF</a>
 
-        <a href="/all-tools/" class="view-all">View All →</a>
+        <a href="/pdf-tools/" class="view-all">View All →</a>
 
     </div>
 </div>
@@ -253,8 +256,10 @@ line-height:1.8;
         <a href="/mp3-cutter/">MP3 Cutter</a>
         <a href="/audio-converter/">Audio Converter</a>
         <a href="/audio-speed-changer/">Speed Changer</a>
+        <a href="/video-to-mp3/">Video to MP3</a>
+        <a href="/video-converter/">Video Converter</a>
 
-        <a href="/all-tools/" class="view-all">View All →</a>
+        <a href="/audio-tools/" class="view-all">View All →</a>
 
     </div>
 </div>
@@ -270,11 +275,11 @@ line-height:1.8;
         <a href="/unit-converter/">Unit Converter</a>
         <a href="/meme-generator/">Meme Generator</a>
 
-        <a href="/all-tools/" class="view-all">View All →</a>
+        <a href="/other-tools/" class="view-all">View All →</a>
 
     </div>
 </div>
-    <a href="/all-tools/" class="nav-all-tools">All Tools →</a>
+    <a href="/all-tools/" class="nav-all-tools">All Tools </a>
 
 <a href="/about/">About</a>
 <a href="/contact/">Contact</a>
@@ -299,7 +304,7 @@ line-height:1.8;
 <details class="language-selector">
   <summary aria-label="Change language"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">English</span></summary>
   <div class="language-selector__menu" role="menu" aria-label="Language options">
-    <a href="https://convertios.com/trim-audio-online/" aria-current="page" role="menuitem">English</a>
+    <a href="https://convertios.com/trim-audio-online/" lang="en" hreflang="en" aria-current="page" role="menuitem">English</a>
     <a href="https://convertios.com/ar/trim-audio-online/" lang="ar" dir="rtl" hreflang="ar" role="menuitem">العربية</a>
     <a href="https://convertios.com/es/trim-audio-online/" hreflang="es" role="menuitem">Español</a>
   </div>
@@ -563,29 +568,7 @@ const sampleRate=buffer.sampleRate
 const startOffset=Math.floor(start*sampleRate)
 const endOffset=Math.floor(end*sampleRate)
 
-const samples=buffer.getChannelData(0).slice(startOffset,endOffset)
-
-const mp3encoder=new lamejs.Mp3Encoder(1,sampleRate,192)
-
-const sampleBlockSize=1152
-let mp3Data=[]
-
-for(let i=0;i<samples.length;i+=sampleBlockSize){
-
-let chunk=samples.subarray(i,i+sampleBlockSize)
-let int16=new Int16Array(chunk.length)
-
-for(let j=0;j<chunk.length;j++){
-int16[j]=chunk[j]*32767
-}
-
-let mp3buf=mp3encoder.encodeBuffer(int16)
-if(mp3buf.length>0) mp3Data.push(mp3buf)
-
-}
-
-let mp3buf=mp3encoder.flush()
-if(mp3buf.length>0) mp3Data.push(mp3buf)
+let mp3Data = encodeMp3(buffer, startOffset, endOffset)
 
 const blob=new Blob(mp3Data,{type:'audio/mp3'})
 const url=URL.createObjectURL(blob)
