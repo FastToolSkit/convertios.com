@@ -72,16 +72,15 @@
       form.append('image', selectedFile, selectedFile.name);
       return UI.backendFetch('/api/enhance-image', { method: 'POST', body: form }, { timeoutMs: 150000, slowAfterMs: 15000, onSlow: function (msg) { setStatus(msg); } })
         .then(function (response) {
-          var disposition = response.headers.get('Content-Disposition') || '';
-          var match = /filename="([^"]+)"/.exec(disposition);
-          return response.blob().then(function (blob) { return { blob: blob, name: match && match[1] }; });
+          return response.blob().then(function (blob) { return { blob: blob }; });
         })
         .then(function (out) {
           var mime = out.blob.type.split(';')[0];
           return UI.verifyBlob(out.blob, mime).then(function (valid) {
             if (!valid || !out.blob.size) throw Object.assign(new Error('invalid result'), { userMessage: UI.t('ENHANCER_UNAVAILABLE') });
             resultUrl = URL.createObjectURL(out.blob);
-            resultName = out.name || UI.safeName(selectedFile.name, '-enhanced' + UI.extensionFor(mime), 'image');
+            // Named from the original file here, so non-Latin names (e.g. Arabic) are kept.
+            resultName = UI.safeName(selectedFile.name, '-enhanced' + UI.extensionFor(mime), 'image');
             resultPreview.src = resultUrl;
             resultPreview.style.display = 'block';
             downloadBtn.href = resultUrl;

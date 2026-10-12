@@ -40,7 +40,8 @@ function error(status, code, message) {
 
 function safeDownloadName(name, extension, fallback) {
   const base = path.basename(name || fallback, path.extname(name || fallback));
-  const safeBase = base.normalize('NFKD').replace(/[^a-z0-9_-]+/gi, '-').replace(/^-+|-+$/g, '').slice(0, 80);
+  // ASCII only (it goes into a Content-Disposition header). Accents are folded; other scripts fall back.
+  const safeBase = base.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9_-]+/gi, '-').replace(/^-+|-+$/g, '').slice(0, 80);
   return `${safeBase || fallback}${extension}`;
 }
 
