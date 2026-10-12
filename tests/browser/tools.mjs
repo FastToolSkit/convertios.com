@@ -5,6 +5,15 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 
+// Decodes a QR code image with OpenCV (python3 + cv2); returns the text or '' if unreadable.
+export function decodeQr(buf) {
+  const file = path.join(os.tmpdir(), `cv-qr-${process.pid}-${Math.random().toString(36).slice(2)}.png`);
+  fs.writeFileSync(file, buf);
+  try {
+    return execFileSync('python3', ['-c', 'import cv2,sys\nimg=cv2.imread(sys.argv[1])\nprint(cv2.QRCodeDetector().detectAndDecode(img)[0])', file]).toString().trim();
+  } catch { return ''; } finally { fs.rmSync(file, { force: true }); }
+}
+
 // ---------- helpers ----------------------------------------------------------------------------
 export function signature(buf) {
   const b = buf;
@@ -404,5 +413,205 @@ export const tools = [
       check('manual quality mode works', m && signature(m.bytes) === 'image/jpeg' && m.name.endsWith('.jpg'), m && m.name);
     }
   },
+
+  {
+    name: 'qr-generator', path: 'qr-generator',
+    async run({ page, check, lang }) {
+      await page.evaluate(() => window.generateQR());
+      let msg = await message(page);
+      check('empty input message', msg && expectLang[lang].test(msg), msg.slice(0, 40));
+      check('download hidden before generating', !(await page.isVisible('#downloadBtn')));
+      for (const text of ['https://convertios.com/qr-generator/', 'مرحبا بالعالم — Convertios', 'Ñandú: ¿qué tal? 123']) {
+        await page.fill('#text', text);
+        await page.evaluate(() => window.generateQR());
+        const png = await download(page, () => page.click('#downloadBtn'));
+        const info = png && probe(png.bytes, '.png');
+        check(`png readable: ${text.slice(0, 18)}`, png && png.name === 'convertios-qr.png' && info.width >= 1000 && decodeQr(png.bytes) === text, png && `${png.name} ${info.width}px decoded="${decodeQr(png.bytes)}"`);
+      }
+      const svg = await download(page, () => page.click('#downloadSvgBtn'));
+      check('svg download', svg && svg.name === 'convertios-qr.svg' && svg.bytes.toString().includes('<svg'), svg && svg.name);
+      await page.fill('#text', 'x'.repeat(3500));
+      await page.evaluate(() => window.generateQR());
+      msg = await message(page);
+      check('too-long text message', msg && expectLang[lang].test(msg), msg.slice(0, 50));
+    }
+  },
+  {
+    name: 'text-formatter', path: 'text-formatter',
+    async run({ page, check }) {
+      const set = (v) => page.fill('#text', v);
+      const run = async (fn, input) => { await set(input); await page.evaluate((f) => window[f](), fn); return page.inputValue('#text'); };
+      check('capitalize mixed case', (await run('capitalize', 'hello wORLD')) === 'Hello World');
+      check('capitalize accents/apostrophes', (await run('capitalize', 'él ÁRBOL don’t café-bar 3RD')) === 'Él Árbol Don’t Café-Bar 3rd', await page.inputValue('#text'));
+      check('capitalize leaves Arabic intact', (await run('capitalize', 'مرحبا بالعالم 123')) === 'مرحبا بالعالم 123');
+      check('uppercase unicode', (await run('toUpper', 'canción ñ')) === 'CANCIÓN Ñ');
+      check('lowercase unicode', (await run('toLower', 'ÁRBOL')) === 'árbol');
+      check('remove extra spaces keeps lines', (await run('removeSpaces', '  a   b  \n\n\n\n c\t\td ')) === 'a b\n\nc d', JSON.stringify(await page.inputValue('#text')));
+      await set('');
+      await page.evaluate(() => window.capitalize());
+      check('empty input message', !!(await message(page)));
+    }
+  },
+  {
+    name: 'meme-generator', path: 'meme-generator',
+    async run({ page, fixtures, check }) {
+      await page.evaluate(() => window.downloadMeme());
+      check('no image -> message, no download', !!(await message(page)));
+      await upload(page, '#upload', fixtures, 'square.jpg');
+      await page.waitForFunction(() => document.getElementById('memeCanvas').width === 1000);
+      await page.fill('#topText', 'TOP TEXT THAT IS QUITE LONG AND SHOULD WRAP NICELY');
+      await page.fill('#bottomText', 'مرحبا');
+      let d = await download(page, () => page.evaluate(() => window.downloadMeme()));
+      let info = d && probe(d.bytes, '.jpg');
+      check('keeps 1000px resolution, jpg in -> jpg out', d && signature(d.bytes) === 'image/jpeg' && info.width === 1000 && d.name === 'square-meme.jpg', d && `${d.name} ${info.width}x${info.height}`);
+      await upload(page, '#upload', fixtures, 'transparent.png');
+      await page.waitForFunction(() => document.getElementById('memeCanvas').width === 800);
+      d = await download(page, () => page.evaluate(() => window.downloadMeme()));
+      check('png in -> png out', d && signature(d.bytes) === 'image/png' && d.name.endsWith('.png'), d && d.name);
+    }
+  },
+  ...['png-to-jpg', 'jpg-to-png', 'webp-to-png'].map((slug) => ({
+    name: slug, path: slug,
+    async run({ page, fixtures, check, lang }) {
+      const cfg = { 'png-to-jpg': ['transparent.png', 'image/jpeg', '.jpg', 'small.jpg'], 'jpg-to-png': ['small.jpg', 'image/png', '.png', 'photo.png'], 'webp-to-png': ['photo.webp', 'image/png', '.png', 'small.jpg'] }[slug];
+      await page.evaluate(() => window.convert());
+      const msg = await message(page);
+      check('convert without file shows message', msg && expectLang[lang].test(msg), msg.slice(0, 40));
+      await upload(page, '#upload', fixtures, cfg[3]);
+      const wrong = await message(page);
+      check('wrong type rejected with message', wrong && (await page.$$('#preview img')).length === 0, wrong.slice(0, 40));
+      await upload(page, '#upload', fixtures, cfg[0]);
+      await page.evaluate(() => window.convert());
+      await page.waitForSelector('#downloads a');
+      const d = await download(page, () => page.click('#downloads a'));
+      check('real output format and original name', d && signature(d.bytes) === cfg[1] && d.name === cfg[0].replace(/\.[a-z]+$/, cfg[2]), d && `${d.name} ${signature(d.bytes)}`);
+    }
+  })),
+  {
+    name: 'social-media-image-resizer', path: 'social-media-image-resizer',
+    async run({ page, fixtures, check }) {
+      await upload(page, '#fileInput', fixtures, 'large.jpg');
+      await page.waitForTimeout(500);
+      const boxes = await page.$$('#sizePanel input[type=checkbox]');
+      for (const b of boxes.slice(0, 3)) await b.evaluate((el) => { el.checked = true; el.dispatchEvent(new Event('change', { bubbles: true })); });
+      const z = await download(page, () => page.click('#downloadZip'));
+      const entries = z ? zipEntries(z.bytes) : [];
+      check('zip has 3 uniquely named sizes', entries.length === 3 && new Set(entries).size === 3 && entries.every((n) => /\d+x\d+\.png$/.test(n)), entries.join(','));
+      const files = [];
+      const done = new Promise((resolve) => { const h = async (d) => { files.push(d.suggestedFilename()); if (files.length === 3) { page.off('download', h); resolve(); } }; page.on('download', h); });
+      await page.click('#downloadSingle');
+      await Promise.race([done, page.waitForTimeout(6000)]);
+      check('single download saves every selected size', files.length === 3, files.join(','));
+      check('no "being improved" notice', !(await page.$('.temporary-tool-notice')));
+    }
+  },
+  {
+    name: 'audio-converter', path: 'audio-converter',
+    async run({ page, fixtures, check }) {
+      await page.evaluate(() => window.convertAudio && window.convertAudio());
+      check('convert without file shows message', !!(await message(page)));
+      await upload(page, '#audioFile', fixtures, 'audio.wav');
+      await page.waitForTimeout(800);
+      for (const fmt of ['mp3', 'wav']) {
+        await page.selectOption('#format', fmt);
+        const d = await download(page, () => page.evaluate(() => window.convertAudio()), 30000);
+        const info = d && probe(d.bytes, '.' + fmt);
+        check(`${fmt} output valid stereo`, d && info.channels === 2 && Math.abs(info.duration - 4) < 0.2, d && `${d.name} ${info.codec} ${info.channels}ch ${info.duration}s`);
+      }
+    }
+  },
+  {
+    name: 'audio-speed-changer', path: 'audio-speed-changer',
+    async run({ page, fixtures, check }) {
+      await page.evaluate(() => window.exportAudio && window.exportAudio());
+      check('export without file shows message', !!(await message(page)));
+      await upload(page, '#audioFile', fixtures, 'audio.wav');
+      await page.waitForTimeout(800);
+      await page.$eval('#speedSlider', (el) => { el.value = 2; el.dispatchEvent(new Event('input', { bubbles: true })); });
+      const d = await download(page, () => page.evaluate(() => window.exportAudio()), 30000);
+      const info = d && probe(d.bytes, '.mp3');
+      check('2x speed halves duration, stereo mp3', d && info.codec === 'mp3' && info.channels === 2 && Math.abs(info.duration - 2) < 0.15, d && `${info.codec} ${info.channels}ch ${info.duration}s`);
+    }
+  },
+  {
+    name: 'pdf-to-word', path: 'pdf-to-word',
+    async run({ page, fixtures, check, backendMode, lang }) {
+      check('button disabled before upload', await page.isDisabled('.convert-btn'));
+      await upload(page, '#upload', fixtures, 'small.jpg');
+      let msg = await message(page);
+      check('non-PDF rejected', msg && expectLang[lang].test(msg) && await page.isDisabled('.convert-btn'), msg.slice(0, 40));
+      await upload(page, '#upload', fixtures, 'simple.pdf');
+      const d = await download(page, () => page.click('.convert-btn'));
+      check('docx downloads with right name', d && signature(d.bytes) === 'application/zip' && d.name === 'simple.docx', d && d.name);
+      backendMode.convert = 'down';
+      await page.click('.convert-btn');
+      await page.waitForTimeout(600);
+      msg = await message(page);
+      backendMode.convert = 'ok';
+      check('server failure translated + retry', msg && expectLang[lang].test(msg) && await page.$('#toolMessage .tool-retry-button'), msg.slice(0, 50));
+      const text = await page.evaluate(() => document.getElementById('main-content').innerText);
+      check('no 100 MB / instant claims', !/100 MB|instantly|al instante/.test(text));
+    }
+  },
+  ...['video-to-mp3', 'video-converter'].map((slug) => ({
+    name: slug, path: slug,
+    async run({ page, fixtures, check, lang }) {
+      check('button disabled before upload', await page.isDisabled('#videoConvert'));
+      await upload(page, '#videoFile', fixtures, 'audio.wav');
+      const msg = await message(page);
+      check('unsupported type rejected', msg && expectLang[lang].test(msg), msg.slice(0, 40));
+      for (const v of ['video.mp4', 'video.mov', 'video.avi']) {
+        await upload(page, '#videoFile', fixtures, v);
+        if (slug === 'video-converter') await page.selectOption('#videoFormat', 'mp4');
+        const d = await download(page, () => page.click('#videoConvert'));
+        const want = slug === 'video-to-mp3' ? v.replace(/\.\w+$/, '.mp3') : v.replace(/\.\w+$/, '.mp4');
+        check(`${v} -> ${want}`, d && d.name === want && d.bytes.length > 1000, d && d.name);
+      }
+    }
+  })),
+  {
+    name: 'password-generator', path: 'password-generator',
+    async run({ page, check }) {
+      const first = await page.inputValue('#password');
+      check('generates on load', first.length === 12, first.length);
+      await page.fill('#length', '32');
+      await page.evaluate(() => window.generatePassword());
+      const p = await page.inputValue('#password');
+      check('length + all classes', p.length === 32 && /[A-Z]/.test(p) && /[a-z]/.test(p) && /\d/.test(p) && /[^A-Za-z0-9]/.test(p), p.length);
+      for (const id of ['uppercase', 'lowercase', 'numbers', 'symbols']) await page.uncheck('#' + id);
+      await page.evaluate(() => window.generatePassword());
+      check('no classes -> message', !!(await message(page)));
+    }
+  },
+  {
+    name: 'word-counter', path: 'word-counter',
+    async run({ page, check }) {
+      await page.fill('#text', 'Hello world. مرحبا بالعالم! ¿Qué tal?\nNew line here.');
+      await page.dispatchEvent('#text', 'input');
+      const nums = await page.evaluate(() => [...document.querySelectorAll('#main-content [id]')].filter((e) => /^\d+$/.test(e.textContent.trim())).map((e) => e.id + '=' + e.textContent.trim()));
+      check('counts words (9) and lines', nums.includes('words=9') && nums.includes('sentences=4'), nums.join(','));
+    }
+  },
+  {
+    name: 'unit-converter', path: 'unit-converter',
+    async run({ page, check }) {
+      await page.selectOption('#conversion', 'kg-lb');
+      await page.fill('#value', '10');
+      await page.evaluate(() => window.convert());
+      check('10 kg = 22.046 lb', /22[.,]046/.test(await page.textContent('#result')), await page.textContent('#result'));
+      await page.fill('#value', '');
+      await page.evaluate(() => window.convert());
+      check('empty value message', /\S/.test(await page.textContent('#result')));
+    }
+  },
+  ...['merge-pdf', 'split-pdf', 'rotate-pdf', 'jpg-to-pdf', 'pdf-to-jpg', 'mp3-cutter', 'trim-audio-online', 'remove-bg'].map((slug) => ({
+    name: slug + ' (empty state; full run is live-only)', path: slug,
+    async run({ page, check }) {
+      const action = { 'merge-pdf': 'mergePDF()', 'split-pdf': "document.getElementById('splitBtn').click()", 'rotate-pdf': "document.getElementById('downloadBtn').click()", 'jpg-to-pdf': 'createPDF()', 'pdf-to-jpg': null, 'mp3-cutter': "document.getElementById('export').click()", 'trim-audio-online': "document.getElementById('export').click()", 'remove-bg': "document.getElementById('download') && document.getElementById('download').click()" }[slug];
+      if (!action) { check('page loads', true); return; }
+      const d = await download(page, () => page.evaluate((a) => { try { (0, eval)(a); } catch (e) { /* stubbed library */ } }, action), 1500);
+      check('no download without input', !d);
+    }
+  })),
 
 ];

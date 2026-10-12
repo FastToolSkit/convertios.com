@@ -2569,3 +2569,10 @@ MOBILE HOMEPAGE PERFORMANCE OVERRIDES
 .preview-item label{display:inline-flex;align-items:center;gap:6px;margin-top:6px;}
 
 #downloads a,.download-link{overflow-wrap:anywhere;word-break:break-word;}
+
+/* Elements hidden by tool scripts must stay hidden, despite the display:!important button rules above. */
+.tool-container [hidden], .tool-wrap [hidden], .app-container [hidden],
+.tool-container [style*="display: none"], .tool-wrap [style*="display: none"], .app-container [style*="display: none"],
+.tool-container [style*="display:none"], .tool-wrap [style*="display:none"], .app-container [style*="display:none"]{
+    display:none !important;
+}

@@ -10,6 +10,7 @@ import shutil
 import struct
 import subprocess
 import wave
+import zipfile
 
 from PIL import Image, ImageDraw
 
@@ -116,6 +117,13 @@ def make_media():
     ffmpeg(*src, '-c:v', 'mpeg4', '-c:a', 'libmp3lame', '-shortest', path('video.avi'))
 
 
+def make_docx():
+    """Minimal DOCX-shaped ZIP used as the mocked PDF-to-Word server response."""
+    with zipfile.ZipFile(path('sample.docx'), 'w') as z:
+        z.writestr('[Content_Types].xml', '<?xml version="1.0"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"/>')
+        z.writestr('word/document.xml', '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:r><w:t>Page 1</w:t></w:r></w:p></w:body></w:document>')
+
+
 def make_text():
     with open(path('text-samples.txt'), 'w', encoding='utf-8') as fh:
         fh.write('hello wORLD, this is a TEST.\n'
@@ -129,5 +137,6 @@ if __name__ == '__main__':
     make_pdf(4, 'multipage.pdf')
     make_media()
     make_text()
+    make_docx()
     for name in sorted(os.listdir(OUT)):
         print(f'{name:22} {os.path.getsize(path(name)):>9} bytes')

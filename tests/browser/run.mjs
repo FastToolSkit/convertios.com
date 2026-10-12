@@ -50,7 +50,7 @@ function startServer() {
 
 // --- mocked backend -------------------------------------------------------------------------
 const PNG_SMALL = fs.existsSync(path.join(FIXTURES, 'photo.png')) ? fs.readFileSync(path.join(FIXTURES, 'photo.png')) : Buffer.alloc(0);
-const backendMode = { shorten: 'ok', enhance: 'ok', delayMs: 0 };
+const backendMode = { shorten: 'ok', enhance: 'ok', convert: 'ok', delayMs: 0 };
 async function mockBackend(route) {
   const req = route.request();
   const url = new URL(req.url());
@@ -67,6 +67,11 @@ async function mockBackend(route) {
     if (backendMode.enhance === 'down') return route.fulfill({ status: 502, headers: cors, contentType: 'application/json', body: '{"code":"ENHANCER_UNAVAILABLE","error":"x"}' });
     return route.fulfill({ status: 200, headers: { ...cors, 'Content-Disposition': 'attachment; filename="photo-enhanced.png"' }, contentType: 'image/png', body: PNG_SMALL });
   }
+  const fixture = (name) => fs.readFileSync(path.join(FIXTURES, name));
+  if (backendMode.convert === 'down' && url.pathname.startsWith('/convert/')) return route.fulfill({ status: 500, headers: cors, contentType: 'application/json', body: '{"code":"PROCESSING_FAILED","error":"x"}' });
+  if (url.pathname === '/convert/pdf-to-word') return route.fulfill({ status: 200, headers: { ...cors, 'Content-Disposition': 'attachment; filename="simple.docx"' }, contentType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', body: fixture('sample.docx') });
+  if (url.pathname === '/convert/video-to-mp3') return route.fulfill({ status: 200, headers: cors, contentType: 'audio/mpeg', body: fixture('audio.mp3') });
+  if (url.pathname === '/convert/video') return route.fulfill({ status: 200, headers: cors, contentType: 'video/mp4', body: fixture('video.mp4') });
   return route.fulfill({ status: 404, headers: cors, contentType: 'application/json', body: '{"code":"NOT_FOUND"}' });
 }
 
@@ -183,7 +188,8 @@ async function runTools(browser, base) {
       } catch (error) {
         row.checks.push({ name: 'run', ok: false, detail: String(error.message).split('\n')[0].slice(0, 200) });
       }
-      row.errors = page.errors.filter((e) => !/stub for an unavailable/.test(e));
+      // In offline runs (--vendor) some libraries are stubbed; their 'not defined' errors are expected.
+      row.errors = page.errors.filter((e) => !(vendor && /(pdfjsLib|WaveSurfer|PDFLib) is not defined|does not provide an export named/.test(e)));
       results.push(row);
       const failed = row.checks.filter((c) => !c.ok);
       console.log(`  ${failed.length || row.errors.length ? 'FAIL' : 'pass'} ${tool.name} [${row.lang}] ${row.checks.length} checks${failed.length ? ' :: ' + failed.map((c) => `${c.name}: ${c.detail || ''}`).join(' | ') : ''}${row.errors.length ? ' :: errors ' + row.errors.join(' | ') : ''}`);

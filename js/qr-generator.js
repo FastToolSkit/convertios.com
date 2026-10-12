@@ -1,5 +1,5 @@
 /* Convertios QR Code Generator (all languages).
-   Renders from the QR module matrix: crisp 1024 px PNG with a proper quiet zone, plus scalable SVG. */
+   Uses qrcode-generator 2.0.4 (MIT, self-hosted) with UTF-8 encoding. Renders from the QR module matrix: crisp 1024 px PNG with a proper quiet zone, plus scalable SVG. */
 (function () {
   'use strict';
   var UI = window.ConvertiosUI;
@@ -33,30 +33,34 @@
     holder.innerHTML = '';
     setButtons(false);
     if (!text) { UI.notify(UI.t('enterText')); input.focus(); return; }
-    if (!window.QRCode) { UI.notify(UI.t('generic'), { retry: true }); return; }
+    if (!window.qrcode) { UI.notify(UI.t('generic'), { retry: true }); return; }
     try {
-      var qr = new window.QRCode(holder, { text: text, width: 256, height: 256, correctLevel: window.QRCode.CorrectLevel.M });
-      var model = qr._oQRCode;
-      var n = model.getModuleCount();
+      window.qrcode.stringToBytes = window.qrcode.stringToBytesFuncs['UTF-8'];
+      var qr = window.qrcode(0, 'M');
+      qr.addData(text, 'Byte');
+      qr.make();
+      var n = qr.getModuleCount();
       matrix = [];
       for (var r = 0; r < n; r++) {
         var row = [];
-        for (var c = 0; c < n; c++) row.push(model.isDark(r, c));
+        for (var c = 0; c < n; c++) row.push(qr.isDark(r, c));
         matrix.push(row);
       }
-      var shown = holder.querySelector('img, canvas');
-      if (shown) shown.setAttribute('alt', text.slice(0, 80));
+      var preview = drawCanvas(Math.max(2, Math.floor(256 / (n + QUIET * 2))));
+      preview.setAttribute('role', 'img');
+      preview.setAttribute('aria-label', text.slice(0, 80));
+      holder.appendChild(preview);
       setButtons(true);
     } catch (e) {
+      matrix = null;
       holder.innerHTML = '';
       UI.notify(UI.t('tooLong'));
     }
   }
 
-  function renderPng() {
+  function drawCanvas(scale) {
     var n = matrix.length;
     var total = n + QUIET * 2;
-    var scale = Math.max(4, Math.floor(PNG_SIZE / total));
     var c = document.createElement('canvas');
     c.width = c.height = total * scale;
     var ctx = c.getContext('2d');
@@ -64,6 +68,11 @@
     ctx.fillRect(0, 0, c.width, c.height);
     ctx.fillStyle = '#000000';
     for (var r = 0; r < n; r++) for (var col = 0; col < n; col++) if (matrix[r][col]) ctx.fillRect((col + QUIET) * scale, (r + QUIET) * scale, scale, scale);
+    return c;
+  }
+
+  function renderPng() {
+    var c = drawCanvas(Math.max(4, Math.ceil(PNG_SIZE / (matrix.length + QUIET * 2))));
     return new Promise(function (resolve) { c.toBlob(resolve, 'image/png'); });
   }
 
