@@ -2564,3 +2564,8 @@ MOBILE HOMEPAGE PERFORMANCE OVERRIDES
 .resize-check input{width:20px;height:20px;}
 .resize-row{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;}
 .resize-row button{min-height:44px;}
+.pdf-page-size{display:inline-flex;align-items:center;gap:8px;margin:10px 0;font-weight:600;}
+.pdf-page-size select{min-height:40px;padding:6px 10px;border-radius:8px;border:1px solid #c7cedb;}
+.preview-item label{display:inline-flex;align-items:center;gap:6px;margin-top:6px;}
+
+#downloads a,.download-link{overflow-wrap:anywhere;word-break:break-word;}

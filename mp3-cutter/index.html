@@ -568,7 +568,7 @@ wavesurfer.zoom(Number(this.value))
 
 document.getElementById("export").onclick=function(){
 
-if(!region) return
+if(!region){if(window.ConvertiosUI){ConvertiosUI.notify(ConvertiosUI.t('noFile'))} return}
 
 const start=region.start
 const end=region.end

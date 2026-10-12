@@ -32,7 +32,7 @@ gtag('config', 'G-0CH8NE5WDH');
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
 <style>
 
@@ -480,8 +480,7 @@ Yes, the tool works on all modern devices including smartphones and tablets.</p>
 </p>
 
 </footer>
-<script>
-function generateQR(){ const text=document.getElementById("text").value.trim(); if(!text){ alert("Enter text or URL"); return; } document.getElementById("qrcode").innerHTML=""; new QRCode(document.getElementById("qrcode"),{ text:text, width:256, height:256 }); document.getElementById("downloadBtn").style.display="inline-block"; } function downloadQR(){ const qrCanvas=document.querySelector("#qrcode canvas"); if(!qrCanvas) return; const link=document.createElement("a"); link.download="fasttools-qr.png"; link.href=qrCanvas.toDataURL(); link.click(); } </script>
+<script src="/js/qr-generator.js" defer></script>
 
 <script src="/script.js" defer></script>
 </body>

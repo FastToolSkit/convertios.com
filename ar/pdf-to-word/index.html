@@ -204,7 +204,7 @@ gtag('config', 'G-0CH8NE5WDH');
   </div>
 </details>
 </header>
-<div class="tool-container" id="main-content">
+<div class="tool-container" id="main-content" data-uses-backend>
 
 <h1>تحويل PDF إلى Word</h1>
 
@@ -239,7 +239,7 @@ gtag('config', 'G-0CH8NE5WDH');
 <div><strong>يتطلب رفع الملف:</strong><span>نعم</span></div>
 <div><strong>معالجة عبر طرف خارجي:</strong><span>خادم Convertios الذاتي باستخدام pdf2docx</span></div>
 <div><strong>الاحتفاظ بالملف:</strong><span>تتم المعالجة مؤقتًا على خادم Convertios ثم يُحذف الملف فور انتهاء الطلب.</span></div>
-<div><strong>الحد الأقصى للحجم:</strong><span>100 MB</span></div>
+<div><strong>الحد الأقصى للحجم:</strong><span>25 MB</span></div>
 <div><strong>الصيغ المدعومة:</strong><span>ملفات PDF → مستند DOCX</span></div>
 </div>
 <p class="transparency-note"><strong>ملاحظة الشفافية:</strong> ترسل هذه الأداة ملف PDF بأمان إلى خادم Convertios الذاتي، حيث ينفذ محرك مفتوح المصدر التحويل محليًا، ثم تُحذف الملفات المؤقتة فور انتهاء الطلب.</p>
@@ -253,7 +253,7 @@ gtag('config', 'G-0CH8NE5WDH');
 <h2>تحويل PDF إلى Word</h2>
 
 <p>
-يوفر Convertios محول PDF إلى Word سريعًا وموثوقًا يتيح لك تحويل مستندات PDF إلى ملفات Word قابلة للتعديل بالكامل (DOCX) فورًا. سواء كنت تحتاج إلى تعديل النص أو تحديث المستندات أو إعادة استخدام المحتوى، تجعل هذه الأداة العملية سهلة وفعالة.
+يوفر Convertios محول PDF إلى Word سريعًا وموثوقًا يتيح لك تحويل مستندات PDF إلى ملفات Word قابلة للتعديل (DOCX)، وعادةً خلال ثوانٍ. سواء كنت تحتاج إلى تعديل النص أو تحديث المستندات أو إعادة استخدام المحتوى، تجعل هذه الأداة العملية سهلة وفعالة.
 </p>
 
 <p>
@@ -291,7 +291,7 @@ gtag('config', 'G-0CH8NE5WDH');
 <ul>
 <li>تحويل ملفات PDF إلى مستندات Word قابلة للتعديل بالكامل</li>
 <li>الحفاظ على التخطيط والنص والتنسيق</li>
-<li>معالجة سريعة بنتائج فورية</li>
+<li>تحويل على الخادم يستغرق عادةً ثوانٍ (وقد يصل إلى دقيقة إذا كان الخادم متوقفًا)</li>
 <li>لا يتطلب تثبيتًا أو تسجيلًا</li>
 <li>تحويل آمن مع رفع الملف فقط لتنفيذ المهمة</li>
 <li>يعمل على الهاتف والكمبيوتر اللوحي وسطح المكتب</li>
@@ -373,123 +373,7 @@ gtag('config', 'G-0CH8NE5WDH');
 </p>
 
 </footer>
-<script>
-
-
-let file = null;
-let lastPdfToWordAttempt = null;
-
-const fileInput = document.getElementById("upload");
-const dropArea = document.getElementById("drop-area");
-const preview = document.getElementById("preview");
-const status = document.getElementById("status");
-const progressBar = document.getElementById("progress-bar");
-const downloads = document.getElementById("downloads");
-const convertBtn = document.querySelector(".convert-btn");
-setConvertButtonState(false);
-
-function setConvertButtonState(enabled){
-convertBtn.disabled = !enabled;
-}
-
-function showRetry(message){
-status.innerHTML = `<span class="tool-error-message">${message}</span>`;
-downloads.innerHTML = '<button type="button" class="tool-retry-button" id="retryPdfToWord">إعادة محاولة التحويل</button>';
-const retryBtn = document.getElementById("retryPdfToWord");
-if(retryBtn && lastPdfToWordAttempt){
-retryBtn.addEventListener("click", lastPdfToWordAttempt);
-}
-setConvertButtonState(!!file);
-}
-
-// CLICK
-dropArea.onclick = () => fileInput.click();
-
-// DRAG
-dropArea.addEventListener("dragover", e => e.preventDefault());
-
-dropArea.addEventListener("drop", e => {
-e.preventDefault();
-fileInput.files = e.dataTransfer.files;
-handleFile();
-});
-
-// SELECT
-fileInput.addEventListener("change", handleFile);
-convertBtn.addEventListener("click", convert);
-
-function handleFile(){
-file = fileInput.files[0];
-
-if(file){
-preview.innerHTML = `
-📄 ${file.name}<br>
-الحجم: ${(file.size/1024/1024).toFixed(2)} MB
-`;
-status.innerText = "الملف جاهز للتحويل. ستتم معالجته على خادم Convertios الذاتي وحذفه فور الانتهاء.";
-downloads.innerHTML = "";
-setConvertButtonState(true);
-} else {
-setConvertButtonState(false);
-}
-}
-
-async function convert(){
-lastPdfToWordAttempt = convert;
-
-if(!file){
-showRetry("ارفع ملف PDF قبل التحويل.");
-return;
-}
-
-status.innerText = "جاري رفع PDF للتحويل الآمن...";
-progressBar.style.width = "20%";
-downloads.innerHTML = "";
-setConvertButtonState(false);
-
-try{
-const formData = new FormData();
-formData.append("file", file);
-
-const response = await fetch("https://convertios-backend-sn5u.onrender.com/convert/pdf-to-word", {
-method: "POST",
-body: formData
-});
-
-if(!response.ok){
-let message = "تعذّر تحويل PDF إلى Word. جرّب ملف PDF صالحًا وغير محمي.";
-try{
-const details = await response.json();
-if(details?.error) message = details.error;
-}catch(_err){}
-throw new Error(message);
-}
-
-status.innerText = "جاري تجهيز تنزيل DOCX...";
-progressBar.style.width = "85%";
-const blob = await response.blob();
-const url = URL.createObjectURL(blob);
-const fileName = file.name.replace(/\.pdf$/i, ".docx");
-const a = document.createElement("a");
-a.href = url;
-a.download = fileName;
-document.body.appendChild(a);
-a.click();
-a.remove();
-
-progressBar.style.width = "100%";
-status.innerText = "اكتمل التحويل ✅";
-downloads.innerHTML = `<a href="${url}" download="${fileName}" class="download-btn">⬇ تنزيل ملف Word</a>`;
-setConvertButtonState(true);
-
-}catch(e){
-console.error(e);
-progressBar.style.width = "0%";
-showRetry(e.message || "تعذّر التحويل. جرّب ملفًا أصغر أو غير محمي.");
-}
-}
-
-</script>
+<script src="/js/pdf-to-word.js" defer></script>
 
 <script src="/script.js" defer></script>
 </body>

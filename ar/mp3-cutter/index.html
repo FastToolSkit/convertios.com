@@ -476,7 +476,7 @@ region.on('update', updateInputs)
 })
 
 function updateInputs(){
-if(!region) return
+if(!region){if(window.ConvertiosUI){ConvertiosUI.notify(ConvertiosUI.t('noFile'))} return}
 document.getElementById("start").innerText=formatTime(region.start)
 document.getElementById("end").innerText=formatTime(region.end)
 }

@@ -347,11 +347,11 @@ line-height:1.8;
   </div>
 </details>
 </header>
-<div class="tool-container" id="main-content">
+<div class="tool-container" id="main-content" data-uses-backend>
 
 <h1>PDF to Word Converter Online</h1>
 
-<p>Convert PDF files into fully editable Word (DOCX) documents instantly.</p>
+<p>Convert PDF files into editable Word (DOCX) documents on the Convertios server.</p>
 
 <div class="drop-area" id="drop-area">
 <p>Click or drag your PDF file here</p>
@@ -382,7 +382,7 @@ Convert to Word
 <div><strong>Upload required:</strong><span>Yes</span></div>
 <div><strong>Third-party processing:</strong><span>Convertios self-hosted backend using pdf2docx</span></div>
 <div><strong>File retention:</strong><span>Processed temporarily by Convertios and deleted immediately after the request.</span></div>
-<div><strong>Max file size:</strong><span>100 MB</span></div>
+<div><strong>Max file size:</strong><span>25 MB</span></div>
 <div><strong>Supported formats:</strong><span>PDF files → DOCX Word document</span></div>
 </div>
 <p class="transparency-note"><strong>Transparency note:</strong> This tool sends the PDF securely to the self-hosted Convertios backend, where an open-source local engine performs the conversion. The temporary files are deleted immediately after the request.</p>
@@ -396,7 +396,7 @@ Convert to Word
 <h2>Free PDF to Word Converter</h2>
 
 <p>
-Convertios provides a fast and reliable PDF to Word converter that allows you to turn PDF documents into fully editable Word files (DOCX) instantly. Whether you need to edit text, update documents, or reuse content, this tool makes the process simple and efficient.
+Convertios provides a fast and reliable PDF to Word converter that allows you to turn PDF documents into editable Word files (DOCX), usually within seconds. Whether you need to edit text, update documents, or reuse content, this tool makes the process simple and efficient.
 </p>
 
 <p>
@@ -434,7 +434,7 @@ The process is fast and works smoothly on all modern devices.
 <ul>
 <li>Convert PDF files into fully editable Word documents</li>
 <li>Preserve layout, text, and formatting</li>
-<li>Fast browser-based processing with instant results</li>
+<li>Server-side conversion that usually takes seconds (up to a minute if the server was idle)</li>
 <li>No installation or registration required</li>
 <li>Secure conversion with no file uploads</li>
 <li>Works on mobile, tablet, and desktop devices</li>
@@ -519,123 +519,7 @@ Yes, the tool works on all devices including smartphones and tablets.</p>
 
 </footer>
   
-<script>
-
-
-let file = null;
-let lastPdfToWordAttempt = null;
-
-const fileInput = document.getElementById("upload");
-const dropArea = document.getElementById("drop-area");
-const preview = document.getElementById("preview");
-const status = document.getElementById("status");
-const progressBar = document.getElementById("progress-bar");
-const downloads = document.getElementById("downloads");
-const convertBtn = document.querySelector(".convert-btn");
-setConvertButtonState(false);
-
-function setConvertButtonState(enabled){
-convertBtn.disabled = !enabled;
-}
-
-function showRetry(message){
-status.innerHTML = `<span class="tool-error-message">${message}</span>`;
-downloads.innerHTML = '<button type="button" class="tool-retry-button" id="retryPdfToWord">Retry conversion</button>';
-const retryBtn = document.getElementById("retryPdfToWord");
-if(retryBtn && lastPdfToWordAttempt){
-retryBtn.addEventListener("click", lastPdfToWordAttempt);
-}
-setConvertButtonState(!!file);
-}
-
-// CLICK
-dropArea.onclick = () => fileInput.click();
-
-// DRAG
-dropArea.addEventListener("dragover", e => e.preventDefault());
-
-dropArea.addEventListener("drop", e => {
-e.preventDefault();
-fileInput.files = e.dataTransfer.files;
-handleFile();
-});
-
-// SELECT
-fileInput.addEventListener("change", handleFile);
-convertBtn.addEventListener("click", convert);
-
-function handleFile(){
-file = fileInput.files[0];
-
-if(file){
-preview.innerHTML = `
-📄 ${file.name}<br>
-Size: ${(file.size/1024/1024).toFixed(2)} MB
-`;
-status.innerText = "Ready to convert. The PDF will be processed by the self-hosted Convertios backend and deleted immediately afterward.";
-downloads.innerHTML = "";
-setConvertButtonState(true);
-} else {
-setConvertButtonState(false);
-}
-}
-
-async function convert(){
-lastPdfToWordAttempt = convert;
-
-if(!file){
-showRetry("Please upload a PDF file before converting.");
-return;
-}
-
-status.innerText = "Uploading PDF for secure conversion...";
-progressBar.style.width = "20%";
-downloads.innerHTML = "";
-setConvertButtonState(false);
-
-try{
-const formData = new FormData();
-formData.append("file", file);
-
-const response = await fetch("https://convertios-backend-sn5u.onrender.com/convert/pdf-to-word", {
-method: "POST",
-body: formData
-});
-
-if(!response.ok){
-let message = "PDF to Word conversion failed. Please retry with a valid, unlocked PDF.";
-try{
-const details = await response.json();
-if(details?.error) message = details.error;
-}catch(_err){}
-throw new Error(message);
-}
-
-status.innerText = "Preparing DOCX download...";
-progressBar.style.width = "85%";
-const blob = await response.blob();
-const url = URL.createObjectURL(blob);
-const fileName = file.name.replace(/\.pdf$/i, ".docx");
-const a = document.createElement("a");
-a.href = url;
-a.download = fileName;
-document.body.appendChild(a);
-a.click();
-a.remove();
-
-progressBar.style.width = "100%";
-status.innerText = "Conversion complete ✅";
-downloads.innerHTML = `<a href="${url}" download="${fileName}" class="download-btn">⬇ Download Word File</a>`;
-setConvertButtonState(true);
-
-}catch(e){
-console.error(e);
-progressBar.style.width = "0%";
-showRetry(e.message || "Conversion failed. Please retry with a smaller or unlocked PDF.");
-}
-}
-
-</script>
+<script src="/js/pdf-to-word.js" defer></script>
 
 <script src="/script.js" defer></script>
 </body>

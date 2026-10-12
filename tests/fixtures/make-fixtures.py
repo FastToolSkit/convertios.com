@@ -59,6 +59,10 @@ def make_images():
     photo(800, 600, seed=11).save(path('photo.webp'), quality=85)
     photo(400, 300, seed=13).convert('P', palette=Image.ADAPTIVE).save(path('image.gif'))
     photo(400, 300, seed=15).save(path('image.bmp'))
+    # Landscape pixels tagged with EXIF orientation 6 (rotate 90° CW): should display as portrait 300x400.
+    exif = Image.Exif()
+    exif[0x0112] = 6
+    photo(400, 300, seed=17).save(path('rotated-exif.jpg'), quality=90, exif=exif)
 
 
 def make_pdf(pages, name):

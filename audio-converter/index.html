@@ -511,7 +511,7 @@ audioBuffer = await audioContext.decodeAudioData(arrayBuffer)
 
 async function convertAudio(){
 
-if(!audioBuffer) return
+if(!audioBuffer){if(window.ConvertiosUI){ConvertiosUI.notify(ConvertiosUI.t('noFile'))} return}
 
 const format = document.getElementById("format").value
 

@@ -502,7 +502,7 @@ audioBuffer = await audioContext.decodeAudioData(arrayBuffer)
 
 async function exportAudio(){
 
-if(!audioBuffer) return
+if(!audioBuffer){if(window.ConvertiosUI){ConvertiosUI.notify(ConvertiosUI.t('noFile'))} return}
 
 const speed = parseFloat(slider.value)
 

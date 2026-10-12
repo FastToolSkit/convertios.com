@@ -312,7 +312,7 @@ line-height:1.8;
 
 <div class="button-group">
 
-<button onclick="toUpper()">أحرف كبيرة</button> <button onclick="toLower()">أحرف صغيرة</button> <button onclick="capitalize()">أول كل كلمة كبير</button> <button onclick="removeSpaces()">إزالة المسافات</button>
+<button onclick="toUpper()">أحرف كبيرة</button> <button onclick="toLower()">أحرف صغيرة</button> <button onclick="capitalize()">أول كل كلمة كبير</button> <button onclick="removeSpaces()">إزالة المسافات الزائدة</button>
 
 </div>
 
@@ -481,40 +481,7 @@ line-height:1.8;
 
 </footer>
 
-<script>
-
-function toUpper(){
-let text = document.getElementById("text").value;
-document.getElementById("text").value = text.toUpperCase();
-}
-
-function toLower(){
-let text = document.getElementById("text").value;
-document.getElementById("text").value = text.toLowerCase();
-}
-
-function capitalize(){
-let text = document.getElementById("text").value;
-let result = text.replace(/\b\w/g,l=>l.toUpperCase());
-document.getElementById("text").value = result;
-}
-
-function removeSpaces(){
-let text = document.getElementById("text").value;
-document.getElementById("text").value = text.replace(/\s+/g," ").trim();
-}
-
-function copyText(){
-let text = document.getElementById("text");
-text.select();
-document.execCommand("copy");
-}
-
-function clearText(){
-document.getElementById("text").value="";
-}
-
-</script>
+<script src="/js/text-formatter.js" defer></script>
 
 
 

@@ -263,7 +263,6 @@ gtag('config', 'G-0CH8NE5WDH');
 <div class="tool-wrap">
 <h1>تغيير مقاسات صور السوشيال ميديا</h1>
 <p>غيّر مقاسات صورة واحدة إلى عدة صيغ مناسبة لمنصات التواصل خلال ثوانٍ. اختر إعدادات المنصة التي تحتاجها، ثم صدّر المقاسات منفردة أو نزّلها معًا كملف ZIP. تتم كل عملية تغيير المقاس مباشرة داخل متصفحك بسرعة وخصوصية.</p>
-<p class="temporary-tool-notice" role="status">يجري تحسين هذه الأداة حاليًا. قد لا تعمل بعض الميزات بعد.</p>
 <div class="tool-grid">
 <section class="panel">
 <h2>رفع الصورة</h2>
@@ -394,10 +393,10 @@ panel.addEventListener('change',updateButtons);
 function handleFile(file){if(!file) return;const r=new FileReader();r.onload=()=>{img.onload=()=>{imageLoaded=true;preview.src=r.result;preview.style.display='block';statusEl.textContent='الصورة جاهزة. اختر المقاسات ثم قم بالتنزيل.';updateButtons();};img.src=r.result;};r.readAsDataURL(file);}
 function resizeBlob(w,h,type='image/png',q=0.92){const c=document.createElement('canvas');c.width=w;c.height=h;const ctx=c.getContext('2d');ctx.drawImage(img,0,0,w,h);return new Promise(res=>c.toBlob(res,type,q));}
 function selectedOptions(){return [...document.querySelectorAll('#sizePanel input:checked')].map(i=>({label:i.dataset.label,w:+i.dataset.w,h:+i.dataset.h}));}
-btnSingle.addEventListener('click',async()=>{const opts=selectedOptions();if(!opts.length)return;const o=opts[0];const blob=await resizeBlob(o.w,o.h);downloadBlob(blob,`${slug(o.label)}.png`);statusEl.textContent=`تم تنزيل ${o.label}`;});
-btnZip.addEventListener('click',async()=>{const opts=selectedOptions();if(opts.length<2)return;const zip=new JSZip();for(const o of opts){const blob=await resizeBlob(o.w,o.h);zip.file(`${slug(o.label)}.png`,blob);}const out=await zip.generateAsync({type:'blob'});downloadBlob(out,'social-media-resized-images.zip');statusEl.textContent=`تم تنزيل ملف ZIP يحتوي على ${opts.length} مقاسات.`;});
+btnSingle.addEventListener('click',async()=>{const opts=selectedOptions();if(!opts.length)return;for(const [i,o] of opts.entries()){const blob=await resizeBlob(o.w,o.h);setTimeout(()=>downloadBlob(blob,`${slug(o.label)}-${o.w}x${o.h}.png`),i*400);}const o=opts[opts.length-1];statusEl.textContent=`تم تنزيل ${o.label}`;});
+btnZip.addEventListener('click',async()=>{const opts=selectedOptions();if(!opts.length)return;const zip=new JSZip();for(const o of opts){const blob=await resizeBlob(o.w,o.h);zip.file(`${slug(o.label)}-${o.w}x${o.h}.png`,blob);}const out=await zip.generateAsync({type:'blob'});downloadBlob(out,'social-media-resized-images.zip');statusEl.textContent=`تم تنزيل ملف ZIP يحتوي على ${opts.length} مقاسات.`;});
 function downloadBlob(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),800);}
-function slug(t){return t.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
+function slug(t){return t.toLowerCase().replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'')||'image';}
 </script>
 
 <script src="/script.js" defer></script>

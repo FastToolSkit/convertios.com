@@ -491,75 +491,7 @@ Sí. Funciona en teléfonos, tabletas y ordenadores.</p>
 </p>
 
 </footer>
-<script>
-let canvas=document.getElementById("memeCanvas");
-let ctx=canvas.getContext("2d");
-let img=new Image();
-
-document.getElementById("upload").addEventListener("change",function(){
-
-let file=this.files[0];
-if(!file) return;
-
-let reader=new FileReader();
-
-reader.onload=e=>img.src=e.target.result;
-reader.readAsDataURL(file);
-
-});
-
-img.onload=function(){
-
-let maxWidth=800;
-let scale=Math.min(maxWidth/img.width,1);
-
-canvas.width=img.width*scale;
-canvas.height=img.height*scale;
-
-draw();
-
-};
-
-document.querySelectorAll(".controls input").forEach(el=>{
-el.addEventListener("input",draw);
-});
-
-function draw(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-ctx.drawImage(img,0,0,canvas.width,canvas.height);
-
-let top=document.getElementById("topText").value;
-let bottom=document.getElementById("bottomText").value;
-
-let size=document.getElementById("fontSize").value;
-let color=document.getElementById("textColor").value;
-let stroke=document.getElementById("strokeWidth").value;
-
-ctx.font=`bold ${size}px Impact`;
-ctx.fillStyle=color;
-ctx.strokeStyle="black";
-ctx.lineWidth=stroke;
-ctx.textAlign="center";
-
-ctx.fillText(top,canvas.width/2, size+10);
-ctx.strokeText(top,canvas.width/2, size+10);
-
-ctx.fillText(bottom,canvas.width/2,canvas.height-20);
-ctx.strokeText(bottom,canvas.width/2,canvas.height-20);
-
-}
-
-function downloadMeme(){
-
-let link=document.createElement("a");
-link.download="meme.png";
-link.href=canvas.toDataURL();
-link.click();
-
-}
-
-</script>
+<script src="/js/meme-generator.js" defer></script>
 
 
 <script src="/script.js" defer></script>

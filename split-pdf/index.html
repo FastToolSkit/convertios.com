@@ -34,7 +34,7 @@ gtag('config', 'G-0CH8NE5WDH');
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
 
-<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 
 <script>
 pdfjsLib.GlobalWorkerOptions.workerSrc =
@@ -591,6 +591,7 @@ const pdfDoc = await PDFLib.PDFDocument.load(bytes);
 const newPDF = await PDFLib.PDFDocument.create();
 
 const items = document.querySelectorAll(".preview-item");
+if(![...items].some(i=>i.classList.contains("selected"))){loader.style.display="none";if(window.ConvertiosUI){ConvertiosUI.notify(ConvertiosUI.t("selectPages"))}return;}
 
 for(let i=0;i<items.length;i++){
 
