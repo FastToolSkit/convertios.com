@@ -1,5 +1,5 @@
 // Backend logic tests. Run with: npm test   (Node 20+, no extra packages needed)
-// External providers (TinyURL, is.gd, Cloudinary, n8n) are replaced by a local mock server,
+// External providers (TinyURL, is.gd, Cloudinary, an optional enhancement workflow) are replaced by a local mock server,
 // so these tests never call third-party services.
 'use strict';
 const test = require('node:test');
@@ -15,7 +15,7 @@ const JPEG_HEAD = Buffer.concat([Buffer.from([0xff, 0xd8, 0xff, 0xe0]), Buffer.a
 let mock;
 let base;
 const calls = [];
-const mode = { tiny: 'ok', enhance: 'ok' };
+const mode = { tiny: 'ok', enhance: 'ok', cld: 'ok', width: 800 };
 
 test.before(async () => {
   mock = http.createServer((req, res) => {
@@ -34,7 +34,16 @@ test.before(async () => {
     }
     if (url.pathname === '/upload') {
       req.resume();
-      return req.on('end', () => json(200, { secure_url: 'https://res.cloudinary.com/demo/image/upload/sample.png' }));
+      return req.on('end', () => json(200, { secure_url: `${base}/image/upload/v1/sample.png`, width: mode.width, height: 600 }));
+    }
+    if (url.pathname.startsWith('/image/upload/')) {
+      // Cloudinary delivery URL with transformations
+      if (mode.cld === 'down' || (mode.cld === 'no-upscale' && url.pathname.includes('e_upscale'))) {
+        res.writeHead(400, { 'x-cld-error': 'mock failure' });
+        return res.end();
+      }
+      res.writeHead(200, { 'Content-Type': 'image/png' });
+      return res.end(PNG_1x1);
     }
     if (url.pathname === '/enhance') {
       let body = '';
@@ -62,9 +71,11 @@ function config() {
     SHORTENER_TINYURL_ENDPOINT: `${base}/tiny`,
     SHORTENER_ISGD_ENDPOINT: `${base}/isgd`,
     CLOUDINARY_UPLOAD_URL: `${base}/upload`,
-    N8N_ENHANCE_URL: `${base}/enhance`,
     ENHANCED_IMAGE_HOSTS: base
   });
+}
+function workflowConfig() {
+  return { ...config(), enhanceWorkflowUrl: `${base}/enhance` };
 }
 
 test('URL validation accepts real web addresses only', () => {
@@ -118,30 +129,63 @@ test('enhance validates the upload', async () => {
   assert.equal((await api.handleEnhance(big, config())).body.code, 'FILE_TOO_LARGE');
 });
 
-test('enhance returns the enhanced image bytes with a safe filename', async () => {
+test('enhance returns Cloudinary AI-enhanced bytes with a safe filename', async () => {
+  const before = calls.length;
   const r = await api.handleEnhance({ buffer: PNG_1x1, originalname: '../../My Photo.png' }, config());
   assert.equal(r.status, 200);
   assert.equal(r.mime, 'image/png');
   assert.equal(r.filename, 'My-Photo-enhanced.png');
   assert.ok(r.buffer.subarray(0, 8).equals(PNG_1x1.subarray(0, 8)));
+  const used = calls.slice(before).filter((p) => p.startsWith('/image/upload/'));
+  assert.deepEqual(used, ['/image/upload/e_gen_restore/e_enhance/e_upscale/v1/sample.png'], 'small images are restored and upscaled');
+});
+
+test('enhance skips upscaling for large images and falls back through effects', async () => {
+  mode.width = 2400;
+  let before = calls.length;
+  await api.handleEnhance({ buffer: PNG_1x1, originalname: 'a.png' }, config());
+  assert.deepEqual(calls.slice(before).filter((p) => p.startsWith('/image/upload/')), ['/image/upload/e_gen_restore/e_enhance/v1/sample.png']);
+  mode.width = 800;
+  mode.cld = 'no-upscale';
+  before = calls.length;
+  const r = await api.handleEnhance({ buffer: PNG_1x1, originalname: 'a.png' }, config());
+  mode.cld = 'ok';
+  assert.equal(r.status, 200);
+  assert.equal(calls.slice(before).filter((p) => p.startsWith('/image/upload/')).length, 2);
+});
+
+test('enhance uses a configured workflow first and falls back to Cloudinary when it fails', async () => {
+  let before = calls.length;
+  const ok = await api.handleEnhance({ buffer: PNG_1x1, originalname: 'a.png' }, workflowConfig());
+  assert.equal(ok.status, 200);
+  assert.ok(calls.slice(before).includes('/result.png'));
+  mode.enhance = 'fail';
+  before = calls.length;
+  const fallback = await api.handleEnhance({ buffer: PNG_1x1, originalname: 'a.png' }, workflowConfig());
+  mode.enhance = 'ok';
+  assert.equal(fallback.status, 200);
+  assert.ok(calls.slice(before).some((p) => p.startsWith('/image/upload/e_')));
 });
 
 test('enhance never fetches result URLs outside the allow-list (SSRF guard)', async () => {
   mode.enhance = 'evil-host';
+  mode.cld = 'down';
   const before = calls.length;
-  const r = await api.handleEnhance({ buffer: PNG_1x1, originalname: 'a.png' }, config());
+  const r = await api.handleEnhance({ buffer: PNG_1x1, originalname: 'a.png' }, workflowConfig());
   mode.enhance = 'ok';
+  mode.cld = 'ok';
   assert.equal(r.status, 502);
   assert.equal(r.body.code, 'ENHANCER_UNAVAILABLE');
   assert.ok(!calls.slice(before).some((p) => p.includes('meta-data')));
 });
 
-test('enhance rejects a non-image result and a failing workflow', async () => {
+test('enhance reports an outage when no engine returns an image', async () => {
   mode.enhance = 'not-image';
-  assert.equal((await api.handleEnhance({ buffer: PNG_1x1, originalname: 'a.png' }, config())).body.code, 'ENHANCER_UNAVAILABLE');
-  mode.enhance = 'fail';
-  assert.equal((await api.handleEnhance({ buffer: PNG_1x1, originalname: 'a.png' }, config())).body.code, 'ENHANCER_UNAVAILABLE');
+  mode.cld = 'down';
+  assert.equal((await api.handleEnhance({ buffer: PNG_1x1, originalname: 'a.png' }, workflowConfig())).body.code, 'ENHANCER_UNAVAILABLE');
   mode.enhance = 'ok';
+  assert.equal((await api.handleEnhance({ buffer: PNG_1x1, originalname: 'a.png' }, config())).body.code, 'ENHANCER_UNAVAILABLE');
+  mode.cld = 'ok';
 });
 
 test('file signature helpers', () => {

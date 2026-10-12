@@ -172,7 +172,7 @@ app.get('/health', (_req, res) => {
       videoToMp3: 'ffmpeg',
       videoConverter: 'ffmpeg',
       linkShortener: apiConfig.shortenerProviders.map((provider) => provider.name).join('+'),
-      imageEnhancement: 'cloudinary+n8n'
+      imageEnhancement: 'cloudinary-ai'
     }
   });
 });

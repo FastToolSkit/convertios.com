@@ -28,7 +28,8 @@ function loadConfig(env = process.env) {
     ],
     cloudinaryUploadUrl: env.CLOUDINARY_UPLOAD_URL || `https://api.cloudinary.com/v1_1/${env.CLOUDINARY_CLOUD_NAME || 'dd9it0hte'}/image/upload`,
     cloudinaryUploadPreset: env.CLOUDINARY_UPLOAD_PRESET || 'convertios_unsigned',
-    enhanceWorkflowUrl: env.N8N_ENHANCE_URL || 'https://convertios.app.n8n.cloud/webhook/ai-enhance',
+    // Optional external workflow (e.g. n8n). When unset, enhancement uses Cloudinary's own AI effects.
+    enhanceWorkflowUrl: env.N8N_ENHANCE_URL || '',
     enhancedImageHosts: new Set(['res.cloudinary.com', ...list(env.ENHANCED_IMAGE_HOSTS)])
   };
 }
@@ -133,46 +134,92 @@ async function handleEnhance(file, config = loadConfig()) {
       return unavailable;
     }
 
-    // 2. Ask the enhancement workflow to process it.
-    const enhanceResponse = await fetchWithTimeout(config.enhanceWorkflowUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ image: uploaded.secure_url, message: 'Convertios AI image enhancement' })
-    }, LIMITS.enhanceProcessTimeoutMs);
-    const enhanced = await enhanceResponse.json().catch(() => null);
-    if (!enhanceResponse.ok || !enhanced || !enhanced.success || typeof enhanced.imageUrl !== 'string') {
-      console.warn('[enhance] workflow failed', enhanceResponse.status);
-      return unavailable;
+    // 2. Enhance: the optional external workflow first (if configured), then Cloudinary's AI effects.
+    const candidates = [];
+    if (config.enhanceWorkflowUrl) {
+      const workflowUrl = await runEnhanceWorkflow(config, uploaded.secure_url);
+      if (workflowUrl) candidates.push(workflowUrl);
     }
+    candidates.push(...cloudinaryEnhanceUrls(uploaded));
 
     // 3. Fetch the result only from an allowed image host (never an arbitrary URL).
-    let resultUrl;
-    try {
-      resultUrl = new URL(enhanced.imageUrl);
-    } catch {
-      return unavailable;
+    for (const candidate of candidates) {
+      const result = await fetchEnhancedImage(candidate, config);
+      if (result) {
+        return {
+          status: 200,
+          buffer: result.buffer,
+          mime: result.type.mime,
+          filename: safeDownloadName(file.originalname, `-enhanced${result.type.ext}`, 'image')
+        };
+      }
     }
-    const allowed = (resultUrl.protocol === 'https:' && config.enhancedImageHosts.has(resultUrl.hostname.toLowerCase()))
-      || config.enhancedImageHosts.has(resultUrl.origin.toLowerCase());
-    if (!allowed) {
-      console.warn('[enhance] result host not allowed:', resultUrl.hostname);
-      return unavailable;
-    }
-    const imageResponse = await fetchWithTimeout(resultUrl, { redirect: 'error' }, LIMITS.enhanceDownloadTimeoutMs);
-    if (!imageResponse.ok || Number(imageResponse.headers.get('content-length') || 0) > LIMITS.enhancedResultBytes) return unavailable;
-    const result = Buffer.from(await imageResponse.arrayBuffer());
-    const resultType = detectImageType(result);
-    if (!resultType || result.length > LIMITS.enhancedResultBytes) return unavailable;
-    return {
-      status: 200,
-      buffer: result,
-      mime: resultType.mime,
-      filename: safeDownloadName(file.originalname, `-enhanced${resultType.ext}`, 'image')
-    };
+    return unavailable;
   } catch (err) {
     console.warn('[enhance] failed:', err.code || err.message);
     if (err.code === 'UPSTREAM_TIMEOUT') return error(504, 'UPSTREAM_TIMEOUT', 'Enhancement took too long. Please retry with a smaller image.');
     return unavailable;
+  }
+}
+
+// Cloudinary delivery URLs with AI effects, best first. e_upscale (4x super-resolution) only accepts
+// images up to 4.2 megapixels, so it is used only when the result stays within 4096 px.
+function cloudinaryEnhanceUrls(uploaded) {
+  const marker = '/image/upload/';
+  const at = uploaded.secure_url.indexOf(marker);
+  if (at < 0) return [];
+  const head = uploaded.secure_url.slice(0, at + marker.length);
+  const tail = uploaded.secure_url.slice(at + marker.length);
+  const longest = Math.max(Number(uploaded.width) || 0, Number(uploaded.height) || 0);
+  const chains = [];
+  if (longest > 0 && longest <= 1024) chains.push('e_gen_restore/e_enhance/e_upscale');
+  chains.push('e_gen_restore/e_enhance', 'e_enhance', 'e_improve/e_sharpen:60');
+  return chains.map((chain) => `${head}${chain}/${tail}`);
+}
+
+async function runEnhanceWorkflow(config, imageUrl) {
+  try {
+    const response = await fetchWithTimeout(config.enhanceWorkflowUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ image: imageUrl, message: 'Convertios AI image enhancement' })
+    }, LIMITS.enhanceProcessTimeoutMs);
+    const data = await response.json().catch(() => null);
+    if (response.ok && data && data.success && typeof data.imageUrl === 'string') return data.imageUrl;
+    console.warn('[enhance] workflow failed', response.status);
+  } catch (err) {
+    console.warn('[enhance] workflow failed:', err.code || err.message);
+  }
+  return null;
+}
+
+async function fetchEnhancedImage(candidate, config) {
+  let resultUrl;
+  try {
+    resultUrl = new URL(candidate);
+  } catch {
+    return null;
+  }
+  const allowed = (resultUrl.protocol === 'https:' && config.enhancedImageHosts.has(resultUrl.hostname.toLowerCase()))
+    || config.enhancedImageHosts.has(resultUrl.origin.toLowerCase());
+  if (!allowed) {
+    console.warn('[enhance] result host not allowed:', resultUrl.hostname);
+    return null;
+  }
+  try {
+    const imageResponse = await fetchWithTimeout(resultUrl, { redirect: 'error' }, LIMITS.enhanceProcessTimeoutMs);
+    if (!imageResponse.ok || Number(imageResponse.headers.get('content-length') || 0) > LIMITS.enhancedResultBytes) {
+      console.warn('[enhance] result fetch failed', imageResponse.status, imageResponse.headers.get('x-cld-error') || '');
+      return null;
+    }
+    const buffer = Buffer.from(await imageResponse.arrayBuffer());
+    const type = detectImageType(buffer);
+    if (!type || buffer.length > LIMITS.enhancedResultBytes) return null;
+    return { buffer, type };
+  } catch (err) {
+    console.warn('[enhance] result fetch failed:', err.code || err.message);
+    if (err.code === 'UPSTREAM_TIMEOUT') throw err;
+    return null;
   }
 }
 
