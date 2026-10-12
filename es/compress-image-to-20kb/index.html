@@ -232,7 +232,7 @@ Reduce una imagen a 20 KB al instante. Ideal para límites estrictos, formulario
 <h2>Ajustes de compresión</h2>
 
 <label>Tamaño objetivo (KB)</label>
-<input type="number" id="targetKB">
+<input type="number" id="targetKB" min="1" max="50000" step="1" inputmode="numeric" data-default-target="20" value="20">
 
 <label>Calidad manual</label>
 <input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.8">
@@ -245,7 +245,7 @@ Reduce una imagen a 20 KB al instante. Ideal para límites estrictos, formulario
 <option value="image/webp">WEBP</option>
 </select>
 
-<button class="main-button" onclick="runComprimirion()" aria-label="Ejecutar esta herramienta">Comprimir</button>
+<button class="main-button" onclick="runCompression()" aria-label="Ejecutar esta herramienta">Comprimir</button>
 
 <a id="downloadLink" class="main-button download-btn" style="display:none;"></a>
 
@@ -431,103 +431,7 @@ Sí. Funciona correctamente en móviles, tabletas y ordenadores.</p>
 
 </footer>
 <!-- SCRIPT -->
-<script>
-
-const upload = document.getElementById("upload");
-const preview = document.getElementById("preview");
-const qualitySlider = document.getElementById("quality");
-const qualityValue = document.getElementById("qualityValue");
-const downloadLink = document.getElementById("downloadLink");
-const progressBox = document.getElementById("progressBox");
-const progressText = document.getElementById("progressText");
-
-let imageFile = null;
-
-/* AUTO SET 20KB */
-window.onload = function(){
-    document.getElementById("targetKB").value = 20;
-};
-
-/* SLIDER */
-qualitySlider.oninput = () => qualityValue.innerText = qualitySlider.value;
-
-/* UPLOAD */
-upload.onchange = function(e){
-    imageFile = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = e => preview.src = e.target.result;
-    reader.readAsDataURL(imageFile);
-};
-
-/* RUN */
-function runComprimirion(){
-
-    if(!imageFile){
-        alert("Primero sube una imagen");
-        return;
-    }
-
-    progressBox.style.display = "block";
-    progressText.innerText = "0%";
-    downloadLink.style.display = "none";
-
-    const targetKB = 20;
-    const format = document.getElementById("format").value;
-
-    compressToTarget(targetKB, format);
-}
-
-/* COMPRESS LOOP */
-function compressToTarget(targetKB, format){
-
-    const img = new Image();
-    img.src = preview.src;
-
-    img.onload = function(){
-
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-
-        canvas.width = img.width;
-        canvas.height = img.height;
-
-        ctx.drawImage(img,0,0);
-
-        let quality = 0.9;
-        let attempts = 0;
-
-        function loop(){
-
-            canvas.toBlob(blob => {
-
-                let sizeKB = blob.size / 1024;
-                attempts++;
-
-                progressText.innerText = Math.min(95, attempts * 10) + "%";
-
-                if(sizeKB > targetKB && quality > 0.1){
-                    quality -= 0.05;
-                    loop();
-                }else{
-
-                    const url = URL.createObjectURL(blob);
-
-                    downloadLink.href = url;
-                    downloadLink.download = "compressed-20kb.jpg";
-                    downloadLink.innerText = "Descargar (" + Math.round(sizeKB) + " KB)";
-                    downloadLink.style.display = "block";
-
-                    progressText.innerText = "Listo ✅";
-                }
-
-            }, format, quality);
-        }
-
-        loop();
-    };
-}
-
-</script>
+<script src="/js/compress.js" defer></script>
 
 
 <script src="/script.js" defer></script>

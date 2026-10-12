@@ -232,7 +232,7 @@ Reduce image file size to 20KB instantly. Perfect for strict upload limits, gove
 <h2>Compression Settings</h2>
 
 <label>Target Size (KB)</label>
-<input type="number" id="targetKB">
+<input type="number" id="targetKB" min="1" max="50000" step="1" inputmode="numeric" data-default-target="20" value="20">
 
 <label>Manual Quality</label>
 <input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.8">
@@ -431,103 +431,7 @@ Yes, the tool works smoothly on mobile, tablet, and desktop devices.</p>
 
 </footer>
 <!-- SCRIPT -->
-<script>
-
-const upload = document.getElementById("upload");
-const preview = document.getElementById("preview");
-const qualitySlider = document.getElementById("quality");
-const qualityValue = document.getElementById("qualityValue");
-const downloadLink = document.getElementById("downloadLink");
-const progressBox = document.getElementById("progressBox");
-const progressText = document.getElementById("progressText");
-
-let imageFile = null;
-
-/* AUTO SET 20KB */
-window.onload = function(){
-    document.getElementById("targetKB").value = 20;
-};
-
-/* SLIDER */
-qualitySlider.oninput = () => qualityValue.innerText = qualitySlider.value;
-
-/* UPLOAD */
-upload.onchange = function(e){
-    imageFile = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = e => preview.src = e.target.result;
-    reader.readAsDataURL(imageFile);
-};
-
-/* RUN */
-function runCompression(){
-
-    if(!imageFile){
-        alert("Upload image first");
-        return;
-    }
-
-    progressBox.style.display = "block";
-    progressText.innerText = "0%";
-    downloadLink.style.display = "none";
-
-    const targetKB = 20;
-    const format = document.getElementById("format").value;
-
-    compressToTarget(targetKB, format);
-}
-
-/* COMPRESS LOOP */
-function compressToTarget(targetKB, format){
-
-    const img = new Image();
-    img.src = preview.src;
-
-    img.onload = function(){
-
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-
-        canvas.width = img.width;
-        canvas.height = img.height;
-
-        ctx.drawImage(img,0,0);
-
-        let quality = 0.9;
-        let attempts = 0;
-
-        function loop(){
-
-            canvas.toBlob(blob => {
-
-                let sizeKB = blob.size / 1024;
-                attempts++;
-
-                progressText.innerText = Math.min(95, attempts * 10) + "%";
-
-                if(sizeKB > targetKB && quality > 0.1){
-                    quality -= 0.05;
-                    loop();
-                }else{
-
-                    const url = URL.createObjectURL(blob);
-
-                    downloadLink.href = url;
-                    downloadLink.download = "compressed-20kb.jpg";
-                    downloadLink.innerText = "Download (" + Math.round(sizeKB) + " KB)";
-                    downloadLink.style.display = "block";
-
-                    progressText.innerText = "Done ✅";
-                }
-
-            }, format, quality);
-        }
-
-        loop();
-    };
-}
-
-</script>
+<script src="/js/compress.js" defer></script>
 
 
 <script src="/script.js" defer></script>

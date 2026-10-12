@@ -213,5 +213,196 @@ export const tools = [
       check('service outage message is translated', msg && expectLang[lang].test(msg), msg.slice(0, 70));
       check('no "being improved" notice', !(await page.$('.temporary-tool-notice')));
     }
-  }
+  },
+  {
+    name: 'image-converter', path: 'image-converter',
+    async run({ page, fixtures, check, lang }) {
+      await page.evaluate(() => window.downloadZip());
+      let msg = await message(page);
+      check('zip before converting shows message, no download', msg && expectLang[lang].test(msg), msg.slice(0, 50));
+      await page.evaluate(() => window.convertImage());
+      msg = await message(page);
+      check('convert with no file shows message', !!msg);
+      await upload(page, '#upload', fixtures, 'transparent.png', 'small.jpg');
+      const formats = { 'image/jpeg': ['.jpg', 'image/jpeg', 'mjpeg'], 'image/png': ['.png', 'image/png', 'png'], 'image/webp': ['.webp', 'image/webp', 'webp'], 'image/bmp': ['.bmp', 'image/bmp', 'bmp'], 'image/gif': ['.gif', 'image/gif', 'gif'] };
+      for (const [mime, [ext, sig, codec]] of Object.entries(formats)) {
+        await page.selectOption('#format', mime);
+        await page.evaluate(() => window.convertImage());
+        await page.waitForFunction(() => document.getElementById('downloadMenu').style.display === 'block', null, { timeout: 30000 });
+        const files = [];
+        const got = new Promise((resolve) => {
+          const onDl = async (d) => { files.push({ name: d.suggestedFilename(), bytes: fs.readFileSync(await d.path()) }); if (files.length === 2) { page.off('download', onDl); resolve(); } };
+          page.on('download', onDl);
+        });
+        await page.evaluate(() => window.downloadImages());
+        await Promise.race([got, page.waitForTimeout(8000)]);
+        const ok = files.length === 2 && files.every((x) => signature(x.bytes) === sig && x.name.endsWith(ext));
+        const info = files[0] && probe(files[0].bytes, ext);
+        check(`${ext} output is real ${sig}`, ok && info.codec === codec && info.width === 800, files.map((x) => `${x.name}:${signature(x.bytes)}`).join(',') + ` codec=${info && info.codec} ${info && info.width}x${info && info.height}`);
+      }
+      const z = await download(page, () => page.evaluate(() => window.downloadZip()));
+      const entries = z ? zipEntries(z.bytes) : [];
+      check('zip contains both converted files', z && signature(z.bytes) === 'application/zip' && entries.length === 2 && entries.every((n) => n.endsWith('.gif')), entries.join(','));
+      await upload(page, '#upload', fixtures, 'text-samples.txt');
+      msg = await message(page);
+      check('non-image upload is rejected with message', msg && expectLang[lang].test(msg), msg.slice(0, 50));
+    }
+  },
+
+  {
+    name: 'compress-image', path: 'compress-image',
+    async run({ page, fixtures, check, lang }) {
+      await page.evaluate(() => window.runCompression());
+      let msg = await message(page);
+      check('run without file shows message', msg && expectLang[lang].test(msg), msg.slice(0, 40));
+      const preset = await page.inputValue('#targetKB');
+      check('target preset', preset === '', preset);
+      async function run(target, format, fixture) {
+        await upload(page, '#upload', fixtures, fixture);
+        await page.waitForFunction(() => document.getElementById('preview').naturalWidth > 0);
+        await page.fill('#targetKB', String(target));
+        if (format) await page.selectOption('#format', format);
+        await page.evaluate(() => window.runCompression());
+        await page.waitForFunction(() => document.getElementById('downloadLink').style.display === 'block', null, { timeout: 60000 });
+        const text = await page.evaluate(() => document.querySelector('.compress-info').innerText);
+        const d = await download(page, () => page.click('#downloadLink'));
+        return { d, text };
+      }
+      const target = 100;
+      let r = await run(target, 'image/jpeg', 'large.jpg');
+      const kb = r.d && r.d.bytes.length / 1024;
+      check(`jpg ${target}KB target honest`, r.d && signature(r.d.bytes) === 'image/jpeg' && r.d.name.endsWith('.jpg') && kb <= target * 1.1 && expectLang[lang].test(r.text), `${kb && kb.toFixed(1)}KB ${r.d && r.d.name} :: ${r.text.slice(0, 90)}`);
+      r = await run(target, 'image/webp', 'large.jpg');
+      check(`webp ${target}KB target`, r.d && signature(r.d.bytes) === 'image/webp' && r.d.name.endsWith('.webp') && r.d.bytes.length / 1024 <= target * 1.1, `${(r.d.bytes.length / 1024).toFixed(1)}KB`);
+      r = await run(target, 'image/png', 'transparent.png');
+      const info = r.d && probe(r.d.bytes, '.png');
+      check('png keeps transparency and extension', r.d && signature(r.d.bytes) === 'image/png' && /a/.test(info.pixFmt) && r.d.name.endsWith('.png'), `${info && info.pixFmt} ${r.d && r.d.name}`);
+      r = await run(2, 'image/jpeg', 'large.jpg');
+      const reached = r.d.bytes.length / 1024 <= 2;
+      check('impossible 2KB target is reported honestly', r.d && (reached || !/^(Target reached|تم الوصول|Objetivo alcanzado)/.test(r.text)), `${(r.d.bytes.length / 1024).toFixed(1)}KB :: ${r.text.slice(0, 80)}`);
+      await page.fill('#targetKB', '');
+      await page.evaluate(() => window.runCompression());
+      await page.waitForFunction(() => document.getElementById('downloadLink').style.display === 'block', null, { timeout: 30000 });
+      const m = await download(page, () => page.click('#downloadLink'));
+      check('manual quality mode works', m && signature(m.bytes) === 'image/jpeg' && m.name.endsWith('.jpg'), m && m.name);
+    }
+  },
+
+  {
+    name: 'compress-image-to-20kb', path: 'compress-image-to-20kb',
+    async run({ page, fixtures, check, lang }) {
+      await page.evaluate(() => window.runCompression());
+      let msg = await message(page);
+      check('run without file shows message', msg && expectLang[lang].test(msg), msg.slice(0, 40));
+      const preset = await page.inputValue('#targetKB');
+      check('target preset', preset === '20', preset);
+      async function run(target, format, fixture) {
+        await upload(page, '#upload', fixtures, fixture);
+        await page.waitForFunction(() => document.getElementById('preview').naturalWidth > 0);
+        await page.fill('#targetKB', String(target));
+        if (format) await page.selectOption('#format', format);
+        await page.evaluate(() => window.runCompression());
+        await page.waitForFunction(() => document.getElementById('downloadLink').style.display === 'block', null, { timeout: 60000 });
+        const text = await page.evaluate(() => document.querySelector('.compress-info').innerText);
+        const d = await download(page, () => page.click('#downloadLink'));
+        return { d, text };
+      }
+      const target = 20;
+      let r = await run(target, 'image/jpeg', 'large.jpg');
+      const kb = r.d && r.d.bytes.length / 1024;
+      check(`jpg ${target}KB target honest`, r.d && signature(r.d.bytes) === 'image/jpeg' && r.d.name.endsWith('.jpg') && kb <= target * 1.1 && expectLang[lang].test(r.text), `${kb && kb.toFixed(1)}KB ${r.d && r.d.name} :: ${r.text.slice(0, 90)}`);
+      r = await run(target, 'image/webp', 'large.jpg');
+      check(`webp ${target}KB target`, r.d && signature(r.d.bytes) === 'image/webp' && r.d.name.endsWith('.webp') && r.d.bytes.length / 1024 <= target * 1.1, `${(r.d.bytes.length / 1024).toFixed(1)}KB`);
+      r = await run(target, 'image/png', 'transparent.png');
+      const info = r.d && probe(r.d.bytes, '.png');
+      check('png keeps transparency and extension', r.d && signature(r.d.bytes) === 'image/png' && /a/.test(info.pixFmt) && r.d.name.endsWith('.png'), `${info && info.pixFmt} ${r.d && r.d.name}`);
+      r = await run(2, 'image/jpeg', 'large.jpg');
+      const reached = r.d.bytes.length / 1024 <= 2;
+      check('impossible 2KB target is reported honestly', r.d && (reached || !/^(Target reached|تم الوصول|Objetivo alcanzado)/.test(r.text)), `${(r.d.bytes.length / 1024).toFixed(1)}KB :: ${r.text.slice(0, 80)}`);
+      await page.fill('#targetKB', '');
+      await page.evaluate(() => window.runCompression());
+      await page.waitForFunction(() => document.getElementById('downloadLink').style.display === 'block', null, { timeout: 30000 });
+      const m = await download(page, () => page.click('#downloadLink'));
+      check('manual quality mode works', m && signature(m.bytes) === 'image/jpeg' && m.name.endsWith('.jpg'), m && m.name);
+    }
+  },
+
+  {
+    name: 'compress-image-to-50kb', path: 'compress-image-to-50kb',
+    async run({ page, fixtures, check, lang }) {
+      await page.evaluate(() => window.runCompression());
+      let msg = await message(page);
+      check('run without file shows message', msg && expectLang[lang].test(msg), msg.slice(0, 40));
+      const preset = await page.inputValue('#targetKB');
+      check('target preset', preset === '50', preset);
+      async function run(target, format, fixture) {
+        await upload(page, '#upload', fixtures, fixture);
+        await page.waitForFunction(() => document.getElementById('preview').naturalWidth > 0);
+        await page.fill('#targetKB', String(target));
+        if (format) await page.selectOption('#format', format);
+        await page.evaluate(() => window.runCompression());
+        await page.waitForFunction(() => document.getElementById('downloadLink').style.display === 'block', null, { timeout: 60000 });
+        const text = await page.evaluate(() => document.querySelector('.compress-info').innerText);
+        const d = await download(page, () => page.click('#downloadLink'));
+        return { d, text };
+      }
+      const target = 50;
+      let r = await run(target, 'image/jpeg', 'large.jpg');
+      const kb = r.d && r.d.bytes.length / 1024;
+      check(`jpg ${target}KB target honest`, r.d && signature(r.d.bytes) === 'image/jpeg' && r.d.name.endsWith('.jpg') && kb <= target * 1.1 && expectLang[lang].test(r.text), `${kb && kb.toFixed(1)}KB ${r.d && r.d.name} :: ${r.text.slice(0, 90)}`);
+      r = await run(target, 'image/webp', 'large.jpg');
+      check(`webp ${target}KB target`, r.d && signature(r.d.bytes) === 'image/webp' && r.d.name.endsWith('.webp') && r.d.bytes.length / 1024 <= target * 1.1, `${(r.d.bytes.length / 1024).toFixed(1)}KB`);
+      r = await run(target, 'image/png', 'transparent.png');
+      const info = r.d && probe(r.d.bytes, '.png');
+      check('png keeps transparency and extension', r.d && signature(r.d.bytes) === 'image/png' && /a/.test(info.pixFmt) && r.d.name.endsWith('.png'), `${info && info.pixFmt} ${r.d && r.d.name}`);
+      r = await run(2, 'image/jpeg', 'large.jpg');
+      const reached = r.d.bytes.length / 1024 <= 2;
+      check('impossible 2KB target is reported honestly', r.d && (reached || !/^(Target reached|تم الوصول|Objetivo alcanzado)/.test(r.text)), `${(r.d.bytes.length / 1024).toFixed(1)}KB :: ${r.text.slice(0, 80)}`);
+      await page.fill('#targetKB', '');
+      await page.evaluate(() => window.runCompression());
+      await page.waitForFunction(() => document.getElementById('downloadLink').style.display === 'block', null, { timeout: 30000 });
+      const m = await download(page, () => page.click('#downloadLink'));
+      check('manual quality mode works', m && signature(m.bytes) === 'image/jpeg' && m.name.endsWith('.jpg'), m && m.name);
+    }
+  },
+
+  {
+    name: 'compress-image-to-100kb', path: 'compress-image-to-100kb',
+    async run({ page, fixtures, check, lang }) {
+      await page.evaluate(() => window.runCompression());
+      let msg = await message(page);
+      check('run without file shows message', msg && expectLang[lang].test(msg), msg.slice(0, 40));
+      const preset = await page.inputValue('#targetKB');
+      check('target preset', preset === '100', preset);
+      async function run(target, format, fixture) {
+        await upload(page, '#upload', fixtures, fixture);
+        await page.waitForFunction(() => document.getElementById('preview').naturalWidth > 0);
+        await page.fill('#targetKB', String(target));
+        if (format) await page.selectOption('#format', format);
+        await page.evaluate(() => window.runCompression());
+        await page.waitForFunction(() => document.getElementById('downloadLink').style.display === 'block', null, { timeout: 60000 });
+        const text = await page.evaluate(() => document.querySelector('.compress-info').innerText);
+        const d = await download(page, () => page.click('#downloadLink'));
+        return { d, text };
+      }
+      const target = 100;
+      let r = await run(target, 'image/jpeg', 'large.jpg');
+      const kb = r.d && r.d.bytes.length / 1024;
+      check(`jpg ${target}KB target honest`, r.d && signature(r.d.bytes) === 'image/jpeg' && r.d.name.endsWith('.jpg') && kb <= target * 1.1 && expectLang[lang].test(r.text), `${kb && kb.toFixed(1)}KB ${r.d && r.d.name} :: ${r.text.slice(0, 90)}`);
+      r = await run(target, 'image/webp', 'large.jpg');
+      check(`webp ${target}KB target`, r.d && signature(r.d.bytes) === 'image/webp' && r.d.name.endsWith('.webp') && r.d.bytes.length / 1024 <= target * 1.1, `${(r.d.bytes.length / 1024).toFixed(1)}KB`);
+      r = await run(target, 'image/png', 'transparent.png');
+      const info = r.d && probe(r.d.bytes, '.png');
+      check('png keeps transparency and extension', r.d && signature(r.d.bytes) === 'image/png' && /a/.test(info.pixFmt) && r.d.name.endsWith('.png'), `${info && info.pixFmt} ${r.d && r.d.name}`);
+      r = await run(2, 'image/jpeg', 'large.jpg');
+      const reached = r.d.bytes.length / 1024 <= 2;
+      check('impossible 2KB target is reported honestly', r.d && (reached || !/^(Target reached|تم الوصول|Objetivo alcanzado)/.test(r.text)), `${(r.d.bytes.length / 1024).toFixed(1)}KB :: ${r.text.slice(0, 80)}`);
+      await page.fill('#targetKB', '');
+      await page.evaluate(() => window.runCompression());
+      await page.waitForFunction(() => document.getElementById('downloadLink').style.display === 'block', null, { timeout: 30000 });
+      const m = await download(page, () => page.click('#downloadLink'));
+      check('manual quality mode works', m && signature(m.bytes) === 'image/jpeg' && m.name.endsWith('.jpg'), m && m.name);
+    }
+  },
+
 ];
