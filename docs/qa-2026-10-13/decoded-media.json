@@ -1,0 +1,71 @@
+[
+  {
+    "tool": "qr-generator",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/d2edf6d7-16bd-4904-a39f-151711c631b1",
+    "format": "PNG",
+    "size": [
+      1036,
+      1036
+    ],
+    "decoded": [
+      "مرحبا بالعالم — Ñandú 123"
+    ]
+  },
+  {
+    "tool": "meme-generator",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/808cfc6b-5454-4c8a-ae61-c7ac017a4027",
+    "format": "JPEG",
+    "size": [
+      1000,
+      1000
+    ]
+  },
+  {
+    "tool": "audio-converter",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/8c6c0881-579f-4515-912e-ee907ca249c6",
+    "duration": "4.048958",
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "channels": 2,
+        "sample_rate": "44100"
+      }
+    ]
+  },
+  {
+    "tool": "audio-converter",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/4ea011ae-214e-48e6-a638-4e6ef7c399a6",
+    "duration": "4.000000",
+    "streams": [
+      {
+        "codec_name": "pcm_s16le",
+        "channels": 2,
+        "sample_rate": "44100"
+      }
+    ]
+  },
+  {
+    "tool": "audio-speed-changer",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/93d92f0c-e3fe-4631-9505-48bc79d79a0c",
+    "duration": "2.037542",
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "channels": 2,
+        "sample_rate": "44100"
+      }
+    ]
+  },
+  {
+    "tool": "mp3-cutter",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/7579ab38-75c0-4851-8d8f-d94b03e411e3",
+    "duration": "1.227750",
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "channels": 2,
+        "sample_rate": "44100"
+      }
+    ]
+  }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "tool": "social-media-image-resizer",
+    "path": "/workspace/scratch/a8fdf1a6-192f-49de-a617-611d52843cd1/442fbacb-a629-45a1-bd5a-dccd96708510",
+    "status": "BLOCKED",
+    "reason": "download path not present"
+  },
+  {
+    "tool": "compress-image-to-20kb",
+    "path": "/workspace/scratch/a8fdf1a6-192f-49de-a617-611d52843cd1/ad9dbba4-420d-4ed8-ba8c-0d52e711b955",
+    "status": "PASS",
+    "format": "JPEG",
+    "size": [
+      525,
+      350
+    ],
+    "bytes": 20299,
+    "alpha": null
+  },
+  {
+    "tool": "compress-image-to-50kb",
+    "path": "/workspace/scratch/a8fdf1a6-192f-49de-a617-611d52843cd1/4745d145-0df5-4777-8d53-bc0968de5ac4",
+    "status": "PASS",
+    "format": "JPEG",
+    "size": [
+      1033,
+      689
+    ],
+    "bytes": 50567,
+    "alpha": null
+  },
+  {
+    "tool": "compress-image-to-100kb",
+    "path": "/workspace/scratch/a8fdf1a6-192f-49de-a617-611d52843cd1/0ca99d1f-3bda-48d2-b8cc-35a6d9ffa714",
+    "status": "PASS",
+    "format": "JPEG",
+    "size": [
+      1715,
+      1143
+    ],
+    "bytes": 101114,
+    "alpha": null
+  },
+  {
+    "tool": "remove-bg",
+    "path": "/workspace/scratch/a8fdf1a6-192f-49de-a617-611d52843cd1/026fc40a-eed2-4c00-89d8-3b0cd47b0702",
+    "status": "PASS",
+    "format": "PNG",
+    "size": [
+      640,
+      480
+    ],
+    "bytes": 46983,
+    "alpha": [
+      0,
+      254
+    ]
+  }
+]

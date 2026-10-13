@@ -1,0 +1,447 @@
+[
+  {
+    "tool": "png-to-jpg",
+    "lang": "en",
+    "empty": "PASS",
+    "output": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/6efadeba-33f6-4a5f-b81e-376268fb494d"
+  },
+  {
+    "tool": "rotate-pdf",
+    "lang": "en",
+    "unchangedPdf": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/eb4b62a0-234d-46f5-9592-441e6512688c",
+    "rotatedPdf": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/e7667fef-5dd2-4eca-aead-cafea9e0b165",
+    "rotatedPreview": [
+      [
+        367,
+        475
+      ]
+    ]
+  },
+  {
+    "tool": "webp-to-png",
+    "lang": "en",
+    "empty": "Please choose a file first.",
+    "output": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/1558fdc6-fcd2-48e2-b975-1beaae70004b",
+    "name": "photo.png"
+  },
+  {
+    "tool": "png-to-jpg",
+    "lang": "ar/",
+    "empty": "يُرجى اختيار ملف أولًا.",
+    "invalid": "يمكن إضافة صور PNG فقط هنا. تم تجاوز الملفات الأخرى.",
+    "outputs": [
+      {
+        "path": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/82407661-153c-4c84-8e06-c6006f9a54be",
+        "name": "transparent.jpg"
+      },
+      {
+        "path": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/c0ee7a2a-f3c4-4a9f-9cb2-b9999c396c3a",
+        "name": "transparent.jpg"
+      }
+    ]
+  },
+  {
+    "tool": "png-to-jpg",
+    "lang": "es/",
+    "empty": "Primero elige un archivo.",
+    "invalid": "Aquí solo se pueden añadir imágenes PNG. Se omitieron los demás archivos.",
+    "outputs": [
+      {
+        "path": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/dc9d1b3f-c98c-4814-a6a1-052928729188",
+        "name": "transparent.jpg"
+      },
+      {
+        "path": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/ade51ece-2e84-4408-ab6a-f2bdeebd0b0b",
+        "name": "transparent.jpg"
+      }
+    ]
+  },
+  {
+    "tool": "jpg-to-png",
+    "lang": "en",
+    "empty": "Please choose a file first.",
+    "invalid": "Only JPG images can be added here. Other files were skipped.",
+    "outputs": [
+      {
+        "path": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/8a9a4203-e9d1-4fbb-8320-58132624f622",
+        "name": "small.png"
+      },
+      {
+        "path": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/7bad3471-3b5a-481c-89f1-a181a576499f",
+        "name": "small.png"
+      }
+    ]
+  },
+  {
+    "tool": "jpg-to-png",
+    "lang": "ar/",
+    "empty": "يُرجى اختيار ملف أولًا.",
+    "invalid": "يمكن إضافة صور JPG فقط هنا. تم تجاوز الملفات الأخرى.",
+    "outputs": [
+      {
+        "path": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/0a417277-9473-4901-92cb-f5400466cd6e",
+        "name": "small.png"
+      },
+      {
+        "path": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/531e1379-ee04-492c-a37e-0b0e2214d821",
+        "name": "small.png"
+      }
+    ]
+  },
+  {
+    "tool": "jpg-to-png",
+    "lang": "es/",
+    "empty": "Primero elige un archivo.",
+    "invalid": "Aquí solo se pueden añadir imágenes JPG. Se omitieron los demás archivos.",
+    "outputs": [
+      {
+        "path": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/9b0c2139-3be6-49f4-8204-4d0bdccebefa",
+        "name": "small.png"
+      },
+      {
+        "path": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/f8364928-4541-44bb-b4e1-cbe8a127ddc2",
+        "name": "small.png"
+      }
+    ]
+  },
+  {
+    "tool": "webp-to-png",
+    "lang": "ar/",
+    "empty": "يُرجى اختيار ملف أولًا.",
+    "invalid": "يمكن إضافة صور WEBP فقط هنا. تم تجاوز الملفات الأخرى.",
+    "outputs": [
+      {
+        "path": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/6cb6ba94-c1fe-47ca-824f-51cf72319262",
+        "name": "photo.png"
+      },
+      {
+        "path": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/cfbae7e3-02b0-4659-9f0f-8e520b3b512d",
+        "name": "photo.png"
+      }
+    ]
+  },
+  {
+    "tool": "webp-to-png",
+    "lang": "es/",
+    "empty": "Primero elige un archivo.",
+    "invalid": "Aquí solo se pueden añadir imágenes WEBP. Se omitieron los demás archivos.",
+    "outputs": [
+      {
+        "path": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/e0aebf93-c18f-45b0-800a-42425b2c5b65",
+        "name": "photo.png"
+      },
+      {
+        "path": "/home/oai/share/9357f153-daa9-429a-a43a-41492fe80c7e/157d70ce-4631-446b-acb6-057f1cba4857",
+        "name": "photo.png"
+      }
+    ]
+  },
+  {
+    "tool": "image-converter",
+    "lang": "en",
+    "format": "bmp",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/ec5cebb7-914c-4605-a917-fef274d9cfd2"
+  },
+  {
+    "tool": "image-converter",
+    "lang": "en",
+    "format": "gif",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/cdb88a1b-5e28-48be-b50e-85cc3e639bff"
+  },
+  {
+    "tool": "compress-image",
+    "lang": "en",
+    "targetKB": 100,
+    "message": "Target reached: 98.7 KB (target 100 KB) · 1715×1143 px · quality 64%.",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/caa3786c-a9b1-4565-bdd3-b934e8aa9de5"
+  },
+  {
+    "tool": "compress-image",
+    "lang": "en",
+    "targetKB": 20,
+    "message": "Target reached: 19.8 KB (target 20 KB) · 525×350 px · quality 65%.",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/ead9e1bc-5ab5-43a4-b54c-9d168cb30326"
+  },
+  {
+    "tool": "image-resizer",
+    "lang": "en",
+    "expected": [
+      3000,
+      2000
+    ],
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/1f114a9b-ba34-439d-84e9-e8d039516d75"
+  },
+  {
+    "tool": "image-resizer",
+    "lang": "en",
+    "expected": [
+      1200,
+      800
+    ],
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/65b17c1a-36a3-4a11-89e4-628a44632482"
+  },
+  {
+    "tool": "jpg-to-pdf",
+    "lang": "en",
+    "empty": "Please choose a file first.",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/1c30c708-f0f0-45d5-9659-6a8412848698",
+    "name": "convertios-images.pdf"
+  },
+  {
+    "tool": "jpg-to-pdf",
+    "lang": "en",
+    "mode": "a4",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/7a04af9c-eb5f-4d5a-ac7e-6c00afa63c1d"
+  },
+  {
+    "tool": "merge-pdf",
+    "lang": "en",
+    "empty": "Upload PDFs first Retry",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/6f5bf889-30c3-4775-89cf-24cd347e1de2"
+  },
+  {
+    "tool": "split-pdf",
+    "lang": "en",
+    "empty": "Upload a PDF first Retry",
+    "expectedPages": [
+      1,
+      3
+    ],
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/70603e87-22e4-4680-99af-225e4601805d"
+  },
+  {
+    "tool": "pdf-to-jpg",
+    "lang": "en",
+    "generatedPages": 4,
+    "output": {
+      "error": "Error: Timed out after 7975ms waiting for download."
+    }
+  },
+  {
+    "tool": "pdf-to-word",
+    "lang": "en",
+    "emptyDisabled": true,
+    "invalid": "Please choose a PDF file.",
+    "started": true
+  },
+  {
+    "tool": "pdf-to-word",
+    "lang": "en",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/f3639e3f-0c54-41a3-ae73-b42fa01c5743"
+  },
+  {
+    "tool": "ai-image-enhancer",
+    "lang": "en",
+    "emptyDisabled": true,
+    "started": true
+  },
+  {
+    "tool": "ai-image-enhancer",
+    "lang": "en",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/291efa61-536a-4bd9-a7da-f95d2e25c9fd",
+    "name": "small-enhanced.jpg"
+  },
+  {
+    "tool": "video-to-mp3",
+    "lang": "en",
+    "emptyDisabled": true,
+    "invalid": "This file type is not supported. Choose MP4, MOV, WEBM, MKV, AVI, M4V, MPEG, MPG, 3GP, OGV, FLV, WMV or TS.",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/af9d3635-7f37-4aa6-a9f5-ea77f0f29f8f"
+  },
+  {
+    "tool": "video-converter",
+    "lang": "en",
+    "input": "video.mov",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/83a7fdce-b3fb-437c-adeb-584fe6dd6a10"
+  },
+  {
+    "tool": "link-shortener",
+    "lang": "en",
+    "empty": "Paste a web address to shorten.",
+    "invalid": "Paste a web address to shorten.",
+    "started": true
+  },
+  {
+    "tool": "link-shortener",
+    "lang": "en",
+    "result": null,
+    "state": {
+      "message": "Short link ready. It works anywhere a normal link does.",
+      "result": "https://tinyurl.com/2dh2vvve"
+    }
+  },
+  {
+    "tool": "qr-generator",
+    "lang": "en",
+    "empty": "Enter a link or some text to turn into a QR code.",
+    "input": "مرحبا بالعالم — Ñandú 123",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/d2edf6d7-16bd-4904-a39f-151711c631b1"
+  },
+  {
+    "tool": "text-formatter",
+    "lang": "en",
+    "checks": [
+      {
+        "fn": "capitalize",
+        "input": "él ÁRBOL don’t café-bar 3RD",
+        "output": "Él Árbol Don’t Café-Bar 3rd"
+      },
+      {
+        "fn": "capitalize",
+        "input": "مرحبا بالعالم 123",
+        "output": "مرحبا بالعالم 123"
+      },
+      {
+        "fn": "toUpper",
+        "input": "canción ñ",
+        "output": "CANCIÓN Ñ"
+      },
+      {
+        "fn": "removeSpaces",
+        "input": "  a   b  \n\n\n\n c\t\td ",
+        "output": "a b\n\nc d"
+      }
+    ]
+  },
+  {
+    "tool": "meme-generator",
+    "lang": "en",
+    "empty": "Please choose a file first.",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/808cfc6b-5454-4c8a-ae61-c7ac017a4027"
+  },
+  {
+    "tool": "audio-converter",
+    "lang": "en",
+    "empty": "Please choose a file first.",
+    "format": "mp3",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/8c6c0881-579f-4515-912e-ee907ca249c6"
+  },
+  {
+    "tool": "audio-converter",
+    "lang": "en",
+    "format": "wav",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/4ea011ae-214e-48e6-a638-4e6ef7c399a6"
+  },
+  {
+    "tool": "audio-speed-changer",
+    "lang": "en",
+    "speed": 2,
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/93d92f0c-e3fe-4631-9505-48bc79d79a0c"
+  },
+  {
+    "tool": "mp3-cutter",
+    "lang": "en",
+    "empty": "Please choose a file first.",
+    "selection": {
+      "end": "0:02",
+      "start": "0:00"
+    },
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/7579ab38-75c0-4851-8d8f-d94b03e411e3"
+  },
+  {
+    "tool": "trim-audio-online",
+    "lang": "en",
+    "output": "/home/oai/share/61d91100-3c97-4d63-801f-c71943ca4cda/3198b12f-3a78-4c9b-8df4-bbdd05331fd0"
+  },
+  {
+    "tool": "social-media-image-resizer",
+    "lang": "en",
+    "expectedSizes": [
+      [
+        320,
+        320
+      ],
+      [
+        1080,
+        1920
+      ]
+    ],
+    "output": "/home/oai/share/a8fdf1a6-192f-49de-a617-611d52843cd1/442fbacb-a629-45a1-bd5a-dccd96708510"
+  },
+  {
+    "tool": "password-generator",
+    "lang": "en",
+    "lengths": [
+      10,
+      10
+    ],
+    "distinct": false,
+    "classes": [
+      false,
+      true,
+      false,
+      true
+    ]
+  },
+  {
+    "tool": "password-generator",
+    "lang": "en",
+    "check": {
+      "digit": false,
+      "length": 10,
+      "lower": true,
+      "symbol": true,
+      "upper": false
+    }
+  },
+  {
+    "tool": "password-generator",
+    "lang": "en",
+    "status": "BLOCKED",
+    "reason": "Browser redacts the generated password before DOM inspection. Earlier length=10/class checks measured <redacted>, not the generated password; those checks are invalid."
+  },
+  {
+    "tool": "word-counter",
+    "lang": "en",
+    "input": "Hello world.\n\nمرحبا بالعالم",
+    "counts": {
+      "words": 4,
+      "characters": 27,
+      "sentences": 2,
+      "paragraphs": 2
+    }
+  },
+  {
+    "tool": "unit-converter",
+    "lang": "en",
+    "input": 100,
+    "conversion": "c-f",
+    "text": "Unit Converter Online\n\nConvert units instantly with accurate real-time results.\n\n \nKilograms → Pounds\nPounds → Kilograms\nGrams → Kilograms\nKilograms → Grams\nMeters → Feet\nFeet → Meters\nKilometers → Meters\nMeters → Kilometers\nCelsius → Fahrenheit\nFahrenheit → Celsius\n Convert\nResult: 212.000"
+  },
+  {
+    "tool": "compress-image-to-20kb",
+    "lang": "en",
+    "output": "/home/oai/share/a8fdf1a6-192f-49de-a617-611d52843cd1/ad9dbba4-420d-4ed8-ba8c-0d52e711b955"
+  },
+  {
+    "tool": "compress-image-to-50kb",
+    "lang": "en",
+    "output": "/home/oai/share/a8fdf1a6-192f-49de-a617-611d52843cd1/4745d145-0df5-4777-8d53-bc0968de5ac4"
+  },
+  {
+    "tool": "compress-image-to-100kb",
+    "lang": "en",
+    "output": "/home/oai/share/a8fdf1a6-192f-49de-a617-611d52843cd1/0ca99d1f-3bda-48d2-b8cc-35a6d9ffa714"
+  },
+  {
+    "tool": "remove-bg",
+    "lang": "en",
+    "input": "small.jpg",
+    "output": "/home/oai/share/a8fdf1a6-192f-49de-a617-611d52843cd1/026fc40a-eed2-4c00-89d8-3b0cd47b0702"
+  },
+  {
+    "tool": "social-media-image-resizer",
+    "lang": "en",
+    "expectedSizes": [
+      [
+        320,
+        320
+      ],
+      [
+        1080,
+        1920
+      ]
+    ],
+    "output": "/home/oai/share/a8fdf1a6-192f-49de-a617-611d52843cd1/0d872062-b9dd-4ecb-a02a-1d43152800a1"
+  }
+]

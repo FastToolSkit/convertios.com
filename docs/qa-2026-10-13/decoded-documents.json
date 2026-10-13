@@ -1,0 +1,147 @@
+[
+  {
+    "tool": "jpg-to-pdf",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/1c30c708-f0f0-45d5-9659-6a8412848698",
+    "bytes": 80410,
+    "pages": [
+      {
+        "size": [
+          640.0,
+          480.0
+        ],
+        "text": ""
+      },
+      {
+        "size": [
+          800.0,
+          600.0
+        ],
+        "text": ""
+      },
+      {
+        "size": [
+          300.0,
+          400.0
+        ],
+        "text": ""
+      }
+    ]
+  },
+  {
+    "tool": "jpg-to-pdf",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/7a04af9c-eb5f-4d5a-ac7e-6c00afa63c1d",
+    "bytes": 80495,
+    "pages": [
+      {
+        "size": [
+          841.89,
+          595.28
+        ],
+        "text": ""
+      },
+      {
+        "size": [
+          841.89,
+          595.28
+        ],
+        "text": ""
+      },
+      {
+        "size": [
+          595.28,
+          841.89
+        ],
+        "text": ""
+      }
+    ]
+  },
+  {
+    "tool": "merge-pdf",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/6f5bf889-30c3-4775-89cf-24cd347e1de2",
+    "bytes": 1154,
+    "pages": [
+      {
+        "size": [
+          612.0,
+          792.0
+        ],
+        "text": "Page 1"
+      },
+      {
+        "size": [
+          612.0,
+          792.0
+        ],
+        "text": "Page 1"
+      },
+      {
+        "size": [
+          612.0,
+          792.0
+        ],
+        "text": "Page 2"
+      },
+      {
+        "size": [
+          612.0,
+          792.0
+        ],
+        "text": "Page 3"
+      },
+      {
+        "size": [
+          612.0,
+          792.0
+        ],
+        "text": "Page 4"
+      }
+    ]
+  },
+  {
+    "tool": "split-pdf",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/70603e87-22e4-4680-99af-225e4601805d",
+    "bytes": 839,
+    "pages": [
+      {
+        "size": [
+          612.0,
+          792.0
+        ],
+        "text": "Page 1"
+      },
+      {
+        "size": [
+          612.0,
+          792.0
+        ],
+        "text": "Page 3"
+      }
+    ]
+  },
+  {
+    "tool": "pdf-to-word",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/f3639e3f-0c54-41a3-ae73-b42fa01c5743",
+    "bytes": 36744,
+    "zip_error": null,
+    "entries": [
+      "[Content_Types].xml",
+      "_rels/.rels",
+      "docProps/core.xml",
+      "docProps/app.xml",
+      "word/document.xml",
+      "word/_rels/document.xml.rels",
+      "word/styles.xml",
+      "word/stylesWithEffects.xml",
+      "word/settings.xml",
+      "word/webSettings.xml",
+      "word/fontTable.xml",
+      "word/theme/theme1.xml",
+      "customXml/item1.xml",
+      "customXml/_rels/item1.xml.rels",
+      "customXml/itemProps1.xml",
+      "word/numbering.xml",
+      "docProps/thumbnail.jpeg"
+    ],
+    "text": "Page 1"
+  }
+]
