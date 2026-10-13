@@ -421,7 +421,7 @@ line-height:1.8;
 <p>Preset pages are ready for the most requested limits: <a href="/compress-image-to-20kb/">20KB</a>, <a href="/compress-image-to-50kb/">50KB</a> and <a href="/compress-image-to-100kb/">100KB</a>.</p>
 <h2>Questions about compressing images</h2>
 <h3>Does compression remove photo metadata?</h3>
-<p>Yes. The image is redrawn and saved again, so EXIF details such as GPS location are not included in the result.</p>
+<p>Re-encoded images do not retain the original EXIF details, such as GPS location. If the image is already below the target and its format is unchanged, the original file is returned with its metadata intact.</p>
 <h3>Are my photos uploaded?</h3>
 <p>No. All compression runs in your browser on your device.</p>
 </section>

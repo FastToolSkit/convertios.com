@@ -1,0 +1,97 @@
+[
+  {
+    "tool": "image-converter",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/ec5cebb7-914c-4605-a917-fef274d9cfd2",
+    "bytes": 1440054,
+    "format": "BMP",
+    "size": [
+      800,
+      600
+    ],
+    "status": "PASS"
+  },
+  {
+    "tool": "image-converter",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/cdb88a1b-5e28-48be-b50e-85cc3e639bff",
+    "bytes": 3102,
+    "format": "GIF",
+    "size": [
+      800,
+      600
+    ],
+    "status": "PASS"
+  },
+  {
+    "tool": "compress-image",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/caa3786c-a9b1-4565-bdd3-b934e8aa9de5",
+    "bytes": 101114,
+    "format": "JPEG",
+    "size": [
+      1715,
+      1143
+    ],
+    "status": "PASS"
+  },
+  {
+    "tool": "compress-image",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/ead9e1bc-5ab5-43a4-b54c-9d168cb30326",
+    "bytes": 20299,
+    "format": "JPEG",
+    "size": [
+      525,
+      350
+    ],
+    "status": "PASS"
+  },
+  {
+    "tool": "image-resizer",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/1f114a9b-ba34-439d-84e9-e8d039516d75",
+    "bytes": 472278,
+    "format": "JPEG",
+    "size": [
+      3000,
+      2000
+    ],
+    "status": "PASS"
+  },
+  {
+    "tool": "image-resizer",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/65b17c1a-36a3-4a11-89e4-628a44632482",
+    "bytes": 130607,
+    "format": "JPEG",
+    "size": [
+      1200,
+      800
+    ],
+    "status": "PASS"
+  },
+  {
+    "tool": "jpg-to-pdf",
+    "path": "/workspace/scratch/61d91100-3c97-4d63-801f-c71943ca4cda/1c30c708-f0f0-45d5-9659-6a8412848698",
+    "bytes": 80410,
+    "pages": [
+      {
+        "size": [
+          640.0,
+          480.0
+        ],
+        "images": 1
+      },
+      {
+        "size": [
+          800.0,
+          600.0
+        ],
+        "images": 1
+      },
+      {
+        "size": [
+          300.0,
+          400.0
+        ],
+        "images": 1
+      }
+    ],
+    "status": "PASS"
+  }
+]

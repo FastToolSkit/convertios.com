@@ -149,6 +149,13 @@ if (!fs.readFileSync(path.join(ROOT, 'ads.txt'), 'utf8').includes('pub-838654934
 // 6. content hygiene
 for (const p of pages) {
   const s = src[p];
+  const footerCount = (s.match(/<footer\b/g) || []).length;
+  if (footerCount !== 1) fail('footer', p, `${footerCount} footer elements; expected one`);
+  const copyrightCount = (s.match(/©\s*2026\s*Convertios/g) || []).length;
+  if (copyrightCount !== 1) fail('footer', p, `${copyrightCount} copyright notices; expected one`);
+  if (/^(?:ar\/|es\/)?index\.html$/.test(p) && /Everything runs instantly in your browser|يعمل كل شيء فورًا في المتصفح|Todo funciona al instante/.test(s)) {
+    fail('privacy', p, 'homepage implies universal instant/local processing');
+  }
   if (/fasttools/i.test(s)) fail('branding', p, 'old FastTools reference');
   if (/temporary-tool-notice|being improved|coming soon|lorem ipsum/i.test(s)) fail('unfinished', p, 'unfinished-looking notice');
   if ((s.match(/adsbygoogle\.js/g) || []).length > 1) fail('adsense', p, 'duplicate AdSense script');
