@@ -1,0 +1,49 @@
+name: Notify IndexNow of changed URLs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      all_pages:
+        description: 'Submit all sitemap URLs (for first-time setup)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow-main
+  cancel-in-progress: false
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Allow static hosting to publish before notifying
+        run: sleep 120
+      - name: Verify key file published
+        run: |
+          curl --fail --location --retry 5 --retry-delay 15 \
+            "https://convertios.com/9104e249e3ba8e1f263e715ad699c855.txt" \
+            | grep -Fx '9104e249e3ba8e1f263e715ad699c855'
+      - name: Notify IndexNow
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+          ALL_PAGES: ${{ inputs.all_pages }}
+        run: |
+          if [ "$ALL_PAGES" = "true" ]; then
+            python scripts/submit-indexnow.py --all
+          elif [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
+            python scripts/submit-indexnow.py --before "$BEFORE" --after "$AFTER"
+          else
+            python scripts/submit-indexnow.py --all
+          fi
