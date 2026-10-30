@@ -493,7 +493,7 @@ dropArea.addEventListener("drop", (e) => {
 async function handleFile() {
   const file = fileInput.files[0];
   if (!file || file.type !== "application/pdf") {
-    alert("يرجى رفع ملف PDF صالح");
+    (window.ConvertiosUI?ConvertiosUI.notify("يرجى رفع ملف PDF صالح"):alert("يرجى رفع ملف PDF صالح"));
     return;
   }
 

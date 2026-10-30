@@ -507,7 +507,7 @@ splitBtn.addEventListener("click", splitPDF);
 async function splitPDF(){
 
 if(!pdfFile){
-alert("Upload a PDF first");
+(window.ConvertiosUI?ConvertiosUI.notify("Upload a PDF first"):alert("Upload a PDF first"));
 return;
 }
 

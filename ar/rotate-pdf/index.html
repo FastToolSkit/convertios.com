@@ -415,7 +415,7 @@ preview.appendChild(box);
 downloadBtn.addEventListener("click", async ()=>{
 
 if(!pdfFile){
-alert("ارفع ملف PDF أولًا");
+(window.ConvertiosUI?ConvertiosUI.notify("ارفع ملف PDF أولًا"):alert("ارفع ملف PDF أولًا"));
 return;
 }
 

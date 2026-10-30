@@ -539,7 +539,7 @@ preview.appendChild(box);
 downloadBtn.addEventListener("click", async ()=>{
 
 if(!pdfFile){
-alert("Primero sube un PDF");
+(window.ConvertiosUI?ConvertiosUI.notify("Primero sube un PDF"):alert("Primero sube un PDF"));
 return;
 }
 

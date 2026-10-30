@@ -475,7 +475,7 @@ renderPreview();
 async function mergePDF(){
 
 if(files.length===0){
-alert("Upload PDFs first");
+(window.ConvertiosUI?ConvertiosUI.notify("Upload PDFs first"):alert("Upload PDFs first"));
 return;
 }
 

@@ -475,7 +475,7 @@ renderPreview();
 async function mergePDF(){
 
 if(files.length===0){
-alert("يرجى رفع ملفات PDF أولاً");
+(window.ConvertiosUI?ConvertiosUI.notify("يرجى رفع ملفات PDF أولاً"):alert("يرجى رفع ملفات PDF أولاً"));
 return;
 }
 

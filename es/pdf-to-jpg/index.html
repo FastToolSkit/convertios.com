@@ -492,7 +492,7 @@ dropArea.addEventListener("drop", (e) => {
 async function handleFile() {
   const file = fileInput.files[0];
   if (!file || file.type !== "application/pdf") {
-    alert("Sube un archivo PDF válido");
+    (window.ConvertiosUI?ConvertiosUI.notify("Sube un archivo PDF válido"):alert("Sube un archivo PDF válido"));
     return;
   }
 

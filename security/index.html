@@ -276,7 +276,7 @@ gtag('config', 'G-0CH8NE5WDH');
     <div>
         <h3>Secure Processing</h3>
         <p>
-            All file conversions are handled in isolated and secure environments. Each task runs independently to ensure that your data is never mixed with other users' files or exposed to any external systems.
+            In-browser tools never send your file anywhere. On the processing server, each request gets its own temporary folder, so files from different users are never mixed, and that folder is deleted when the request ends. The AI Image Enhancer (Cloudinary) and the Link Shortener (TinyURL, with is.gd as a fallback) are the only tools that pass data to an outside service.
         </p>
     </div>
 </div>
@@ -292,7 +292,7 @@ gtag('config', 'G-0CH8NE5WDH');
     <div>
         <h3>Trusted Infrastructure</h3>
         <p>
-            Our platform runs on reliable and secure infrastructure designed to handle high workloads while maintaining strong data protection standards. This ensures consistent performance and a safe experience for all users.
+            Pages are served over HTTPS through Cloudflare from GitHub Pages. The processing server runs on Render, handles two conversions at a time, and can take up to a minute to wake up after a quiet period; the page tells you when that happens.
         </p>
     </div>
 </div>
