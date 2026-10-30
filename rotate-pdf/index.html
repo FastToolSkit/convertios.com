@@ -24,7 +24,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css?v=2a74ce62">
+<link rel="stylesheet" href="/style.css?v=bf293372">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
@@ -539,7 +539,7 @@ preview.appendChild(box);
 downloadBtn.addEventListener("click", async ()=>{
 
 if(!pdfFile){
-alert("Upload a PDF first");
+(window.ConvertiosUI?ConvertiosUI.notify("Upload a PDF first"):alert("Upload a PDF first"));
 return;
 }
 

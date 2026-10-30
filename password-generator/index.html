@@ -24,7 +24,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css?v=2a74ce62">
+<link rel="stylesheet" href="/style.css?v=bf293372">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
@@ -351,56 +351,37 @@ line-height:1.8;
 
 
 <!-- SEO CONTENT -->
-
-<div class="seo-content">
-
-<h2>Free Password Generator Tool</h2>
-
-<p>
-Convertios provides a secure password generator that helps you create strong passwords instantly to protect your accounts.
-</p>
-
-<p>
-Customize your password with uppercase letters, numbers, and symbols for maximum security.
-</p>
-
-</div>
-
-<!-- SEO BOOST -->
-
-<div class="tool-description">
-
-<h2>What this tool does</h2>
-<p>
-This tool generates strong and random passwords using customizable character sets to improve your online security.
-</p>
-
-<h2>How to use</h2>
+<section class="tool-description page-guide" aria-labelledby="guide-heading">
+<h2 id="guide-heading">How this generator creates your password</h2>
+<p>The password is made on this page by your browser, using the Web Crypto API (<code>crypto.getRandomValues</code>), the same source of randomness browsers use for encryption keys. Nothing is sent to Convertios, and the password is not saved anywhere: it is gone when you reload or close the page.</p>
 <ul>
-<li>Select password length</li>
-<li>Choose character types</li>
-<li>Click generate</li>
-<li>Copy your password</li>
+<li>Every character is picked with equal probability. The generator discards random values that would favour some characters over others (no "modulo bias").</li>
+<li>If you tick a character type, the password always contains at least one character of that type, and the result is shuffled so those characters are not always at the start.</li>
+<li>Character sets: 26 uppercase letters, 26 lowercase letters, 10 digits and 24 symbols: <code>! @ # $ % ^ &amp; * ( ) - _ = + [ ] { } ; : , . ? /</code>. Length can be 6 to 50.</li>
 </ul>
-
-<h2>Benefits</h2>
+<h2>How long should your password be?</h2>
+<p>Strength grows with length and with the number of possible characters. The table shows the approximate randomness (in bits) of a password from this generator; each extra bit doubles the number of guesses an attacker needs.</p>
+<div class="guide-table"><table>
+<thead><tr><th>Length</th><th>All four types (86 characters)</th><th>Lowercase + digits only (36 characters)</th></tr></thead>
+<tbody>
+<tr><td>12</td><td>about 77 bits</td><td>about 62 bits</td></tr>
+<tr><td>16</td><td>about 103 bits</td><td>about 83 bits</td></tr>
+<tr><td>20</td><td>about 128 bits</td><td>about 103 bits</td></tr>
+</tbody></table></div>
+<p>For email, banking and other important accounts, use at least 16 characters. If a site rejects some symbols, untick <strong>Symbols</strong> and add three or four characters to make up the difference.</p>
+<h2>Using a generated password safely</h2>
 <ul>
-<li>Improves account security</li>
-<li>Fast password generation</li>
-<li>No installation required</li>
-<li>Free and easy to use</li>
+<li>Use a different password for every account. Reused passwords are how one data breach spreads to your other accounts.</li>
+<li>Store passwords in a password manager rather than in a note, document or screenshot.</li>
+<li>Some phones and computers sync the clipboard between devices. After pasting the password, copy something else to replace it.</li>
+<li>Turn on two-step verification where it is offered. A strong password does not protect you if you type it into a fake login page.</li>
 </ul>
-
-<h2>Use cases</h2>
-<p>
-Perfect for accounts, emails, banking, and online platforms requiring strong passwords.
-</p>
-
-<h2>FAQ</h2>
-<p><strong>Is it free?</strong> Yes, completely free.</p>
-<p><strong>Is it secure?</strong> Passwords are generated locally in your browser.</p>
-
-</div>
+<h2>Questions about the Password Generator</h2>
+<h3>Can Convertios see the passwords I generate?</h3>
+<p>No. The password is created by code running in your browser and is never sent over the network. Once the page has loaded, the generator also works with your internet connection switched off.</p>
+<h3>Why does my password always include a number or symbol?</h3>
+<p>Many sites require at least one character of each type. The generator guarantees one of each type you select so the password is accepted the first time.</p>
+</section>
 
 <!-- MORE TOOLS -->
 
@@ -458,7 +439,7 @@ var lengthInput=document.getElementById('length');
 var length=Math.min(50,Math.max(6,parseInt(lengthInput.value,10)||12));
 lengthInput.value=length;
 var chosen=Object.keys(SETS).filter(function(k){return document.getElementById(k).checked;});
-if(!chosen.length){alert("Select at least one character type.");return;}
+if(!chosen.length){(window.ConvertiosUI?ConvertiosUI.notify("Select at least one character type."):alert("Select at least one character type."));return;}
 var pool=chosen.map(function(k){return SETS[k];}).join('');
 var chars=chosen.map(function(k){var s=SETS[k];return s[randomIndex(s.length)];});
 while(chars.length<length) chars.push(pool[randomIndex(pool.length)]);

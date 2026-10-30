@@ -24,7 +24,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css?v=2a74ce62">
+<link rel="stylesheet" href="/style.css?v=bf293372">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
@@ -351,56 +351,37 @@ line-height:1.8;
 
 
 <!-- SEO CONTENT -->
-
-<div class="seo-content">
-
-<h2>Generador de contraseñas gratuito</h2>
-
-<p>
-Convertios genera contraseñas seguras al instante para proteger tus cuentas.
-</p>
-
-<p>
-Personaliza la contraseña con mayúsculas, números y símbolos.
-</p>
-
-</div>
-
-<!-- SEO BOOST -->
-
-<div class="tool-description">
-
-<h2>Qué hace esta herramienta</h2>
-<p>
-Genera contraseñas aleatorias con conjuntos de caracteres personalizables para mejorar tu seguridad.
-</p>
-
-<h2>Cómo usarla</h2>
+<section class="tool-description page-guide" aria-labelledby="guide-heading">
+<h2 id="guide-heading">Cómo crea este generador tu contraseña</h2>
+<p>Tu navegador crea la contraseña en esta misma página con la Web Crypto API (<code>crypto.getRandomValues</code>), la misma fuente de aleatoriedad que usan los navegadores para las claves de cifrado. No se envía nada a Convertios y la contraseña no se guarda en ningún sitio: desaparece al recargar o cerrar la página.</p>
 <ul>
-<li>Selecciona la longitud</li>
-<li>Elige los tipos de caracteres</li>
-<li>Haz clic en Generar</li>
-<li>Copia tu contraseña</li>
+<li>Cada carácter se elige con la misma probabilidad. El generador descarta los valores aleatorios que favorecerían a unos caracteres sobre otros (sin "sesgo de módulo").</li>
+<li>Si marcas un tipo de carácter, la contraseña siempre incluye al menos uno de ese tipo, y el resultado se mezcla para que esos caracteres no aparezcan siempre al principio.</li>
+<li>Conjuntos de caracteres: 26 mayúsculas, 26 minúsculas, 10 dígitos y 24 símbolos: <code>! @ # $ % ^ &amp; * ( ) - _ = + [ ] { } ; : , . ? /</code>. La longitud puede ir de 6 a 50.</li>
 </ul>
-
-<h2>Ventajas</h2>
+<h2>¿Qué longitud debe tener tu contraseña?</h2>
+<p>La seguridad aumenta con la longitud y con la cantidad de caracteres posibles. La tabla muestra la aleatoriedad aproximada (en bits) de una contraseña creada con este generador; cada bit adicional duplica los intentos que necesitaría un atacante.</p>
+<div class="guide-table"><table>
+<thead><tr><th>Longitud</th><th>Los cuatro tipos (86 caracteres)</th><th>Solo minúsculas y dígitos (36 caracteres)</th></tr></thead>
+<tbody>
+<tr><td>12</td><td>unos 77 bits</td><td>unos 62 bits</td></tr>
+<tr><td>16</td><td>unos 103 bits</td><td>unos 83 bits</td></tr>
+<tr><td>20</td><td>unos 128 bits</td><td>unos 103 bits</td></tr>
+</tbody></table></div>
+<p>Para el correo, la banca y otras cuentas importantes, usa al menos 16 caracteres. Si un sitio no acepta algunos símbolos, desmarca <strong>Símbolos</strong> y añade tres o cuatro caracteres para compensar.</p>
+<h2>Cómo usar una contraseña generada con seguridad</h2>
 <ul>
-<li>Mejora la seguridad de las cuentas</li>
-<li>Generación rápida</li>
-<li>No requiere instalación</li>
-<li>Gratis y fácil de usar</li>
+<li>Usa una contraseña distinta para cada cuenta. Reutilizarlas es lo que permite que una filtración de datos llegue a tus otras cuentas.</li>
+<li>Guarda las contraseñas en un gestor de contraseñas, no en una nota, un documento o una captura de pantalla.</li>
+<li>Algunos teléfonos y ordenadores sincronizan el portapapeles entre dispositivos. Después de pegar la contraseña, copia otra cosa para reemplazarla.</li>
+<li>Activa la verificación en dos pasos cuando esté disponible. Una contraseña fuerte no te protege si la escribes en una página de inicio de sesión falsa.</li>
 </ul>
-
-<h2>Casos de uso</h2>
-<p>
-Ideal para cuentas, correo, banca y plataformas que requieren contraseñas fuertes.
-</p>
-
-<h2>FAQ</h2>
-<p><strong>¿Es gratis?</strong> Sí. Es completamente gratuito.</p>
-<p><strong>¿Es seguro?</strong> Las contraseñas se generan localmente en tu navegador.</p>
-
-</div>
+<h2>Preguntas sobre el generador de contraseñas</h2>
+<h3>¿Puede Convertios ver las contraseñas que genero?</h3>
+<p>No. La contraseña la crea código que se ejecuta en tu navegador y nunca se envía por la red. Una vez cargada la página, el generador funciona incluso sin conexión a internet.</p>
+<h3>¿Por qué mi contraseña siempre incluye un número o un símbolo?</h3>
+<p>Muchos sitios exigen al menos un carácter de cada tipo. El generador garantiza uno de cada tipo que selecciones para que la contraseña se acepte a la primera.</p>
+</section>
 
 <!-- MORE TOOLS -->
 
@@ -458,7 +439,7 @@ var lengthInput=document.getElementById('length');
 var length=Math.min(50,Math.max(6,parseInt(lengthInput.value,10)||12));
 lengthInput.value=length;
 var chosen=Object.keys(SETS).filter(function(k){return document.getElementById(k).checked;});
-if(!chosen.length){alert("Selecciona al menos un tipo de carácter.");return;}
+if(!chosen.length){(window.ConvertiosUI?ConvertiosUI.notify("Selecciona al menos un tipo de carácter."):alert("Selecciona al menos un tipo de carácter."));return;}
 var pool=chosen.map(function(k){return SETS[k];}).join('');
 var chars=chosen.map(function(k){var s=SETS[k];return s[randomIndex(s.length)];});
 while(chars.length<length) chars.push(pool[randomIndex(pool.length)]);

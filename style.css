@@ -1373,6 +1373,11 @@ margin-top:20px;
 border-radius:12px;
 box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
+/* #preview is an <img> on single-image tools but a container of thumbnails or a file list on PDF and
+   batch tools; the 350px cap is only for the image, otherwise the list overflows onto the buttons below. */
+div#preview{
+max-height:none;
+}
 
 #downloadLink{
 margin-top:20px;
