@@ -9,6 +9,8 @@ Branch `adsense/low-value-audit-20261030` (from `origin/main` 8994e74, which inc
 1. **User interest is still low**, and Google's notice lists it as a criterion. This can't be fixed with code; it needs time.
 2. **45 tool pages (15 per language) still use the original generic template.** These are the pages most likely to read as "low value", and they include the site's most-visited page.
 
+This audit also found and fixed a real defect that any phone tester would hit: four PDF tools rendered their results on top of the page on mobile (see weakness 0). It needs to be deployed before any resubmission.
+
 The rejection itself predates most of the current site. Since then, broken tools have been fixed and the duplicate-URL problem has been resolved. A resubmission in about 4–8 weeks, after the fixes below are merged and the highest-traffic template pages are rewritten, has a realistic chance. Resubmitting today does not.
 
 ## What Google said and when
@@ -51,7 +53,9 @@ Measured on a 390 px phone profile with a 4-page PDF, before the fix:
 | Split PDF | 109 px (AR 124 px) | Last thumbnails overlap the Split button |
 | Merge PDF | 83 px (AR 103 px) | File list overlaps the Merge button |
 
-A reviewer or visitor who tries these tools on a phone sees a broken page. Desktop is mostly unaffected because more thumbnails fit per row. The fix is one CSS rule, `div#preview { max-height: none; }`; image previews keep their 350 px cap. Asset hashes were re-stamped with `scripts/stamp-assets.py`.
+A reviewer or visitor who tries these tools on a phone sees a broken page. On desktop more thumbnails fit per row, so short PDFs look fine, but a long PDF would hit the same cap. The fix is one CSS rule, `div#preview { max-height: none; }`; image previews keep their 350 px cap. Asset hashes were re-stamped with `scripts/stamp-assets.py`.
+
+A second, Arabic-only cause: `/ar/rotate-pdf/` never had the page-specific `<style>` block that the English and Spanish pages have (thumbnail grid, 180 px cards, canvas sizing). Its page canvases rendered 367 px wide and pushed the page 11 px sideways. The identical block is now added, placed before `rtl.css` so the RTL overrides still apply. (`/ar/pdf-to-word/` is also missing its block; the only visible effect is an unstyled progress-bar track, so it's left as is.)
 
 ### 1. Generic template content on 45 tool pages (high impact)
 15 tools in each language still use the original "Free X Tool / What this tool does / How to use / Benefits / Use cases / FAQ" template. Their text is unique at the phrase level (no 8-word overlap with other pages), but formulaic: interchangeable marketing claims such as "fast and reliable", "no installation required", "works on mobile, tablet, and desktop", "ideal for businesses, marketers, students", and the identical FAQ answer "Yes, the tool is completely free with no hidden costs." on 9 English pages. They give little that is specific to the tool.
@@ -112,7 +116,9 @@ Impressions are not visits. Real visits are a few hundred a month, concentrated 
 | Live production backend, real files | Video to MP3: MP4 → valid 3.0 s MP3. Video Converter: MOV → valid WebM (VP9 + Opus). PDF to Word: 3-page PDF → valid DOCX. Each took 2–4 s (server warm). |
 | Live backend error handling | Unsupported output → `400 UNSUPPORTED_OUTPUT`; JPG sent to PDF to Word → `415 "Uploaded file must be a PDF."` |
 | Live backend, scanned PDF | "Succeeds" with no editable text, hence fix #2 |
-| Browser tool suite (`tests/browser`, 390 px touch phone profile, EN/AR/ES, real fixture files, backend mocked) | See [tool-suite.log](tool-suite.log) |
+| Existing browser tool suite (`tests/browser/run.mjs --suite tools`, 390 px touch phone profile, EN/AR/ES, real fixture files, backend mocked) | First commit of this branch: **90 runs passed, 3 failed**. All 3 failures are the QR "PNG readable" checks, because the laptop lacks OpenCV for decoding (QR verified separately below). A re-run on the final commit is added as [test-results.log](test-results.log) when it completes. |
+| QR Generator, live site | A QR made on `/es/qr-generator/` from `Ñandú: ¿qué tal? مرحبا https://convertios.com/` decodes back to exactly that text (OpenCV) |
+| New PDF end-to-end test (`tests/browser/pdf-tools-e2e.mjs`): real 4-page PDF, output checked with pdf-lib, layout checked | **On `main`: 3/15 pass** (layout spill on every PDF tool; Arabic Rotate button untappable). **On this branch: all pass.** Merge gives 1+4 = 5 pages; Split with page 1 deselected gives 3 pages; Rotate gives page 1 at 90° and the rest at 0°; JPG+PNG gives a 2-page PDF; PDF to JPG gives 4 JPEGs. |
 | New regression check (`tests/browser/inline-messages.mjs`) | **15/15 passed**: every former `alert()` now shows the inline message in the right language, with no native dialog and no page errors |
 | Static site checker (`tests/site-check.mjs`) | **131 pages, 129 indexable, 129 sitemap URLs: 0 problems, 0 warnings** |
 
@@ -120,13 +126,14 @@ Impressions are not visits. Real visits are a few hundred a month, concentrated 
 
 | # | Change | Files | Expected user benefit |
 |---|---|---|---|
+| 0 | Stop container `#preview` lists overflowing (`div#preview{max-height:none}`); add the missing page styles to Arabic Rotate PDF; re-stamp asset hashes | `style.css`, `ar/rotate-pdf`, asset `?v=` stamps on 133 pages | Merge, Split, Rotate and PDF to JPG work and look right on phones in all languages |
 | 1 | PDF to Word: replace scanned-PDF claim with an accurate explanation and a 5-second self-check | `pdf-to-word`, `es/…`, `ar/…` | Users with scanned PDFs know what they'll get instead of receiving an uneditable DOCX |
 | 2 | Password Generator: replace generic template with an accurate guide covering how it generates (Web Crypto, unbiased selection, guaranteed types), a strength table (77/103/128 bits at 12/16/20 characters), and safe-use advice | `password-generator`, `es/…`, `ar/…` | Explains why the tool is trustworthy and how to choose a length; main content goes from about 190 generic words to 470–510 specific ones per language |
 | 3 | Security / FAQ / Privacy: replace overclaims with accurate statements of what is processed where | `security`, `faq`, `privacy` (+ ES/AR where affected); Privacy date set to 30 Oct | Trust pages that match reality |
 | 4 | Remove AdSense script from `/tools/` and `/ar/tools/` | 2 files | No ads on navigation-only duplicates |
 | 5 | Replace 15 `alert()` popups with the inline message | 5 tools × 3 languages | Non-blocking, accessible, translated feedback |
 
-No URL, canonical, redirect, hreflang, sitemap, IndexNow, ads.txt or converter-logic file was changed (except removing the two blocking popups from the PDF tools' input checks).
+No URL, canonical, redirect, hreflang, sitemap, IndexNow or ads.txt was changed, and no conversion logic was changed. The only script edits replace `alert(...)` with the shared inline message, falling back to `alert` if the helper is missing.
 
 ## Prioritized improvements still to do
 
@@ -145,9 +152,10 @@ Each rewrite should state **real behaviour** (check it against the tool's code, 
 
 1. `node tests/site-check.mjs`: canonicals, hreflang, titles, one H1, JSON-LD validity, sitemap/indexable parity, AdSense tag on every indexable page.
 2. `node tests/browser/run.mjs --suite tools`: all tool flows in EN/AR/ES on a phone profile.
-3. `node tests/browser/inline-messages.mjs`: no native dialogs on the five tools.
-4. `node tests/browser/run.mjs --suite pages`: 131 pages × 6 widths for overflow, JS errors and broken links (slow, about 25 min).
-5. After deploying: `curl -sI` each changed URL (expect 200, unchanged canonical), and re-check `ads.txt`.
+3. `node tests/browser/pdf-tools-e2e.mjs` (new): real PDF output and phone layout for Merge, Split, Rotate, JPG to PDF and PDF to JPG.
+4. `node tests/browser/inline-messages.mjs` (new): no native dialogs on the five tools.
+5. `node tests/browser/run.mjs --suite pages`: 131 pages × 6 widths for overflow, JS errors and broken links (slow, about 25 min).
+6. After deploying: `curl -sI` each changed URL (expect 200, unchanged canonical), and re-check `ads.txt`.
 
 ## When to resubmit
 
