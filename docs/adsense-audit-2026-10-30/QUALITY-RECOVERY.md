@@ -17,7 +17,8 @@ This work follows draft PR #248 without changing live production. It was complet
 - Asset stamps: **zero problems**.
 - Real-PDF/browser mobile tests: **15/15 passed**, including Arabic Rotate PDF.
 - Inline-message browser tests: **15/15 passed**.
-- Full browser tool suite with the correct Python/OpenCV decoder environment: **zero page failures and zero tool failures**. All three QR language checks pass. A previous run without the decoder reported three environment-related failures.
+- Full browser tool suite on the final source, with the correct Python/OpenCV decoder environment: **zero page failures and zero tool failures**. All three QR language checks pass. A previous run without the decoder reported three environment-related failures.
+- Browser page crawl at 390 px phone width: **131 pages checked, zero page/width failures**. Other viewport widths were not rerun in this follow-up.
 
 ## Important limitations
 The generic Benefits and Use cases sections were replaced with practical content across all 42 pages. Some original introductory and FAQ phrasing remains; human editorial review is still worthwhile. These changes do not guarantee AdSense approval. Native-speaker review of Arabic and Spanish paragraphs is advisable before deployment. The Cloudflare historical alias redirect and AdSense resubmission remain separate, unapplied tasks. No tool completion analytics events were implemented in this branch.
