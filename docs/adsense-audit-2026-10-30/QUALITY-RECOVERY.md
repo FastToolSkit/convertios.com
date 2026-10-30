@@ -3,7 +3,7 @@
 This work follows draft PR #248 without changing live production. It was completed in a byte-preserving Git clone on a separate branch, because the interrupted Codex workspace's reported 42-page rewrite could not be located in the laptop checkouts or GitHub.
 
 ## Scope
-- Added purpose-specific user guidance to **42 localized pages** (14 distinct tools × EN/AR/ES), in two content commits: six high-priority tools and eight remaining tools.
+- Replaced generic Benefits and Use cases sections with purpose-specific guidance on **42 localized pages** (14 distinct tools × EN/AR/ES): six priority tools and eight additional tools. Existing useful instructions and FAQ content were preserved.
 - Corrected the English PDF-to-Word statement that falsely said no file upload occurs.
 - Added the missing Tool Information panel on the Spanish Image Converter page.
 - Removed unsupported fixed-size-limit claims from affected client-side tools.
@@ -17,10 +17,10 @@ This work follows draft PR #248 without changing live production. It was complet
 - Asset stamps: **zero problems**.
 - Real-PDF/browser mobile tests: **15/15 passed**, including Arabic Rotate PDF.
 - Inline-message browser tests: **15/15 passed**.
-- Full tool browser suite: see PR notes for final run status.
+- Full browser tool suite with the correct Python/OpenCV decoder environment: **zero page failures and zero tool failures**. All three QR language checks pass. A previous run without the decoder reported three environment-related failures.
 
 ## Important limitations
-These edits are **targeted practical additions and corrections**, not full replacements of all original generic template sections. They improve usefulness but do not guarantee AdSense approval. Native-speaker review of Arabic and Spanish paragraphs is advisable before deployment. The Cloudflare historical alias redirect and AdSense resubmission remain separate, unapplied tasks. No tool completion analytics events were implemented in this branch.
+The generic Benefits and Use cases sections were replaced with practical content across all 42 pages. Some original introductory and FAQ phrasing remains; human editorial review is still worthwhile. These changes do not guarantee AdSense approval. Native-speaker review of Arabic and Spanish paragraphs is advisable before deployment. The Cloudflare historical alias redirect and AdSense resubmission remain separate, unapplied tasks. No tool completion analytics events were implemented in this branch.
 
 ## Deployment boundary
 This is a dependent draft PR against `adsense/low-value-audit-20261030` (#248). Neither this work nor PR #248 should be merged to `main` until the complete regression results and translations are reviewed. No live deployment or AdSense request has been performed.
