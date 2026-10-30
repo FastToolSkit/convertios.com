@@ -39,6 +39,20 @@ So the reviewer saw a site with broken flagship tools, a fully duplicated URL sp
 
 ## Confirmed weaknesses (with evidence)
 
+### 0. PDF tools look broken on phones after a file is loaded (high impact): **fixed on branch**
+A global rule in `style.css`, `#preview { max-height: 350px }`, was meant for single image previews (`<img id="preview">`). But 30 pages use `<div id="preview">` as the container for page thumbnails or file lists. Once a multi-page PDF is loaded on a phone, the content overflows that 350 px box and is drawn **on top of** the buttons and text below it.
+
+Measured on a 390 px phone profile with a 4-page PDF, before the fix:
+
+| Tool | Overflow below its box | Effect |
+|---|---:|---|
+| PDF to JPG | 1,631 px | Page images cover the guide and Tool Information |
+| Rotate PDF | 870 px | Thumbnails run behind "Download Rotated PDF"; **in Arabic the Rotate (تدوير) buttons are covered by the next heading, so tapping them does nothing** (Playwright's hit test lands on `h2#tool-info-heading`) |
+| Split PDF | 109 px (AR 124 px) | Last thumbnails overlap the Split button |
+| Merge PDF | 83 px (AR 103 px) | File list overlaps the Merge button |
+
+A reviewer or visitor who tries these tools on a phone sees a broken page. Desktop is mostly unaffected because more thumbnails fit per row. The fix is one CSS rule, `div#preview { max-height: none; }`; image previews keep their 350 px cap. Asset hashes were re-stamped with `scripts/stamp-assets.py`.
+
 ### 1. Generic template content on 45 tool pages (high impact)
 15 tools in each language still use the original "Free X Tool / What this tool does / How to use / Benefits / Use cases / FAQ" template. Their text is unique at the phrase level (no 8-word overlap with other pages), but formulaic: interchangeable marketing claims such as "fast and reliable", "no installation required", "works on mobile, tablet, and desktop", "ideal for businesses, marketers, students", and the identical FAQ answer "Yes, the tool is completely free with no hidden costs." on 9 English pages. They give little that is specific to the tool.
 
