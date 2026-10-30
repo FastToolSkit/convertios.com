@@ -1,0 +1,128 @@
+{
+  "source": "Google Search Console URL Inspection \u2014 indexed (stored) result, not live test",
+  "inspected_on": "2026-10-30",
+  "property": "sc-domain:convertios.com",
+  "results": [
+    {
+      "url": "https://convertios.com/text-formatter/",
+      "indexed_status": "Duplicate, Google chose different canonical than user",
+      "last_crawl_googlebot_smartphone": "2026-10-14 02:43:48",
+      "user_declared_canonical": "https://convertios.com/text-formatter/",
+      "google_selected_canonical": "https://convertios.com/text-formatter.html",
+      "sitemap": "Temporary processing error",
+      "referring_page": "https://convertios.com/ar/text-formatter/; https://convertios.com/ar/text-formatter.html",
+      "crawl_allowed": "Yes",
+      "indexing_allowed": "Yes"
+    },
+    {
+      "url": "https://convertios.com/trim-audio-online/",
+      "indexed_status": "Duplicate, Google chose different canonical than user",
+      "last_crawl_googlebot_smartphone": "2026-09-28 05:57:46",
+      "user_declared_canonical": "https://convertios.com/trim-audio-online/",
+      "google_selected_canonical": "https://convertios.com/trim-audio-online.html",
+      "sitemap": "https://convertios.com/sitemap.xml",
+      "referring_page": "None detected",
+      "crawl_allowed": "Yes",
+      "indexing_allowed": "Yes"
+    },
+    {
+      "url": "https://convertios.com/ar/ai-image-enhancer/",
+      "indexed_status": "Duplicate, Google chose different canonical than user",
+      "last_crawl_googlebot_smartphone": "2026-09-26 06:18:08",
+      "user_declared_canonical": "https://convertios.com/ar/ai-image-enhancer/",
+      "google_selected_canonical": "https://convertios.com/ar/ai-image-enhancer.html",
+      "sitemap": "https://convertios.com/sitemap.xml",
+      "referring_page": "None detected",
+      "crawl_allowed": "Yes",
+      "indexing_allowed": "Yes"
+    },
+    {
+      "url": "https://convertios.com/ar/image-converter/",
+      "indexed_status": "Duplicate, Google chose different canonical than user",
+      "last_crawl_googlebot_smartphone": "2026-09-17 07:52:11",
+      "user_declared_canonical": "https://convertios.com/ar/image-converter/",
+      "google_selected_canonical": "https://convertios.com/ar/image-converter.html",
+      "sitemap": "Temporary processing error",
+      "referring_page": "https://convertios.com/image-converter/",
+      "crawl_allowed": "Yes",
+      "indexing_allowed": "Yes"
+    },
+    {
+      "url": "https://convertios.com/ar/split-pdf/",
+      "indexed_status": "Duplicate, Google chose different canonical than user",
+      "last_crawl_googlebot_smartphone": "2026-09-07 17:56:04",
+      "user_declared_canonical": "https://convertios.com/ar/split-pdf/",
+      "google_selected_canonical": "https://convertios.com/ar/split-pdf.html",
+      "sitemap": "https://convertios.com/sitemap.xml",
+      "referring_page": "https://convertios.com/split-pdf/; https://convertios.com/ar/word-counter/",
+      "crawl_allowed": "Yes",
+      "indexing_allowed": "Yes"
+    },
+    {
+      "url": "https://convertios.com/ar/pdf-to-jpg/",
+      "indexed_status": "Duplicate, Google chose different canonical than user",
+      "last_crawl_googlebot_smartphone": "2026-09-01 18:28:56",
+      "user_declared_canonical": "https://convertios.com/ar/pdf-to-jpg/",
+      "google_selected_canonical": "https://convertios.com/ar/pdf-to-jpg.html",
+      "sitemap": "https://convertios.com/sitemap.xml",
+      "referring_page": "https://convertios.com/pdf-to-jpg/; https://convertios.com/ar/word-counter/",
+      "crawl_allowed": "Yes",
+      "indexing_allowed": "Yes"
+    },
+    {
+      "url": "https://convertios.com/ar/webp-to-png/",
+      "indexed_status": "Duplicate, Google chose different canonical than user",
+      "last_crawl_googlebot_smartphone": "2026-08-31 08:00:26",
+      "user_declared_canonical": "https://convertios.com/ar/webp-to-png/",
+      "google_selected_canonical": "https://convertios.com/ar/webp-to-png.html",
+      "sitemap": "https://convertios.com/sitemap.xml",
+      "referring_page": "https://convertios.com/webp-to-png/",
+      "crawl_allowed": "Yes",
+      "indexing_allowed": "Yes"
+    },
+    {
+      "url": "https://convertios.com/ar/ai-image-enhancer.html",
+      "indexed_status": "URL is on Google \u2014 Page is indexed",
+      "last_crawl_googlebot_smartphone": null,
+      "user_declared_canonical": null,
+      "google_selected_canonical": null,
+      "sitemap": null,
+      "referring_page": null,
+      "crawl_allowed": null,
+      "indexing_allowed": null
+    },
+    {
+      "url": "https://convertios.com/ar/image-converter.html",
+      "indexed_status": "URL is on Google \u2014 Page is indexed (Breadcrumbs: 1 valid item)",
+      "last_crawl_googlebot_smartphone": null,
+      "user_declared_canonical": null,
+      "google_selected_canonical": null,
+      "sitemap": null,
+      "referring_page": null,
+      "crawl_allowed": null,
+      "indexing_allowed": null
+    },
+    {
+      "url": "https://convertios.com/ar/es/",
+      "indexed_status": "Not found (404)",
+      "last_crawl_googlebot_smartphone": "2026-09-11 08:44:50",
+      "user_declared_canonical": "N/A",
+      "google_selected_canonical": "N/A",
+      "sitemap": "Temporary processing error",
+      "referring_page": "https://convertios.com/es/",
+      "crawl_allowed": "Yes",
+      "indexing_allowed": "N/A (fetch failed: 404)"
+    },
+    {
+      "url": "https://convertios.com/video-converter/",
+      "indexed_status": "Discovered - currently not indexed",
+      "last_crawl_googlebot_smartphone": "N/A (never crawled)",
+      "user_declared_canonical": "N/A",
+      "google_selected_canonical": "N/A",
+      "sitemap": "https://convertios.com/sitemap.xml",
+      "referring_page": "None detected",
+      "crawl_allowed": "N/A",
+      "indexing_allowed": "N/A"
+    }
+  ]
+}
