@@ -1,29 +1,41 @@
-# Convertios News & Blog expansion — November 11, 2026
+# Convertios news and blog — November 11, 2026
 
-## Scope
-- Replaces truncated, inconsistent blog footers with the identical, localized footer from the corresponding homepage (all 27 blog pages).
-- Adds a visible **Blog** pill in the English, Spanish and Arabic homepage navigation, in addition to existing footer links.
-- Turns the previous three-guide blog into a five-story, source-linked news feed plus three practical guides, localized to EN/ES/AR.
-- Adds AI-generated editorial illustration to every article and a visual news-card grid above the guides; illustrative images are not photographs of real events.
-- Adds five topics × three locales = **15 new article pages**, for 27 blog pages including three localized hubs and nine existing guide translations.
-- Creates 15 new canonical sitemap records, language-specific navigation links, reciprocal hreflang, NewsArticle schema and source/publication date labeling.
-- Keeps the original converter implementations, current tools, URLs, and shared CSS unchanged.
+## Initial release
 
-## News sources, original publication dates
-- PDF Brotli compression, Aug 19: https://pdfa.org/no-excuses-brotli-compression-advances-pdf/
-- PDF/UA-1 accessibility notes, Sep 9: https://pdfa.org/two-new-technical-notes-addressing-pdf-ua-1-implementations/
-- GS1 retail 2D barcode playbook, Mar 2026: https://ref.gs1.org/sme-guidance/2d-retail-systems-playbook/
-- PDF-to-HTML derivation 1.2, Sep 27: https://pdfa.org/deriving-pdf-to-html-version-1-2/
-- SVG 2 Candidate Recommendation, Oct 6: https://www.w3.org/news/2026/updated-candidate-recommendation-scalable-vector-graphics-svg-2/
+The November release added five news topics in three languages alongside the existing three guides and three hubs, for 27 blog pages. It added the news card layout, AI-generated editorial illustrations, canonical and reciprocal hreflang links, `NewsArticle` data, sitemap records, localized navigation and matching localized footers. The converter implementations and shared CSS were left intact. The illustrations depict concepts; they are not photographs of the reported events.
 
-All five are news summaries **published by Convertios on November 11, 2026**. Source dates are clearly differentiated. Neither news items nor metadata imply Convertios has implemented the emerging standards.
+The original primary sources and event dates are:
 
-## Verified
-- npm test: 13 backend passes and site checker: 158 pages, 156 indexable/sitemap URLs, zero issues and zero warnings.
-- Asset version stamps: zero issues.
-- Browser layout crawl: 158 pages at both 390px and 1280px, zero page failures (before final copy/date/nav polish; no layout structure changed since).
-- Targeted audit: 27 localized blog pages with correct matching footers, article imagery, 5 source-linked NewsArticle entries per language, valid cross-language routes, zero failures.
-- Original non-blog tools and unrelated local checkout edits preserved.
+- PDF Association Brotli specification, 19 August 2026: https://pdfa.org/no-excuses-brotli-compression-advances-pdf/
+- PDF Association PDF/UA-1 notes, 9 September 2026: https://pdfa.org/two-new-technical-notes-addressing-pdf-ua-1-implementations/
+- GS1 retail 2D playbook, 11 March 2026; revised 28 May 2026: https://ref.gs1.org/sme-guidance/2d-retail-systems-playbook/archive
+- PDF Association PDF-to-HTML algorithm 1.2, 27 September 2026: https://pdfa.org/deriving-pdf-to-html-version-1-2/
+- W3C SVG 2 Candidate Recommendation Snapshot, 6 October 2026: https://www.w3.org/news/2026/updated-candidate-recommendation-scalable-vector-graphics-svg-2/
 
-## Ongoing editorial workflow
-Do not scrape or republish full third-party articles. Select substantive primary-source standards announcements, verify dates and limits, summarize what changed and why it matters for ordinary users, add an original use-case analysis, clear source link and topical Convertios tool link, generate an appropriate illustration, translate accurately, and review in a PR before deployment. Do not backdate stories or imply an experimental standard is universally supported. Google AdSense approval is not guaranteed by page count.
+All five Convertios news stories were published on 11 November 2026. A previous browser crawl of the initial release covered 158 pages at 390px and 1280px without page failures. The editorial expansion here needs its own browser run before release; see the checks below.
+
+## Editorial maintenance
+
+The five November 2026 news stories have editable copy in `build_editorial.py`. The script updates their EN, ES and AR article bodies, page metadata and hub cards while preserving the existing navigation, illustrations and footers. Run it from the repository root with `python docs/blog-news-2026-11/build_editorial.py` after changing copy. Review the generated HTML before committing.
+
+## Adding or updating a story
+
+1. Verify the event directly against a dated primary source: a standards body, specification publisher, or the organization making the announcement. Record the event date, revision date and source URL separately. Read the source's status and limitations. Do not rely on a headline or a third-party summary alone.
+2. Write original coverage in each language: a short dek; what happened; how it works; implications for ordinary users; a useful checklist; and limitations. Distinguish a draft, specification or industry goal from a shipped feature. Avoid invented quotes, benchmarks and support claims. Quote no more than 25 words from any single source.
+3. Add source links inside factual paragraphs and a primary-source list. Include at least two natural links to existing, correctly localized Convertios tools in the body and one relevant blog link. Verify tool behavior in the actual pages or code before naming a capability.
+4. Keep the source event date separate from the Convertios publication date. Set `NewsArticle.datePublished` to the actual Convertios publication day in all three versions. Update each page's title, description, canonical, reciprocal hreflang, language switcher, hub card and sitemap entry. Use an honest hero illustration and descriptive alt text; never imply an illustration is a documentary photo.
+5. Check each localized page for meaning, reading order and RTL layout. Match its footer to the localized homepage. Preserve conversion-tool markup and scripts.
+
+## Checks
+
+From the repository root:
+
+```text
+npm test
+python scripts/stamp-assets.py --check
+python docs/blog-news-2026-11/verify_editorial.py
+node tests/browser/run.mjs --suite pages --widths 390,1280
+git diff --check
+```
+
+On Windows PowerShell, `npm.cmd test` runs when execution policy blocks `npm.ps1`. The browser suite requires a local Playwright installation. `verify_editorial.py` checks all 27 current blog pages, including internal links written with single or double quotes, images, canonicals, hreflang, localized footer identity, and the five expanded news triples. Extend its slug list and page-count expectation when adding a news story.
