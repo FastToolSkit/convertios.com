@@ -112,6 +112,16 @@ for (const p of pages) {
       if (got !== want && !(!equivalentExists && got === fallback)) fail('language-switcher', p, `${l} -> ${got}`);
     }
   }
+  // Every published page must expose Blog as the final navigation link.
+  const nav = s.match(/<nav class="nav-menu">([\s\S]*?)<\/nav>/)?.[1];
+  const localePrefix = p.startsWith('ar/') ? 'ar/' : p.startsWith('es/') ? 'es/' : '';
+  const expectedBlog = `/${localePrefix}blog/`;
+  const finalBlog = nav?.match(/<a href="([^"]+)"[^>]*class="nav-blog-link[^"]*"[^>]*>[\s\S]*?<\/a>\s*$/)?.[1];
+  const blogCount = (nav?.match(/class="nav-blog-link(?: active)?"/g) || []).length;
+  if (finalBlog !== expectedBlog || blogCount !== 1) fail('header-blog', p, `Blog must be final link: ${finalBlog}`);
+  if (!sw?.includes('class="language-selector__globe"') || !sw?.includes('class="language-selector__label"')) {
+    fail('language-selector-ui', p, 'missing shared globe/label markup');
+  }
 }
 
 // 4. structured data

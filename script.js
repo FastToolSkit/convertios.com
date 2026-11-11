@@ -16,6 +16,7 @@
     const normalized=cleanPath.startsWith('/') ? cleanPath : '/'+cleanPath;
     const pathWithoutLanguage=normalized.replace(/^\/(?:ar|es)(?=\/|$)/,'') || '/';
 
+    if(pathWithoutLanguage==='/tools/' && targetLang==='es') return '/es/all-tools/';
     if(targetLang==='ar') return pathWithoutLanguage==='/' ? '/ar/' : '/ar'+pathWithoutLanguage;
     if(targetLang==='es') return pathWithoutLanguage==='/' ? '/es/' : '/es'+pathWithoutLanguage;
     return pathWithoutLanguage || '/';
