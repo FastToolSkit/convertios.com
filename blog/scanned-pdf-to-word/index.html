@@ -54,7 +54,7 @@ gtag('config', 'G-0CH8NE5WDH');
 .blog-breadcrumb{font-size:.9rem;margin:0 0 22px}
 @media(max-width:768px){.blog-grid{grid-template-columns:1fr}}
 </style>
-</head>
+<style>.guide-hero{display:block;width:100%;max-height:420px;object-fit:cover;border-radius:16px;margin:0 0 22px}</style></head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header">
@@ -144,9 +144,31 @@ gtag('config', 'G-0CH8NE5WDH');
     </div>
   </details>
 </header>
-<main class="page-content" id="main-content"><nav class="blog-breadcrumb" aria-label="Blog"><a href="/blog/">All guides</a></nav><article class="blog-article"><h1>Why scanned PDFs are not editable after conversion</h1><p class="blog-intro">A Word document can look identical to the PDF and still contain no editable words. The difference is whether the original PDF contains real text or just pictures of pages.</p><section><h2>Check before you convert</h2><p>Open the original PDF and try to highlight a single word. If you can select and copy it, a text layer probably exists. If selecting a word only grabs an entire page image, the document is likely a scan.</p></section><section><h2>What Convertios actually does</h2><p>The Convertios PDF-to-Word tool sends the PDF to its processing server and uses pdf2docx to create a DOCX. It does not perform optical character recognition (OCR). A scanned PDF therefore may produce a Word document containing page images rather than editable paragraphs.</p></section><section><h2>What can change during conversion</h2><p>Even with selectable text, complicated columns, forms, tables, fonts, and spacing can shift. Review the result before sharing or editing an important document. The tool accepts PDF files up to 25 MB; server wake-up can make the conversion slower.</p></section><section><h2>What to do with a scan</h2><p>Use an OCR-capable application first if you need editable text. Then proofread the recognized words, especially numbers, names, and tables. If you only need a page image, use PDF to JPG instead.</p></section><div class="blog-actions"><strong>Related tools:</strong> <a href="/pdf-to-word/">Try PDF to Word</a><a href="/pdf-to-jpg/">Export PDF pages as JPG</a></div></article></main>
+<main class="page-content" id="main-content"><img class="guide-hero" src="/assets/blog/accessibility.png" width="1536" height="1024" alt="AI-generated illustration for this guide" loading="eager"><nav class="blog-breadcrumb" aria-label="Blog"><a href="/blog/">All guides</a></nav><article class="blog-article"><h1>Why scanned PDFs are not editable after conversion</h1><p class="blog-intro">A Word document can look identical to the PDF and still contain no editable words. The difference is whether the original PDF contains real text or just pictures of pages.</p><section><h2>Check before you convert</h2><p>Open the original PDF and try to highlight a single word. If you can select and copy it, a text layer probably exists. If selecting a word only grabs an entire page image, the document is likely a scan.</p></section><section><h2>What Convertios actually does</h2><p>The Convertios PDF-to-Word tool sends the PDF to its processing server and uses pdf2docx to create a DOCX. It does not perform optical character recognition (OCR). A scanned PDF therefore may produce a Word document containing page images rather than editable paragraphs.</p></section><section><h2>What can change during conversion</h2><p>Even with selectable text, complicated columns, forms, tables, fonts, and spacing can shift. Review the result before sharing or editing an important document. The tool accepts PDF files up to 25 MB; server wake-up can make the conversion slower.</p></section><section><h2>What to do with a scan</h2><p>Use an OCR-capable application first if you need editable text. Then proofread the recognized words, especially numbers, names, and tables. If you only need a page image, use PDF to JPG instead.</p></section><div class="blog-actions"><strong>Related tools:</strong> <a href="/pdf-to-word/">Try PDF to Word</a><a href="/pdf-to-jpg/">Export PDF pages as JPG</a></div></article></main>
 <footer class="site-footer">
-  <p>© 2026 Convertios · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/contact/">Contact</a></p>
+
+<div class="footer-container">
+
+    <div class="footer-brand">
+        <h3>Convertios</h3>
+        <p>Free online tools for converting files, images, and more.</p>
+    </div>
+
+    <div class="footer-links">
+    <a href="/blog/">Blog</a>
+        <a href="/all-tools/">Tools</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/security/">Security</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+    </div>
+
+</div>
+<p class="footer-bottom">
+© 2026 Convertios • All rights reserved
+</p>
+
 </footer>
 <script src="/script.js?v=859e3276" defer></script>
 </body>
