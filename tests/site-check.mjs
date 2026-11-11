@@ -171,7 +171,7 @@ for (const p of pages) {
 
 // 7. asset version stamps
 try {
-  execFileSync('python3', [path.join(ROOT, 'scripts', 'stamp-assets.py'), '--check'], { stdio: 'pipe' });
+  execFileSync(process.platform === 'win32' ? 'python' : 'python3', [path.join(ROOT, 'scripts', 'stamp-assets.py'), '--check'], { stdio: 'pipe' });
 } catch (e) {
   fail('asset-version', 'scripts/stamp-assets.py', String(e.stdout || e.message).trim().split('\n').slice(-1)[0]);
 }
