@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-0CH8NE5WDH');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PDF 2.0 incorpora compresión Brotli: qué cambia | Convertios</title>
+
+<meta name="description" content="Una especificación de 2026 añade el filtro BrotliDecode y ofrece una nueva opción de compresión sin pérdida para software PDF compatible.">
+<meta name="robots" content="index, follow">
+
+<link rel="stylesheet" href="/style.css?v=bf293372">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<style>
+
+.page-content{
+max-width:900px;
+margin:80px auto;
+background:white;
+padding:40px;
+border-radius:16px;
+color:#1e293b;
+line-height:1.8;
+}
+
+.page-content h1{
+margin-bottom:20px;
+}
+
+.page-content h2{
+margin-top:30px;
+margin-bottom:10px;
+}
+
+</style>
+
+<link rel="canonical" href="https://convertios.com/es/blog/pdf-brotli-2026/">
+<link rel="alternate" hreflang="en" href="https://convertios.com/blog/pdf-brotli-2026/">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/pdf-brotli-2026/">
+<link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/pdf-brotli-2026/">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/pdf-brotli-2026/">
+
+<!-- Convertios SEO social metadata -->
+<meta property="og:title" content="PDF 2.0 incorpora compresión Brotli: qué cambia">
+<meta property="og:description" content="Una especificación de 2026 añade el filtro BrotliDecode y ofrece una nueva opción de compresión sin pérdida para software PDF compatible.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://convertios.com/es/blog/pdf-brotli-2026/">
+<meta property="og:image" content="https://convertios.com/convertios-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PDF 2.0 incorpora compresión Brotli: qué cambia">
+<meta name="twitter:description" content="Una especificación de 2026 añade el filtro BrotliDecode y ofrece una nueva opción de compresión sin pérdida para software PDF compatible.">
+<meta name="twitter:image" content="https://convertios.com/convertios-logo.png">
+<!-- /Convertios SEO social metadata -->
+
+<!-- Convertios structured data -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "PDF 2.0 incorpora compresión Brotli: qué cambia", "description": "Una especificación de 2026 añade el filtro BrotliDecode y ofrece una nueva opción de compresión sin pérdida para software PDF compatible.", "datePublished": "2026-11-11", "mainEntityOfPage": "https://convertios.com/es/blog/pdf-brotli-2026/", "image": "https://convertios.com/assets/blog/brotli.png", "inLanguage": "es", "publisher": {"@type": "Organization", "name": "Convertios", "url": "https://convertios.com/"}}</script>
+<!-- /Convertios structured data -->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<style>
+.blog-intro{max-width:760px;font-size:1.1rem;color:#475569}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin:30px 0}
+.blog-card{display:block;color:inherit;text-decoration:none;background:#f8fbff;padding:24px;border:1px solid #dbe4f0;border-radius:14px}
+.blog-card:hover,.blog-card:focus-visible{border-color:#3a78ff;box-shadow:0 7px 22px rgba(35,75,120,.1)}
+.blog-card h2{margin-top:0;font-size:1.24rem}.blog-card p{margin-bottom:0}
+.blog-article{max-width:760px}.blog-article h2{margin-top:32px}
+.blog-meta{color:#64748b;font-size:.9rem}.blog-actions{margin:26px 0;padding:20px;background:#eef6ff;border-radius:12px}
+.blog-actions a{display:inline-block;margin:7px 14px 7px 0;font-weight:600}
+.blog-breadcrumb{font-size:.9rem;margin:0 0 22px}
+@media(max-width:768px){.blog-grid{grid-template-columns:1fr}}
+</style>
+<style>.news-article{max-width:830px}.news-hero{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:16px;display:block;margin:20px 0 24px}.news-article h2{margin-top:30px}.news-date{font-size:.9rem;color:#64748b}.news-article section p{line-height:1.85}</style></head>
+<body>
+<a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+<header class="site-header">
+
+<div class="header-left">
+    <a href="/es/" class="logo">
+        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
+    </a>
+</div>
+
+<nav class="nav-menu">
+
+<a href="/es/">Inicio</a>
+
+
+<div class="nav-item dropdown">
+    <span>Imagen ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/es/png-to-jpg/">PNG a JPG</a>
+        <a href="/es/jpg-to-png/">JPG a PNG</a>
+        <a href="/es/webp-to-png/">WEBP a PNG</a>
+        <a href="/es/image-converter/">Convertidor de imágenes</a>
+        <a href="/es/image-resizer/">Redimensionar imagen</a>
+        <a href="/es/compress-image/">Comprimir imagen</a>
+        <a href="/es/remove-bg/">Eliminar fondo</a>
+        <a href="/es/ai-image-enhancer/">Mejorador de imágenes con IA</a>
+
+        <a href="/es/social-media-image-resizer/">Redimensionador para redes sociales</a>
+<a href="/es/image-tools/" class="view-all">Ver todo →</a>
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>PDF ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/es/pdf-to-word/">PDF a Word</a>
+        <a href="/es/pdf-to-jpg/">PDF a JPG</a>
+        <a href="/es/jpg-to-pdf/">JPG a PDF</a>
+
+        <a href="/es/merge-pdf/">Unir PDF</a>
+        <a href="/es/split-pdf/">Dividir PDF</a>
+        <a href="/es/rotate-pdf/">Rotar PDF</a>
+
+        <a href="/es/pdf-tools/" class="view-all">Ver todo →</a>
+
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>Audio ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/es/mp3-cutter/">Cortador de MP3</a>
+        <a href="/es/audio-converter/">Convertidor de audio</a>
+        <a href="/es/audio-speed-changer/">Cambiador de velocidad</a>
+        <a href="/es/video-to-mp3/">Vídeo a MP3</a>
+        <a href="/es/video-converter/">Convertidor de vídeo</a>
+
+        <a href="/es/audio-tools/" class="view-all">Ver todo →</a>
+
+    </div>
+</div>
+<div class="nav-item dropdown">
+    <span>Más herramientas ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/es/qr-generator/">Generador de códigos QR</a>
+        <a href="/es/link-shortener/">Acortador de enlaces</a>
+        <a href="/es/password-generator/">Generador de contraseñas</a>
+        <a href="/es/word-counter/">Contador de palabras</a>
+        <a href="/es/text-formatter/">Formateador de texto</a>
+        <a href="/es/unit-converter/">Conversor de unidades</a>
+        <a href="/es/meme-generator/">Generador de memes</a>
+
+        <a href="/es/other-tools/" class="view-all">Ver todo →</a>
+
+    </div>
+</div>
+    <a href="/es/all-tools/" class="nav-all-tools">Todas las herramientas </a>
+
+<a href="/es/about/">Acerca de</a>
+<a href="/es/contact/">Contacto</a>
+
+</nav>
+
+<div class="nav-icon faq-wrapper">
+    <a href="/es/faq/" class="faq-link-block">
+
+        <!-- ICON -->
+        <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
+                <circle cx="12" cy="17" r="1"></circle>
+            </svg>
+        </div>
+
+        <!-- TEXT -->
+        <span class="faq-text">Preguntas frecuentes</span>
+</a>
+<details class="language-selector">
+  <summary aria-label="Cambiar idioma"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">Español</span></summary>
+  <div class="language-selector__menu" role="menu" aria-label="Opciones de idioma">
+    <a href="https://convertios.com/blog/pdf-brotli-2026/" lang="en" hreflang="en" role="menuitem">English</a>
+    <a href="https://convertios.com/ar/blog/pdf-brotli-2026/" lang="ar" dir="rtl" hreflang="ar" role="menuitem">العربية</a>
+    <a href="https://convertios.com/es/blog/pdf-brotli-2026/" hreflang="es" aria-current="page" role="menuitem">Español</a>
+  </div>
+</details>
+</header>
+<main class="page-content" id="main-content"><article class="news-article"><a href="/es/blog/">Noticias</a><img class="news-hero" src="/assets/blog/brotli.png" alt="Ilustración generada con IA" width="1536" height="1024"><h1>PDF 2.0 incorpora compresión Brotli: qué cambia</h1><p class="blog-intro">Una especificación de 2026 añade el filtro BrotliDecode y ofrece una nueva opción de compresión sin pérdida para software PDF compatible.</p><p class="news-date">Fuente: 19 de agosto de 2026 · Publicado en Convertios: 11 nov 2026</p><section><h2>El anuncio</h2><p>El 19 de agosto de 2026, la PDF Association anunció una extensión de PDF 2.0 para Brotli. Es una especificación para desarrolladores, no una garantía de compatibilidad universal.</p></section><section><h2>Por qué importa</h2><p>Los flujos comprimidos pueden ocupar gran parte de un PDF. Brotli puede reducir el tamaño, pero el ahorro depende del documento y del programa. La compresión sin pérdida no aumenta la resolución.</p></section><section><h2>Comprueba la compatibilidad</h2><p>Los lectores antiguos pueden no reconocer los nuevos filtros. Prueba el documento antes de enviarlo para un uso importante.</p></section><section><h2>Para usuarios de Convertios</h2><p>Comprimir un archivo y hacer editable su texto son tareas distintas. Un PDF escaneado necesita OCR para extraer palabras; la herramienta PDF a Word de Convertios no realiza OCR.</p></section><p><a href="https://pdfa.org/no-excuses-brotli-compression-advances-pdf/" rel="noopener noreferrer">Fuente original</a></p><p><a href="/es/pdf-to-word/">Herramienta relacionada</a></p></article></main>
+<footer class="site-footer">
+
+<div class="footer-container">
+
+    <div class="footer-brand">
+        <h3>Convertios</h3>
+        <p>Herramientas online gratuitas para convertir archivos, imágenes y mucho más.</p>
+    </div>
+
+    <div class="footer-links">
+    <a href="/es/blog/">Blog</a>
+        <a href="/es/all-tools/">Herramientas</a>
+        <a href="/es/about/">Acerca de</a>
+        <a href="/es/contact/">Contacto</a>
+        <a href="/es/security/">Seguridad</a>
+        <a href="/es/privacy/">Privacidad</a>
+        <a href="/es/terms/">Términos</a>
+    </div>
+
+</div>
+<p class="footer-bottom">
+© 2026 Convertios • Todos los derechos reservados
+</p>
+
+</footer>
+
+<script src="/script.js?v=859e3276" defer></script>
+</body>
+</html>
