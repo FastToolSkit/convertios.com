@@ -24,7 +24,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css?v=bf293372">
+<link rel="stylesheet" href="/style.css?v=2fcb7004">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
@@ -184,7 +184,7 @@ line-height:1.8;
 
 <nav class="nav-menu">
 
-<a href="/es/">Inicio</a>
+<a href="/es/" >Inicio</a>
 
 
 <div class="nav-item dropdown">
@@ -245,7 +245,7 @@ line-height:1.8;
         <a href="/es/password-generator/">Generador de contraseñas</a>
         <a href="/es/word-counter/">Contador de palabras</a>
         <a href="/es/text-formatter/">Formateador de texto</a>
-        <a href="/es/unit-converter/" aria-current="page">Conversor de unidades</a>
+        <a href="/es/unit-converter/">Conversor de unidades</a>
         <a href="/es/meme-generator/">Generador de memes</a>
 
         <a href="/es/other-tools/" class="view-all">Ver todo →</a>
@@ -257,10 +257,11 @@ line-height:1.8;
 <a href="/es/about/">Acerca de</a>
 <a href="/es/contact/">Contacto</a>
 
+  <a href="/es/blog/" class="nav-blog-link">Blog</a>
 </nav>
 
 <div class="nav-icon faq-wrapper">
-    <a href="/es/faq/" class="faq-link-block">
+    <a href="/es/faq/" class="faq-link-block" aria-label="Preguntas frecuentes">
 
         <!-- ICON -->
         <div class="faq-icon">
@@ -273,12 +274,15 @@ line-height:1.8;
 
         <!-- TEXT -->
         <span class="faq-text">FAQ</span>
-<details class="language-selector">
+
+    </a>
+</div>
+<details class="language-selector" dir="ltr">
   <summary aria-label="Cambiar idioma"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">Español</span></summary>
   <div class="language-selector__menu" role="menu" aria-label="Opciones de idioma">
     <a href="https://convertios.com/unit-converter/" lang="en" hreflang="en" role="menuitem">English</a>
-    <a href="https://convertios.com/ar/unit-converter/" lang="ar" dir="rtl" hreflang="ar" role="menuitem">العربية</a>
-    <a href="https://convertios.com/es/unit-converter/" hreflang="es" aria-current="page" role="menuitem">Español</a>
+    <a href="https://convertios.com/ar/unit-converter/" lang="ar" hreflang="ar" role="menuitem" dir="rtl">العربية</a>
+    <a href="https://convertios.com/es/unit-converter/" lang="es" hreflang="es" role="menuitem" aria-current="page">Español</a>
   </div>
 </details>
 </header>
@@ -443,6 +447,6 @@ Sí. Funciona en dispositivos modernos, incluidos teléfonos y tabletas.</p>
 <script> function convert(){ let value = parseFloat(document.getElementById("value").value); let type = document.getElementById("conversion").value; if(isNaN(value)){ document.getElementById("result").innerHTML = "Resultado: introduce un valor"; return; } let result = 0; if(type=="kg-lb") result=value*2.20462; if(type=="lb-kg") result=value/2.20462; if(type=="g-kg") result=value/1000; if(type=="kg-g") result=value*1000; if(type=="m-ft") result=value*3.28084; if(type=="ft-m") result=value/3.28084; if(type=="km-m") result=value*1000; if(type=="m-km") result=value/1000; if(type=="c-f") result=(value*9/5)+32; if(type=="f-c") result=(value-32)*5/9; document.getElementById("result").innerHTML = "Resultado: " + result.toFixed(3); } </script>
 
 
-<script src="/script.js?v=859e3276" defer></script>
+<script src="/script.js?v=aca3d990" defer></script>
 </body>
 </html>
