@@ -1,0 +1,205 @@
+name: Draft automated newsroom
+
+on:
+  schedule:
+    - cron: '0 8 * * 2,5'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Research and validate without creating a PR'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: automated-newsroom
+  cancel-in-progress: false
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      ready: ${{ steps.discover.outputs.ready }}
+      drafted: ${{ steps.draft_check.outputs.drafted }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Discover recent official sources
+        id: discover
+        env:
+          AI_KEY_PRESENT: ${{ secrets.OPENAI_API_KEY != '' }}
+        run: |
+          if [ "$AI_KEY_PRESENT" != true ]; then
+            echo 'OPENAI_API_KEY missing; skipping safely'
+            echo 'ready=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          mkdir -p .newsroom
+          python scripts/newsroom/discover.py --output .newsroom/sources.json
+          count=$(python -c 'import json; print(len(json.load(open(".newsroom/sources.json"))["sources"]))')
+          if [ "$count" -eq 0 ]; then
+            echo 'No verified recent sources; skipping'
+            echo 'ready=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
+            echo "source_hash=$(sha256sum .newsroom/sources.json | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Draft original localized analysis
+        if: steps.discover.outputs.ready == 'true'
+        uses: openai/codex-action@v1
+        with:
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          permission-profile: ':workspace'
+          safety-strategy: drop-sudo
+          allow-bots: true
+          prompt-file: scripts/newsroom/EDITORIAL_PROMPT.md
+          output-file: .newsroom/draft.json
+      - name: Check draft artifact
+        id: draft_check
+        if: steps.discover.outputs.ready == 'true'
+        env:
+          SOURCE_HASH: ${{ steps.discover.outputs.source_hash }}
+        run: |
+          actual_hash=$(sha256sum .newsroom/sources.json | cut -d' ' -f1)
+          if [ "$actual_hash" != "$SOURCE_HASH" ]; then
+            echo 'Source material changed after discovery; refusing draft'
+            exit 1
+          fi
+          if [ -s .newsroom/draft.json ] && [ "$(wc -c < .newsroom/draft.json)" -le 250000 ]; then
+            echo 'drafted=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'Codex returned no bounded draft; skipping'
+            echo 'drafted=false' >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: steps.draft_check.outputs.drafted == 'true'
+        with:
+          name: newsroom-draft
+          path: |
+            .newsroom/draft.json
+            .newsroom/sources.json
+          if-no-files-found: error
+          include-hidden-files: true
+          retention-days: 7
+
+  images:
+    needs: research
+    if: needs.research.outputs.drafted == 'true' && (github.event_name == 'schedule' || inputs.dry_run == false)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: newsroom-draft
+          path: .newsroom
+      - name: Generate up to three optional illustrations
+        env:
+          OPENAI_IMAGE_API_KEY: ${{ secrets.OPENAI_IMAGE_API_KEY }}
+        run: python scripts/newsroom/images.py --draft .newsroom/draft.json --sources .newsroom/sources.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: newsroom-images
+          path: assets/blog/newsroom/*.png
+          if-no-files-found: ignore
+          retention-days: 7
+
+  proposal:
+    needs: [research, images]
+    if: always() && needs.research.outputs.drafted == 'true' && (needs.images.result == 'success' || needs.images.result == 'skipped')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/download-artifact@v4
+        with:
+          name: newsroom-draft
+          path: .newsroom
+      - uses: actions/download-artifact@v4
+        if: needs.images.result == 'success'
+        with:
+          name: newsroom-images
+          path: assets/blog/newsroom
+        continue-on-error: true
+      - name: Validate and render draft
+        id: render
+        run: |
+          if [ "$(wc -c < .newsroom/draft.json)" -gt 250000 ]; then
+            echo 'Draft too large; refusing'
+            exit 1
+          fi
+          python scripts/newsroom/build.py --draft .newsroom/draft.json --sources .newsroom/sources.json
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard blog ar/blog es/blog assets/blog/newsroom)" ]; then
+            echo 'No changed pages; skipping PR'
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Run all validation gates
+        if: steps.render.outputs.changed == 'true'
+        run: |
+          npm ci
+          npm test
+          python -m unittest discover -s tests -p 'test_newsroom.py'
+          python scripts/stamp-assets.py --check
+          python docs/blog-news-2026-11/verify_editorial.py
+          python scripts/newsroom/verify.py --draft .newsroom/draft.json
+      - name: Check token and duplicate draft PRs
+        id: pr_gate
+        if: steps.render.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.NEWSROOM_PR_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo 'NEWSROOM_PR_TOKEN missing; skipping PR'
+            echo 'create=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          gh pr list --state open --limit 1000 --json body > .newsroom/open-prs.json
+          python scripts/newsroom/check_prs.py --draft .newsroom/draft.json --prs .newsroom/open-prs.json
+          echo 'create=true' >> "$GITHUB_OUTPUT"
+      - name: Create draft pull request
+        if: steps.pr_gate.outputs.create == 'true' && (github.event_name == 'schedule' || inputs.dry_run == false)
+        env:
+          GH_TOKEN: ${{ secrets.NEWSROOM_PR_TOKEN }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          git config user.name 'convertios-newsroom[bot]'
+          git config user.email 'newsroom-bot@users.noreply.github.com'
+          git switch -c "newsroom/auto-$RUN_ID"
+          git add -- blog ar/blog es/blog sitemap.xml
+          if [ -d assets/blog/newsroom ]; then git add -- assets/blog/newsroom; fi
+          if git diff --cached --quiet; then
+            echo 'No staged changes; skipping PR'
+            exit 0
+          fi
+          git commit -m 'Draft sourced localized newsroom coverage'
+          python scripts/newsroom/pr_body.py --draft .newsroom/draft.json --output .newsroom/pr-body.md
+          gh auth setup-git
+          git push origin "HEAD:newsroom/auto-$RUN_ID"
+          gh pr create --draft --base main --head "newsroom/auto-$RUN_ID" --title 'Draft: sourced Convertios newsroom coverage' --body-file .newsroom/pr-body.md
