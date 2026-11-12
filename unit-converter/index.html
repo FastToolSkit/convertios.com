@@ -24,7 +24,7 @@ gtag('config', 'G-0CH8NE5WDH');
 
 <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="/style.css?v=79ac285f">
+<link rel="stylesheet" href="/style.min.css?v=e06f9066">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
@@ -127,21 +127,6 @@ line-height:1.8;
       "@type": "WebSite",
       "name": "Convertios",
       "url": "https://convertios.com"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Unit Converter Online",
-    "url": "https://convertios.com/unit-converter/",
-    "description": "Use Unit Converter Online on Convertios with clear instructions, transparent processing details, common fixes, and related utility tools.",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "browserRequirements": "Requires a modern web browser",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
     }
   },
   {
@@ -447,6 +432,6 @@ Yes, the tool works on all modern devices including smartphones and tablets.</p>
 <script> function convert(){ let value = parseFloat(document.getElementById("value").value); let type = document.getElementById("conversion").value; if(isNaN(value)){ document.getElementById("result").innerHTML = "Result: Enter a value"; return; } let result = 0; if(type=="kg-lb") result=value*2.20462; if(type=="lb-kg") result=value/2.20462; if(type=="g-kg") result=value/1000; if(type=="kg-g") result=value*1000; if(type=="m-ft") result=value*3.28084; if(type=="ft-m") result=value/3.28084; if(type=="km-m") result=value*1000; if(type=="m-km") result=value/1000; if(type=="c-f") result=(value*9/5)+32; if(type=="f-c") result=(value-32)*5/9; document.getElementById("result").innerHTML = "Result: " + result.toFixed(3); } </script>
 
 
-<script src="/script.js?v=aca3d990" defer></script>
+<script src="/script.min.js?v=323e764c" defer></script>
 </body>
 </html>
