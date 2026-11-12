@@ -1,0 +1,55 @@
+# Convertios indexing and AdSense readiness audit — 12 November 2026
+
+## Verdict and evidence limits
+
+The repository has 158 HTML pages: 156 indexable sitemap URLs and two `noindex` tool-list aliases. A read-only Search Console URL Inspection sweep through the connected Convertios property covered all 156 sitemap URLs. It returned **109 indexed, 20 older non-blog URLs outside the index, and 27 recently published blog URLs unknown to Google**. The 20 divide into 7 historical canonical mismatches, 8 discovered but not indexed, and 5 unknown in this sweep. The user's earlier 12 November snapshot had 36 unknown and 4 discovered across the whole sitemap; repeat inspections during this audit moved some individual URLs between those two states. Neither state by itself proves a site defect.
+
+The environment could not fetch `convertios.com` directly (`curl` connection failure, web fetch failure, browser host unavailable). Search Console inspection reads Google's **existing** records, not a live crawl. The user's confirmed live observations say the seven old `.html` aliases currently return 301 to working trailing-slash 200 pages. This audit did not independently remeasure those HTTP responses. Local `_redirects` rules and targets were verified; no redirect was changed.
+
+AdSense's **Low value content** rejection is a separate quality decision. These repairs do not guarantee approval. [Google's AdSense guidance](https://support.google.com/adsense/answer/81904) calls for sufficient high-quality content and a meaningful user experience; indexing alone is not the criterion.
+
+## Ranked findings and repairs
+
+| Rank | Evidence | Action on this branch | Residual |
+|---|---|---|---|
+| P1 — content accuracy | Link Shortener copy in EN/ES said links were created instantly or directly in the browser; `js/link-shortener.js` calls `/api/shorten-url`, and `server.js` uses TinyURL with is.gd fallback. | Replaced the inaccurate copy in EN/ES/AR with the real route, a public URL example, provider delay and privacy limits, and steps to check the result. | Human Spanish/Arabic editorial review and live provider check after deployment. |
+| P1 — tool usefulness | Text Formatter instructions in EN/ES/AR said to preview a result, but `js/text-formatter.js` changes the input field in place. | Explained the in-place workflow, lack of undo, exact Remove Spaces behavior, and Capitalize limits, with an example in each language. | Browser support and locale-specific casing still warrant human review. |
+| P1 — thin or misleading hub | Arabic audio hub was almost entirely cards. EN/ES hubs said everything ran in the browser and had generic claims, despite video tools uploading files to the backend. | Added task-based audio/video guidance in AR; rewrote EN/ES hub copy to distinguish browser audio tools from server video tools and state the 50 MB video limit. | The Arabic hub was already indexed (Google crawl 10 Oct, matching canonical), so this was a quality repair, not an indexing fix. |
+| P2 — discoverability | A local inbound-link count found only two relative links to `/trim-audio-online/` from sibling tool pages, versus roughly 52–53 for most older tool pages. Its voice-trimming guide is distinct from MP3 Cutter's music/ringtone guidance. | Added Trim Audio cards and contextual links to the EN/ES/AR audio hubs. | This improves navigation; Google still decides whether to recrawl and index the clean URL. |
+| P2 — social metadata | 22 indexable Spanish pages had `og:url` pointing to the English page while their canonical and hreflang pointed to Spanish. | Set each `og:url` to its own Spanish canonical and added a sitewide regression assertion. | Open Graph is a sharing signal; there is no evidence it caused Google non-indexing. |
+| P2 — indexing records | 7 clean URLs have Google-selected `.html` canonicals from old crawls (dates 1 Sep–30 Oct). The repository has matching clean-page canonicals, sitemap entries and redirect rules. | Preserved redirects. Added checks for seven explicit legacy rules and target pages. | Google must recrawl; verify live redirects and use URL Inspection after deployment. |
+| P3 — Semrush reports | 62 structured-data issues, 9 broken links, minification warnings were reported on 11 Nov without per-URL current evidence. | Parsed all JSON-LD and checked local links/assets. No matching blocker was confirmed. | Obtain Semrush issue URL/export and a live crawl to compare edge responses, especially Cloudflare email-protection URLs. |
+
+## Search Console: the 20 older non-blog URLs
+
+The following is a **read-only inspection snapshot**, not live fetch status. The local static checker found each URL in the sitemap, with its own canonical, reciprocal hreflang, a localized navigation link path and no `noindex` or repository robots block.
+
+| State | URLs (paths under `https://convertios.com`) |
+|---|---|
+| Discovered, currently not indexed (8) | `/jpg-to-pdf/`, `/es/jpg-to-pdf/`, `/es/ai-image-enhancer/`, `/es/text-formatter/`, `/video-converter/`, `/ar/video-converter/`, `/es/video-to-mp3/`, `/ar/video-to-mp3/` |
+| Unknown to Google (5) | `/ar/jpg-to-pdf/`, `/es/pdf-to-jpg/`, `/es/link-shortener/`, `/video-to-mp3/`, `/es/video-converter/` |
+| Google chose old `.html` alias (7) | `/ar/ai-image-enhancer/`, `/ar/image-converter/`, `/ar/pdf-to-jpg/`, `/ar/split-pdf/`, `/ar/webp-to-png/`, `/text-formatter/`, `/trim-audio-online/` |
+
+Some repeat inspections returned “discovered” where this sweep returned “unknown,” and vice versa: `/es/link-shortener/`, `/video-to-mp3/`, `/es/video-converter/`, `/ar/video-converter/`, and `/ar/video-to-mp3/` are examples. Do not infer a new regression from those label changes without a fresh live test. The 27 blog URLs were all unknown, consistent with their 11 November publication. [Google says](https://developers.google.com/search/docs/crawling-indexing/troubleshoot-crawling-errors) sitemap submission does not ensure immediate crawling or indexing, and [a recrawl request](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl) does not guarantee inclusion.
+
+For the seven mismatches, Google's selected URL ends in `.html`; the recorded clean-page crawl dates are 1 Sep–30 Oct and the old-alias records are generally older. The selected alias records include indexed, noindex, and crawled-not-indexed states. These are historical records, not proof that the current redirects fail. Google's [canonicalization guidance](https://developers.google.com/search/docs/crawling-indexing/canonicalization-troubleshooting) recommends checking live signals and then requesting re-evaluation after relevant fixes.
+
+## Structured data versus Semrush warnings
+
+The audit parsed **150 JSON-LD blocks** across 158 pages, including array and `@graph` forms; all parsed as JSON. They contain 109 `BreadcrumbList`, 84 `WebApplication`, 118 `WebPage`, 15 `NewsArticle`, 9 `BlogPosting`, 9 `FAQPage`, 6 `CollectionPage`, 3 `Organization`, 3 `WebSite`, and 1 `AboutPage` nodes. Basic node types, canonical URL alignment, breadcrumb positions/required fields, app name/free offer, and article page URL alignment pass the strengthened static checker. Eight pages have no JSON-LD; markup is not universally required. Search Console reports a passing Breadcrumb rich-result verdict on the indexed EN and ES audio hubs, though this is not a sitewide Google validation.
+
+The 84 `WebApplication` nodes do not include review or rating data. [Google's software-app rich-result documentation](https://developers.google.com/search/docs/appearance/structured-data/software-app) requires a genuine rating or review for that **specific rich-result feature**. No ratings were invented. The lack of a software-app rich result is not an indexing or AdSense blocker. `FAQPage` markup also does not imply FAQ rich results for this general-purpose site; [Google limits that appearance](https://developers.google.com/search/blog/2023/08/howto-faq-changes). The Semrush count of 62 cannot be mapped to actual page defects without its itemized export. [Google's structured-data guidance](https://developers.google.com/search/docs/appearance/structured-data/sd-policies) says valid markup does not guarantee rich results, and even a structured-data manual action affects rich-result eligibility rather than ordinary ranking.
+
+## Navigation, links, redirects, and functionality
+
+`tests/site-check.mjs` checks every local page's canonical, hreflang reciprocity, language switcher, navigation Blog link, sitemap membership, robots, internal links, assets, and handler existence. It found **0 problems and 0 warnings** after repair. A separate inbound-link count across HTML found roughly 52–53 references to most of the 20 older non-blog URLs; `/trim-audio-online/` had only two, prompting the hub links above. The repository contains no `cdn-cgi/email-protection` or `mailto:` links in HTML, and no local broken internal links; Semrush's nine reported links may reflect Cloudflare edge rewriting, but that cause is unproven. CSS/JS minification reports are performance suggestions, not demonstrated indexing defects. No minification or redirect churn was undertaken.
+
+Local Chromium Playwright smoke tests passed 12/12 flows: Text Formatter, Link Shortener, Video to MP3, and Video Converter in EN/ES/AR. The backend and external scripts were mocked, so this validates client interaction and download wiring, not live conversion quality or provider availability. Existing PDF Rotate code and pages were not changed. The Node Playwright suite could not start because its `playwright` module is absent; an offline install attempt failed because npm lacks the needed cached dependency metadata. The production site and old redirects remain to be checked from a networked environment.
+
+## Remaining manual work
+
+1. After deployment by the owner, check each of the 20 clean URLs for 200, self-canonical, language alternates, and a working primary tool flow. Check the seven Google-selected `.html` aliases for 301 to their clean URL, then 200. Do not alter working redirects merely to clear old Search Console records.
+2. Run Google's live URL Inspection and Rich Results Test on representative EN/ES/AR tools; inspect Cloudflare bot/WAF logs if crawler fetches fail. Review `ads.txt` from AdSense itself, as its account status may lag a working file.
+3. Export Semrush's 62 structured-data items and nine exact broken-link source/target pairs; compare them with current live responses. Minification can be assessed as a performance task with measured user impact.
+4. Have native speakers review the revised ES/AR copy and test real files/providers, including JPG to PDF, PDF to JPG, AI Enhancer, video conversion, and PDF Rotate on mobile. The local test only mocks the backend.
+5. Continue editorial review of remaining generic tool copy and supply real operator identity on About if the owner wants that trust detail. Track actual tool completion and genuine user interest before choosing an AdSense resubmission date. Approval is never guaranteed.
