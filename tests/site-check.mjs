@@ -72,6 +72,8 @@ for (const p of indexable) {
   if (h1 !== 1) fail('h1', p, `${h1} h1 elements`);
   if (!/name="viewport"/.test(s)) fail('viewport', p, 'missing');
   if (!meta(s, 'og:title', 'property')) fail('open-graph', p, 'missing og:title');
+  const ogUrl = meta(s, 'og:url', 'property');
+  if (ogUrl && ogUrl !== urlOf(p)) fail('open-graph', p, `og:url ${ogUrl} differs from canonical ${urlOf(p)}`);
 }
 for (const [t, ps] of titles) if (ps.length > 1) fail('duplicate-title', ps.join(' + '), t);
 for (const [d, ps] of descs) if (ps.length > 1) fail('duplicate-description', ps.join(' + '), d.slice(0, 80));
@@ -123,12 +125,44 @@ for (const p of pages) {
     fail('language-selector-ui', p, 'missing shared globe/label markup');
   }
 }
+for (const prefix of ['', 'es/', 'ar/']) {
+  const hub = `${prefix}audio-tools/index.html`;
+  if (!src[hub]?.includes(`href="/${prefix}trim-audio-online/"`)) {
+    fail('navigation', hub, 'missing Trim Audio hub link');
+  }
+}
 
 // 4. structured data
+const schemaTypes = new Map();
 for (const p of pages) {
   for (const [, block] of src[p].matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     let data;
     try { data = JSON.parse(block); } catch (e) { fail('json-ld', p, 'invalid JSON: ' + e.message); continue; }
+    const roots = Array.isArray(data) ? data : [data];
+    const nodes = roots.flatMap((root) => root['@graph'] || [root]);
+    for (const node of nodes) {
+      if (!node || typeof node !== 'object' || !node['@type']) { fail('json-ld', p, 'node missing @type'); continue; }
+      const type = node['@type'];
+      schemaTypes.set(type, (schemaTypes.get(type) || 0) + 1);
+      if (!robots(src[p]).includes('noindex') && ['WebPage', 'AboutPage', 'CollectionPage', 'WebApplication'].includes(type) && node.url && node.url !== urlOf(p)) {
+        fail('json-ld', p, `${type} URL ${node.url} differs from canonical`);
+      }
+      if (['NewsArticle', 'BlogPosting'].includes(type) && node.mainEntityOfPage && node.mainEntityOfPage !== urlOf(p)) {
+        fail('json-ld', p, `${type} mainEntityOfPage differs from canonical`);
+      }
+      if (type === 'BreadcrumbList') {
+        const items = node.itemListElement;
+        if (!Array.isArray(items) || items.length < 2) fail('json-ld', p, 'breadcrumb needs at least two items');
+        else items.forEach((item, i) => {
+          if (item['@type'] !== 'ListItem' || item.position !== i + 1 || !item.name || (i < items.length - 1 && !item.item)) {
+            fail('json-ld', p, `malformed breadcrumb item ${i + 1}`);
+          }
+        });
+      }
+      if (type === 'WebApplication' && (!node.name || node.offers?.price === undefined)) {
+        fail('json-ld', p, 'WebApplication missing name or offers.price');
+      }
+    }
     const text = JSON.stringify(data);
     if (/aggregateRating|"review"|ratingValue|reviewCount/i.test(text)) fail('json-ld', p, 'ratings/reviews present');
     if (/fasttools/i.test(text)) fail('json-ld', p, 'old brand name');
@@ -155,6 +189,17 @@ const robotsTxt = fs.readFileSync(path.join(ROOT, 'robots.txt'), 'utf8');
 if (!robotsTxt.includes(`Sitemap: ${BASE}/sitemap.xml`)) fail('robots', 'robots.txt', 'sitemap line missing');
 if (/Disallow:\s*\/(\s|$)/m.test(robotsTxt)) fail('robots', 'robots.txt', 'blocks the whole site');
 if (!fs.readFileSync(path.join(ROOT, 'ads.txt'), 'utf8').includes('pub-8386549343296072, DIRECT')) fail('ads.txt', 'ads.txt', 'publisher line missing');
+const redirectRules = fs.readFileSync(path.join(ROOT, '_redirects'), 'utf8');
+if (!redirectRules.split(/\r?\n/).includes('/*.html /:splat/ 301')) fail('redirect', '_redirects', 'generic legacy .html 301 missing');
+for (const oldPath of ['/password-generator.html', '/compress-image-to-100kb.html', '/ar/compress-image-to-50kb.html', '/ar/word-counter.html', '/ar/audio-converter.html', '/ar/other-tools.html', '/ar/terms.html']) {
+  const target = oldPath.replace(/\.html$/, '/');
+  if (!redirectRules.split(/\r?\n/).includes(`${oldPath} ${target} 301`) || !exists(target)) {
+    fail('redirect', '_redirects', `missing 301 or target for ${oldPath}`);
+  }
+}
+for (const oldPath of ['/ar/ai-image-enhancer.html', '/ar/image-converter.html', '/ar/pdf-to-jpg.html', '/ar/split-pdf.html', '/ar/webp-to-png.html', '/text-formatter.html', '/trim-audio-online.html']) {
+  if (!exists(oldPath.replace(/\.html$/, '/'))) fail('redirect', '_redirects', `legacy canonical target missing for ${oldPath}`);
+}
 
 // 6. content hygiene
 for (const p of pages) {
@@ -189,4 +234,5 @@ try {
 for (const w of warn) console.log('warning ' + w);
 for (const p of problems) console.log(p);
 console.log(`\n${pages.length} pages (${indexable.length} indexable), ${locs.length} sitemap URLs: ${problems.length} problem(s), ${warn.length} warning(s)`);
+console.log('JSON-LD types: ' + [...schemaTypes].sort(([a], [b]) => a.localeCompare(b)).map(([type, count]) => `${type} ${count}`).join(', '));
 process.exit(problems.length ? 1 : 0);
