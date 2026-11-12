@@ -2905,3 +2905,54 @@ section.more-tools .more-tool-card .more-tool-icon{flex:0 0 auto !important;}
     transform:translateX(-50%) !important;
   }
 }
+
+
+/* Show all eight linked format badges on phone/tablet homepages.
+   The previous mobile performance override hid .hero-right completely. */
+@media (max-width: 768px) {
+  .hero .hero-right {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    align-items: stretch;
+    justify-content: center;
+    width: min(100%, 440px);
+    max-width: 440px;
+    min-width: 0;
+    flex: none;
+    margin: 12px auto 0;
+    padding: 0;
+  }
+  .hero .hero-right::before { display: none !important; }
+  .hero .hero-right > a.icon {
+    position: static !important;
+    display: flex !important;
+    width: 100% !important;
+    height: 82px !important;
+    min-width: 0;
+    margin: 0;
+    padding: 0 2px !important;
+    box-sizing: border-box;
+    font-size: 12px !important;
+    line-height: 1.2;
+    border-radius: 14px;
+    transform: none !important;
+    text-align: center;
+    overflow-wrap: anywhere;
+    transition: box-shadow .2s ease, filter .2s ease;
+  }
+  .hero .hero-right > a.icon:hover,
+  .hero .hero-right > a.icon:focus-visible {
+    transform: none !important;
+    box-shadow: 0 5px 16px rgba(15,23,42,.16);
+    filter: brightness(1.07);
+  }
+}
+@media (max-width: 360px) {
+  .hero .hero-right { gap: 6px; }
+  .hero .hero-right > a.icon {
+    height: 72px !important;
+    font-size: 11px !important;
+    border-radius: 12px;
+  }
+}
