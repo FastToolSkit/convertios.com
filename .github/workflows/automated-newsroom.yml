@@ -58,6 +58,8 @@ jobs:
         with:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
           permission-profile: ':workspace'
+          allow-bots: true
+          allow-bot-users: 'github-actions[bot]'
           safety-strategy: drop-sudo
           allow-bots: true
           prompt-file: scripts/newsroom/EDITORIAL_PROMPT.md
@@ -165,6 +167,7 @@ jobs:
         run: |
           npm ci
           npm test
+          python -m unittest discover -s tests -p test_newsroom.py -q
           python -m unittest discover -s tests -p 'test_newsroom.py'
           python scripts/stamp-assets.py --check
           python docs/blog-news-2026-11/verify_editorial.py

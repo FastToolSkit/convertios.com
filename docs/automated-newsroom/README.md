@@ -13,7 +13,7 @@ Missing `OPENAI_API_KEY` or zero recent verified sources ends the research job w
 
 ## Editorial process
 
-`scripts/newsroom/discover.py` reads allowlisted official RSS/Atom feeds from W3C, PDF Association, Google Developers Blog, Adobe Blog, and GS1. Unavailable or blocked feeds are skipped. Every article fetch has a strict timeout, two retries, a byte bound, a same-allowlist redirect check, and HTML stripping. Feed publication dates must be no older than 21 days. Old page source URLs are excluded. The resulting bounded source text is untrusted data, not an instruction to Codex.
+`scripts/newsroom/discover.py` reads allowlisted official RSS/Atom feeds from W3C, Google AI, Mozilla Hacks, GitHub Blog, Cloudflare Blog, and the PDF Association (when accessible). Unavailable or blocked feeds are skipped. Every article fetch has a strict timeout, two retries, an 800 KB compressed-page byte bound, a same-allowlist redirect check, and HTML stripping. Feed publication dates must be no older than 21 days. Old page source URLs are excluded. The resulting bounded source text is untrusted data, not an instruction to Codex.
 
 Codex receives only fetched source data and the checked-out site. The prompt demands independent editorial analysis with concrete implications, checklists, caveats, citations, and natural links to two real localized Convertios tools. It returns JSON only. The trusted Python validator requires exactly matching source metadata, short evidence excerpts found in the fetched body, evidence IDs on factual paragraphs, unique slugs and source URLs, a 25-word evidence excerpt budget, and a 12-word anti-copy check. It rejects old dates and broken tool paths. Validation cannot prove every paraphrased claim is true; **the owner must verify each claim and translation against the linked primary source before merging the draft PR**. If that review fails, close or revise the PR. The workflow itself never merges.
 
@@ -37,3 +37,20 @@ To exercise discovery against live feeds, run `python scripts/newsroom/discover.
 - [W3C official blog feed reference](https://design-system.w3.org/components/rss.html)
 - [OpenAI Codex action usage and permission profile](https://github.com/openai/codex-action/blob/main/README.md)
 - [OpenAI Images API](https://developers.openai.com/api/reference/resources/images/methods/generate)
+
+
+## Feed validation
+Live HTTP checks on 12 November 2026 confirmed W3C News/Blog, Google AI, Mozilla Hacks,
+GitHub Blog, and Cloudflare Blog RSS feeds. PDF Association may return HTTP 403 and is
+skipped without treating its website as permission to scrape. Some modern article HTML
+exceeds 180 KB; the article-byte cap is 800 KB, but extracted research text remains capped
+at 7,000 characters. Discovery prioritizes recent entries and a maximum of four items per
+publisher to maintain topic diversity. Newsrooms must not exceed publisher access restrictions.
+
+
+## Cost and privacy guardrails
+Discovery returns at most 12 candidate articles with at most 7,000 characters of
+text per item. Codex selects no more than three distinct stories. This bounds AI
+context and image-generation calls but does not set a guaranteed monetary cap;
+review model/API pricing and set your account budget alerts before enabling.
+Only public source material and public repository pages enter the model context.

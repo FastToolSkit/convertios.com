@@ -11,12 +11,14 @@ from urllib.parse import urljoin, urlparse
 from urllib.request import Request, HTTPRedirectHandler, build_opener
 import xml.etree.ElementTree as ET
 
+# Verified official RSS endpoints (November 2026). Unavailable feeds are skipped.
 FEEDS = {
-    "www.w3.org": ["https://www.w3.org/blog/feed"],
-    "pdfa.org": ["https://pdfa.org/feed/"],
-    "developers.googleblog.com": ["https://developers.googleblog.com/feeds/posts/default?alt=rss"],
-    "blog.adobe.com": ["https://blog.adobe.com/en/feed.xml"],
-    "www.gs1.org": ["https://www.gs1.org/rss.xml"],
+    "www.w3.org": ["https://www.w3.org/news/feed/", "https://www.w3.org/blog/feed/"],
+    "blog.google": ["https://blog.google/innovation-and-ai/technology/ai/rss/"],
+    "hacks.mozilla.org": ["https://hacks.mozilla.org/feed/"],
+    "github.blog": ["https://github.blog/feed/"],
+    "blog.cloudflare.com": ["https://blog.cloudflare.com/rss/"],
+    "pdfa.org": ["https://pdfa.org/feed/"],  # May return HTTP 403
 }
 ALLOWED = tuple(FEEDS) + ("w3.org", "gs1.org", "www.pdfa.org")
 MAX_AGE_DAYS = 21
@@ -46,7 +48,7 @@ class SafeRedirect(HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
-def fetch(url, retries=2, article=False):
+def fetch(url, retries=2, article=False, max_bytes=180_000):
     if not allowed(url):
         raise ValueError("source URL outside allowlist")
     opener = build_opener(SafeRedirect())
@@ -57,8 +59,8 @@ def fetch(url, retries=2, article=False):
                     raise ValueError("final URL outside allowlist")
                 if article and r.headers.get_content_type() not in {"text/html", "application/xhtml+xml"}:
                     raise ValueError("article is not HTML")
-                data = r.read(180_001)
-                if len(data) > 180_000:
+                data = r.read(max_bytes + 1)
+                if len(data) > max_bytes:
                     raise ValueError("source too large")
                 return r.url, data.decode("utf-8", "replace")
         except (OSError, ValueError):
@@ -94,7 +96,7 @@ class Body(HTMLParser):
 def clean_body(raw):
     parser = Body()
     parser.feed(raw)
-    return re.sub(r"[ \t]+", " ", html.unescape("".join(parser.parts)))[:14000].strip()
+    return re.sub(r"[ \t]+", " ", html.unescape("".join(parser.parts)))[:7000].strip()
 
 
 def date_of(value):
@@ -128,13 +130,13 @@ def discover(today, existing_urls=()):
     for domain, feeds in FEEDS.items():
         for feed in feeds:
             try:
-                _, raw = fetch(feed)
-                for entry in list(feed_items(raw, feed))[:12]:
+                _, raw = fetch(feed, max_bytes=400_000)
+                for entry in list(feed_items(raw, feed))[:8]:
                     url, day = entry["url"], entry["source_date"]
                     if not allowed(url) or urlparse(url).hostname not in equivalent_hosts(domain) or not day or not 1 <= (today - day).days <= MAX_AGE_DAYS or normalized_url(url) in seen:
                         continue
                     try:
-                        final, page = fetch(url, article=True)
+                        final, page = fetch(url, article=True, max_bytes=800_000)
                     except (OSError, ValueError) as exc:
                         print(f"skip source {urlparse(url).hostname}: {type(exc).__name__}")
                         continue
@@ -147,7 +149,17 @@ def discover(today, existing_urls=()):
                     out.append({**entry, "url": final, "source_date": day.isoformat(), "publisher": domain, "body": body})
             except (OSError, ValueError, ET.ParseError) as exc:
                 print(f"skip feed {domain}: {type(exc).__name__}")
-    return out[:24]
+    out.sort(key=lambda item: (item["source_date"], item["title"]), reverse=True)
+    per_publisher, diverse = {}, []
+    for item in out:
+        domain = item["publisher"]
+        if per_publisher.get(domain, 0) >= 4:
+            continue
+        per_publisher[domain] = per_publisher.get(domain, 0) + 1
+        diverse.append(item)
+        if len(diverse) >= 12:
+            break
+    return diverse
 
 
 def existing_source_urls(root):
