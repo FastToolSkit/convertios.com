@@ -1,0 +1,155 @@
+name: Convertios SEO Codex Repair
+on:
+  issues:
+    types: [labeled]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: Owner-authored issue with verified SEO report
+        required: true
+        type: number
+      dry_run:
+        description: Preflight only, no Codex or PR
+        type: boolean
+        default: true
+permissions:
+  contents: write
+  pull-requests: write
+  issues: read
+concurrency:
+  group: convertios-seo-codex-repair
+  cancel-in-progress: false
+jobs:
+  investigate:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'issues' &&
+       github.event.label.name == 'seo-audit-ready' &&
+       github.event.issue.user.login == 'FastToolSkit')
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      SEO_ALERT_TO: ${{ vars.SEO_ALERT_TO }}
+      SMTP_USERNAME: ${{ secrets.SEO_SMTP_USERNAME }}
+      SMTP_APP_PASSWORD: ${{ secrets.SEO_SMTP_APP_PASSWORD }}
+    steps:
+      - name: Check out trusted main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Validate owner report
+        id: report
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number || inputs.issue_number }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$ISSUE_NUMBER" =~ ^[0-9]+$ ]] || exit 1
+          owner="$(gh api "repos/$REPO/issues/$ISSUE_NUMBER" --jq '.user.login')"
+          [ "$owner" = "FastToolSkit" ] || { echo "Untrusted issue"; exit 1; }
+          gh api "repos/$REPO/issues/$ISSUE_NUMBER" --jq '.body // ""' > .seo-report-untrusted.txt
+          test -s .seo-report-untrusted.txt
+          echo "issue=$ISSUE_NUMBER" >> "$GITHUB_OUTPUT"
+      - name: Detect prerequisites
+        id: preflight
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Dry-run successful: no agent or PR created"
+          elif [ -z "$OPENAI_API_KEY" ]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::OPENAI_API_KEY missing: Codex skipped"
+          else
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Install test dependencies
+        if: steps.preflight.outputs.enabled == 'true'
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Run safe Codex investigation
+        id: codex
+        if: steps.preflight.outputs.enabled == 'true'
+        uses: openai/codex-action@v1
+        with:
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          prompt-file: .github/seo-repair/PROMPT.md
+          output-file: seo-codex-result.txt
+          permission-profile: ":workspace"
+      - name: Remove untrusted input and transcript
+        if: always()
+        run: rm -f .seo-report-untrusted.txt seo-codex-result.txt
+      - name: Verify repair scope and regressions
+        id: verify
+        if: steps.codex.outcome == 'success'
+        run: |
+          set -euo pipefail
+          python .github/seo-repair/guard.py
+          npm test
+          python scripts/stamp-assets.py --check
+          python docs/blog-news-2026-11/verify_editorial.py
+          git diff --check
+      - name: Open draft repair PR
+        id: pr
+        if: steps.verify.outcome == 'success'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.SEO_PR_TOKEN || github.token }}
+          branch: automation/seo-codex-repair
+          base: main
+          draft: true
+          delete-branch: false
+          commit-message: "Prepare verified SEO repairs from issue #${{ steps.report.outputs.issue }}"
+          title: "SEO: proposed verified repairs from #${{ steps.report.outputs.issue }}"
+          body: |
+            Source: #${{ steps.report.outputs.issue }}.
+            Codex must verify defects against repository evidence.
+            Static and regression checks passed.
+            Review required: NO automatic merge, deployment or AdSense reapplication.
+          add-paths: |
+            *.html
+            *.css
+            *.js
+            ar/**
+            es/**
+            js/**
+            tests/**
+            docs/seo-repairs/**
+      - name: Write notification and summary
+        if: always()
+        env:
+          ISSUE: ${{ steps.report.outputs.issue }}
+          PR_URL: ${{ steps.pr.outputs.pull-request-url }}
+          ENABLED: ${{ steps.preflight.outputs.enabled }}
+        shell: bash
+        run: |
+          {
+            echo "Convertios SEO workflow complete"
+            echo "Source issue: #$ISSUE"
+            echo "Codex executed: $ENABLED"
+            echo "Draft PR: $PR_URL"
+            echo "Run: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "Nothing merged/deployed automatically."
+          } > seo-notification.txt
+          cat seo-notification.txt >> "$GITHUB_STEP_SUMMARY"
+          if [ -z "$SMTP_USERNAME" ] || [ -z "$SMTP_APP_PASSWORD" ]; then
+            echo "::warning::Email sender not configured; check GitHub Actions log"
+          fi
+      - name: Send email when authenticated SMTP is configured
+        if: always() && env.SMTP_USERNAME != '' && env.SMTP_APP_PASSWORD != '' && env.SEO_ALERT_TO != ''
+        uses: dawidd6/action-send-mail@v23
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ env.SMTP_USERNAME }}
+          password: ${{ env.SMTP_APP_PASSWORD }}
+          subject: "Convertios SEO workflow: ${{ job.status }}"
+          to: ${{ env.SEO_ALERT_TO }}
+          from: "Convertios SEO Bot <${{ env.SMTP_USERNAME }}>"
+          body: file://seo-notification.txt
