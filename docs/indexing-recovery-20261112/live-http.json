@@ -1,0 +1,3412 @@
+{
+  "checked_at": "2026-11-12T20:44:18.848100+00:00",
+  "scope": "HTTP sitemap audit, not Google live inspection or Core Web Vitals",
+  "robots": {
+    "url": "https://convertios.com/robots.txt",
+    "status": 200,
+    "location": null,
+    "x_robots_tag": ""
+  },
+  "robots_text": "User-agent: *\nAllow: /\n\nSitemap: https://convertios.com/sitemap.xml\n",
+  "sitemap": {
+    "url": "https://convertios.com/sitemap.xml",
+    "status": 200,
+    "location": null,
+    "x_robots_tag": ""
+  },
+  "pages": [
+    {
+      "url": "https://convertios.com/about/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/about/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/about/",
+        "ar": "https://convertios.com/ar/about/",
+        "es": "https://convertios.com/es/about/",
+        "x-default": "https://convertios.com/about/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ai-image-enhancer/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ai-image-enhancer/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/ai-image-enhancer/",
+        "ar": "https://convertios.com/ar/ai-image-enhancer/",
+        "es": "https://convertios.com/es/ai-image-enhancer/",
+        "x-default": "https://convertios.com/ai-image-enhancer/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/all-tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/all-tools/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/all-tools/",
+        "ar": "https://convertios.com/ar/all-tools/",
+        "es": "https://convertios.com/es/all-tools/",
+        "x-default": "https://convertios.com/all-tools/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/about/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/about/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/about/",
+        "ar": "https://convertios.com/ar/about/",
+        "es": "https://convertios.com/es/about/",
+        "x-default": "https://convertios.com/about/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/ai-image-enhancer/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/ai-image-enhancer/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/ai-image-enhancer/",
+        "ar": "https://convertios.com/ar/ai-image-enhancer/",
+        "es": "https://convertios.com/es/ai-image-enhancer/",
+        "x-default": "https://convertios.com/ai-image-enhancer/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/all-tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/all-tools/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/all-tools/",
+        "ar": "https://convertios.com/ar/all-tools/",
+        "es": "https://convertios.com/es/all-tools/",
+        "x-default": "https://convertios.com/all-tools/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/audio-converter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/audio-converter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/audio-converter/",
+        "ar": "https://convertios.com/ar/audio-converter/",
+        "es": "https://convertios.com/es/audio-converter/",
+        "x-default": "https://convertios.com/audio-converter/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/audio-speed-changer/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/audio-speed-changer/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/audio-speed-changer/",
+        "ar": "https://convertios.com/ar/audio-speed-changer/",
+        "es": "https://convertios.com/es/audio-speed-changer/",
+        "x-default": "https://convertios.com/audio-speed-changer/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/audio-tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/audio-tools/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/audio-tools/",
+        "ar": "https://convertios.com/ar/audio-tools/",
+        "es": "https://convertios.com/es/audio-tools/",
+        "x-default": "https://convertios.com/audio-tools/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/compress-image/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/compress-image/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/compress-image/",
+        "ar": "https://convertios.com/ar/compress-image/",
+        "es": "https://convertios.com/es/compress-image/",
+        "x-default": "https://convertios.com/compress-image/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/compress-image-to-100kb/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/compress-image-to-100kb/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/compress-image-to-100kb/",
+        "ar": "https://convertios.com/ar/compress-image-to-100kb/",
+        "es": "https://convertios.com/es/compress-image-to-100kb/",
+        "x-default": "https://convertios.com/compress-image-to-100kb/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 6
+    },
+    {
+      "url": "https://convertios.com/ar/compress-image-to-20kb/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/compress-image-to-20kb/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/compress-image-to-20kb/",
+        "ar": "https://convertios.com/ar/compress-image-to-20kb/",
+        "es": "https://convertios.com/es/compress-image-to-20kb/",
+        "x-default": "https://convertios.com/compress-image-to-20kb/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 5
+    },
+    {
+      "url": "https://convertios.com/ar/compress-image-to-50kb/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/compress-image-to-50kb/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/compress-image-to-50kb/",
+        "ar": "https://convertios.com/ar/compress-image-to-50kb/",
+        "es": "https://convertios.com/es/compress-image-to-50kb/",
+        "x-default": "https://convertios.com/compress-image-to-50kb/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 5
+    },
+    {
+      "url": "https://convertios.com/ar/contact/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/contact/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/contact/",
+        "ar": "https://convertios.com/ar/contact/",
+        "es": "https://convertios.com/es/contact/",
+        "x-default": "https://convertios.com/contact/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/faq/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/faq/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/faq/",
+        "ar": "https://convertios.com/ar/faq/",
+        "es": "https://convertios.com/es/faq/",
+        "x-default": "https://convertios.com/faq/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/image-converter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/image-converter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/image-converter/",
+        "ar": "https://convertios.com/ar/image-converter/",
+        "es": "https://convertios.com/es/image-converter/",
+        "x-default": "https://convertios.com/image-converter/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/image-resizer/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/image-resizer/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/image-resizer/",
+        "ar": "https://convertios.com/ar/image-resizer/",
+        "es": "https://convertios.com/es/image-resizer/",
+        "x-default": "https://convertios.com/image-resizer/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/image-tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/image-tools/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/image-tools/",
+        "ar": "https://convertios.com/ar/image-tools/",
+        "es": "https://convertios.com/es/image-tools/",
+        "x-default": "https://convertios.com/image-tools/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/",
+        "ar": "https://convertios.com/ar/",
+        "es": "https://convertios.com/es/",
+        "x-default": "https://convertios.com/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/jpg-to-pdf/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/jpg-to-pdf/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/jpg-to-pdf/",
+        "ar": "https://convertios.com/ar/jpg-to-pdf/",
+        "es": "https://convertios.com/es/jpg-to-pdf/",
+        "x-default": "https://convertios.com/jpg-to-pdf/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/jpg-to-png/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/jpg-to-png/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/jpg-to-png/",
+        "ar": "https://convertios.com/ar/jpg-to-png/",
+        "es": "https://convertios.com/es/jpg-to-png/",
+        "x-default": "https://convertios.com/jpg-to-png/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/link-shortener/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/link-shortener/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/link-shortener/",
+        "ar": "https://convertios.com/ar/link-shortener/",
+        "es": "https://convertios.com/es/link-shortener/",
+        "x-default": "https://convertios.com/link-shortener/"
+      },
+      "robots": "",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/meme-generator/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/meme-generator/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/meme-generator/",
+        "ar": "https://convertios.com/ar/meme-generator/",
+        "es": "https://convertios.com/es/meme-generator/",
+        "x-default": "https://convertios.com/meme-generator/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/merge-pdf/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/merge-pdf/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/merge-pdf/",
+        "ar": "https://convertios.com/ar/merge-pdf/",
+        "es": "https://convertios.com/es/merge-pdf/",
+        "x-default": "https://convertios.com/merge-pdf/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/mp3-cutter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/mp3-cutter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/mp3-cutter/",
+        "ar": "https://convertios.com/ar/mp3-cutter/",
+        "es": "https://convertios.com/es/mp3-cutter/",
+        "x-default": "https://convertios.com/mp3-cutter/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/other-tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/other-tools/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/other-tools/",
+        "ar": "https://convertios.com/ar/other-tools/",
+        "es": "https://convertios.com/es/other-tools/",
+        "x-default": "https://convertios.com/other-tools/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/password-generator/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/password-generator/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/password-generator/",
+        "ar": "https://convertios.com/ar/password-generator/",
+        "es": "https://convertios.com/es/password-generator/",
+        "x-default": "https://convertios.com/password-generator/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/pdf-to-jpg/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/pdf-to-jpg/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/pdf-to-jpg/",
+        "ar": "https://convertios.com/ar/pdf-to-jpg/",
+        "es": "https://convertios.com/es/pdf-to-jpg/",
+        "x-default": "https://convertios.com/pdf-to-jpg/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/pdf-to-word/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/pdf-to-word/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/pdf-to-word/",
+        "ar": "https://convertios.com/ar/pdf-to-word/",
+        "es": "https://convertios.com/es/pdf-to-word/",
+        "x-default": "https://convertios.com/pdf-to-word/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/pdf-tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/pdf-tools/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/pdf-tools/",
+        "ar": "https://convertios.com/ar/pdf-tools/",
+        "es": "https://convertios.com/es/pdf-tools/",
+        "x-default": "https://convertios.com/pdf-tools/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/png-to-jpg/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/png-to-jpg/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/png-to-jpg/",
+        "ar": "https://convertios.com/ar/png-to-jpg/",
+        "es": "https://convertios.com/es/png-to-jpg/",
+        "x-default": "https://convertios.com/png-to-jpg/"
+      },
+      "robots": "",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/privacy/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/privacy/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/privacy/",
+        "ar": "https://convertios.com/ar/privacy/",
+        "es": "https://convertios.com/es/privacy/",
+        "x-default": "https://convertios.com/privacy/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 50
+    },
+    {
+      "url": "https://convertios.com/ar/qr-generator/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/qr-generator/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/qr-generator/",
+        "ar": "https://convertios.com/ar/qr-generator/",
+        "es": "https://convertios.com/es/qr-generator/",
+        "x-default": "https://convertios.com/qr-generator/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/remove-bg/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/remove-bg/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/remove-bg/",
+        "ar": "https://convertios.com/ar/remove-bg/",
+        "es": "https://convertios.com/es/remove-bg/",
+        "x-default": "https://convertios.com/remove-bg/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/rotate-pdf/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/rotate-pdf/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/rotate-pdf/",
+        "ar": "https://convertios.com/ar/rotate-pdf/",
+        "es": "https://convertios.com/es/rotate-pdf/",
+        "x-default": "https://convertios.com/rotate-pdf/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/security/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/security/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/security/",
+        "ar": "https://convertios.com/ar/security/",
+        "es": "https://convertios.com/es/security/",
+        "x-default": "https://convertios.com/security/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 49
+    },
+    {
+      "url": "https://convertios.com/ar/social-media-image-resizer/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/social-media-image-resizer/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/social-media-image-resizer/",
+        "ar": "https://convertios.com/ar/social-media-image-resizer/",
+        "es": "https://convertios.com/es/social-media-image-resizer/",
+        "x-default": "https://convertios.com/social-media-image-resizer/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/split-pdf/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/split-pdf/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/split-pdf/",
+        "ar": "https://convertios.com/ar/split-pdf/",
+        "es": "https://convertios.com/es/split-pdf/",
+        "x-default": "https://convertios.com/split-pdf/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/terms/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/terms/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/terms/",
+        "ar": "https://convertios.com/ar/terms/",
+        "es": "https://convertios.com/es/terms/",
+        "x-default": "https://convertios.com/terms/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 48
+    },
+    {
+      "url": "https://convertios.com/ar/text-formatter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/text-formatter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/text-formatter/",
+        "ar": "https://convertios.com/ar/text-formatter/",
+        "es": "https://convertios.com/es/text-formatter/",
+        "x-default": "https://convertios.com/text-formatter/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/trim-audio-online/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/trim-audio-online/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/trim-audio-online/",
+        "ar": "https://convertios.com/ar/trim-audio-online/",
+        "es": "https://convertios.com/es/trim-audio-online/",
+        "x-default": "https://convertios.com/trim-audio-online/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 5
+    },
+    {
+      "url": "https://convertios.com/ar/unit-converter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/unit-converter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/unit-converter/",
+        "ar": "https://convertios.com/ar/unit-converter/",
+        "es": "https://convertios.com/es/unit-converter/",
+        "x-default": "https://convertios.com/unit-converter/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/webp-to-png/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/webp-to-png/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/webp-to-png/",
+        "ar": "https://convertios.com/ar/webp-to-png/",
+        "es": "https://convertios.com/es/webp-to-png/",
+        "x-default": "https://convertios.com/webp-to-png/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/word-counter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/word-counter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/word-counter/",
+        "ar": "https://convertios.com/ar/word-counter/",
+        "es": "https://convertios.com/es/word-counter/",
+        "x-default": "https://convertios.com/word-counter/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/audio-converter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/audio-converter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/audio-converter/",
+        "ar": "https://convertios.com/ar/audio-converter/",
+        "es": "https://convertios.com/es/audio-converter/",
+        "x-default": "https://convertios.com/audio-converter/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/audio-speed-changer/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/audio-speed-changer/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/audio-speed-changer/",
+        "ar": "https://convertios.com/ar/audio-speed-changer/",
+        "es": "https://convertios.com/es/audio-speed-changer/",
+        "x-default": "https://convertios.com/audio-speed-changer/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/audio-tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/audio-tools/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/audio-tools/",
+        "ar": "https://convertios.com/ar/audio-tools/",
+        "es": "https://convertios.com/es/audio-tools/",
+        "x-default": "https://convertios.com/audio-tools/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/compress-image/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/compress-image/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/compress-image/",
+        "ar": "https://convertios.com/ar/compress-image/",
+        "es": "https://convertios.com/es/compress-image/",
+        "x-default": "https://convertios.com/compress-image/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/compress-image-to-100kb/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/compress-image-to-100kb/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/compress-image-to-100kb/",
+        "ar": "https://convertios.com/ar/compress-image-to-100kb/",
+        "es": "https://convertios.com/es/compress-image-to-100kb/",
+        "x-default": "https://convertios.com/compress-image-to-100kb/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 6
+    },
+    {
+      "url": "https://convertios.com/compress-image-to-20kb/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/compress-image-to-20kb/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/compress-image-to-20kb/",
+        "ar": "https://convertios.com/ar/compress-image-to-20kb/",
+        "es": "https://convertios.com/es/compress-image-to-20kb/",
+        "x-default": "https://convertios.com/compress-image-to-20kb/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 5
+    },
+    {
+      "url": "https://convertios.com/compress-image-to-50kb/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/compress-image-to-50kb/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/compress-image-to-50kb/",
+        "ar": "https://convertios.com/ar/compress-image-to-50kb/",
+        "es": "https://convertios.com/es/compress-image-to-50kb/",
+        "x-default": "https://convertios.com/compress-image-to-50kb/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 5
+    },
+    {
+      "url": "https://convertios.com/contact/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/contact/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/contact/",
+        "ar": "https://convertios.com/ar/contact/",
+        "es": "https://convertios.com/es/contact/",
+        "x-default": "https://convertios.com/contact/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/about/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/about/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/about/",
+        "ar": "https://convertios.com/ar/about/",
+        "es": "https://convertios.com/es/about/",
+        "x-default": "https://convertios.com/about/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/ai-image-enhancer/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/ai-image-enhancer/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/ai-image-enhancer/",
+        "ar": "https://convertios.com/ar/ai-image-enhancer/",
+        "es": "https://convertios.com/es/ai-image-enhancer/",
+        "x-default": "https://convertios.com/ai-image-enhancer/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/all-tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/all-tools/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/all-tools/",
+        "ar": "https://convertios.com/ar/all-tools/",
+        "es": "https://convertios.com/es/all-tools/",
+        "x-default": "https://convertios.com/all-tools/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/audio-converter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/audio-converter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/audio-converter/",
+        "ar": "https://convertios.com/ar/audio-converter/",
+        "es": "https://convertios.com/es/audio-converter/",
+        "x-default": "https://convertios.com/audio-converter/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/audio-speed-changer/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/audio-speed-changer/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/audio-speed-changer/",
+        "ar": "https://convertios.com/ar/audio-speed-changer/",
+        "es": "https://convertios.com/es/audio-speed-changer/",
+        "x-default": "https://convertios.com/audio-speed-changer/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/audio-tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/audio-tools/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/audio-tools/",
+        "ar": "https://convertios.com/ar/audio-tools/",
+        "es": "https://convertios.com/es/audio-tools/",
+        "x-default": "https://convertios.com/audio-tools/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/compress-image/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/compress-image/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/compress-image/",
+        "ar": "https://convertios.com/ar/compress-image/",
+        "es": "https://convertios.com/es/compress-image/",
+        "x-default": "https://convertios.com/compress-image/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/compress-image-to-100kb/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/compress-image-to-100kb/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/compress-image-to-100kb/",
+        "ar": "https://convertios.com/ar/compress-image-to-100kb/",
+        "es": "https://convertios.com/es/compress-image-to-100kb/",
+        "x-default": "https://convertios.com/compress-image-to-100kb/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 6
+    },
+    {
+      "url": "https://convertios.com/es/compress-image-to-20kb/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/compress-image-to-20kb/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/compress-image-to-20kb/",
+        "ar": "https://convertios.com/ar/compress-image-to-20kb/",
+        "es": "https://convertios.com/es/compress-image-to-20kb/",
+        "x-default": "https://convertios.com/compress-image-to-20kb/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 5
+    },
+    {
+      "url": "https://convertios.com/es/compress-image-to-50kb/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/compress-image-to-50kb/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/compress-image-to-50kb/",
+        "ar": "https://convertios.com/ar/compress-image-to-50kb/",
+        "es": "https://convertios.com/es/compress-image-to-50kb/",
+        "x-default": "https://convertios.com/compress-image-to-50kb/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 5
+    },
+    {
+      "url": "https://convertios.com/es/contact/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/contact/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/contact/",
+        "ar": "https://convertios.com/ar/contact/",
+        "es": "https://convertios.com/es/contact/",
+        "x-default": "https://convertios.com/contact/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/faq/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/faq/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/faq/",
+        "ar": "https://convertios.com/ar/faq/",
+        "es": "https://convertios.com/es/faq/",
+        "x-default": "https://convertios.com/faq/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/image-converter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/image-converter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/image-converter/",
+        "ar": "https://convertios.com/ar/image-converter/",
+        "es": "https://convertios.com/es/image-converter/",
+        "x-default": "https://convertios.com/image-converter/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/image-resizer/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/image-resizer/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/image-resizer/",
+        "ar": "https://convertios.com/ar/image-resizer/",
+        "es": "https://convertios.com/es/image-resizer/",
+        "x-default": "https://convertios.com/image-resizer/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/image-tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/image-tools/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/image-tools/",
+        "ar": "https://convertios.com/ar/image-tools/",
+        "es": "https://convertios.com/es/image-tools/",
+        "x-default": "https://convertios.com/image-tools/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/",
+        "ar": "https://convertios.com/ar/",
+        "es": "https://convertios.com/es/",
+        "x-default": "https://convertios.com/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/jpg-to-pdf/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/jpg-to-pdf/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/jpg-to-pdf/",
+        "ar": "https://convertios.com/ar/jpg-to-pdf/",
+        "es": "https://convertios.com/es/jpg-to-pdf/",
+        "x-default": "https://convertios.com/jpg-to-pdf/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/jpg-to-png/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/jpg-to-png/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/jpg-to-png/",
+        "ar": "https://convertios.com/ar/jpg-to-png/",
+        "es": "https://convertios.com/es/jpg-to-png/",
+        "x-default": "https://convertios.com/jpg-to-png/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/link-shortener/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/link-shortener/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/link-shortener/",
+        "ar": "https://convertios.com/ar/link-shortener/",
+        "es": "https://convertios.com/es/link-shortener/",
+        "x-default": "https://convertios.com/link-shortener/"
+      },
+      "robots": "",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/meme-generator/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/meme-generator/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/meme-generator/",
+        "ar": "https://convertios.com/ar/meme-generator/",
+        "es": "https://convertios.com/es/meme-generator/",
+        "x-default": "https://convertios.com/meme-generator/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/merge-pdf/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/merge-pdf/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/merge-pdf/",
+        "ar": "https://convertios.com/ar/merge-pdf/",
+        "es": "https://convertios.com/es/merge-pdf/",
+        "x-default": "https://convertios.com/merge-pdf/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/mp3-cutter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/mp3-cutter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/mp3-cutter/",
+        "ar": "https://convertios.com/ar/mp3-cutter/",
+        "es": "https://convertios.com/es/mp3-cutter/",
+        "x-default": "https://convertios.com/mp3-cutter/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/other-tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/other-tools/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/other-tools/",
+        "ar": "https://convertios.com/ar/other-tools/",
+        "es": "https://convertios.com/es/other-tools/",
+        "x-default": "https://convertios.com/other-tools/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/password-generator/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/password-generator/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/password-generator/",
+        "ar": "https://convertios.com/ar/password-generator/",
+        "es": "https://convertios.com/es/password-generator/",
+        "x-default": "https://convertios.com/password-generator/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/pdf-to-jpg/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/pdf-to-jpg/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/pdf-to-jpg/",
+        "ar": "https://convertios.com/ar/pdf-to-jpg/",
+        "es": "https://convertios.com/es/pdf-to-jpg/",
+        "x-default": "https://convertios.com/pdf-to-jpg/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/pdf-to-word/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/pdf-to-word/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/pdf-to-word/",
+        "ar": "https://convertios.com/ar/pdf-to-word/",
+        "es": "https://convertios.com/es/pdf-to-word/",
+        "x-default": "https://convertios.com/pdf-to-word/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/pdf-tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/pdf-tools/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/pdf-tools/",
+        "ar": "https://convertios.com/ar/pdf-tools/",
+        "es": "https://convertios.com/es/pdf-tools/",
+        "x-default": "https://convertios.com/pdf-tools/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/png-to-jpg/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/png-to-jpg/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/png-to-jpg/",
+        "ar": "https://convertios.com/ar/png-to-jpg/",
+        "es": "https://convertios.com/es/png-to-jpg/",
+        "x-default": "https://convertios.com/png-to-jpg/"
+      },
+      "robots": "",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/privacy/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/privacy/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/privacy/",
+        "ar": "https://convertios.com/ar/privacy/",
+        "es": "https://convertios.com/es/privacy/",
+        "x-default": "https://convertios.com/privacy/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/qr-generator/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/qr-generator/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/qr-generator/",
+        "ar": "https://convertios.com/ar/qr-generator/",
+        "es": "https://convertios.com/es/qr-generator/",
+        "x-default": "https://convertios.com/qr-generator/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/remove-bg/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/remove-bg/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/remove-bg/",
+        "ar": "https://convertios.com/ar/remove-bg/",
+        "es": "https://convertios.com/es/remove-bg/",
+        "x-default": "https://convertios.com/remove-bg/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/rotate-pdf/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/rotate-pdf/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/rotate-pdf/",
+        "ar": "https://convertios.com/ar/rotate-pdf/",
+        "es": "https://convertios.com/es/rotate-pdf/",
+        "x-default": "https://convertios.com/rotate-pdf/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/security/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/security/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/security/",
+        "ar": "https://convertios.com/ar/security/",
+        "es": "https://convertios.com/es/security/",
+        "x-default": "https://convertios.com/security/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 51
+    },
+    {
+      "url": "https://convertios.com/es/social-media-image-resizer/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/social-media-image-resizer/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/social-media-image-resizer/",
+        "ar": "https://convertios.com/ar/social-media-image-resizer/",
+        "es": "https://convertios.com/es/social-media-image-resizer/",
+        "x-default": "https://convertios.com/social-media-image-resizer/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/split-pdf/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/split-pdf/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/split-pdf/",
+        "ar": "https://convertios.com/ar/split-pdf/",
+        "es": "https://convertios.com/es/split-pdf/",
+        "x-default": "https://convertios.com/split-pdf/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/terms/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/terms/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/terms/",
+        "ar": "https://convertios.com/ar/terms/",
+        "es": "https://convertios.com/es/terms/",
+        "x-default": "https://convertios.com/terms/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/text-formatter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/text-formatter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/text-formatter/",
+        "ar": "https://convertios.com/ar/text-formatter/",
+        "es": "https://convertios.com/es/text-formatter/",
+        "x-default": "https://convertios.com/text-formatter/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/trim-audio-online/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/trim-audio-online/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/trim-audio-online/",
+        "ar": "https://convertios.com/ar/trim-audio-online/",
+        "es": "https://convertios.com/es/trim-audio-online/",
+        "x-default": "https://convertios.com/trim-audio-online/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 5
+    },
+    {
+      "url": "https://convertios.com/es/unit-converter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/unit-converter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/unit-converter/",
+        "ar": "https://convertios.com/ar/unit-converter/",
+        "es": "https://convertios.com/es/unit-converter/",
+        "x-default": "https://convertios.com/unit-converter/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/webp-to-png/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/webp-to-png/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/webp-to-png/",
+        "ar": "https://convertios.com/ar/webp-to-png/",
+        "es": "https://convertios.com/es/webp-to-png/",
+        "x-default": "https://convertios.com/webp-to-png/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/word-counter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/word-counter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/word-counter/",
+        "ar": "https://convertios.com/ar/word-counter/",
+        "es": "https://convertios.com/es/word-counter/",
+        "x-default": "https://convertios.com/word-counter/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/faq/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/faq/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/faq/",
+        "ar": "https://convertios.com/ar/faq/",
+        "es": "https://convertios.com/es/faq/",
+        "x-default": "https://convertios.com/faq/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/image-converter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/image-converter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/image-converter/",
+        "ar": "https://convertios.com/ar/image-converter/",
+        "es": "https://convertios.com/es/image-converter/",
+        "x-default": "https://convertios.com/image-converter/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/image-resizer/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/image-resizer/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/image-resizer/",
+        "ar": "https://convertios.com/ar/image-resizer/",
+        "es": "https://convertios.com/es/image-resizer/",
+        "x-default": "https://convertios.com/image-resizer/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/image-tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/image-tools/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/image-tools/",
+        "ar": "https://convertios.com/ar/image-tools/",
+        "es": "https://convertios.com/es/image-tools/",
+        "x-default": "https://convertios.com/image-tools/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/",
+        "ar": "https://convertios.com/ar/",
+        "es": "https://convertios.com/es/",
+        "x-default": "https://convertios.com/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/jpg-to-pdf/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/jpg-to-pdf/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/jpg-to-pdf/",
+        "ar": "https://convertios.com/ar/jpg-to-pdf/",
+        "es": "https://convertios.com/es/jpg-to-pdf/",
+        "x-default": "https://convertios.com/jpg-to-pdf/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/jpg-to-png/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/jpg-to-png/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/jpg-to-png/",
+        "ar": "https://convertios.com/ar/jpg-to-png/",
+        "es": "https://convertios.com/es/jpg-to-png/",
+        "x-default": "https://convertios.com/jpg-to-png/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/link-shortener/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/link-shortener/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/link-shortener/",
+        "ar": "https://convertios.com/ar/link-shortener/",
+        "es": "https://convertios.com/es/link-shortener/",
+        "x-default": "https://convertios.com/link-shortener/"
+      },
+      "robots": "",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/meme-generator/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/meme-generator/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/meme-generator/",
+        "ar": "https://convertios.com/ar/meme-generator/",
+        "es": "https://convertios.com/es/meme-generator/",
+        "x-default": "https://convertios.com/meme-generator/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/merge-pdf/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/merge-pdf/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/merge-pdf/",
+        "ar": "https://convertios.com/ar/merge-pdf/",
+        "es": "https://convertios.com/es/merge-pdf/",
+        "x-default": "https://convertios.com/merge-pdf/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/mp3-cutter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/mp3-cutter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/mp3-cutter/",
+        "ar": "https://convertios.com/ar/mp3-cutter/",
+        "es": "https://convertios.com/es/mp3-cutter/",
+        "x-default": "https://convertios.com/mp3-cutter/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/other-tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/other-tools/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/other-tools/",
+        "ar": "https://convertios.com/ar/other-tools/",
+        "es": "https://convertios.com/es/other-tools/",
+        "x-default": "https://convertios.com/other-tools/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/password-generator/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/password-generator/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/password-generator/",
+        "ar": "https://convertios.com/ar/password-generator/",
+        "es": "https://convertios.com/es/password-generator/",
+        "x-default": "https://convertios.com/password-generator/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/pdf-to-jpg/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/pdf-to-jpg/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/pdf-to-jpg/",
+        "ar": "https://convertios.com/ar/pdf-to-jpg/",
+        "es": "https://convertios.com/es/pdf-to-jpg/",
+        "x-default": "https://convertios.com/pdf-to-jpg/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/pdf-to-word/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/pdf-to-word/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/pdf-to-word/",
+        "ar": "https://convertios.com/ar/pdf-to-word/",
+        "es": "https://convertios.com/es/pdf-to-word/",
+        "x-default": "https://convertios.com/pdf-to-word/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/pdf-tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/pdf-tools/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/pdf-tools/",
+        "ar": "https://convertios.com/ar/pdf-tools/",
+        "es": "https://convertios.com/es/pdf-tools/",
+        "x-default": "https://convertios.com/pdf-tools/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/png-to-jpg/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/png-to-jpg/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/png-to-jpg/",
+        "ar": "https://convertios.com/ar/png-to-jpg/",
+        "es": "https://convertios.com/es/png-to-jpg/",
+        "x-default": "https://convertios.com/png-to-jpg/"
+      },
+      "robots": "",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/privacy/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/privacy/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/privacy/",
+        "ar": "https://convertios.com/ar/privacy/",
+        "es": "https://convertios.com/es/privacy/",
+        "x-default": "https://convertios.com/privacy/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/qr-generator/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/qr-generator/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/qr-generator/",
+        "ar": "https://convertios.com/ar/qr-generator/",
+        "es": "https://convertios.com/es/qr-generator/",
+        "x-default": "https://convertios.com/qr-generator/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/remove-bg/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/remove-bg/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/remove-bg/",
+        "ar": "https://convertios.com/ar/remove-bg/",
+        "es": "https://convertios.com/es/remove-bg/",
+        "x-default": "https://convertios.com/remove-bg/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/rotate-pdf/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/rotate-pdf/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/rotate-pdf/",
+        "ar": "https://convertios.com/ar/rotate-pdf/",
+        "es": "https://convertios.com/es/rotate-pdf/",
+        "x-default": "https://convertios.com/rotate-pdf/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/security/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/security/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/security/",
+        "ar": "https://convertios.com/ar/security/",
+        "es": "https://convertios.com/es/security/",
+        "x-default": "https://convertios.com/security/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 51
+    },
+    {
+      "url": "https://convertios.com/social-media-image-resizer/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/social-media-image-resizer/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/social-media-image-resizer/",
+        "ar": "https://convertios.com/ar/social-media-image-resizer/",
+        "es": "https://convertios.com/es/social-media-image-resizer/",
+        "x-default": "https://convertios.com/social-media-image-resizer/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/split-pdf/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/split-pdf/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/split-pdf/",
+        "ar": "https://convertios.com/ar/split-pdf/",
+        "es": "https://convertios.com/es/split-pdf/",
+        "x-default": "https://convertios.com/split-pdf/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/terms/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/terms/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/terms/",
+        "ar": "https://convertios.com/ar/terms/",
+        "es": "https://convertios.com/es/terms/",
+        "x-default": "https://convertios.com/terms/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/text-formatter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/text-formatter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/text-formatter/",
+        "ar": "https://convertios.com/ar/text-formatter/",
+        "es": "https://convertios.com/es/text-formatter/",
+        "x-default": "https://convertios.com/text-formatter/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/trim-audio-online/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/trim-audio-online/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/trim-audio-online/",
+        "ar": "https://convertios.com/ar/trim-audio-online/",
+        "es": "https://convertios.com/es/trim-audio-online/",
+        "x-default": "https://convertios.com/trim-audio-online/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 5
+    },
+    {
+      "url": "https://convertios.com/unit-converter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/unit-converter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/unit-converter/",
+        "ar": "https://convertios.com/ar/unit-converter/",
+        "es": "https://convertios.com/es/unit-converter/",
+        "x-default": "https://convertios.com/unit-converter/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/webp-to-png/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/webp-to-png/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/webp-to-png/",
+        "ar": "https://convertios.com/ar/webp-to-png/",
+        "es": "https://convertios.com/es/webp-to-png/",
+        "x-default": "https://convertios.com/webp-to-png/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/word-counter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/word-counter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/word-counter/",
+        "ar": "https://convertios.com/ar/word-counter/",
+        "es": "https://convertios.com/es/word-counter/",
+        "x-default": "https://convertios.com/word-counter/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/video-to-mp3/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/video-to-mp3/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/video-to-mp3/",
+        "ar": "https://convertios.com/ar/video-to-mp3/",
+        "es": "https://convertios.com/es/video-to-mp3/",
+        "x-default": "https://convertios.com/video-to-mp3/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/video-to-mp3/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/video-to-mp3/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/video-to-mp3/",
+        "ar": "https://convertios.com/ar/video-to-mp3/",
+        "es": "https://convertios.com/es/video-to-mp3/",
+        "x-default": "https://convertios.com/video-to-mp3/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/video-to-mp3/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/video-to-mp3/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/video-to-mp3/",
+        "ar": "https://convertios.com/ar/video-to-mp3/",
+        "es": "https://convertios.com/es/video-to-mp3/",
+        "x-default": "https://convertios.com/video-to-mp3/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/video-converter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/video-converter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/video-converter/",
+        "ar": "https://convertios.com/ar/video-converter/",
+        "es": "https://convertios.com/es/video-converter/",
+        "x-default": "https://convertios.com/video-converter/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/video-converter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/video-converter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/video-converter/",
+        "ar": "https://convertios.com/ar/video-converter/",
+        "es": "https://convertios.com/es/video-converter/",
+        "x-default": "https://convertios.com/video-converter/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/video-converter/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/video-converter/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/video-converter/",
+        "ar": "https://convertios.com/ar/video-converter/",
+        "es": "https://convertios.com/es/video-converter/",
+        "x-default": "https://convertios.com/video-converter/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/blog/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/blog/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/",
+        "ar": "https://convertios.com/ar/blog/",
+        "es": "https://convertios.com/es/blog/",
+        "x-default": "https://convertios.com/blog/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/blog/scanned-pdf-to-word/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/blog/scanned-pdf-to-word/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/scanned-pdf-to-word/",
+        "ar": "https://convertios.com/ar/blog/scanned-pdf-to-word/",
+        "es": "https://convertios.com/es/blog/scanned-pdf-to-word/",
+        "x-default": "https://convertios.com/blog/scanned-pdf-to-word/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 7
+    },
+    {
+      "url": "https://convertios.com/blog/jpg-png-webp-guide/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/blog/jpg-png-webp-guide/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/jpg-png-webp-guide/",
+        "ar": "https://convertios.com/ar/blog/jpg-png-webp-guide/",
+        "es": "https://convertios.com/es/blog/jpg-png-webp-guide/",
+        "x-default": "https://convertios.com/blog/jpg-png-webp-guide/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 5
+    },
+    {
+      "url": "https://convertios.com/blog/qr-code-png-vs-svg/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/blog/qr-code-png-vs-svg/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/qr-code-png-vs-svg/",
+        "ar": "https://convertios.com/ar/blog/qr-code-png-vs-svg/",
+        "es": "https://convertios.com/es/blog/qr-code-png-vs-svg/",
+        "x-default": "https://convertios.com/blog/qr-code-png-vs-svg/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 7
+    },
+    {
+      "url": "https://convertios.com/ar/blog/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/blog/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/",
+        "ar": "https://convertios.com/ar/blog/",
+        "es": "https://convertios.com/es/blog/",
+        "x-default": "https://convertios.com/blog/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/ar/blog/scanned-pdf-to-word/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/blog/scanned-pdf-to-word/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/scanned-pdf-to-word/",
+        "ar": "https://convertios.com/ar/blog/scanned-pdf-to-word/",
+        "es": "https://convertios.com/es/blog/scanned-pdf-to-word/",
+        "x-default": "https://convertios.com/blog/scanned-pdf-to-word/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 7
+    },
+    {
+      "url": "https://convertios.com/ar/blog/jpg-png-webp-guide/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/blog/jpg-png-webp-guide/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/jpg-png-webp-guide/",
+        "ar": "https://convertios.com/ar/blog/jpg-png-webp-guide/",
+        "es": "https://convertios.com/es/blog/jpg-png-webp-guide/",
+        "x-default": "https://convertios.com/blog/jpg-png-webp-guide/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 5
+    },
+    {
+      "url": "https://convertios.com/ar/blog/qr-code-png-vs-svg/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/blog/qr-code-png-vs-svg/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/qr-code-png-vs-svg/",
+        "ar": "https://convertios.com/ar/blog/qr-code-png-vs-svg/",
+        "es": "https://convertios.com/es/blog/qr-code-png-vs-svg/",
+        "x-default": "https://convertios.com/blog/qr-code-png-vs-svg/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 7
+    },
+    {
+      "url": "https://convertios.com/es/blog/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/blog/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/",
+        "ar": "https://convertios.com/ar/blog/",
+        "es": "https://convertios.com/es/blog/",
+        "x-default": "https://convertios.com/blog/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 53
+    },
+    {
+      "url": "https://convertios.com/es/blog/scanned-pdf-to-word/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/blog/scanned-pdf-to-word/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/scanned-pdf-to-word/",
+        "ar": "https://convertios.com/ar/blog/scanned-pdf-to-word/",
+        "es": "https://convertios.com/es/blog/scanned-pdf-to-word/",
+        "x-default": "https://convertios.com/blog/scanned-pdf-to-word/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 7
+    },
+    {
+      "url": "https://convertios.com/es/blog/jpg-png-webp-guide/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/blog/jpg-png-webp-guide/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/jpg-png-webp-guide/",
+        "ar": "https://convertios.com/ar/blog/jpg-png-webp-guide/",
+        "es": "https://convertios.com/es/blog/jpg-png-webp-guide/",
+        "x-default": "https://convertios.com/blog/jpg-png-webp-guide/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 5
+    },
+    {
+      "url": "https://convertios.com/es/blog/qr-code-png-vs-svg/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/blog/qr-code-png-vs-svg/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/qr-code-png-vs-svg/",
+        "ar": "https://convertios.com/ar/blog/qr-code-png-vs-svg/",
+        "es": "https://convertios.com/es/blog/qr-code-png-vs-svg/",
+        "x-default": "https://convertios.com/blog/qr-code-png-vs-svg/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 7
+    },
+    {
+      "url": "https://convertios.com/blog/pdf-brotli-2026/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/blog/pdf-brotli-2026/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/pdf-brotli-2026/",
+        "ar": "https://convertios.com/ar/blog/pdf-brotli-2026/",
+        "es": "https://convertios.com/es/blog/pdf-brotli-2026/",
+        "x-default": "https://convertios.com/blog/pdf-brotli-2026/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 4
+    },
+    {
+      "url": "https://convertios.com/blog/pdf-accessibility-2026/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/blog/pdf-accessibility-2026/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/pdf-accessibility-2026/",
+        "ar": "https://convertios.com/ar/blog/pdf-accessibility-2026/",
+        "es": "https://convertios.com/es/blog/pdf-accessibility-2026/",
+        "x-default": "https://convertios.com/blog/pdf-accessibility-2026/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 5
+    },
+    {
+      "url": "https://convertios.com/blog/retail-qr-2027/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/blog/retail-qr-2027/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/retail-qr-2027/",
+        "ar": "https://convertios.com/ar/blog/retail-qr-2027/",
+        "es": "https://convertios.com/es/blog/retail-qr-2027/",
+        "x-default": "https://convertios.com/blog/retail-qr-2027/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 3
+    },
+    {
+      "url": "https://convertios.com/ar/blog/pdf-brotli-2026/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/blog/pdf-brotli-2026/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/pdf-brotli-2026/",
+        "ar": "https://convertios.com/ar/blog/pdf-brotli-2026/",
+        "es": "https://convertios.com/es/blog/pdf-brotli-2026/",
+        "x-default": "https://convertios.com/blog/pdf-brotli-2026/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 4
+    },
+    {
+      "url": "https://convertios.com/ar/blog/pdf-accessibility-2026/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/blog/pdf-accessibility-2026/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/pdf-accessibility-2026/",
+        "ar": "https://convertios.com/ar/blog/pdf-accessibility-2026/",
+        "es": "https://convertios.com/es/blog/pdf-accessibility-2026/",
+        "x-default": "https://convertios.com/blog/pdf-accessibility-2026/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 5
+    },
+    {
+      "url": "https://convertios.com/ar/blog/retail-qr-2027/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/blog/retail-qr-2027/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/retail-qr-2027/",
+        "ar": "https://convertios.com/ar/blog/retail-qr-2027/",
+        "es": "https://convertios.com/es/blog/retail-qr-2027/",
+        "x-default": "https://convertios.com/blog/retail-qr-2027/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 3
+    },
+    {
+      "url": "https://convertios.com/es/blog/pdf-brotli-2026/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/blog/pdf-brotli-2026/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/pdf-brotli-2026/",
+        "ar": "https://convertios.com/ar/blog/pdf-brotli-2026/",
+        "es": "https://convertios.com/es/blog/pdf-brotli-2026/",
+        "x-default": "https://convertios.com/blog/pdf-brotli-2026/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 4
+    },
+    {
+      "url": "https://convertios.com/es/blog/pdf-accessibility-2026/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/blog/pdf-accessibility-2026/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/pdf-accessibility-2026/",
+        "ar": "https://convertios.com/ar/blog/pdf-accessibility-2026/",
+        "es": "https://convertios.com/es/blog/pdf-accessibility-2026/",
+        "x-default": "https://convertios.com/blog/pdf-accessibility-2026/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 5
+    },
+    {
+      "url": "https://convertios.com/es/blog/retail-qr-2027/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/blog/retail-qr-2027/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/retail-qr-2027/",
+        "ar": "https://convertios.com/ar/blog/retail-qr-2027/",
+        "es": "https://convertios.com/es/blog/retail-qr-2027/",
+        "x-default": "https://convertios.com/blog/retail-qr-2027/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 3
+    },
+    {
+      "url": "https://convertios.com/blog/pdf-html-1-2-2026/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/blog/pdf-html-1-2-2026/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/pdf-html-1-2-2026/",
+        "ar": "https://convertios.com/ar/blog/pdf-html-1-2-2026/",
+        "es": "https://convertios.com/es/blog/pdf-html-1-2-2026/",
+        "x-default": "https://convertios.com/blog/pdf-html-1-2-2026/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 7
+    },
+    {
+      "url": "https://convertios.com/blog/svg-2-standard-2026/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/blog/svg-2-standard-2026/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/svg-2-standard-2026/",
+        "ar": "https://convertios.com/ar/blog/svg-2-standard-2026/",
+        "es": "https://convertios.com/es/blog/svg-2-standard-2026/",
+        "x-default": "https://convertios.com/blog/svg-2-standard-2026/"
+      },
+      "robots": "index, follow",
+      "lang": "en",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 7
+    },
+    {
+      "url": "https://convertios.com/ar/blog/pdf-html-1-2-2026/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/blog/pdf-html-1-2-2026/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/pdf-html-1-2-2026/",
+        "ar": "https://convertios.com/ar/blog/pdf-html-1-2-2026/",
+        "es": "https://convertios.com/es/blog/pdf-html-1-2-2026/",
+        "x-default": "https://convertios.com/blog/pdf-html-1-2-2026/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 7
+    },
+    {
+      "url": "https://convertios.com/ar/blog/svg-2-standard-2026/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/ar/blog/svg-2-standard-2026/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/svg-2-standard-2026/",
+        "ar": "https://convertios.com/ar/blog/svg-2-standard-2026/",
+        "es": "https://convertios.com/es/blog/svg-2-standard-2026/",
+        "x-default": "https://convertios.com/blog/svg-2-standard-2026/"
+      },
+      "robots": "index, follow",
+      "lang": "ar",
+      "direction": "rtl",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 7
+    },
+    {
+      "url": "https://convertios.com/es/blog/pdf-html-1-2-2026/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/blog/pdf-html-1-2-2026/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/pdf-html-1-2-2026/",
+        "ar": "https://convertios.com/ar/blog/pdf-html-1-2-2026/",
+        "es": "https://convertios.com/es/blog/pdf-html-1-2-2026/",
+        "x-default": "https://convertios.com/blog/pdf-html-1-2-2026/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 7
+    },
+    {
+      "url": "https://convertios.com/es/blog/svg-2-standard-2026/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": "",
+      "canonical": [
+        "https://convertios.com/es/blog/svg-2-standard-2026/"
+      ],
+      "alternates": {
+        "en": "https://convertios.com/blog/svg-2-standard-2026/",
+        "ar": "https://convertios.com/ar/blog/svg-2-standard-2026/",
+        "es": "https://convertios.com/es/blog/svg-2-standard-2026/",
+        "x-default": "https://convertios.com/blog/svg-2-standard-2026/"
+      },
+      "robots": "index, follow",
+      "lang": "es",
+      "direction": "",
+      "h1": 1,
+      "allowed_googlebot": true,
+      "inbound_pages": 7
+    }
+  ],
+  "extra_link_targets": [
+    {
+      "url": "https://convertios.com/cdn-cgi/l/email-protection",
+      "status": 404,
+      "location": null,
+      "x_robots_tag": "",
+      "source_urls": [
+        "https://convertios.com/ar/about/",
+        "https://convertios.com/ar/contact/",
+        "https://convertios.com/ar/privacy/",
+        "https://convertios.com/ar/terms/",
+        "https://convertios.com/contact/",
+        "https://convertios.com/es/about/",
+        "https://convertios.com/es/contact/",
+        "https://convertios.com/es/privacy/",
+        "https://convertios.com/es/terms/",
+        "https://convertios.com/privacy/",
+        "https://convertios.com/terms/"
+      ]
+    }
+  ],
+  "additional_urls": [
+    {
+      "url": "https://convertios.com/ar/pdf-to-jpg.html",
+      "status": 301,
+      "location": "https://convertios.com/ar/pdf-to-jpg/",
+      "x_robots_tag": ""
+    },
+    {
+      "url": "https://convertios.com/ar/split-pdf.html",
+      "status": 301,
+      "location": "https://convertios.com/ar/split-pdf/",
+      "x_robots_tag": ""
+    },
+    {
+      "url": "https://convertios.com/ar/image-converter.html",
+      "status": 301,
+      "location": "https://convertios.com/ar/image-converter/",
+      "x_robots_tag": ""
+    },
+    {
+      "url": "https://convertios.com/ar/ai-image-enhancer.html",
+      "status": 301,
+      "location": "https://convertios.com/ar/ai-image-enhancer/",
+      "x_robots_tag": ""
+    },
+    {
+      "url": "https://convertios.com/ar/webp-to-png.html",
+      "status": 301,
+      "location": "https://convertios.com/ar/webp-to-png/",
+      "x_robots_tag": ""
+    },
+    {
+      "url": "https://convertios.com/trim-audio-online.html",
+      "status": 301,
+      "location": "https://convertios.com/trim-audio-online/",
+      "x_robots_tag": ""
+    },
+    {
+      "url": "https://convertios.com/text-formatter.html",
+      "status": 301,
+      "location": "https://convertios.com/text-formatter/",
+      "x_robots_tag": ""
+    },
+    {
+      "url": "https://convertios.com/tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": ""
+    },
+    {
+      "url": "https://convertios.com/ar/tools/",
+      "status": 200,
+      "location": null,
+      "x_robots_tag": ""
+    },
+    {
+      "url": "https://convertios.com/merge-pdf",
+      "status": 301,
+      "location": "https://convertios.com/merge-pdf/",
+      "x_robots_tag": ""
+    },
+    {
+      "url": "https://convertios.com/index.html",
+      "status": 301,
+      "location": "https://convertios.com/",
+      "x_robots_tag": ""
+    },
+    {
+      "url": "https://convertios.com/404.html",
+      "status": 301,
+      "location": "https://convertios.com/404/",
+      "x_robots_tag": ""
+    }
+  ],
+  "problems": [
+    {
+      "type": "internal-link-target",
+      "url": "https://convertios.com/cdn-cgi/l/email-protection",
+      "status": 404,
+      "location": null,
+      "x_robots_tag": "",
+      "source_urls": [
+        "https://convertios.com/ar/about/",
+        "https://convertios.com/ar/contact/",
+        "https://convertios.com/ar/privacy/",
+        "https://convertios.com/ar/terms/",
+        "https://convertios.com/contact/",
+        "https://convertios.com/es/about/",
+        "https://convertios.com/es/contact/",
+        "https://convertios.com/es/privacy/",
+        "https://convertios.com/es/terms/",
+        "https://convertios.com/privacy/",
+        "https://convertios.com/terms/"
+      ]
+    }
+  ]
+}

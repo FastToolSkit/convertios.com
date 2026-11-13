@@ -1,0 +1,41 @@
+[
+  {
+    "url": "https://convertios.com/merge-pdf",
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+  },
+  {
+    "url": "https://convertios.com/index.html",
+    "verdict": "NEUTRAL",
+    "coverageState": "Page with redirect",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "lastCrawlTime": "2026-11-12T18:45:57Z",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://convertios.com/",
+    "userCanonical": "https://convertios.com/",
+    "referringUrls": [
+      "https://convertios.com/"
+    ],
+    "crawledAs": "MOBILE"
+  },
+  {
+    "url": "https://convertios.com/?q=pdf",
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+  },
+  {
+    "url": "https://convertios.com/404.html",
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+  }
+]

@@ -1,0 +1,2486 @@
+{
+  "retrieved_at": "2026-11-12T20:43:05.478Z",
+  "note": "Google stored inspection records, not live tests. 156 sitemap URLs plus seven old aliases, two noindex hubs and one edge helper.",
+  "rows": [
+    {
+      "url": "https://convertios.com/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-12T18:45:57Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/",
+      "userCanonical": "https://convertios.com/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/es/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/about/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-11T02:10:22Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/about/",
+      "userCanonical": "https://convertios.com/about/",
+      "referringUrls": [
+        "https://convertios.com/ar/about/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ai-image-enhancer/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-09T00:49:48Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ai-image-enhancer/",
+      "userCanonical": "https://convertios.com/ai-image-enhancer/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/ai-image-enhancer/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/all-tools/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T06:52:44Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/all-tools/",
+      "userCanonical": "https://convertios.com/all-tools/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/es/all-tools/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-02T13:43:35Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/",
+      "userCanonical": "https://convertios.com/ar/",
+      "referringUrls": [
+        "https://convertios.com/es/",
+        "https://convertios.com/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/about/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-15T17:47:18Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/about/",
+      "userCanonical": "https://convertios.com/ar/about/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/ai-image-enhancer.html",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-07-19T13:26:06Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/ai-image-enhancer.html",
+      "userCanonical": "https://convertios.com/ar/ai-image-enhancer.html",
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/ai-image-enhancer/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Duplicate, Google chose different canonical than user",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-26T03:18:08Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/ai-image-enhancer.html",
+      "userCanonical": "https://convertios.com/ar/ai-image-enhancer/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/all-tools/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-30T03:13:04Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/all-tools/",
+      "userCanonical": "https://convertios.com/ar/all-tools/",
+      "referringUrls": [
+        "https://convertios.com/all-tools/",
+        "https://convertios.com/es/all-tools/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/audio-converter/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T09:36:36Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/audio-converter/",
+      "userCanonical": "https://convertios.com/ar/audio-converter/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/audio-converter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/audio-speed-changer/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-13T18:54:38Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/audio-speed-changer/",
+      "userCanonical": "https://convertios.com/ar/audio-speed-changer/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/es/audio-speed-changer/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/audio-tools/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-10T19:00:37Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/audio-tools/",
+      "userCanonical": "https://convertios.com/ar/audio-tools/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/blog/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/ar/blog/jpg-png-webp-guide/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/ar/blog/pdf-accessibility-2026/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/ar/blog/pdf-brotli-2026/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/ar/blog/pdf-html-1-2-2026/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/ar/blog/qr-code-png-vs-svg/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/ar/blog/retail-qr-2027/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/ar/blog/scanned-pdf-to-word/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/ar/blog/svg-2-standard-2026/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/ar/compress-image-to-100kb/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-09T16:26:05Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/compress-image-to-100kb/",
+      "userCanonical": "https://convertios.com/ar/compress-image-to-100kb/",
+      "referringUrls": [
+        "https://convertios.com/es/compress-image-to-100kb/",
+        "https://convertios.com/compress-image-to-100kb/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/compress-image-to-20kb/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-13T20:09:40Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/compress-image-to-20kb/",
+      "userCanonical": "https://convertios.com/ar/compress-image-to-20kb/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/compress-image-to-50kb/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-19T14:53:28Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/compress-image-to-50kb/",
+      "userCanonical": "https://convertios.com/ar/compress-image-to-50kb/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/compress-image-to-50kb/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/compress-image/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-19T12:09:33Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/compress-image/",
+      "userCanonical": "https://convertios.com/ar/compress-image/",
+      "referringUrls": [
+        "https://convertios.com/compress-image/",
+        "https://convertios.com/ar/word-counter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/contact/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-02T16:28:59Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/contact/",
+      "userCanonical": "https://convertios.com/ar/contact/",
+      "referringUrls": [
+        "https://convertios.com/ar/word-counter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/faq/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T12:32:44Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/faq/",
+      "userCanonical": "https://convertios.com/ar/faq/",
+      "referringUrls": [
+        "https://convertios.com/faq/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/image-converter.html",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-08-28T14:09:32Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/image-converter.html",
+      "userCanonical": "https://convertios.com/ar/image-converter.html",
+      "referringUrls": [
+        "https://convertios.com/image-converter.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/image-converter/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Duplicate, Google chose different canonical than user",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-17T04:52:11Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/image-converter.html",
+      "userCanonical": "https://convertios.com/ar/image-converter/",
+      "referringUrls": [
+        "https://convertios.com/image-converter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/image-resizer/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-29T03:48:21Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/image-resizer/",
+      "userCanonical": "https://convertios.com/ar/image-resizer/",
+      "referringUrls": [
+        "https://convertios.com/image-resizer/",
+        "https://convertios.com/ar/word-counter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/image-tools/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-10T23:53:27Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/image-tools/",
+      "userCanonical": "https://convertios.com/ar/image-tools/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/image-tools/",
+        "https://convertios.com/ar/compress-image-to-20kb/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/jpg-to-pdf/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/word-counter/"
+      ],
+      "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/ar/jpg-to-png/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T00:58:38Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/jpg-to-png/",
+      "userCanonical": "https://convertios.com/ar/jpg-to-png/",
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/link-shortener/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-28T06:26:23Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/link-shortener/",
+      "userCanonical": "https://convertios.com/ar/link-shortener/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/meme-generator/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-08T21:18:32Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/meme-generator/",
+      "userCanonical": "https://convertios.com/ar/meme-generator/",
+      "referringUrls": [
+        "https://convertios.com/es/meme-generator/",
+        "https://convertios.com/ar/meme-generator.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/merge-pdf/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-20T04:51:48Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/merge-pdf/",
+      "userCanonical": "https://convertios.com/ar/merge-pdf/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/merge-pdf/",
+        "https://convertios.com/ar/word-counter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/mp3-cutter/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-18T20:50:18Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/mp3-cutter/",
+      "userCanonical": "https://convertios.com/ar/mp3-cutter/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/mp3-cutter.html",
+        "https://convertios.com/ar/word-counter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/other-tools/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-06T06:52:24Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/other-tools/",
+      "userCanonical": "https://convertios.com/ar/other-tools/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/password-generator/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-08T14:46:27Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/password-generator/",
+      "userCanonical": "https://convertios.com/ar/password-generator/",
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/pdf-to-jpg.html",
+      "verdict": "NEUTRAL",
+      "coverageState": "Excluded by ‘noindex’ tag",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "BLOCKED_BY_META_TAG",
+      "lastCrawlTime": "2026-05-29T21:35:49Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/pdf-to-jpg.html",
+      "userCanonical": "https://convertios.com/ar/pdf-to-jpg.html",
+      "referringUrls": [
+        "https://convertios.com/pdf-to-jpg.html",
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/pdf-to-jpg/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Duplicate, Google chose different canonical than user",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-01T15:28:56Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/pdf-to-jpg.html",
+      "userCanonical": "https://convertios.com/ar/pdf-to-jpg/",
+      "referringUrls": [
+        "https://convertios.com/pdf-to-jpg/",
+        "https://convertios.com/ar/word-counter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/pdf-to-word/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-14T11:09:48Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/pdf-to-word/",
+      "userCanonical": "https://convertios.com/ar/pdf-to-word/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/pdf-to-word.html",
+        "https://convertios.com/ar/word-counter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/pdf-tools/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-25T17:09:52Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/pdf-tools/",
+      "userCanonical": "https://convertios.com/ar/pdf-tools/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/pdf-tools/",
+        "https://convertios.com/ar/mp3-cutter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/png-to-jpg/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-01T17:49:53Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/png-to-jpg/",
+      "userCanonical": "https://convertios.com/ar/png-to-jpg/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/es/png-to-jpg/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/privacy/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-30T00:43:04Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/privacy/",
+      "userCanonical": "https://convertios.com/ar/privacy/",
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/qr-generator/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-05T00:49:25Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/qr-generator/",
+      "userCanonical": "https://convertios.com/ar/qr-generator/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/es/qr-generator/",
+        "https://convertios.com/qr-generator.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/remove-bg/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-20T15:19:19Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/remove-bg/",
+      "userCanonical": "https://convertios.com/ar/remove-bg/",
+      "referringUrls": [
+        "https://convertios.com/remove-bg/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/rotate-pdf/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-20T11:34:19Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/rotate-pdf/",
+      "userCanonical": "https://convertios.com/ar/rotate-pdf/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/es/rotate-pdf/",
+        "https://convertios.com/rotate-pdf/",
+        "https://convertios.com/ar/word-counter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/security/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-29T05:24:13Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/security/",
+      "userCanonical": "https://convertios.com/ar/security/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/social-media-image-resizer/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T17:29:41Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/social-media-image-resizer/",
+      "userCanonical": "https://convertios.com/ar/social-media-image-resizer/",
+      "referringUrls": [
+        "https://convertios.com/es/social-media-image-resizer/",
+        "https://convertios.com/social-media-image-resizer/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/split-pdf.html",
+      "verdict": "NEUTRAL",
+      "coverageState": "Excluded by ‘noindex’ tag",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "BLOCKED_BY_META_TAG",
+      "lastCrawlTime": "2026-05-24T06:41:20Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/split-pdf.html",
+      "userCanonical": "https://convertios.com/ar/split-pdf.html",
+      "referringUrls": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/split-pdf/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Duplicate, Google chose different canonical than user",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-07T14:56:04Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/split-pdf.html",
+      "userCanonical": "https://convertios.com/ar/split-pdf/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/split-pdf/",
+        "https://convertios.com/ar/word-counter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/terms/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-05T13:45:17Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/terms/",
+      "userCanonical": "https://convertios.com/ar/terms/",
+      "referringUrls": [
+        "https://convertios.com/terms/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/text-formatter/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T17:17:46Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/text-formatter/",
+      "userCanonical": "https://convertios.com/ar/text-formatter/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/text-formatter.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/tools/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Excluded by ‘noindex’ tag",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "BLOCKED_BY_META_TAG",
+      "lastCrawlTime": "2026-09-04T16:47:02Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/tools/",
+      "userCanonical": "https://convertios.com/ar/all-tools/",
+      "referringUrls": [
+        "https://convertios.com/tools.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/trim-audio-online/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-19T07:45:30Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/trim-audio-online/",
+      "userCanonical": "https://convertios.com/ar/trim-audio-online/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/trim-audio-online/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/unit-converter/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T11:08:52Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/unit-converter/",
+      "userCanonical": "https://convertios.com/ar/unit-converter/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/unit-converter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/video-converter/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/ar/video-to-mp3/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/ar/webp-to-png.html",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-08-02T09:42:03Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/webp-to-png.html",
+      "userCanonical": "https://convertios.com/ar/webp-to-png.html",
+      "referringUrls": [
+        "https://convertios.com/webp-to-png.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/webp-to-png/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Duplicate, Google chose different canonical than user",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-30T01:11:59Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/webp-to-png.html",
+      "userCanonical": "https://convertios.com/ar/webp-to-png/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/webp-to-png/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/ar/word-counter/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T03:57:02Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/ar/word-counter/",
+      "userCanonical": "https://convertios.com/ar/word-counter/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/es/word-counter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/audio-converter/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T01:56:56Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/audio-converter/",
+      "userCanonical": "https://convertios.com/audio-converter/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/audio-converter.html",
+        "https://convertios.com/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/audio-speed-changer/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-10T22:14:58Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/audio-speed-changer/",
+      "userCanonical": "https://convertios.com/audio-speed-changer/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/audio-speed-changer/",
+        "https://convertios.com/es/audio-speed-changer/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/audio-tools/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T02:24:00Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/audio-tools/",
+      "userCanonical": "https://convertios.com/audio-tools/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/audio-tools/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/blog/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/blog/jpg-png-webp-guide/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/blog/pdf-accessibility-2026/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/blog/pdf-brotli-2026/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/blog/pdf-html-1-2-2026/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/blog/qr-code-png-vs-svg/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/blog/retail-qr-2027/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/blog/scanned-pdf-to-word/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/blog/svg-2-standard-2026/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/cdn-cgi/l/email-protection",
+      "verdict": "NEUTRAL",
+      "coverageState": "Not found (404)",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": "2026-06-13T22:36:07Z",
+      "pageFetchState": "NOT_FOUND",
+      "referringUrls": [
+        "https://convertios.com/contact.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/compress-image-to-100kb/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T05:07:06Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/compress-image-to-100kb/",
+      "userCanonical": "https://convertios.com/compress-image-to-100kb/",
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/compress-image-to-20kb/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-26T02:50:30Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/compress-image-to-20kb/",
+      "userCanonical": "https://convertios.com/compress-image-to-20kb/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/compress-image-to-20kb/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/compress-image-to-50kb/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T05:02:34Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/compress-image-to-50kb/",
+      "userCanonical": "https://convertios.com/compress-image-to-50kb/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/compress-image/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T15:38:15Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/compress-image/",
+      "userCanonical": "https://convertios.com/compress-image/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/compress-image.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/contact/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-05T15:00:17Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/contact/",
+      "userCanonical": "https://convertios.com/contact/",
+      "referringUrls": [
+        "https://convertios.com/ar/contact/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-08T03:25:21Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/",
+      "userCanonical": "https://convertios.com/es/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/",
+        "https://convertios.com/es/compress-image-to-20kb/",
+        "https://convertios.com/es/png-to-jpg/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/about/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-01T20:13:34Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/about/",
+      "userCanonical": "https://convertios.com/es/about/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/about/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/ai-image-enhancer/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ai-image-enhancer/",
+        "https://convertios.com/ar/ai-image-enhancer/"
+      ],
+      "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/all-tools/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T07:34:25Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/all-tools/",
+      "userCanonical": "https://convertios.com/es/all-tools/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/all-tools.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/audio-converter/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T07:51:30Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/audio-converter/",
+      "userCanonical": "https://convertios.com/es/audio-converter/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/audio-converter/",
+        "https://convertios.com/audio-converter.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/audio-speed-changer/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-08T17:27:30Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/audio-speed-changer/",
+      "userCanonical": "https://convertios.com/es/audio-speed-changer/",
+      "referringUrls": [
+        "https://convertios.com/es/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/audio-tools/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-31T21:44:47Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/audio-tools/",
+      "userCanonical": "https://convertios.com/es/audio-tools/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/audio-tools/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/blog/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/blog/jpg-png-webp-guide/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/blog/pdf-accessibility-2026/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/blog/pdf-brotli-2026/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/blog/pdf-html-1-2-2026/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/blog/qr-code-png-vs-svg/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/blog/retail-qr-2027/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/blog/scanned-pdf-to-word/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/blog/svg-2-standard-2026/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/compress-image-to-100kb/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-15T22:47:19Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/compress-image-to-100kb/",
+      "userCanonical": "https://convertios.com/es/compress-image-to-100kb/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/compress-image-to-100kb/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/compress-image-to-20kb/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-28T01:42:46Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/compress-image-to-20kb/",
+      "userCanonical": "https://convertios.com/es/compress-image-to-20kb/",
+      "referringUrls": [
+        "https://convertios.com/ar/compress-image-to-20kb/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/compress-image-to-50kb/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-04T06:01:34Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/compress-image-to-50kb/",
+      "userCanonical": "https://convertios.com/es/compress-image-to-50kb/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/compress-image-to-50kb/",
+        "https://convertios.com/compress-image-to-50kb/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/compress-image/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-04T13:26:53Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/compress-image/",
+      "userCanonical": "https://convertios.com/es/compress-image/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/compress-image/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/contact/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T01:41:50Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/contact/",
+      "userCanonical": "https://convertios.com/es/contact/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/contact/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/faq/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-04T04:12:53Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/faq/",
+      "userCanonical": "https://convertios.com/es/faq/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/faq/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/image-converter/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-02T17:15:32Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/image-converter/",
+      "userCanonical": "https://convertios.com/es/image-converter/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/image-converter/",
+        "https://convertios.com/image-converter.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/image-resizer/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-01T00:13:34Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/image-resizer/",
+      "userCanonical": "https://convertios.com/es/image-resizer/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/image-resizer/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/image-tools/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T11:10:37Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/image-tools/",
+      "userCanonical": "https://convertios.com/es/image-tools/",
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/jpg-to-pdf/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/es/"
+      ],
+      "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/jpg-to-png/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T06:36:53Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/jpg-to-png/",
+      "userCanonical": "https://convertios.com/es/jpg-to-png/",
+      "referringUrls": [
+        "https://convertios.com/ar/jpg-to-png/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/link-shortener/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/meme-generator/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T03:49:26Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/meme-generator/",
+      "userCanonical": "https://convertios.com/es/meme-generator/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/meme-generator/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/merge-pdf/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T11:51:41Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/merge-pdf/",
+      "userCanonical": "https://convertios.com/es/merge-pdf/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/merge-pdf/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/mp3-cutter/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T05:13:42Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/mp3-cutter/",
+      "userCanonical": "https://convertios.com/es/mp3-cutter/",
+      "referringUrls": [
+        "https://convertios.com/es/mp3-cutter.html",
+        "https://convertios.com/index.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/other-tools/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-03T20:22:55Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/other-tools/",
+      "userCanonical": "https://convertios.com/es/other-tools/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/other-tools/",
+        "https://convertios.com/ar/other-tools/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/password-generator/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T02:32:41Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/password-generator/",
+      "userCanonical": "https://convertios.com/es/password-generator/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/password-generator/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/pdf-to-jpg/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/pdf-to-jpg/"
+      ],
+      "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/pdf-to-word/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-01T12:43:34Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/pdf-to-word/",
+      "userCanonical": "https://convertios.com/es/pdf-to-word/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/pdf-to-word/",
+        "https://convertios.com/es/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/pdf-tools/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-12T00:18:10Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/pdf-tools/",
+      "userCanonical": "https://convertios.com/es/pdf-tools/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/pdf-tools/",
+        "https://convertios.com/es/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/png-to-jpg/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-11T04:03:02Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/png-to-jpg/",
+      "userCanonical": "https://convertios.com/es/png-to-jpg/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/privacy/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T13:18:27Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/privacy/",
+      "userCanonical": "https://convertios.com/es/privacy/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/privacy/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/qr-generator/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-03T08:54:11Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/qr-generator/",
+      "userCanonical": "https://convertios.com/es/qr-generator/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/qr-generator/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/remove-bg/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T09:38:20Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/remove-bg/",
+      "userCanonical": "https://convertios.com/es/remove-bg/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/remove-bg/",
+        "https://convertios.com/remove-bg/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/rotate-pdf/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T06:38:37Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/rotate-pdf/",
+      "userCanonical": "https://convertios.com/es/rotate-pdf/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/rotate-pdf/",
+        "https://convertios.com/es/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/security/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-10T17:14:58Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/security/",
+      "userCanonical": "https://convertios.com/es/security/",
+      "referringUrls": [
+        "https://convertios.com/es/png-to-jpg/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/social-media-image-resizer/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-10T19:44:57Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/social-media-image-resizer/",
+      "userCanonical": "https://convertios.com/es/social-media-image-resizer/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/social-media-image-resizer/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/split-pdf/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T13:17:49Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/split-pdf/",
+      "userCanonical": "https://convertios.com/es/split-pdf/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/split-pdf/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/terms/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-08T14:57:28Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/terms/",
+      "userCanonical": "https://convertios.com/es/terms/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/terms/",
+        "https://convertios.com/terms/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/text-formatter/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/text-formatter/",
+        "https://convertios.com/ar/text-formatter.html"
+      ],
+      "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/trim-audio-online/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-19T02:09:31Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/trim-audio-online/",
+      "userCanonical": "https://convertios.com/es/trim-audio-online/",
+      "referringUrls": [
+        "https://convertios.com/trim-audio-online/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/unit-converter/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-02T19:45:31Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/unit-converter/",
+      "userCanonical": "https://convertios.com/es/unit-converter/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/unit-converter/",
+        "https://convertios.com/unit-converter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/video-converter/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/video-to-mp3/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/es/webp-to-png/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-02T14:45:31Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/webp-to-png/",
+      "userCanonical": "https://convertios.com/es/webp-to-png/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/webp-to-png/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/es/word-counter/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-02T22:15:32Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/es/word-counter/",
+      "userCanonical": "https://convertios.com/es/word-counter/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/word-counter/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/faq/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T09:47:28Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/faq/",
+      "userCanonical": "https://convertios.com/faq/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/faq.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/image-converter/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-31T16:43:35Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/image-converter/",
+      "userCanonical": "https://convertios.com/image-converter/",
+      "referringUrls": [
+        "https://convertios.com/es/image-converter.html",
+        "https://convertios.com/image-converter.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/image-resizer/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-05T01:33:41Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/image-resizer/",
+      "userCanonical": "https://convertios.com/image-resizer/",
+      "referringUrls": [
+        "https://convertios.com/image-resizer.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/image-tools/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-24T04:27:54Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/image-tools/",
+      "userCanonical": "https://convertios.com/image-tools/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/es/image-tools/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/jpg-to-pdf/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/"
+      ],
+      "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/jpg-to-png/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T08:08:24Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/jpg-to-png/",
+      "userCanonical": "https://convertios.com/jpg-to-png/",
+      "referringUrls": [
+        "https://convertios.com/jpg-to-png.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/link-shortener/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-10T12:13:22Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/link-shortener/",
+      "userCanonical": "https://convertios.com/link-shortener/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/link-shortener/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/meme-generator/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T00:55:42Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/meme-generator/",
+      "userCanonical": "https://convertios.com/meme-generator/",
+      "referringUrls": [
+        "https://convertios.com/ar/meme-generator/",
+        "https://convertios.com/ar/meme-generator.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/merge-pdf/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-05T14:22:47Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/merge-pdf/",
+      "userCanonical": "https://convertios.com/merge-pdf/",
+      "referringUrls": [
+        "https://convertios.com/merge-pdf.html",
+        "https://convertios.com/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/mp3-cutter/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-09T00:03:51Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/mp3-cutter/",
+      "userCanonical": "https://convertios.com/mp3-cutter/",
+      "referringUrls": [
+        "https://convertios.com/mp3-cutter.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/other-tools/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-10T14:43:22Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/other-tools/",
+      "userCanonical": "https://convertios.com/other-tools/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/other-tools/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/password-generator/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-09T00:34:31Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/password-generator/",
+      "userCanonical": "https://convertios.com/password-generator/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/password-generator/",
+        "https://convertios.com/index.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/pdf-to-jpg/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-03T00:45:32Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/pdf-to-jpg/",
+      "userCanonical": "https://convertios.com/pdf-to-jpg/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/pdf-to-jpg.html",
+        "https://convertios.com/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/pdf-to-word/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T06:52:44Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/pdf-to-word/",
+      "userCanonical": "https://convertios.com/pdf-to-word/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/pdf-to-word/",
+        "https://convertios.com/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/pdf-tools/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-23T17:00:34Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/pdf-tools/",
+      "userCanonical": "https://convertios.com/pdf-tools/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/index.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/png-to-jpg/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-09T00:19:10Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/png-to-jpg/",
+      "userCanonical": "https://convertios.com/png-to-jpg/",
+      "referringUrls": [
+        "https://convertios.com/es/png-to-jpg/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/privacy/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T05:18:42Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/privacy/",
+      "userCanonical": "https://convertios.com/privacy/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/qr-generator/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-31T14:13:41Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/qr-generator/",
+      "userCanonical": "https://convertios.com/qr-generator/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/qr-generator.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/remove-bg/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-08T17:16:30Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/remove-bg/",
+      "userCanonical": "https://convertios.com/remove-bg/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/rotate-pdf/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T03:11:58Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/rotate-pdf/",
+      "userCanonical": "https://convertios.com/rotate-pdf/",
+      "referringUrls": [
+        "https://convertios.com/rotate-pdf.html",
+        "https://convertios.com/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/security/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-11T03:25:31Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/security/",
+      "userCanonical": "https://convertios.com/security/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/es/security/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/social-media-image-resizer/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-04T12:17:12Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/social-media-image-resizer/",
+      "userCanonical": "https://convertios.com/social-media-image-resizer/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/social-media-image-resizer.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/split-pdf/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-08T02:10:19Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/split-pdf/",
+      "userCanonical": "https://convertios.com/split-pdf/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/split-pdf.html",
+        "https://convertios.com/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/terms/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-06T15:00:46Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/terms/",
+      "userCanonical": "https://convertios.com/terms/",
+      "referringUrls": [
+        "https://convertios.com/terms.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/text-formatter.html",
+      "verdict": "NEUTRAL",
+      "coverageState": "Crawled - currently not indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-07-31T09:05:27Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/text-formatter.html",
+      "userCanonical": "https://convertios.com/text-formatter.html",
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/text-formatter/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Duplicate, Google chose different canonical than user",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-13T23:43:48Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/text-formatter.html",
+      "userCanonical": "https://convertios.com/text-formatter/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/text-formatter/",
+        "https://convertios.com/ar/text-formatter.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/tools/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Excluded by ‘noindex’ tag",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "BLOCKED_BY_META_TAG",
+      "lastCrawlTime": "2026-11-05T02:48:14Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/all-tools/",
+      "userCanonical": "https://convertios.com/all-tools/",
+      "referringUrls": [
+        "https://convertios.com/all-tools/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/trim-audio-online.html",
+      "verdict": "NEUTRAL",
+      "coverageState": "Crawled - currently not indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-07-25T13:10:35Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/trim-audio-online.html",
+      "userCanonical": "https://convertios.com/trim-audio-online.html",
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/trim-audio-online/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Duplicate, Google chose different canonical than user",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-28T02:57:46Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/trim-audio-online.html",
+      "userCanonical": "https://convertios.com/trim-audio-online/",
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/unit-converter/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-01T15:13:35Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/unit-converter/",
+      "userCanonical": "https://convertios.com/unit-converter/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/video-converter/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/video-to-mp3/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://convertios.com/webp-to-png/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-01T17:43:36Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/webp-to-png/",
+      "userCanonical": "https://convertios.com/webp-to-png/",
+      "referringUrls": [
+        "https://convertios.com/webp-to-png.html"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://convertios.com/word-counter/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-05T05:12:51Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://convertios.com/word-counter/",
+      "userCanonical": "https://convertios.com/word-counter/",
+      "sitemap": [
+        "https://convertios.com/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://convertios.com/ar/word-counter/"
+      ],
+      "crawledAs": "MOBILE"
+    }
+  ]
+}
