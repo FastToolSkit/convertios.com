@@ -1,3 +1,5 @@
 node_modules/
 tests/fixtures/files/
 test-results/
+.newsroom/
+__pycache__/
