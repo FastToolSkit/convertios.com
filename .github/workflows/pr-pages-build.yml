@@ -1,0 +1,42 @@
+name: PR Pages Build Verification
+
+on:
+  push:
+    branches:
+      - fix/indexing-recovery-20261112
+  pull_request:
+    paths:
+      - '**/*.html'
+      - '_config.yml'
+      - '.github/workflows/pr-pages-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  candidate-pages-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@v4
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Build with official GitHub Pages Jekyll action
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Check expected publication files
+        shell: bash
+        run: |
+          test -s _site/index.html
+          test -s _site/contact/index.html
+          test -s _site/es/contact/index.html
+          test -s _site/ar/contact/index.html
+          test -s _site/sitemap.xml
+          test -s _site/robots.txt
+          test ! -e _site/server.js
+          test ! -e _site/tests
+          test ! -e _site/docs
+          echo 'Pages candidate build and publication exclusions passed'
