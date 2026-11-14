@@ -22,7 +22,9 @@ FEEDS = {
     "w3c-blog": ("https://www.w3.org/blog/feed/", "www.w3.org", "standards"),
     "pdf-association": ("https://pdfa.org/feed/", "pdfa.org", "pdf"),
     "openai-news": ("https://openai.com/news/rss.xml", "openai.com", "ai"),
-    "google-developers": ("https://developers.googleblog.com/feeds/posts/default", "developers.googleblog.com", "tools"),
+    "google-developer-news": ("https://blog.google/technology/developers/rss/", "blog.google", "tools"),
+    "mozilla-hacks": ("https://hacks.mozilla.org/feed/", "hacks.mozilla.org", "web"),
+    "mdn-blog": ("https://developer.mozilla.org/en-US/blog/rss.xml", "developer.mozilla.org", "web"),
     "mozilla": ("https://blog.mozilla.org/en/feed/", "blog.mozilla.org", "web"),
 }
 HOSTS = {v[1] for v in FEEDS.values()} | {"w3.org", "www.pdfa.org", "www.openai.com", "blog.google", "web.dev", "gs1.org", "www.gs1.org"}
