@@ -119,9 +119,10 @@ window.addEventListener('load', function () {
 .hero-right .icon.gif { background: #92400e; }
 .hero-right .icon.wav { background: #4338ca; }
 </style>
+<link rel="stylesheet" href="/neon-home.css?v=3935e4ec">
 </head>
 
-<body>
+<body class="neon-homepage">
 <a class="skip-link" href="#main-content">Saltar al contenido</a>
 
 <!-- HEADER -->
@@ -129,7 +130,7 @@ window.addEventListener('load', function () {
 
 <div class="header-left">
     <a href="/es/" class="logo">
-        <img src="/convertios-logo-376.png" alt="Logo de Convertios" width="376" height="210" fetchpriority="high" decoding="async">
+        <img src="/neon-convertios-logo.png" alt="Logo de Convertios" width="376" height="147" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -188,8 +189,9 @@ window.addEventListener('load', function () {
     </div>
 </div>
 <div class="nav-item dropdown">
-    <span>Más herramientas ▾</span>
+    <span>Todas las herramientas ▾</span>
     <div class="dropdown-menu">
+        <a href="/es/all-tools/" class="view-all">Todas las herramientas</a>
 
         <a href="/es/qr-generator/">Generador de códigos QR</a>
         <a href="/es/link-shortener/">Acortador de enlaces</a>
@@ -203,12 +205,10 @@ window.addEventListener('load', function () {
 
     </div>
 </div>
-    <a href="/es/all-tools/" class="nav-all-tools">Todas las herramientas </a>
 
+<a href="/es/blog/" class="nav-blog-link">Blog</a>
 <a href="/es/about/">Acerca de</a>
 <a href="/es/contact/">Contacto</a>
-
-  <a href="/es/blog/" class="nav-blog-link">Blog</a>
 </nav>
 
 <div class="nav-icon faq-wrapper">
@@ -241,49 +241,31 @@ window.addEventListener('load', function () {
 <main id="main-content">
 
 <!-- HERO -->
-<section class="hero">
-
-<div class="hero-bg"></div>
-
-<div class="hero-container">
-
-<!-- LEFT -->
-<div class="hero-left">
-
-<div class="hero-badge">100% gratis • Seguro • Sin registro</div>
-
-<h1>
-Herramientas de conversión online gratuitas <br>
-Herramientas <span>y mucho más</span>
-</h1>
-
-<p class="hero-sub">
-Convierte archivos, edita imágenes y transforma documentos al instante con herramientas rápidas y seguras.
-</p>
-
-<div class="hero-search">
-    <input aria-label="Buscar herramientas (p. ej., PDF a Word)" type="text" id="toolSearch" placeholder="Buscar herramientas (p. ej., PDF a Word)">
-    <div id="searchResults" class="search-results"></div>
-</div>
-
-</div>
-
-<!-- RIGHT -->
-<div class="hero-right">
-
-<!-- main -->
-<a href="/es/pdf-tools/" class="icon pdf">PDF</a>
-<a href="/es/image-tools/" class="icon jpg">JPG</a>
-<a href="/es/image-tools/" class="icon png">PNG</a>
-<a href="/es/audio-tools/" class="icon mp3">MP3</a>
-<a href="/es/pdf-to-word/" class="icon docx">DOCX</a>
-<a href="/es/image-tools/" class="icon webp">WEBP</a>
-<a href="/es/image-tools/" class="icon gif">GIF</a>
-<a href="/es/audio-tools/" class="icon wav">WAV</a>
-
-</div>
-
-</div>
+<section class="hero neon-hero" aria-label="Convertios tools">
+ <div class="neon-swoosh neon-swoosh-left" aria-hidden="true"></div>
+ <div class="neon-swoosh neon-swoosh-right" aria-hidden="true"></div>
+ <div class="neon-hero-inner">
+  <div class="neon-copy">
+   <div class="hero-badge neon-badge">⚡ 100% gratis · Seguro · Sin registro</div>
+   <h1><span>Herramientas de</span><span>conversión online</span><span class="neon-gradient-text">y mucho más</span></h1>
+   <p class="hero-sub neon-tagline">Convierte archivos, edita imágenes y realiza tareas cotidianas directamente en tu navegador, de forma rápida y sencilla.</p>
+  </div>
+  <div class="neon-art">
+   <img src="/neon-formats.webp" alt="" width="1875" height="797" decoding="async" fetchpriority="high">
+   <nav class="neon-hotspots" aria-label="File format categories"><a href="/es/pdf-tools/" class="neon-hotspot" aria-label="PDF tools" title="PDF tools"><span>PDF</span></a><a href="/es/image-tools/" class="neon-hotspot" aria-label="JPG tools" title="JPG tools"><span>JPG</span></a><a href="/es/image-tools/" class="neon-hotspot" aria-label="PNG tools" title="PNG tools"><span>PNG</span></a><a href="/es/audio-tools/" class="neon-hotspot" aria-label="MP3 tools" title="MP3 tools"><span>MP3</span></a><a href="/es/pdf-to-word/" class="neon-hotspot" aria-label="DOCX tools" title="DOCX tools"><span>DOCX</span></a><a href="/es/image-tools/" class="neon-hotspot" aria-label="WEBP tools" title="WEBP tools"><span>WEBP</span></a><a href="/es/image-tools/" class="neon-hotspot" aria-label="GIF tools" title="GIF tools"><span>GIF</span></a><a href="/es/audio-tools/" class="neon-hotspot" aria-label="WAV tools" title="WAV tools"><span>WAV</span></a></nav>
+  </div>
+  <form class="hero-search neon-search" id="neonSearchForm" role="search" action="/es/all-tools/" method="get">
+   <svg class="neon-search-icon" width="23" height="23" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.6" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m16.6 16.6 5 5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+   <input id="toolSearch" type="search" name="q" aria-label="Buscar herramientas (p. ej., PDF a Word...)" placeholder="Buscar herramientas (p. ej., PDF a Word...)" autocomplete="off">
+   <button class="neon-search-button" type="submit">Buscar <span aria-hidden="true">⌕</span></button>
+   <div id="searchResults" class="search-results"></div>
+  </form>
+  <div class="neon-benefits"><div class="neon-benefit"><span class="neon-benefit-icon" aria-hidden="true">⚡</span><span><strong>Rápido y fácil</strong><small>Herramientas para cada tarea</small></span></div>
+<div class="neon-benefit"><span class="neon-benefit-icon" aria-hidden="true">♢</span><span><strong>Seguro y privado</strong><small>Consulta cómo se procesan los archivos</small></span></div>
+<div class="neon-benefit"><span class="neon-benefit-icon" aria-hidden="true">▱</span><span><strong>Todo en uno</strong><small>Convierte, edita y más</small></span></div>
+<div class="neon-benefit"><span class="neon-benefit-icon" aria-hidden="true">▣</span><span><strong>Sin instalación</strong><small>Funciona en tu navegador</small></span></div></div>
+ </div>
+</section>
 <section class="brand-intro">
 
 <h2>Tu kit inteligente para archivos</h2>
@@ -511,6 +493,7 @@ La plataforma está optimizada para el rendimiento y la facilidad de uso, con ca
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 window.addEventListener('load', () => window.scrollTo(0, 0), { once: true });
 </script>
-<script src="/script.min.js?v=4fbefbce" defer></script>
+<script src="/script.min.js?v=3a99bba3" defer></script>
+<script src="/neon-home.js?v=f610d5f4" defer></script>
 </body>
 </html>

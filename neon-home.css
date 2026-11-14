@@ -1,0 +1,108 @@
+/* Convertios approved neon homepage. Scoped: existing tool and blog pages are unchanged. */
+body.neon-homepage{background:#f8fafc}
+.neon-homepage .site-header{min-height:90px;padding:10px clamp(16px,2.4vw,40px);gap:clamp(8px,1vw,17px);background:linear-gradient(180deg,#04112c,#061735);box-shadow:none;border-bottom:1px solid #1d3d72}
+.neon-homepage .header-left{flex:0 0 auto}
+.neon-homepage .logo img{height:70px}
+.neon-homepage .nav-menu{display:flex;flex:1 1 auto;min-width:0;max-width:none;width:auto;justify-content:center;align-items:center;gap:clamp(7px,.9vw,15px);margin:0;flex-wrap:nowrap}
+.neon-homepage .nav-menu>a,.neon-homepage .nav-menu>.nav-item{flex:0 0 auto;white-space:nowrap;font-size:clamp(12px,.91vw,15px);font-weight:700}
+.neon-homepage .nav-menu>a:not(.nav-blog-link){padding:8px 5px}
+.neon-homepage .nav-menu>.nav-item>.dropdown-trigger{font-size:inherit}
+.neon-homepage .nav-menu>a:first-child{border-radius:50px;padding:10px 16px;background:linear-gradient(110deg,#0578f7,#0045b8);color:#fff;box-shadow:0 0 19px #006cff5c}
+.neon-homepage .nav-menu>a.nav-blog-link{background:transparent;color:#f1f6ff;font-size:inherit;padding:8px 4px}
+.neon-homepage .nav-menu>a.nav-blog-link:hover{color:#9ec8ff}
+.neon-homepage .language-selector{flex:0 0 auto}
+.neon-homepage .language-selector summary{border-radius:32px;background:#132b51;padding:8px 12px;min-width:106px}
+.neon-homepage .faq-wrapper{flex:0 0 auto}
+.neon-homepage .site-header .nav-menu{z-index:1010}
+.neon-homepage .hero.neon-hero{position:relative;padding:0;min-height:610px;background:radial-gradient(ellipse 620px 350px at 0% 0%,#b01af575,transparent 70%),radial-gradient(ellipse 750px 550px at 106% 48%,#046cdb96,transparent 72%),linear-gradient(117deg,#07183b 0%,#041634 54%,#052b67 100%);color:#fff;overflow:hidden}
+.neon-homepage .neon-hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(145deg,#9415e8b0 0%,transparent 16%) top left/26% 29% no-repeat}
+.neon-homepage .neon-hero::after{content:"";position:absolute;right:-9%;bottom:-49%;width:48%;height:83%;border-radius:50%;background:linear-gradient(145deg,#026be7,#0641b5);transform:rotate(-27deg);pointer-events:none}
+.neon-homepage .neon-hero-inner{position:relative;z-index:1;max-width:1640px;margin:0 auto;padding:34px clamp(30px,6vw,104px) 33px;display:grid;grid-template-columns:minmax(0,45%) minmax(0,55%);grid-template-rows:370px 76px 72px;gap:6px 0;align-items:center}
+.neon-homepage .neon-copy{grid-column:1;grid-row:1;align-self:center;min-width:0;position:relative;z-index:2}
+.neon-homepage .neon-badge{display:inline-flex;align-items:center;background:#0e2b61c4;border:1px solid #2377f8;box-shadow:0 0 0 1px #7620da77;color:#f4f7ff;padding:7px 15px;font-size:clamp(12px,.95vw,15px);font-weight:700;border-radius:28px;margin:0}
+.neon-homepage .neon-copy h1{font-size:clamp(32px,3.15vw,53px);line-height:1.1;font-weight:850;letter-spacing:-1.1px;margin:21px 0 14px;color:white;max-width:690px}
+.neon-homepage .neon-copy h1>span{display:block}
+.neon-homepage .neon-gradient-text{background:linear-gradient(90deg,#05b6ff,#4685ff 35%,#a64ef6 73%,#ff40c8);background-clip:text;color:transparent}
+.neon-homepage .neon-tagline{color:#d7e2fb;font-size:clamp(14px,1vw,18px);line-height:1.6;margin:0;max-width:565px}
+.neon-homepage .neon-art{grid-column:2;grid-row:1;position:relative;z-index:1;display:block;align-self:center;justify-self:stretch;min-width:0;margin-inline:-1.4vw -3.4vw}
+.neon-homepage .neon-art>img{display:block;width:100%;height:auto;max-height:330px;object-fit:contain;filter:drop-shadow(0 0 14px #0359ff44)}
+.neon-homepage .neon-hotspots{position:absolute;top:13%;left:0;width:100%;height:64%;display:flex;justify-content:center;align-items:stretch;direction:ltr}
+.neon-homepage .neon-hotspot{flex:1;min-width:0;border-radius:16px;position:relative}
+.neon-homepage .neon-hotspot:nth-child(4){flex:1.65}
+.neon-homepage .neon-hotspot span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.neon-homepage .neon-hotspot:focus-visible{outline:3px solid #fff;outline-offset:2px;background:#fff2}
+.neon-homepage .neon-search{grid-column:1/-1;grid-row:2;justify-self:center;align-self:center;width:min(100%,760px);max-width:760px;height:58px;margin:0;padding:5px 6px 5px 18px;display:flex;align-items:center;gap:10px;position:relative;z-index:8;border:2px solid #6540ff;border-radius:42px;background:white;color:#10254c;box-shadow:0 0 17px #661bff77,0 6px 16px #0005}
+.neon-homepage .neon-search-icon{flex:0 0 auto}
+.neon-homepage .neon-search input{width:auto;max-width:none;min-width:0;flex:1;border:0;border-radius:0;box-shadow:none;outline:0;padding:6px 2px;height:42px;background:transparent;font-size:15px;color:#10254c}
+.neon-homepage .neon-search input::placeholder{color:#6277a1}
+.neon-homepage .neon-search input:focus{box-shadow:none;border:0}
+.neon-homepage .neon-search:focus-within{box-shadow:0 0 0 3px #9c7aff5c,0 0 20px #5e23ff77}
+.neon-homepage .neon-search-button{border:0;border-radius:30px;background:linear-gradient(110deg,#008dfd,#a21aeb);color:#fff;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:8px;height:44px;min-width:117px;padding:7px 14px;cursor:pointer}
+.neon-homepage .neon-search-button:focus-visible{outline:3px solid #111d4d;outline-offset:1px}
+.neon-homepage .neon-search .search-results{top:100%;left:0;right:0;width:100%;direction:inherit;text-align:start;max-height:285px;overflow-y:auto;border-radius:14px;color:#0f172a}
+.neon-homepage .neon-benefits{grid-column:1/-1;grid-row:3;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:center;position:relative;z-index:2}
+.neon-homepage .neon-benefit{display:flex;align-items:center;gap:10px;min-width:0;color:white}
+.neon-homepage .neon-benefit-icon{width:48px;height:48px;flex:0 0 auto;border:1px solid #3c5c9b;border-radius:14px;background:linear-gradient(135deg,#264482,#152b67);display:grid;place-items:center;font-size:30px;color:#b4efff;text-shadow:0 0 9px #8745ff}
+.neon-homepage .neon-benefit strong{display:block;font-size:clamp(12px,.95vw,15px);line-height:1.25}
+.neon-homepage .neon-benefit small{display:block;color:#c5d2ed;font-size:clamp(10px,.8vw,13px);line-height:1.3;margin-top:3px}
+.neon-homepage[dir=rtl] .neon-hero-inner,.neon-homepage:dir(rtl) .neon-hero-inner{direction:rtl}
+.neon-homepage:dir(rtl) .neon-copy{text-align:right}
+.neon-homepage:dir(rtl) .neon-search{direction:rtl;padding:5px 18px 5px 6px}
+.neon-homepage:dir(rtl) .neon-search input{text-align:right}
+.neon-homepage:dir(rtl) .neon-art{margin-inline:-1.4vw -3.4vw}
+@media(max-width:1250px) and (min-width:1101px){
+ .neon-homepage .site-header{padding-inline:15px;gap:6px}
+ .neon-homepage .logo img{height:51px}
+ .neon-homepage .nav-menu{gap:5px}
+ .neon-homepage .nav-menu>a,.neon-homepage .nav-menu>.nav-item{font-size:12px}
+ .neon-homepage .neon-hero-inner{grid-template-rows:345px 75px 76px}
+}
+@media(max-width:1100px){
+ .neon-homepage .site-header{min-height:max-content;height:auto;flex-shrink:0;background:#04132d}
+ .neon-homepage .nav-menu{display:grid;max-width:none;width:100%;gap:6px}
+ .neon-homepage .nav-menu>a,.neon-homepage .nav-menu>.nav-item{white-space:normal;font-size:13px}
+ .neon-homepage .neon-hero-inner{padding:25px 4vw;grid-template-columns:48% 52%;grid-template-rows:345px 75px 85px}
+ .neon-homepage .neon-copy h1{font-size:clamp(29px,3.8vw,42px)}
+ .neon-homepage .neon-tagline{font-size:14px}
+ .neon-homepage .neon-art{margin:0 -3vw}
+ .neon-homepage .neon-search{width:min(100%,680px)}
+ .neon-homepage .neon-benefit-icon{height:41px;width:41px;font-size:24px}
+}
+@media(max-width:700px){
+ .neon-homepage .site-header{padding:10px 12px}
+ .neon-homepage .logo img{height:46px}
+ .neon-homepage .hero.neon-hero{min-height:0;padding:0}
+ .neon-homepage .neon-hero-inner{min-height:0;display:flex;flex-direction:column;gap:16px;padding:27px 18px 32px}
+ .neon-homepage .neon-copy{align-self:stretch;text-align:center}
+ .neon-homepage .neon-badge{font-size:11px;padding:6px 11px}
+ .neon-homepage .neon-copy h1{font-size:clamp(29px,7.2vw,39px);letter-spacing:-.5px;margin:15px 0 9px}
+ .neon-homepage .neon-tagline{font-size:13px;line-height:1.5;margin-inline:auto}
+ .neon-homepage .neon-art{margin:0;width:min(100%,470px);align-self:center}
+ .neon-homepage .neon-art>img{max-height:210px}
+ .neon-homepage .neon-search{width:min(100%,480px);height:52px;min-height:52px;max-width:480px;padding:4px 5px 4px 12px;gap:6px}
+ .neon-homepage .neon-search input{font-size:12px;height:40px}
+ .neon-homepage .neon-search-icon{width:19px;height:19px}
+ .neon-homepage .neon-search-button{min-width:42px;width:42px;height:40px;font-size:0;gap:0;padding:0}
+ .neon-homepage .neon-search-button span{font-size:22px}
+ .neon-homepage .neon-benefits{width:100%;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 8px}
+ .neon-homepage .neon-benefit{gap:6px}
+ .neon-homepage .neon-benefit-icon{width:39px;height:39px;font-size:23px}
+ .neon-homepage .neon-benefit strong{font-size:11px}
+ .neon-homepage .neon-benefit small{font-size:10px}
+ .neon-homepage:dir(rtl) .neon-copy{text-align:center}
+}
+
+/* Home navigation mirrors approved icon-led layout on spacious desktop screens. */
+@media(min-width:1350px){
+ .neon-homepage .nav-menu>a,.neon-homepage .nav-menu>.nav-item{font-size:clamp(14px,.98vw,16px)}
+ .neon-homepage .nav-menu>a,.neon-homepage .nav-menu>.nav-item>span{display:inline-flex;align-items:center;gap:6px}
+ .neon-homepage .nav-menu>a::before,.neon-homepage .nav-menu>.nav-item>span::before{display:inline-block;color:#eaf1ff;font-size:18px;font-weight:600;line-height:1;position:static;background:none;box-shadow:none}
+ .neon-homepage .nav-menu>a:first-child::before{content:"⌂"}
+ .neon-homepage .nav-menu>.nav-item:nth-child(2)>span::before{content:"▧"}
+ .neon-homepage .nav-menu>.nav-item:nth-child(3)>span::before{content:"▤"}
+ .neon-homepage .nav-menu>.nav-item:nth-child(4)>span::before{content:"♫"}
+ .neon-homepage .nav-menu>.nav-item:nth-child(5)>span::before{content:"⠿"}
+ .neon-homepage .nav-menu>a.nav-blog-link::before{content:"✎"}
+ .neon-homepage .nav-menu>a[href$="/about/"]::before{content:"ⓘ"}
+ .neon-homepage .nav-menu>a[href$="/contact/"]::before{content:"✉"}
+}

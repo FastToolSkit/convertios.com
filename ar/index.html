@@ -107,15 +107,16 @@ window.addEventListener('load', function () {
 .hero-right .icon.gif { background: #92400e; }
 .hero-right .icon.wav { background: #4338ca; }
 </style>
+<link rel="stylesheet" href="/neon-home.css?v=3935e4ec">
 </head>
 
-<body>
+<body class="neon-homepage">
 <!-- HEADER -->
 <header class="site-header">
 
 <div class="header-left">
     <a href="/ar/" class="logo">
-        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
+        <img src="/neon-convertios-logo.png" alt="Convertios" width="376" height="147" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -174,8 +175,9 @@ window.addEventListener('load', function () {
     </div>
 </div>
 <div class="nav-item dropdown">
-    <span>أدوات أخرى ▾</span>
+    <span>كل الأدوات ▾</span>
     <div class="dropdown-menu">
+        <a href="/ar/all-tools/" class="view-all">كل الأدوات</a>
 
         <a href="/ar/qr-generator/">مولد QR</a>
         <a href="/ar/link-shortener/">اختصار الروابط</a>
@@ -189,12 +191,10 @@ window.addEventListener('load', function () {
 
     </div>
 </div>
-    <a href="/ar/all-tools/" class="nav-all-tools">كل الأدوات </a>
 
+<a href="/ar/blog/" class="nav-blog-link">المدونة</a>
 <a href="/ar/about/">عن الموقع</a>
 <a href="/ar/contact/">تواصل معنا</a>
-
-  <a href="/ar/blog/" class="nav-blog-link">المدونة</a>
 </nav>
 
 <div class="nav-icon faq-wrapper">
@@ -227,49 +227,31 @@ window.addEventListener('load', function () {
 <main id="main-content">
 
 <!-- HERO -->
-<section class="hero">
-
-<div class="hero-bg"></div>
-
-<div class="hero-container">
-
-<!-- LEFT -->
-<div class="hero-left">
-
-<div class="hero-badge">مجاني 100% • آمن • بدون تسجيل</div>
-
-<h1>
-أدوات تحويل مجانية <br>
-على الإنترنت <span>وأكثر</span>
-</h1>
-
-<p class="hero-sub">
-حوّل الملفات وعدّل الصور وغيّر صيغة المستندات فورًا باستخدام أدوات سريعة وآمنة.
-</p>
-
-<div class="hero-search">
-    <input aria-label="ابحث عن الأدوات (مثال: PDF إلى Word)" type="text" id="toolSearch" placeholder="ابحث عن الأدوات (مثال: PDF إلى Word)">
-    <div id="searchResults" class="search-results"></div>
-</div>
-
-</div>
-
-<!-- RIGHT -->
-<div class="hero-right">
-
-<!-- main -->
-<a href="/ar/pdf-tools/" class="icon pdf">PDF</a>
-<a href="/ar/image-tools/" class="icon jpg">JPG</a>
-<a href="/ar/image-tools/" class="icon png">PNG</a>
-<a href="/ar/audio-tools/" class="icon mp3">MP3</a>
-<a href="/ar/pdf-to-word/" class="icon docx">DOCX</a>
-<a href="/ar/image-tools/" class="icon webp">WEBP</a>
-<a href="/ar/image-tools/" class="icon gif">GIF</a>
-<a href="/ar/audio-tools/" class="icon wav">WAV</a>
-
-</div>
-
-</div>
+<section class="hero neon-hero" aria-label="Convertios tools">
+ <div class="neon-swoosh neon-swoosh-left" aria-hidden="true"></div>
+ <div class="neon-swoosh neon-swoosh-right" aria-hidden="true"></div>
+ <div class="neon-hero-inner">
+  <div class="neon-copy">
+   <div class="hero-badge neon-badge">⚡ مجاني 100% · آمن · بدون تسجيل</div>
+   <h1><span>أدوات تحويل ملفات</span><span>مجانية عبر الإنترنت</span><span class="neon-gradient-text">وأكثر بكثير</span></h1>
+   <p class="hero-sub neon-tagline">حوّل الملفات وعدّل الصور وأنجز مهام الملفات بسرعة وسهولة مباشرة من متصفحك.</p>
+  </div>
+  <div class="neon-art">
+   <img src="/neon-formats.webp" alt="" width="1875" height="797" decoding="async" fetchpriority="high">
+   <nav class="neon-hotspots" aria-label="File format categories"><a href="/ar/pdf-tools/" class="neon-hotspot" aria-label="PDF tools" title="PDF tools"><span>PDF</span></a><a href="/ar/image-tools/" class="neon-hotspot" aria-label="JPG tools" title="JPG tools"><span>JPG</span></a><a href="/ar/image-tools/" class="neon-hotspot" aria-label="PNG tools" title="PNG tools"><span>PNG</span></a><a href="/ar/audio-tools/" class="neon-hotspot" aria-label="MP3 tools" title="MP3 tools"><span>MP3</span></a><a href="/ar/pdf-to-word/" class="neon-hotspot" aria-label="DOCX tools" title="DOCX tools"><span>DOCX</span></a><a href="/ar/image-tools/" class="neon-hotspot" aria-label="WEBP tools" title="WEBP tools"><span>WEBP</span></a><a href="/ar/image-tools/" class="neon-hotspot" aria-label="GIF tools" title="GIF tools"><span>GIF</span></a><a href="/ar/audio-tools/" class="neon-hotspot" aria-label="WAV tools" title="WAV tools"><span>WAV</span></a></nav>
+  </div>
+  <form class="hero-search neon-search" id="neonSearchForm" role="search" action="/ar/all-tools/" method="get">
+   <svg class="neon-search-icon" width="23" height="23" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.6" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m16.6 16.6 5 5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+   <input id="toolSearch" type="search" name="q" aria-label="ابحث عن أداة (مثلاً PDF إلى Word...)" placeholder="ابحث عن أداة (مثلاً PDF إلى Word...)" autocomplete="off">
+   <button class="neon-search-button" type="submit">بحث <span aria-hidden="true">⌕</span></button>
+   <div id="searchResults" class="search-results"></div>
+  </form>
+  <div class="neon-benefits"><div class="neon-benefit"><span class="neon-benefit-icon" aria-hidden="true">⚡</span><span><strong>سريع وسهل</strong><small>أدوات لإنجاز مهامك</small></span></div>
+<div class="neon-benefit"><span class="neon-benefit-icon" aria-hidden="true">♢</span><span><strong>آمن وخاص</strong><small>اطّلع على طريقة معالجة الملفات</small></span></div>
+<div class="neon-benefit"><span class="neon-benefit-icon" aria-hidden="true">▱</span><span><strong>كل شيء بمكان واحد</strong><small>تحويل وتعديل والمزيد</small></span></div>
+<div class="neon-benefit"><span class="neon-benefit-icon" aria-hidden="true">▣</span><span><strong>لا يحتاج تثبيت</strong><small>يعمل عبر المتصفح</small></span></div></div>
+ </div>
+</section>
 <section class="brand-intro">
 
 <h2>مجموعة أدوات ذكية لملفاتك</h2>
@@ -610,6 +592,7 @@ if (searchInput && resultsBox) {
 
 
 </script>
-<script src="/script.min.js?v=4fbefbce" defer></script>
+<script src="/script.min.js?v=3a99bba3" defer></script>
+<script src="/neon-home.js?v=f610d5f4" defer></script>
 </body>
 </html>

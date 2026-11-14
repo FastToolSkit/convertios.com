@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = 'https://convertios.com';
-const SKIP = new Set(['node_modules', '.git', 'tests', 'test-results', 'backend', 'docs', 'scripts', 'js', 'tool-template']);
+const SKIP = new Set(['node_modules', '.git', 'tests', 'test-results', 'backend', 'docs', 'scripts', 'js', 'tool-template', 'design-preview']);
 const problems = [];
 const warn = [];
 const fail = (cat, page, msg) => problems.push(`[${cat}] ${page}: ${msg}`);

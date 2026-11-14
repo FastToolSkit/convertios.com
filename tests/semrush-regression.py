@@ -7,7 +7,7 @@ import re
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP = {".git", "docs", "node_modules", "tests", "backend", "scripts", "test-results"}
+SKIP = {".git", "docs", "node_modules", "tests", "backend", "scripts", "test-results", "design-preview"}
 PAGES = sorted(p for p in ROOT.rglob("index.html") if not set(p.relative_to(ROOT).parts) & SKIP)
 assert len(PAGES) >= 156
 problems = []

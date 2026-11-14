@@ -249,9 +249,10 @@
     ]);
 
     function localizedToolUrl(url){
-      if(getCurrentLanguage(window.location.pathname)!=='es') return url;
+      const language=getCurrentLanguage(window.location.pathname);
+      if(language!=='es' && language!=='ar') return url;
       const slug=(url||'').replace(/^\//,'').split('/')[0];
-      return spanishPages.has(slug) ? '/es/'+slug+'/' : url;
+      return spanishPages.has(slug) ? '/'+language+'/'+slug+'/' : url;
     }
 
     searchInput.addEventListener('input',function(){
