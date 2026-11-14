@@ -114,6 +114,14 @@ for (const p of pages) {
       if (got !== want && !(!equivalentExists && got === fallback)) fail('language-switcher', p, `${l} -> ${got}`);
     }
   }
+  // All published pages must use the complete localized footer, not an abbreviated copyright-only stub.
+  const footer = s.match(/<footer class="site-footer(?: [^"]+)?">([\s\S]*?)<\/footer>/)?.[1];
+  if (!footer?.includes('class="footer-container"') ||
+      !footer.includes('class="footer-brand"') ||
+      !footer.includes('class="footer-links"') ||
+      !footer.includes('class="footer-bottom"')) {
+    fail('footer-design', p, 'missing complete centered site footer');
+  }
   // The approved shared header keeps Blog before About and Contact, with one All Tools dropdown.
   const nav = s.match(/<nav class="nav-menu">([\s\S]*?)<\/nav>/)?.[1];
   const localePrefix = p.startsWith('ar/') ? 'ar/' : p.startsWith('es/') ? 'es/' : '';
