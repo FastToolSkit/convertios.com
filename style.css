@@ -2967,3 +2967,6 @@ section.more-tools .more-tool-card .more-tool-icon{flex:0 0 auto !important;}
   white-space: nowrap;
   border: 0;
 }
+
+/* Center the homepage SEO panel without changing mobile sizing. */
+@media (min-width:901px){.seo-section{margin-inline:auto}}
