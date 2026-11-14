@@ -22,7 +22,6 @@ FEEDS = {
     "w3c-blog": ("https://www.w3.org/blog/feed/", "www.w3.org", "standards"),
     "pdf-association": ("https://pdfa.org/feed/", "pdfa.org", "pdf"),
     "openai-news": ("https://openai.com/news/rss.xml", "openai.com", "ai"),
-    "google-developers": ("https://developers.googleblog.com/feeds/posts/default?alt=rss", "developers.googleblog.com", "tools"),
     "google-developer-news": ("https://blog.google/technology/developers/rss/", "blog.google", "tools"),
     "mozilla-hacks": ("https://hacks.mozilla.org/feed/", "hacks.mozilla.org", "web"),
     "mdn-blog": ("https://developer.mozilla.org/en-US/blog/rss.xml", "developer.mozilla.org", "web"),
