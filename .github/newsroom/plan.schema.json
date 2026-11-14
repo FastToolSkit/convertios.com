@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["stories"],
+  "properties": {
+    "stories": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {"$ref": "#/$defs/story"}
+    }
+  },
+  "$defs": {
+    "story": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event_id", "topic", "event_date", "status", "source_ids", "versions"],
+      "properties": {
+        "event_id": {"type": "string"},
+        "topic": {"enum": ["ai-tools", "pdf-documents", "images-formats", "qr-web", "audio-video"]},
+        "event_date": {"type": "string"},
+        "status": {"enum": ["released", "candidate", "draft", "proposal", "policy"]},
+        "source_ids": {"type": "array", "minItems": 2, "maxItems": 6, "items": {"type": "string"}},
+        "versions": {
+          "type": "object", "additionalProperties": false,
+          "required": ["en", "es", "ar"],
+          "properties": {"en": {"$ref": "#/$defs/version"}, "es": {"$ref": "#/$defs/version"}, "ar": {"$ref": "#/$defs/version"}}
+        }
+      }
+    },
+    "version": {
+      "type": "object", "additionalProperties": false,
+      "required": ["title", "description", "dek", "sections", "tools", "related_slug"],
+      "properties": {
+        "title": {"type": "string"}, "description": {"type": "string"}, "dek": {"type": "string"},
+        "sections": {"type": "array", "minItems": 5, "maxItems": 5, "items": {"type": "object", "additionalProperties": false, "required": ["paragraphs"], "properties": {"paragraphs": {"type": "array", "minItems": 1, "maxItems": 3, "items": {"$ref": "#/$defs/paragraph"}}}}},
+        "tools": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "string"}},
+        "related_slug": {"type": "string"}
+      }
+    },
+    "paragraph": {
+      "type": "object", "additionalProperties": false,
+      "required": ["text", "evidence"],
+      "properties": {"text": {"type": "string"}, "evidence": {"type": "array", "minItems": 1, "items": {"type": "string"}}}
+    }
+  }
+}

@@ -31,8 +31,8 @@ for lang in ("en", "es", "ar"):
     home = (ROOT / prefix / "index.html").read_text(encoding="utf-8")
     home_footer = re.search(r"<footer\b[\s\S]*?</footer>", home).group()
     pages = sorted((ROOT / prefix / "blog").rglob("index.html"))
-    if len(pages) != 9:
-        ERRORS.append(f"{lang}: expected 9 blog pages, found {len(pages)}")
+    if len(pages) < 9:
+        ERRORS.append(f"{lang}: expected at least 9 blog pages, found {len(pages)}")
     for path in pages:
         text = path.read_text(encoding="utf-8")
         rel = path.relative_to(ROOT).as_posix()
@@ -80,7 +80,7 @@ for lang in ("en", "es", "ar"):
             if not 450 <= words <= 700:
                 ERRORS.append(f"{rel}: English article {words} words, expected 450–700")
 
-print("27 localized blog pages checked; 15 expanded news pages checked")
+print("All localized blog pages checked; 15 original expanded news pages checked")
 for error in ERRORS:
     print(error)
 raise SystemExit(1 if ERRORS else 0)
