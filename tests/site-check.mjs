@@ -114,13 +114,28 @@ for (const p of pages) {
       if (got !== want && !(!equivalentExists && got === fallback)) fail('language-switcher', p, `${l} -> ${got}`);
     }
   }
-  // Every published page must expose Blog as the final navigation link.
+  // The approved shared header keeps Blog before About and Contact, with one All Tools dropdown.
   const nav = s.match(/<nav class="nav-menu">([\s\S]*?)<\/nav>/)?.[1];
   const localePrefix = p.startsWith('ar/') ? 'ar/' : p.startsWith('es/') ? 'es/' : '';
-  const expectedBlog = `/${localePrefix}blog/`;
-  const finalBlog = nav?.match(/<a href="([^"]+)"[^>]*class="nav-blog-link[^"]*"[^>]*>[\s\S]*?<\/a>\s*$/)?.[1];
+  const blogHref = `href="/${localePrefix}blog/"`;
+  const aboutHref = `href="/${localePrefix}about/"`;
+  const contactHref = `href="/${localePrefix}contact/"`;
+  const blogPosition = nav?.indexOf(blogHref) ?? -1;
+  const aboutPosition = nav?.indexOf(aboutHref) ?? -1;
+  const contactPosition = nav?.indexOf(contactHref) ?? -1;
   const blogCount = (nav?.match(/class="nav-blog-link(?: active)?"/g) || []).length;
-  if (finalBlog !== expectedBlog || blogCount !== 1) fail('header-blog', p, `Blog must be final link: ${finalBlog}`);
+  if (blogCount !== 1 || !(blogPosition >= 0 && blogPosition < aboutPosition && aboutPosition < contactPosition)) {
+    fail('header-blog', p, 'Blog must appear once before About and Contact');
+  }
+  if (!nav?.includes(`href="/${localePrefix}all-tools/" class="view-all"`) ||
+      nav.includes('class="nav-all-tools"')) {
+    fail('header-all-tools', p, 'Expected the shared All Tools dropdown with all-tools destination');
+  }
+  const usesSharedHeader = /<body[^>]*class="[^"]*(?:neon-site-header|neon-homepage)[^"]*"/.test(s);
+  if (!usesSharedHeader || !s.includes('src="/neon-convertios-logo.png"') ||
+      !s.includes('href="/neon-home.css?')) {
+    fail('header-design', p, 'Shared neon header stylesheet, logo, or page class missing');
+  }
   if (!sw?.includes('class="language-selector__globe"') || !sw?.includes('class="language-selector__label"')) {
     fail('language-selector-ui', p, 'missing shared globe/label markup');
   }
