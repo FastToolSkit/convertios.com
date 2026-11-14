@@ -30,7 +30,7 @@ window.addEventListener('load', function () {
     <meta name="robots" content="index, follow">
 <meta name="google-adsense-account" content="ca-pub-8386549343296072">
 <meta name="yandex-verification" content="93fda3d8632afa38" />
-<link rel="preload" as="image" href="/convertios-logo-376.png" fetchpriority="high">
+<link rel="preload" as="image" href="/neon-convertios-logo.png" fetchpriority="high">
 <style>
 /* Critical above-the-fold mobile styles to reduce LCP render delay */
 @media (max-width:768px){
@@ -121,9 +121,10 @@ window.addEventListener('load', function () {
 .hero-right .icon.gif { background: #92400e; }
 .hero-right .icon.wav { background: #4338ca; }
 </style>
+<link rel="stylesheet" href="/neon-home.css?v=3935e4ec">
 </head>
 
-<body>
+<body class="neon-homepage">
 <a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- HEADER -->
@@ -131,7 +132,7 @@ window.addEventListener('load', function () {
 
 <div class="header-left">
     <a href="/" class="logo">
-        <img src="/convertios-logo-376.png" alt="Convertios" width="376" height="210" fetchpriority="high" decoding="async">
+        <img src="/neon-convertios-logo.png" alt="Convertios" width="376" height="147" fetchpriority="high" decoding="async">
     </a>
 </div>
 
@@ -190,8 +191,9 @@ window.addEventListener('load', function () {
     </div>
 </div>
 <div class="nav-item dropdown">
-    <span>More Tools ▾</span>
+    <span>All Tools ▾</span>
     <div class="dropdown-menu">
+        <a href="/all-tools/" class="view-all">All Tools</a>
 
         <a href="/qr-generator/">QR Generator</a>
         <a href="/link-shortener/">Link Shortener</a>
@@ -205,12 +207,10 @@ window.addEventListener('load', function () {
 
     </div>
 </div>
-    <a href="/all-tools/" class="nav-all-tools">All Tools </a>
 
+<a href="/blog/" class="nav-blog-link">Blog</a>
 <a href="/about/">About</a>
 <a href="/contact/">Contact</a>
-
-  <a href="/blog/" class="nav-blog-link">Blog</a>
 </nav>
 
 <div class="nav-icon faq-wrapper">
@@ -243,49 +243,31 @@ window.addEventListener('load', function () {
 <main id="main-content">
 
 <!-- HERO -->
-<section class="hero">
-
-<div class="hero-bg"></div>
-
-<div class="hero-container">
-
-<!-- LEFT -->
-<div class="hero-left">
-
-<div class="hero-badge">100% Free • Secure • No Sign-Up</div>
-
-<h1>
-Free Online Conversion <br>
-Tools <span>& More</span>
-</h1>
-
-<p class="hero-sub">
-Convert files, edit images, and transform documents instantly with fast and secure tools.
-</p>
-
-<div class="hero-search">
-    <input aria-label="Search tools (e.g. PDF to Word)" type="text" id="toolSearch" placeholder="Search tools (e.g. PDF to Word)">
-    <div id="searchResults" class="search-results"></div>
-</div>
-
-</div>
-
-<!-- RIGHT -->
-<div class="hero-right">
-
-<!-- main -->
-<a href="/pdf-tools/" class="icon pdf">PDF</a>
-<a href="/image-tools/" class="icon jpg">JPG</a>
-<a href="/image-tools/" class="icon png">PNG</a>
-<a href="/audio-tools/" class="icon mp3">MP3</a>
-<a href="/pdf-to-word/" class="icon docx">DOCX</a>
-<a href="/image-tools/" class="icon webp">WEBP</a>
-<a href="/image-tools/" class="icon gif">GIF</a>
-<a href="/audio-tools/" class="icon wav">WAV</a>
-
-</div>
-
-</div>
+<section class="hero neon-hero" aria-label="Convertios tools">
+ <div class="neon-swoosh neon-swoosh-left" aria-hidden="true"></div>
+ <div class="neon-swoosh neon-swoosh-right" aria-hidden="true"></div>
+ <div class="neon-hero-inner">
+  <div class="neon-copy">
+   <div class="hero-badge neon-badge">⚡ 100% Free · Secure · No Sign-Up</div>
+   <h1><span>Free Online File</span><span>Conversion Tools</span><span class="neon-gradient-text">and Much More</span></h1>
+   <p class="hero-sub neon-tagline">Convert files, edit images, compress, and handle everyday file tasks instantly in your browser — fast, simple, and secure.</p>
+  </div>
+  <div class="neon-art">
+   <img src="/neon-formats.webp" alt="" width="1875" height="797" decoding="async" fetchpriority="high">
+   <nav class="neon-hotspots" aria-label="File format categories"><a href="/pdf-tools/" class="neon-hotspot" aria-label="PDF tools" title="PDF tools"><span>PDF</span></a><a href="/image-tools/" class="neon-hotspot" aria-label="JPG tools" title="JPG tools"><span>JPG</span></a><a href="/image-tools/" class="neon-hotspot" aria-label="PNG tools" title="PNG tools"><span>PNG</span></a><a href="/audio-tools/" class="neon-hotspot" aria-label="MP3 tools" title="MP3 tools"><span>MP3</span></a><a href="/pdf-to-word/" class="neon-hotspot" aria-label="DOCX tools" title="DOCX tools"><span>DOCX</span></a><a href="/image-tools/" class="neon-hotspot" aria-label="WEBP tools" title="WEBP tools"><span>WEBP</span></a><a href="/image-tools/" class="neon-hotspot" aria-label="GIF tools" title="GIF tools"><span>GIF</span></a><a href="/audio-tools/" class="neon-hotspot" aria-label="WAV tools" title="WAV tools"><span>WAV</span></a></nav>
+  </div>
+  <form class="hero-search neon-search" id="neonSearchForm" role="search" action="/all-tools/" method="get">
+   <svg class="neon-search-icon" width="23" height="23" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.6" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m16.6 16.6 5 5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+   <input id="toolSearch" type="search" name="q" aria-label="Search tools (e.g., PDF to Word, resize image...)" placeholder="Search tools (e.g., PDF to Word, resize image...)" autocomplete="off">
+   <button class="neon-search-button" type="submit">Search <span aria-hidden="true">⌕</span></button>
+   <div id="searchResults" class="search-results"></div>
+  </form>
+  <div class="neon-benefits"><div class="neon-benefit"><span class="neon-benefit-icon" aria-hidden="true">⚡</span><span><strong>Fast &amp; Easy</strong><small>Get results in seconds</small></span></div>
+<div class="neon-benefit"><span class="neon-benefit-icon" aria-hidden="true">♢</span><span><strong>Secure &amp; Private</strong><small>Check how each tool handles files</small></span></div>
+<div class="neon-benefit"><span class="neon-benefit-icon" aria-hidden="true">▱</span><span><strong>All-in-One</strong><small>Convert, edit, and more</small></span></div>
+<div class="neon-benefit"><span class="neon-benefit-icon" aria-hidden="true">▣</span><span><strong>No Installation</strong><small>Works in your browser</small></span></div></div>
+ </div>
+</section>
 <section class="brand-intro">
 
 <h2>Your Smart File Toolkit</h2>
@@ -513,6 +495,7 @@ The platform is optimized for performance and usability, ensuring fast loading t
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 window.addEventListener('load', () => window.scrollTo(0, 0), { once: true });
 </script>
-<script src="/script.min.js?v=4fbefbce" defer></script>
+<script src="/script.min.js?v=3a99bba3" defer></script>
+<script src="/neon-home.js?v=f610d5f4" defer></script>
 </body>
 </html>
