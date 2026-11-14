@@ -1,142 +1,32 @@
-name: Convertios newsroom draft proposals
+name: Convertios newsroom source checks (local Codex generation)
 on:
   schedule:
-    - cron: '17 8 * * 1,4' # Monday and Thursday, 08:17 UTC
+    - cron: '17 8 * * 1,4' # Monday and Thursday, 08:17 UTC (11:17 in Jordan)
   workflow_dispatch:
-    inputs:
-      dry_run:
-        description: Collect sources only; no model, branch, or PR
-        type: boolean
-        default: true
-permissions: {}
+permissions:
+  contents: read
 concurrency:
-  group: convertios-newsroom-drafts
+  group: convertios-newsroom-source-checks
   cancel-in-progress: false
 jobs:
-  research:
-    if: github.event_name == 'schedule' || github.actor == 'FastToolSkit'
+  collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
-    permissions:
-      contents: read
-      pull-requests: read
-    outputs:
-      plan: ${{ steps.codex.outputs.final-message }}
-      run_date: ${{ steps.intake.outputs.run_date }}
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v5
+      - name: Checkout production site (read-only)
+        uses: actions/checkout@v5
         with:
           ref: main
           persist-credentials: false
-      - name: Check prerequisites and pending draft
-        id: gate
-        env:
-          GH_TOKEN: ${{ github.token }}
-          HAS_KEY: ${{ secrets.OPENAI_API_KEY != '' }}
-          DRY_RUN: ${{ inputs.dry_run }}
+      - name: Collect official source candidates
         run: |
           set -euo pipefail
-          if [ "$DRY_RUN" = true ]; then
-            echo '::notice::Source-only dry run; no model or PR'
-            echo 'enabled=false' >> "$GITHUB_OUTPUT"
-          elif [ "$HAS_KEY" != true ]; then
-            echo '::warning::OPENAI_API_KEY repository secret is missing; no model or PR'
-            echo 'enabled=false' >> "$GITHUB_OUTPUT"
-          elif [ -n "$(gh pr list --head automation/newsroom-drafts --state open --json number --jq '.[0].number // empty')" ]; then
-            echo '::notice::Existing newsroom draft PR awaits owner review'
-            echo 'enabled=false' >> "$GITHUB_OUTPUT"
-          else
-            echo 'enabled=true' >> "$GITHUB_OUTPUT"
-          fi
-      - name: Collect official sources
-        id: intake
-        if: steps.gate.outputs.enabled == 'true' || inputs.dry_run == true
-        run: |
-          set -euo pipefail
-          echo "run_date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
           python scripts/newsroom.py collect --today "$(date -u +%F)"
           python -c 'import json; d=json.load(open("newsroom-intake.json")); print("Eligible official pages:", len(d["sources"]), "Feed failures:", len(d["failures"]))'
-          echo "count=$(python -c 'import json; print(len(json.load(open("newsroom-intake.json"))["sources"]))')" >> "$GITHUB_OUTPUT"
-      - name: Upload immutable source snapshot
-        if: steps.gate.outputs.enabled == 'true' && fromJSON(steps.intake.outputs.count) >= 2
+      - name: Retain read-only research evidence
         uses: actions/upload-artifact@v4
         with:
-          name: newsroom-intake
+          name: newsroom-source-snapshot
           path: newsroom-intake.json
           if-no-files-found: error
           retention-days: 2
-      - name: Generate structured editorial proposal
-        id: codex
-        if: steps.gate.outputs.enabled == 'true' && fromJSON(steps.intake.outputs.count) >= 2
-        uses: openai/codex-action@v1
-        with:
-          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
-          permission-profile: ':read-only'
-          safety-strategy: drop-sudo
-          prompt-file: .github/newsroom/PROMPT.md
-          output-schema-file: .github/newsroom/plan.schema.json
-  draft_pr:
-    needs: research
-    if: needs.research.outputs.plan != ''
-    runs-on: ubuntu-latest
-    timeout-minutes: 25
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      - uses: actions/checkout@v5
-        with:
-          ref: main
-          persist-credentials: false
-      - uses: actions/download-artifact@v4
-        with:
-          name: newsroom-intake
-      - name: Save and validate model data
-        id: validate
-        env:
-          PLAN: ${{ needs.research.outputs.plan }}
-          RUN_DATE: ${{ needs.research.outputs.run_date }}
-        run: |
-          set -euo pipefail
-          printf '%s' "$PLAN" > newsroom-plan.json
-          python scripts/newsroom.py validate --today "$RUN_DATE"
-          echo "count=$(python -c 'import json; print(len(json.load(open("newsroom-plan.json"))["stories"]))')" >> "$GITHUB_OUTPUT"
-      - name: Render scoped article drafts
-        if: steps.validate.outputs.count != '0'
-        env:
-          RUN_DATE: ${{ needs.research.outputs.run_date }}
-        run: python scripts/newsroom.py render --today "$RUN_DATE"
-      - name: Check scope and existing site
-        if: steps.validate.outputs.count != '0'
-        run: |
-          set -euo pipefail
-          rm -f newsroom-plan.json newsroom-intake.json
-          python .github/newsroom/guard.py
-          npm ci --ignore-scripts --no-audit --no-fund
-          node --test tests/server.test.js
-          python -m unittest discover -s tests -p test_newsroom.py
-          python docs/blog-news-2026-11/verify_editorial.py
-          git diff --check
-      - name: Open draft PR for owner review
-        if: steps.validate.outputs.count != '0'
-        uses: peter-evans/create-pull-request@v8
-        with:
-          token: ${{ github.token }}
-          branch: automation/newsroom-drafts
-          base: main
-          draft: true
-          delete-branch: false
-          commit-message: 'Prepare sourced newsroom drafts for owner review'
-          title: 'Newsroom: sourced EN/ES/AR draft articles'
-          body: |
-            Draft-only editorial proposal. Review every claim, translation, source date, status, tool link, and layout before merging.
-            The generated `datePublished` and "Published by Convertios" date use the draft run date. Change them to the actual publication date in all three pages and sitemap review if merging on a later day.
-            Nothing is automatically merged or deployed. Merging into main is the owner's publication decision.
-          add-paths: |
-            blog/index.html
-            blog/*/index.html
-            es/blog/index.html
-            es/blog/*/index.html
-            ar/blog/index.html
-            ar/blog/*/index.html
-            sitemap.xml
