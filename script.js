@@ -36,9 +36,9 @@
   }
 
   function languageAriaLabel(language){
-    if(language==='ar') return 'اختيار اللغة';
-    if(language==='es') return 'Cambiar idioma';
-    return 'Change language';
+    if(language==='ar') return languageLabel(language)+' — اختيار اللغة';
+    if(language==='es') return languageLabel(language)+' — Cambiar idioma';
+    return languageLabel(language)+' — Change language';
   }
 
   function inferTargetLanguage(link,currentLanguage){
