@@ -10,6 +10,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('stamp_assets', ROOT / 'scripts/stamp-assets.py')
 stamp = importlib.util.module_from_spec(spec)
@@ -50,6 +51,14 @@ class StampingTests(unittest.TestCase):
             self.assertEqual(page.read_bytes(), expected)
             self.assertEqual(run(), 0)
             self.assertEqual(page.read_bytes(), expected)
+            self.assertEqual(run('--check'), 0)
+            # A real asset edit must produce a different browser cache key.
+            (root / 'asset.js').write_bytes(b'const x = 2;\n')
+            changed_digest = stamp.content_hash('/asset.js').encode()
+            self.assertNotEqual(changed_digest, digest)
+            self.assertEqual(run('--check'), 1)
+            self.assertEqual(run(), 0)
+            self.assertEqual(page.read_bytes(), expected.replace(digest, changed_digest))
             self.assertEqual(run('--check'), 0)
 
     def test_git_windows_checkout_and_blob_match_hash(self):
