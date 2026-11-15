@@ -1,0 +1,4 @@
+# GitHub Pages publishes Git blobs from a Linux checkout. Keep hashed assets LF
+# on every platform, including Windows checkouts with core.autocrlf=true.
+*.css text eol=lf
+*.js text eol=lf

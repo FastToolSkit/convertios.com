@@ -40,3 +40,24 @@ jobs:
           test ! -e _site/tests
           test ! -e _site/docs
           echo 'Pages candidate build and publication exclusions passed'
+      - name: Verify deterministic stamps and published asset bytes
+        shell: bash
+        run: |
+          python tests/stamp-assets.test.py
+          python scripts/stamp-assets.py --check
+          python - <<'PY'
+          import hashlib
+          import re
+          from pathlib import Path
+          root = Path('_site')
+          references = 0
+          pattern = re.compile(rb'(?:href|src)="(/[A-Za-z0-9_./-]+\.(?:css|js))\?v=([a-f0-9]+)"')
+          for page in root.rglob('*.html'):
+              for match in pattern.finditer(page.read_bytes()):
+                  asset = root / match[1].decode().lstrip('/')
+                  digest = hashlib.sha256(asset.read_bytes()).hexdigest()[:8]
+                  assert digest == match[2].decode(), (str(page), str(asset), digest)
+                  references += 1
+          assert references > 0, 'No published asset references checked'
+          print(f'{references} published references match actual asset bytes')
+          PY
