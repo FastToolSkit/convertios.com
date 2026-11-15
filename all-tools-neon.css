@@ -1,0 +1,89 @@
+/* Convertios All Tools catalog. Scoped: no impact on individual tools, blog, or homepage. */
+body.convertios-all-tools {
+  background: radial-gradient(ellipse 75% 480px at 3% 7%, rgba(111,32,205,.24), transparent 75%),
+              radial-gradient(ellipse 75% 620px at 95% 30%, rgba(0,116,255,.20), transparent 75%),
+              #06132e;
+  color: #f5f8ff;
+}
+body.convertios-all-tools main {padding: 1px clamp(16px,3vw,48px) 72px;}
+body.convertios-all-tools .tool-container {
+  width: 100%; max-width: 1320px !important; box-sizing: border-box;
+  margin: 58px auto 28px !important; padding: clamp(22px,3.5vw,48px) !important;
+  background: linear-gradient(140deg,rgba(13,32,71,.93),rgba(7,20,50,.94)) !important;
+  border: 1px solid rgba(104,133,226,.30) !important;
+  box-shadow: 0 28px 75px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.055) !important;
+  border-radius: 28px !important;
+}
+body.convertios-all-tools .tool-container h1 {
+  color: #fff !important; font-size: clamp(34px,4vw,56px) !important;
+  line-height: 1.1; letter-spacing: -.035em; margin: 2px auto 18px;
+}
+body.convertios-all-tools .tool-container > .tool-desc {
+  color: #c5d6f7 !important; font-size: clamp(15px,1.3vw,18px);
+  max-width: 760px; line-height: 1.7; margin: 0 auto 38px;
+}
+body.convertios-all-tools .tools-grid {
+  display: grid; grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 18px; margin-top: 0; align-items: stretch;
+}
+body.convertios-all-tools .tools-grid .tool-card {
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+  min-width:0; box-sizing:border-box; height:100%;
+  background:linear-gradient(155deg,rgba(19,48,100,.98),rgba(10,27,62,.98)) !important;
+  border:1px solid rgba(105,145,239,.33) !important;
+  border-radius:18px !important; padding:25px 18px !important;
+  text-decoration:none !important; color:#fff !important;
+  box-shadow:0 7px 24px rgba(0,0,0,.16);
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+body.convertios-all-tools .tools-grid .tool-card::before {display:none !important;}
+body.convertios-all-tools .tools-grid .tool-card:hover,
+body.convertios-all-tools .tools-grid .tool-card:focus-visible {
+  transform:translateY(-4px); border-color:#8f7aff !important;
+  box-shadow:0 15px 38px rgba(21,64,182,.26);
+}
+body.convertios-all-tools .tools-grid .tool-card:focus-visible {outline:3px solid #85b8ff;outline-offset:3px;}
+body.convertios-all-tools .tools-grid .tool-icon-wrap {
+  width:62px; height:62px; flex:0 0 62px; border-radius:16px;
+  display:flex;justify-content:center;align-items:center;
+  margin:0 0 18px; color:#fff !important;
+  background:linear-gradient(135deg,rgba(29,118,238,.32),rgba(132,57,236,.4)) !important;
+  border:1px solid rgba(153,146,255,.32);
+  font-family:'Segoe UI Emoji','Apple Color Emoji','Noto Color Emoji',sans-serif;
+  font-size:28px; line-height:1;
+}
+body.convertios-all-tools .tools-grid .tool-card h3 {
+  color:#f8faff !important; font-size:17px;line-height:1.35;font-weight:750;
+  margin:0 0 11px; text-wrap:balance;
+}
+body.convertios-all-tools .tools-grid .tool-card p {
+  color:#b9cceb !important;opacity:1 !important;
+  font-size:13.5px; line-height:1.65; margin:0;text-align:center;
+}
+body.convertios-all-tools .tools-grid .tool-card:visited {color:#fff !important;}
+@media(max-width:1150px){body.convertios-all-tools .tools-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:800px){
+  body.convertios-all-tools .tool-container {margin:28px auto 15px !important;padding:24px !important;}
+  body.convertios-all-tools .tools-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;}
+}
+@media(max-width:520px){
+  body.convertios-all-tools main{padding:1px 12px 40px;}
+  body.convertios-all-tools .tool-container {padding:18px !important;border-radius:18px !important;}
+  body.convertios-all-tools .tool-container > .tool-desc{margin-bottom:24px;}
+  body.convertios-all-tools .tools-grid{grid-template-columns:1fr;gap:12px;}
+  body.convertios-all-tools .tools-grid .tool-card{padding:19px 17px !important;}
+}
+@media(prefers-reduced-motion:reduce){body.convertios-all-tools .tool-card{transition:none !important;}}
+
+/* The informational section is not a flex row; prevent tablet horizontal overflow. */
+body.convertios-all-tools > .seo-section {
+  display:block !important; width:calc(100% - 40px); max-width:1100px;
+  box-sizing:border-box; margin:40px auto 70px !important;
+  padding:clamp(22px,3vw,38px); border-radius:22px;
+  background:rgba(13,32,71,.88); color:#d6e2fa;
+  border:1px solid rgba(104,133,226,.24);
+  overflow-wrap:anywhere;
+}
+body.convertios-all-tools > .seo-section h2,
+body.convertios-all-tools > .seo-section h3{color:#fff;}
+body.convertios-all-tools > .seo-section p{color:#c6d5ee;}
