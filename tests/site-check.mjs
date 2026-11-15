@@ -144,6 +144,15 @@ for (const p of pages) {
       !s.includes('href="/neon-home.css?')) {
     fail('header-design', p, 'Shared neon header stylesheet, logo, or page class missing');
   }
+  // The shared video controller needs these attributes before it registers upload handlers.
+  const videoTool = p.match(/(?:^|\/)(video-converter|video-to-mp3)\/index\.html$/)?.[1];
+  if (videoTool) {
+    const body = s.match(/<body\b[^>]*>/)?.[0] || '';
+    const mode = videoTool === 'video-converter' ? 'video' : 'mp3';
+    if (!body.includes(`data-video-mode="${mode}"`) || !body.includes(`data-locale="${langOf(p)}"`)) {
+      fail('video-initialization', p, `Expected body data-video-mode="${mode}" data-locale="${langOf(p)}"`);
+    }
+  }
   if (!sw?.includes('class="language-selector__globe"') || !sw?.includes('class="language-selector__label"')) {
     fail('language-selector-ui', p, 'missing shared globe/label markup');
   }
