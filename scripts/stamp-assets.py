@@ -5,6 +5,9 @@
 
 Run after editing any shared CSS/JS file:   python3 scripts/stamp-assets.py
 `--check` only reports stale or missing stamps (used by tests/site-check.mjs and CI).
+Hashes use Git's LF asset bytes, enforced by .gitattributes. Normalize CRLF in
+older Windows worktrees too, so stamping before committing gives the same URL
+as the Linux Pages checkout. No CSS/JS content is rewritten by this script.
 Browsers and Cloudflare cache assets by full URL, so a changed file gets a new URL on the next deploy,
 while unchanged files keep their cache.
 """
@@ -23,13 +26,13 @@ def content_hash(rel):
     if not os.path.isfile(path):
         return None
     with open(path, 'rb') as fh:
-        return hashlib.sha256(fh.read()).hexdigest()[:8]
+        return hashlib.sha256(fh.read().replace(b'\r\n', b'\n')).hexdigest()[:8]
 
 
 def html_files():
     for dirpath, dirnames, filenames in os.walk(ROOT):
-        dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS]
-        for name in filenames:
+        dirnames[:] = sorted(d for d in dirnames if d not in SKIP_DIRS)
+        for name in sorted(filenames):
             if name.endswith('.html'):
                 yield os.path.join(dirpath, name)
 
@@ -40,7 +43,7 @@ def main():
     problems = []
     changed = 0
     for path in html_files():
-        with open(path, encoding='utf-8') as fh:
+        with open(path, encoding='utf-8', newline='') as fh:
             text = fh.read()
 
         def stamp(match):
@@ -58,7 +61,7 @@ def main():
 
         new = REF.sub(stamp, text)
         if new != text and not check:
-            with open(path, 'w', encoding='utf-8') as fh:
+            with open(path, 'w', encoding='utf-8', newline='') as fh:
                 fh.write(new)
             changed += 1
     if check:
