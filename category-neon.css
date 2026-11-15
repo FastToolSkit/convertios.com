@@ -1,0 +1,156 @@
+/* Convertios All Tools catalog. Scoped: no impact on individual tools, blog, or homepage. */
+body.convertios-category {
+  background: radial-gradient(ellipse 75% 480px at 3% 7%, rgba(111,32,205,.24), transparent 75%),
+              radial-gradient(ellipse 75% 620px at 95% 30%, rgba(0,116,255,.20), transparent 75%),
+              #06132e;
+  color: #f5f8ff;
+}
+body.convertios-category main {padding: 1px clamp(16px,3vw,48px) 72px;}
+body.convertios-category .tool-container {
+  width: 100%; max-width: 1320px !important; box-sizing: border-box;
+  margin: 58px auto 28px !important; padding: clamp(22px,3.5vw,48px) !important;
+  background: linear-gradient(140deg,rgba(13,32,71,.93),rgba(7,20,50,.94)) !important;
+  border: 1px solid rgba(104,133,226,.30) !important;
+  box-shadow: 0 28px 75px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.055) !important;
+  border-radius: 28px !important;
+}
+body.convertios-category .tool-container h1 {
+  color: #fff !important; font-size: clamp(34px,4vw,56px) !important;
+  line-height: 1.1; letter-spacing: -.035em; margin: 2px auto 18px;
+}
+body.convertios-category .tool-container > .tool-desc {
+  color: #c5d6f7 !important; font-size: clamp(15px,1.3vw,18px);
+  max-width: 760px; line-height: 1.7; margin: 0 auto 38px;
+}
+body.convertios-category .tools-grid {
+  display: grid; grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 18px; margin-top: 0; align-items: stretch;
+}
+body.convertios-category .tools-grid .tool-card {
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+  min-width:0; box-sizing:border-box; height:100%;
+  background:linear-gradient(155deg,rgba(19,48,100,.98),rgba(10,27,62,.98)) !important;
+  border:1px solid rgba(105,145,239,.33) !important;
+  border-radius:18px !important; padding:25px 18px !important;
+  text-decoration:none !important; color:#fff !important;
+  box-shadow:0 7px 24px rgba(0,0,0,.16);
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+body.convertios-category .tools-grid .tool-card::before {display:none !important;}
+body.convertios-category .tools-grid .tool-card:hover,
+body.convertios-category .tools-grid .tool-card:focus-visible {
+  transform:translateY(-4px); border-color:#8f7aff !important;
+  box-shadow:0 15px 38px rgba(21,64,182,.26);
+}
+body.convertios-category .tools-grid .tool-card:focus-visible {outline:3px solid #85b8ff;outline-offset:3px;}
+body.convertios-category .tools-grid .tool-icon-wrap {
+  width:62px; height:62px; flex:0 0 62px; border-radius:16px;
+  display:flex;justify-content:center;align-items:center;
+  margin:0 0 18px; color:#fff !important;
+  background:linear-gradient(135deg,rgba(29,118,238,.32),rgba(132,57,236,.4)) !important;
+  border:1px solid rgba(153,146,255,.32);
+  font-family:'Segoe UI Emoji','Apple Color Emoji','Noto Color Emoji',sans-serif;
+  font-size:28px; line-height:1;
+}
+body.convertios-category .tools-grid .tool-card h3 {
+  color:#f8faff !important; font-size:17px;line-height:1.35;font-weight:750;
+  margin:0 0 11px; text-wrap:balance;
+}
+body.convertios-category .tools-grid .tool-card p {
+  color:#b9cceb !important;opacity:1 !important;
+  font-size:13.5px; line-height:1.65; margin:0;text-align:center;
+}
+body.convertios-category .tools-grid .tool-card:visited {color:#fff !important;}
+@media(max-width:1150px){body.convertios-category .tools-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:800px){
+  body.convertios-category .tool-container {margin:28px auto 15px !important;padding:24px !important;}
+  body.convertios-category .tools-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;}
+}
+@media(max-width:520px){
+  body.convertios-category main{padding:1px 12px 40px;}
+  body.convertios-category .tool-container {padding:18px !important;border-radius:18px !important;}
+  body.convertios-category .tool-container > .tool-desc{margin-bottom:24px;}
+  body.convertios-category .tools-grid{grid-template-columns:1fr;gap:12px;}
+  body.convertios-category .tools-grid .tool-card{padding:19px 17px !important;}
+}
+@media(prefers-reduced-motion:reduce){body.convertios-category .tool-card{transition:none !important;}}
+
+/* The informational section is not a flex row; prevent tablet horizontal overflow. */
+body.convertios-category > .seo-section {
+  display:block !important; width:calc(100% - 40px); max-width:1100px;
+  box-sizing:border-box; margin:40px auto 70px !important;
+  padding:clamp(22px,3vw,38px); border-radius:22px;
+  background:rgba(13,32,71,.88); color:#d6e2fa;
+  border:1px solid rgba(104,133,226,.24);
+  overflow-wrap:anywhere;
+}
+body.convertios-category > .seo-section h2,
+body.convertios-category > .seo-section h3{color:#fff;}
+body.convertios-category > .seo-section p{color:#c6d5ee;}
+
+
+/* Category hub variants from older generations of the site.
+   Preserve their original markup, SEO descriptions and links. */
+body.convertios-category main.hub,
+body.convertios-category main.ar-page {display:block!important; width:100%; max-width:1400px!important; margin:0 auto!important; box-sizing:border-box; padding:1px clamp(14px,3vw,48px) 64px!important; background:transparent!important;color:#eef4ff!important;}
+body.convertios-category .hub-hero,
+body.convertios-category main.hub > .hero,
+body.convertios-category .ar-tool-hero {display:block!important; max-width:1320px; box-sizing:border-box; margin:56px auto 0!important; padding:35px 28px 18px!important; background:linear-gradient(140deg,rgba(13,32,71,.93),rgba(7,20,50,.94))!important; border:1px solid rgba(104,133,226,.3); border-bottom:0; border-radius:28px 28px 0 0; text-align:center; color:#eef4ff!important;}
+body.convertios-category .hub-hero h1,body.convertios-category main.hub > .hero h1,body.convertios-category .ar-tool-hero h1{color:#fff!important;font-size:clamp(34px,4vw,52px)!important;line-height:1.18;letter-spacing:-.02em; margin:8px auto 16px!important;}
+body.convertios-category .hub-hero p,body.convertios-category main.hub > .hero p,body.convertios-category .ar-tool-hero p{color:#c5d6f7!important;max-width:850px;font-size:16px;line-height:1.7;margin:0 auto!important;}
+body.convertios-category main.hub > .tool-grid,
+body.convertios-category main.hub > .grid,
+body.convertios-category main.ar-page .ar-tools-grid {display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:18px!important;align-items:stretch;box-sizing:border-box;max-width:1320px!important;margin:0 auto 32px!important;padding:28px 40px 40px!important;background:linear-gradient(140deg,rgba(13,32,71,.93),rgba(7,20,50,.94))!important;border:1px solid rgba(104,133,226,.3);border-top:0;border-radius:0 0 28px 28px;}
+body.convertios-category main.ar-page .ar-section:has(> .ar-tools-grid){max-width:1320px!important;margin:0 auto!important;padding:0!important;background:transparent!important;border:0!important;}
+body.convertios-category main.hub > .tool-grid > a,
+body.convertios-category main.hub > .grid > a {display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;min-width:0!important;box-sizing:border-box!important;height:100%;text-align:center!important;text-decoration:none!important;color:#fff!important;background:linear-gradient(155deg,rgba(19,48,100,.98),rgba(10,27,62,.98))!important;border:1px solid rgba(105,145,239,.33)!important;border-radius:18px!important;padding:25px 18px!important;box-shadow:0 7px 24px rgba(0,0,0,.16);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;}
+body.convertios-category main.hub > .tool-grid > a::before,
+body.convertios-category main.hub > .grid > a::before {content:'✦';font-family:'Segoe UI Symbol',sans-serif;font-size:30px;line-height:62px;text-align:center;display:block;width:62px;height:62px;min-height:62px;box-sizing:border-box;border:1px solid rgba(153,146,255,.32);border-radius:16px;background:linear-gradient(135deg,rgba(29,118,238,.32),rgba(132,57,236,.4));color:#bbadff;margin-bottom:18px;}
+body.convertios-category main.hub > .tool-grid > a:hover,body.convertios-category main.hub > .grid > a:hover,
+body.convertios-category main.hub > .tool-grid > a:focus-visible,body.convertios-category main.hub > .grid > a:focus-visible {transform:translateY(-4px)!important;border-color:#8f7aff!important;box-shadow:0 15px 38px rgba(21,64,182,.26)!important;}
+body.convertios-category main.hub > .tool-grid > a:focus-visible,body.convertios-category main.hub > .grid > a:focus-visible{outline:3px solid #85b8ff;outline-offset:3px;}
+body.convertios-category main.hub > .tool-grid > a h2,body.convertios-category main.hub > .grid > a h2 {color:#f8faff!important;font-size:17px!important;line-height:1.35!important;font-weight:750!important;margin:0 0 11px!important;}
+body.convertios-category main.hub > .tool-grid > a p,body.convertios-category main.hub > .grid > a p {color:#b9cceb!important;opacity:1!important;font-size:13.5px!important;line-height:1.65!important;margin:0!important;text-align:center!important;}
+body.convertios-category .hub-copy,body.convertios-category main.hub > .copy,
+body.convertios-category .ar-trust-copy{box-sizing:border-box;max-width:1200px!important;width:100%!important;margin:28px auto 42px!important;padding:clamp(22px,3vw,38px)!important;border:1px solid rgba(104,133,226,.24);border-radius:22px;background:rgba(13,32,71,.88)!important;color:#c6d5ee!important;line-height:1.75;overflow-wrap:anywhere;}
+body.convertios-category .hub-copy h2,body.convertios-category main.hub > .copy h2,body.convertios-category .ar-trust-copy h2{color:#fff!important;}
+body.convertios-category .hub-copy p,body.convertios-category main.hub > .copy p,body.convertios-category .ar-trust-copy p{color:#c6d5ee!important;}
+body.convertios-category .hub-copy a,body.convertios-category main.hub > .copy a,body.convertios-category .ar-trust-copy a{color:#9ebdff!important;}
+body.convertios-category .comparison{max-width:100%;overflow-x:auto;}
+body.convertios-category .comparison table{min-width:480px;}
+/* Ensure Arabic two-section catalog keeps the same contained panel. */
+body.convertios-category main.ar-page .ar-section:has(> .ar-tools-grid){background:linear-gradient(140deg,rgba(13,32,71,.93),rgba(7,20,50,.94))!important;border:1px solid rgba(104,133,226,.3)!important;border-top:0!important;border-radius:0 0 28px 28px!important;}
+body.convertios-category main.ar-page .ar-section .ar-tools-grid{border:0!important;background:transparent!important;margin:0!important;max-width:none!important;}
+@media(max-width:1150px){body.convertios-category main.hub > .tool-grid,body.convertios-category main.hub > .grid,body.convertios-category main.ar-page .ar-tools-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;}}
+@media(max-width:800px){body.convertios-category main.hub > .tool-grid,body.convertios-category main.hub > .grid,body.convertios-category main.ar-page .ar-tools-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;padding:22px!important;gap:13px!important;}}
+@media(max-width:520px){body.convertios-category main.hub > .tool-grid,body.convertios-category main.hub > .grid,body.convertios-category main.ar-page .ar-tools-grid{grid-template-columns:1fr!important;padding:18px!important;gap:12px!important;}body.convertios-category .hub-hero,body.convertios-category main.hub > .hero,body.convertios-category .ar-tool-hero{margin-top:26px!important;padding:24px 18px!important;}}
+
+/* Individual card icons for legacy category hubs without icon markup. */
+body.convertios-category.category-image main.hub > .tool-grid > a:nth-child(1)::before,body.convertios-category.category-image main.hub > .grid > a:nth-child(1)::before {content:'🖼️';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-image main.hub > .tool-grid > a:nth-child(2)::before,body.convertios-category.category-image main.hub > .grid > a:nth-child(2)::before {content:'📷';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-image main.hub > .tool-grid > a:nth-child(3)::before,body.convertios-category.category-image main.hub > .grid > a:nth-child(3)::before {content:'🌐';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-image main.hub > .tool-grid > a:nth-child(4)::before,body.convertios-category.category-image main.hub > .grid > a:nth-child(4)::before {content:'🔄';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-image main.hub > .tool-grid > a:nth-child(5)::before,body.convertios-category.category-image main.hub > .grid > a:nth-child(5)::before {content:'📐';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-image main.hub > .tool-grid > a:nth-child(6)::before,body.convertios-category.category-image main.hub > .grid > a:nth-child(6)::before {content:'📱';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-image main.hub > .tool-grid > a:nth-child(7)::before,body.convertios-category.category-image main.hub > .grid > a:nth-child(7)::before {content:'📦';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-image main.hub > .tool-grid > a:nth-child(8)::before,body.convertios-category.category-image main.hub > .grid > a:nth-child(8)::before {content:'✂️';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-image main.hub > .tool-grid > a:nth-child(9)::before,body.convertios-category.category-image main.hub > .grid > a:nth-child(9)::before {content:'✨';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-pdf main.hub > .tool-grid > a:nth-child(1)::before,body.convertios-category.category-pdf main.hub > .grid > a:nth-child(1)::before {content:'📄';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-pdf main.hub > .tool-grid > a:nth-child(2)::before,body.convertios-category.category-pdf main.hub > .grid > a:nth-child(2)::before {content:'🖼️';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-pdf main.hub > .tool-grid > a:nth-child(3)::before,body.convertios-category.category-pdf main.hub > .grid > a:nth-child(3)::before {content:'📷';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-pdf main.hub > .tool-grid > a:nth-child(4)::before,body.convertios-category.category-pdf main.hub > .grid > a:nth-child(4)::before {content:'📑';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-pdf main.hub > .tool-grid > a:nth-child(5)::before,body.convertios-category.category-pdf main.hub > .grid > a:nth-child(5)::before {content:'✂️';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-pdf main.hub > .tool-grid > a:nth-child(6)::before,body.convertios-category.category-pdf main.hub > .grid > a:nth-child(6)::before {content:'🔄';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-audio main.hub > .tool-grid > a:nth-child(1)::before,body.convertios-category.category-audio main.hub > .grid > a:nth-child(1)::before {content:'🎵';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-audio main.hub > .tool-grid > a:nth-child(2)::before,body.convertios-category.category-audio main.hub > .grid > a:nth-child(2)::before {content:'🎧';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-audio main.hub > .tool-grid > a:nth-child(3)::before,body.convertios-category.category-audio main.hub > .grid > a:nth-child(3)::before {content:'⚡';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-audio main.hub > .tool-grid > a:nth-child(4)::before,body.convertios-category.category-audio main.hub > .grid > a:nth-child(4)::before {content:'🎬';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-audio main.hub > .tool-grid > a:nth-child(5)::before,body.convertios-category.category-audio main.hub > .grid > a:nth-child(5)::before {content:'🎞️';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-audio main.hub > .tool-grid > a:nth-child(6)::before,body.convertios-category.category-audio main.hub > .grid > a:nth-child(6)::before {content:'🎙️';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-other main.hub > .tool-grid > a:nth-child(1)::before,body.convertios-category.category-other main.hub > .grid > a:nth-child(1)::before {content:'🔳';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-other main.hub > .tool-grid > a:nth-child(2)::before,body.convertios-category.category-other main.hub > .grid > a:nth-child(2)::before {content:'🔗';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-other main.hub > .tool-grid > a:nth-child(3)::before,body.convertios-category.category-other main.hub > .grid > a:nth-child(3)::before {content:'🔐';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-other main.hub > .tool-grid > a:nth-child(4)::before,body.convertios-category.category-other main.hub > .grid > a:nth-child(4)::before {content:'📝';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-other main.hub > .tool-grid > a:nth-child(5)::before,body.convertios-category.category-other main.hub > .grid > a:nth-child(5)::before {content:'✍️';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-other main.hub > .tool-grid > a:nth-child(6)::before,body.convertios-category.category-other main.hub > .grid > a:nth-child(6)::before {content:'📏';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+body.convertios-category.category-other main.hub > .tool-grid > a:nth-child(7)::before,body.convertios-category.category-other main.hub > .grid > a:nth-child(7)::before {content:'🎨';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
