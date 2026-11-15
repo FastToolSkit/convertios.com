@@ -432,6 +432,13 @@ WaveSurfer.timeline.create({container:"#timeline"})
 })
 
 let region
+let audioReady=false;
+const audioInput=document.getElementById('audio');
+const audioError=document.createElement('p');
+audioError.setAttribute('role','alert');audioError.setAttribute('aria-live','polite');
+audioError.style.color='#ef4444';audioInput.insertAdjacentElement('afterend',audioError);
+function audioFail(){audioReady=false;region=null;document.getElementById('export').disabled=true;audioError.textContent='Unsupported or damaged audio file. Choose a valid MP3, WAV, OGG or audio file and try again.';}
+wavesurfer.on('error',audioFail);
 
 function formatTime(sec){
 sec=Math.floor(sec)
@@ -444,10 +451,15 @@ return m+":"+s
 document.getElementById("audio").addEventListener("change",function(e){
 const file=e.target.files[0]
 if(!file) return
+region=null;audioReady=false;
+document.getElementById('export').disabled=true;audioError.textContent='';
+wavesurfer.clearRegions();
+if(!(/^audio\//i.test(file.type)||(!file.type && /\.(mp3|wav|ogg|m4a|aac|flac)$/i.test(file.name)))){audioFail();return}
 wavesurfer.loadBlob(file)
 })
 
 wavesurfer.on("ready",function(){
+audioReady=true;audioError.textContent='';document.getElementById('export').disabled=false;
 
 const duration = wavesurfer.getDuration()
 
@@ -480,7 +492,7 @@ wavesurfer.zoom(Number(this.value))
 
 document.getElementById("export").onclick=function(){
 
-if(!region){if(window.ConvertiosUI){ConvertiosUI.notify(ConvertiosUI.t('noFile'))} return}
+if(!region||!audioReady){if(window.ConvertiosUI){ConvertiosUI.notify(ConvertiosUI.t('noFile'))} return}
 
 const start=region.start
 const end=region.end
