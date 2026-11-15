@@ -154,3 +154,36 @@ body.convertios-category.category-other main.hub > .tool-grid > a:nth-child(4)::
 body.convertios-category.category-other main.hub > .tool-grid > a:nth-child(5)::before,body.convertios-category.category-other main.hub > .grid > a:nth-child(5)::before {content:'✍️';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
 body.convertios-category.category-other main.hub > .tool-grid > a:nth-child(6)::before,body.convertios-category.category-other main.hub > .grid > a:nth-child(6)::before {content:'📏';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
 body.convertios-category.category-other main.hub > .tool-grid > a:nth-child(7)::before,body.convertios-category.category-other main.hub > .grid > a:nth-child(7)::before {content:'🎨';font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:28px;}
+
+/* Match SEO/explanatory panels to the dark category catalog. Scoped to category pages only. */
+body.convertios-category > .tool-description {
+  width: calc(100% - 40px);
+  max-width: 1100px;
+  box-sizing: border-box;
+  margin: 40px auto 70px;
+  padding: clamp(22px, 3vw, 38px);
+  background: rgba(13, 32, 71, .94);
+  color: #c6d5ee;
+  border: 1px solid rgba(104, 133, 226, .30);
+  border-radius: 22px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, .18);
+  overflow-wrap: anywhere;
+}
+body.convertios-category > .tool-description h2,
+body.convertios-category > .tool-description h3,
+body.convertios-category > .tool-description strong {
+  color: #f8faff;
+}
+body.convertios-category > .tool-description p,
+body.convertios-category > .tool-description li {
+  color: #c6d5ee;
+}
+body.convertios-category > .tool-description a {
+  color: #9ebdff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+body.convertios-category > .tool-description a:hover,
+body.convertios-category > .tool-description a:focus-visible {
+  color: #c9d9ff;
+}
