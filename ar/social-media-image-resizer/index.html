@@ -347,7 +347,14 @@ fileInput.addEventListener('change',e=>handleFile(e.target.files[0]));
 dropzone.addEventListener('drop',e=>handleFile(e.dataTransfer.files[0]));
 dropzone.addEventListener('click',event=>{if(event.target.closest('label')) return;fileInput.click();});
 panel.addEventListener('change',updateButtons);
-function handleFile(file){if(!file) return;const r=new FileReader();r.onload=()=>{img.onload=()=>{imageLoaded=true;preview.src=r.result;preview.style.display='block';statusEl.textContent='الصورة جاهزة. اختر المقاسات ثم قم بالتنزيل.';updateButtons();};img.src=r.result;};r.readAsDataURL(file);}
+function handleFile(file){
+  if(!file) return;
+  imageLoaded=false;img.onload=null;img.onerror=null;img=new Image();
+  preview.removeAttribute('src');preview.style.display='none';updateButtons();
+  const fail=()=>{imageLoaded=false;preview.removeAttribute('src');preview.style.display='none';statusEl.textContent='الصورة غير مدعومة أو تالفة. اختر صورة JPG أو PNG أو WEBP صالحة وحاول مرة أخرى.';updateButtons();};
+  if(!/^image\/(png|jpeg|webp|gif|bmp)$/i.test(file.type)) {fail();return;}
+  const r=new FileReader();r.onerror=fail;
+  r.onload=()=>{img.onerror=fail;img.onload=()=>{imageLoaded=true;preview.src=r.result;preview.style.display='block';statusEl.textContent='الصورة جاهزة. اختر المقاسات ثم قم بالتنزيل.';updateButtons();};img.src=r.result;};r.readAsDataURL(file);}
 function resizeBlob(w,h,type='image/png',q=0.92){const c=document.createElement('canvas');c.width=w;c.height=h;const ctx=c.getContext('2d');ctx.drawImage(img,0,0,w,h);return new Promise(res=>c.toBlob(res,type,q));}
 function selectedOptions(){return [...document.querySelectorAll('#sizePanel input:checked')].map(i=>({label:i.dataset.label,w:+i.dataset.w,h:+i.dataset.h}));}
 btnSingle.addEventListener('click',async()=>{const opts=selectedOptions();if(!opts.length)return;for(const [i,o] of opts.entries()){const blob=await resizeBlob(o.w,o.h);setTimeout(()=>downloadBlob(blob,`${slug(o.label)}-${o.w}x${o.h}.png`),i*400);}const o=opts[opts.length-1];statusEl.textContent=`تم تنزيل ${o.label}`;});

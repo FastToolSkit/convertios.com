@@ -398,6 +398,11 @@ gtag('config', 'G-0CH8NE5WDH');
 const dropArea = document.getElementById("drop-area");
 const fileInput = document.getElementById("file-input");
 const preview = document.getElementById("preview");
+const pdfError=document.createElement('p');pdfError.setAttribute('role','alert');pdfError.setAttribute('aria-live','polite');pdfError.style.color='#ef4444';preview.insertAdjacentElement('beforebegin',pdfError);
+function clearPdfError(){pdfError.textContent='';}
+function showPdfError(){pdfError.textContent='ملف PDF غير صالح أو تالف. اختر ملف PDF صالحاً وحاول مرة أخرى.';}
+async function hasPdfHeader(file){if(!file || (file.type && file.type!=='application/pdf') || !/\.pdf$/i.test(file.name)) return false;try{const b=new Uint8Array(await file.slice(0,1024).arrayBuffer());return new TextDecoder('latin1').decode(b).includes('%PDF-');}catch(_){return false;}}
+
 
 let files = [];
 
@@ -412,15 +417,13 @@ handleFiles(e.dataTransfer.files);
 
 fileInput.addEventListener("change", ()=>handleFiles(fileInput.files));
 
-function handleFiles(newFiles){
-
-for(let file of newFiles){
-if(file.type !== "application/pdf") continue;
-files.push(file);
+async function handleFiles(newFiles){
+clearPdfError();
+for(const file of newFiles){
+ if(!(await hasPdfHeader(file))){showPdfError();continue;}
+ try{const pdf=await PDFLib.PDFDocument.load(await file.arrayBuffer());if(pdf.getPageCount()<1)throw new Error('Invalid PDF page tree');files.push(file);}catch(_){showPdfError();}
 }
-
 renderPreview();
-
 }
 
 function renderPreview(){
@@ -465,6 +468,9 @@ if(files.length===0){
 return;
 }
 
+clearPdfError();
+const link=document.getElementById('downloadLink');link.removeAttribute('href');
+try{
 const { PDFDocument } = PDFLib;
 const mergedPDF = await PDFDocument.create();
 
@@ -488,7 +494,7 @@ link.href = URL.createObjectURL(blob);
 link.download = "merged.pdf";
 link.innerText = "تنزيل PDF";
 link.className = "main-button";
-
+}catch(_){showPdfError();link.removeAttribute('href');}
 }
 
 </script>

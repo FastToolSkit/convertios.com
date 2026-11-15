@@ -25,10 +25,20 @@
   var files = [];
   var urls = [];
 
-  function setFiles(list) {
+  async function setFiles(list) {
     UI.clear();
     var all = Array.prototype.slice.call(list || []);
-    files = all.filter(function (f) { return cfg.from.indexOf(f.type) !== -1; });
+    // Browsers may omit MIME metadata for a genuine WEBP; validate its RIFF/WEBP signature.
+    var checks = await Promise.all(all.map(async function (f) {
+      if (cfg.from.indexOf(f.type) !== -1) return true;
+      if (slug !== 'webp-to-png' || f.type || !/\.webp$/i.test(f.name)) return false;
+      try {
+        var b = new Uint8Array(await f.slice(0, 12).arrayBuffer());
+        return b.length === 12 && String.fromCharCode.apply(null, b.slice(0, 4)) === 'RIFF' &&
+          String.fromCharCode.apply(null, b.slice(8, 12)) === 'WEBP';
+      } catch (_) { return false; }
+    }));
+    files = all.filter(function (_, i) { return checks[i]; });
     if (files.length < all.length) UI.notify(UI.t('wrongType').replace('{type}', cfg.label), { type: 'info' });
     preview.innerHTML = '';
     downloads.innerHTML = '';

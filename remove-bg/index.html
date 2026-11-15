@@ -473,8 +473,8 @@ a.download = "no-bg.png";
 a.click();
 };
 }catch(err){
-console.error(err);
-showRemoveBgRetry(err.message || "Browser processing failed. Try a smaller JPG, PNG, or WEBP image.");
+console.error("Remove Background: processing or validation error", err);
+showRemoveBgRetry("Browser processing failed. Try a smaller JPG, PNG, or WEBP image.");
 }
 }
 
