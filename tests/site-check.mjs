@@ -144,6 +144,11 @@ for (const p of pages) {
       !s.includes('href="/neon-home.css?')) {
     fail('header-design', p, 'Shared neon header stylesheet, logo, or page class missing');
   }
+  // Homepage dropdowns must have their final geometry before navigation JS runs.
+  if (/<body[^>]*class="[^"]*neon-homepage/.test(s) &&
+      (s.match(/<span class="dropdown-trigger">/g) || []).length !== 4) {
+    fail('homepage-nav-cls', p, 'Expected four dropdown triggers initialized in HTML before first paint');
+  }
   // The shared video controller needs these attributes before it registers upload handlers.
   const videoTool = p.match(/(?:^|\/)(video-converter|video-to-mp3)\/index\.html$/)?.[1];
   if (videoTool) {

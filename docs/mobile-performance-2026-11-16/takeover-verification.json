@@ -1,0 +1,413 @@
+{
+  "verified_head": "d71c6fdb7322fbf3d2056f569e4ae8e49378e0ea",
+  "baseline": "e3b0788829c3648b98233a2c6cfd0edcb14852dd",
+  "branch": "perf/mobile-cls-root-cause-20261116",
+  "worktree": "C:\\Users\\ASUS\\OneDrive\\ドキュメント\\ChatGPT\\Convertios\\mobile-performance-20261116",
+  "worktrees": "worktree C:/Users/ASUS/OneDrive/ドキュメント/ChatGPT/Convertios/repository\nHEAD fe9239e0a9707fa526741d63fe0906c0597daa6c\nbranch refs/heads/content/adsense-tool-guides-20261030\n\nworktree C:/Users/ASUS/OneDrive/ドキュメント/ChatGPT/Convertios/final-completion-20261115\nHEAD 2c553f0d1ffa511dc4a8aeee4576cf616cf9592a\nbranch refs/heads/fix/final-functional-completion-20261115\n\nworktree C:/Users/ASUS/OneDrive/ドキュメント/ChatGPT/Convertios/indexing-recovery-20261112\nHEAD e7fdbb2773239893dee385129a8272c19a7e4278\nbranch refs/heads/fix/indexing-recovery-20261112\n\nworktree C:/Users/ASUS/OneDrive/ドキュメント/ChatGPT/Convertios/mobile-performance-20261116\nHEAD d71c6fdb7322fbf3d2056f569e4ae8e49378e0ea\nbranch refs/heads/perf/mobile-cls-root-cause-20261116\n\nworktree C:/Users/ASUS/OneDrive/ドキュメント/ChatGPT/Convertios/repair-cv001-video-20261115\nHEAD 995955a7fab3065b2cc0bdb7775bfeb2a9dbeebf\nbranch refs/heads/fix/cv-001-video-initialization-20261115\n\n",
+  "stashes": "",
+  "preserved": {
+    "repository": {
+      "status_unchanged": true,
+      "verified_files": 202,
+      "changed_files": []
+    },
+    "final-completion-20261115": {
+      "status_unchanged": true,
+      "verified_files": 0,
+      "changed_files": []
+    },
+    "indexing-recovery-20261112": {
+      "status_unchanged": true,
+      "verified_files": 0,
+      "changed_files": []
+    },
+    "repair-cv001-video-20261115": {
+      "status_unchanged": true,
+      "verified_files": 0,
+      "changed_files": []
+    }
+  },
+  "manifest_entries_verified": 368,
+  "manifest_exceptions": {
+    "package.log": "Packaging stdout was appended six seconds after the manifest snapshot; excluded by the final tar packager."
+  },
+  "tar_members_verified": 370,
+  "raw_lighthouse_reports_verified": 30,
+  "exact_screenshot_pairs_verified": 17,
+  "arabic_settled_font_zero_pixel_difference": true,
+  "browser_results": "17 exact PASS; one strict screenshot FAIL resolved by saved settled-font zero-pixel probe",
+  "summary": [
+    {
+      "device": "desktop",
+      "language": "ar",
+      "variant": "baseline",
+      "n": 2,
+      "score": {
+        "median": 96.0,
+        "min": 96,
+        "max": 96
+      },
+      "fcp": {
+        "median": 935.7826625,
+        "min": 930.3245499999999,
+        "max": 941.240775
+      },
+      "lcp": {
+        "median": 1202.6859,
+        "min": 1198.3595500000001,
+        "max": 1207.01225
+      },
+      "cls": {
+        "median": 0.0015760124991680555,
+        "min": 0.0015760124991680555,
+        "max": 0.0015760124991680555
+      },
+      "tbt": {
+        "median": 7.000000000000028,
+        "min": 2.000000000000057,
+        "max": 12
+      }
+    },
+    {
+      "device": "desktop",
+      "language": "ar",
+      "variant": "candidate",
+      "n": 2,
+      "score": {
+        "median": 96.0,
+        "min": 96,
+        "max": 96
+      },
+      "fcp": {
+        "median": 932.5675000000001,
+        "min": 929.3447500000002,
+        "max": 935.7902499999999
+      },
+      "lcp": {
+        "median": 1202.5045,
+        "min": 1199.0410000000002,
+        "max": 1205.9679999999998
+      },
+      "cls": {
+        "median": 0.00135926792441793,
+        "min": 0.00135926792441793,
+        "max": 0.00135926792441793
+      },
+      "tbt": {
+        "median": 15.5,
+        "min": 0.5,
+        "max": 30.5
+      }
+    },
+    {
+      "device": "desktop",
+      "language": "en",
+      "variant": "baseline",
+      "n": 2,
+      "score": {
+        "median": 97.5,
+        "min": 97,
+        "max": 98
+      },
+      "fcp": {
+        "median": 891.6122,
+        "min": 862.5103,
+        "max": 920.7141
+      },
+      "lcp": {
+        "median": 1031.91335,
+        "min": 1021.6123,
+        "max": 1042.2144
+      },
+      "cls": {
+        "median": 0.00013917941668658854,
+        "min": 0,
+        "max": 0.0002783588333731771
+      },
+      "tbt": {
+        "median": 3.25,
+        "min": 2.5,
+        "max": 4
+      }
+    },
+    {
+      "device": "desktop",
+      "language": "en",
+      "variant": "candidate",
+      "n": 2,
+      "score": {
+        "median": 98.0,
+        "min": 98,
+        "max": 98
+      },
+      "fcp": {
+        "median": 871.8116500000001,
+        "min": 870.1979000000001,
+        "max": 873.4254
+      },
+      "lcp": {
+        "median": 1033.1574,
+        "min": 1026.2484,
+        "max": 1040.0664
+      },
+      "cls": {
+        "median": 0.0,
+        "min": 0,
+        "max": 0
+      },
+      "tbt": {
+        "median": 9.0,
+        "min": 7.5,
+        "max": 10.5
+      }
+    },
+    {
+      "device": "desktop",
+      "language": "es",
+      "variant": "baseline",
+      "n": 2,
+      "score": {
+        "median": 97.0,
+        "min": 97,
+        "max": 97
+      },
+      "fcp": {
+        "median": 921.904225,
+        "min": 905.737575,
+        "max": 938.0708750000001
+      },
+      "lcp": {
+        "median": 1036.9154,
+        "min": 1019.1403,
+        "max": 1054.6905000000002
+      },
+      "cls": {
+        "median": 0.0,
+        "min": 0,
+        "max": 0
+      },
+      "tbt": {
+        "median": 12.5,
+        "min": 2,
+        "max": 23
+      }
+    },
+    {
+      "device": "desktop",
+      "language": "es",
+      "variant": "candidate",
+      "n": 2,
+      "score": {
+        "median": 97.0,
+        "min": 97,
+        "max": 97
+      },
+      "fcp": {
+        "median": 897.7484,
+        "min": 879.1155999999999,
+        "max": 916.3812
+      },
+      "lcp": {
+        "median": 1047.6187,
+        "min": 1037.9283,
+        "max": 1057.3091000000002
+      },
+      "cls": {
+        "median": 0.0,
+        "min": 0,
+        "max": 0
+      },
+      "tbt": {
+        "median": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    {
+      "device": "mobile",
+      "language": "ar",
+      "variant": "baseline",
+      "n": 3,
+      "score": {
+        "median": 77,
+        "min": 77,
+        "max": 84
+      },
+      "fcp": {
+        "median": 3298.3944,
+        "min": 2834.0855,
+        "max": 3373.7684
+      },
+      "lcp": {
+        "median": 4522.921850000001,
+        "min": 3805.5053000000003,
+        "max": 4576.64625
+      },
+      "cls": {
+        "median": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tbt": {
+        "median": 41.5,
+        "min": 34,
+        "max": 92
+      }
+    },
+    {
+      "device": "mobile",
+      "language": "ar",
+      "variant": "candidate",
+      "n": 3,
+      "score": {
+        "median": 83,
+        "min": 77,
+        "max": 84
+      },
+      "fcp": {
+        "median": 2866.5806000000002,
+        "min": 2852.6104,
+        "max": 3232.3965
+      },
+      "lcp": {
+        "median": 3835.1708,
+        "min": 3831.5932000000003,
+        "max": 4592.196
+      },
+      "cls": {
+        "median": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tbt": {
+        "median": 23.5,
+        "min": 4,
+        "max": 70
+      }
+    },
+    {
+      "device": "mobile",
+      "language": "en",
+      "variant": "baseline",
+      "n": 3,
+      "score": {
+        "median": 90,
+        "min": 82,
+        "max": 90
+      },
+      "fcp": {
+        "median": 2817.1453,
+        "min": 2686.57395,
+        "max": 3276.26675
+      },
+      "lcp": {
+        "median": 3008.26585,
+        "min": 2991.8126,
+        "max": 3849.4255
+      },
+      "cls": {
+        "median": 0.002712177850298819,
+        "min": 0,
+        "max": 0.002712177850298819
+      },
+      "tbt": {
+        "median": 11.5,
+        "min": 9,
+        "max": 16.5
+      }
+    },
+    {
+      "device": "mobile",
+      "language": "en",
+      "variant": "candidate",
+      "n": 3,
+      "score": {
+        "median": 83,
+        "min": 83,
+        "max": 83
+      },
+      "fcp": {
+        "median": 3072.416875,
+        "min": 3061.549875,
+        "max": 3090.6868750000003
+      },
+      "lcp": {
+        "median": 3780.9235,
+        "min": 3776.2906,
+        "max": 3802.8523
+      },
+      "cls": {
+        "median": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tbt": {
+        "median": 18,
+        "min": 2.5,
+        "max": 31.5
+      }
+    },
+    {
+      "device": "mobile",
+      "language": "es",
+      "variant": "baseline",
+      "n": 3,
+      "score": {
+        "median": 90,
+        "min": 82,
+        "max": 90
+      },
+      "fcp": {
+        "median": 2700.3388499999996,
+        "min": 2670.0381499999994,
+        "max": 3109.4637500000003
+      },
+      "lcp": {
+        "median": 3022.34255,
+        "min": 2991.7404499999993,
+        "max": 3850.2448000000004
+      },
+      "cls": {
+        "median": 0.0347879048941375,
+        "min": 0,
+        "max": 0.0347879048941375
+      },
+      "tbt": {
+        "median": 15.5,
+        "min": 9,
+        "max": 27
+      }
+    },
+    {
+      "device": "mobile",
+      "language": "es",
+      "variant": "candidate",
+      "n": 3,
+      "score": {
+        "median": 83,
+        "min": 83,
+        "max": 83
+      },
+      "fcp": {
+        "median": 3068.368625,
+        "min": 3046.31175,
+        "max": 3091.867
+      },
+      "lcp": {
+        "median": 3781.292,
+        "min": 3757.8445,
+        "max": 3804.3731000000002
+      },
+      "cls": {
+        "median": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tbt": {
+        "median": 0,
+        "min": 0,
+        "max": 15.5
+      }
+    }
+  ]
+}

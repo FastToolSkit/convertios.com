@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout candidate
         uses: actions/checkout@v4
+      - name: Validate static site and homepage navigation geometry
+        run: node tests/site-check.mjs
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Build with official GitHub Pages Jekyll action
