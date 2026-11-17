@@ -23,7 +23,8 @@ function walk(dir, out = []) {
 }
 const pages = walk(ROOT).sort();
 const src = Object.fromEntries(pages.map((p) => [p, fs.readFileSync(path.join(ROOT, p), 'utf8')]));
-const langOf = (p) => (p.startsWith('ar/') ? 'ar' : p.startsWith('es/') ? 'es' : 'en');
+const langOf = (p) => (p.startsWith('ar/') ? 'ar' : p.startsWith('es/') ? 'es' : p.startsWith('pt-br/') ? 'pt-BR' : 'en');
+const prefixOf = (p) => (p.startsWith('ar/') ? 'ar/' : p.startsWith('es/') ? 'es/' : p.startsWith('pt-br/') ? 'pt-br/' : '');
 const urlOf = (p) => `${BASE}/${p.slice(0, -'index.html'.length)}`;
 const decode = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const meta = (s, name, attr = 'name') => { const m = s.match(new RegExp(`<meta\\s+${attr}="${name}"\\s+content="([^"]*)"`)); return m ? decode(m[1]) : null; };
@@ -38,8 +39,8 @@ const exists = (urlPath) => {
 // 1. language + direction
 for (const p of pages) {
   const html = src[p].match(/<html([^>]*)>/)?.[1] || '';
-  const lang = html.match(/lang="([^"]+)"/)?.[1]?.slice(0, 2);
-  if (lang !== langOf(p)) fail('lang', p, `lang=${lang}`);
+  const lang = html.match(/lang="([^"]+)"/)?.[1];
+  if (langOf(p) === 'pt-BR' ? lang !== 'pt-BR' : lang?.slice(0, 2) !== langOf(p)) fail('lang', p, `lang=${lang}`);
   const dir = html.match(/dir="([^"]+)"/)?.[1];
   if (langOf(p) === 'ar' && dir !== 'rtl') fail('lang', p, 'Arabic page without dir="rtl"');
 }
@@ -55,6 +56,9 @@ for (const p of indexable) {
   const alt = Object.fromEntries([...s.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => [m[1], m[2]]));
   alternates[p] = alt;
   for (const l of ['en', 'ar', 'es', 'x-default']) if (!alt[l]) fail('hreflang', p, `missing ${l}`);
+  // Portuguese (Brazil) alternates are required wherever a /pt-br/ counterpart exists.
+  const ptTarget = `pt-br/${p.slice(prefixOf(p).length)}`;
+  if (src[ptTarget] && !robots(src[ptTarget]).includes('noindex') && !alt['pt-BR']) fail('hreflang', p, 'missing pt-BR');
   if (alt[langOf(p)] !== urlOf(p)) fail('hreflang', p, `self link ${alt[langOf(p)]}`);
   const title = decode((s.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '').trim();
   if (!title) fail('title', p, 'missing');
@@ -105,11 +109,12 @@ for (const p of pages) {
   const sw = s.match(/<details class="language-selector[\s\S]*?<\/details>/)?.[0];
   if (!sw) fail('language-switcher', p, 'missing');
   else {
-    const stem = p.replace(/^(ar|es)\//, '').slice(0, -'index.html'.length);
-    for (const [l, pre] of [['en', ''], ['ar', 'ar/'], ['es', 'es/']]) {
+    const stem = p.replace(/^(ar|es|pt-br)\//, '').slice(0, -'index.html'.length);
+    for (const [l, pre] of [['en', ''], ['ar', 'ar/'], ['es', 'es/'], ['pt-BR', 'pt-br/']]) {
       const want = `${BASE}/${pre}${stem}`;
       const got = sw.match(new RegExp(`<a href="([^"]+)"[^>]*hreflang="${l}"`))?.[1];
-      const fallback = `${BASE}/${pre}all-tools/`;
+      // Portuguese has no news articles: blog posts fall back to the Portuguese guides hub.
+      const fallback = l === 'pt-BR' && stem.startsWith('blog/') ? `${BASE}/${pre}blog/` : `${BASE}/${pre}all-tools/`;
       const equivalentExists = Boolean(src[`${pre}${stem}index.html`]);
       if (got !== want && !(!equivalentExists && got === fallback)) fail('language-switcher', p, `${l} -> ${got}`);
     }
@@ -124,7 +129,7 @@ for (const p of pages) {
   }
   // The approved shared header keeps Blog before About and Contact, with one All Tools dropdown.
   const nav = s.match(/<nav class="nav-menu">([\s\S]*?)<\/nav>/)?.[1];
-  const localePrefix = p.startsWith('ar/') ? 'ar/' : p.startsWith('es/') ? 'es/' : '';
+  const localePrefix = prefixOf(p);
   const blogHref = `href="/${localePrefix}blog/"`;
   const aboutHref = `href="/${localePrefix}about/"`;
   const contactHref = `href="/${localePrefix}contact/"`;
@@ -162,7 +167,7 @@ for (const p of pages) {
     fail('language-selector-ui', p, 'missing shared globe/label markup');
   }
 }
-for (const prefix of ['', 'es/', 'ar/']) {
+for (const prefix of ['', 'es/', 'ar/', 'pt-br/']) {
   const hub = `${prefix}audio-tools/index.html`;
   if (!src[hub]?.includes(`href="/${prefix}trim-audio-online/"`)) {
     fail('navigation', hub, 'missing Trim Audio hub link');
@@ -206,7 +211,7 @@ for (const p of pages) {
     for (const [, u] of text.matchAll(/"(https:\/\/convertios\.com\/[^"?{]*)"/g)) {
       const pathPart = u.slice(BASE.length);
       if (!exists(pathPart) && !/\.(png|ico|svg)$/.test(pathPart)) fail('json-ld', p, `URL not found ${u}`);
-      const l = pathPart.startsWith('/ar/') ? 'ar' : pathPart.startsWith('/es/') ? 'es' : 'en';
+      const l = pathPart.startsWith('/ar/') ? 'ar' : pathPart.startsWith('/es/') ? 'es' : pathPart.startsWith('/pt-br/') ? 'pt-BR' : 'en';
       if (l !== langOf(p) && pathPart !== '/' && !/\.(png|ico|svg)$/.test(pathPart)) fail('json-ld', p, `links other language ${u}`);
     }
   }
@@ -245,7 +250,7 @@ for (const p of pages) {
   if (footerCount !== 1) fail('footer', p, `${footerCount} footer elements; expected one`);
   const copyrightCount = (s.match(/©\s*2026\s*Convertios/g) || []).length;
   if (copyrightCount !== 1) fail('footer', p, `${copyrightCount} copyright notices; expected one`);
-  if (/^(?:ar\/|es\/)?index\.html$/.test(p) && /Everything runs instantly in your browser|يعمل كل شيء فورًا في المتصفح|Todo funciona al instante/.test(s)) {
+  if (/^(?:ar\/|es\/|pt-br\/)?index\.html$/.test(p) && /Everything runs instantly in your browser|يعمل كل شيء فورًا في المتصفح|Todo funciona al instante|Tudo funciona na hora/.test(s)) {
     fail('privacy', p, 'homepage implies universal instant/local processing');
   }
   if (/fasttools/i.test(s)) fail('branding', p, 'old FastTools reference');

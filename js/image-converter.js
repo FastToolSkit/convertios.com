@@ -8,7 +8,8 @@
   UI.extend({
     en: { notImage: 'Some files are not images and were skipped.', converting: 'Converting {n} of {total}…', converted: '{n} image(s) converted. Download them individually or as a ZIP.', failedOne: 'Could not convert {name}.', convertFirst: 'Convert at least one image before downloading.', download: 'Download' },
     ar: { notImage: 'بعض الملفات ليست صورًا وتم تجاوزها.', converting: 'جارٍ تحويل {n} من {total}…', converted: 'تم تحويل {n} صورة. نزّلها كل واحدة على حدة أو كملف ZIP.', failedOne: 'تعذّر تحويل {name}.', convertFirst: 'حوّل صورة واحدة على الأقل قبل التنزيل.', download: 'تنزيل' },
-    es: { notImage: 'Algunos archivos no son imágenes y se omitieron.', converting: 'Convirtiendo {n} de {total}…', converted: '{n} imagen(es) convertida(s). Descárgalas por separado o en un ZIP.', failedOne: 'No se pudo convertir {name}.', convertFirst: 'Convierte al menos una imagen antes de descargar.', download: 'Descargar' }
+    es: { notImage: 'Algunos archivos no son imágenes y se omitieron.', converting: 'Convirtiendo {n} de {total}…', converted: '{n} imagen(es) convertida(s). Descárgalas por separado o en un ZIP.', failedOne: 'No se pudo convertir {name}.', convertFirst: 'Convierte al menos una imagen antes de descargar.', download: 'Descargar' },
+    pt: { notImage: 'Alguns arquivos não são imagens e foram ignorados.', converting: 'Convertendo {n} de {total}…', converted: '{n} imagem(ns) convertida(s). Baixe separadamente ou em um ZIP.', failedOne: 'Não foi possível converter {name}.', convertFirst: 'Converta pelo menos uma imagem antes de baixar.', download: 'Baixar' }
   });
   function fmt(key, vars) {
     return UI.t(key).replace(/\{(\w+)\}/g, function (_, k) { return vars[k]; });

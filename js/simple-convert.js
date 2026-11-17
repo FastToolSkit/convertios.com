@@ -14,7 +14,8 @@
   UI.extend({
     en: { wrongType: 'Only {type} images can be added here. Other files were skipped.', done: '{n} image(s) converted.', download: 'Download' },
     ar: { wrongType: 'يمكن إضافة صور {type} فقط هنا. تم تجاوز الملفات الأخرى.', done: 'تم تحويل {n} صورة.', download: 'تنزيل' },
-    es: { wrongType: 'Aquí solo se pueden añadir imágenes {type}. Se omitieron los demás archivos.', done: '{n} imagen(es) convertida(s).', download: 'Descargar' }
+    es: { wrongType: 'Aquí solo se pueden añadir imágenes {type}. Se omitieron los demás archivos.', done: '{n} imagen(es) convertida(s).', download: 'Descargar' },
+    pt: { wrongType: 'Aqui só é possível adicionar imagens {type}. Os outros arquivos foram ignorados.', done: '{n} imagem(ns) convertida(s).', download: 'Baixar' }
   });
 
   var dropArea = document.getElementById('drop-area');

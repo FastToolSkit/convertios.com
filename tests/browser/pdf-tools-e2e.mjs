@@ -1,5 +1,6 @@
-// End-to-end check of the in-browser PDF tools with real fixture files (EN/AR/ES, phone profile 390px).
-// Libraries load from their CDNs, so this needs internet. Output PDFs are verified with pdf-lib
+// End-to-end check of the in-browser PDF tools with real fixture files (EN/AR/ES/PT-BR, phone profile 390px).
+// Libraries load from their CDNs, so this needs internet (or VENDOR=map.json, the same CDN->file map
+// that run.mjs accepts with --vendor, for offline runs). Output PDFs are verified with pdf-lib
 // (page count, rotation); PDF to JPG output is verified by JPEG data URLs, one per page.
 // Layout: after loading a 4-page PDF the thumbnail list must stay inside #preview and the page
 // must not scroll sideways; Rotate PDF's button is pressed with a real (hit-tested) click.
@@ -49,14 +50,20 @@ async function layout(page) {
   });
 }
 
-const browser = await chromium.launch();
+const VENDOR = process.env.VENDOR ? JSON.parse(fs.readFileSync(process.env.VENDOR, 'utf8')) : null;
+const browser = await chromium.launch({ executablePath: process.env.PW_CHROMIUM || undefined });
 let failed = 0, total = 0;
 const report = (name, ok, detail) => { total++; if (!ok) failed++; console.log(`${ok ? 'pass' : 'FAIL'} ${name.padEnd(22)} ${detail}`); };
 
-for (const lang of ['', 'es/', 'ar/']) {
+for (const lang of ['', 'es/', 'ar/', 'pt-br/']) {
   const L = lang ? lang.slice(0, 2) : 'en';
   const ctx = await browser.newContext({ acceptDownloads: true, viewport: { width: 390, height: 900 }, isMobile: true, hasTouch: true });
   await ctx.route(/googlesyndication|googletagmanager|google-analytics|cloudflareinsights|onrender\.com/, (r) => r.fulfill({ status: 204, body: '' }));
+  if (VENDOR) await ctx.route((u) => !u.href.startsWith(base) && Object.keys(VENDOR).some((k) => u.href.includes(k)), (r) => {
+    const file = VENDOR[Object.keys(VENDOR).find((k) => r.request().url().includes(k))];
+    return file === 'stub' ? r.fulfill({ status: 200, contentType: 'text/javascript', body: '' })
+      : r.fulfill({ status: 200, contentType: file.endsWith('.css') ? 'text/css' : 'text/javascript', headers: { 'Access-Control-Allow-Origin': '*' }, body: fs.readFileSync(file) });
+  });
   const run = async (slug, fn) => {
     const page = await ctx.newPage(); const errors = []; let dialog = null;
     page.on('pageerror', (e) => errors.push(e.message)); page.on('dialog', (d) => { dialog = d.message(); d.dismiss(); });

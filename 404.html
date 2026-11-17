@@ -131,6 +131,7 @@
     <a href="https://convertios.com/" lang="en" hreflang="en" role="menuitem" aria-current="page">English</a>
     <a href="https://convertios.com/ar/" lang="ar" hreflang="ar" role="menuitem" dir="rtl">العربية</a>
     <a href="https://convertios.com/es/" lang="es" hreflang="es" role="menuitem">Español</a>
+    <a href="https://convertios.com/pt-br/" lang="pt-BR" hreflang="pt-BR" role="menuitem">Português</a>
   </div>
 </details>
 </header>
@@ -149,6 +150,11 @@
 <h1>Página no encontrada</h1>
 <p>La página que buscas no existe o se ha movido. Prueba con una de estas:</p>
 <div class="notfound-links"><a href="/es/">Inicio</a><a href="/es/all-tools/">Todas las herramientas</a><a href="/es/image-tools/">Herramientas de imagen</a><a href="/es/pdf-tools/">Herramientas PDF</a><a href="/es/audio-tools/">Herramientas de audio</a></div>
+</div>
+<div data-lang="pt-BR" lang="pt-BR" hidden>
+<h1>Página não encontrada</h1>
+<p>A página que você procura não existe ou foi movida. Tente uma destas:</p>
+<div class="notfound-links"><a href="/pt-br/">Início</a><a href="/pt-br/all-tools/">Todas as ferramentas</a><a href="/pt-br/image-tools/">Ferramentas de imagem</a><a href="/pt-br/pdf-tools/">Ferramentas de PDF</a><a href="/pt-br/audio-tools/">Ferramentas de áudio</a></div>
 </div>
 </main>
 <footer class="site-footer">
@@ -178,16 +184,16 @@
 </footer>
 <script>
 (function(){
-var m=location.pathname.match(/^\/(ar|es)(\/|$)/);
+var m=location.pathname.match(/^\/(ar|es|pt-br)(\/|$)/i);
 if(!m) return;
-var l=m[1];
+var l=m[1].toLowerCase()==='pt-br'?'pt-BR':m[1];
 document.documentElement.lang=l;
 if(l==='ar') document.documentElement.dir='rtl';
 document.querySelector('[data-lang="en"]').hidden=true;
 document.querySelector('[data-lang="'+l+'"]').hidden=false;
-document.title=l==='ar'?'الصفحة غير موجودة | Convertios':'Página no encontrada | Convertios';
+document.title=l==='ar'?'الصفحة غير موجودة | Convertios':l==='pt-BR'?'Página não encontrada | Convertios':'Página no encontrada | Convertios';
 })();
 </script>
-<script src="/script.min.js?v=3a99bba3" defer></script>
+<script src="/script.min.js?v=e4002bc3" defer></script>
 </body>
 </html>

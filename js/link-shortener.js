@@ -5,7 +5,8 @@
   UI.extend({
     en: { enterUrl: 'Paste a web address to shorten.', shortening: 'Shortening…', shortened: 'Short link ready. It works anywhere a normal link does.', copied: 'Copied!', copyFailed: 'Copy failed. Select the link and copy it manually.' },
     ar: { enterUrl: 'الصق رابطًا لاختصاره.', shortening: 'جارٍ الاختصار…', shortened: 'الرابط المختصر جاهز ويعمل في أي مكان يعمل فيه الرابط العادي.', copied: 'تم النسخ!', copyFailed: 'تعذّر النسخ. حدّد الرابط وانسخه يدويًا.' },
-    es: { enterUrl: 'Pega una dirección web para acortarla.', shortening: 'Acortando…', shortened: 'Enlace corto listo. Funciona en cualquier lugar donde funcione un enlace normal.', copied: '¡Copiado!', copyFailed: 'No se pudo copiar. Selecciona el enlace y cópialo manualmente.' }
+    es: { enterUrl: 'Pega una dirección web para acortarla.', shortening: 'Acortando…', shortened: 'Enlace corto listo. Funciona en cualquier lugar donde funcione un enlace normal.', copied: '¡Copiado!', copyFailed: 'No se pudo copiar. Selecciona el enlace y cópialo manualmente.' },
+    pt: { enterUrl: 'Cole um endereço da web para encurtar.', shortening: 'Encurtando…', shortened: 'Link curto pronto. Ele funciona em qualquer lugar onde um link normal funciona.', copied: 'Copiado!', copyFailed: 'Não foi possível copiar. Selecione o link e copie manualmente.' }
   });
 
   var input = document.getElementById('url');

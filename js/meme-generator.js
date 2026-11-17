@@ -8,7 +8,8 @@
   UI.extend({
     en: { notImage: 'Please choose an image file.', loadFailed: 'This image could not be opened. Try another file.' },
     ar: { notImage: 'يُرجى اختيار ملف صورة.', loadFailed: 'تعذّر فتح هذه الصورة. جرّب ملفًا آخر.' },
-    es: { notImage: 'Elige un archivo de imagen.', loadFailed: 'No se pudo abrir esta imagen. Prueba con otro archivo.' }
+    es: { notImage: 'Elige un archivo de imagen.', loadFailed: 'No se pudo abrir esta imagen. Prueba con otro archivo.' },
+    pt: { notImage: 'Escolha um arquivo de imagem.', loadFailed: 'Não foi possível abrir esta imagem. Tente outro arquivo.' }
   });
 
   var canvas = document.getElementById('memeCanvas');

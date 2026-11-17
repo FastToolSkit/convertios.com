@@ -14,11 +14,13 @@
   function getLanguageCounterpartPath(pathname,targetLang){
     const cleanPath=(pathname||'/').split('#')[0].split('?')[0];
     const normalized=cleanPath.startsWith('/') ? cleanPath : '/'+cleanPath;
-    const pathWithoutLanguage=normalized.replace(/^\/(?:ar|es)(?=\/|$)/,'') || '/';
+    const pathWithoutLanguage=normalized.replace(/^\/(?:ar|es|pt-br)(?=\/|$)/i,'') || '/';
 
     if(pathWithoutLanguage==='/tools/' && targetLang==='es') return '/es/all-tools/';
+    if(pathWithoutLanguage==='/tools/' && targetLang==='pt-BR') return '/pt-br/all-tools/';
     if(targetLang==='ar') return pathWithoutLanguage==='/' ? '/ar/' : '/ar'+pathWithoutLanguage;
     if(targetLang==='es') return pathWithoutLanguage==='/' ? '/es/' : '/es'+pathWithoutLanguage;
+    if(targetLang==='pt-BR') return pathWithoutLanguage==='/' ? '/pt-br/' : '/pt-br'+pathWithoutLanguage;
     return pathWithoutLanguage || '/';
   }
 
@@ -26,18 +28,21 @@
     const normalized=(pathname||'/').startsWith('/') ? (pathname||'/') : '/'+pathname;
     if(normalized==='/ar' || normalized.startsWith('/ar/')) return 'ar';
     if(normalized==='/es' || normalized.startsWith('/es/')) return 'es';
+    if(/^\/pt-br(?:\/|$)/i.test(normalized)) return 'pt-BR';
     return 'en';
   }
 
   function languageLabel(language){
     if(language==='ar') return 'العربية';
     if(language==='es') return 'Español';
+    if(language==='pt-BR') return 'Português';
     return 'English';
   }
 
   function languageAriaLabel(language){
     if(language==='ar') return languageLabel(language)+' — اختيار اللغة';
     if(language==='es') return languageLabel(language)+' — Cambiar idioma';
+    if(language==='pt-BR') return languageLabel(language)+' — Mudar idioma';
     return languageLabel(language)+' — Change language';
   }
 
@@ -48,6 +53,7 @@
 
     if(hreflang==='ar' || lang==='ar' || text==='ar' || text.includes('العربية')) return 'ar';
     if(hreflang==='es' || lang==='es' || text==='es' || text.includes('español')) return 'es';
+    if(hreflang==='pt-br' || lang==='pt-br' || text==='pt' || text.includes('português')) return 'pt-BR';
     if(hreflang==='en' || lang==='en' || text==='en' || text.includes('english') || text.includes('الإنجليزية')) return 'en';
 
     return currentLanguage;
@@ -177,6 +183,12 @@
       if(!href || isExternalNonConvertios(href)) return;
 
       const targetLang=inferTargetLanguage(link,currentLanguage);
+      // Server-rendered selectors already point at the right page (or at a fallback such as /pt-br/blog/
+      // when a translation does not exist). Only generic language-root links are rewritten here.
+      let existingPath=href;
+      try{ existingPath=new URL(href,window.location.origin).pathname; }catch(_err){}
+      const isLanguageRoot=/^\/(?:(?:ar|es|pt-br)\/?)?$/i.test(existingPath);
+      if(!isLanguageRoot && getCurrentLanguage(existingPath)===targetLang) return;
       const targetPath=getLanguageCounterpartPath(pathname,targetLang);
 
       if(/^https?:\/\//i.test(href)){
@@ -197,6 +209,7 @@
         link.setAttribute('lang','ar');
         link.setAttribute('dir','rtl');
       }
+      if(targetLang==='pt-BR') link.setAttribute('lang','pt-BR');
     });
   }
 
@@ -208,34 +221,64 @@
     if(!searchInput || !resultsBox) return;
 
     const toolsData=[
-      { name: 'PDF to Word', url: '/pdf-to-word/', keywords: 'pdf word document' },
+      { name: 'PDF to Word', url: '/pdf-to-word/', keywords: 'pdf word document pdf para word' },
       { name: 'PDF to JPG', url: '/pdf-to-jpg/', keywords: 'pdf image jpg' },
       { name: 'JPG to PDF', url: '/jpg-to-pdf/', keywords: 'jpg pdf image' },
-      { name: 'Merge PDF', url: '/merge-pdf/', keywords: 'merge pdf combine' },
-      { name: 'Split PDF', url: '/split-pdf/', keywords: 'split pdf separate' },
-      { name: 'Rotate PDF', url: '/rotate-pdf/', keywords: 'rotate pdf' },
+      { name: 'Merge PDF', url: '/merge-pdf/', keywords: 'merge pdf combine juntar unir pdf' },
+      { name: 'Split PDF', url: '/split-pdf/', keywords: 'split pdf separate dividir separar pdf' },
+      { name: 'Rotate PDF', url: '/rotate-pdf/', keywords: 'rotate pdf girar pdf' },
       { name: 'PNG to JPG', url: '/png-to-jpg/', keywords: 'png jpg image convert' },
       { name: 'JPG to PNG', url: '/jpg-to-png/', keywords: 'jpg png image' },
       { name: 'WEBP to PNG', url: '/webp-to-png/', keywords: 'webp png image' },
-      { name: 'Image Converter', url: '/image-converter/', keywords: 'image convert' },
-      { name: 'Image Resizer', url: '/image-resizer/', keywords: 'resize image' },
-      { name: 'Compress Image', url: '/compress-image/', keywords: 'compress image reduce size' },
-      { name: 'Remove Background', url: '/remove-bg/', keywords: 'remove background image' },
-      { name: 'MP3 Cutter', url: '/mp3-cutter/', keywords: 'mp3 audio cut trim' },
+      { name: 'Image Converter', url: '/image-converter/', keywords: 'image convert converter imagem' },
+      { name: 'Image Resizer', url: '/image-resizer/', keywords: 'resize image redimensionar imagem' },
+      { name: 'Compress Image', url: '/compress-image/', keywords: 'compress image reduce size comprimir imagem reduzir' },
+      { name: 'Remove Background', url: '/remove-bg/', keywords: 'remove background image remover fundo' },
+      { name: 'MP3 Cutter', url: '/mp3-cutter/', keywords: 'mp3 audio cut trim cortar áudio' },
       { name: 'Audio Converter', url: '/audio-converter/', keywords: 'audio convert mp3 wav' },
-      { name: 'Audio Speed Changer', url: '/audio-speed-changer/', keywords: 'audio speed change' },
-      { name: 'Video to MP3', url: '/video-to-mp3/', keywords: 'video mp3 extract audio' },
+      { name: 'Audio Speed Changer', url: '/audio-speed-changer/', keywords: 'audio speed change velocidade áudio' },
+      { name: 'Video to MP3', url: '/video-to-mp3/', keywords: 'video mp3 extract audio vídeo para mp3 extrair áudio' },
       { name: 'Video Format Converter', url: '/video-converter/', keywords: 'video convert mp4 webm mov mkv avi' },
       { name: 'QR Code Generator', url: '/qr-generator/', keywords: 'qr code generator' },
-      { name: 'Link Shortener', url: '/link-shortener/', keywords: 'shorten link url' },
-      { name: 'Password Generator', url: '/password-generator/', keywords: 'generate password' },
-      { name: 'Word Counter', url: '/word-counter/', keywords: 'count words text' },
-      { name: 'Text Formatter', url: '/text-formatter/', keywords: 'format text clean' },
-      { name: 'Unit Converter', url: '/unit-converter/', keywords: 'convert units' },
-      { name: 'Meme Generator', url: '/meme-generator/', keywords: 'meme generator create' }
+      { name: 'Link Shortener', url: '/link-shortener/', keywords: 'shorten link url encurtar link' },
+      { name: 'Password Generator', url: '/password-generator/', keywords: 'generate password gerar senha' },
+      { name: 'Word Counter', url: '/word-counter/', keywords: 'count words text contar palavras' },
+      { name: 'Text Formatter', url: '/text-formatter/', keywords: 'format text clean formatar texto' },
+      { name: 'Unit Converter', url: '/unit-converter/', keywords: 'convert units converter unidades' },
+      { name: 'Meme Generator', url: '/meme-generator/', keywords: 'meme generator create gerador de memes' }
     ];
 
-    const spanishPages=new Set([
+    // Display Portuguese tool names in Portuguese, without changing the other locales.
+    const portugueseToolNames={
+      '/pdf-to-word/': 'PDF para Word',
+      '/pdf-to-jpg/': 'PDF para JPG',
+      '/jpg-to-pdf/': 'JPG para PDF',
+      '/merge-pdf/': 'Juntar PDF',
+      '/split-pdf/': 'Dividir PDF',
+      '/rotate-pdf/': 'Girar PDF',
+      '/png-to-jpg/': 'PNG para JPG',
+      '/jpg-to-png/': 'JPG para PNG',
+      '/webp-to-png/': 'WEBP para PNG',
+      '/image-converter/': 'Conversor de imagens',
+      '/image-resizer/': 'Redimensionar imagens',
+      '/compress-image/': 'Comprimir imagens',
+      '/remove-bg/': 'Remover fundo',
+      '/mp3-cutter/': 'Cortar MP3',
+      '/audio-converter/': 'Conversor de áudio',
+      '/audio-speed-changer/': 'Alterar velocidade do áudio',
+      '/video-to-mp3/': 'Vídeo para MP3',
+      '/video-converter/': 'Conversor de vídeo',
+      '/qr-generator/': 'Gerador de QR Code',
+      '/link-shortener/': 'Encurtador de links',
+      '/password-generator/': 'Gerador de senhas',
+      '/word-counter/': 'Contador de palavras',
+      '/text-formatter/': 'Formatador de texto',
+      '/unit-converter/': 'Conversor de unidades',
+      '/meme-generator/': 'Gerador de memes'
+    };
+
+    // Pages that exist under /es/, /ar/ and /pt-br/.
+    const localizedPages=new Set([
       'all-tools','image-tools','png-to-jpg','jpg-to-png','webp-to-png',
       'image-converter','image-resizer','compress-image','remove-bg','mp3-cutter',
       'ai-image-enhancer','social-media-image-resizer','compress-image-to-20kb',
@@ -250,21 +293,24 @@
 
     function localizedToolUrl(url){
       const language=getCurrentLanguage(window.location.pathname);
-      if(language!=='es' && language!=='ar') return url;
+      if(language!=='es' && language!=='ar' && language!=='pt-BR') return url;
+      const prefix=language==='pt-BR' ? 'pt-br' : language;
       const slug=(url||'').replace(/^\//,'').split('/')[0];
-      return spanishPages.has(slug) ? '/'+language+'/'+slug+'/' : url;
+      return localizedPages.has(slug) ? '/'+prefix+'/'+slug+'/' : url;
     }
 
     searchInput.addEventListener('input',function(){
       const value=this.value.toLowerCase().trim();
       resultsBox.innerHTML='';
       if(!value){ resultsBox.style.display='none'; return; }
-      const filtered=toolsData.filter(tool => tool.name.toLowerCase().includes(value) || tool.keywords.toLowerCase().includes(value));
+      const isPortuguese=getCurrentLanguage(window.location.pathname)==='pt-BR';
+      const displayName=tool => isPortuguese ? (portugueseToolNames[tool.url] || tool.name) : tool.name;
+      const filtered=toolsData.filter(tool => displayName(tool).toLowerCase().includes(value) || tool.name.toLowerCase().includes(value) || tool.keywords.toLowerCase().includes(value));
       if(!filtered.length){ resultsBox.style.display='none'; return; }
       filtered.forEach(tool => {
         const div=document.createElement('div');
         div.className='search-item';
-        div.textContent=tool.name;
+        div.textContent=displayName(tool);
         div.addEventListener('click',() => { window.location.href=localizedToolUrl(tool.url); });
         resultsBox.appendChild(div);
       });
@@ -331,7 +377,7 @@
     document.querySelectorAll('.dropzone').forEach(function(dropzone){
       if(!dropzone.hasAttribute('tabindex')) dropzone.setAttribute('tabindex','0');
       if(!dropzone.hasAttribute('role')) dropzone.setAttribute('role','button');
-      if(!dropzone.hasAttribute('aria-label')) dropzone.setAttribute('aria-label','Choose or drop a file');
+      if(!dropzone.hasAttribute('aria-label')) dropzone.setAttribute('aria-label',getCurrentLanguage(window.location.pathname)==='pt-BR'?'Escolher ou soltar um arquivo':'Choose or drop a file');
       dropzone.addEventListener('keydown',function(event){
         if(event.key==='Enter' || event.key===' '){
           const input=dropzone.querySelector('input[type="file"]') || document.querySelector('input[type="file"]');

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-0CH8NE5WDH');
+</script>
+<meta property="og:title" content="Cortar MP3 Online – Recortar Áudio Grátis">
+<meta property="og:description" content="Corte arquivos MP3 na hora com uma ferramenta rápida e segura. Sem enviar arquivos.">
+<meta property="og:url" content="https://convertios.com/pt-br/mp3-cutter/">
+<meta property="og:type" content="website">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cortar MP3 Online – Recortar Áudio Grátis | Convertios</title>
+
+<meta name="description" content="Corte MP3 online grátis com um editor preciso. Recorte áudio localmente, sem enviar arquivos, e baixe o resultado em segundos.">
+
+<link rel="canonical" href="https://convertios.com/pt-br/mp3-cutter/">
+<link rel="alternate" hreflang="en" href="https://convertios.com/mp3-cutter/">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/mp3-cutter/">
+<link rel="alternate" hreflang="es" href="https://convertios.com/es/mp3-cutter/">
+<link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/mp3-cutter/">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/mp3-cutter/">
+
+<!-- hreflang (VERY IMPORTANT) -->
+
+<meta name="keywords" content="cortar mp3, cortar áudio online, cortar áudio grátis, cortar música mp3, editor de áudio online">
+
+<meta name="robots" content="index, follow">
+
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.min.css?v=08447486">
+
+<script src="https://unpkg.com/wavesurfer.js@6"></script>
+<script src="https://unpkg.com/wavesurfer.js@6/dist/plugin/wavesurfer.regions.min.js"></script>
+<script src="https://unpkg.com/wavesurfer.js@6/dist/plugin/wavesurfer.timeline.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.0/lame.min.js"></script>
+<script src="/audio-mp3.js?v=3a8c398f"></script>
+
+<style>
+
+/* (UNCHANGED STYLES) */
+
+.tool-container{
+max-width:1000px;
+margin:80px auto 30px;
+background:#071a33;
+color:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+}
+
+.upload-btn{
+background:#3a78ff;
+padding:12px 24px;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+color:white;
+display:inline-block;
+margin-top:20px;
+}
+
+.upload-btn input{
+display:none;
+}
+
+#waveform{
+margin-top:30px;
+background:#0c2547;
+border-radius:10px;
+padding:10px;
+}
+
+#timeline{
+margin-top:10px;
+}
+
+.control-bar{
+margin-top:25px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.control-bar button{
+background:#3a78ff;
+border:none;
+padding:10px 18px;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+.control-bar button:hover{
+background:#2a66e6;
+}
+
+.time-group{
+background:#0c2547;
+padding:8px 12px;
+border-radius:8px;
+}
+
+.seo-content{
+max-width:900px;
+margin:20px auto;
+background:#071a33;
+color:white;
+padding:35px;
+border-radius:20px;
+}
+
+.tool-description{
+max-width:900px;
+margin:30px auto 80px;
+background:white;
+padding:40px;
+border-radius:16px;
+color:#1e293b;
+line-height:1.8;
+}
+
+</style>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=2a6e222e" defer></script>
+<link rel="stylesheet" href="/neon-home.css?v=1a686221">
+</head>
+
+<body class="neon-site-header">
+
+<header class="site-header">
+
+<div class="header-left">
+    <a href="/pt-br/" class="logo">
+        <img src="/neon-convertios-logo.png" alt="Logo da Convertios" width="376" height="147" fetchpriority="high" decoding="async">
+    </a>
+</div>
+
+<nav class="nav-menu">
+
+<a href="/pt-br/" >Início</a>
+
+
+<div class="nav-item dropdown">
+    <span>Imagem ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/pt-br/png-to-jpg/">PNG para JPG</a>
+        <a href="/pt-br/jpg-to-png/">JPG para PNG</a>
+        <a href="/pt-br/webp-to-png/">WEBP para PNG</a>
+        <a href="/pt-br/image-converter/">Conversor de imagens</a>
+        <a href="/pt-br/image-resizer/">Redimensionar imagem</a>
+        <a href="/pt-br/compress-image/">Comprimir imagem</a>
+        <a href="/pt-br/remove-bg/">Remover fundo</a>
+        <a href="/pt-br/ai-image-enhancer/">Melhorador de imagens com IA</a>
+
+        <a href="/pt-br/social-media-image-resizer/">Redimensionador para redes sociais</a>
+<a href="/pt-br/image-tools/" class="view-all">Ver tudo →</a>
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>PDF ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/pt-br/pdf-to-word/">PDF para Word</a>
+        <a href="/pt-br/pdf-to-jpg/">PDF para JPG</a>
+        <a href="/pt-br/jpg-to-pdf/">JPG para PDF</a>
+
+        <a href="/pt-br/merge-pdf/">Juntar PDF</a>
+        <a href="/pt-br/split-pdf/">Dividir PDF</a>
+        <a href="/pt-br/rotate-pdf/">Girar PDF</a>
+
+        <a href="/pt-br/pdf-tools/" class="view-all">Ver tudo →</a>
+
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>Áudio ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/pt-br/mp3-cutter/">Cortador de MP3</a>
+        <a href="/pt-br/audio-converter/">Conversor de áudio</a>
+        <a href="/pt-br/audio-speed-changer/">Alterador de velocidade</a>
+        <a href="/pt-br/video-to-mp3/">Vídeo para MP3</a>
+        <a href="/pt-br/video-converter/">Conversor de vídeo</a>
+
+        <a href="/pt-br/audio-tools/" class="view-all">Ver tudo →</a>
+
+    </div>
+</div>
+<div class="nav-item dropdown">
+    <span>Todas as ferramentas ▾</span>
+    <div class="dropdown-menu">
+        <a href="/pt-br/all-tools/" class="view-all">Todas as ferramentas</a>
+
+        <a href="/pt-br/qr-generator/">Gerador de QR Code</a>
+        <a href="/pt-br/link-shortener/">Encurtador de links</a>
+        <a href="/pt-br/password-generator/">Gerador de senhas</a>
+        <a href="/pt-br/word-counter/">Contador de palavras</a>
+        <a href="/pt-br/text-formatter/">Formatador de texto</a>
+        <a href="/pt-br/unit-converter/">Conversor de unidades</a>
+        <a href="/pt-br/meme-generator/">Gerador de memes</a>
+
+        <a href="/pt-br/other-tools/" class="view-all">Ver tudo →</a>
+
+    </div>
+</div>
+
+<a href="/pt-br/blog/" class="nav-blog-link">Blog</a>
+<a href="/pt-br/about/">Sobre</a>
+<a href="/pt-br/contact/">Contato</a>
+</nav>
+
+<div class="nav-icon faq-wrapper">
+    <a href="/pt-br/faq/" class="faq-link-block" aria-label="Perguntas frequentes">
+
+        <!-- ICON -->
+        <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
+                <circle cx="12" cy="17" r="1"></circle>
+            </svg>
+        </div>
+
+        <!-- TEXT -->
+        <span class="faq-text">FAQ</span>
+
+    </a>
+</div>
+<details class="language-selector" dir="ltr">
+  <summary aria-label="Mudar idioma"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">Português</span></summary>
+  <div class="language-selector__menu" role="menu" aria-label="Opções de idioma">
+    <a href="https://convertios.com/mp3-cutter/" lang="en" hreflang="en" role="menuitem">English</a>
+    <a href="https://convertios.com/ar/mp3-cutter/" lang="ar" hreflang="ar" role="menuitem" dir="rtl">العربية</a>
+    <a href="https://convertios.com/es/mp3-cutter/" lang="es" hreflang="es" role="menuitem">Español</a>
+    <a href="https://convertios.com/pt-br/mp3-cutter/" lang="pt-BR" hreflang="pt-BR" role="menuitem" aria-current="page">Português</a>
+  </div>
+</details>
+</header>
+
+<div class="tool-container" id="main-content">
+
+<h1>Cortar MP3 Online – Recortar Áudio na Hora</h1>
+<p>
+Corte arquivos MP3 online na hora usando um editor de forma de onda preciso. Recorte o áudio, remova partes desnecessárias e baixe resultados de alta qualidade sem enviar seus arquivos.
+</p>    
+<label class="upload-btn">
+Enviar MP3
+<input type="file" id="audio" accept="audio/*">
+</label>
+
+<div id="waveform"></div>
+<div id="timeline"></div>
+
+<div class="control-bar">
+
+<button id="play">Reproduzir</button>
+
+<div class="time-group">
+<span id="start">0:00</span>
+<span>→</span>
+<span id="end">0:00</span>
+</div>
+
+<input aria-label="Zoom da onda" type="range" id="zoom" min="10" max="200" value="50">
+
+<button id="export">Baixar MP3 Recortado</button>
+</div>
+
+</div>
+
+<!-- SEO CONTENT -->
+<section class="tool-description page-guide" aria-labelledby="guide-heading">
+<h2 id="guide-heading">Corte exatamente a parte da música que você quer</h2>
+<p>Um cortador de MP3 serve para tirar um trecho de uma faixa mais longa: o refrão para um toque de celular, dez segundos de música para a abertura de um vídeo, uma frase de uma palestra gravada ou um clipe curto para compartilhar em um chat. Você marca onde começa e termina, ouve e baixa só essa parte como um novo MP3.</p>
+<h2>Como fazer uma seleção precisa</h2>
+<ul>
+<li><strong>Arraste sobre a forma de onda</strong> para marcar o trecho de forma aproximada. Partes mais altas aparecem como picos altos, então é fácil ver onde começa um refrão ou uma batida de bateria.</li>
+<li><strong>Use o controle de zoom</strong> para esticar a forma de onda quando precisar colocar as bordas entre duas palavras ou dois tempos.</li>
+<li><strong>Confira os tempos de início e fim</strong> embaixo da onda enquanto arrasta as bordas da seleção destacada. Eles são indicadores, não campos editáveis.</li>
+<li><strong>Clique em reproduzir</strong> para ouvir a gravação a partir da posição de reprodução. O arquivo baixado contém só a seleção destacada.</li>
+</ul>
+<h2>Como criar um toque de celular</h2>
+<ol>
+<li>Escolha uma parte que comece forte: um toque que começa em silêncio parece uma chamada perdida.</li>
+<li>Que seja curto. Muitos celulares funcionam melhor com toques de menos de uns 30 segundos.</li>
+<li>Comece o clipe logo antes da primeira batida para não soar cortado.</li>
+<li>Exporte e escolha o MP3 como toque nas configurações de som do celular.</li>
+</ol>
+<h2>Sobre o arquivo exportado</h2>
+<p>A seleção é salva como MP3 a 192 kbps. Faixas estéreo continuam em estéreo e gravações mono continuam em mono. Como o clipe é codificado de novo, ele não é uma cópia bit a bit do original, mas a 192 kbps a diferença não é percebida em uma audição normal.</p>
+<p>Para limpar uma gravação de voz em vez de uma música, veja <a href="/pt-br/trim-audio-online/">Cortar áudio online</a>. Para mudar o tipo de arquivo sem cortar, use o <a href="/pt-br/audio-converter/">Conversor de áudio</a>.</p>
+<p>Se o som que você quer estiver dentro de um vídeo, primeiro você pode <a href="/pt-br/video-to-mp3/">extrair o áudio para MP3</a> e depois voltar aqui para selecionar e baixar só o trecho necessário.</p>
+<h2>Perguntas sobre cortar MP3</h2>
+<h3>Posso cortar uma música que baixei?</h3>
+<p>Sim, para uso pessoal, como seu próprio toque de celular. Compartilhar trechos de músicas que não pertencem a você pode violar direitos autorais.</p>
+<h3>A música é enviada?</h3>
+<p>Não. O áudio é decodificado e cortado dentro do seu navegador.</p>
+</section>
+
+
+<!-- SEO BOOST -->
+
+
+<!-- MORE TOOLS -->
+
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">Explore mais ferramentas</h2>
+  <div class="more-tools-grid">
+    <a href="/pt-br/trim-audio-online/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">✂️</span><span>Cortar áudio</span></a>
+    <a href="/pt-br/audio-converter/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🎧</span><span>Conversor de áudio</span></a>
+    <a href="/pt-br/audio-speed-changer/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">⏩</span><span>Alterador de velocidade</span></a>
+    <a href="/pt-br/video-to-mp3/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">🎬</span><span>Vídeo para MP3</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+
+<div class="footer-container">
+
+    <div class="footer-brand">
+        <h3>Convertios</h3>
+        <p>Ferramentas online gratuitas para converter arquivos, imagens e mais.</p>
+    </div>
+
+    <div class="footer-links">
+        <a href="/pt-br/all-tools/">Ferramentas</a>
+        <a href="/pt-br/about/">Sobre</a>
+        <a href="/pt-br/contact/">Contato</a>
+        <a href="/pt-br/security/">Segurança</a>
+        <a href="/pt-br/privacy/">Privacidade</a>
+        <a href="/pt-br/terms/">Termos</a>
+    </div>
+
+</div>
+
+<p class="footer-bottom">
+© 2026 Convertios • Todos os direitos reservados
+</p>
+
+</footer>
+<script>
+
+const wavesurfer = WaveSurfer.create({
+container:"#waveform",
+waveColor:"#475569",
+progressColor:"#3a78ff",
+cursorColor:"#3a78ff",
+height:150,
+plugins:[
+WaveSurfer.regions.create(),
+WaveSurfer.timeline.create({container:"#timeline"})
+]
+})
+
+let region
+let audioReady=false;
+const audioInput=document.getElementById('audio');
+const audioError=document.createElement('p');
+audioError.setAttribute('role','alert');audioError.setAttribute('aria-live','polite');
+audioError.style.color='#ef4444';audioInput.insertAdjacentElement('afterend',audioError);
+function audioFail(){audioReady=false;region=null;document.getElementById('export').disabled=true;audioError.textContent='Arquivo de áudio incompatível ou corrompido. Escolha um MP3, WAV, OGG ou outro áudio válido e tente de novo.';}
+wavesurfer.on('error',audioFail);
+
+function formatTime(sec){
+sec=Math.floor(sec)
+let m=Math.floor(sec/60)
+let s=sec%60
+if(s<10)s="0"+s
+return m+":"+s
+}
+
+document.getElementById("audio").addEventListener("change",function(e){
+const file=e.target.files[0]
+if(!file) return
+region=null;audioReady=false;
+document.getElementById('export').disabled=true;audioError.textContent='';
+wavesurfer.clearRegions();
+if(!(/^audio\//i.test(file.type)||(!file.type && /\.(mp3|wav|ogg|m4a|aac|flac)$/i.test(file.name)))){audioFail();return}
+wavesurfer.loadBlob(file)
+})
+
+wavesurfer.on("ready",function(){
+audioReady=true;audioError.textContent='';document.getElementById('export').disabled=false;
+
+const duration = wavesurfer.getDuration()
+
+region = wavesurfer.addRegion({
+start:duration*0.2,
+end:duration*0.5,
+color:'rgba(58,120,255,0.2)',
+drag:true,
+resize:true
+})
+
+updateInputs()
+region.on('update', updateInputs)
+
+})
+
+function updateInputs(){
+document.getElementById("start").innerText=formatTime(region.start)
+document.getElementById("end").innerText=formatTime(region.end)
+}
+
+document.getElementById("play").onclick=function(){
+wavesurfer.playPause()
+this.innerText = wavesurfer.isPlaying() ? "Pausar" : "Reproduzir"
+}
+
+document.getElementById("zoom").oninput=function(){
+wavesurfer.zoom(Number(this.value))
+}
+
+document.getElementById("export").onclick=function(){
+
+if(!region||!audioReady){if(window.ConvertiosUI){ConvertiosUI.notify(ConvertiosUI.t('noFile'))} return}
+
+const start=region.start
+const end=region.end
+
+const buffer=wavesurfer.backend.buffer
+const sampleRate=buffer.sampleRate
+
+const startOffset=Math.floor(start*sampleRate)
+const endOffset=Math.floor(end*sampleRate)
+
+let mp3Data = encodeMp3(buffer, startOffset, endOffset)
+
+const blob=new Blob(mp3Data,{type:'audio/mp3'})
+const url=URL.createObjectURL(blob)
+
+const a=document.createElement("a")
+a.href=url
+a.download="trimmed.mp3"
+a.click()
+
+}</script>
+
+<script src="/script.min.js?v=e4002bc3" defer></script>
+</body>
+</html>
