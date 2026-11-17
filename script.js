@@ -183,6 +183,12 @@
       if(!href || isExternalNonConvertios(href)) return;
 
       const targetLang=inferTargetLanguage(link,currentLanguage);
+      // Server-rendered selectors already point at the right page (or at a fallback such as /pt-br/blog/
+      // when a translation does not exist). Only generic language-root links are rewritten here.
+      let existingPath=href;
+      try{ existingPath=new URL(href,window.location.origin).pathname; }catch(_err){}
+      const isLanguageRoot=/^\/(?:(?:ar|es|pt-br)\/?)?$/i.test(existingPath);
+      if(!isLanguageRoot && getCurrentLanguage(existingPath)===targetLang) return;
       const targetPath=getLanguageCounterpartPath(pathname,targetLang);
 
       if(/^https?:\/\//i.test(href)){

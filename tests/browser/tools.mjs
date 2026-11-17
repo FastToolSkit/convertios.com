@@ -84,7 +84,13 @@ async function message(page) {
   });
 }
 
-const expectLang = { en: /[a-z]/i, ar: /[؀-ۿ]/, es: /[a-záéíóúñ¿¡]/i };
+const expectLang = {
+  en: /[a-z]/i,
+  ar: /[؀-ۿ]/,
+  es: /[a-záéíóúñ¿¡]/i,
+  // Portuguese messages must be Latin text without Spanish-only wording.
+  pt: { test: (m) => /[a-zãõçáéíóúâêô]/i.test(m) && !/[¿¡ñ]|\b(elige|introduce|archivo|imagen|inténtalo|descargar|selecciona)\b/i.test(m) },
+};
 
 // ---------- tool definitions -------------------------------------------------------------------
 export const tools = [

@@ -152,6 +152,7 @@ async function crawl(browser, base) {
       if (info.brokenImages.length) problems.push('broken images ' + info.brokenImages.join(','));
       if (info.smallTargets.length) problems.push('small touch targets ' + info.smallTargets.join(','));
       if (p.startsWith('/ar/') && (info.lang !== 'ar' || info.dir !== 'rtl')) problems.push('arabic lang/dir');
+      if (p.startsWith('/pt-br/') && info.lang !== 'pt-BR') problems.push('portuguese lang');
       const realErrors = page.errors.filter((e) => !(vendor && /(pdfjsLib|WaveSurfer|PDFLib) is not defined|does not provide an export named/.test(e)));
       if (realErrors.length) problems.push(...realErrors);
       if (problems.length) failures.push({ width, page: p, problems });
@@ -178,7 +179,7 @@ async function runTools(browser, base) {
   const only = args.only ? args.only.split(',') : null;
   for (const tool of tools) {
     if (only && !only.some((o) => tool.name.includes(o))) continue;
-    for (const lang of tool.langs || ['', 'ar/', 'es/']) {
+    for (const lang of tool.langs || ['', 'ar/', 'es/', 'pt-br/']) {
       if (lang && args.lang && !lang.startsWith(args.lang)) continue;
       const page = await newPage(context, base);
       const url = `${base}/${lang}${tool.path}/`;
