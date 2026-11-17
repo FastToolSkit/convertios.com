@@ -248,6 +248,35 @@
       { name: 'Meme Generator', url: '/meme-generator/', keywords: 'meme generator create gerador de memes' }
     ];
 
+    // Display Portuguese tool names in Portuguese, without changing the other locales.
+    const portugueseToolNames={
+      '/pdf-to-word/': 'PDF para Word',
+      '/pdf-to-jpg/': 'PDF para JPG',
+      '/jpg-to-pdf/': 'JPG para PDF',
+      '/merge-pdf/': 'Juntar PDF',
+      '/split-pdf/': 'Dividir PDF',
+      '/rotate-pdf/': 'Girar PDF',
+      '/png-to-jpg/': 'PNG para JPG',
+      '/jpg-to-png/': 'JPG para PNG',
+      '/webp-to-png/': 'WEBP para PNG',
+      '/image-converter/': 'Conversor de imagens',
+      '/image-resizer/': 'Redimensionar imagens',
+      '/compress-image/': 'Comprimir imagens',
+      '/remove-bg/': 'Remover fundo',
+      '/mp3-cutter/': 'Cortar MP3',
+      '/audio-converter/': 'Conversor de áudio',
+      '/audio-speed-changer/': 'Alterar velocidade do áudio',
+      '/video-to-mp3/': 'Vídeo para MP3',
+      '/video-converter/': 'Conversor de vídeo',
+      '/qr-generator/': 'Gerador de QR Code',
+      '/link-shortener/': 'Encurtador de links',
+      '/password-generator/': 'Gerador de senhas',
+      '/word-counter/': 'Contador de palavras',
+      '/text-formatter/': 'Formatador de texto',
+      '/unit-converter/': 'Conversor de unidades',
+      '/meme-generator/': 'Gerador de memes'
+    };
+
     // Pages that exist under /es/, /ar/ and /pt-br/.
     const localizedPages=new Set([
       'all-tools','image-tools','png-to-jpg','jpg-to-png','webp-to-png',
@@ -274,12 +303,14 @@
       const value=this.value.toLowerCase().trim();
       resultsBox.innerHTML='';
       if(!value){ resultsBox.style.display='none'; return; }
-      const filtered=toolsData.filter(tool => tool.name.toLowerCase().includes(value) || tool.keywords.toLowerCase().includes(value));
+      const isPortuguese=getCurrentLanguage(window.location.pathname)==='pt-BR';
+      const displayName=tool => isPortuguese ? (portugueseToolNames[tool.url] || tool.name) : tool.name;
+      const filtered=toolsData.filter(tool => displayName(tool).toLowerCase().includes(value) || tool.name.toLowerCase().includes(value) || tool.keywords.toLowerCase().includes(value));
       if(!filtered.length){ resultsBox.style.display='none'; return; }
       filtered.forEach(tool => {
         const div=document.createElement('div');
         div.className='search-item';
-        div.textContent=tool.name;
+        div.textContent=displayName(tool);
         div.addEventListener('click',() => { window.location.href=localizedToolUrl(tool.url); });
         resultsBox.appendChild(div);
       });
@@ -346,7 +377,7 @@
     document.querySelectorAll('.dropzone').forEach(function(dropzone){
       if(!dropzone.hasAttribute('tabindex')) dropzone.setAttribute('tabindex','0');
       if(!dropzone.hasAttribute('role')) dropzone.setAttribute('role','button');
-      if(!dropzone.hasAttribute('aria-label')) dropzone.setAttribute('aria-label','Choose or drop a file');
+      if(!dropzone.hasAttribute('aria-label')) dropzone.setAttribute('aria-label',getCurrentLanguage(window.location.pathname)==='pt-BR'?'Escolher ou soltar um arquivo':'Choose or drop a file');
       dropzone.addEventListener('keydown',function(event){
         if(event.key==='Enter' || event.key===' '){
           const input=dropzone.querySelector('input[type="file"]') || document.querySelector('input[type="file"]');
