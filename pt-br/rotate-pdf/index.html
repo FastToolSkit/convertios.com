@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-0CH8NE5WDH');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Girar PDF online | Convertios</title>
+
+<meta name="description" content="Gire páginas de PDF na Convertios com informações claras sobre o processamento, formatos compatíveis, instruções e ferramentas relacionadas.">
+
+<meta name="keywords" content="girar pdf, girar páginas de pdf, girar pdf online, mudar orientação do pdf, corrigir rotação do pdf">
+
+<meta name="robots" content="index, follow">
+
+<link rel="stylesheet" href="/style.min.css?v=08447486">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js";
+</script>
+
+<style>
+
+/* (UNCHANGED STYLES) */
+
+.tool-container{
+max-width:1000px;
+margin:80px auto 30px;
+background:#071a33;
+color:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+}
+
+.tool-container p{
+color:#cbd5e1;
+}
+
+.drop-area{
+border:2px dashed #3a78ff;
+padding:50px;
+border-radius:14px;
+background:#0c2547;
+margin-top:20px;
+cursor:pointer;
+}
+
+.drop-area:hover{
+background:#12305a;
+}
+
+.preview-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,180px));
+gap:20px;
+margin-top:30px;
+justify-content:center;
+}
+
+.preview-item{
+background:#0c2547;
+padding:12px;
+border-radius:10px;
+max-width:180px;
+margin:auto;
+overflow:hidden;
+}
+
+.preview-item canvas{
+max-width:100%;
+height:auto;
+display:block;
+margin:auto;
+transform-origin:center center;
+}
+
+.rotate-btn{
+margin-top:10px;
+padding:8px 12px;
+background:#3a78ff;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.main-button{
+margin-top:25px;
+padding:14px 22px;
+background:#020c1b;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.spinner{
+width:40px;
+height:40px;
+border:4px solid #1e293b;
+border-top:4px solid #3a78ff;
+border-radius:50%;
+animation:spin 1s linear infinite;
+margin:15px auto;
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+.seo-content{
+max-width:900px;
+margin:20px auto;
+background:#071a33;
+color:white;
+padding:35px;
+border-radius:20px;
+}
+
+.tool-description{
+max-width:900px;
+margin:30px auto 80px;
+background:white;
+padding:40px;
+border-radius:16px;
+color:#1e293b;
+line-height:1.8;
+}
+
+</style>
+
+<link rel="canonical" href="https://convertios.com/pt-br/rotate-pdf/">
+<link rel="alternate" hreflang="en" href="https://convertios.com/rotate-pdf/">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/rotate-pdf/">
+<link rel="alternate" hreflang="es" href="https://convertios.com/es/rotate-pdf/">
+<link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/rotate-pdf/">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/rotate-pdf/">
+<!-- Convertios SEO social metadata -->
+<meta property="og:title" content="Girar PDF online | Convertios">
+<meta property="og:description" content="Gire páginas de PDF na Convertios com informações claras sobre o processamento, formatos compatíveis, instruções e ferramentas relacionadas.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://convertios.com/pt-br/rotate-pdf/">
+<meta property="og:image" content="https://convertios.com/convertios-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Girar PDF online | Convertios">
+<meta name="twitter:description" content="Gire páginas de PDF na Convertios com informações claras sobre o processamento, formatos compatíveis, instruções e ferramentas relacionadas.">
+<meta name="twitter:image" content="https://convertios.com/convertios-logo.png">
+<!-- /Convertios SEO social metadata -->
+
+<!-- Convertios structured data -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Girar PDF online | Convertios",
+    "description": "Gire páginas de PDF na Convertios com informações claras sobre o processamento, formatos compatíveis, instruções e ferramentas relacionadas.",
+    "url": "https://convertios.com/pt-br/rotate-pdf/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Convertios",
+      "url": "https://convertios.com"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Início",
+        "item": "https://convertios.com/pt-br/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Girar PDF online",
+        "item": "https://convertios.com/pt-br/rotate-pdf/"
+      }
+    ]
+  }
+]
+</script>
+<!-- /Convertios structured data -->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<script src="/js/tool-ui.js?v=f660d999" defer></script>
+<link rel="stylesheet" href="/neon-home.css?v=1a686221">
+</head>
+
+<body class="neon-site-header">
+<a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+
+
+<header class="site-header">
+
+<div class="header-left">
+    <a href="/pt-br/" class="logo">
+        <img src="/neon-convertios-logo.png" alt="Logo da Convertios" width="376" height="147" fetchpriority="high" decoding="async">
+    </a>
+</div>
+
+<nav class="nav-menu">
+
+<a href="/pt-br/" >Início</a>
+
+
+<div class="nav-item dropdown">
+    <span>Imagem ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/pt-br/png-to-jpg/">PNG para JPG</a>
+        <a href="/pt-br/jpg-to-png/">JPG para PNG</a>
+        <a href="/pt-br/webp-to-png/">WEBP para PNG</a>
+        <a href="/pt-br/image-converter/">Conversor de imagens</a>
+        <a href="/pt-br/image-resizer/">Redimensionar imagem</a>
+        <a href="/pt-br/compress-image/">Comprimir imagem</a>
+        <a href="/pt-br/remove-bg/">Remover fundo</a>
+        <a href="/pt-br/ai-image-enhancer/">Melhorador de imagens com IA</a>
+
+        <a href="/pt-br/social-media-image-resizer/">Redimensionador para redes sociais</a>
+<a href="/pt-br/image-tools/" class="view-all">Ver tudo →</a>
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>PDF ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/pt-br/pdf-to-word/">PDF para Word</a>
+        <a href="/pt-br/pdf-to-jpg/">PDF para JPG</a>
+        <a href="/pt-br/jpg-to-pdf/">JPG para PDF</a>
+
+        <a href="/pt-br/merge-pdf/">Juntar PDF</a>
+        <a href="/pt-br/split-pdf/">Dividir PDF</a>
+        <a href="/pt-br/rotate-pdf/">Girar PDF</a>
+
+        <a href="/pt-br/pdf-tools/" class="view-all">Ver tudo →</a>
+
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>Áudio ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/pt-br/mp3-cutter/">Cortador de MP3</a>
+        <a href="/pt-br/audio-converter/">Conversor de áudio</a>
+        <a href="/pt-br/audio-speed-changer/">Alterador de velocidade</a>
+        <a href="/pt-br/video-to-mp3/">Vídeo para MP3</a>
+        <a href="/pt-br/video-converter/">Conversor de vídeo</a>
+
+        <a href="/pt-br/audio-tools/" class="view-all">Ver tudo →</a>
+
+    </div>
+</div>
+<div class="nav-item dropdown">
+    <span>Todas as ferramentas ▾</span>
+    <div class="dropdown-menu">
+        <a href="/pt-br/all-tools/" class="view-all">Todas as ferramentas</a>
+
+        <a href="/pt-br/qr-generator/">Gerador de QR Code</a>
+        <a href="/pt-br/link-shortener/">Encurtador de links</a>
+        <a href="/pt-br/password-generator/">Gerador de senhas</a>
+        <a href="/pt-br/word-counter/">Contador de palavras</a>
+        <a href="/pt-br/text-formatter/">Formatador de texto</a>
+        <a href="/pt-br/unit-converter/">Conversor de unidades</a>
+        <a href="/pt-br/meme-generator/">Gerador de memes</a>
+
+        <a href="/pt-br/other-tools/" class="view-all">Ver tudo →</a>
+
+    </div>
+</div>
+
+<a href="/pt-br/blog/" class="nav-blog-link">Blog</a>
+<a href="/pt-br/about/">Sobre</a>
+<a href="/pt-br/contact/">Contato</a>
+</nav>
+
+<div class="nav-icon faq-wrapper">
+    <a href="/pt-br/faq/" class="faq-link-block" aria-label="Perguntas frequentes">
+
+        <!-- ICON -->
+        <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
+                <circle cx="12" cy="17" r="1"></circle>
+            </svg>
+        </div>
+
+        <!-- TEXT -->
+        <span class="faq-text">FAQ</span>
+
+    </a>
+</div>
+<details class="language-selector" dir="ltr">
+  <summary aria-label="Mudar idioma"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">Português</span></summary>
+  <div class="language-selector__menu" role="menu" aria-label="Opções de idioma">
+    <a href="https://convertios.com/rotate-pdf/" lang="en" hreflang="en" role="menuitem">English</a>
+    <a href="https://convertios.com/ar/rotate-pdf/" lang="ar" hreflang="ar" role="menuitem" dir="rtl">العربية</a>
+    <a href="https://convertios.com/es/rotate-pdf/" lang="es" hreflang="es" role="menuitem">Español</a>
+    <a href="https://convertios.com/pt-br/rotate-pdf/" lang="pt-BR" hreflang="pt-BR" role="menuitem" aria-current="page">Português</a>
+  </div>
+</details>
+</header>
+
+<div class="tool-container" id="main-content">
+
+<h1>Girar PDF online</h1>
+
+<p>Gire páginas de PDF com facilidade e corrija a orientação antes de baixar.</p>
+
+<div id="drop-area" class="drop-area">
+<p>Clique ou arraste seu arquivo PDF aqui</p>
+<input type="file" id="file-input" accept=".pdf" hidden aria-label="Escolher um arquivo para processar">
+</div>
+
+<div id="preview" class="preview-grid"></div>
+
+<button class="main-button" id="downloadBtn">
+Baixar PDF girado
+</button>
+
+<div id="loader" style="display:none">
+<p>Preparando o PDF...</p>
+<div class="spinner"></div>
+</div>
+
+</div>
+
+
+<section class="tool-info-block" aria-labelledby="tool-info-heading">
+<h2 id="tool-info-heading">Informações da ferramenta</h2>
+<div class="tool-info-grid">
+<div><strong>Funciona no navegador:</strong><span>Sim</span></div>
+<div><strong>Requer envio:</strong><span>Não: o processamento é feito localmente no seu navegador</span></div>
+<div><strong>Processamento por terceiros:</strong><span>Nenhum</span></div>
+<div><strong>Retenção de arquivos:</strong><span>Os arquivos ficam no seu dispositivo e a Convertios não os armazena.</span></div>
+<div><strong>Tamanho máximo:</strong><span>100 MB</span></div>
+<div><strong>Formatos compatíveis:</strong><span>Arquivos PDF → PDF girado</span></div>
+</div>
+
+</section>
+
+
+<!-- SEO -->
+<section class="tool-description page-guide" aria-labelledby="guide-heading">
+<h2 id="guide-heading">Corrija páginas de lado ou de cabeça para baixo</h2>
+<p>Scanners e apps de digitalização do celular muitas vezes salvam uma ou duas páginas na direção errada, e relatórios costumam ter uma tabela larga em uma página na horizontal. Girar corrige como essas páginas aparecem, para o documento ser lido direito na tela e impresso na posição certa.</p>
+<h2>Girar página por página</h2>
+<ul>
+<li>Ao abrir o PDF, cada página aparece como miniatura com seu próprio botão <strong>Girar</strong>.</li>
+<li>Cada clique gira aquela página 90&deg; no sentido horário. Clique duas vezes para uma página de cabeça para baixo e três vezes para girá-la 90&deg; no sentido anti-horário.</li>
+<li>Só mudam as páginas em que você clica; as outras ficam como estão.</li>
+<li>As miniaturas são atualizadas na hora, então você pode conferir cada página antes de baixar o <code>rotated.pdf</code>.</li>
+</ul>
+<h2>Rotação sem perdas</h2>
+<p>A ferramenta não redesenha nem digitaliza de novo suas páginas. Ela muda o ajuste de rotação de cada página do PDF, o mesmo que os editores de PDF profissionais fazem. Texto e imagens não são renderizados de novo. Ao salvar, o PDF é reescrito, então o tamanho pode mudar e assinaturas digitais criptográficas podem ser invalidadas. Páginas que já estavam giradas no original mantêm essa rotação, e seus cliques se somam a ela.</p>
+<h2>Situações comuns</h2>
+<div class="guide-table"><table>
+<thead><tr><th>Problema</th><th>O que clicar</th></tr></thead>
+<tbody>
+<tr><td>Página digitalizada deitada para a esquerda</td><td>Girar uma vez</td></tr>
+<tr><td>Página digitalizada de cabeça para baixo</td><td>Girar duas vezes</td></tr>
+<tr><td>Página deitada para a direita</td><td>Girar três vezes</td></tr>
+</tbody></table></div>
+<p>Se o documento também tiver páginas de que você não precisa, remova-as com <a href="/pt-br/split-pdf/">Dividir PDF</a>. Para combinar o arquivo corrigido com outros, use <a href="/pt-br/merge-pdf/">Juntar PDF</a>.</p>
+<h2>Perguntas sobre girar PDF</h2>
+<h3>Girar reduz a qualidade?</h3>
+<p>Não. O conteúdo da página não muda, só a direção em que ela é exibida.</p>
+<h3>Meu PDF é enviado?</h3>
+<p>Não. O documento é aberto e girado no seu navegador.</p>
+</section>
+
+
+<!-- SEO BOOST -->
+
+
+
+
+
+<!-- MORE TOOLS -->
+
+<section class="more-tools" aria-labelledby="more-tools-heading">
+  <h2 id="more-tools-heading">Explore mais ferramentas</h2>
+  <div class="more-tools-grid">
+    <a href="/pt-br/merge-pdf/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">📚</span><span>Juntar PDF</span></a>
+    <a href="/pt-br/split-pdf/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">✂️</span><span>Dividir PDF</span></a>
+    <a href="/pt-br/pdf-to-word/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">📝</span><span>PDF para Word</span></a>
+    <a href="/pt-br/jpg-to-pdf/" class="more-tool-card"><span class="more-tool-icon" aria-hidden="true">📄</span><span>JPG para PDF</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+
+<div class="footer-container">
+
+    <div class="footer-brand">
+        <h3>Convertios</h3>
+        <p>Ferramentas online gratuitas para converter arquivos, imagens e muito mais.</p>
+    </div>
+
+    <div class="footer-links">
+        <a href="/pt-br/all-tools/">Ferramentas</a>
+        <a href="/pt-br/about/">Sobre</a>
+        <a href="/pt-br/contact/">Contato</a>
+        <a href="/pt-br/security/">Segurança</a>
+        <a href="/pt-br/privacy/">Privacidade</a>
+        <a href="/pt-br/terms/">Termos</a>
+    </div>
+
+</div>
+
+<p class="footer-bottom">
+© 2026 Convertios • Todos os direitos reservados
+</p>
+
+</footer>
+<script>
+
+const dropArea = document.getElementById("drop-area");
+const fileInput = document.getElementById("file-input");
+const preview = document.getElementById("preview");
+const pdfError=document.createElement('p');pdfError.setAttribute('role','alert');pdfError.setAttribute('aria-live','polite');pdfError.style.color='#ef4444';preview.insertAdjacentElement('beforebegin',pdfError);
+function clearPdfError(){pdfError.textContent='';}
+function showPdfError(){pdfError.textContent='PDF inválido ou corrompido. Escolha um arquivo PDF válido e tente de novo.';}
+async function hasPdfHeader(file){if(!file || (file.type && file.type!=='application/pdf') || !/\.pdf$/i.test(file.name)) return false;try{const b=new Uint8Array(await file.slice(0,1024).arrayBuffer());return new TextDecoder('latin1').decode(b).includes('%PDF-');}catch(_){return false;}}
+
+const downloadBtn = document.getElementById("downloadBtn");
+const loader = document.getElementById("loader");
+
+let pdfFile;
+let rotations = [];
+
+dropArea.onclick = () => fileInput.click();
+
+dropArea.addEventListener("dragover", e=>e.preventDefault());
+
+dropArea.addEventListener("drop", e=>{
+e.preventDefault();
+loadPDF(e.dataTransfer.files[0]);
+});
+
+fileInput.addEventListener("change", ()=>{
+loadPDF(fileInput.files[0]);
+});
+
+async function loadPDF(file){
+pdfFile=null;preview.innerHTML='';rotations=[];clearPdfError();
+if(!(await hasPdfHeader(file))){showPdfError();return;}
+try{
+
+const buffer = await file.arrayBuffer();
+const pdf = await pdfjsLib.getDocument({data:buffer}).promise;
+
+for(let i=1;i<=pdf.numPages;i++){
+
+rotations.push(0);
+
+const page = await pdf.getPage(i);
+const viewport = page.getViewport({scale:0.6});
+
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = viewport.width;
+canvas.height = viewport.height;
+
+await page.render({canvasContext:ctx,viewport}).promise;
+
+const box = document.createElement("div");
+box.className="preview-item";
+
+box.appendChild(canvas);
+
+const rotateBtn = document.createElement("button");
+rotateBtn.className="rotate-btn";
+rotateBtn.innerText="Girar";
+
+rotateBtn.onclick = async () => {
+
+rotations[i-1] = (rotations[i-1] + 90) % 360;
+
+const page = await pdf.getPage(i);
+const viewport = page.getViewport({
+scale:0.6,
+rotation: (page.rotate + rotations[i-1]) % 360
+});
+
+canvas.width = viewport.width;
+canvas.height = viewport.height;
+
+await page.render({
+canvasContext: ctx,
+viewport
+}).promise;
+
+};
+
+box.appendChild(rotateBtn);
+
+preview.appendChild(box);
+
+}
+pdfFile=file;
+}catch(_){pdfFile=null;preview.innerHTML='';showPdfError();}
+}
+
+downloadBtn.addEventListener("click", async ()=>{
+
+if(!pdfFile){
+(window.ConvertiosUI?ConvertiosUI.notify("Primeiro envie um PDF"):alert("Primeiro envie um PDF"));
+return;
+}
+
+loader.style.display="block";clearPdfError();
+try{
+const bytes = await pdfFile.arrayBuffer();
+const pdfDoc = await PDFLib.PDFDocument.load(bytes);
+
+const pages = pdfDoc.getPages();
+
+pages.forEach((page,i)=>{
+page.setRotation(PDFLib.degrees((page.getRotation().angle + rotations[i]) % 360)); // keep any rotation the page already had
+});
+
+const newBytes = await pdfDoc.save();
+
+const blob = new Blob([newBytes],{type:"application/pdf"});
+const url = URL.createObjectURL(blob);
+
+const link = document.createElement("a");
+link.href = url;
+link.download = "rotated.pdf";
+link.click();
+
+loader.style.display="none";
+}catch(_){loader.style.display='none';showPdfError();}
+});
+
+</script>
+
+
+<script src="/script.min.js?v=3a99bba3" defer></script>
+</body>
+</html>

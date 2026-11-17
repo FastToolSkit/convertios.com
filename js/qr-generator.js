@@ -8,7 +8,8 @@
   UI.extend({
     en: { enterText: 'Enter a link or some text to turn into a QR code.', tooLong: 'This text is too long for one QR code. Shorten it (for long links, try the Link Shortener first).', svg: 'Download SVG (for print)' },
     ar: { enterText: 'أدخل رابطًا أو نصًا لتحويله إلى رمز QR.', tooLong: 'هذا النص طويل جدًا لرمز QR واحد. اختصره (للروابط الطويلة جرّب أداة اختصار الروابط أولًا).', svg: 'تنزيل SVG (للطباعة)' },
-    es: { enterText: 'Introduce un enlace o un texto para convertirlo en código QR.', tooLong: 'Este texto es demasiado largo para un solo código QR. Acórtalo (para enlaces largos, prueba antes el Acortador de enlaces).', svg: 'Descargar SVG (para imprimir)' }
+    es: { enterText: 'Introduce un enlace o un texto para convertirlo en código QR.', tooLong: 'Este texto es demasiado largo para un solo código QR. Acórtalo (para enlaces largos, prueba antes el Acortador de enlaces).', svg: 'Descargar SVG (para imprimir)' },
+    pt: { enterText: 'Digite um link ou um texto para transformar em QR Code.', tooLong: 'Este texto é longo demais para um único QR Code. Encurte-o (para links longos, use antes o Encurtador de links).', svg: 'Baixar SVG (para imprimir)' }
   });
 
   var input = document.getElementById('text');

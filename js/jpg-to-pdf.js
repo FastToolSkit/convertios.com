@@ -7,7 +7,8 @@
   UI.extend({
     en: { skipped: 'Only JPG and PNG images can be added. Other files were skipped.', noneSelected: 'Select at least one image to include in the PDF.', include: 'Include', remove: 'Remove', making: 'Creating PDF…', done: 'PDF ready: {n} page(s).', download: 'Download PDF', pageSize: 'Page size', fit: 'Same as image', a4: 'A4' },
     ar: { skipped: 'يمكن إضافة صور JPG وPNG فقط. تم تجاوز الملفات الأخرى.', noneSelected: 'اختر صورة واحدة على الأقل لإضافتها إلى ملف PDF.', include: 'تضمين', remove: 'إزالة', making: 'جارٍ إنشاء ملف PDF…', done: 'ملف PDF جاهز: {n} صفحة.', download: 'تنزيل PDF', pageSize: 'حجم الصفحة', fit: 'بحجم الصورة', a4: 'A4' },
-    es: { skipped: 'Solo se pueden añadir imágenes JPG y PNG. Se omitieron los demás archivos.', noneSelected: 'Selecciona al menos una imagen para incluir en el PDF.', include: 'Incluir', remove: 'Quitar', making: 'Creando PDF…', done: 'PDF listo: {n} página(s).', download: 'Descargar PDF', pageSize: 'Tamaño de página', fit: 'Igual que la imagen', a4: 'A4' }
+    es: { skipped: 'Solo se pueden añadir imágenes JPG y PNG. Se omitieron los demás archivos.', noneSelected: 'Selecciona al menos una imagen para incluir en el PDF.', include: 'Incluir', remove: 'Quitar', making: 'Creando PDF…', done: 'PDF listo: {n} página(s).', download: 'Descargar PDF', pageSize: 'Tamaño de página', fit: 'Igual que la imagen', a4: 'A4' },
+    pt: { skipped: 'Só é possível adicionar imagens JPG e PNG. Os outros arquivos foram ignorados.', noneSelected: 'Selecione pelo menos uma imagem para incluir no PDF.', include: 'Incluir', remove: 'Remover', making: 'Criando PDF…', done: 'PDF pronto: {n} página(s).', download: 'Baixar PDF', pageSize: 'Tamanho da página', fit: 'Igual à imagem', a4: 'A4' }
   });
 
   var dropArea = document.getElementById('drop-area');

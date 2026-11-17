@@ -7,7 +7,8 @@
   UI.extend({
     en: { choose: 'Please choose a JPG, PNG or WEBP image.', tooBig: 'This image is larger than 8 MB. Please choose a smaller image.', selected: 'Selected: ', ready: 'Ready to enhance.', working: 'Enhancing your image… this usually takes 10–60 seconds.', done: 'Image enhanced. Preview it below and download it.', download: 'Download enhanced image' },
     ar: { choose: 'يُرجى اختيار صورة بصيغة JPG أو PNG أو WEBP.', tooBig: 'حجم هذه الصورة أكبر من 8 ميغابايت. يُرجى اختيار صورة أصغر.', selected: 'الملف المحدد: ', ready: 'جاهز للتحسين.', working: 'جارٍ تحسين صورتك… يستغرق ذلك عادةً من 10 إلى 60 ثانية.', done: 'تم تحسين الصورة. اطّلع على المعاينة أدناه ثم نزّلها.', download: 'تنزيل الصورة المحسّنة' },
-    es: { choose: 'Elige una imagen JPG, PNG o WEBP.', tooBig: 'Esta imagen supera los 8 MB. Elige una imagen más pequeña.', selected: 'Seleccionado: ', ready: 'Lista para mejorar.', working: 'Mejorando tu imagen… normalmente tarda entre 10 y 60 segundos.', done: 'Imagen mejorada. Revisa la vista previa y descárgala.', download: 'Descargar imagen mejorada' }
+    es: { choose: 'Elige una imagen JPG, PNG o WEBP.', tooBig: 'Esta imagen supera los 8 MB. Elige una imagen más pequeña.', selected: 'Seleccionado: ', ready: 'Lista para mejorar.', working: 'Mejorando tu imagen… normalmente tarda entre 10 y 60 segundos.', done: 'Imagen mejorada. Revisa la vista previa y descárgala.', download: 'Descargar imagen mejorada' },
+    pt: { choose: 'Escolha uma imagem JPG, PNG ou WEBP.', tooBig: 'Esta imagem tem mais de 8 MB. Escolha uma imagem menor.', selected: 'Selecionado: ', ready: 'Pronta para melhorar.', working: 'Melhorando sua imagem… normalmente leva de 10 a 60 segundos.', done: 'Imagem melhorada. Confira a pré-visualização e baixe.', download: 'Baixar imagem melhorada' }
   });
 
   var fileInput = document.getElementById('fileInput');

@@ -19,7 +19,7 @@
       matches[0].focus();
     } else {
       const lang = document.documentElement.lang.toLowerCase().split('-')[0];
-      window.location.assign((lang === 'ar' ? '/ar/' : lang === 'es' ? '/es/' : '/') + 'all-tools/');
+      window.location.assign((lang === 'ar' ? '/ar/' : lang === 'es' ? '/es/' : lang === 'pt' ? '/pt-br/' : '/') + 'all-tools/');
     }
   });
 

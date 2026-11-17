@@ -4,13 +4,13 @@
  * - Error messages for backend error codes
  * - Backend calls with timeouts and a "server is starting" notice for cold starts
  * - Safe downloads: never an empty file, always a correct extension
- * The page language comes from <html lang>, so English, Arabic and Spanish pages share one implementation.
+ * The page language comes from <html lang>, so English, Arabic, Spanish and Portuguese pages share one implementation.
  */
 (function () {
   'use strict';
 
   var lang = String(document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
-  if (lang !== 'ar' && lang !== 'es') lang = 'en';
+  if (lang !== 'ar' && lang !== 'es' && lang !== 'pt') lang = 'en';
 
   var BACKEND = 'https://convertios-backend-sn5u.onrender.com';
 
@@ -89,6 +89,31 @@
       PROCESSING_TIMEOUT: 'El procesamiento tardó demasiado. Prueba con un archivo más pequeño.',
       PROCESSING_FAILED: 'No se pudo procesar el archivo. Comprueba que es válido y que no está protegido con contraseña.',
       INVALID_REQUEST: 'La solicitud no es válida. Inténtalo de nuevo.'
+    },
+    pt: {
+      retry: 'Tentar novamente',
+      generic: 'A ferramenta não conseguiu concluir a solicitação. Confira o arquivo ou os dados e tente de novo.',
+      actionRequired: 'Confira os dados da ferramenta e tente de novo.',
+      network: 'Não foi possível conectar ao servidor de conversão. Confira sua conexão e tente de novo.',
+      timeout: 'O servidor demorou demais para responder. Tente de novo.',
+      coldStart: 'Iniciando o servidor de conversão. A primeira solicitação depois de um período sem uso pode levar até um minuto.',
+      noFile: 'Primeiro escolha um arquivo.',
+      nothingToDownload: 'Ainda não há nada para baixar. Use a ferramenta primeiro.',
+      selectPages: 'Selecione pelo menos uma página.',
+      INVALID_URL: 'Digite um endereço da web válido que comece com http:// ou https://.',
+      SHORTENER_REJECTED: 'Não foi possível encurtar este endereço. Confira e tente de novo.',
+      UPSTREAM_TIMEOUT: 'O serviço externo demorou demais. Tente de novo.',
+      UPSTREAM_UNAVAILABLE: 'O serviço externo está indisponível no momento. Tente de novo daqui a pouco.',
+      RATE_LIMITED: 'Muitas solicitações. Aguarde alguns minutos e tente de novo.',
+      NO_FILE: 'Primeiro escolha um arquivo.',
+      FILE_TOO_LARGE: 'Este arquivo é maior do que a ferramenta permite.',
+      UNSUPPORTED_FORMAT: 'Este tipo de arquivo não é compatível com esta ferramenta.',
+      UNSUPPORTED_OUTPUT: 'Este formato de saída não é compatível.',
+      ENHANCER_UNAVAILABLE: 'O serviço de melhoria está indisponível no momento. Tente mais tarde.',
+      BUSY: 'O servidor está ocupado com outros arquivos. Tente de novo em instantes.',
+      PROCESSING_TIMEOUT: 'O processamento demorou demais. Tente um arquivo menor.',
+      PROCESSING_FAILED: 'Não foi possível processar o arquivo. Confira se ele é válido e não está protegido por senha.',
+      INVALID_REQUEST: 'A solicitação não é válida. Tente de novo.'
     }
   };
 
@@ -97,7 +122,7 @@
     return table[key] || STRINGS.en[key] || fallback || key;
   }
 
-  // Lets a tool add its own translated strings: ConvertiosUI.extend({ en: {...}, ar: {...}, es: {...} })
+  // Lets a tool add its own translated strings: ConvertiosUI.extend({ en: {...}, ar: {...}, es: {...}, pt: {...} })
   function extend(dict) {
     Object.keys(dict || {}).forEach(function (code) {
       if (!STRINGS[code]) return;

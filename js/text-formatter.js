@@ -6,7 +6,8 @@
   UI.extend({
     en: { empty: 'Type or paste some text first.', copied: 'Copied!', copyFailed: 'Copy failed. Select the text and copy it manually.' },
     ar: { empty: 'اكتب نصًا أو الصقه أولًا.', copied: 'تم النسخ!', copyFailed: 'تعذّر النسخ. حدّد النص وانسخه يدويًا.' },
-    es: { empty: 'Primero escribe o pega un texto.', copied: '¡Copiado!', copyFailed: 'No se pudo copiar. Selecciona el texto y cópialo manualmente.' }
+    es: { empty: 'Primero escribe o pega un texto.', copied: '¡Copiado!', copyFailed: 'No se pudo copiar. Selecciona el texto y cópialo manualmente.' },
+    pt: { empty: 'Primeiro digite ou cole um texto.', copied: 'Copiado!', copyFailed: 'Não foi possível copiar. Selecione o texto e copie manualmente.' }
   });
   var box = document.getElementById('text');
 
