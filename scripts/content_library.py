@@ -386,11 +386,19 @@ class Renderer:
             if re.match(r"^(- |\d+\. )", stripped):
                 flush()
                 ordered = bool(re.match(r"^\d+\. ", stripped))
-                items = []
+                items = []  # (text, [sub-items])
                 while i < len(lines) and re.match(r"^(- |\d+\. )", lines[i].strip()):
-                    items.append(re.sub(r"^(- |\d+\. )", "", lines[i].strip())); i += 1
+                    raw = lines[i]
+                    text = re.sub(r"^(- |\d+\. )", "", raw.strip())
+                    if raw.startswith("  ") and items:
+                        items[-1][1].append(text)
+                    else:
+                        items.append((text, []))
+                    i += 1
                 tag = "ol" if ordered else "ul"
-                html.append(f"<{tag}>" + "".join(f"<li>{self.inline(x)}</li>" for x in items) + f"</{tag}>")
+                html.append(f"<{tag}>" + "".join(
+                    f"<li>{self.inline(x)}" + (("<ul>" + "".join(f"<li>{self.inline(y)}</li>" for y in sub) + "</ul>") if sub else "") + "</li>"
+                    for x, sub in items) + f"</{tag}>")
                 continue
             if stripped.startswith("|"):
                 flush()
@@ -450,9 +458,8 @@ def tool_name(lang: str, tool: str) -> str:
     page = (ROOT / PREFIX[lang] / tool / "index.html").read_text(encoding="utf-8")
     h1 = re.search(r"<h1[^>]*>(.*?)</h1>", page, re.S)
     name = unescape(re.sub(r"<[^>]+>", "", h1.group(1))).strip() if h1 else tool
-    name = re.split(r"\s+[–—-]\s+", name)[0]
-    if lang == "en":
-        name = re.sub(r"\s+Online$", "", name)
+    name = re.split(r"\s+[–—-]\s+|\s*[–—]\s*", name)[0]
+    name = re.sub(r"\s+(?:Online|online|en línea|أونلاين|عبر الإنترنت)$", "", name)
     return re.sub(r"\s+", " ", name)
 
 
@@ -643,7 +650,14 @@ def pagination(lang, base_rel, current, total):
     else:
         parts.append(f'<span class="lib-page lib-page--step" aria-disabled="true"><span aria-hidden="true">{prev_arrow}</span> {t["prev"]}</span>')
     numbers = []
+    shown = set(range(1, total + 1)) if total <= 7 else {1, 2, total - 1, total, current - 1, current, current + 1}
+    previous_shown = 0
     for n in range(1, total + 1):
+        if n not in shown:
+            continue
+        if n - previous_shown > 1:
+            numbers.append('<li class="lib-pages__gap" aria-hidden="true">…</li>')
+        previous_shown = n
         if n == current:
             numbers.append(f'<li><a class="lib-page lib-page--num" href="{href(n)}" aria-current="page" aria-label="{t["page"]} {n} {t["of"]} {total}">{n}</a></li>')
         else:

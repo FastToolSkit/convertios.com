@@ -2,7 +2,7 @@
 category: pdf-documents
 type: guide
 published: 2026-11-18
-order: 160
+order: 200
 status: published
 cover: PDF → DOCX
 tools: pdf-to-word, split-pdf, rotate-pdf

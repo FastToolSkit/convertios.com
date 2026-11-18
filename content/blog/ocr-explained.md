@@ -2,7 +2,7 @@
 category: ai-technology
 type: guide
 published: 2026-11-18
-order: 158
+order: 192
 status: published
 cover: OCR
 tools: pdf-to-word, pdf-to-jpg, image-resizer
