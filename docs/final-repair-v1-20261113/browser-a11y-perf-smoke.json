@@ -1,0 +1,197 @@
+{
+  "scope": "12 bounded live Chromium loads: basic labels, layout, DOM timings; NOT Lighthouse, axe, keyboard audit, CrUX or full accessibility certification",
+  "results": [
+    {
+      "path": "/",
+      "device": "mobile",
+      "http": 200,
+      "elapsed_s": 4.47,
+      "js_errors": [],
+      "metrics": {
+        "dom_content_loaded_ms": 3868,
+        "ttfb_ms": 2911,
+        "sideways_overflow_px": 0,
+        "image_missing_alt": 0,
+        "unlabelled_active_controls": 0,
+        "duplicate_id_count": 0,
+        "empty_anchor_count": 0
+      }
+    },
+    {
+      "path": "/",
+      "device": "desktop",
+      "http": 200,
+      "elapsed_s": 1.45,
+      "js_errors": [],
+      "metrics": {
+        "dom_content_loaded_ms": 885,
+        "ttfb_ms": 100,
+        "sideways_overflow_px": 0,
+        "image_missing_alt": 0,
+        "unlabelled_active_controls": 0,
+        "duplicate_id_count": 0,
+        "empty_anchor_count": 0
+      }
+    },
+    {
+      "path": "/es/",
+      "device": "mobile",
+      "http": 200,
+      "elapsed_s": 1.08,
+      "js_errors": [],
+      "metrics": {
+        "dom_content_loaded_ms": 466,
+        "ttfb_ms": 238,
+        "sideways_overflow_px": 0,
+        "image_missing_alt": 0,
+        "unlabelled_active_controls": 0,
+        "duplicate_id_count": 0,
+        "empty_anchor_count": 0
+      }
+    },
+    {
+      "path": "/es/",
+      "device": "desktop",
+      "http": 200,
+      "elapsed_s": 0.98,
+      "js_errors": [],
+      "metrics": {
+        "dom_content_loaded_ms": 395,
+        "ttfb_ms": 96,
+        "sideways_overflow_px": 0,
+        "image_missing_alt": 0,
+        "unlabelled_active_controls": 0,
+        "duplicate_id_count": 0,
+        "empty_anchor_count": 0
+      }
+    },
+    {
+      "path": "/ar/",
+      "device": "mobile",
+      "http": 200,
+      "elapsed_s": 1.87,
+      "js_errors": [],
+      "metrics": {
+        "dom_content_loaded_ms": 1285,
+        "ttfb_ms": 256,
+        "sideways_overflow_px": 0,
+        "image_missing_alt": 0,
+        "unlabelled_active_controls": 0,
+        "duplicate_id_count": 0,
+        "empty_anchor_count": 0
+      }
+    },
+    {
+      "path": "/ar/",
+      "device": "desktop",
+      "http": 200,
+      "elapsed_s": 1.11,
+      "js_errors": [],
+      "metrics": {
+        "dom_content_loaded_ms": 544,
+        "ttfb_ms": 98,
+        "sideways_overflow_px": 0,
+        "image_missing_alt": 0,
+        "unlabelled_active_controls": 0,
+        "duplicate_id_count": 0,
+        "empty_anchor_count": 0
+      }
+    },
+    {
+      "path": "/jpg-to-pdf/",
+      "device": "mobile",
+      "http": 200,
+      "elapsed_s": 1.56,
+      "js_errors": [],
+      "metrics": {
+        "dom_content_loaded_ms": 985,
+        "ttfb_ms": 92,
+        "sideways_overflow_px": 0,
+        "image_missing_alt": 0,
+        "unlabelled_active_controls": 0,
+        "duplicate_id_count": 0,
+        "empty_anchor_count": 1
+      }
+    },
+    {
+      "path": "/jpg-to-pdf/",
+      "device": "desktop",
+      "http": 200,
+      "elapsed_s": 0.98,
+      "js_errors": [],
+      "metrics": {
+        "dom_content_loaded_ms": 409,
+        "ttfb_ms": 91,
+        "sideways_overflow_px": 0,
+        "image_missing_alt": 0,
+        "unlabelled_active_controls": 0,
+        "duplicate_id_count": 0,
+        "empty_anchor_count": 1
+      }
+    },
+    {
+      "path": "/es/ai-image-enhancer/",
+      "device": "mobile",
+      "http": 200,
+      "elapsed_s": 1.06,
+      "js_errors": [],
+      "metrics": {
+        "dom_content_loaded_ms": 482,
+        "ttfb_ms": 254,
+        "sideways_overflow_px": 0,
+        "image_missing_alt": 0,
+        "unlabelled_active_controls": 0,
+        "duplicate_id_count": 0,
+        "empty_anchor_count": 0
+      }
+    },
+    {
+      "path": "/es/ai-image-enhancer/",
+      "device": "desktop",
+      "http": 200,
+      "elapsed_s": 0.85,
+      "js_errors": [],
+      "metrics": {
+        "dom_content_loaded_ms": 279,
+        "ttfb_ms": 90,
+        "sideways_overflow_px": 0,
+        "image_missing_alt": 0,
+        "unlabelled_active_controls": 0,
+        "duplicate_id_count": 0,
+        "empty_anchor_count": 0
+      }
+    },
+    {
+      "path": "/ar/video-to-mp3/",
+      "device": "mobile",
+      "http": 200,
+      "elapsed_s": 1.42,
+      "js_errors": [],
+      "metrics": {
+        "dom_content_loaded_ms": 850,
+        "ttfb_ms": 266,
+        "sideways_overflow_px": 0,
+        "image_missing_alt": 0,
+        "unlabelled_active_controls": 0,
+        "duplicate_id_count": 0,
+        "empty_anchor_count": 0
+      }
+    },
+    {
+      "path": "/ar/video-to-mp3/",
+      "device": "desktop",
+      "http": 200,
+      "elapsed_s": 0.88,
+      "js_errors": [],
+      "metrics": {
+        "dom_content_loaded_ms": 303,
+        "ttfb_ms": 96,
+        "sideways_overflow_px": 0,
+        "image_missing_alt": 0,
+        "unlabelled_active_controls": 0,
+        "duplicate_id_count": 0,
+        "empty_anchor_count": 0
+      }
+    }
+  ]
+}
