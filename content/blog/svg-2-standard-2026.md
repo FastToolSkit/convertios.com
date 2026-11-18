@@ -4,6 +4,7 @@ type: news
 published: 2026-11-11
 order: 18
 status: published
+cover_image: svg-2-standard-2026
 cover: SVG 2
 tools: image-converter, webp-to-png
 event_date: 2026-10-06
@@ -13,6 +14,7 @@ source: W3C announcement | https://www.w3.org/news/2026/updated-candidate-recomm
 source: SVG 2 Candidate Recommendation Snapshot | https://www.w3.org/TR/SVG2/
 ---
 === en ===
+cover_alt: Vector pen and curve handles on layered transparent sheets
 title: SVG 2 Candidate Recommendation updated: what designers should test
 seo_title: SVG 2 Candidate Recommendation: what to test
 description: W3C's October 2026 SVG 2 snapshot clarifies the vector format for implementers. It remains a Candidate Recommendation, and rendering still needs testing.
@@ -26,6 +28,7 @@ dek: W3C's October 2026 SVG 2 snapshot clarifies the vector format for implement
 <section class="news-sources"><h2>Primary sources</h2><ul><li><a href="https://www.w3.org/news/2026/updated-candidate-recommendation-scalable-vector-graphics-svg-2/" rel="noopener noreferrer">W3C announcement</a></li><li><a href="https://www.w3.org/TR/SVG2/" rel="noopener noreferrer">SVG 2 Candidate Recommendation Snapshot</a></li></ul></section>
 
 === es ===
+cover_alt: Pluma vectorial y nodos sobre láminas transparentes
 title: SVG 2 sigue en fase de recomendación candidata: qué probar
 seo_title: SVG 2, recomendación candidata: qué probar
 description: El W3C actualizó SVG 2 en octubre de 2026 para aclarar su implementación. Todavía es una recomendación candidata y conviene probar cada resultado.
@@ -39,6 +42,7 @@ dek: El W3C actualizó SVG 2 en octubre de 2026 para aclarar su implementación.
 <section class="news-sources"><h2>Fuentes primarias</h2><ul><li><a href="https://www.w3.org/news/2026/updated-candidate-recommendation-scalable-vector-graphics-svg-2/" rel="noopener noreferrer">Anuncio del W3C</a></li><li><a href="https://www.w3.org/TR/SVG2/" rel="noopener noreferrer">Especificación SVG 2, recomendación candidata</a></li></ul></section>
 
 === ar ===
+cover_alt: قلم متجهي ونقاط تحكم على طبقات شفافة
 title: تحديث SVG 2 كمسودة توصية مرشحة: ما الذي ينبغي اختباره؟
 seo_title: SVG 2 توصية مرشحة: ما الذي نختبره؟
 description: حدث W3C مسودة SVG 2 في أكتوبر 2026 لتوضيح التنفيذ. ما زالت توصية مرشحة، لذا ينبغي فحص المظهر في التطبيقات المقصودة.
@@ -52,6 +56,7 @@ dek: حدث W3C مسودة SVG 2 في أكتوبر 2026 لتوضيح التنف�
 <section class="news-sources"><h2>المصادر الأصلية</h2><ul><li><a href="https://www.w3.org/news/2026/updated-candidate-recommendation-scalable-vector-graphics-svg-2/" rel="noopener noreferrer">إعلان W3C</a></li><li><a href="https://www.w3.org/TR/SVG2/" rel="noopener noreferrer">مواصفة SVG 2، لقطة توصية مرشحة</a></li></ul></section>
 
 === pt-br ===
+cover_alt: Caneta vetorial e nós sobre folhas transparentes
 title: SVG 2 ganha nova versão candidata: o que designers devem testar
 seo_title: SVG 2 Candidate Recommendation: o que testar
 description: A versão de outubro de 2026 do SVG 2 no W3C esclarece o formato vetorial para implementadores. Ela segue como candidata, e a renderização ainda precisa de testes.

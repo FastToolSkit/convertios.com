@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 158
 status: published
+cover_image: pdf-upload-requirements
 cover: Max 2 MB · PDF only
 tools: merge-pdf, jpg-to-pdf, split-pdf, rotate-pdf
 related: reduce-pdf-file-size, photos-to-pdf-phone, pdf-vs-docx
@@ -11,6 +12,7 @@ keyword: pdf upload requirements
 intent: how-to
 ---
 === en ===
+cover_alt: PDF in an upload cloud with validation checks
 title: Meeting PDF upload requirements for applications and portals
 seo_title: PDF upload requirements: a practical checklist
 description: Size limits, single-file rules, page orientation, scan quality and file names: a checklist for getting documents accepted by job, university and government portals.
@@ -64,6 +66,7 @@ Sideways scans annoy reviewers and can fail automatic checks. Fix them with [Rot
 Merge, split, rotate and JPG to PDF on Convertios run in your browser, so the documents are not uploaded to our server for those steps. Still, only upload identity documents and certificates to portals you trust, and remove extra pages that contain data the application does not need.
 
 === es ===
+cover_alt: PDF en una nube con controles de validación
 title: Cómo cumplir los requisitos para subir PDF a solicitudes y portales
 seo_title: Requisitos para subir PDF: lista práctica
 description: Límites de tamaño, archivo único, orientación, escaneos y nombres: una lista para que portales de empleo, universidades y administración acepten tus PDF.
@@ -117,6 +120,7 @@ Los escaneos de lado molestan a los evaluadores y pueden fallar en comprobacione
 Unir, dividir, rotar y JPG a PDF de Convertios funcionan en tu navegador, así que los documentos no se suben a nuestro servidor en esos pasos. Aun así, sube documentos de identidad y certificados solo a portales de confianza y quita las páginas que contengan datos que la solicitud no necesita.
 
 === ar ===
+cover_alt: ملف PDF داخل سحابة رفع مع علامات تحقق
 title: كيف تستوفي متطلبات رفع ملفات PDF في الطلبات والبوابات
 seo_title: متطلبات رفع ملفات PDF: قائمة عملية
 description: حدود الحجم، وقاعدة الملف الواحد، واتجاه الصفحات، وجودة المسح، وأسماء الملفات: قائمة تساعد على قبول مستنداتك في بوابات التوظيف والجامعات والجهات الحكومية.
@@ -170,6 +174,7 @@ dek: «يجب أن يكون الملف PDF واحداً أصغر من 2 ميغا
 تعمل أدوات الدمج والتقسيم والتدوير وتحويل JPG إلى PDF في Convertios داخل متصفحك، فلا تُرفع المستندات إلى خادمنا في هذه الخطوات. ومع ذلك ارفع وثائق الهوية والشهادات إلى البوابات الموثوقة فقط، واحذف الصفحات الإضافية التي تحتوي بيانات لا يحتاجها الطلب.
 
 === pt-br ===
+cover_alt: PDF em uma nuvem com verificações
 title: Como cumprir os requisitos de envio de PDF em inscrições e portais
 seo_title: Requisitos de envio de PDF: checklist prático
 description: Limites de tamanho, arquivo único, orientação, digitalização e nomes: um checklist para portais de emprego, universidades e governo aceitarem seus PDFs.

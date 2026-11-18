@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 165
 status: published
+cover_image: webp-to-png-when-and-why
 cover: .webp → .png
 tools: webp-to-png, image-converter, compress-image
 related: jpg-png-webp-guide, png-to-jpg-transparency, avif-vs-webp-vs-jpeg-xl
@@ -11,6 +12,7 @@ keyword: convert webp to png
 intent: how-to
 ---
 === en ===
+cover_alt: Image converted from WebP to a transparent PNG
 title: WebP to PNG: when converting helps and when it does not
 seo_title: WebP to PNG: when and why to convert
 description: Saved an image and got a .webp file? Why websites use WebP, when to convert it to PNG or JPG, what happens to quality and size, and how to convert in your browser.
@@ -59,6 +61,7 @@ Being able to save an image from a website does not mean you may reuse it. Produ
 For a fuller comparison of everyday formats, see the [JPG, PNG and WebP guide](blog:jpg-png-webp-guide). For the newest formats, see [AVIF vs WebP vs JPEG XL](blog:avif-vs-webp-vs-jpeg-xl).
 
 === es ===
+cover_alt: Imagen convertida de WebP a PNG transparente
 title: WebP a PNG: cuándo conviene convertir y cuándo no
 seo_title: WebP a PNG: cuándo y por qué convertir
 description: ¿Guardaste una imagen y es un .webp? Por qué las webs usan WebP, cuándo pasarlo a PNG o JPG, qué ocurre con la calidad y el tamaño y cómo convertir en el navegador.
@@ -107,6 +110,7 @@ Poder guardar una imagen de una web no significa que puedas reutilizarla. Fotos 
 Para una comparación más completa de los formatos habituales, consulta la [guía de JPG, PNG y WebP](blog:jpg-png-webp-guide). Para los formatos más nuevos, consulta [AVIF, WebP o JPEG XL](blog:avif-vs-webp-vs-jpeg-xl).
 
 === ar ===
+cover_alt: صورة تتحول من WebP إلى PNG شفافة
 title: من WebP إلى PNG: متى يفيد التحويل ومتى لا يفيد
 seo_title: تحويل WebP إلى PNG: متى ولماذا
 description: حفظت صورة فوجدتها بصيغة ‎.webp؟ لماذا تستخدم المواقع WebP، ومتى تحولها إلى PNG أو JPG، وماذا يحدث للجودة والحجم، وكيف تحوّل داخل متصفحك.
@@ -155,6 +159,7 @@ dek: تنقر بزر الفأرة الأيمن على صورة في موقع و�
 لمقارنة أشمل بين الصيغ اليومية راجع [دليل JPG وPNG وWebP](blog:jpg-png-webp-guide)، وللصيغ الأحدث راجع [مقارنة AVIF وWebP وJPEG XL](blog:avif-vs-webp-vs-jpeg-xl).
 
 === pt-br ===
+cover_alt: Imagem convertida de WebP para PNG transparente
 title: WebP para PNG: quando converter ajuda e quando não
 seo_title: WebP para PNG: quando e por que converter
 description: Salvou uma imagem e veio um .webp? Por que os sites usam WebP, quando converter para PNG ou JPG, o que acontece com qualidade e tamanho e como converter no navegador.

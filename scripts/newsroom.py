@@ -248,8 +248,9 @@ def validate(plan: dict, intake: dict, today: date, root: Path = ROOT) -> list[d
         tool_sets, related_slugs = set(), set()
         for lang in LANGS:
             version = versions[lang]
-            if set(version) != {"title", "description", "dek", "sections", "tools", "related_slug"}:
+            if set(version) != {"title", "description", "dek", "sections", "tools", "related_slug", "cover_alt"}:
                 raise ValueError("unexpected translation fields")
+            prose(version["cover_alt"], 12, 300)
             prose(version["title"], 20, 130); prose(version["description"], 60, 165); prose(version["dek"], 60, 300)
             if len(version["sections"]) != 5:
                 raise ValueError("five sections required")
@@ -321,6 +322,7 @@ def topic_markdown(story, intake, today: date, order: int) -> str:
              "status: published", f"cover: News · {story['event_date']}", f"tools: {tools}", f"related: {en['related_slug']}",
              f"event_date: {story['event_date']}", f"news_status: {story['status']}", f"keyword: {story['event_id'].replace('-', ' ')}",
              "intent: news", "generated_by: scripts/newsroom.py"]
+    lines.append("cover_image: " + slug_for(story["event_id"], strict_date(story["event_date"])))
     for source_id in story["source_ids"]:
         source = citations[source_id]
         title = re.sub(r"[|\n\r]+", " ", f"{source['publisher']}: {source['title']}").strip()
@@ -328,7 +330,7 @@ def topic_markdown(story, intake, today: date, order: int) -> str:
     lines.append("---")
     for lang in LANGS:
         version = story["versions"][lang]
-        lines += [f"=== {lang} ===", f"title: {version['title'].strip()}", f"description: {version['description'].strip()}",
+        lines += [f"=== {lang} ===", f"cover_alt: {version['cover_alt'].strip()}", f"title: {version['title'].strip()}", f"description: {version['description'].strip()}",
                   f"dek: {version['dek'].strip()}", "---"]
         for heading, section in zip(LABELS[lang], version["sections"]):
             lines += [f"## {heading}", ""]

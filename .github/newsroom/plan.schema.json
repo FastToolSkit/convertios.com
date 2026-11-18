@@ -94,7 +94,8 @@
         "dek",
         "sections",
         "tools",
-        "related_slug"
+        "related_slug",
+        "cover_alt"
       ],
       "properties": {
         "title": {
@@ -137,6 +138,9 @@
           }
         },
         "related_slug": {
+          "type": "string"
+        },
+        "cover_alt": {
           "type": "string"
         }
       }

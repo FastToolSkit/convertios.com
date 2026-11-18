@@ -4,6 +4,7 @@ type: comparison
 published: 2026-11-18
 order: 170
 status: published
+cover_image: pdf-vs-docx
 cover: PDF vs DOCX
 tools: pdf-to-word, merge-pdf, jpg-to-pdf
 related: convert-pdf-to-word-keep-formatting, pdf-upload-requirements, pdf-a-archiving
@@ -11,6 +12,7 @@ keyword: pdf vs docx
 intent: comparison
 ---
 === en ===
+cover_alt: Fixed PDF and editable document on opposite pans
 title: PDF vs DOCX: which document format should you send?
 seo_title: PDF vs DOCX: which format to send
 description: PDF fixes how a document looks; DOCX keeps it easy to edit. When to send each, what can go wrong with fonts and layout, and how to switch between them.
@@ -65,6 +67,7 @@ Most application portals ask for PDF for these reasons; see [PDF upload requirem
 Keep the editable original. A PDF is the output, not the master copy.
 
 === es ===
+cover_alt: PDF fijo y documento editable en una balanza
 title: PDF o DOCX: ¿en qué formato conviene enviar un documento?
 seo_title: PDF o DOCX: qué formato enviar
 description: El PDF fija el aspecto de un documento; el DOCX lo mantiene editable. Cuándo enviar cada uno, qué falla con fuentes y maquetación y cómo pasar de uno a otro.
@@ -119,6 +122,7 @@ La mayoría de portales de solicitud piden PDF por estas razones; consulta los [
 Conserva el original editable. El PDF es el resultado, no la copia maestra.
 
 === ar ===
+cover_alt: صفحة PDF ثابتة ومستند قابل للتحرير على كفتي ميزان
 title: PDF أم DOCX: بأي صيغة ترسل المستند؟
 seo_title: PDF أم DOCX: أي صيغة ترسل
 description: تثبّت صيغة PDF شكل المستند، بينما تبقيه DOCX سهل التعديل. متى ترسل كلاً منهما، وما مشكلات الخطوط والتنسيق، وكيف تنتقل بينهما.
@@ -173,6 +177,7 @@ dek: كثير من مشكلات المستندات سببه إرسال المح�
 احتفظ بالأصل القابل للتعديل، فملف PDF هو الناتج لا النسخة الرئيسية.
 
 === pt-br ===
+cover_alt: PDF fixo e documento editável em uma balança
 title: PDF ou DOCX: em qual formato enviar o documento?
 seo_title: PDF ou DOCX: qual formato enviar
 description: O PDF fixa a aparência do documento; o DOCX mantém tudo fácil de editar. Quando enviar cada um, o que dá errado com fontes e layout e como alternar entre eles.

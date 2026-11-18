@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 174
 status: published
+cover_image: improve-image-quality
 cover: Sharper photos
 tools: ai-image-enhancer, image-resizer, image-converter
 related: ai-upscaling-vs-resizing, reduce-image-size-without-losing-quality
@@ -11,6 +12,7 @@ keyword: how to improve image quality
 intent: how-to
 ---
 === en ===
+cover_alt: A fox portrait gains sharper fur detail
 title: How to improve image quality: what really helps and what cannot be fixed
 seo_title: How to improve image quality (and what can't be fixed)
 description: Fix soft, dark, noisy or blocky images by finding the cause first. What editing, resizing and AI enhancement can improve, and what needs a better original.
@@ -70,6 +72,7 @@ Keep in mind that AI adds **plausible** detail rather than recovering lost infor
 5. Save in the right format, once.
 
 === es ===
+cover_alt: Un retrato de zorro recupera detalle en el pelaje
 title: Cómo mejorar la calidad de una imagen: qué ayuda de verdad y qué no tiene arreglo
 seo_title: Cómo mejorar la calidad de una imagen (y qué no se arregla)
 description: Arregla imágenes borrosas, oscuras, con ruido o pixeladas buscando primero la causa. Qué mejoran la edición, el redimensionado y la IA, y qué necesita un original mejor.
@@ -129,6 +132,7 @@ Ten en cuenta que la IA añade detalles **verosímiles** en lugar de recuperar i
 5. Guarda en el formato adecuado, una vez.
 
 === ar ===
+cover_alt: صورة ثعلب تظهر تفاصيل الفراء بوضوح
 title: كيف تحسّن جودة الصورة: ما الذي يفيد فعلاً وما الذي لا يمكن إصلاحه
 seo_title: كيف تحسّن جودة الصورة (وما لا يمكن إصلاحه)
 description: أصلح الصور الضبابية أو المظلمة أو المشوشة أو المربعة بتحديد السبب أولاً. تعرّف إلى ما يحسّنه التحرير وتغيير الحجم والذكاء الاصطناعي، وما يحتاج إلى أصل أفضل.
@@ -188,6 +192,7 @@ dek: قد يعني «تحسين الجودة» صورة أوضح أو أفتح �
 5. احفظ بالصيغة المناسبة مرة واحدة.
 
 === pt-br ===
+cover_alt: Retrato de raposa com pelos mais definidos
 title: Como melhorar a qualidade de uma imagem: o que ajuda de verdade e o que não tem conserto
 seo_title: Como melhorar a qualidade de uma imagem (e o que não dá)
 description: Corrija imagens borradas, escuras ou quadriculadas descobrindo a causa. O que edição, redimensionamento e IA melhoram e o que exige um original melhor.

@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 150
 status: published
+cover_image: content-credentials-explained
 cover: C2PA
 tools: compress-image, image-converter
 related: eu-ai-act-ai-content-labels-2026, image-metadata-exif-privacy
@@ -14,6 +15,7 @@ source: European Commission: Code of Practice on Transparency of AI-Generated Co
 source: C2PA (Coalition for Content Provenance and Authenticity) | https://c2pa.org/
 ---
 === en ===
+cover_alt: Photograph with a provenance seal and creator details
 title: Content Credentials (C2PA) explained: labels that show how an image was made
 seo_title: Content Credentials (C2PA) explained simply
 description: Content Credentials attach signed information about how a file was made or edited, including AI use. What they prove, what they don't, and how editing removes them.
@@ -69,6 +71,7 @@ Watermarking systems such as SynthID take a different approach by embedding a si
 4. Treat the result as one piece of evidence alongside the source, context and other reporting.
 
 === es ===
+cover_alt: Fotografía con sello de procedencia y datos del autor
 title: Content Credentials (C2PA): etiquetas que muestran cómo se hizo una imagen
 seo_title: Content Credentials (C2PA) explicadas de forma sencilla
 description: Las Content Credentials adjuntan datos firmados sobre cómo se creó o editó un archivo, incluido el uso de IA. Qué demuestran, qué no y cómo se pierden.
@@ -124,6 +127,7 @@ Los sistemas de marca de agua como SynthID siguen otro enfoque: incrustan una se
 4. Trata el resultado como una prueba más, junto con la fuente, el contexto y otras informaciones.
 
 === ar ===
+cover_alt: صورة تحمل ختم المنشأ ومعلومات صاحبها
 title: شرح Content Credentials (C2PA): ملصقات توضح كيف صُنعت الصورة
 seo_title: شرح Content Credentials (C2PA) ببساطة
 description: ترفق Content Credentials معلومات موقّعة عن طريقة صنع الملف أو تعديله، ومنها استخدام الذكاء الاصطناعي. ما الذي تثبته وما لا تثبته وكيف تزول بالتعديل.
@@ -179,6 +183,7 @@ dek: مع انتشار الصور المولدة بالذكاء الاصطناع
 4. تعامل مع النتيجة كدليل واحد إلى جانب المصدر والسياق والتقارير الأخرى.
 
 === pt-br ===
+cover_alt: Fotografia com selo de procedência e dados de autoria
 title: Content Credentials (C2PA): selos que mostram como uma imagem foi feita
 seo_title: Content Credentials (C2PA) explicadas de forma simples
 description: As Content Credentials anexam dados assinados sobre como um arquivo foi criado ou editado, inclusive uso de IA. O que provam, o que não provam e como somem.

@@ -4,6 +4,7 @@ type: news
 published: 2026-11-18
 order: 180
 status: published
+cover_image: jpeg-xl-chrome-155
 cover: .jxl in Chrome 155
 tools: image-converter, compress-image
 related: avif-vs-webp-vs-jpeg-xl, jpg-png-webp-guide
@@ -15,6 +16,7 @@ source: Chrome for Developers: Shipping JPEG XL in Chrome | https://developer.ch
 source: Chrome for Developers: Chrome 155 beta | https://developer.chrome.com/blog/chrome-155-beta | 2026-09-16
 ---
 === en ===
+cover_alt: Image layers beside a browser symbol
 title: Chrome 155 brings JPEG XL back: what it means for your images
 seo_title: Chrome 155 adds JPEG XL support
 description: Chrome now decodes JPEG XL images by default, using a new Rust decoder. What JPEG XL offers, what changed, and whether you should start using .jxl files.
@@ -56,6 +58,7 @@ For an overview of the trade-offs, see our comparison of [AVIF, WebP and JPEG XL
 Not at present. The [Image Converter](tool:image-converter) outputs JPG, PNG, WEBP, BMP and GIF, and the [Image Compressor](tool:compress-image) works with JPG, PNG and WEBP. Neither creates .jxl files, and we have not tested or listed JPEG XL as a supported input. We will review this as support across browsers and operating systems matures.
 
 === es ===
+cover_alt: Capas de imagen junto al símbolo de un navegador
 title: Chrome 155 recupera JPEG XL: qué supone para tus imágenes
 seo_title: Chrome 155 añade soporte para JPEG XL
 description: Chrome ya decodifica imágenes JPEG XL por defecto con un nuevo decodificador en Rust. Qué ofrece JPEG XL, qué ha cambiado y si conviene usar archivos .jxl.
@@ -97,6 +100,7 @@ Para ver las ventajas e inconvenientes, consulta nuestra comparativa de [AVIF, W
 Por ahora no. El [Convertidor de imágenes](tool:image-converter) genera JPG, PNG, WEBP, BMP y GIF, y el [Compresor de imágenes](tool:compress-image) trabaja con JPG, PNG y WEBP. Ninguno crea archivos .jxl, y no hemos probado ni anunciado JPEG XL como formato de entrada admitido. Lo revisaremos a medida que madure el soporte en navegadores y sistemas operativos.
 
 === ar ===
+cover_alt: طبقات صورة بجانب رمز متصفح
 title: Chrome 155 يعيد JPEG XL: ماذا يعني ذلك لصورك
 seo_title: Chrome 155 يضيف دعم JPEG XL
 description: أصبح Chrome يفك ترميز صور JPEG XL افتراضياً عبر فاك ترميز جديد مكتوب بلغة Rust. ما الذي تقدمه الصيغة، وما الذي تغيّر، وهل تبدأ باستخدام ملفات ‎.jxl.
@@ -138,6 +142,7 @@ dek: أزالت Google الدعم التجريبي لصيغة JPEG XL من Chrom
 ليس حالياً. ينتج [محوّل الصور](tool:image-converter) صيغ JPG وPNG وWEBP وBMP وGIF، وتعمل أداة [ضغط الصور](tool:compress-image) مع JPG وPNG وWEBP. ولا تنشئ أي منهما ملفات ‎.jxl، ولم نختبر JPEG XL أو ندرجها صيغة إدخال مدعومة. وسنراجع ذلك مع نضوج الدعم في المتصفحات وأنظمة التشغيل.
 
 === pt-br ===
+cover_alt: Camadas de imagem ao lado do símbolo de um navegador
 title: Chrome 155 traz o JPEG XL de volta: o que muda para suas imagens
 seo_title: Chrome 155 adiciona suporte a JPEG XL
 description: O Chrome agora decodifica imagens JPEG XL por padrão, com um novo decodificador em Rust. O que o JPEG XL oferece, o que mudou e se vale usar arquivos .jxl.

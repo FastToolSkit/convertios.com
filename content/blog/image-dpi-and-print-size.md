@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 153
 status: published
+cover_image: image-dpi-and-print-size
 cover: 300 DPI?
 tools: image-resizer, ai-image-enhancer, compress-image
 related: ai-upscaling-vs-resizing, resize-images-for-websites
@@ -11,6 +12,7 @@ keyword: dpi vs pixels for printing
 intent: informational
 ---
 === en ===
+cover_alt: Photographic prints and a magnifying lens
 title: DPI vs pixels: how big can you print an image?
 seo_title: DPI vs pixels: how big can you print a photo?
 description: The DPI value stored in a file rarely matters; pixel dimensions do. How to calculate print size, what resolution prints need and why changing DPI alone fails.
@@ -70,6 +72,7 @@ For printing, extra pixels do no harm, though very large files can be slow to up
 - Avoid heavy compression for print files; quality above file size.
 
 === es ===
+cover_alt: Copias fotográficas y una lupa
 title: PPP frente a píxeles: ¿a qué tamaño puedes imprimir una imagen?
 seo_title: PPP o píxeles: ¿a qué tamaño puedes imprimir una foto?
 description: El valor de PPP de un archivo casi nunca importa; los píxeles sí. Cómo calcular el tamaño de impresión y qué resolución necesita cada uso.
@@ -129,6 +132,7 @@ Para imprimir, los píxeles de más no hacen daño, aunque los archivos muy gran
 - Evita la compresión fuerte en archivos para imprimir; prima la calidad sobre el peso.
 
 === ar ===
+cover_alt: مطبوعات فوتوغرافية وعدسة مكبرة
 title: الدقة النقطية DPI مقابل البكسلات: إلى أي حجم يمكنك طباعة الصورة؟
 seo_title: DPI أم البكسلات: إلى أي حجم يمكنك طباعة صورة؟
 description: نادراً ما يهم رقم DPI المحفوظ في الملف، أما الأبعاد بالبكسل فتهم. تعلّم حساب حجم الطباعة والدقة المطلوبة لكل نوع، ولماذا لا يفيد تغيير DPI وحده.
@@ -188,6 +192,7 @@ dek: تطلب المطبعة «300 DPI» فتبدو صورة جيدة تماما
 - تجنب الضغط الشديد في ملفات الطباعة، فالجودة أهم من الحجم.
 
 === pt-br ===
+cover_alt: Impressões fotográficas e uma lupa
 title: DPI ou pixels: de que tamanho você pode imprimir uma imagem?
 seo_title: DPI ou pixels: de que tamanho dá para imprimir uma foto?
 description: O DPI gravado no arquivo raramente importa; os pixels, sim. Como calcular o tamanho de impressão e qual resolução cada uso precisa.

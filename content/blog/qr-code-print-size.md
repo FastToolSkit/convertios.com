@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 184
 status: published
+cover_image: qr-code-print-size
 cover: QR ↔ 2 cm
 tools: qr-generator, link-shortener
 related: qr-codes-for-business, qr-code-png-vs-svg
@@ -11,6 +12,7 @@ keyword: minimum qr code size for printing
 intent: informational
 ---
 === en ===
+cover_alt: Printed QR samples measured with a ruler
 title: What size should a printed QR code be? Distance, density and testing
 seo_title: QR code print size: how big should it be?
 description: Choose QR code print size from scanning distance and content length, plus quiet-zone, contrast and placement rules that make printed codes scan first time.
@@ -72,6 +74,7 @@ Our guide to [PNG versus SVG for QR codes](blog:qr-code-png-vs-svg) explains whi
 If any test phone hesitates, make the code larger or shorten the content. For planning the whole campaign, see [how to create QR codes for your business](blog:qr-codes-for-business).
 
 === es ===
+cover_alt: Muestras impresas de QR medidas con una regla
 title: ¿De qué tamaño imprimir un código QR? Distancia, densidad y pruebas
 seo_title: Tamaño de impresión de un código QR: cuánto debe medir
 description: Elige el tamaño de un QR según la distancia de escaneo y la longitud del contenido, con reglas de margen, contraste y colocación para que se lea a la primera.
@@ -133,6 +136,7 @@ Nuestra guía sobre [PNG o SVG para códigos QR](blog:qr-code-png-vs-svg) explic
 Si algún móvil duda, agranda el código o acorta el contenido. Para planificar toda la campaña, consulta [cómo crear códigos QR para tu negocio](blog:qr-codes-for-business).
 
 === ar ===
+cover_alt: عينات QR مطبوعة تقاس بمسطرة
 title: ما الحجم المناسب لطباعة رمز QR؟ المسافة والكثافة والاختبار
 seo_title: حجم طباعة رمز QR: كم يجب أن يكون؟
 description: طريقة عملية لاختيار حجم رمز QR المطبوع وفق مسافة المسح وطول المحتوى، مع قواعد الهامش والتباين والموضع التي تجعل الرمز يُقرأ من أول مرة.
@@ -194,6 +198,7 @@ dek: إن كان صغيراً جداً تتعثر الهواتف، وإن كان
 إن تردد أي هاتف في القراءة فكبّر الرمز أو اختصر المحتوى. ولتخطيط الحملة كاملة راجع [كيف تنشئ رموز QR لنشاطك التجاري](blog:qr-codes-for-business).
 
 === pt-br ===
+cover_alt: Amostras impressas de QR medidas com régua
 title: De que tamanho imprimir um QR Code? Distância, densidade e testes
 seo_title: Tamanho de impressão do QR Code: qual deve ser?
 description: Um jeito prático de escolher o tamanho do QR Code pela distância de leitura e pelo tamanho do conteúdo, com regras de margem, contraste e posição para ler de primeira.

@@ -665,8 +665,9 @@ def category_nav(lang, counts, active=None):
     t = L10N[lang]
     items = [(None, t["all"], local(lang, "blog/"), sum(counts.values()))]
     items += [(c, t["cat"][c], local(lang, f"blog/category/{c}/"), counts.get(c, 0)) for c in CATEGORIES if counts.get(c)]
+    current_page = ' aria-current="page"'
     links = "".join(
-        f'<li><a class="lib-chip{(" lib-chip--" + c) if c else ""}" href="{href}"{" aria-current=\"page\"" if c == active else ""}>'
+        f'<li><a class="lib-chip{(" lib-chip--" + c) if c else ""}" href="{href}"{current_page if c == active else ""}>'
         f'{escape(label)}<span class="lib-chip__count">{n}</span></a></li>'
         for c, label, href, n in items)
     return f'<nav class="lib-cats" aria-label="{t["categories"]}"><ul>{links}</ul></nav>'
@@ -826,9 +827,10 @@ def listing_page(lang, topics_page, n, total, counts, category=None) -> str:
         eyebrow = escape(t["tagline"])
         sub = t["intro"]
     page_note = f'<p class="lib-masthead__page">{t["page"]} {n} {t["of"]} {total}</p>' if total > 1 else ""
+    intro = f'<p class="lib-masthead__intro">{escape(sub)}</p>' if n == 1 or category else ""
     masthead = (f'<header class="lib-masthead{" lib-masthead--compact" if (n > 1 or category) else ""}">'
                 f'<p class="lib-masthead__eyebrow">{eyebrow}</p><h1>{escape(h1)}</h1>'
-                f'{"" if (n > 1 and not category) else f"<p class=\"lib-masthead__intro\">{escape(sub)}</p>"}{page_note}</header>')
+                f'{intro}{page_note}</header>')
     body = ""
     items = list(topics_page)
     if n == 1 and not category and len(items) >= 3:
@@ -883,6 +885,8 @@ def validate(topics: list[Topic]):
             errors.append(f"{topic.slug}: published but missing languages {missing}")
             continue
         art = topic.meta.get("cover_image")
+        if not art:
+            errors.append(f"{topic.slug}: published topics require editorial cover artwork")
         if art:
             if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", art):
                 errors.append(f"{topic.slug}: invalid cover_image asset name")

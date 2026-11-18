@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 169
 status: published
+cover_image: image-metadata-exif-privacy
 cover: EXIF · GPS
 tools: compress-image, image-converter, image-resizer
 related: reduce-image-size-without-losing-quality, content-credentials-explained
@@ -11,6 +12,7 @@ keyword: remove exif data / photo location privacy
 intent: informational
 ---
 === en ===
+cover_alt: Hidden location data revealed behind a photo
 title: What your photos reveal: EXIF metadata, location and privacy
 seo_title: Photo metadata (EXIF): location and privacy explained
 description: Photos can carry the date, camera, settings and GPS location of where they were taken. Learn what EXIF contains, when it is removed and how to share images safely.
@@ -66,6 +68,7 @@ Removing everything is not always right. Photographers may want copyright and co
 - Keep originals privately; share re-encoded copies.
 
 === es ===
+cover_alt: Datos de ubicación ocultos detrás de una foto
 title: Lo que revelan tus fotos: metadatos EXIF, ubicación y privacidad
 seo_title: Metadatos de fotos (EXIF): ubicación y privacidad
 description: Las fotos pueden guardar la fecha, la cámara y la ubicación GPS donde se hicieron. Qué contiene EXIF, cuándo se elimina y cómo compartir con seguridad.
@@ -121,6 +124,7 @@ Borrarlo todo no siempre es lo correcto. Los fotógrafos pueden querer que sus d
 - Guarda los originales en privado y comparte copias recodificadas.
 
 === ar ===
+cover_alt: بيانات موقع مخفية خلف صورة
 title: ما الذي تكشفه صورك: بيانات EXIF والموقع والخصوصية
 seo_title: بيانات الصور الوصفية EXIF: الموقع والخصوصية
 description: قد تحمل الصور التاريخ والكاميرا والإعدادات وموقع GPS الذي التُقطت فيه. تعرّف إلى محتوى EXIF ومتى يُحذف وكيف تشارك الصور بأمان.
@@ -176,6 +180,7 @@ dek: ملف الصورة يحتوي أكثر من البكسلات؛ فقد تس
 - احتفظ بالأصول سراً وشارك نسخاً معاد ترميزها.
 
 === pt-br ===
+cover_alt: Dados de localização ocultos atrás de uma foto
 title: O que suas fotos revelam: metadados EXIF, localização e privacidade
 seo_title: Metadados de fotos (EXIF): localização e privacidade
 description: Fotos podem guardar data, câmera, configurações e a localização GPS de onde foram tiradas. Veja o que o EXIF contém, quando é removido e como compartilhar com segurança.

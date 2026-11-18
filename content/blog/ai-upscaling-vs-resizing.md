@@ -4,6 +4,7 @@ type: comparison
 published: 2026-11-18
 order: 186
 status: published
+cover_image: ai-upscaling-vs-resizing
 cover: 1× → 4×
 tools: ai-image-enhancer, image-resizer, compress-image
 related: improve-image-quality, image-dpi-and-print-size
@@ -11,6 +12,7 @@ keyword: ai upscaling vs resizing
 intent: comparison
 ---
 === en ===
+cover_alt: Magnified feather showing reconstructed detail
 title: AI upscaling vs ordinary resizing: what each can and cannot do
 seo_title: AI upscaling vs resizing an image
 description: Enlarging an image with a normal resizer blurs it; AI upscaling adds plausible detail. The difference, when each fits, and why AI detail is a guess.
@@ -63,6 +65,7 @@ Our broader guide to [improving image quality](blog:improve-image-quality) cover
 Resize to shrink; consider AI to enlarge when appearance matters more than accuracy; and never treat an AI-enlarged image as a more accurate record of reality than the original.
 
 === es ===
+cover_alt: Pluma ampliada con detalles reconstruidos
 title: Escalado con IA frente a redimensionado normal: qué puede y qué no puede hacer cada uno
 seo_title: Escalado con IA o redimensionar una imagen
 description: Ampliar con un redimensionador normal emborrona; el escalado con IA añade detalles verosímiles. Diferencias, cuándo usar cada uno y por qué la IA supone.
@@ -115,6 +118,7 @@ Nuestra guía más amplia para [mejorar la calidad de una imagen](blog:improve-i
 Redimensiona para reducir; plantéate la IA para ampliar cuando importe más el aspecto que la exactitud; y nunca trates una imagen ampliada con IA como un registro de la realidad más fiel que el original.
 
 === ar ===
+cover_alt: ريشة مكبرة تظهر تفاصيلها المستعادة
 title: التكبير بالذكاء الاصطناعي مقابل تغيير الحجم العادي: ما الذي يقدر عليه كل منهما
 seo_title: التكبير بالذكاء الاصطناعي أم تغيير حجم الصورة
 description: تكبير الصورة بأداة عادية يجعلها ضبابية، بينما يضيف التكبير بالذكاء الاصطناعي تفاصيل معقولة. تعرّف إلى الفرق ومتى يناسب كل منهما ولماذا تفاصيل الذكاء الاصطناعي تخمين.
@@ -167,6 +171,7 @@ dek: تكبير صورة صغيرة من أكثر مهام الصور طلباً
 غيّر الحجم للتصغير، وفكّر في الذكاء الاصطناعي للتكبير حين يهم المظهر أكثر من الدقة، ولا تعامل أبداً الصورة المكبرة بالذكاء الاصطناعي كسجل للواقع أدق من الأصل.
 
 === pt-br ===
+cover_alt: Pena ampliada com detalhes reconstruídos
 title: Ampliação com IA versus redimensionamento comum: o que cada um consegue fazer
 seo_title: Ampliação com IA ou redimensionar uma imagem
 description: Ampliar com um redimensionador comum borra; a ampliação com IA acrescenta detalhes plausíveis. A diferença, quando usar cada um e por que a IA adivinha.

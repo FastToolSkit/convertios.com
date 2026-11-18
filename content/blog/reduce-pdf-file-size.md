@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 166
 status: published
+cover_image: reduce-pdf-file-size
 cover: 24 MB → 3 MB
 tools: compress-image, jpg-to-pdf, split-pdf
 related: photos-to-pdf-phone, pdf-brotli-2026
@@ -11,6 +12,7 @@ keyword: why is my pdf so large / reduce pdf size
 intent: troubleshooting
 ---
 === en ===
+cover_alt: A clamp compresses a stack of PDF pages
 title: Why is my PDF so large? Practical ways to make it smaller
 seo_title: Why is my PDF so large? How to make it smaller
 description: Most oversized PDFs are caused by images and scans. Find out what makes a PDF heavy and the reliable ways to shrink it before an upload limit stops you.
@@ -79,6 +81,7 @@ The PDF Association has specified Brotli as an additional compression method for
 - Check readability after every size reduction, especially small print and numbers.
 
 === es ===
+cover_alt: Una prensa comprime páginas PDF
 title: ¿Por qué mi PDF pesa tanto? Formas prácticas de reducirlo
 seo_title: ¿Por qué mi PDF pesa tanto? Cómo hacerlo más ligero
 description: La mayoría de los PDF demasiado grandes lo son por imágenes y escaneos. Descubre qué hace pesado un PDF y cómo reducirlo antes de chocar con un límite de subida.
@@ -147,6 +150,7 @@ La PDF Association ha especificado Brotli como método de compresión adicional 
 - Comprueba la legibilidad tras cada reducción, sobre todo la letra pequeña y los números.
 
 === ar ===
+cover_alt: ملزمة تضغط رزمة صفحات PDF
 title: لماذا حجم ملف PDF كبير جداً؟ طرق عملية لتصغيره
 seo_title: لماذا حجم ملف PDF كبير؟ طرق عملية لتصغيره
 description: معظم ملفات PDF الضخمة سببها الصور والمسح الضوئي. اعرف ما الذي يثقل الملف والطرق الموثوقة لتصغيره قبل أن يمنعك حد الرفع.
@@ -215,6 +219,7 @@ dek: قد يزن ملف PDF من عشر صفحات 300 كيلوبايت أو 30 
 - تحقّق من وضوح القراءة بعد كل تصغير، خصوصاً الخط الصغير والأرقام.
 
 === pt-br ===
+cover_alt: Grampo comprime uma pilha de páginas PDF
 title: Por que meu PDF está tão grande? Formas práticas de diminuí-lo
 seo_title: Por que meu PDF está tão grande? Como diminuir
 description: A maioria dos PDFs gigantes fica assim por causa de imagens e digitalizações. Veja o que deixa um PDF pesado e as formas confiáveis de reduzi-lo antes do limite de envio.

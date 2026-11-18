@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 171
 status: published
+cover_image: word-and-character-limits
 cover: 150 words
 tools: word-counter, text-formatter
 related: clean-up-pasted-text, strong-password-guide
@@ -11,6 +12,7 @@ keyword: character count limits
 intent: informational
 ---
 === en ===
+cover_alt: Typewriter page with word and character counters
 title: Word and character limits: how they are counted and how to fit them
 seo_title: Word and character limits: how to count and fit them
 description: Applications, social posts, meta descriptions and SMS all have length limits, and they count differently. Learn what counts, why tools disagree and how to cut text well.
@@ -64,6 +66,7 @@ Limits vary by platform and change over time, so treat these as things to look u
 Reviewers notice padding as much as overflow. A focused 230-word answer to a 250-word question often reads better than one stretched to 249 words.
 
 === es ===
+cover_alt: Página de máquina de escribir con contadores de palabras y caracteres
 title: Límites de palabras y caracteres: cómo se cuentan y cómo ajustarse
 seo_title: Límites de palabras y caracteres: cómo contarlos
 description: Cómo cuentan palabras y caracteres los formularios, redes sociales y plataformas, por qué difieren los recuentos y cómo ajustar un texto al límite.
@@ -117,6 +120,7 @@ Los límites varían según la plataforma y cambian con el tiempo, así que tóm
 Quien evalúa nota el relleno tanto como el exceso. Una respuesta centrada de 230 palabras a una pregunta de 250 suele leerse mejor que una estirada hasta 249.
 
 === ar ===
+cover_alt: صفحة آلة كاتبة مع عدادي الكلمات والأحرف
 title: حدود الكلمات والحروف: كيف تُحسب وكيف تلتزم بها
 seo_title: حدود الكلمات والحروف: كيف تُحسب وكيف تلتزم بها
 description: لطلبات التقديم والمنشورات والأوصاف التعريفية والرسائل القصيرة حدود للطول، وتحسبها بطرق مختلفة. ما الذي يُحسب، ولماذا تختلف الأدوات، وكيف تختصر النص جيداً.
@@ -170,6 +174,7 @@ dek: «بحد أقصى 250 كلمة» و«بحد أقصى 1500 حرف» تبدو
 يلاحظ المقيّمون الحشو كما يلاحظون التجاوز. والإجابة المركزة في 230 كلمة عن سؤال حدّه 250 تُقرأ غالباً أفضل من إجابة مُطّت إلى 249 كلمة.
 
 === pt-br ===
+cover_alt: Página de máquina de escrever com contadores de palavras e caracteres
 title: Limites de palavras e caracteres: como são contados e como cumprir
 seo_title: Limites de palavras e caracteres: como contar e cumprir
 description: Inscrições, posts, meta descriptions e SMS têm limites de tamanho, e contam de jeitos diferentes. Veja o que conta, por que as ferramentas discordam e como cortar bem.

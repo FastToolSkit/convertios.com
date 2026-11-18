@@ -65,3 +65,7 @@ News stories now enter the same multilingual Content Library as the guides. A re
 `.github/newsroom/guard.py` allows exactly those paths and rejects any change to existing articles, Markdown sources, tools, scripts or workflows. IndexNow still runs only after the owner merges to `main`; the newsroom never submits URLs. Nothing is merged or published automatically.
 
 After this change, update the installed copy of `local_newsroom_runner.py` on the laptop as described above.
+
+## Editorial artwork
+
+The local runner generates a conceptual AI cover from each validated story and its localized cover descriptions before rendering the draft. Install Pillow in the runner Python environment and configure OPENAI_API_KEY for image generation. NEWSROOM_IMAGE_MODEL optionally selects the image model. The editor should check the illustration, factual implications, localized descriptions, and card crop in the draft PR. Missing cover variants block publication.

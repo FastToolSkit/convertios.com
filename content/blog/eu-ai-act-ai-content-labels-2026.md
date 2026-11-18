@@ -4,6 +4,7 @@ type: news
 published: 2026-11-18
 order: 190
 status: published
+cover_image: eu-ai-act-ai-content-labels-2026
 cover: EU AI Act Art. 50
 tools: compress-image, image-converter
 related: content-credentials-explained, ai-tools-file-privacy-checklist
@@ -18,6 +19,7 @@ source: Paul, Weiss: EU finalises transparency rules for AI-generated content | 
 source: Bristows: The European Commission's Code of Practice on transparency of AI-generated content | https://inquisitiveminds.bristows.com/post/102nfaz/the-european-commissions-code-of-practice-on-transparency-of-ai-generated-conten
 ---
 === en ===
+cover_alt: Scales of justice weighing AI content labels
 title: EU AI content labelling rules: what changes before the 2 December deadline
 seo_title: EU AI Act Article 50: AI content labels explained
 description: The EU AI Act's rules for AI-generated content have applied since 2 August 2026, with a marking grace period ending 2 December. What it means for users.
@@ -60,6 +62,7 @@ There is a practical side effect worth knowing. Machine-readable marks stored in
 This article is general information, not legal advice. The Commission's guidance and the code explain how the obligations can be met, but how they apply to a specific organisation depends on its role (provider or deployer), its systems and the exceptions in the Act. Dates for specific obligations were adjusted by later EU legislation; rely on the Commission's current pages and professional advice for compliance decisions. Machine-readable marking is also not a complete defence against misuse: metadata can be removed and watermarks can be weakened, which is why the rules combine technical marking with human-readable disclosure.
 
 === es ===
+cover_alt: Balanza de la justicia con etiquetas de IA
 title: Normas de la UE para etiquetar contenido de IA: qué cambia antes del 2 de diciembre
 seo_title: Ley de IA de la UE, artículo 50: etiquetas de contenido
 description: Las normas de la Ley de IA de la UE sobre contenido generado por IA rigen desde el 2 de agosto de 2026, con una prórroga para el marcado hasta el 2 de diciembre.
@@ -102,6 +105,7 @@ Hay un efecto práctico que conviene conocer. Las marcas legibles por máquina g
 Este artículo es información general, no asesoramiento jurídico. Las orientaciones de la Comisión y el código explican cómo pueden cumplirse las obligaciones, pero su aplicación a cada organización depende de su papel (proveedor o responsable del despliegue), de sus sistemas y de las excepciones de la ley. Las fechas de algunas obligaciones se ajustaron con legislación posterior de la UE; para decidir sobre el cumplimiento, consulta las páginas actuales de la Comisión y a profesionales. El marcado legible por máquina tampoco es una defensa completa contra el mal uso: los metadatos se pueden borrar y las marcas de agua debilitar, por eso las normas combinan marcado técnico y avisos comprensibles para las personas.
 
 === ar ===
+cover_alt: ميزان العدالة يحمل علامات المحتوى المولد
 title: قواعد الاتحاد الأوروبي لوسم محتوى الذكاء الاصطناعي: ما الذي يتغير قبل 2 ديسمبر
 seo_title: المادة 50 من قانون الذكاء الاصطناعي الأوروبي ووسم المحتوى
 description: تُطبَّق قواعد الشفافية في قانون الذكاء الاصطناعي الأوروبي على المحتوى المولد بالذكاء الاصطناعي منذ 2 أغسطس 2026، مع مهلة لوسم المحتوى تنتهي في 2 ديسمبر.
@@ -144,6 +148,7 @@ dek: دخلت القواعد الأوروبية لوسم الصور والصوت
 هذه المقالة معلومات عامة وليست استشارة قانونية. توضح إرشادات المفوضية والمدونة كيفية الوفاء بالالتزامات، لكن انطباقها على جهة بعينها يعتمد على دورها (مزوّد أو مستخدم مهني) وأنظمتها والاستثناءات الواردة في القانون. عُدّلت مواعيد بعض الالتزامات بتشريعات أوروبية لاحقة، لذا اعتمد على صفحات المفوضية الحالية والاستشارة المتخصصة في قرارات الامتثال. كما أن الوسم المقروء آلياً ليس حماية كاملة من سوء الاستخدام؛ فالبيانات الوصفية يمكن حذفها والعلامات المائية يمكن إضعافها، ولهذا تجمع القواعد بين الوسم التقني والإفصاح المفهوم للبشر.
 
 === pt-br ===
+cover_alt: Balança da justiça com rótulos de IA
 title: Regras da UE para rotular conteúdo de IA: o que muda antes de 2 de dezembro
 seo_title: Lei de IA da UE, artigo 50: rótulos de conteúdo de IA
 description: As regras da Lei de IA da UE para conteúdo gerado por IA valem desde 2 de agosto de 2026, com carência para a marcação até 2 de dezembro. O que muda.

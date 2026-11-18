@@ -4,6 +4,7 @@ type: tutorial
 published: 2026-11-18
 order: 181
 status: published
+cover_image: compress-image-to-specific-size
 cover: ≤ 100 KB
 tools: compress-image-to-100kb, compress-image-to-50kb, compress-image-to-20kb
 related: reduce-image-size-without-losing-quality, image-dpi-and-print-size
@@ -11,6 +12,7 @@ keyword: compress image to 100kb / 50kb / 20kb
 intent: how-to
 ---
 === en ===
+cover_alt: A press reduces a mountain photograph to a target size
 title: How to compress an image to 100 KB, 50 KB or 20 KB for a form
 seo_title: Compress an image to 100KB, 50KB or 20KB
 description: Application portals often cap photos and signatures at 100, 50 or 20 KB. Learn how to hit the limit precisely while keeping faces and text readable.
@@ -66,6 +68,7 @@ Re-encoded images do not keep the original EXIF details, such as GPS location. I
 For general web and email use, where there is no hard limit, follow our broader guide to [reducing image size without losing visible quality](blog:reduce-image-size-without-losing-quality).
 
 === es ===
+cover_alt: Una prensa reduce una foto de montaña
 title: Cómo comprimir una imagen a 100 KB, 50 KB o 20 KB para un formulario
 seo_title: Comprimir una imagen a 100 KB, 50 KB o 20 KB
 description: Los portales de solicitudes suelen limitar fotos y firmas a 100, 50 o 20 KB. Aprende a ajustar el límite con precisión manteniendo legibles caras y textos.
@@ -121,6 +124,7 @@ Las imágenes recodificadas no conservan los datos EXIF originales, como la ubic
 Para uso general en webs o correo, sin un límite estricto, sigue nuestra guía para [reducir el peso de una imagen sin perder calidad visible](blog:reduce-image-size-without-losing-quality).
 
 === ar ===
+cover_alt: مكبس يصغر صورة جبل إلى حجم محدد
 title: كيف تضغط صورة إلى 100 أو 50 أو 20 كيلوبايت لنموذج إلكتروني
 seo_title: ضغط صورة إلى 100 أو 50 أو 20 كيلوبايت
 description: تحدد بوابات التقديم غالباً حجم الصور والتواقيع بـ100 أو 50 أو 20 كيلوبايت. تعلّم كيف تصل إلى الحد بدقة مع بقاء الوجوه والنصوص واضحة.
@@ -176,6 +180,7 @@ dek: تسجيل الامتحانات وبوابات التأشيرات وموا�
 للاستخدام العام في المواقع والبريد حيث لا يوجد حد صارم، اتبع دليلنا الأشمل [لتقليل حجم الصورة دون خسارة جودة مرئية](blog:reduce-image-size-without-losing-quality).
 
 === pt-br ===
+cover_alt: Prensa reduz uma foto de montanha
 title: Como comprimir uma imagem para 100 KB, 50 KB ou 20 KB para um formulário
 seo_title: Comprimir imagem para 100 KB, 50 KB ou 20 KB
 description: Portais de inscrição costumam limitar fotos e assinaturas a 100, 50 ou 20 KB. Aprenda a atingir o limite com precisão mantendo rostos e textos legíveis.

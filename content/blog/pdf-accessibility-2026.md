@@ -4,6 +4,7 @@ type: news
 published: 2026-11-11
 order: 16
 status: published
+cover_image: pdf-accessibility-2026
 cover: PDF/UA-1
 tools: pdf-to-word, split-pdf
 event_date: 2026-09-09
@@ -12,6 +13,7 @@ imported_from: docs/blog-news-2026-11 (reviewed November 2026 copy)
 source: PDF Association: PDF/UA-1 technical notes | https://pdfa.org/two-new-technical-notes-addressing-pdf-ua-1-implementations/
 ---
 === en ===
+cover_alt: An accessible document surrounded by assistive reading symbols
 title: PDF/UA-1 notes explain how figures and reference links should read
 seo_title: PDF/UA-1: figures and reference links explained
 description: Two PDF Association technical notes address narrow cases that can make assistive technology speak the wrong content or repeat a link.
@@ -25,6 +27,7 @@ dek: Two PDF Association technical notes address narrow cases that can make assi
 <section class="news-sources"><h2>Primary sources</h2><ul><li><a href="https://pdfa.org/two-new-technical-notes-addressing-pdf-ua-1-implementations/" rel="noopener noreferrer">PDF Association: PDF/UA-1 technical notes</a></li></ul></section>
 
 === es ===
+cover_alt: Documento accesible rodeado de símbolos de lectura asistida
 title: Dos notas PDF/UA-1 aclaran figuras y enlaces de referencia
 seo_title: PDF/UA-1: figuras y enlaces de referencia
 description: La PDF Association explica dos casos en los que un lector asistido puede interpretar mal un texto visual o repetir un enlace.
@@ -38,6 +41,7 @@ dek: La PDF Association explica dos casos en los que un lector asistido puede in
 <section class="news-sources"><h2>Fuentes primarias</h2><ul><li><a href="https://pdfa.org/two-new-technical-notes-addressing-pdf-ua-1-implementations/" rel="noopener noreferrer">Notas PDF/UA-1 de la PDF Association</a></li></ul></section>
 
 === ar ===
+cover_alt: مستند ميسّر تحيط به رموز تقنيات القراءة المساعدة
 title: ملاحظتان حول PDF/UA-1 توضحان الأشكال وروابط المراجع
 seo_title: PDF/UA-1: الأشكال وروابط المراجع
 description: تعالج ملاحظتان من جمعية PDF حالات قد تجعل قارئ الشاشة يفقد معنى نص مرئي أو يكرر إعلان رابط.
@@ -51,6 +55,7 @@ dek: تعالج ملاحظتان من جمعية PDF حالات قد تجعل ق
 <section class="news-sources"><h2>المصادر الأصلية</h2><ul><li><a href="https://pdfa.org/two-new-technical-notes-addressing-pdf-ua-1-implementations/" rel="noopener noreferrer">ملاحظات PDF/UA-1 من جمعية PDF</a></li></ul></section>
 
 === pt-br ===
+cover_alt: Documento acessível cercado por símbolos de leitura assistiva
 title: Notas do PDF/UA-1 explicam como figuras e links de referência devem ser lidos
 seo_title: PDF/UA-1: figuras e links de referência explicados
 description: Duas notas técnicas da PDF Association tratam de casos em que a tecnologia assistiva pode ler o conteúdo errado ou repetir um link.

@@ -91,6 +91,7 @@ def run(mode: str, base: Path, day: str | None = None) -> dict:
             record["status"] = "codex_smoke_pass" if mode == "smoke" else "no_verified_stories"
             save()
             return record
+        execute([sys.executable, "-B", "scripts/newsroom_art.py", str(output)], cwd=repo, timeout=1050)
         execute([sys.executable, "-B", "scripts/newsroom.py", "render", "--today", today,
                  "--intake", str(intake), "--plan", str(output)], cwd=repo)
         intake.unlink()

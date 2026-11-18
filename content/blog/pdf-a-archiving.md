@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 152
 status: published
+cover_image: pdf-a-archiving
 cover: PDF/A · ISO 19005
 tools: merge-pdf, pdf-to-word, split-pdf
 related: pdf-vs-docx, pdf-upload-requirements, file-naming-and-organizing
@@ -11,6 +12,7 @@ keyword: pdf/a archiving
 intent: informational
 ---
 === en ===
+cover_alt: Archival PDF protected inside a vault
 title: PDF/A explained: saving documents so they still open in 20 years
 seo_title: PDF/A explained: archiving documents
 description: What PDF/A is, how it differs from a normal PDF, the versions and conformance levels, how to create one in common office apps, and when you actually need it.
@@ -74,6 +76,7 @@ Convertios does not create or validate PDF/A files. Our PDF tools work with stan
 Whatever format you choose, clear names and more than one backup copy matter as much as the format; see [file naming habits](blog:file-naming-and-organizing).
 
 === es ===
+cover_alt: PDF de archivo protegido en una cámara
 title: PDF/A explicado: guardar documentos para que se abran dentro de 20 años
 seo_title: Qué es PDF/A: archivar documentos
 description: Qué es PDF/A, en qué se diferencia de un PDF normal, sus versiones y niveles, cómo crearlo en programas de oficina habituales y cuándo lo necesitas de verdad.
@@ -137,6 +140,7 @@ Convertios no crea ni valida archivos PDF/A. Nuestras herramientas trabajan con 
 Sea cual sea el formato, los nombres claros y tener más de una copia de seguridad importan tanto como el formato; consulta [hábitos para nombrar archivos](blog:file-naming-and-organizing).
 
 === ar ===
+cover_alt: ملف PDF أرشيفي محفوظ داخل خزنة
 title: شرح PDF/A: حفظ المستندات لتُفتح بعد 20 عاماً
 seo_title: ما هو PDF/A: أرشفة المستندات
 description: ما صيغة PDF/A، وكيف تختلف عن PDF العادي، وما إصداراتها ومستويات مطابقتها، وكيف تنشئها في تطبيقات المكتب الشائعة، ومتى تحتاج إليها فعلاً.
@@ -200,6 +204,7 @@ dek: يُفتح ملف PDF العادي غالباً دون مشكلة بعد س
 وأياً كانت الصيغة، فالأسماء الواضحة ووجود أكثر من نسخة احتياطية مهمان بقدر الصيغة نفسها؛ راجع [عادات تسمية الملفات](blog:file-naming-and-organizing).
 
 === pt-br ===
+cover_alt: PDF de arquivo protegido em um cofre
 title: PDF/A explicado: salvar documentos para que abram daqui a 20 anos
 seo_title: O que é PDF/A: arquivar documentos
 description: O que é PDF/A, como ele difere de um PDF comum, versões e níveis de conformidade, como criá-lo em programas de escritório comuns e quando você realmente precisa.

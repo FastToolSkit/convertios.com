@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 156
 status: published
+cover_image: ai-tools-file-privacy-checklist
 cover: Upload? ✓ ✗
 tools: split-pdf, compress-image, pdf-to-jpg
 related: browser-vs-server-file-processing, prepare-documents-for-ai-assistants
@@ -11,6 +12,7 @@ keyword: is it safe to upload files to ai tools
 intent: informational / checklist
 ---
 === en ===
+cover_alt: Locked gate protecting files at an AI processor
 title: Before you upload: a privacy checklist for AI and online file tools
 seo_title: Privacy checklist before uploading files to AI tools
 description: A practical checklist for deciding whether a document or photo is safe to upload to an AI assistant or online converter, and how to reduce what you share.
@@ -76,6 +78,7 @@ AI summaries and converted files can contain mistakes. For anything important, c
 Most Convertios tools process files in your browser. Those that need a server, such as PDF to Word, the video tools, AI Image Enhancer and Link Shortener, say so on their pages and describe what happens to the data. Use the local tools to trim and clean a file before you send it anywhere else.
 
 === es ===
+cover_alt: Una puerta protege los archivos ante un procesador de IA
 title: Antes de subir: lista de privacidad para herramientas de IA y archivos en línea
 seo_title: Privacidad antes de subir archivos a herramientas de IA
 description: Una lista práctica para decidir si un documento o una foto se puede subir con seguridad a un asistente de IA o a un conversor en línea, y cómo compartir menos.
@@ -141,6 +144,7 @@ Los resúmenes de IA y los archivos convertidos pueden contener errores. En lo i
 La mayoría de las herramientas de Convertios procesan los archivos en tu navegador. Las que necesitan servidor, como PDF a Word, las herramientas de vídeo, el Mejorador de imágenes con IA y el Acortador de enlaces, lo indican en su página y describen qué ocurre con los datos. Usa las herramientas locales para recortar y limpiar un archivo antes de enviarlo a cualquier otro sitio.
 
 === ar ===
+cover_alt: بوابة مقفلة تحمي الملفات أمام معالج ذكي
 title: قبل الرفع: قائمة خصوصية لأدوات الذكاء الاصطناعي وأدوات الملفات الإلكترونية
 seo_title: قائمة خصوصية قبل رفع الملفات إلى أدوات الذكاء الاصطناعي
 description: قائمة عملية لتقرير ما إذا كان رفع مستند أو صورة إلى مساعد ذكاء اصطناعي أو محوّل إلكتروني آمناً، وكيف تقلل ما تشاركه.
@@ -206,6 +210,7 @@ dek: رفع ملف إلى مساعد ذكاء اصطناعي أو محوّل إ�
 تعالج معظم أدوات Convertios الملفات داخل متصفحك. أما الأدوات التي تحتاج إلى خادم، مثل PDF إلى Word وأدوات الفيديو وتحسين الصور بالذكاء الاصطناعي واختصار الروابط، فتذكر ذلك في صفحاتها وتصف ما يحدث للبيانات. استخدم الأدوات المحلية لقص الملف وتنظيفه قبل إرساله إلى أي مكان آخر.
 
 === pt-br ===
+cover_alt: Portão protege arquivos na entrada de um processador de IA
 title: Antes de enviar: checklist de privacidade para IA e ferramentas de arquivos online
 seo_title: Privacidade antes de enviar arquivos para ferramentas de IA
 description: Um checklist prático para decidir se um documento ou foto pode ser enviado com segurança a um assistente de IA ou conversor online, e como compartilhar menos.

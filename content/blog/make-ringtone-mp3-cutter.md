@@ -4,6 +4,7 @@ type: tutorial
 published: 2026-11-18
 order: 173
 status: published
+cover_image: make-ringtone-mp3-cutter
 cover: ♪ 0:42–1:07
 tools: mp3-cutter, video-to-mp3, audio-converter
 related: trim-voice-recordings, mp3-vs-wav
@@ -11,6 +12,7 @@ keyword: make a ringtone from mp3
 intent: how-to
 ---
 === en ===
+cover_alt: Scissors trimming a waveform for a phone ringtone
 title: How to make a ringtone or short clip from an MP3
 seo_title: How to make a ringtone from an MP3 song
 description: Pick the right section of a song, cut it precisely between beats, keep it short enough for a ringtone and install it on Android or iPhone.
@@ -61,6 +63,7 @@ Because the clip is encoded again, it is not a bit-for-bit copy of the original,
 Cutting a song you own for your personal ringtone is a common personal use. Sharing clips of music you do not own, or using them in public videos, may require permission from the rights holders.
 
 === es ===
+cover_alt: Tijeras recortan una onda para un tono de llamada
 title: Cómo crear un tono de llamada o un fragmento corto a partir de un MP3
 seo_title: Cómo crear un tono de llamada con una canción MP3
 description: Elige la parte adecuada de una canción, córtala con precisión entre compases, que dure lo justo para un tono e instálala en Android o iPhone.
@@ -111,6 +114,7 @@ Como el fragmento se vuelve a codificar, no es una copia exacta bit a bit del or
 Cortar una canción que tienes para usarla como tono personal es un uso personal habitual. Compartir fragmentos de música que no te pertenece, o usarlos en vídeos públicos, puede requerir permiso de los titulares de los derechos.
 
 === ar ===
+cover_alt: مقص يقتطع موجة صوتية لنغمة هاتف
 title: كيف تصنع نغمة رنين أو مقطعاً قصيراً من ملف MP3
 seo_title: كيف تصنع نغمة رنين من أغنية MP3
 description: اختر الجزء المناسب من الأغنية، وقصه بدقة بين الإيقاعات، واجعله قصيراً بما يكفي لنغمة رنين، ثم ثبّته على Android أو iPhone.
@@ -161,6 +165,7 @@ dek: نغمة الرنين الجيدة تبدأ بقوة، وتتكرر دون 
 قص أغنية تملكها لاستخدامها نغمة رنين شخصية استخدام شخصي شائع، أما مشاركة مقاطع من موسيقى لا تملكها أو استخدامها في فيديوهات عامة فقد يتطلب إذناً من أصحاب الحقوق.
 
 === pt-br ===
+cover_alt: Tesoura recorta uma onda para um toque de celular
 title: Como criar um toque de celular ou um trecho curto a partir de um MP3
 seo_title: Como criar um toque de celular com uma música MP3
 description: Escolha a parte certa da música, corte com precisão entre as batidas, deixe curto o bastante para um toque e instale no Android ou no iPhone.

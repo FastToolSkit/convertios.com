@@ -4,6 +4,7 @@ type: news
 published: 2026-11-11
 order: 14
 status: published
+cover_image: retail-qr-2027
 cover: GS1 2D
 tools: qr-generator, image-resizer
 event_date: 2026-03-11
@@ -13,6 +14,7 @@ source: GS1 retail POS systems playbook, version 1.0.1 | https://ref.gs1.org/sme
 source: GS1 version archive | https://ref.gs1.org/sme-guidance/2d-retail-systems-playbook/archive
 ---
 === en ===
+cover_alt: Illuminated QR display at a shop counter
 title: GS1's 2027 retail barcode goal: why a URL QR is different
 seo_title: GS1 2027: retail barcodes versus URL QR codes
 description: GS1's retail playbook maps the work behind scanning product identifiers at checkout. A QR image that opens a website is a separate use case.
@@ -26,6 +28,7 @@ dek: GS1's retail playbook maps the work behind scanning product identifiers at 
 <section class="news-sources"><h2>Primary sources</h2><ul><li><a href="https://ref.gs1.org/sme-guidance/2d-retail-systems-playbook/" rel="noopener noreferrer">GS1 retail POS systems playbook, version 1.0.1</a></li><li><a href="https://ref.gs1.org/sme-guidance/2d-retail-systems-playbook/archive" rel="noopener noreferrer">GS1 version archive</a></li></ul></section>
 
 === es ===
+cover_alt: Expositor QR iluminado en un mostrador
 title: Objetivo GS1 para 2027: un QR de URL no equivale al código de caja
 seo_title: GS1 2027: códigos de caja y QR de URL
 description: La guía GS1 explica qué debe cambiar en los sistemas de caja para interpretar identificadores 2D de productos; un QR que abre una web cumple otra función.
@@ -39,6 +42,7 @@ dek: La guía GS1 explica qué debe cambiar en los sistemas de caja para interpr
 <section class="news-sources"><h2>Fuentes primarias</h2><ul><li><a href="https://ref.gs1.org/sme-guidance/2d-retail-systems-playbook/" rel="noopener noreferrer">Guía GS1 de sistemas de caja, versión 1.0.1</a></li><li><a href="https://ref.gs1.org/sme-guidance/2d-retail-systems-playbook/archive" rel="noopener noreferrer">Archivo de versiones de GS1</a></li></ul></section>
 
 === ar ===
+cover_alt: رمز QR مضاء على منضدة متجر
 title: هدف GS1 لعام 2027: رمز رابط عادي ليس معرّف منتج عند الدفع
 seo_title: GS1 2027: رموز الدفع وروابط QR
 description: تشرح إرشادات GS1 تجهيز أنظمة نقاط البيع لقراءة معرّفات المنتجات ثنائية الأبعاد؛ أما QR الذي يفتح موقعاً فله غرض مختلف.
@@ -52,6 +56,7 @@ dek: تشرح إرشادات GS1 تجهيز أنظمة نقاط البيع لق�
 <section class="news-sources"><h2>المصادر الأصلية</h2><ul><li><a href="https://ref.gs1.org/sme-guidance/2d-retail-systems-playbook/" rel="noopener noreferrer">دليل GS1 لنقاط البيع، الإصدار 1.0.1</a></li><li><a href="https://ref.gs1.org/sme-guidance/2d-retail-systems-playbook/archive" rel="noopener noreferrer">أرشيف إصدارات GS1</a></li></ul></section>
 
 === pt-br ===
+cover_alt: Expositor QR iluminado no balcão de uma loja
 title: Meta da GS1 para o varejo em 2027: por que um QR com link é outra coisa
 seo_title: GS1 2027: códigos 2D no varejo e QR com link
 description: O guia da GS1 para o varejo mostra o trabalho por trás da leitura de identificadores de produto no caixa. Um QR que abre um site é outro caso de uso.

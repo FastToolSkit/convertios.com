@@ -9,7 +9,8 @@ Nothing under those folders is edited by hand.
 | `content/blog/_templates/<lang>.html` | Page shells (header, navigation, footer, AdSense, analytics) taken from the existing site. |
 | `scripts/content_library.py` | Generator and validator (Python standard library only). |
 | `assets/blog/library.css` | Blog styles, loaded after the existing site styles. |
-| `assets/blog/covers/<slug>.svg` | Generated cover graphic per topic (no stock or AI imagery). |
+| `assets/blog/covers/<slug>.svg` | Legacy SVG assets. Published article covers use the responsive editorial artwork. |
+| `assets/blog/editorial/` | AI editorial covers shared across translations, with three WebP sizes and a JPEG fallback. Published topics require `cover_image` and localized `cover_alt`. |
 | `assets/blog/og/*.png` | Social preview images per category (`scripts/render_blog_og.py`, needs Playwright). |
 | `docs/content-library-v1/inventory.md` | Generated inventory (`python3 docs/content-library-v1/make_inventory.py`). |
 | `docs/content-library-v1/editorial-calendar.md` | The 60-topic plan. |

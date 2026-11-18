@@ -4,6 +4,7 @@ type: tutorial
 published: 2026-11-18
 order: 185
 status: published
+cover_image: trim-voice-recordings
 cover: ✂ 0:04 → 12:31
 tools: trim-audio-online, mp3-cutter, video-to-mp3
 related: mp3-vs-wav, make-ringtone-mp3-cutter
@@ -11,6 +12,7 @@ keyword: trim audio / cut voice memo
 intent: how-to
 ---
 === en ===
+cover_alt: Scissors trim a voice waveform above a microphone
 title: How to trim voice memos, interviews and lectures cleanly
 seo_title: How to trim voice memos and recordings
 description: Remove the fumbling at the start and the silence at the end of a recording, keep natural cut points, and turn a large WAV or M4A memo into a compact MP3.
@@ -65,6 +67,7 @@ The whole recording is decoded in your device's memory. Files of an hour or more
 - Keep the original file until you are sure the trimmed version is complete.
 
 === es ===
+cover_alt: Tijeras recortan una onda de voz sobre un micrófono
 title: Cómo recortar notas de voz, entrevistas y clases de forma limpia
 seo_title: Cómo recortar notas de voz y grabaciones
 description: Quita el ruido inicial y el silencio final de una grabación, deja cortes naturales y convierte una nota de voz WAV o M4A pesada en un MP3 ligero.
@@ -119,6 +122,7 @@ Toda la grabación se descodifica en la memoria del dispositivo. Los archivos de
 - Conserva el archivo original hasta asegurarte de que la versión recortada está completa.
 
 === ar ===
+cover_alt: مقص يقص موجة صوتية فوق ميكروفون
 title: كيف تقص المذكرات الصوتية والمقابلات والمحاضرات بشكل نظيف
 seo_title: كيف تقص المذكرات الصوتية والتسجيلات
 description: احذف الضجيج في بداية التسجيل والصمت في نهايته، واترك نقاط قص طبيعية، وحوّل مذكرة صوتية كبيرة بصيغة WAV أو M4A إلى ملف MP3 صغير.
@@ -173,6 +177,7 @@ dek: تبدأ معظم التسجيلات بثوانٍ من ضجيج الإمس�
 - احتفظ بالملف الأصلي حتى تتأكد من اكتمال النسخة المقصوصة.
 
 === pt-br ===
+cover_alt: Tesoura corta uma onda de voz acima de um microfone
 title: Como cortar memos de voz, entrevistas e aulas de forma limpa
 seo_title: Como cortar memos de voz e gravações
 description: Tire o barulho do começo e o silêncio do fim de uma gravação, deixe cortes naturais e transforme um memo WAV ou M4A pesado em um MP3 leve.

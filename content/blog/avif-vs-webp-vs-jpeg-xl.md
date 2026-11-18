@@ -4,6 +4,7 @@ type: comparison
 published: 2026-11-18
 order: 161
 status: published
+cover_image: avif-vs-webp-vs-jpeg-xl
 cover: AVIF · WebP · JXL
 tools: image-converter, compress-image
 related: jpeg-xl-chrome-155, jpg-png-webp-guide, lossy-vs-lossless-compression
@@ -11,6 +12,7 @@ keyword: avif vs webp vs jpeg xl
 intent: comparison
 ---
 === en ===
+cover_alt: An orchid shown in three image encodings
 title: AVIF vs WebP vs JPEG XL: choosing a modern image format
 seo_title: AVIF vs WebP vs JPEG XL compared
 description: Three modern image formats compared on compression, quality, transparency, animation and support, with advice on which to use for websites, sharing and archiving.
@@ -62,6 +64,7 @@ The honest test is your own images: export the same photo in each format at a si
 The [Image Converter](tool:image-converter) converts to JPG, PNG, WEBP, BMP and GIF in your browser, and the [Image Compressor](tool:compress-image) can produce smaller JPG, PNG or WEBP files, including to a target size. Convertios does not currently create AVIF or JPEG XL files. WebP is therefore the modern format you can produce here.
 
 === es ===
+cover_alt: Una orquídea en tres codificaciones
 title: AVIF, WebP o JPEG XL: cómo elegir un formato de imagen moderno
 seo_title: AVIF vs WebP vs JPEG XL: comparativa
 description: Tres formatos de imagen modernos comparados en compresión, calidad, transparencia, animación y compatibilidad, con consejos para webs, compartir y archivar.
@@ -113,6 +116,7 @@ La prueba honesta son tus propias imágenes: exporta la misma foto en cada forma
 El [Convertidor de imágenes](tool:image-converter) convierte a JPG, PNG, WEBP, BMP y GIF en tu navegador, y el [Compresor de imágenes](tool:compress-image) genera archivos JPG, PNG o WEBP más ligeros, incluso a un tamaño objetivo. Convertios no crea archivos AVIF ni JPEG XL por ahora, así que WebP es el formato moderno que puedes generar aquí.
 
 === ar ===
+cover_alt: زهرة أوركيد بثلاثة ترميزات للصورة
 title: AVIF أم WebP أم JPEG XL: كيف تختار صيغة صور حديثة
 seo_title: مقارنة AVIF وWebP وJPEG XL
 description: ثلاث صيغ صور حديثة في مقارنة من حيث الضغط والجودة والشفافية والحركة والدعم، مع نصائح لاستخدامها في المواقع والمشاركة والأرشفة.
@@ -164,6 +168,7 @@ dek: ما زالت JPEG وPNG تعملان في كل مكان، لكن ثلاث 
 يحوّل [محوّل الصور](tool:image-converter) إلى JPG وPNG وWEBP وBMP وGIF داخل متصفحك، وتنتج أداة [ضغط الصور](tool:compress-image) ملفات JPG أو PNG أو WEBP أصغر، بما في ذلك إلى حجم مستهدف. ولا ينشئ Convertios حالياً ملفات AVIF أو JPEG XL، لذا فإن WebP هي الصيغة الحديثة التي يمكنك إنتاجها هنا.
 
 === pt-br ===
+cover_alt: Uma orquídea em três codificações
 title: AVIF, WebP ou JPEG XL: como escolher um formato de imagem moderno
 seo_title: AVIF vs WebP vs JPEG XL: comparação
 description: Três formatos de imagem modernos comparados em compressão, qualidade, transparência, animação e suporte, com dicas para sites, compartilhamento e arquivamento.

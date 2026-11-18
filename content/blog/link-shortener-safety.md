@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 172
 status: published
+cover_image: link-shortener-safety
 cover: tinyurl → ?
 tools: link-shortener, qr-generator
 related: qr-code-scam-safety, qr-codes-for-business
@@ -11,6 +12,7 @@ keyword: are link shorteners safe
 intent: informational
 ---
 === en ===
+cover_alt: Short link checked behind a security shield
 title: Are link shorteners safe? How to create and open short links wisely
 seo_title: Are link shorteners safe? Creating and opening short links
 description: Short links are convenient but hide their destination and are public. Risks for senders and recipients, how to preview short links and when not to shorten.
@@ -69,6 +71,7 @@ The [Link Shortener](tool:link-shortener) passes the address you enter through t
 If you put a short link inside a [QR code](tool:qr-generator), test both: the code should open the short link, and the short link should reach the right page.
 
 === es ===
+cover_alt: Enlace corto verificado tras un escudo
 title: ¿Son seguros los acortadores de enlaces? Cómo crear y abrir enlaces cortos con cabeza
 seo_title: ¿Son seguros los acortadores de enlaces?
 description: Los enlaces cortos son cómodos, pero ocultan su destino y son públicos. Riesgos para quien los envía y quien los recibe, cómo previsualizarlos y cuándo no acortar.
@@ -127,6 +130,7 @@ El [Acortador de enlaces](tool:link-shortener) envía la dirección que escribes
 Si pones un enlace corto dentro de un [código QR](tool:qr-generator), prueba ambos: el código debe abrir el enlace corto, y el enlace corto debe llegar a la página correcta.
 
 === ar ===
+cover_alt: رابط مختصر يخضع للتحقق خلف درع
 title: هل الروابط المختصرة آمنة؟ كيف تنشئها وتفتحها بحكمة
 seo_title: هل الروابط المختصرة آمنة؟ إنشاؤها وفتحها
 description: الروابط المختصرة مريحة لكنها تخفي وجهتها وتكون عامة. تعرّف إلى مخاطرها على المرسل والمستلم، وكيف تعاين الرابط المختصر، ومتى تتجنب الاختصار.
@@ -185,6 +189,7 @@ dek: يحوّل الرابط المختصر عنواناً طويلاً وفوض
 إذا وضعت رابطاً مختصراً داخل [رمز QR](tool:qr-generator) فاختبر الاثنين: يجب أن يفتح الرمز الرابط المختصر، ويجب أن يصل الرابط المختصر إلى الصفحة الصحيحة.
 
 === pt-br ===
+cover_alt: Link curto verificado atrás de um escudo
 title: Encurtadores de link são seguros? Como criar e abrir links curtos com cuidado
 seo_title: Encurtadores de link são seguros? Criar e abrir links curtos
 description: Links curtos são práticos, mas escondem o destino e são públicos. Veja os riscos para quem envia e quem recebe, como pré-visualizar um link curto e quando não encurtar.

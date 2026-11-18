@@ -4,6 +4,7 @@ type: tutorial
 published: 2026-11-18
 order: 177
 status: published
+cover_image: clean-up-pasted-text
 cover: Aa  →  Aa
 tools: text-formatter, word-counter
 related: word-and-character-limits, convert-pdf-to-word-keep-formatting
@@ -11,6 +12,7 @@ keyword: remove extra spaces / change text case
 intent: how-to
 ---
 === en ===
+cover_alt: Brush clearing clutter from a text page
 title: How to clean up pasted text: extra spaces, broken lines and wrong case
 seo_title: Clean up pasted text: spaces, line breaks, case
 description: Text copied from PDFs, emails and websites brings stray spaces, hard line breaks and odd capitals. Clean it quickly, keep paragraphs intact and know when not to reformat.
@@ -60,6 +62,7 @@ There is no separate preview or undo button, so keep a copy of the original text
 Text copied from a two-column PDF often arrives like this: `THE  MEETING  WILL` on one line, `TAKE PLACE ON` on the next, with doubled spaces throughout. Running Remove Extra Spaces fixes the spacing, lowercase removes the shouting, and a quick manual pass restores the capital at the start of the sentence and in names. Joining the broken lines into one paragraph is the last step, and the result reads as normal text again. The whole process takes a minute, far less than retyping.
 
 === es ===
+cover_alt: Cepillo que limpia una página de texto
 title: Cómo limpiar un texto pegado: espacios de más, líneas cortadas y mayúsculas
 seo_title: Limpiar texto pegado: espacios, saltos de línea, mayúsculas
 description: Arregla espacios dobles, saltos de línea rotos y mayúsculas en texto pegado desde PDF, correos o webs: un orden de limpieza rápido y cuándo no reformatear.
@@ -105,6 +108,7 @@ No hay vista previa separada ni botón de deshacer, así que guarda una copia de
 - En documentos escaneados, primero va el OCR; el texto de un escaneo no existe hasta que se aplica el reconocimiento.
 
 === ar ===
+cover_alt: فرشاة تنظف صفحة نصية
 title: كيف تنظّف النص الملصوق: مسافات زائدة وأسطر مقطوعة وأحرف بحالة خاطئة
 seo_title: تنظيف النص الملصوق: المسافات والأسطر وحالة الأحرف
 description: يأتي النص المنسوخ من PDF والبريد والمواقع بمسافات زائدة وفواصل أسطر قسرية وأحرف كبيرة غريبة. نظّفه بسرعة مع الحفاظ على الفقرات، واعرف متى لا تعيد تنسيقه.
@@ -150,6 +154,7 @@ dek: نسخ نص من PDF أو رسالة قديمة ينتج غالباً أس�
 - في المستندات الممسوحة يأتي OCR أولاً؛ فلا وجود لنص في المسح حتى يُطبَّق التعرف على الحروف.
 
 === pt-br ===
+cover_alt: Escova limpando uma página de texto
 title: Como limpar texto colado: espaços a mais, linhas quebradas e maiúsculas erradas
 seo_title: Limpar texto colado: espaços, quebras de linha, maiúsculas
 description: Corrija espaços duplos, quebras de linha erradas e maiúsculas em texto colado de PDF, e-mail ou sites: uma ordem rápida de limpeza e quando não reformatar.

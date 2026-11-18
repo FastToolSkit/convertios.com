@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 160
 status: published
+cover_image: webassembly-browser-tools
 cover: WebAssembly
 tools: remove-bg, merge-pdf, mp3-cutter
 related: browser-vs-server-file-processing, how-ai-background-removal-works
@@ -11,6 +12,7 @@ keyword: how in-browser file tools work webassembly
 intent: informational
 ---
 === en ===
+cover_alt: Code module running inside a conceptual browser window
 title: How in-browser file tools work: JavaScript, WebAssembly and on-device AI
 seo_title: How in-browser file tools work (WebAssembly explained)
 description: Modern browsers can merge PDFs, edit audio and run AI models without uploading files. A plain-language look at the technologies behind it and their limits.
@@ -62,6 +64,7 @@ Machine-learning models can also run in the browser. A model file is downloaded 
 Look for statements such as "processed in your browser" on the tool page, check the browser's network panel for large uploads, or disconnect from the internet after the page loads and try again.
 
 === es ===
+cover_alt: Módulo de código dentro de una ventana conceptual de navegador
 title: Cómo funcionan las herramientas de archivos en el navegador: JavaScript, WebAssembly e IA local
 seo_title: Cómo funcionan las herramientas en el navegador (WebAssembly)
 description: Los navegadores modernos unen PDF, editan audio y ejecutan modelos de IA sin subir archivos. Una explicación sencilla de las tecnologías y sus límites.
@@ -113,6 +116,7 @@ Los modelos de aprendizaje automático también pueden ejecutarse en el navegado
 Busca frases como «se procesa en tu navegador» en la página de la herramienta, revisa el panel de red del navegador por si hay subidas grandes, o desconéctate de internet tras cargar la página y vuelve a probar.
 
 === ar ===
+cover_alt: وحدة برمجية داخل رسم لنافذة متصفح
 title: كيف تعمل أدوات الملفات داخل المتصفح: JavaScript وWebAssembly والذكاء الاصطناعي على الجهاز
 seo_title: كيف تعمل أدوات الملفات داخل المتصفح (WebAssembly)
 description: تستطيع المتصفحات الحديثة دمج ملفات PDF وتحرير الصوت وحتى تشغيل نماذج ذكاء اصطناعي دون رفع الملفات. شرح مبسط للتقنيات التي تجعل ذلك ممكناً وحدودها.
@@ -164,6 +168,7 @@ dek: قبل عشر سنوات كان تحويل ملف عبر الإنترنت �
 ابحث في صفحة الأداة عن عبارات مثل «تُعالج داخل متصفحك»، وراقب لوحة الشبكة في المتصفح بحثاً عن عمليات رفع كبيرة، أو اقطع الاتصال بالإنترنت بعد تحميل الصفحة وجرّب مجدداً.
 
 === pt-br ===
+cover_alt: Módulo de código dentro de uma janela conceitual de navegador
 title: Como funcionam as ferramentas de arquivos no navegador: JavaScript, WebAssembly e IA local
 seo_title: Como funcionam as ferramentas no navegador (WebAssembly)
 description: Navegadores modernos juntam PDFs, editam áudio e rodam modelos de IA sem enviar arquivos. Uma explicação simples das tecnologias e dos seus limites.

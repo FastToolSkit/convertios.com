@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 163
 status: published
+cover_image: unit-conversion-mistakes
 cover: kg ⇄ lb · °C ⇄ °F
 tools: unit-converter, word-counter
 related: word-and-character-limits, file-naming-and-organizing
@@ -11,6 +12,7 @@ keyword: common unit conversion mistakes
 intent: informational
 ---
 === en ===
+cover_alt: Calculator surrounded by length and temperature measures
 title: Common unit conversion mistakes and how to avoid them
 seo_title: Common unit conversion mistakes and how to avoid them
 description: Rounding too early, mixing up temperature changes, confusing similar units and slipping a decimal point cause most conversion errors. Simple checks that catch them.
@@ -68,6 +70,7 @@ The Convertios [Unit Converter](tool:unit-converter) handles common everyday con
 For medicine doses, engineering, construction and legal or customs documents, follow the units specified by the professional, standard or form, and have conversions checked. A converter is a convenience, not a substitute for the instructions that apply to your situation.
 
 === es ===
+cover_alt: Calculadora rodeada de medidas de longitud y temperatura
 title: Errores habituales al convertir unidades y cómo evitarlos
 seo_title: Errores habituales al convertir unidades y cómo evitarlos
 description: Libras y kilos, grados Fahrenheit y Celsius, pies y metros: los errores de conversión más comunes, cómo detectarlos y cómo redondear con sensatez.
@@ -125,6 +128,7 @@ El [Conversor de unidades](tool:unit-converter) de Convertios resuelve conversio
 En dosis de medicamentos, ingeniería, construcción o documentos legales y aduaneros, sigue las unidades que indique el profesional, la norma o el formulario, y haz revisar las conversiones. Un conversor es una comodidad, no un sustituto de las instrucciones que se aplican a tu caso.
 
 === ar ===
+cover_alt: آلة حاسبة تحيط بها مقاييس طول وحرارة
 title: أخطاء شائعة في تحويل الوحدات وكيف تتجنبها
 seo_title: أخطاء شائعة في تحويل الوحدات وكيف تتجنبها
 description: التقريب المبكر وخلط فروق الحرارة بقيمها والخلط بين الوحدات المتشابهة وخطأ الفاصلة العشرية تسبب معظم أخطاء التحويل. فحوص بسيطة تكشفها.
@@ -182,6 +186,7 @@ dek: الرقم الصحيح بالوحدة الخاطئة قد يفسد وصف�
 في جرعات الأدوية والهندسة والبناء والمستندات القانونية أو الجمركية اتبع الوحدات التي يحددها المختص أو المعيار أو النموذج، واطلب مراجعة التحويلات. المحوّل وسيلة مساعدة لا بديل عن التعليمات التي تنطبق على حالتك.
 
 === pt-br ===
+cover_alt: Calculadora cercada por medidas de comprimento e temperatura
 title: Erros comuns ao converter unidades e como evitá-los
 seo_title: Erros comuns ao converter unidades e como evitar
 description: Arredondar cedo demais, confundir variações de temperatura, misturar unidades parecidas e errar a vírgula causam a maioria dos erros. Verificações simples que os pegam.

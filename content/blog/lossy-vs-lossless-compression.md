@@ -4,6 +4,7 @@ type: comparison
 published: 2026-11-18
 order: 193
 status: published
+cover_image: lossy-vs-lossless-compression
 cover: Lossy vs Lossless
 tools: compress-image, audio-converter, image-converter
 related: jpg-png-webp-guide, mp3-vs-wav
@@ -11,6 +12,7 @@ keyword: lossy vs lossless compression
 intent: informational / comparison
 ---
 === en ===
+cover_alt: Two compressed kingfisher photographs compared
 title: Lossy vs lossless compression: what you lose and when it matters
 seo_title: Lossy vs lossless compression explained
 description: Lossless compression keeps every bit; lossy compression discards detail to save space. See how JPG, PNG, MP3, WAV, ZIP and video codecs use each approach.
@@ -65,6 +67,7 @@ Only space. A lossless photo or a WAV recording is much larger than its lossy eq
 - The [Audio Converter](tool:audio-converter) changes MP3 to WAV and WAV to MP3 in the browser. WAV to MP3 is lossy; MP3 to WAV keeps the MP3's existing sound in an uncompressed container.
 
 === es ===
+cover_alt: Comparación de dos fotos comprimidas de un martín pescador
 title: Compresión con pérdida y sin pérdida: qué se pierde y cuándo importa
 seo_title: Compresión con pérdida y sin pérdida explicada
 description: La compresión sin pérdida conserva cada bit; la que tiene pérdida descarta detalles para ahorrar espacio. Mira cómo la usan JPG, PNG, MP3, WAV, ZIP y el vídeo.
@@ -119,6 +122,7 @@ Solo espacio. Una foto sin pérdida o una grabación WAV ocupan mucho más que s
 - El [Conversor de audio](tool:audio-converter) cambia de MP3 a WAV y de WAV a MP3 en el navegador. De WAV a MP3 hay pérdida; de MP3 a WAV se conserva el sonido que ya tenía el MP3 dentro de un contenedor sin comprimir.
 
 === ar ===
+cover_alt: مقارنة صورتين مضغوطتين لطائر الرفراف
 title: الضغط مع فقدان وبلا فقدان: ماذا تخسر ومتى يهم ذلك
 seo_title: شرح الضغط مع فقدان والضغط بلا فقدان
 description: يحتفظ الضغط بلا فقدان بكل بت، بينما يتخلص الضغط مع فقدان من تفاصيل لتوفير المساحة. تعرّف إلى استخدام JPG وPNG وMP3 وWAV وZIP والفيديو لكل منهما.
@@ -173,6 +177,7 @@ dek: كل ملف مضغوط يقدم أحد وعدين: ستستعيد الأص�
 - يحوّل [محوّل الصوت](tool:audio-converter) من MP3 إلى WAV ومن WAV إلى MP3 داخل المتصفح. التحويل من WAV إلى MP3 مع فقدان، أما من MP3 إلى WAV فيحتفظ بالصوت الموجود في MP3 داخل حاوية غير مضغوطة.
 
 === pt-br ===
+cover_alt: Comparação de duas fotos comprimidas de um martim-pescador
 title: Compressão com perdas e sem perdas: o que se perde e quando importa
 seo_title: Compressão com perdas e sem perdas explicada
 description: A compressão sem perdas mantém cada bit; a com perdas descarta detalhes para economizar espaço. Veja como JPG, PNG, MP3, WAV, ZIP e vídeo usam cada uma.

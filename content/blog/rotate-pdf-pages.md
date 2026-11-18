@@ -4,6 +4,7 @@ type: tutorial
 published: 2026-11-18
 order: 176
 status: published
+cover_image: rotate-pdf-pages
 cover: ↻ 90°
 tools: rotate-pdf, split-pdf, merge-pdf
 related: split-pdf-extract-pages, merge-pdf-files
@@ -11,6 +12,7 @@ keyword: rotate pdf pages permanently
 intent: how-to
 ---
 === en ===
+cover_alt: Arrows rotate a printed page into position
 title: How to rotate PDF pages permanently, page by page
 seo_title: How to rotate PDF pages permanently
 description: Fix sideways and upside-down scans so they display and print correctly for everyone, not just in your own viewer, without losing quality.
@@ -69,6 +71,7 @@ A wide table placed on a landscape page is correct in the original, even if it l
 - Open the downloaded file in a different reader to confirm the fix.
 
 === es ===
+cover_alt: Flechas giran una página hasta su posición
 title: Cómo rotar páginas de un PDF de forma permanente, página a página
 seo_title: Cómo rotar páginas de un PDF de forma permanente
 description: Corrige escaneos de lado o al revés para que se vean e impriman bien para todos, no solo en tu visor, y sin perder calidad.
@@ -127,6 +130,7 @@ Una tabla ancha colocada en una página horizontal es correcta en el original, a
 - Abre el archivo descargado en otro lector para confirmar el cambio.
 
 === ar ===
+cover_alt: أسهم تدير صفحة مطبوعة إلى وضعها الصحيح
 title: كيف تدوّر صفحات PDF بشكل دائم صفحةً صفحة
 seo_title: كيف تدوّر صفحات PDF بشكل دائم
 description: صحّح الصفحات الممسوحة الجانبية أو المقلوبة لتُعرض وتُطبع بشكل صحيح لدى الجميع، لا في عارضك فقط، ودون أي فقدان في الجودة.
@@ -185,6 +189,7 @@ dek: تدوير الصفحة في عارض PDF يغيّر ما تراه أنت �
 - افتح الملف المنزّل في قارئ آخر للتأكد من الإصلاح.
 
 === pt-br ===
+cover_alt: Setas giram uma página até a posição correta
 title: Como girar páginas de PDF de forma permanente, página por página
 seo_title: Como girar páginas de PDF de forma permanente
 description: Corrija digitalizações de lado ou de cabeça para baixo para que apareçam e imprimam certo para todo mundo, não só no seu leitor, sem perder qualidade.

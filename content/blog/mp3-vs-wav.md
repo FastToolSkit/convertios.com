@@ -4,6 +4,7 @@ type: comparison
 published: 2026-11-18
 order: 191
 status: published
+cover_image: mp3-vs-wav
 cover: MP3 vs WAV
 tools: audio-converter, trim-audio-online, mp3-cutter
 related: lossy-vs-lossless-compression, convert-video-to-mp3
@@ -11,6 +12,7 @@ keyword: mp3 vs wav
 intent: comparison
 ---
 === en ===
+cover_alt: Two headphones displaying contrasting audio waveforms
 title: MP3 vs WAV: which audio format should you use?
 seo_title: MP3 vs WAV: which audio format to use
 description: WAV keeps every sample and is large; MP3 is compact and plays everywhere. Compare quality, size and the best format for recording, editing and sharing.
@@ -71,6 +73,7 @@ If you only need part of a recording, trim it first: [Trim Audio](tool:trim-audi
 Work in WAV, share in MP3, and never convert back and forth repeatedly. Every MP3 encode is a small, permanent loss.
 
 === es ===
+cover_alt: Dos auriculares muestran ondas de audio distintas
 title: MP3 o WAV: ¿qué formato de audio deberías usar?
 seo_title: MP3 o WAV: qué formato de audio usar
 description: WAV conserva cada muestra y ocupa mucho; MP3 es ligero y suena en todas partes. Compara calidad, peso y el mejor formato para grabar, editar, compartir y hacer pódcast.
@@ -131,6 +134,7 @@ Si solo necesitas una parte de la grabación, recórtala primero: [Recortar audi
 Trabaja en WAV, comparte en MP3 y no conviertas de un lado a otro una y otra vez. Cada codificación en MP3 es una pequeña pérdida permanente.
 
 === ar ===
+cover_alt: سماعتان تعرضان موجتين صوتيتين مختلفتين
 title: MP3 أم WAV: أي صيغة صوت تستخدم؟
 seo_title: MP3 أم WAV: أي صيغة صوت تختار؟
 description: تحتفظ WAV بكل عينة صوتية فتكون كبيرة، بينما MP3 صغيرة وتعمل في كل مكان. قارن الجودة والحجم وأفضل صيغة للتسجيل والتحرير والمشاركة والبودكاست.
@@ -191,6 +195,7 @@ dek: قد تبلغ أغنية مدتها ثلاث دقائق نحو 30 ميغا�
 اعمل بصيغة WAV وشارك بصيغة MP3، ولا تحوّل ذهاباً وإياباً مراراً، فكل ترميز MP3 خسارة صغيرة دائمة.
 
 === pt-br ===
+cover_alt: Dois fones mostram ondas de áudio diferentes
 title: MP3 ou WAV: qual formato de áudio você deve usar?
 seo_title: MP3 ou WAV: qual formato de áudio usar
 description: O WAV guarda cada amostra e é grande; o MP3 é compacto e toca em todo lugar. Compare qualidade, tamanho e o melhor formato para gravar, editar e enviar.

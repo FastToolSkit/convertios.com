@@ -4,6 +4,7 @@ type: tutorial
 published: 2026-11-18
 order: 188
 status: published
+cover_image: split-pdf-extract-pages
 cover: Pages 2–5
 tools: split-pdf, rotate-pdf, pdf-to-jpg
 related: merge-pdf-files, rotate-pdf-pages
@@ -11,6 +12,7 @@ keyword: extract pages from pdf
 intent: how-to
 ---
 === en ===
+cover_alt: Scissors separate individual pages from a PDF
 title: How to extract pages from a PDF or split it into parts
 seo_title: How to extract pages from a PDF
 description: Send only the page that matters, remove blank scanner pages or divide a long report into chapters, without losing text quality or page layout.
@@ -72,6 +74,7 @@ Removing pages is a good way to avoid oversharing, but it only removes whole pag
 - Keep the original PDF until you are sure the extracted file is complete.
 
 === es ===
+cover_alt: Tijeras separan páginas individuales de un PDF
 title: Cómo extraer páginas de un PDF o dividirlo en partes
 seo_title: Cómo extraer páginas de un PDF
 description: Envía solo la página que importa, elimina páginas en blanco del escáner o divide un informe largo en capítulos sin perder calidad ni diseño.
@@ -133,6 +136,7 @@ Quitar páginas es una buena forma de no compartir de más, pero solo elimina p�
 - Conserva el PDF original hasta asegurarte de que el archivo extraído está completo.
 
 === ar ===
+cover_alt: مقص يفصل صفحات منفردة من ملف PDF
 title: كيف تستخرج صفحات من ملف PDF أو تقسمه إلى أجزاء
 seo_title: كيف تستخرج صفحات من ملف PDF
 description: أرسل الصفحة المهمة فقط، أو احذف الصفحات الفارغة من الماسح، أو قسّم تقريراً طويلاً إلى فصول دون فقدان جودة النص أو التخطيط.
@@ -194,6 +198,7 @@ dek: تحتوي معظم ملفات PDF على أكثر مما يحتاجه ال
 - احتفظ بالأصل حتى تتأكد من اكتمال الملف المستخرج.
 
 === pt-br ===
+cover_alt: Tesoura separa páginas individuais de um PDF
 title: Como extrair páginas de um PDF ou dividi-lo em partes
 seo_title: Como extrair páginas de um PDF
 description: Envie só a página que importa, tire páginas em branco do scanner ou divida um relatório longo em capítulos, sem perder a qualidade do texto nem o layout.

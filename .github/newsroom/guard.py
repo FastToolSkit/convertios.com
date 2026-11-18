@@ -16,7 +16,7 @@ NEWS_SLUG = r"[a-z0-9]+(?:-[a-z0-9]+)+-20\d{6}"  # newsroom slugs always end wit
 # Existing files a news run may touch: the sitemap and generated Content Library listings only.
 LISTING = re.compile(rf"^{LANG}blog/(?:index\.html|page/\d+/index\.html|category/[a-z]+(?:-[a-z]+)*/(?:page/\d+/)?index\.html)$")
 # New files: the story source, its four localized pages, its cover, and listing pages added by pagination growth.
-NEW = re.compile(rf"^(?:content/blog/{NEWS_SLUG}\.md|{LANG}blog/{NEWS_SLUG}/index\.html|assets/blog/covers/{NEWS_SLUG}\.svg)$")
+NEW = re.compile(rf"^(?:content/blog/{NEWS_SLUG}\.md|{LANG}blog/{NEWS_SLUG}/index\.html|assets/blog/editorial/{NEWS_SLUG}-(?:(?:640|960|1440)\.webp|1440\.jpg)|assets/blog/covers/{NEWS_SLUG}\.svg)$")
 
 
 def check_paths(tracked, new, root=ROOT):

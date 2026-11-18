@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 183
 status: published
+cover_image: email-attachment-size-limits
 cover: 📎 too large
 tools: compress-image, split-pdf, video-converter
 related: reduce-pdf-file-size, reduce-video-size-for-sharing
@@ -11,6 +12,7 @@ keyword: file too large to email
 intent: troubleshooting
 ---
 === en ===
+cover_alt: Envelope packed with attachments beneath a size gauge
 title: File too large to email? Practical ways to send it anyway
 seo_title: File too large to email? What to do
 description: Email attachment limits are lower than they look. How to shrink photos, PDFs, audio and video, split documents, or share a link instead, without ruining quality.
@@ -69,6 +71,7 @@ Zipping files rarely helps with photos, PDFs or video, because they are already 
 Email sends attachments as text using an encoding called Base64, which makes them about a third larger in transit. A 20 MB PDF can therefore count as roughly 27 MB against the limit. If a file is close to the advertised maximum, aim noticeably below it rather than exactly at it.
 
 === es ===
+cover_alt: Sobre lleno de adjuntos bajo un medidor
 title: ¿Archivo demasiado grande para enviarlo por correo? Formas prácticas de enviarlo
 seo_title: ¿Archivo demasiado grande para el correo? Qué hacer
 description: Los límites de adjuntos son más bajos de lo que parecen. Cómo reducir fotos, PDF, audio y vídeo, dividir documentos o compartir un enlace sin estropear la calidad.
@@ -122,6 +125,7 @@ Comprimir en ZIP rara vez ayuda con fotos, PDF o vídeo, porque ya están compri
 - Indica en el cuerpo del correo qué adjuntas, sobre todo si lo has dividido en partes.
 
 === ar ===
+cover_alt: مغلف مليء بالمرفقات أسفل مقياس للحجم
 title: الملف أكبر من أن يُرسل بالبريد؟ طرق عملية لإرساله رغم ذلك
 seo_title: الملف كبير جداً للبريد الإلكتروني؟ ماذا تفعل
 description: حدود المرفقات أقل مما تبدو. كيف تصغّر الصور وملفات PDF والصوت والفيديو، أو تقسم المستندات، أو تشارك رابطاً بدلاً منها دون إفساد الجودة.
@@ -175,6 +179,7 @@ dek: ترتد رسالة لأن المرفق «كبير جداً» قبل الم
 - اذكر في نص الرسالة ما أرفقته، خصوصاً إذا قسمته إلى أجزاء.
 
 === pt-br ===
+cover_alt: Envelope cheio de anexos sob um medidor
 title: Arquivo grande demais para mandar por e-mail? Formas práticas de enviar mesmo assim
 seo_title: Arquivo grande demais para o e-mail? O que fazer
 description: Os limites de anexo são menores do que parecem. Como diminuir fotos, PDFs, áudio e vídeo, dividir documentos ou compartilhar um link sem estragar a qualidade.

@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 148
 status: published
+cover_image: prepare-documents-for-ai-assistants
 cover: PDF → AI
 tools: split-pdf, pdf-to-word, rotate-pdf
 related: ocr-explained, ai-tools-file-privacy-checklist
@@ -11,6 +12,7 @@ keyword: upload pdf to ai chatbot tips
 intent: how-to
 ---
 === en ===
+cover_alt: Disordered pages become an organized document for an AI assistant
 title: How to prepare PDFs and images so AI assistants read them accurately
 seo_title: Prepare PDFs and images for AI assistants
 description: AI assistants answer better when documents are text-based, upright, focused and within size limits. Practical steps to prepare files and check the answers you get.
@@ -67,6 +69,7 @@ AI assistants can produce confident, fluent mistakes, especially with numbers in
 - Answers checked against the source, especially numbers.
 
 === es ===
+cover_alt: Páginas desordenadas se organizan para un asistente de IA
 title: Cómo preparar PDF e imágenes para que los asistentes de IA los lean bien
 seo_title: Preparar PDF e imágenes para asistentes de IA
 description: Los asistentes de IA responden mejor con documentos con texto, derechos, centrados y dentro de los límites. Cómo prepararlos y revisar las respuestas.
@@ -123,6 +126,7 @@ Los asistentes de IA pueden cometer errores con total seguridad y fluidez, sobre
 - Respuestas comprobadas con la fuente, sobre todo los números.
 
 === ar ===
+cover_alt: صفحات مبعثرة تنتظم أمام مساعد ذكي
 title: كيف تجهّز ملفات PDF والصور لتقرأها مساعدات الذكاء الاصطناعي بدقة
 seo_title: تجهيز ملفات PDF والصور لمساعدات الذكاء الاصطناعي
 description: تجيب مساعدات الذكاء الاصطناعي بشكل أفضل عندما تكون المستندات نصية وقائمة ومركزة وضمن الحدود. خطوات عملية لتجهيز الملفات ومراجعة الإجابات.
@@ -179,6 +183,7 @@ dek: عندما يخطئ مساعد الذكاء الاصطناعي في قرا�
 - إجابات مراجَعة مقابل المصدر، خصوصاً الأرقام.
 
 === pt-br ===
+cover_alt: Páginas dispersas são organizadas para um assistente de IA
 title: Como preparar PDFs e imagens para que assistentes de IA os leiam com precisão
 seo_title: Preparar PDFs e imagens para assistentes de IA
 description: Assistentes de IA respondem melhor com documentos com texto, em pé, focados e dentro dos limites. Como preparar arquivos e conferir as respostas.

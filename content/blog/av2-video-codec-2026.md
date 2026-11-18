@@ -4,6 +4,7 @@ type: news
 published: 2026-11-18
 order: 167
 status: published
+cover_image: av2-video-codec-2026
 cover: AV2 · AV1 successor
 tools: video-converter, video-to-mp3
 related: video-formats-compared, reduce-video-size-for-sharing
@@ -16,6 +17,7 @@ source: Digital Citizen: AV2 1.0 final specification promises 30 percent better 
 source: Linuxiac: AOMedia officially releases AV2 codec after first 1.0 milestone | https://linuxiac.com/aomedia-officially-releases-av2-codec-after-first-1-0-milestone/ | 2026-06-09
 ---
 === en ===
+cover_alt: Film passing through a video encoder
 title: AV2 is final: what the successor to AV1 means for everyday video
 seo_title: AV2 video codec released: what it means
 description: The Alliance for Open Media has finalised AV2, the royalty-free successor to AV1. What changed, what is claimed, and why your devices will not use it yet.
@@ -56,6 +58,7 @@ AV1's own history is a useful guide: its specification arrived in 2018, and it t
 No. The Convertios [Video Converter](tool:video-converter) outputs widely supported formats such as MP4 (H.264), WEBM (VP9) and MOV, and does not encode AV1 or AV2. [Video to MP3](tool:video-to-mp3) extracts audio from common video formats. We will review AV2 support when mainstream browsers and devices can play it.
 
 === es ===
+cover_alt: Película que atraviesa un codificador de vídeo
 title: AV2 ya es definitivo: qué supone el sucesor de AV1 para el vídeo cotidiano
 seo_title: Se publica el códec de vídeo AV2: qué significa
 description: La Alliance for Open Media ha cerrado AV2, el sucesor sin regalías de AV1. Qué cambia, qué se promete y por qué tus dispositivos aún no lo usarán.
@@ -96,6 +99,7 @@ La historia de AV1 sirve de referencia: su especificación llegó en 2018 y pasa
 No. El [Conversor de vídeo](tool:video-converter) de Convertios genera formatos muy compatibles como MP4 (H.264), WEBM (VP9) y MOV, y no codifica AV1 ni AV2. [Vídeo a MP3](tool:video-to-mp3) extrae el audio de los formatos de vídeo habituales. Revisaremos el soporte de AV2 cuando los navegadores y dispositivos principales puedan reproducirlo.
 
 === ar ===
+cover_alt: شريط فيلم يمر عبر مرمّز فيديو
 title: اكتمل AV2: ماذا يعني خليفة AV1 للفيديو اليومي
 seo_title: صدور ترميز الفيديو AV2: ماذا يعني
 description: أنهى تحالف Alliance for Open Media مواصفة AV2، الخليفة المجاني الحقوق لترميز AV1. ما الذي تغيّر، وما المزاعم، ولماذا لن تستخدمه أجهزتك بعد.
@@ -136,6 +140,7 @@ dek: تحمل مواصفة AV2 بالإصدار 1.0 تاريخ 28 مايو 2026�
 لا. ينتج [محوّل الفيديو](tool:video-converter) في Convertios صيغاً واسعة الدعم مثل MP4 (H.264) وWEBM (VP9) وMOV، ولا يرمّز AV1 أو AV2. وتستخرج أداة [تحويل الفيديو إلى MP3](tool:video-to-mp3) الصوت من صيغ الفيديو الشائعة. وسنراجع دعم AV2 حين تتمكن المتصفحات والأجهزة الرئيسية من تشغيله.
 
 === pt-br ===
+cover_alt: Filme passando por um codificador de vídeo
 title: AV2 está pronto: o que o sucessor do AV1 significa para o vídeo do dia a dia
 seo_title: Codec de vídeo AV2 lançado: o que significa
 description: A Alliance for Open Media finalizou o AV2, sucessor livre de royalties do AV1. O que mudou, o que se promete e por que seus aparelhos ainda não vão usá-lo.

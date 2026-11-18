@@ -4,6 +4,7 @@ type: news
 published: 2026-11-11
 order: 15
 status: published
+cover_image: pdf-brotli-2026
 cover: Brotli PDF
 tools: merge-pdf, compress-image
 event_date: 2026-08-19
@@ -13,6 +14,7 @@ source: PDF Association announcement | https://pdfa.org/no-excuses-brotli-compre
 source: PDF Association technical resources | https://pdfa.org/resources/
 ---
 === en ===
+cover_alt: Document stack compressed by a mechanical press
 title: Brotli in PDF: a new compression specification and its compatibility limits
 seo_title: Brotli in PDF: compression and compatibility
 description: The PDF Association specified a Brotli filter for PDF. It may reduce file size in compatible software, but recipients still need a reader that supports it.
@@ -26,6 +28,7 @@ dek: The PDF Association specified a Brotli filter for PDF. It may reduce file s
 <section class="news-sources"><h2>Primary sources</h2><ul><li><a href="https://pdfa.org/no-excuses-brotli-compression-advances-pdf/" rel="noopener noreferrer">PDF Association announcement</a></li><li><a href="https://pdfa.org/resources/" rel="noopener noreferrer">PDF Association technical resources</a></li></ul></section>
 
 === es ===
+cover_alt: Pila de documentos comprimida por una prensa
 title: Brotli en PDF: nueva especificación y límites de compatibilidad
 seo_title: Brotli en PDF: compresión y compatibilidad
 description: La PDF Association definió un filtro Brotli para flujos PDF. Puede reducir algunos archivos, pero la lectura depende del programa del destinatario.
@@ -39,6 +42,7 @@ dek: La PDF Association definió un filtro Brotli para flujos PDF. Puede reducir
 <section class="news-sources"><h2>Fuentes primarias</h2><ul><li><a href="https://pdfa.org/no-excuses-brotli-compression-advances-pdf/" rel="noopener noreferrer">Anuncio de la PDF Association</a></li><li><a href="https://pdfa.org/resources/" rel="noopener noreferrer">Recursos técnicos de la PDF Association</a></li></ul></section>
 
 === ar ===
+cover_alt: مجموعة مستندات يضغطها مكبس
 title: Brotli في PDF: مواصفة ضغط جديدة وحدود التوافق
 seo_title: Brotli في PDF: الضغط والتوافق
 description: حددت جمعية PDF مرشح Brotli لضغط تدفقات داخل الملف. قد يصغر بعض الملفات، لكن فتحها يعتمد على دعم برنامج المستلم.
@@ -52,6 +56,7 @@ dek: حددت جمعية PDF مرشح Brotli لضغط تدفقات داخل ال
 <section class="news-sources"><h2>المصادر الأصلية</h2><ul><li><a href="https://pdfa.org/no-excuses-brotli-compression-advances-pdf/" rel="noopener noreferrer">إعلان جمعية PDF</a></li><li><a href="https://pdfa.org/resources/" rel="noopener noreferrer">الموارد التقنية لجمعية PDF</a></li></ul></section>
 
 === pt-br ===
+cover_alt: Pilha de documentos comprimida por uma prensa
 title: Brotli no PDF: nova especificação de compressão e seus limites de compatibilidade
 seo_title: Brotli no PDF: compressão e compatibilidade
 description: A PDF Association especificou um filtro Brotli para PDF. Ele pode reduzir arquivos em programas compatíveis, mas o destinatário precisa de um leitor com suporte.

@@ -1,4 +1,10 @@
-# Visual approval checkpoint
+# Approved editorial covers
+
+The owner approved the eight-cover visual direction on November 18, 2026. The library now uses 60 distinct AI editorial covers across all 240 localized articles. [Browse all covers](all-60-covers.jpg) or use the local review page. The original before/after screenshots below preserve the design approval checkpoint.
+
+Every published topic requires a cover, its four optimized image variants and localized alt text. Newsroom drafts generate conceptual illustrations before rendering. See [newsroom setup](../newsroom/README.md).
+
+## Historical visual approval checkpoint
 
 Recovered on 2026-11-18 from `f6ad7d8c` in the existing
 `feat/content-library-v1` worktree. PR #290 stays a draft; no merge or production

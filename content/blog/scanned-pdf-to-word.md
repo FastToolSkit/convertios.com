@@ -5,6 +5,7 @@ published: 2026-11-11
 updated: 2026-11-18
 order: 13
 status: published
+cover_image: scanned-pdf-to-word
 cover: Scan → OCR
 tools: pdf-to-word, pdf-to-jpg, split-pdf
 related: convert-pdf-to-word-keep-formatting, ocr-explained
@@ -12,6 +13,7 @@ keyword: scanned pdf to word not editable
 intent: informational / troubleshooting
 ---
 === en ===
+cover_alt: Scanner turns paper into an editable document
 title: Why scanned PDFs are not editable after conversion
 seo_title: Why scanned PDFs are not editable in Word
 description: A converted Word file can still contain only page images. Learn to spot a scanned PDF, what PDF to Word can edit, and when you need OCR first.
@@ -79,6 +81,7 @@ Complex columns, form fields, unusual fonts and tables built from many small tex
 > Converting a scan to Word without OCR gives you a Word file full of pictures. That is expected behaviour, not a bug, and no PDF-to-Word converter without OCR can do otherwise.
 
 === es ===
+cover_alt: Escáner transforma papel en un documento editable
 title: Por qué un PDF escaneado no queda editable al convertirlo
 seo_title: Por qué un PDF escaneado no se puede editar en Word
 description: Un Word convertido puede contener solo imágenes de las páginas. Aprende a reconocer un PDF escaneado, qué puede editar PDF a Word y cuándo hace falta OCR.
@@ -146,6 +149,7 @@ Las columnas complejas, los campos de formulario, las fuentes poco comunes y las
 > Convertir un escaneo a Word sin OCR da como resultado un Word lleno de imágenes. Es el comportamiento esperado, no un error, y ningún conversor de PDF a Word sin OCR puede hacer otra cosa.
 
 === ar ===
+cover_alt: ماسح يحول الورق إلى مستند قابل للتحرير
 title: لماذا لا يصبح ملف PDF الممسوح ضوئياً قابلاً للتعديل بعد تحويله
 seo_title: لماذا لا يمكن تعديل PDF ممسوح ضوئياً في Word
 description: قد يحتوي ملف Word المحوَّل على صور للصفحات فقط. تعرّف إلى طريقة كشف PDF الممسوح ضوئياً، وما الذي تعدّله أداة PDF إلى Word، ومتى تحتاج إلى OCR أولاً.
@@ -213,6 +217,7 @@ PDF وعاء يحمل المحتوى، وليس نوعاً واحداً منه. 
 > تحويل مسح ضوئي إلى Word دون OCR ينتج ملف Word مليئاً بالصور. هذا سلوك متوقع وليس خطأ، ولا يستطيع أي محوّل من PDF إلى Word بلا OCR أن يفعل غير ذلك.
 
 === pt-br ===
+cover_alt: Scanner transforma papel em documento editável
 title: Por que um PDF digitalizado não fica editável depois da conversão
 seo_title: Por que um PDF digitalizado não fica editável no Word
 description: Um Word convertido pode conter apenas imagens das páginas. Saiba identificar um PDF digitalizado, o que o PDF para Word consegue editar e quando você precisa de OCR.

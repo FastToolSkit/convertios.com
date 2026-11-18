@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 164
 status: published
+cover_image: qr-code-scam-safety
 cover: Scan safely
 tools: qr-generator, link-shortener
 related: link-shortener-safety, qr-codes-for-business
@@ -11,6 +12,7 @@ keyword: qr code scams / safe scanning
 intent: informational
 ---
 === en ===
+cover_alt: A phone scans a sticker concealing a suspicious QR code
 title: QR code scams: how to scan safely and protect your customers
 seo_title: QR code scams: how to scan safely
 description: Fake parking signs, sticker swaps and phishing emails use QR codes to hide malicious links. Warning signs, safe habits and how businesses can protect codes.
@@ -60,6 +62,7 @@ The Convertios [QR Code Generator](tool:qr-generator) creates static codes in yo
 A QR generator does not check whether a link is safe, and a valid QR code says nothing about whether its destination is trustworthy. The safety comes from the link inside it and from how carefully people check before acting.
 
 === es ===
+cover_alt: Un móvil escanea una pegatina sobre un QR sospechoso
 title: Estafas con códigos QR: cómo escanear con seguridad y proteger a tus clientes
 seo_title: Estafas con códigos QR: cómo escanear con seguridad
 description: Pegatinas falsas en parquímetros y correos de phishing usan QR para ocultar enlaces maliciosos. Señales de alerta, hábitos seguros y consejos para negocios.
@@ -109,6 +112,7 @@ El [Generador de códigos QR](tool:qr-generator) de Convertios crea en tu navega
 Un generador de QR no comprueba si un enlace es seguro, y que un código QR sea válido no dice nada sobre si su destino es fiable. La seguridad depende del enlace que contiene y de lo atenta que esté la gente antes de actuar.
 
 === ar ===
+cover_alt: هاتف يفحص ملصقا يخفي رمز QR مشبوها
 title: الاحتيال عبر رموز QR: كيف تمسح بأمان وتحمي عملاءك
 seo_title: الاحتيال عبر رموز QR: كيف تمسح بأمان
 description: تستخدم لافتات المواقف المزيفة والملصقات المستبدلة ورسائل التصيد رموز QR لإخفاء روابط ضارة. تعرّف إلى علامات التحذير وعادات المسح الآمن وطرق حماية رموز نشاطك التجاري.
@@ -158,6 +162,7 @@ dek: رمز QR مجرد رابط لا تستطيع قراءته بعينك، و�
 لا يتحقق مولد QR من أمان الرابط، وصحة رمز QR لا تقول شيئاً عن موثوقية وجهته. الأمان يأتي من الرابط الذي يحتويه ومن حرص الناس على التحقق قبل التصرف.
 
 === pt-br ===
+cover_alt: Celular lê um adesivo sobre um QR suspeito
 title: Golpes com QR Code: como escanear com segurança e proteger seus clientes
 seo_title: Golpes com QR Code: como escanear com segurança
 description: Adesivos falsos em parquímetros e e-mails de phishing usam QR Codes para esconder links maliciosos. Sinais de alerta, hábitos seguros e dicas para empresas.

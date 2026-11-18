@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 154
 status: published
+cover_image: reduce-video-size-for-sharing
 cover: 4K → 1080p · MB ↓
 tools: video-converter, video-to-mp3
 related: email-attachment-size-limits, video-formats-compared
@@ -11,6 +12,7 @@ keyword: reduce video file size
 intent: how-to
 ---
 === en ===
+cover_alt: A film reel feeds a smaller video frame
 title: How to reduce video file size for sharing without ruining it
 seo_title: Reduce video file size for sharing
 description: Why phone videos are so large, which settings actually shrink them (resolution, bitrate, codec, length) and when to share a link instead of the file.
@@ -57,6 +59,7 @@ Email providers commonly cap attachments around 20–25 MB, and messaging apps m
 - Keep the original; every re-encode loses some detail, so always convert from the best copy you have.
 
 === es ===
+cover_alt: Un carrete alimenta un fotograma más pequeño
 title: Cómo reducir el tamaño de un vídeo para compartirlo sin estropearlo
 seo_title: Reducir el tamaño de un vídeo para compartir
 description: Por qué los vídeos del móvil pesan tanto, qué ajustes los reducen de verdad (resolución, bitrate, códec y duración) y cuándo conviene enviar un enlace.
@@ -103,6 +106,7 @@ Los proveedores de correo suelen limitar los adjuntos a unos 20–25 MB, y las a
 - Conserva el original: cada recodificación pierde algo de detalle, así que convierte siempre desde la mejor copia.
 
 === ar ===
+cover_alt: بكرة فيلم تغذي إطار فيديو أصغر
 title: كيف تقلل حجم الفيديو لمشاركته دون إفساده
 seo_title: تقليل حجم ملف الفيديو للمشاركة
 description: لماذا تكون فيديوهات الهاتف كبيرة، وأي الإعدادات تصغّرها فعلاً (الدقة ومعدل البت والترميز والمدة)، ومتى يكون إرسال رابط أفضل من إرسال الملف.
@@ -149,6 +153,7 @@ dek: قد يبلغ مقطع 4K مدته دقيقة واحدة من الهاتف 
 - احتفظ بالأصل؛ فكل إعادة ترميز تفقد شيئاً من التفاصيل، لذا حوّل دائماً من أفضل نسخة لديك.
 
 === pt-br ===
+cover_alt: Um rolo de filme alimenta um quadro menor
 title: Como reduzir o tamanho de um vídeo para compartilhar sem estragar
 seo_title: Reduzir o tamanho de vídeo para compartilhar
 description: Por que vídeos de celular são tão grandes, quais ajustes realmente diminuem o arquivo (resolução, bitrate, codec e duração) e quando mandar um link.

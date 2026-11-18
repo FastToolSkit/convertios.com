@@ -4,6 +4,7 @@ type: tutorial
 published: 2026-11-18
 order: 178
 status: published
+cover_image: png-to-jpg-transparency
 cover: PNG → JPG
 tools: png-to-jpg, compress-image-to-100kb, image-resizer
 related: jpg-png-webp-guide, remove-background-clean-cutouts
@@ -11,6 +12,7 @@ keyword: png to jpg white background
 intent: how-to
 ---
 === en ===
+cover_alt: A balloon changes from a transparent to a solid background
 title: PNG to JPG: smaller files, and what happens to transparency
 seo_title: PNG to JPG: smaller files and transparency explained
 description: Converting PNG to JPG can shrink photos dramatically, but transparent areas turn white. When to convert, what changes and how to check the result.
@@ -59,6 +61,7 @@ If you have a folder of screenshots or exported photos, add them all in one go. 
 4. Keep the original PNG if you may need transparency or editing later.
 
 === es ===
+cover_alt: Un globo pasa de un fondo transparente a uno opaco
 title: De PNG a JPG: archivos más ligeros y qué pasa con la transparencia
 seo_title: De PNG a JPG: menos peso y qué pasa con la transparencia
 description: Pasar de PNG a JPG reduce mucho el peso de las fotos, pero la transparencia se vuelve blanca. Cuándo convertir, qué cambia y cómo revisar el resultado.
@@ -107,6 +110,7 @@ Si tienes una carpeta de capturas o fotos exportadas, añádelas todas de una ve
 4. Conserva el PNG original si más adelante puedes necesitar transparencia o editarlo.
 
 === ar ===
+cover_alt: منطاد ينتقل من خلفية شفافة إلى خلفية معتمة
 title: من PNG إلى JPG: ملفات أصغر وماذا يحدث للشفافية
 seo_title: من PNG إلى JPG: ملفات أصغر وما يحدث للشفافية
 description: تحويل PNG إلى JPG قد يصغّر الصور كثيراً، لكن المناطق الشفافة تصبح بيضاء والرسوم الحادة قد تتأثر. متى تحوّل وما الذي يتغير وكيف تراجع النتيجة.
@@ -155,6 +159,7 @@ dek: كثيراً ما تصل لقطات الشاشة والصور المصدّ�
 4. احتفظ بملف PNG الأصلي إن كنت قد تحتاج إلى الشفافية أو التعديل لاحقاً.
 
 === pt-br ===
+cover_alt: Balão passa de fundo transparente a opaco
 title: De PNG para JPG: arquivos menores e o que acontece com a transparência
 seo_title: De PNG para JPG: arquivos menores e transparência
 description: Converter PNG em JPG pode diminuir muito o tamanho das fotos, mas as áreas transparentes ficam brancas e gráficos nítidos podem piorar. Quando converter e como conferir.

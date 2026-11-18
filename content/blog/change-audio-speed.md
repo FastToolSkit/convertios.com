@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 159
 status: published
+cover_image: change-audio-speed
 cover: 0.5× · 1× · 2×
 tools: audio-speed-changer, mp3-cutter, audio-converter
 related: trim-voice-recordings, mp3-vs-wav
@@ -11,6 +12,7 @@ keyword: change audio speed
 intent: how-to
 ---
 === en ===
+cover_alt: Metronome beside a changing waveform
 title: Changing audio speed: what happens to pitch, and when it matters
 seo_title: Change audio speed: pitch, quality and uses
 description: Speeding up or slowing down audio: why simple speed changes alter pitch, when that is fine, when you need time-stretching, and how to export the result as MP3.
@@ -62,6 +64,7 @@ If your source is WAV and you need WAV again afterwards, the [Audio Converter](t
 Changing the speed of someone else's music or recording does not change who owns it. Use your own recordings, or material you have permission to edit and share.
 
 === es ===
+cover_alt: Metrónomo junto a una onda variable
 title: Cambiar la velocidad del audio: qué pasa con el tono y cuándo importa
 seo_title: Cambiar la velocidad del audio: tono y usos
 description: Acelerar o ralentizar audio: por qué un cambio de velocidad simple altera el tono, cuándo da igual, cuándo hace falta estirar el tiempo y cómo exportar en MP3.
@@ -113,6 +116,7 @@ Si tu fuente es WAV y luego necesitas WAV, el [Convertidor de audio](tool:audio-
 Cambiar la velocidad de la música o la grabación de otra persona no cambia quién es su dueño. Usa tus propias grabaciones o material que tengas permiso para editar y compartir.
 
 === ar ===
+cover_alt: مترونوم بجانب موجة صوتية متغيرة
 title: تغيير سرعة الصوت: ماذا يحدث لطبقة الصوت ومتى يهم ذلك
 seo_title: تغيير سرعة الصوت: الطبقة والجودة والاستخدامات
 description: تسريع الصوت أو إبطاؤه: لماذا يغيّر تعديل السرعة البسيط طبقة الصوت، ومتى لا يهم ذلك، ومتى تحتاج إلى تمديد الزمن، وكيف تصدّر النتيجة بصيغة MP3.
@@ -164,6 +168,7 @@ dek: شغّل تسجيلاً بسرعة 1.5× فترتفع الأصوات، وأ
 تغيير سرعة موسيقى غيرك أو تسجيله لا يغيّر ملكيته. استخدم تسجيلاتك أو مواد لديك إذن بتحريرها ومشاركتها.
 
 === pt-br ===
+cover_alt: Metrônomo junto a uma onda variável
 title: Mudar a velocidade do áudio: o que acontece com o tom e quando importa
 seo_title: Mudar a velocidade do áudio: tom, qualidade e usos
 description: Acelerar ou desacelerar áudio: por que a mudança simples de velocidade altera o tom, quando isso não importa, quando é preciso esticar o tempo e como exportar em MP3.

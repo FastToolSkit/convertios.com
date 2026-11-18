@@ -36,7 +36,7 @@ def fixture():
                 text = f"Synthetic fixture paragraph {number} describes a fictional event only for deterministic offline tests. " + "This example explains how a proposed article keeps page structure and source links while using harmless synthetic words. " * 3
                 paragraphs.append({"text": text, "evidence": ["source-a", "source-b"]})
             sections.append({"paragraphs": paragraphs})
-        versions[lang] = {"title": f"Synthetic fictional rendering example for {lang}", "description": f"A fictional fixture description used only for offline testing of the draft newsroom renderer ({lang}).", "dek": "A fictional fixture summary used only to test the multilingual news article page layout.", "sections": sections, "tools": [prefix + "pdf-to-word/", prefix + "pdf-to-jpg/"], "related_slug": "pdf-brotli-2026"}
+        versions[lang] = {"cover_alt": "Conceptual illustration of the synthetic specification.", "title": f"Synthetic fictional rendering example for {lang}", "description": f"A fictional fixture description used only for offline testing of the draft newsroom renderer ({lang}).", "dek": "A fictional fixture summary used only to test the multilingual news article page layout.", "sections": sections, "tools": [prefix + "pdf-to-word/", prefix + "pdf-to-jpg/"], "related_slug": "pdf-brotli-2026"}
     plan = {"stories": [{"event_id": "synthetic-rendering-test", "topic": "pdf-documents", "event_date": "2026-11-19", "status": "draft", "source_ids": ["source-a", "source-b"], "versions": versions}]}
     return {"generated_utc": TODAY.isoformat(), "sources": sources, "failures": []}, plan
 
@@ -60,6 +60,9 @@ class NewsroomTests(unittest.TestCase):
                     target.parent.mkdir(parents=True, exist_ok=True)
                     shutil.copyfile(page, target)
             shutil.copytree(base / "blog", self.root / newsroom.PREFIX[lang] / "blog")
+        for asset in (self.root / "assets/blog/editorial").glob("merge-pdf-files-*"):
+            destination = asset.with_name(asset.name.replace("merge-pdf-files", "synthetic-rendering-test-20261119"))
+            shutil.copyfile(asset, destination)
         self.intake, self.plan = fixture()
 
     def test_zero_stories_changes_nothing(self):

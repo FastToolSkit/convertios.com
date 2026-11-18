@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 149
 status: published
+cover_image: pdf-redaction-mistakes
 cover: ████ PDF
 tools: pdf-to-jpg, jpg-to-pdf, split-pdf
 related: split-pdf-extract-pages, pdf-vs-docx
@@ -11,6 +12,7 @@ keyword: how to redact a pdf properly
 intent: informational / how-to
 ---
 === en ===
+cover_alt: Magnifier exposes text beneath redaction bars
 title: PDF redaction mistakes that leave private information exposed
 seo_title: PDF redaction mistakes and how to avoid them
 description: A black box drawn over text does not always remove it. Learn how real redaction works, how to test a redacted PDF and what to do when you lack a redaction tool.
@@ -76,6 +78,7 @@ All three Convertios tools run in your browser, so the pages are not uploaded. T
 - **Keep an unredacted original in a secure place,** separate from the version you share.
 
 === es ===
+cover_alt: Una lupa revela texto bajo franjas de censura
 title: Errores al censurar un PDF que dejan información privada a la vista
 seo_title: Errores al censurar un PDF y cómo evitarlos
 description: Un recuadro negro sobre un texto no siempre lo elimina. Aprende cómo funciona la censura real, cómo comprobar un PDF censurado y qué hacer sin herramienta específica.
@@ -141,6 +144,7 @@ Las tres herramientas de Convertios funcionan en tu navegador, así que las pág
 - **Guarda el original sin censurar en un lugar seguro,** separado de la versión que compartes.
 
 === ar ===
+cover_alt: عدسة تكشف نصا تحت خطوط الحجب
 title: أخطاء حجب المعلومات في PDF التي تترك بياناتك الخاصة مكشوفة
 seo_title: أخطاء حجب المعلومات في PDF وكيف تتجنبها
 description: المربع الأسود فوق النص لا يحذفه دائماً. تعرّف إلى طريقة الحجب الحقيقي، وكيف تختبر ملف PDF بعد الحجب، وماذا تفعل إن لم تملك أداة حجب.
@@ -206,6 +210,7 @@ dek: تغطية رقم بمستطيل أسود تبدو آمنة، لكن الن
 - **احتفظ بالأصل غير المحجوب في مكان آمن** بعيداً عن النسخة التي تشاركها.
 
 === pt-br ===
+cover_alt: Lupa revela texto sob tarjas de ocultação
 title: Erros ao tarjar um PDF que deixam informações privadas expostas
 seo_title: Erros ao tarjar um PDF e como evitá-los
 description: Um retângulo preto sobre o texto nem sempre o remove. Veja como a tarja de verdade funciona, como testar um PDF tarjado e o que fazer sem uma ferramenta própria.

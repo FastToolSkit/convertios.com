@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 168
 status: published
+cover_image: how-ai-background-removal-works
 cover: Subject / Mask
 tools: remove-bg, image-resizer, compress-image
 related: remove-background-clean-cutouts, webassembly-browser-tools
@@ -11,6 +12,7 @@ keyword: how ai background removal works
 intent: informational
 ---
 === en ===
+cover_alt: Headphones isolated against a transparency grid
 title: How AI background removal works, and why hair and glass are hard
 seo_title: How AI background removal works
 description: Background removers use segmentation models to separate a subject. How the mask is made, why some edges fail and what running the model in a browser means.
@@ -63,6 +65,7 @@ Our explainer on [how in-browser tools work](blog:webassembly-browser-tools) des
 - The PNG keeps transparency. If a website needs a smaller file, resize it with the [Image Resizer](tool:image-resizer), choosing PNG or WebP to keep transparency, or compress it with the [image compressor](tool:compress-image) as PNG or WebP. Converting to JPG fills transparent areas with a solid colour.
 
 === es ===
+cover_alt: Auriculares aislados sobre una cuadrícula de transparencia
 title: Cómo funciona la eliminación de fondos con IA y por qué el pelo y el cristal son difíciles
 seo_title: Cómo funciona la eliminación de fondos con IA
 description: Los eliminadores de fondo usan modelos de segmentación. Cómo se crea la máscara, por qué fallan algunos bordes y qué supone ejecutarlo en el navegador.
@@ -115,6 +118,7 @@ Nuestra explicación sobre [cómo funcionan las herramientas en el navegador](bl
 - El PNG conserva la transparencia. Si una web necesita un archivo más pequeño, redimensiónalo con el [Redimensionador de imágenes](tool:image-resizer) eligiendo PNG o WebP para mantener la transparencia, o comprímelo con el [compresor de imágenes](tool:compress-image) en PNG o WebP. Convertirlo a JPG rellena las zonas transparentes con un color sólido.
 
 === ar ===
+cover_alt: سماعات معزولة أمام شبكة شفافية
 title: كيف تعمل إزالة الخلفية بالذكاء الاصطناعي ولماذا يصعب الشعر والزجاج
 seo_title: كيف تعمل إزالة الخلفية بالذكاء الاصطناعي
 description: تستخدم أدوات إزالة الخلفية نماذج تجزئة لفصل الموضوع عن محيطه. تعرّف إلى كيفية صنع القناع ولماذا تفشل بعض الحواف وما معنى تشغيل النموذج داخل متصفحك.
@@ -167,6 +171,7 @@ dek: نقرة واحدة وتختفي الخلفية. وخلف هذه النقر
 - يحافظ ملف PNG على الشفافية. إذا احتاج موقع ما إلى ملف أصغر فغيّر حجمه بأداة [تغيير حجم الصور](tool:image-resizer) مع اختيار PNG أو WebP للحفاظ على الشفافية، أو اضغطه بأداة [ضاغط الصور](tool:compress-image) بصيغة PNG أو WebP. أما التحويل إلى JPG فيملأ المناطق الشفافة بلون مصمت.
 
 === pt-br ===
+cover_alt: Fones isolados sobre uma grade de transparência
 title: Como funciona a remoção de fundo com IA e por que cabelo e vidro são difíceis
 seo_title: Como funciona a remoção de fundo com IA
 description: Removedores de fundo usam modelos de segmentação. Como a máscara é feita, por que algumas bordas falham e o que significa rodar o modelo no navegador.

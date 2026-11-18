@@ -4,6 +4,7 @@ type: tutorial
 published: 2026-11-18
 order: 182
 status: published
+cover_image: photos-to-pdf-phone
 cover: JPG → PDF
 tools: jpg-to-pdf, compress-image, merge-pdf
 related: merge-pdf-files, reduce-pdf-file-size
@@ -11,6 +12,7 @@ keyword: convert photos to pdf
 intent: how-to
 ---
 === en ===
+cover_alt: Printed photos collected into one PDF on a phone
 title: How to turn phone photos into a clean, readable PDF
 seo_title: How to turn phone photos into a readable PDF
 description: Photograph documents so they look almost like scans, combine JPG or PNG images into one PDF, choose A4 or image-sized pages and keep the file small enough to upload.
@@ -82,6 +84,7 @@ If your submission also includes PDFs you already have, such as a certificate or
 - PDF size checked against the upload limit before you start the form.
 
 === es ===
+cover_alt: Fotos reunidas en un PDF en un teléfono
 title: Cómo convertir fotos del móvil en un PDF limpio y legible
 seo_title: Cómo convertir fotos del móvil en un PDF legible
 description: Fotografía documentos para que parezcan escaneados, une imágenes JPG o PNG en un PDF, elige páginas A4 o del tamaño de la imagen y mantén un peso apto para subir.
@@ -153,6 +156,7 @@ Si tu envío incluye además PDF que ya tienes, como un certificado o un formula
 - Peso del PDF comprobado frente al límite antes de empezar el formulario.
 
 === ar ===
+cover_alt: صور مطبوعة تجتمع في ملف PDF على هاتف
 title: كيف تحوّل صور الهاتف إلى ملف PDF واضح ومقروء
 seo_title: كيف تحوّل صور الهاتف إلى PDF واضح
 description: صوّر المستندات لتبدو كأنها ممسوحة ضوئياً، واجمع صور JPG أو PNG في ملف PDF واحد، واختر صفحات A4 أو بحجم الصورة، وحافظ على حجم مناسب للرفع.
@@ -224,6 +228,7 @@ dek: كثيراً ما تطلب النماذج والمدارس والمكاتب
 - مقارنة حجم الملف بحد الرفع قبل البدء بملء النموذج.
 
 === pt-br ===
+cover_alt: Fotos reunidas em um PDF no celular
 title: Como transformar fotos do celular em um PDF limpo e legível
 seo_title: Como transformar fotos do celular em um PDF legível
 description: Fotografe documentos para parecerem digitalizados, junte imagens JPG ou PNG em um PDF, escolha páginas A4 ou do tamanho da imagem e mantenha o arquivo leve.

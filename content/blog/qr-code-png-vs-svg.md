@@ -5,6 +5,7 @@ published: 2026-11-11
 updated: 2026-11-18
 order: 11
 status: published
+cover_image: qr-code-png-vs-svg
 cover: QR PNG / SVG
 tools: qr-generator, link-shortener, image-resizer
 related: svg-vs-png, retail-qr-2027
@@ -12,6 +13,7 @@ keyword: qr code png or svg
 intent: comparison
 ---
 === en ===
+cover_alt: Magnifiers compare raster and vector QR edges
 title: QR code as PNG or SVG: which should you download?
 seo_title: QR code PNG or SVG: which download to choose
 description: PNG and SVG encode the same QR data but behave differently when resized and printed. Which to use for screens, documents, flyers and signs, and how to test.
@@ -66,6 +68,7 @@ Codes from the Convertios generator are static: the destination is stored direct
 For product packaging scanned at checkout, ordinary URL QR codes are different from the GS1 barcodes retailers use; see our news article on [GS1's 2027 retail barcode goal](blog:retail-qr-2027).
 
 === es ===
+cover_alt: Lupas comparan bordes QR de píxeles y vectores
 title: Código QR en PNG o SVG: ¿cuál deberías descargar?
 seo_title: Código QR en PNG o SVG: qué descarga elegir
 description: PNG y SVG guardan los mismos datos QR, pero se comportan distinto al ampliar e imprimir. Cuál usar en pantallas, documentos, folletos y carteles.
@@ -120,6 +123,7 @@ Los códigos del generador de Convertios son estáticos: el destino se guarda di
 En los envases que se escanean en caja, los QR con enlace son distintos de los códigos GS1 que usan los comercios; consulta nuestra noticia sobre [el objetivo de GS1 para el comercio en 2027](blog:retail-qr-2027).
 
 === ar ===
+cover_alt: عدستان تقارنان حواف رمز QR النقطية والمتجهية
 title: رمز QR بصيغة PNG أم SVG: أيهما تنزّل؟
 seo_title: رمز QR بصيغة PNG أم SVG: أي تنزيل تختار؟
 description: تحمل PNG وSVG بيانات QR نفسها لكنهما تتصرفان بشكل مختلف عند تكبيرهما وطباعتهما. اعرف أيهما يناسب المواقع والمستندات والمطويات واللافتات الكبيرة، وكيف تختبر النتيجة.
@@ -174,6 +178,7 @@ dek: يحتوي رمز QR على النص أو الرابط الذي ترمّز�
 أما في عبوات المنتجات التي تُمسح عند الدفع فرموز QR ذات الروابط تختلف عن رموز GS1 التي يستخدمها تجار التجزئة؛ راجع خبرنا عن [هدف GS1 للبيع بالتجزئة في 2027](blog:retail-qr-2027).
 
 === pt-br ===
+cover_alt: Lupas comparam bordas de QR em pixels e vetores
 title: QR Code em PNG ou SVG: qual você deve baixar?
 seo_title: QR Code em PNG ou SVG: qual download escolher
 description: PNG e SVG guardam os mesmos dados do QR, mas se comportam de forma diferente ao ampliar e imprimir. Qual usar em telas, documentos, panfletos e placas.

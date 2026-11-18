@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 162
 status: published
+cover_image: pdf-to-jpg-when-to-convert
 cover: PDF page → JPG
 tools: pdf-to-jpg, split-pdf, compress-image
 related: split-pdf-extract-pages, image-dpi-and-print-size, pdf-vs-docx
@@ -11,6 +12,7 @@ keyword: pdf to jpg
 intent: how-to
 ---
 === en ===
+cover_alt: Balance compares a PDF page with photographic images
 title: PDF to JPG: when turning pages into images makes sense
 seo_title: PDF to JPG: when and how to convert
 description: Convert PDF pages to JPG images for previews, social posts, or upload forms that only take images: resolution, text quality, and when to keep the PDF instead.
@@ -59,6 +61,7 @@ If a form has a strict size limit, reduce the JPG with the [Image Compressor](to
 JPG suits pages with photos and is usually smaller. Pages that are mostly text, lines and flat colour can look crisper as PNG, because JPG compression can leave faint halos around letters. If a form accepts PNG and the page is a text document, it is worth comparing the two.
 
 === es ===
+cover_alt: Balanza compara una página PDF con fotografías
 title: PDF a JPG: cuándo tiene sentido convertir páginas en imágenes
 seo_title: PDF a JPG: cuándo y cómo convertir
 description: Convierte páginas PDF en JPG para vistas previas, redes sociales o formularios que solo admiten imágenes: resolución, calidad del texto y cuándo es mejor el PDF.
@@ -107,6 +110,7 @@ Si un formulario tiene un límite de tamaño estricto, reduce el JPG con el [Com
 JPG encaja con páginas con fotos y suele pesar menos. Las páginas con sobre todo texto, líneas y colores planos pueden verse más nítidas en PNG, porque la compresión JPG deja a veces halos tenues alrededor de las letras. Si el formulario acepta PNG y la página es de texto, merece la pena comparar.
 
 === ar ===
+cover_alt: ميزان يقارن صفحة PDF بصور فوتوغرافية
 title: من PDF إلى JPG: متى يكون تحويل الصفحات إلى صور منطقياً
 seo_title: تحويل PDF إلى JPG: متى وكيف
 description: حوّل صفحات PDF إلى صور JPG للمعاينات أو منشورات التواصل أو نماذج الرفع التي لا تقبل إلا الصور: الدقة، ووضوح النص، ومتى تحتفظ بملف PDF.
@@ -155,6 +159,7 @@ dek: ملف PDF هو الوعاء المناسب للمستندات، لكنك �
 تناسب JPG الصفحات التي فيها صور وتكون عادة أصغر، أما الصفحات التي يغلب عليها النص والخطوط والألوان المسطحة فقد تبدو أوضح بصيغة PNG، لأن ضغط JPG قد يترك هالات خفيفة حول الحروف. فإن قبل النموذج PNG وكانت الصفحة نصية فتستحق المقارنة.
 
 === pt-br ===
+cover_alt: Balança compara uma página PDF a fotografias
 title: PDF para JPG: quando faz sentido transformar páginas em imagens
 seo_title: PDF para JPG: quando e como converter
 description: Converta páginas de PDF em JPG para prévias, posts em redes sociais ou formulários que só aceitam imagens: resolução, qualidade do texto e quando manter o PDF.

@@ -4,6 +4,7 @@ type: news
 published: 2026-11-11
 order: 17
 status: published
+cover_image: pdf-html-1-2-2026
 cover: PDF → HTML
 tools: pdf-to-word, pdf-to-jpg
 event_date: 2026-09-27
@@ -12,6 +13,7 @@ imported_from: docs/blog-news-2026-11 (reviewed November 2026 copy)
 source: PDF Association: Deriving PDF to HTML, version 1.2 | https://pdfa.org/deriving-pdf-to-html-version-1-2/
 ---
 === en ===
+cover_alt: A bridge connects a PDF page and web markup
 title: PDF-to-HTML algorithm 1.2 focuses on structure, not page snapshots
 seo_title: PDF to HTML 1.2: structure and accessibility
 description: The PDF Association updated its derivation guidance for well-tagged PDF. Useful HTML depends on source structure and still needs accessibility review.
@@ -25,6 +27,7 @@ dek: The PDF Association updated its derivation guidance for well-tagged PDF. Us
 <section class="news-sources"><h2>Primary sources</h2><ul><li><a href="https://pdfa.org/deriving-pdf-to-html-version-1-2/" rel="noopener noreferrer">PDF Association: Deriving PDF to HTML, version 1.2</a></li></ul></section>
 
 === es ===
+cover_alt: Un puente conecta una página PDF con código web
 title: PDF a HTML 1.2 prioriza la estructura frente a la apariencia
 seo_title: PDF a HTML 1.2: estructura y accesibilidad
 description: La PDF Association actualizó su método para derivar HTML desde PDF bien etiquetados; el resultado todavía requiere revisión de accesibilidad.
@@ -38,6 +41,7 @@ dek: La PDF Association actualizó su método para derivar HTML desde PDF bien e
 <section class="news-sources"><h2>Fuentes primarias</h2><ul><li><a href="https://pdfa.org/deriving-pdf-to-html-version-1-2/" rel="noopener noreferrer">PDF Association: PDF a HTML, versión 1.2</a></li></ul></section>
 
 === ar ===
+cover_alt: جسر يربط صفحة PDF بكود الويب
 title: خوارزمية PDF إلى HTML 1.2 تركز على البنية لا صورة الصفحة
 seo_title: PDF إلى HTML 1.2: البنية والإتاحة
 description: حدثت جمعية PDF إرشادها لاشتقاق HTML من ملفات موسومة جيداً، مع بقاء الحاجة إلى فحص الإتاحة في النتيجة.
@@ -51,6 +55,7 @@ dek: حدثت جمعية PDF إرشادها لاشتقاق HTML من ملفات 
 <section class="news-sources"><h2>المصادر الأصلية</h2><ul><li><a href="https://pdfa.org/deriving-pdf-to-html-version-1-2/" rel="noopener noreferrer">جمعية PDF: اشتقاق HTML من PDF، الإصدار 1.2</a></li></ul></section>
 
 === pt-br ===
+cover_alt: Ponte conecta uma página PDF ao código da web
 title: Algoritmo PDF para HTML 1.2 prioriza a estrutura, não a cópia visual da página
 seo_title: PDF para HTML 1.2: estrutura e acessibilidade
 description: A PDF Association atualizou sua orientação para derivar HTML de PDFs bem marcados. Um bom HTML depende da estrutura de origem e ainda exige revisão.

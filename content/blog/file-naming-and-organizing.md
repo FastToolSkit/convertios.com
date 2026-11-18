@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 155
 status: published
+cover_image: file-naming-and-organizing
 cover: 2026-11-18_v2
 tools: merge-pdf, split-pdf, image-converter
 related: email-attachment-size-limits, strong-password-guide
@@ -11,6 +12,7 @@ keyword: file naming conventions
 intent: how-to
 ---
 === en ===
+cover_alt: Loose files sorted into indexed folders
 title: File naming and folder habits that save hours later
 seo_title: File naming conventions that save time
 description: Dates that sort correctly, clear versions, no "final_final2": simple naming rules and folder habits that make files easy to find, share and archive.
@@ -69,6 +71,7 @@ Good names do not help if the file is gone. Keep important documents in at least
 Example: `2026-11-18_kitchen-quote_comparison_v02.pdf`. Adapt it, but use the same pattern every time; consistency is what makes it work.
 
 === es ===
+cover_alt: Archivos sueltos ordenados en carpetas
 title: Hábitos para nombrar archivos y carpetas que te ahorran horas
 seo_title: Cómo nombrar archivos para ahorrar tiempo
 description: Fechas que se ordenan bien, versiones claras y adiós a «final_final2»: reglas sencillas de nombres y carpetas para encontrar, compartir y archivar mejor.
@@ -127,6 +130,7 @@ Un buen nombre no sirve de nada si el archivo desaparece. Guarda los documentos 
 Ejemplo: `2026-11-18_presupuesto-cocina_comparativa_v02.pdf`. Adáptala, pero usa siempre el mismo patrón; la constancia es lo que hace que funcione.
 
 === ar ===
+cover_alt: ملفات متناثرة مرتبة في مجلدات مفهرسة
 title: عادات تسمية الملفات والمجلدات التي توفر عليك ساعات لاحقاً
 seo_title: قواعد تسمية الملفات التي توفر الوقت
 description: تواريخ تُرتب بشكل صحيح، وإصدارات واضحة، ووداعاً لـ «final_final2»: قواعد بسيطة لتسمية الملفات وتنظيم المجلدات تسهّل العثور عليها ومشاركتها وأرشفتها.
@@ -185,6 +189,7 @@ dek: معظم الملفات «الضائعة» ليست ضائعة، بل تح�
 مثال: `2026-11-18_kitchen-quote_comparison_v02.pdf`. عدّله كما يناسبك، لكن استخدم النمط نفسه دائماً؛ فالثبات هو ما يجعله فعالاً.
 
 === pt-br ===
+cover_alt: Arquivos soltos organizados em pastas
 title: Hábitos de nomear arquivos e pastas que economizam horas depois
 seo_title: Como nomear arquivos para economizar tempo
 description: Datas que ordenam certo, versões claras e nada de "final_final2": regras simples de nomes e de pastas que deixam os arquivos fáceis de achar, compartilhar e arquivar.

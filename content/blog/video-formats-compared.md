@@ -4,6 +4,7 @@ type: comparison
 published: 2026-11-18
 order: 179
 status: published
+cover_image: video-formats-compared
 cover: MP4 · MOV · WEBM · MKV
 tools: video-converter, video-to-mp3
 related: reduce-video-size-for-sharing, convert-video-to-mp3
@@ -11,6 +12,7 @@ keyword: video formats compared
 intent: comparison
 ---
 === en ===
+cover_alt: Different film containers balanced on scales
 title: MP4, MOV, WEBM, MKV and AVI: video formats compared
 seo_title: MP4 vs MOV vs WEBM vs MKV vs AVI
 description: Containers and codecs explained in plain terms, which video format plays where, and which one to choose for sharing, editing, websites or archiving.
@@ -54,6 +56,7 @@ The [Video Converter](tool:video-converter) runs on our server with FFmpeg and a
 Converting between containers does not improve quality. If the goal is a smaller file, read [how to reduce video size](blog:reduce-video-size-for-sharing) first.
 
 === es ===
+cover_alt: Distintos contenedores de vídeo en una balanza
 title: MP4, MOV, WEBM, MKV y AVI: comparativa de formatos de vídeo
 seo_title: MP4, MOV, WEBM, MKV o AVI: comparativa
 description: Contenedores y códecs explicados con claridad, qué formato de vídeo se reproduce dónde y cuál elegir para compartir, editar, publicar en webs o archivar.
@@ -97,6 +100,7 @@ El [Conversor de vídeo](tool:video-converter) funciona en nuestro servidor con 
 Cambiar de contenedor no mejora la calidad. Si buscas un archivo más pequeño, lee primero [cómo reducir el tamaño de un vídeo](blog:reduce-video-size-for-sharing).
 
 === ar ===
+cover_alt: حاويات فيديو مختلفة على ميزان
 title: MP4 وMOV وWEBM وMKV وAVI: مقارنة صيغ الفيديو
 seo_title: مقارنة MP4 وMOV وWEBM وMKV وAVI
 description: شرح مبسط للحاويات والترميزات، وأي صيغة فيديو تعمل في أي مكان، وأيها تختار للمشاركة أو التحرير أو المواقع أو الأرشفة.
@@ -140,6 +144,7 @@ dek: «صيغة» الفيديو في الحقيقة شيئان: حاوية (ن�
 تغيير الحاوية لا يحسّن الجودة. وإن كان هدفك ملفاً أصغر فاقرأ أولاً [طريقة تقليل حجم الفيديو](blog:reduce-video-size-for-sharing).
 
 === pt-br ===
+cover_alt: Diferentes contêineres de vídeo em uma balança
 title: MP4, MOV, WEBM, MKV e AVI: formatos de vídeo comparados
 seo_title: MP4, MOV, WEBM, MKV ou AVI: comparação
 description: Contêineres e codecs explicados de forma simples, qual formato de vídeo toca onde e qual escolher para compartilhar, editar, usar em sites ou arquivar.

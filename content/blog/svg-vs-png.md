@@ -4,6 +4,7 @@ type: comparison
 published: 2026-11-18
 order: 175
 status: published
+cover_image: svg-vs-png
 cover: SVG vs PNG
 tools: image-converter, qr-generator, image-resizer
 related: qr-code-png-vs-svg, svg-2-standard-2026
@@ -11,6 +12,7 @@ keyword: svg vs png
 intent: comparison
 ---
 === en ===
+cover_alt: Smooth vector landscape compared with a pixelated version
 title: SVG vs PNG: vector or pixels for logos, icons and graphics?
 seo_title: SVG vs PNG: which to use for logos and icons
 description: SVG scales without blur and stays tiny for simple shapes; PNG stores exact pixels and works everywhere. Compare them for logos, icons, diagrams, QR codes and photos.
@@ -67,6 +69,7 @@ Because SVG is code, it can contain links and scripts. Browsers restrict scripts
 SVG 2, the next revision of the format, is still moving through the W3C process. Our news article on the [SVG 2 Candidate Recommendation update](blog:svg-2-standard-2026) explains what that means for designers: test your SVGs in the browsers and tools your audience uses.
 
 === es ===
+cover_alt: Paisaje vectorial comparado con una versión pixelada
 title: SVG o PNG: ¿vectores o píxeles para logotipos, iconos y gráficos?
 seo_title: SVG o PNG: cuál usar para logotipos e iconos
 description: SVG se amplía sin perder nitidez y ocupa poco en formas sencillas; PNG guarda píxeles exactos y funciona en todas partes. Compáralos para logotipos e iconos.
@@ -123,6 +126,7 @@ Como SVG es código, puede contener enlaces y scripts. Los navegadores limitan l
 SVG 2, la siguiente revisión del formato, sigue avanzando en el proceso del W3C. Nuestra noticia sobre la [actualización de la Candidate Recommendation de SVG 2](blog:svg-2-standard-2026) explica qué supone para los diseñadores: prueba tus SVG en los navegadores y herramientas que usa tu público.
 
 === ar ===
+cover_alt: منظر متجهي أملس بجانب نسخة منقطة
 title: SVG أم PNG: متجهات أم بكسلات للشعارات والأيقونات والرسوم؟
 seo_title: SVG أم PNG: أيهما للشعارات والأيقونات؟
 description: تتكبر صيغة SVG دون ضبابية وتبقى صغيرة جداً في الأشكال البسيطة، بينما تحفظ PNG البكسلات كما هي وتعمل في كل مكان. قارن بينهما للشعارات والأيقونات والمخططات وQR.
@@ -179,6 +183,7 @@ dek: قد يبدو الشعار حاداً على لوحة إعلانية وضب
 ما زالت SVG 2، المراجعة التالية للصيغة، تتقدم في مسار W3C. تشرح مقالتنا الإخبارية عن [تحديث SVG 2 كتوصية مرشحة](blog:svg-2-standard-2026) معنى ذلك للمصممين: اختبر ملفات SVG في المتصفحات والأدوات التي يستخدمها جمهورك.
 
 === pt-br ===
+cover_alt: Paisagem vetorial comparada a uma versão pixelada
 title: SVG ou PNG: vetor ou pixels para logotipos, ícones e gráficos?
 seo_title: SVG ou PNG: qual usar em logotipos e ícones
 description: O SVG amplia sem borrar e é leve em formas simples; o PNG guarda pixels exatos e funciona em todo lugar. Compare os dois para logotipos, ícones e diagramas.

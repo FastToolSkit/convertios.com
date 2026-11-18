@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 151
 status: published
+cover_image: social-media-image-sizes
 cover: 1:1 · 4:5 · 9:16
 tools: social-media-image-resizer, image-resizer, compress-image
 related: resize-images-for-websites, reduce-image-size-without-losing-quality
@@ -11,6 +12,7 @@ keyword: social media image sizes
 intent: informational / how-to
 ---
 === en ===
+cover_alt: Camera image cropped for square, wide and vertical posts
 title: Social media image sizes: aspect ratios that stop awkward crops
 seo_title: Social media image sizes and aspect ratios
 description: Understand the aspect ratios behind feed posts, stories, banners and thumbnails, keep important content inside safe areas, and resize one image for several platforms.
@@ -78,6 +80,7 @@ Even with the right size, parts of an image can be hidden:
 For images on your own website rather than social networks, see [how to resize images for websites](blog:resize-images-for-websites).
 
 === es ===
+cover_alt: Foto recortada para publicaciones cuadradas, anchas y verticales
 title: Tamaños de imagen para redes sociales: proporciones que evitan recortes raros
 seo_title: Tamaños de imagen para redes sociales y proporciones
 description: Entiende las proporciones de publicaciones, historias, portadas y miniaturas, deja lo importante en zonas seguras y adapta una imagen a varias redes a la vez.
@@ -145,6 +148,7 @@ Incluso con el tamaño correcto, partes de la imagen pueden quedar ocultas:
 Para imágenes de tu propia web en lugar de redes sociales, consulta [cómo redimensionar imágenes para una web](blog:resize-images-for-websites).
 
 === ar ===
+cover_alt: صورة مقصوصة لمنشورات مربعة وعريضة وعمودية
 title: مقاسات صور الشبكات الاجتماعية: نِسب أبعاد تمنع القص المزعج
 seo_title: مقاسات صور الشبكات الاجتماعية ونسب الأبعاد
 description: افهم نِسب الأبعاد وراء المنشورات والقصص والأغلفة والصور المصغرة، وأبقِ المحتوى المهم في المناطق الآمنة، وغيّر حجم صورة واحدة لعدة منصات.
@@ -212,6 +216,7 @@ dek: تغيّر المنصات مقاساتها المقترحة بالبكسل 
 لصور موقعك الخاص بدلاً من الشبكات الاجتماعية، راجع [كيف تغيّر حجم الصور لموقعك](blog:resize-images-for-websites).
 
 === pt-br ===
+cover_alt: Foto recortada para publicações quadradas, largas e verticais
 title: Tamanhos de imagem para redes sociais: proporções que evitam cortes estranhos
 seo_title: Tamanhos de imagem para redes sociais e proporções
 description: Entenda as proporções por trás de posts, stories, capas e miniaturas, mantenha o que importa nas áreas seguras e redimensione uma imagem para várias redes de uma vez.

@@ -5,6 +5,7 @@ published: 2026-11-11
 updated: 2026-11-18
 order: 12
 status: published
+cover_image: jpg-png-webp-guide
 cover: JPG · PNG · WebP
 tools: image-converter, png-to-jpg, webp-to-png
 related: lossy-vs-lossless-compression, reduce-image-size-without-losing-quality
@@ -12,6 +13,7 @@ keyword: jpg vs png vs webp
 intent: comparison
 ---
 === en ===
+cover_alt: Three photographs illustrating image format choices
 title: JPG vs PNG vs WebP: which image format should you use?
 seo_title: JPG vs PNG vs WebP: which image format to use
 description: Compare JPG, PNG and WebP for photos, screenshots, logos and websites, including transparency, file size, quality loss and compatibility with upload forms.
@@ -81,6 +83,7 @@ For any other combination of JPG, PNG, WebP, BMP and GIF, the [Image Converter](
 **Can every website accept WebP?** Most modern sites can display it, but many upload forms still accept only JPG and PNG. Convert to JPG when in doubt.
 
 === es ===
+cover_alt: Tres fotos ilustran la elección de formato
 title: JPG, PNG o WebP: ¿qué formato de imagen deberías usar?
 seo_title: JPG, PNG o WebP: qué formato de imagen usar
 description: Compara JPG, PNG y WebP para fotos, capturas, logotipos y webs: transparencia, peso, pérdida de calidad y compatibilidad con formularios de subida.
@@ -150,6 +153,7 @@ Para cualquier otra combinación de JPG, PNG, WebP, BMP y GIF, el [Conversor de 
 **¿Todas las webs aceptan WebP?** La mayoría de las webs modernas pueden mostrarlo, pero muchos formularios de subida solo aceptan JPG y PNG. En caso de duda, convierte a JPG.
 
 === ar ===
+cover_alt: ثلاث صور توضح خيارات صيغ الصور
 title: JPG أم PNG أم WebP: أي صيغة صورة تستخدم؟
 seo_title: JPG أم PNG أم WebP: أي صيغة صورة تختار؟
 description: قارن بين JPG وPNG وWebP للصور الفوتوغرافية ولقطات الشاشة والشعارات والمواقع، من حيث الشفافية والحجم وفقدان الجودة والتوافق مع نماذج الرفع.
@@ -219,6 +223,7 @@ PNG صيغة **بلا فقدان**؛ يُحفظ كل بكسل كما هو، في
 **هل تقبل كل المواقع صيغة WebP؟** تستطيع معظم المواقع الحديثة عرضها، لكن نماذج رفع كثيرة ما زالت تقبل JPG وPNG فقط. حوّل إلى JPG عند الشك.
 
 === pt-br ===
+cover_alt: Três fotos ilustram a escolha de formato
 title: JPG, PNG ou WebP: qual formato de imagem você deve usar?
 seo_title: JPG, PNG ou WebP: qual formato de imagem usar
 description: Compare JPG, PNG e WebP para fotos, capturas de tela, logotipos e sites: transparência, tamanho, perda de qualidade e compatibilidade com formulários de envio.

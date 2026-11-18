@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 189
 status: published
+cover_image: resize-images-for-websites
 cover: 4000px → 1600px
 tools: image-resizer, compress-image, image-converter
 related: reduce-image-size-without-losing-quality, social-media-image-sizes
@@ -11,6 +12,7 @@ keyword: resize images for website
 intent: how-to
 ---
 === en ===
+cover_alt: Mountain photograph resized across three screen sizes
 title: How to resize images for a website without making it slow
 seo_title: How to resize images for a website
 description: Choose the right pixel width for content, hero and thumbnail images, account for high-density screens and avoid the oversized photos that slow pages down.
@@ -82,6 +84,7 @@ WebP usually gives smaller files than JPG for the same visual quality and is sup
 - Social platforms have their own sizes; see [social media image sizes](blog:social-media-image-sizes).
 
 === es ===
+cover_alt: Foto de montaña adaptada a tres pantallas
 title: Cómo redimensionar imágenes para una web sin hacerla lenta
 seo_title: Cómo redimensionar imágenes para una web
 description: Elige el ancho en píxeles adecuado para imágenes de contenido, cabeceras y miniaturas, ten en cuenta las pantallas de alta densidad y evita fotos enormes.
@@ -153,6 +156,7 @@ WebP suele dar archivos más pequeños que JPG con la misma calidad visual y los
 - Las redes sociales tienen sus propios tamaños; consulta [tamaños de imagen para redes sociales](blog:social-media-image-sizes).
 
 === ar ===
+cover_alt: صورة جبل تتكيف مع ثلاث شاشات مختلفة
 title: كيف تغيّر حجم الصور لموقعك دون أن تجعله بطيئاً
 seo_title: كيف تغيّر حجم الصور لموقع ويب
 description: اختر العرض المناسب بالبكسل لصور المحتوى والواجهات والصور المصغرة، وراعِ الشاشات عالية الكثافة، وتجنب الصور الضخمة التي تبطئ الصفحات.
@@ -224,6 +228,7 @@ dek: رفع الصور الأصلية من الكاميرا هو أكثر أسب
 - للشبكات الاجتماعية مقاساتها الخاصة؛ راجع [مقاسات صور الشبكات الاجتماعية](blog:social-media-image-sizes).
 
 === pt-br ===
+cover_alt: Foto de montanha adaptada a três telas
 title: Como redimensionar imagens para um site sem deixá-lo lento
 seo_title: Como redimensionar imagens para um site
 description: Escolha a largura em pixels certa para imagens de conteúdo, banners e miniaturas, considere telas de alta densidade e evite fotos enormes que deixam a página lenta.

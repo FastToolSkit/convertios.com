@@ -4,6 +4,7 @@ type: tutorial
 published: 2026-11-18
 order: 187
 status: published
+cover_image: remove-background-clean-cutouts
 cover: PNG ▢ Cutout
 tools: remove-bg, image-resizer, compress-image
 related: how-ai-background-removal-works, png-to-jpg-transparency
@@ -11,6 +12,7 @@ keyword: remove background from image
 intent: how-to
 ---
 === en ===
+cover_alt: Fine dandelion fibers outlined as the background peels away
 title: How to remove an image background and get a clean cutout
 seo_title: How to remove a background and get a clean cutout
 description: Get crisp cutouts for product photos, profiles and designs: shoot with removal in mind, remove the background in your browser and fix common edge problems.
@@ -65,6 +67,7 @@ Keep the original photo so you can try again with a better shot.
 Only remove backgrounds from photos you have the right to use, and be careful with photos of other people. Editing context out of an image can change its meaning; for product listings, the item should still be shown accurately.
 
 === es ===
+cover_alt: Fibras de diente de león delineadas al retirar el fondo
 title: Cómo quitar el fondo de una imagen y conseguir un recorte limpio
 seo_title: Cómo quitar el fondo de una imagen con un recorte limpio
 description: Recortes nítidos para fotos de producto, perfiles y diseños: fotografía pensando en el recorte, quita el fondo en el navegador y corrige los bordes.
@@ -119,6 +122,7 @@ Conserva la foto original para poder repetirlo con una toma mejor.
 Quita el fondo solo de fotos que tengas derecho a usar y ten cuidado con las fotos de otras personas. Eliminar el contexto de una imagen puede cambiar su significado; en los anuncios de productos, el artículo debe seguir mostrándose con fidelidad.
 
 === ar ===
+cover_alt: شعيرات هندباء محددة بدقة عند إزالة الخلفية
 title: كيف تزيل خلفية الصورة وتحصل على قص نظيف
 seo_title: كيف تزيل خلفية الصورة وتحصل على قص نظيف
 description: احصل على قص حاد وطبيعي لصور المنتجات والصور الشخصية والتصاميم: صوّر وأنت تفكر في الإزالة، وأزل الخلفية داخل متصفحك، وأصلح مشكلات الحواف الشائعة.
@@ -173,6 +177,7 @@ dek: تعمل إزالة الخلفية التلقائية بأفضل شكل ع�
 أزل الخلفية فقط من صور يحق لك استخدامها، وكن حذراً مع صور الآخرين. حذف السياق من صورة قد يغيّر معناها، وفي إعلانات المنتجات يجب أن يبقى المنتج معروضاً بأمانة.
 
 === pt-br ===
+cover_alt: Fibras de dente-de-leão contornadas ao remover o fundo
 title: Como remover o fundo de uma imagem e conseguir um recorte limpo
 seo_title: Como remover o fundo de uma imagem com recorte limpo
 description: Recortes nítidos para fotos de produto, perfis e designs: fotografe pensando no recorte, remova o fundo no navegador e corrija problemas de borda.
