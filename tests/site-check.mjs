@@ -212,7 +212,9 @@ for (const p of pages) {
       const pathPart = u.slice(BASE.length);
       if (!exists(pathPart) && !/\.(png|ico|svg)$/.test(pathPart)) fail('json-ld', p, `URL not found ${u}`);
       const l = pathPart.startsWith('/ar/') ? 'ar' : pathPart.startsWith('/es/') ? 'es' : pathPart.startsWith('/pt-br/') ? 'pt-BR' : 'en';
-      if (l !== langOf(p) && pathPart !== '/' && !/\.(png|ico|svg)$/.test(pathPart)) fail('json-ld', p, `links other language ${u}`);
+      // Shared editorial image assets do not have a page language. Existence is
+      // still checked above, including JPEG/WebP cover URLs.
+      if (l !== langOf(p) && pathPart !== '/' && !/\.(png|ico|svg|jpe?g|webp)$/i.test(pathPart)) fail('json-ld', p, `links other language ${u}`);
     }
   }
 }

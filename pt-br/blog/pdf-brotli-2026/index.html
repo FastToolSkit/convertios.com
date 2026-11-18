@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-0CH8NE5WDH');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Brotli no PDF: compressão e compatibilidade | Convertios</title>
+<meta name="description" content="A PDF Association especificou um filtro Brotli para PDF. Ele pode reduzir arquivos em programas compatíveis, mas o destinatário precisa de um leitor com suporte.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://convertios.com/pt-br/blog/pdf-brotli-2026/">
+<link rel="alternate" hreflang="en" href="https://convertios.com/blog/pdf-brotli-2026/">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/pdf-brotli-2026/">
+<link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/pdf-brotli-2026/">
+<link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/pdf-brotli-2026/">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/pdf-brotli-2026/">
+<link rel="stylesheet" href="/style.min.css?v=08447486">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta property="og:title" content="Brotli no PDF: compressão e compatibilidade | Convertios">
+<meta property="og:description" content="A PDF Association especificou um filtro Brotli para PDF. Ele pode reduzir arquivos em programas compatíveis, mas o destinatário precisa de um leitor com suporte.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://convertios.com/pt-br/blog/pdf-brotli-2026/">
+<meta property="og:image" content="https://convertios.com/assets/blog/editorial/pdf-brotli-2026-1440.jpg">
+<meta property="og:image:alt" content="Pilha de documentos comprimida por uma prensa">
+<meta name="twitter:image:alt" content="Pilha de documentos comprimida por uma prensa">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "NewsArticle", "headline": "Brotli no PDF: nova especificação de compressão e seus limites de compatibilidade", "description": "A PDF Association especificou um filtro Brotli para PDF. Ele pode reduzir arquivos em programas compatíveis, mas o destinatário precisa de um leitor com suporte.", "url": "https://convertios.com/pt-br/blog/pdf-brotli-2026/", "mainEntityOfPage": "https://convertios.com/pt-br/blog/pdf-brotli-2026/", "inLanguage": "pt-BR", "datePublished": "2026-11-11", "dateModified": "2026-11-11", "image": "https://convertios.com/assets/blog/editorial/pdf-brotli-2026-1440.jpg", "articleSection": "PDF e documentos", "wordCount": 527, "author": {"@type": "Organization", "name": "Convertios", "url": "https://convertios.com/", "logo": {"@type": "ImageObject", "url": "https://convertios.com/convertios-logo.png"}}, "publisher": {"@type": "Organization", "name": "Convertios", "url": "https://convertios.com/", "logo": {"@type": "ImageObject", "url": "https://convertios.com/convertios-logo.png"}}, "citation": ["https://pdfa.org/no-excuses-brotli-compression-advances-pdf/", "https://pdfa.org/resources/"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://convertios.com/pt-br/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://convertios.com/pt-br/blog/"}, {"@type": "ListItem", "position": 3, "name": "PDF e documentos", "item": "https://convertios.com/pt-br/blog/category/pdf-documents/"}, {"@type": "ListItem", "position": 4, "name": "Brotli no PDF: nova especificação de compressão e seus limites de compatibilidade"}]}]}</script>
+<!-- /Convertios structured data -->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<style>
+.blog-intro{max-width:760px;font-size:1.1rem;color:#475569}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin:30px 0}
+.blog-card{display:block;color:inherit;text-decoration:none;background:#f8fbff;padding:24px;border:1px solid #dbe4f0;border-radius:14px}
+.blog-card:hover,.blog-card:focus-visible{border-color:#3a78ff;box-shadow:0 7px 22px rgba(35,75,120,.1)}
+.blog-card h2{margin-top:0;font-size:1.24rem}.blog-card p{margin-bottom:0}
+.blog-article{max-width:760px}.blog-article h2{margin-top:32px}
+.blog-meta{color:#64748b;font-size:.9rem}.blog-actions{margin:26px 0;padding:20px;background:#eef6ff;border-radius:12px}
+.blog-actions a{display:inline-block;margin:7px 14px 7px 0;font-weight:600}
+.blog-breadcrumb{font-size:.9rem;margin:0 0 22px}
+@media(max-width:768px){.blog-grid{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="/assets/blog/newsroom.css?v=55e30caf">
+<link rel="stylesheet" href="/assets/blog/library.css?v=b5a2147e">
+<link rel="stylesheet" href="/neon-home.css?v=1a686221">
+</head>
+<body class="blog-page neon-site-header">
+<a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+
+<header class="site-header">
+
+<div class="header-left">
+    <a href="/pt-br/" class="logo">
+        <img src="/neon-convertios-logo.png" alt="Logo da Convertios" width="376" height="147" fetchpriority="high" decoding="async">
+    </a>
+</div>
+
+<nav class="nav-menu">
+
+<a href="/pt-br/" >Início</a>
+
+
+<div class="nav-item dropdown">
+    <span>Imagem ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/pt-br/png-to-jpg/">PNG para JPG</a>
+        <a href="/pt-br/jpg-to-png/">JPG para PNG</a>
+        <a href="/pt-br/webp-to-png/">WEBP para PNG</a>
+        <a href="/pt-br/image-converter/">Conversor de imagens</a>
+        <a href="/pt-br/image-resizer/">Redimensionar imagem</a>
+        <a href="/pt-br/compress-image/">Comprimir imagem</a>
+        <a href="/pt-br/remove-bg/">Remover fundo</a>
+        <a href="/pt-br/ai-image-enhancer/">Melhorador de imagens com IA</a>
+
+        <a href="/pt-br/social-media-image-resizer/">Redimensionador para redes sociais</a>
+<a href="/pt-br/image-tools/" class="view-all">Ver tudo →</a>
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>PDF ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/pt-br/pdf-to-word/">PDF para Word</a>
+        <a href="/pt-br/pdf-to-jpg/">PDF para JPG</a>
+        <a href="/pt-br/jpg-to-pdf/">JPG para PDF</a>
+
+        <a href="/pt-br/merge-pdf/">Juntar PDF</a>
+        <a href="/pt-br/split-pdf/">Dividir PDF</a>
+        <a href="/pt-br/rotate-pdf/">Girar PDF</a>
+
+        <a href="/pt-br/pdf-tools/" class="view-all">Ver tudo →</a>
+
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>Áudio ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/pt-br/mp3-cutter/">Cortador de MP3</a>
+        <a href="/pt-br/audio-converter/">Conversor de áudio</a>
+        <a href="/pt-br/audio-speed-changer/">Alterador de velocidade</a>
+        <a href="/pt-br/video-to-mp3/">Vídeo para MP3</a>
+        <a href="/pt-br/video-converter/">Conversor de vídeo</a>
+
+        <a href="/pt-br/audio-tools/" class="view-all">Ver tudo →</a>
+
+    </div>
+</div>
+<div class="nav-item dropdown">
+    <span>Todas as ferramentas ▾</span>
+    <div class="dropdown-menu">
+        <a href="/pt-br/all-tools/" class="view-all">Todas as ferramentas</a>
+
+        <a href="/pt-br/qr-generator/">Gerador de QR Code</a>
+        <a href="/pt-br/link-shortener/">Encurtador de links</a>
+        <a href="/pt-br/password-generator/">Gerador de senhas</a>
+        <a href="/pt-br/word-counter/">Contador de palavras</a>
+        <a href="/pt-br/text-formatter/">Formatador de texto</a>
+        <a href="/pt-br/unit-converter/">Conversor de unidades</a>
+        <a href="/pt-br/meme-generator/">Gerador de memes</a>
+
+        <a href="/pt-br/other-tools/" class="view-all">Ver tudo →</a>
+
+    </div>
+</div>
+
+<a href="/pt-br/blog/" class="nav-blog-link active" aria-current="page">Blog</a>
+<a href="/pt-br/about/">Sobre</a>
+<a href="/pt-br/contact/">Contato</a>
+</nav>
+
+<div class="nav-icon faq-wrapper">
+    <a href="/pt-br/faq/" class="faq-link-block" aria-label="Perguntas frequentes">
+
+        <!-- ICON -->
+        <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
+                <circle cx="12" cy="17" r="1"></circle>
+            </svg>
+        </div>
+
+        <!-- TEXT -->
+        <span class="faq-text">Perguntas frequentes</span>
+
+    </a>
+</div>
+<details class="language-selector" dir="ltr">
+  <summary aria-label="Mudar idioma"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">Português</span></summary>
+  <div class="language-selector__menu" role="menu" aria-label="Opções de idioma">
+    <a href="https://convertios.com/blog/pdf-brotli-2026/" lang="en" hreflang="en" role="menuitem">English</a>
+    <a href="https://convertios.com/ar/blog/pdf-brotli-2026/" lang="ar" hreflang="ar" role="menuitem" dir="rtl">العربية</a>
+    <a href="https://convertios.com/es/blog/pdf-brotli-2026/" lang="es" hreflang="es" role="menuitem">Español</a>
+    <a href="https://convertios.com/pt-br/blog/pdf-brotli-2026/" lang="pt-BR" hreflang="pt-BR" role="menuitem" aria-current="page">Português</a>
+  </div>
+</details>
+</header>
+<main class="page-content lib-article-page" id="main-content"><article class="lib-article"><nav class="lib-breadcrumb" aria-label="Caminho de navegação"><ol><li><a href="/pt-br/blog/">Blog</a></li><li><a href="/pt-br/blog/category/pdf-documents/">PDF e documentos</a></li></ol></nav><header class="lib-article__header"><span class="lib-kicker lib-kicker--pdf-documents">Notícia <span aria-hidden="true">·</span> PDF e documentos</span><h1>Brotli no PDF: nova especificação de compressão e seus limites de compatibilidade</h1><p class="lib-article__dek">A PDF Association especificou um filtro Brotli para PDF. Ele pode deixar alguns arquivos menores, mas quem recebe precisa de um leitor que entenda o novo filtro.</p><ul class="lib-facts"><li><span>Publicado</span><time datetime="2026-11-11">11 de novembro de 2026</time></li><li><span>Data da fonte</span><time datetime="2026-08-19">19 de agosto de 2026</time></li><li><span>Categoria</span><a href="/pt-br/blog/category/pdf-documents/">PDF e documentos</a></li><li><span>Leitura</span><strong>2 min de leitura</strong></li></ul></header><figure class="lib-article__figure"><picture><source type="image/webp" srcset="/assets/blog/editorial/pdf-brotli-2026-640.webp 640w, /assets/blog/editorial/pdf-brotli-2026-960.webp 960w, /assets/blog/editorial/pdf-brotli-2026-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc(100vw - 48px), 1180px"><img src="/assets/blog/editorial/pdf-brotli-2026-1440.jpg" alt="Pilha de documentos comprimida por uma prensa" width="1440" height="900" loading="eager" fetchpriority="high" decoding="async"></picture><figcaption>Ilustração editorial gerada por IA. Imagem conceitual, não uma fotografia.</figcaption></figure><div class="lib-prose article-body"><section><h2>O que aconteceu</h2><p>Em 19 de agosto de 2026, a <a href="https://pdfa.org/no-excuses-brotli-compression-advances-pdf/">PDF Association anunciou</a> uma especificação do setor para a compressão Brotli em PDF. Ela define um filtro <code>BrotliDecode</code> que programas de criação e leitura de PDF podem implementar para fluxos comprimidos. A publicação dá aos fabricantes uma referência técnica comum; não atualiza automaticamente todos os aplicativos de PDF já instalados.</p><p>A associação apresenta o Brotli como uma alternativa sem perdas aos filtros mais antigos, como Flate e LZW. Os <a href="https://pdfa.org/resources/">recursos técnicos</a> da entidade indicam onde encontrar a especificação. Alguns aplicativos já oferecem suporte, mas é preciso conferir a versão exata do programa que as pessoas que recebem o arquivo usam.</p></section>
+<section><h2>Como a mudança funciona</h2><p>Um PDF pode guardar partes do seu conteúdo em fluxos comprimidos. O leitor encontra o nome do filtro, descomprime aquele fluxo e então interpreta os dados do documento. "Sem perdas" quer dizer que os dados originais podem ser recuperados por completo; não quer dizer que todo PDF ficará muito menor. Material com muito texto ou repetitivo pode se comportar de forma bem diferente de fotos que já estavam comprimidas dentro do PDF.</p><p>Isso também é diferente de reduzir a qualidade das imagens. Recodificar uma foto em resolução menor pode diminuir o documento, mas elimina detalhes. A compressão de fluxos com Brotli é outra escolha, feita pelo software que gera o PDF. O programa que cria o conteúdo com Brotli e o que o lê precisam concordar sobre o formato, por isso a interoperabilidade importa tanto quanto o tamanho.</p></section>
+<section><h2>O que muda para quem usa</h2><p>Se você envia notas fiscais, manuais ou formulários para um público que não conhece, o menor PDF possível nem sempre é a escolha mais segura. Abra uma amostra nos mesmos leitores de computador, celular e navegador que os destinatários usam. Se algum deles não conseguir abrir, peça ao aplicativo de origem uma exportação amplamente compatível e guarde o original para comparar.</p><p>Se a sua tarefa real é editar o texto, você pode <a href="/pt-br/pdf-to-word/">converter um PDF com texto para Word</a> e revisar o resultado. Se precisa de algumas páginas como imagem, <a href="/pt-br/pdf-to-jpg/">transforme páginas do PDF em JPG</a>. Nenhum desses fluxos comprova suporte a Brotli nem substitui o teste de um PDF com Brotli no leitor do destinatário.</p></section>
+<section><h2>Checklist prático</h2><ul><li>Pergunte a quem gera o PDF se a codificação Brotli está ativada e se existe uma exportação convencional.</li><li>Teste um arquivo representativo nas versões reais dos leitores usados pelos destinatários, incluindo celulares.</li><li>Compare legibilidade, imagens, texto pesquisável e tamanho antes de distribuir um lote grande.</li><li>Mantenha uma alternativa compatível quando o público ou o software dele forem desconhecidos.</li></ul></section>
+<section><h2>Limites e o que não mudou</h2><p>O anúncio é uma especificação, não uma garantia de compatibilidade universal nem um teste de desempenho para um documento específico. Ele não melhora digitalizações borradas, não acrescenta texto ausente, não corrige tags e não torna um PDF acessível. Uma página digitalizada continua sendo imagem até que um processo de OCR reconheça o texto; <a href="/pt-br/blog/scanned-pdf-to-word/">nosso guia sobre PDF digitalizado</a> explica essa diferença. A Convertios não afirma criar nem decodificar PDFs comprimidos com Brotli.</p></section>
+<section class="news-sources"><h2>Fontes primárias</h2><ul><li><a href="https://pdfa.org/no-excuses-brotli-compression-advances-pdf/" rel="noopener noreferrer">Anúncio da PDF Association (em inglês)</a></li><li><a href="https://pdfa.org/resources/" rel="noopener noreferrer">Recursos técnicos da PDF Association (em inglês)</a></li></ul></section></div><aside class="lib-tools" aria-labelledby="tools-heading"><h2 id="tools-heading">Ferramentas da Convertios para esta tarefa</h2><ul><li><a href="/pt-br/merge-pdf/">Juntar PDF<span aria-hidden="true">→</span></a></li><li><a href="/pt-br/compress-image/">Compressor de imagens gratuito<span aria-hidden="true">→</span></a></li></ul></aside><p class="lib-publisher">Publicado pela Convertios.</p></article><section class="lib-related" aria-labelledby="related-heading"><h2 id="related-heading">Artigos relacionados</h2><div class="lib-grid lib-grid--related"><article class="lib-card"><div class="lib-card__media"><picture><source type="image/webp" srcset="/assets/blog/editorial/scanned-pdf-to-word-640.webp 640w, /assets/blog/editorial/scanned-pdf-to-word-960.webp 960w, /assets/blog/editorial/scanned-pdf-to-word-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc((100vw - 72px) / 2), 380px"><img src="/assets/blog/editorial/scanned-pdf-to-word-1440.jpg" alt="Scanner transforma papel em documento editável" width="1440" height="900" loading="lazy" decoding="async"></picture></div><div class="lib-card__body"><span class="lib-kicker lib-kicker--pdf-documents">Guia <span aria-hidden="true">·</span> PDF e documentos</span><h3 class="lib-card__title"><a class="lib-card__link" href="/pt-br/blog/scanned-pdf-to-word/">Por que um PDF digitalizado não fica editável depois da conversão</a></h3><p class="lib-card__dek">Um documento do Word pode parecer igual ao PDF e ainda assim não ter nenhuma palavra editável. Tudo depende de o PDF original guardar texto de verdade ou só fotos das páginas.</p><p class="lib-card__meta"><time datetime="2026-11-11">11 de novembro de 2026</time><span aria-hidden="true">·</span><span>4 min de leitura</span></p></div></article><article class="lib-card"><div class="lib-card__media"><picture><source type="image/webp" srcset="/assets/blog/editorial/retail-qr-2027-640.webp 640w, /assets/blog/editorial/retail-qr-2027-960.webp 960w, /assets/blog/editorial/retail-qr-2027-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc((100vw - 72px) / 2), 380px"><img src="/assets/blog/editorial/retail-qr-2027-1440.jpg" alt="Expositor QR iluminado no balcão de uma loja" width="1440" height="900" loading="lazy" decoding="async"></picture></div><div class="lib-card__body"><span class="lib-kicker lib-kicker--qr-web">Notícia <span aria-hidden="true">·</span> Códigos QR e utilitários web</span><h3 class="lib-card__title"><a class="lib-card__link" href="/pt-br/blog/retail-qr-2027/">Meta da GS1 para o varejo em 2027: por que um QR com link é outra coisa</a></h3><p class="lib-card__dek">O guia da GS1 detalha o que lojas e sistemas precisam mudar para ler códigos 2D de produtos no caixa. Um QR que só abre um site é um caso de uso diferente.</p><p class="lib-card__meta"><time datetime="2026-11-11">11 de novembro de 2026</time><span aria-hidden="true">·</span><span>3 min de leitura</span></p></div></article><article class="lib-card"><div class="lib-card__media"><picture><source type="image/webp" srcset="/assets/blog/editorial/jpg-png-webp-guide-640.webp 640w, /assets/blog/editorial/jpg-png-webp-guide-960.webp 960w, /assets/blog/editorial/jpg-png-webp-guide-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc((100vw - 72px) / 2), 380px"><img src="/assets/blog/editorial/jpg-png-webp-guide-1440.jpg" alt="Três fotos ilustram a escolha de formato" width="1440" height="900" loading="lazy" decoding="async"></picture></div><div class="lib-card__body"><span class="lib-kicker lib-kicker--images-formats">Comparação <span aria-hidden="true">·</span> Imagens e formatos de arquivo</span><h3 class="lib-card__title"><a class="lib-card__link" href="/pt-br/blog/jpg-png-webp-guide/">JPG, PNG ou WebP: qual formato de imagem você deve usar?</a></h3><p class="lib-card__dek">O melhor formato depende do que há na imagem, de você precisar de transparência e de para onde o arquivo vai. Uma tabela de decisão rápida resolve a maioria das situações do dia a dia.</p><p class="lib-card__meta"><time datetime="2026-11-11">11 de novembro de 2026</time><span aria-hidden="true">·</span><span>3 min de leitura</span></p></div></article></div></section><p class="lib-back"><a href="/pt-br/blog/"><span aria-hidden="true">←</span> Voltar ao blog</a></p></main>
+<footer class="site-footer">
+
+<div class="footer-container">
+
+    <div class="footer-brand">
+        <h3>Convertios</h3>
+        <p>Ferramentas online gratuitas para converter arquivos, imagens e muito mais.</p>
+    </div>
+
+    <div class="footer-links">
+    <a href="/pt-br/blog/">Blog</a>
+        <a href="/pt-br/all-tools/">Ferramentas</a>
+        <a href="/pt-br/about/">Sobre</a>
+        <a href="/pt-br/contact/">Contato</a>
+        <a href="/pt-br/security/">Segurança</a>
+        <a href="/pt-br/privacy/">Privacidade</a>
+        <a href="/pt-br/terms/">Termos</a>
+    </div>
+
+</div>
+<p class="footer-bottom">
+© 2026 Convertios • Todos os direitos reservados
+</p>
+
+</footer>
+
+<script src="/script.min.js?v=e4002bc3" defer></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-0CH8NE5WDH');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Erros ao tarjar um PDF e como evitá-los | Convertios</title>
+<meta name="description" content="Um retângulo preto sobre o texto nem sempre o remove. Veja como a tarja de verdade funciona, como testar um PDF tarjado e o que fazer sem uma ferramenta própria.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://convertios.com/pt-br/blog/pdf-redaction-mistakes/">
+<link rel="alternate" hreflang="en" href="https://convertios.com/blog/pdf-redaction-mistakes/">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/pdf-redaction-mistakes/">
+<link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/pdf-redaction-mistakes/">
+<link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/pdf-redaction-mistakes/">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/pdf-redaction-mistakes/">
+<link rel="stylesheet" href="/style.min.css?v=08447486">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta property="og:title" content="Erros ao tarjar um PDF e como evitá-los | Convertios">
+<meta property="og:description" content="Um retângulo preto sobre o texto nem sempre o remove. Veja como a tarja de verdade funciona, como testar um PDF tarjado e o que fazer sem uma ferramenta própria.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://convertios.com/pt-br/blog/pdf-redaction-mistakes/">
+<meta property="og:image" content="https://convertios.com/assets/blog/editorial/pdf-redaction-mistakes-1440.jpg">
+<meta property="og:image:alt" content="Lupa revela texto sob tarjas de ocultação">
+<meta name="twitter:image:alt" content="Lupa revela texto sob tarjas de ocultação">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Erros ao tarjar um PDF que deixam informações privadas expostas", "description": "Um retângulo preto sobre o texto nem sempre o remove. Veja como a tarja de verdade funciona, como testar um PDF tarjado e o que fazer sem uma ferramenta própria.", "url": "https://convertios.com/pt-br/blog/pdf-redaction-mistakes/", "mainEntityOfPage": "https://convertios.com/pt-br/blog/pdf-redaction-mistakes/", "inLanguage": "pt-BR", "datePublished": "2026-11-18", "dateModified": "2026-11-18", "image": "https://convertios.com/assets/blog/editorial/pdf-redaction-mistakes-1440.jpg", "articleSection": "PDF e documentos", "wordCount": 658, "author": {"@type": "Organization", "name": "Convertios", "url": "https://convertios.com/", "logo": {"@type": "ImageObject", "url": "https://convertios.com/convertios-logo.png"}}, "publisher": {"@type": "Organization", "name": "Convertios", "url": "https://convertios.com/", "logo": {"@type": "ImageObject", "url": "https://convertios.com/convertios-logo.png"}}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://convertios.com/pt-br/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://convertios.com/pt-br/blog/"}, {"@type": "ListItem", "position": 3, "name": "PDF e documentos", "item": "https://convertios.com/pt-br/blog/category/pdf-documents/"}, {"@type": "ListItem", "position": 4, "name": "Erros ao tarjar um PDF que deixam informações privadas expostas"}]}]}</script>
+<!-- /Convertios structured data -->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<style>
+.blog-intro{max-width:760px;font-size:1.1rem;color:#475569}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin:30px 0}
+.blog-card{display:block;color:inherit;text-decoration:none;background:#f8fbff;padding:24px;border:1px solid #dbe4f0;border-radius:14px}
+.blog-card:hover,.blog-card:focus-visible{border-color:#3a78ff;box-shadow:0 7px 22px rgba(35,75,120,.1)}
+.blog-card h2{margin-top:0;font-size:1.24rem}.blog-card p{margin-bottom:0}
+.blog-article{max-width:760px}.blog-article h2{margin-top:32px}
+.blog-meta{color:#64748b;font-size:.9rem}.blog-actions{margin:26px 0;padding:20px;background:#eef6ff;border-radius:12px}
+.blog-actions a{display:inline-block;margin:7px 14px 7px 0;font-weight:600}
+.blog-breadcrumb{font-size:.9rem;margin:0 0 22px}
+@media(max-width:768px){.blog-grid{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="/assets/blog/newsroom.css?v=55e30caf">
+<link rel="stylesheet" href="/assets/blog/library.css?v=b5a2147e">
+<link rel="stylesheet" href="/neon-home.css?v=1a686221">
+</head>
+<body class="blog-page neon-site-header">
+<a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+
+<header class="site-header">
+
+<div class="header-left">
+    <a href="/pt-br/" class="logo">
+        <img src="/neon-convertios-logo.png" alt="Logo da Convertios" width="376" height="147" fetchpriority="high" decoding="async">
+    </a>
+</div>
+
+<nav class="nav-menu">
+
+<a href="/pt-br/" >Início</a>
+
+
+<div class="nav-item dropdown">
+    <span>Imagem ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/pt-br/png-to-jpg/">PNG para JPG</a>
+        <a href="/pt-br/jpg-to-png/">JPG para PNG</a>
+        <a href="/pt-br/webp-to-png/">WEBP para PNG</a>
+        <a href="/pt-br/image-converter/">Conversor de imagens</a>
+        <a href="/pt-br/image-resizer/">Redimensionar imagem</a>
+        <a href="/pt-br/compress-image/">Comprimir imagem</a>
+        <a href="/pt-br/remove-bg/">Remover fundo</a>
+        <a href="/pt-br/ai-image-enhancer/">Melhorador de imagens com IA</a>
+
+        <a href="/pt-br/social-media-image-resizer/">Redimensionador para redes sociais</a>
+<a href="/pt-br/image-tools/" class="view-all">Ver tudo →</a>
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>PDF ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/pt-br/pdf-to-word/">PDF para Word</a>
+        <a href="/pt-br/pdf-to-jpg/">PDF para JPG</a>
+        <a href="/pt-br/jpg-to-pdf/">JPG para PDF</a>
+
+        <a href="/pt-br/merge-pdf/">Juntar PDF</a>
+        <a href="/pt-br/split-pdf/">Dividir PDF</a>
+        <a href="/pt-br/rotate-pdf/">Girar PDF</a>
+
+        <a href="/pt-br/pdf-tools/" class="view-all">Ver tudo →</a>
+
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>Áudio ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/pt-br/mp3-cutter/">Cortador de MP3</a>
+        <a href="/pt-br/audio-converter/">Conversor de áudio</a>
+        <a href="/pt-br/audio-speed-changer/">Alterador de velocidade</a>
+        <a href="/pt-br/video-to-mp3/">Vídeo para MP3</a>
+        <a href="/pt-br/video-converter/">Conversor de vídeo</a>
+
+        <a href="/pt-br/audio-tools/" class="view-all">Ver tudo →</a>
+
+    </div>
+</div>
+<div class="nav-item dropdown">
+    <span>Todas as ferramentas ▾</span>
+    <div class="dropdown-menu">
+        <a href="/pt-br/all-tools/" class="view-all">Todas as ferramentas</a>
+
+        <a href="/pt-br/qr-generator/">Gerador de QR Code</a>
+        <a href="/pt-br/link-shortener/">Encurtador de links</a>
+        <a href="/pt-br/password-generator/">Gerador de senhas</a>
+        <a href="/pt-br/word-counter/">Contador de palavras</a>
+        <a href="/pt-br/text-formatter/">Formatador de texto</a>
+        <a href="/pt-br/unit-converter/">Conversor de unidades</a>
+        <a href="/pt-br/meme-generator/">Gerador de memes</a>
+
+        <a href="/pt-br/other-tools/" class="view-all">Ver tudo →</a>
+
+    </div>
+</div>
+
+<a href="/pt-br/blog/" class="nav-blog-link active" aria-current="page">Blog</a>
+<a href="/pt-br/about/">Sobre</a>
+<a href="/pt-br/contact/">Contato</a>
+</nav>
+
+<div class="nav-icon faq-wrapper">
+    <a href="/pt-br/faq/" class="faq-link-block" aria-label="Perguntas frequentes">
+
+        <!-- ICON -->
+        <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
+                <circle cx="12" cy="17" r="1"></circle>
+            </svg>
+        </div>
+
+        <!-- TEXT -->
+        <span class="faq-text">Perguntas frequentes</span>
+
+    </a>
+</div>
+<details class="language-selector" dir="ltr">
+  <summary aria-label="Mudar idioma"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">Português</span></summary>
+  <div class="language-selector__menu" role="menu" aria-label="Opções de idioma">
+    <a href="https://convertios.com/blog/pdf-redaction-mistakes/" lang="en" hreflang="en" role="menuitem">English</a>
+    <a href="https://convertios.com/ar/blog/pdf-redaction-mistakes/" lang="ar" hreflang="ar" role="menuitem" dir="rtl">العربية</a>
+    <a href="https://convertios.com/es/blog/pdf-redaction-mistakes/" lang="es" hreflang="es" role="menuitem">Español</a>
+    <a href="https://convertios.com/pt-br/blog/pdf-redaction-mistakes/" lang="pt-BR" hreflang="pt-BR" role="menuitem" aria-current="page">Português</a>
+  </div>
+</details>
+</header>
+<main class="page-content lib-article-page" id="main-content"><article class="lib-article"><nav class="lib-breadcrumb" aria-label="Caminho de navegação"><ol><li><a href="/pt-br/blog/">Blog</a></li><li><a href="/pt-br/blog/category/pdf-documents/">PDF e documentos</a></li></ol></nav><header class="lib-article__header"><span class="lib-kicker lib-kicker--pdf-documents">Guia <span aria-hidden="true">·</span> PDF e documentos</span><h1>Erros ao tarjar um PDF que deixam informações privadas expostas</h1><p class="lib-article__dek">Cobrir um número com um retângulo preto parece seguro, mas o texto por baixo muitas vezes ainda pode ser copiado, pesquisado ou recuperado. A tarja correta remove o conteúdo, e você consegue conferir isso em um minuto.</p><ul class="lib-facts"><li><span>Publicado</span><time datetime="2026-11-18">18 de novembro de 2026</time></li><li><span>Categoria</span><a href="/pt-br/blog/category/pdf-documents/">PDF e documentos</a></li><li><span>Leitura</span><strong>3 min de leitura</strong></li></ul></header><figure class="lib-article__figure"><picture><source type="image/webp" srcset="/assets/blog/editorial/pdf-redaction-mistakes-640.webp 640w, /assets/blog/editorial/pdf-redaction-mistakes-960.webp 960w, /assets/blog/editorial/pdf-redaction-mistakes-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc(100vw - 48px), 1180px"><img src="/assets/blog/editorial/pdf-redaction-mistakes-1440.jpg" alt="Lupa revela texto sob tarjas de ocultação" width="1440" height="900" loading="eager" fetchpriority="high" decoding="async"></picture><figcaption>Ilustração editorial gerada por IA. Imagem conceitual, não uma fotografia.</figcaption></figure><nav class="lib-toc" aria-labelledby="toc-heading"><h2 id="toc-heading">Neste artigo</h2><ol><li><a href="#s1">Por que retângulos pretos falham</a></li><li><a href="#s2">O que a tarja de verdade faz</a></li><li><a href="#s3">Lugares escondidos onde dados sensíveis ficam</a></li><li><a href="#s4">Como testar um PDF tarjado em um minuto</a></li><li><a href="#s5">Uma alternativa se você não tem ferramenta de tarja</a></li><li><a href="#s6">Hábitos que evitam vazamentos</a></li></ol></nav><div class="lib-prose article-body"><section aria-labelledby="s1"><h2 id="s1">Por que retângulos pretos falham</h2>
+<p>Uma página de PDF é montada em camadas: texto, imagens, desenhos e anotações empilhados. Quando você desenha um retângulo preto sobre um número de conta, muitos editores apenas acrescentam mais uma camada por cima. O número continua lá embaixo. Qualquer pessoa pode:</p>
+<ul><li>selecionar a área escondida e copiar o texto para outro documento,</li><li>pesquisar o número no PDF e encontrá-lo,</li><li>apagar ou mover o retângulo em um editor,</li><li>extrair todo o texto com um conversor, que ignora o retângulo por completo.</li></ul>
+<p>O mesmo vale para marcar o texto de preto, mudar a cor da fonte para branco ou colocar uma imagem sobre uma assinatura. Isso muda o que você vê, não o que o arquivo contém.</p>
+</section>
+<section aria-labelledby="s2"><h2 id="s2">O que a tarja de verdade faz</h2>
+<p>Ferramentas de tarja (muitas vezes chamadas de *Redigir* ou *Redact*) trabalham em duas etapas. Primeiro você marca as áreas a remover. Depois você <strong>aplica</strong> a tarja, que apaga o texto, os pixels das imagens e as instruções de desenho dessas áreas e normalmente deixa um retângulo sólido no lugar. Depois de aplicada, a informação não está mais no arquivo; não está só escondida.</p>
+<p>Procure em um editor de PDF dedicado uma função com esse nome explícito e com uma etapa de *Aplicar*. Uma ferramenta de desenho ou de comentários não tarja, mesmo que consiga fazer retângulos pretos.</p>
+</section>
+<section aria-labelledby="s3"><h2 id="s3">Lugares escondidos onde dados sensíveis ficam</h2>
+<p>Mesmo com a página visível tarjada corretamente, a informação pode continuar em outras partes do arquivo:</p>
+<ul><li><strong>Propriedades do documento:</strong> autor, título, empresa, nome do arquivo original.</li><li><strong>Comentários e anotações</strong> de revisões anteriores.</li><li><strong>Marcadores e campos de formulário</strong> que repetem um nome ou um número de referência.</li><li><strong>Versões anteriores</strong> em arquivos salvos com atualizações incrementais.</li><li><strong>Camadas de imagem:</strong> uma página digitalizada pode ter uma camada invisível de texto de OCR com as palavras que você cobriu na imagem.</li><li><strong>Anexos</strong> incorporados ao PDF.</li></ul>
+<p>Boas ferramentas de tarja oferecem uma opção de "higienizar" ou "remover informações ocultas". Use depois de tarjar.</p>
+</section>
+<section aria-labelledby="s4"><h2 id="s4">Como testar um PDF tarjado em um minuto</h2>
+<p>Teste sempre o arquivo final, não o que você editou:</p>
+<ol><li>Abra o PDF tarjado em um leitor diferente do que você usou para editar.</li><li>Pesquise (Ctrl+F ou Cmd+F) algumas das palavras ou números tarjados. Não deve aparecer nenhum resultado.</li><li>Selecione arrastando sobre uma área tarjada, copie e cole em um editor de texto simples. Nada sensível deve aparecer.</li><li>Confira as propriedades do documento em busca de nomes e caminhos de arquivo.</li></ol>
+<p>Se algum teste revelar a informação, a tarja não foi aplicada.</p>
+</section>
+<section aria-labelledby="s5"><h2 id="s5">Uma alternativa se você não tem ferramenta de tarja</h2>
+<p>Se você só precisa compartilhar algumas páginas e não tem uma função de tarja adequada, pode transformar as páginas em imagens, o que elimina qualquer camada de texto escondida:</p>
+<ol><li>Extraia só as páginas necessárias com o <a href="/pt-br/split-pdf/">Dividir PDF</a>.</li><li>Exporte essas páginas como imagens com o <a href="/pt-br/pdf-to-jpg/">PDF para JPG</a>.</li><li>Em um editor de imagens, pinte de preto sólido as áreas sensíveis e salve o JPG editado. Dê zoom para garantir que nenhuma borda dos números ficou visível.</li><li>Monte um novo PDF com as imagens editadas usando o <a href="/pt-br/jpg-to-pdf/">JPG para PDF</a>.</li></ol>
+<p>As três ferramentas da Convertios funcionam no seu navegador, então as páginas não são enviadas. A contrapartida é que o resultado tem imagens em vez de texto: não é pesquisável e pode ser menos acessível para quem usa leitor de tela. Em processos judiciais ou registros oficiais, use o procedimento de tarja exigido pela sua organização ou pelo tribunal.</p>
+</section>
+<section aria-labelledby="s6"><h2 id="s6">Hábitos que evitam vazamentos</h2>
+<ul><li><strong>Compartilhe menos desde o começo.</strong> Remover páginas inteiras com o <a href="/pt-br/split-pdf/">Dividir PDF</a> muitas vezes basta. Veja <a href="/pt-br/blog/split-pdf-extract-pages/">como extrair páginas de um PDF</a>.</li><li><strong>Tarje na origem quando puder.</strong> Apagar um número no Word original antes de exportar para PDF é mais limpo do que tarjar o PDF depois.</li><li><strong>Não confie na tela.</strong> Teste a pesquisa e a cópia todas as vezes.</li><li><strong>Guarde o original sem tarja em um lugar seguro,</strong> separado da versão que você compartilha.</li></ul>
+</section></div><aside class="lib-tools" aria-labelledby="tools-heading"><h2 id="tools-heading">Ferramentas da Convertios para esta tarefa</h2><ul><li><a href="/pt-br/pdf-to-jpg/">Conversor de PDF para JPG<span aria-hidden="true">→</span></a></li><li><a href="/pt-br/jpg-to-pdf/">Conversor de JPG para PDF<span aria-hidden="true">→</span></a></li><li><a href="/pt-br/split-pdf/">Dividir PDF<span aria-hidden="true">→</span></a></li></ul></aside><p class="lib-publisher">Publicado pela Convertios.</p></article><section class="lib-related" aria-labelledby="related-heading"><h2 id="related-heading">Artigos relacionados</h2><div class="lib-grid lib-grid--related"><article class="lib-card"><div class="lib-card__media"><picture><source type="image/webp" srcset="/assets/blog/editorial/split-pdf-extract-pages-640.webp 640w, /assets/blog/editorial/split-pdf-extract-pages-960.webp 960w, /assets/blog/editorial/split-pdf-extract-pages-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc((100vw - 72px) / 2), 380px"><img src="/assets/blog/editorial/split-pdf-extract-pages-1440.jpg" alt="Tesoura separa páginas individuais de um PDF" width="1440" height="900" loading="lazy" decoding="async"></picture></div><div class="lib-card__body"><span class="lib-kicker lib-kicker--pdf-documents">Tutorial <span aria-hidden="true">·</span> PDF e documentos</span><h3 class="lib-card__title"><a class="lib-card__link" href="/pt-br/blog/split-pdf-extract-pages/">Como extrair páginas de um PDF ou dividi-lo em partes</a></h3><p class="lib-card__dek">A maioria dos PDFs tem mais do que a pessoa que vai recebê-los precisa. Extrair páginas permite compartilhar a folha assinada, o extrato relevante ou um capítulo, sem mexer no original.</p><p class="lib-card__meta"><time datetime="2026-11-18">18 de novembro de 2026</time><span aria-hidden="true">·</span><span>3 min de leitura</span></p></div></article><article class="lib-card"><div class="lib-card__media"><picture><source type="image/webp" srcset="/assets/blog/editorial/pdf-vs-docx-640.webp 640w, /assets/blog/editorial/pdf-vs-docx-960.webp 960w, /assets/blog/editorial/pdf-vs-docx-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc((100vw - 72px) / 2), 380px"><img src="/assets/blog/editorial/pdf-vs-docx-1440.jpg" alt="PDF fixo e documento editável em uma balança" width="1440" height="900" loading="lazy" decoding="async"></picture></div><div class="lib-card__body"><span class="lib-kicker lib-kicker--pdf-documents">Comparação <span aria-hidden="true">·</span> PDF e documentos</span><h3 class="lib-card__title"><a class="lib-card__link" href="/pt-br/blog/pdf-vs-docx/">PDF ou DOCX: em qual formato enviar o documento?</a></h3><p class="lib-card__dek">Muitos problemas com documentos vêm de enviar o conteúdo certo no formato errado: um rascunho editável que deveria ser final ou um PDF que alguém precisa alterar. Uma regra simples ajuda: PDF para o final, DOCX para o trabalho.</p><p class="lib-card__meta"><time datetime="2026-11-18">18 de novembro de 2026</time><span aria-hidden="true">·</span><span>2 min de leitura</span></p></div></article><article class="lib-card"><div class="lib-card__media"><picture><source type="image/webp" srcset="/assets/blog/editorial/pdf-html-1-2-2026-640.webp 640w, /assets/blog/editorial/pdf-html-1-2-2026-960.webp 960w, /assets/blog/editorial/pdf-html-1-2-2026-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc((100vw - 72px) / 2), 380px"><img src="/assets/blog/editorial/pdf-html-1-2-2026-1440.jpg" alt="Ponte conecta uma página PDF ao código da web" width="1440" height="900" loading="lazy" decoding="async"></picture></div><div class="lib-card__body"><span class="lib-kicker lib-kicker--pdf-documents">Notícia <span aria-hidden="true">·</span> PDF e documentos</span><h3 class="lib-card__title"><a class="lib-card__link" href="/pt-br/blog/pdf-html-1-2-2026/">Algoritmo PDF para HTML 1.2 prioriza a estrutura, não a cópia visual da página</a></h3><p class="lib-card__dek">A PDF Association atualizou o método para gerar HTML a partir de PDFs bem marcados. O resultado depende da estrutura do documento e ainda precisa de revisão de acessibilidade.</p><p class="lib-card__meta"><time datetime="2026-11-11">11 de novembro de 2026</time><span aria-hidden="true">·</span><span>2 min de leitura</span></p></div></article></div></section><p class="lib-back"><a href="/pt-br/blog/"><span aria-hidden="true">←</span> Voltar ao blog</a></p></main>
+<footer class="site-footer">
+
+<div class="footer-container">
+
+    <div class="footer-brand">
+        <h3>Convertios</h3>
+        <p>Ferramentas online gratuitas para converter arquivos, imagens e muito mais.</p>
+    </div>
+
+    <div class="footer-links">
+    <a href="/pt-br/blog/">Blog</a>
+        <a href="/pt-br/all-tools/">Ferramentas</a>
+        <a href="/pt-br/about/">Sobre</a>
+        <a href="/pt-br/contact/">Contato</a>
+        <a href="/pt-br/security/">Segurança</a>
+        <a href="/pt-br/privacy/">Privacidade</a>
+        <a href="/pt-br/terms/">Termos</a>
+    </div>
+
+</div>
+<p class="footer-bottom">
+© 2026 Convertios • Todos os direitos reservados
+</p>
+
+</footer>
+
+<script src="/script.min.js?v=e4002bc3" defer></script>
+</body>
+</html>

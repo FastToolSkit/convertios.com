@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browser vs server file processing: privacy explained | Convertios</title>
+<meta name="description" content="Some online tools process files on your device; others upload them. How to tell the difference, the trade-offs, and how each Convertios tool works.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://convertios.com/blog/browser-vs-server-file-processing/">
+<link rel="alternate" hreflang="en" href="https://convertios.com/blog/browser-vs-server-file-processing/">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/browser-vs-server-file-processing/">
+<link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/browser-vs-server-file-processing/">
+<link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/browser-vs-server-file-processing/">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/browser-vs-server-file-processing/">
+<link rel="stylesheet" href="/style.min.css?v=08447486">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta property="og:title" content="Browser vs server file processing: privacy explained | Convertios">
+<meta property="og:description" content="Some online tools process files on your device; others upload them. How to tell the difference, the trade-offs, and how each Convertios tool works.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://convertios.com/blog/browser-vs-server-file-processing/">
+<meta property="og:image" content="https://convertios.com/assets/blog/editorial/browser-vs-server-file-processing-1440.jpg">
+<meta property="og:image:alt" content="Conceptual illustration of a file on a laptop connected by light paths to distant server towers.">
+<meta name="twitter:image:alt" content="Conceptual illustration of a file on a laptop connected by light paths to distant server towers.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Browser-based vs server-based file tools: what happens to your files?", "description": "Some online tools process files on your device; others upload them. How to tell the difference, the trade-offs, and how each Convertios tool works.", "url": "https://convertios.com/blog/browser-vs-server-file-processing/", "mainEntityOfPage": "https://convertios.com/blog/browser-vs-server-file-processing/", "inLanguage": "en", "datePublished": "2026-11-18", "dateModified": "2026-11-18", "image": "https://convertios.com/assets/blog/editorial/browser-vs-server-file-processing-1440.jpg", "articleSection": "AI & Technology", "wordCount": 590, "author": {"@type": "Organization", "name": "Convertios", "url": "https://convertios.com/", "logo": {"@type": "ImageObject", "url": "https://convertios.com/convertios-logo.png"}}, "publisher": {"@type": "Organization", "name": "Convertios", "url": "https://convertios.com/", "logo": {"@type": "ImageObject", "url": "https://convertios.com/convertios-logo.png"}}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://convertios.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://convertios.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "AI & Technology", "item": "https://convertios.com/blog/category/ai-technology/"}, {"@type": "ListItem", "position": 4, "name": "Browser-based vs server-based file tools: what happens to your files?"}]}]}</script>
+<style>
+.page-content{max-width:980px;margin:70px auto;padding:42px;background:#fff;border-radius:18px;color:#1e293b;line-height:1.75}
+.page-content h1{font-size:2.3rem;margin-bottom:14px}.page-content h2{margin-top:34px}.page-content h3{margin-top:24px}
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:24px 0}.about-card{padding:20px;border:1px solid #dbe4f0;border-radius:14px;background:#f8fbff}
+.about-card h3{margin-top:0}.inline-links a{font-weight:600}.note{background:#eef6ff;border-left:4px solid #3a78ff;padding:16px 18px;border-radius:8px;margin:22px 0}
+@media(max-width:768px){.page-content{margin:24px 12px;padding:24px}.page-content h1{font-size:1.9rem}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0CH8NE5WDH');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<style>
+.blog-intro{max-width:760px;font-size:1.1rem;color:#475569}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin:30px 0}
+.blog-card{display:block;color:inherit;text-decoration:none;background:#f8fbff;padding:24px;border:1px solid #dbe4f0;border-radius:14px}
+.blog-card:hover,.blog-card:focus-visible{border-color:#3a78ff;box-shadow:0 7px 22px rgba(35,75,120,.1)}
+.blog-card h2{margin-top:0;font-size:1.24rem}.blog-card p{margin-bottom:0}
+.blog-article{max-width:760px}.blog-article h2{margin-top:32px}
+.blog-meta{color:#64748b;font-size:.9rem}.blog-actions{margin:26px 0;padding:20px;background:#eef6ff;border-radius:12px}
+.blog-actions a{display:inline-block;margin:7px 14px 7px 0;font-weight:600}
+.blog-breadcrumb{font-size:.9rem;margin:0 0 22px}
+@media(max-width:768px){.blog-grid{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="/assets/blog/newsroom.css?v=55e30caf">
+<link rel="stylesheet" href="/assets/blog/library.css?v=b5a2147e">
+<link rel="stylesheet" href="/neon-home.css?v=1a686221">
+</head>
+<body class="blog-page neon-site-header">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+
+<div class="header-left">
+    <a href="/" class="logo">
+        <img src="/neon-convertios-logo.png" alt="Convertios" width="376" height="147" fetchpriority="high" decoding="async">
+    </a>
+</div>
+
+<nav class="nav-menu">
+
+<a href="/" >Home</a>
+
+
+<div class="nav-item dropdown">
+    <span>Image ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/png-to-jpg/">PNG to JPG</a>
+        <a href="/jpg-to-png/">JPG to PNG</a>
+        <a href="/webp-to-png/">WEBP to PNG</a>
+        <a href="/image-converter/">Image Converter</a>
+        <a href="/image-resizer/">Resize Image</a>
+        <a href="/compress-image/">Compress Image</a>
+        <a href="/remove-bg/">Remove Background</a>
+        <a href="/ai-image-enhancer/">AI Image Enhancer</a>
+
+        <a href="/social-media-image-resizer/">Social Media Image Resizer</a>
+<a href="/image-tools/" class="view-all">View All →</a>
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>PDF ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/pdf-to-word/">PDF to Word</a>
+        <a href="/pdf-to-jpg/">PDF to JPG</a>
+        <a href="/jpg-to-pdf/">JPG to PDF</a>
+
+        <a href="/merge-pdf/">Merge PDF</a>
+        <a href="/split-pdf/">Split PDF</a>
+        <a href="/rotate-pdf/">Rotate PDF</a>
+
+        <a href="/pdf-tools/" class="view-all">View All →</a>
+
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>Audio ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/mp3-cutter/">MP3 Cutter</a>
+        <a href="/audio-converter/">Audio Converter</a>
+        <a href="/audio-speed-changer/">Speed Changer</a>
+        <a href="/video-to-mp3/">Video to MP3</a>
+        <a href="/video-converter/">Video Converter</a>
+
+        <a href="/audio-tools/" class="view-all">View All →</a>
+
+    </div>
+</div>
+<div class="nav-item dropdown">
+    <span>All Tools ▾</span>
+    <div class="dropdown-menu">
+        <a href="/all-tools/" class="view-all">All Tools</a>
+
+        <a href="/qr-generator/">QR Generator</a>
+        <a href="/link-shortener/">Link Shortener</a>
+        <a href="/password-generator/">Password Generator</a>
+        <a href="/word-counter/">Word Counter</a>
+        <a href="/text-formatter/">Text Formatter</a>
+        <a href="/unit-converter/">Unit Converter</a>
+        <a href="/meme-generator/">Meme Generator</a>
+
+        <a href="/other-tools/" class="view-all">View All →</a>
+
+    </div>
+</div>
+
+<a href="/blog/" class="nav-blog-link active" aria-current="page">Blog</a>
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+</nav>
+
+<div class="nav-icon faq-wrapper">
+    <a href="/faq/" class="faq-link-block" aria-label="Frequently asked questions">
+
+        <!-- ICON -->
+        <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
+                <circle cx="12" cy="17" r="1"></circle>
+            </svg>
+        </div>
+
+        <!-- TEXT -->
+        <span class="faq-text">FAQ</span>
+
+    </a>
+</div>
+<details class="language-selector" dir="ltr">
+  <summary aria-label="Change language"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">English</span></summary>
+  <div class="language-selector__menu" role="menu" aria-label="Language options">
+    <a href="https://convertios.com/blog/browser-vs-server-file-processing/" lang="en" hreflang="en" role="menuitem" aria-current="page">English</a>
+    <a href="https://convertios.com/ar/blog/browser-vs-server-file-processing/" lang="ar" hreflang="ar" role="menuitem" dir="rtl">العربية</a>
+    <a href="https://convertios.com/es/blog/browser-vs-server-file-processing/" lang="es" hreflang="es" role="menuitem">Español</a>
+    <a href="https://convertios.com/pt-br/blog/browser-vs-server-file-processing/" lang="pt-BR" hreflang="pt-BR" role="menuitem">Português</a>
+  </div>
+</details>
+</header>
+<main class="page-content lib-article-page" id="main-content"><article class="lib-article"><nav class="lib-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/blog/">Blog</a></li><li><a href="/blog/category/ai-technology/">AI &amp; Technology</a></li></ol></nav><header class="lib-article__header"><span class="lib-kicker lib-kicker--ai-technology">Comparison <span aria-hidden="true">·</span> AI &amp; Technology</span><h1>Browser-based vs server-based file tools: what happens to your files?</h1><p class="lib-article__dek">&quot;Online converter&quot; can mean two very different things. Either your file never leaves your device, or it travels to a server, is processed there and comes back. Knowing which is which is the most useful privacy check you can make.</p><ul class="lib-facts"><li><span>Published</span><time datetime="2026-11-18">18 November 2026</time></li><li><span>Category</span><a href="/blog/category/ai-technology/">AI &amp; Technology</a></li><li><span>Reading time</span><strong>3 min read</strong></li></ul></header><figure class="lib-article__figure"><picture><source type="image/webp" srcset="/assets/blog/editorial/browser-vs-server-file-processing-640.webp 640w, /assets/blog/editorial/browser-vs-server-file-processing-960.webp 960w, /assets/blog/editorial/browser-vs-server-file-processing-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc(100vw - 48px), 1180px"><img src="/assets/blog/editorial/browser-vs-server-file-processing-1440.jpg" alt="Conceptual illustration of a file on a laptop connected by light paths to distant server towers." width="1440" height="900" loading="eager" fetchpriority="high" decoding="async"></picture><figcaption>AI-generated editorial illustration. Conceptual imagery, not a photograph.</figcaption></figure><nav class="lib-toc" aria-labelledby="toc-heading"><h2 id="toc-heading">In this article</h2><ol><li><a href="#s1">Two ways an online tool can work</a></li><li><a href="#s2">Why some tasks need a server</a></li><li><a href="#s3">The trade-offs</a></li><li><a href="#s4">How Convertios tools work</a></li><li><a href="#s5">How to check any online tool</a></li></ol></nav><div class="lib-prose article-body"><section aria-labelledby="s1"><h2 id="s1">Two ways an online tool can work</h2>
+<p><strong>Browser-based (client-side) tools</strong> download the program into your web browser. When you choose a file, the browser reads it from your disk, processes it with JavaScript or WebAssembly, and offers the result as a download. The file itself is not sent anywhere. Our explainer on <a href="/blog/webassembly-browser-tools/">how in-browser file tools work</a> describes the technology.</p>
+<p><strong>Server-based tools</strong> upload your file to a computer operated by the service. Software on that server does the work, and you download the result. What happens to the file afterwards depends on the service: deletion after processing, temporary storage, or longer retention.</p>
+</section>
+<section aria-labelledby="s2"><h2 id="s2">Why some tasks need a server</h2>
+<p>Browsers are powerful, but some jobs still fit better on a server:</p>
+<ul><li><strong>Heavy conversions</strong> such as video transcoding need tools like FFmpeg and a lot of memory and processing time.</li><li><strong>Specialised engines</strong> for tasks like rebuilding a PDF as an editable Word document may not exist, or work poorly, in a browser.</li><li><strong>Large AI models</strong> can be too big or slow for phones.</li></ul>
+<p>Equally, many tasks run perfectly well locally: merging and splitting PDFs, resizing and compressing images, cutting MP3s, generating QR codes and passwords.</p>
+</section>
+<section aria-labelledby="s3"><h2 id="s3">The trade-offs</h2>
+<div class="lib-table" tabindex="0" role="region" aria-label=""><table><thead><tr><th scope="col"></th><th scope="col">Browser-based</th><th scope="col">Server-based</th></tr></thead><tbody><tr><th scope="row">Privacy</th><td>File stays on your device</td><td>File is transmitted and processed by someone else</td></tr><tr><th scope="row">Speed</th><td>Instant start; depends on your device</td><td>Upload time; depends on server load</td></tr><tr><th scope="row">Large files</th><td>Limited by your device's memory</td><td>Limited by upload limits</td></tr><tr><th scope="row">Works offline after loading</th><td>Often</td><td>No</td></tr><tr><th scope="row">Heavy tasks (video, some AI)</th><td>Can be slow or impossible on phones</td><td>Usually more capable</td></tr></tbody></table></div>
+<p>Neither is automatically "safe" or "unsafe". A server-based tool that deletes files immediately and uses encrypted connections can be appropriate for many files. A browser-based tool is simply the lowest-exposure option for sensitive documents.</p>
+</section>
+<section aria-labelledby="s4"><h2 id="s4">How Convertios tools work</h2>
+<p>Convertios states on each tool page whether files are uploaded. In summary:</p>
+<p><strong>Processed in your browser (files not uploaded):</strong> <a href="/merge-pdf/">Merge PDF</a>, Split PDF, Rotate PDF, PDF to JPG, JPG to PDF, image compression, resizing and format conversion, Remove Background (which downloads an open-source model to your browser on first use), MP3 Cutter, Trim Audio, Audio Converter, Audio Speed Changer, QR Code Generator, Password Generator, Word Counter, Text Formatter and Unit Converter.</p>
+<p><strong>Processed on a server:</strong></p>
+<ul><li><a href="/pdf-to-word/">PDF to Word</a> uploads the PDF to the self-hosted Convertios backend, converts it with the open-source pdf2docx engine and deletes temporary files after the request.</li><li><a href="/video-converter/">Video Converter</a> and Video to MP3 upload videos up to 50 MB to the Convertios backend for FFmpeg processing; input and output files are deleted automatically after the request.</li><li>AI Image Enhancer uploads the image to the Convertios server, which sends it to Cloudinary for AI enhancement. The page advises against using it for private or sensitive images.</li><li>Link Shortener sends the address through the Convertios server to TinyURL, or is.gd as a fallback. Short links are public.</li></ul>
+</section>
+<section aria-labelledby="s5"><h2 id="s5">How to check any online tool</h2>
+<ol><li><strong>Read the tool page and privacy policy</strong> for words like "uploaded", "processed locally", "deleted after".</li><li><strong>Watch the network.</strong> In a desktop browser, open developer tools (F12), go to the Network tab, process a file and see whether a large upload request appears.</li><li><strong>Try it offline.</strong> If a tool keeps working after you disconnect from the internet once the page has loaded, the work is happening locally.</li><li><strong>Prefer local tools for sensitive files</strong> such as IDs, contracts, medical documents and bank statements.</li></ol>
+<p>Our <a href="/blog/ai-tools-file-privacy-checklist/">privacy checklist for AI and online tools</a> covers what to look for before uploading anything.</p>
+</section></div><aside class="lib-tools" aria-labelledby="tools-heading"><h2 id="tools-heading">Convertios tools for this task</h2><ul><li><a href="/merge-pdf/">Merge PDF<span aria-hidden="true">→</span></a></li><li><a href="/pdf-to-word/">PDF to Word Converter<span aria-hidden="true">→</span></a></li><li><a href="/video-converter/">Video Format Converter<span aria-hidden="true">→</span></a></li></ul></aside><p class="lib-publisher">Published by Convertios.</p></article><section class="lib-related" aria-labelledby="related-heading"><h2 id="related-heading">Related articles</h2><div class="lib-grid lib-grid--related"><article class="lib-card"><div class="lib-card__media"><picture><source type="image/webp" srcset="/assets/blog/editorial/webassembly-browser-tools-640.webp 640w, /assets/blog/editorial/webassembly-browser-tools-960.webp 960w, /assets/blog/editorial/webassembly-browser-tools-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc((100vw - 72px) / 2), 380px"><img src="/assets/blog/editorial/webassembly-browser-tools-1440.jpg" alt="Code module running inside a conceptual browser window" width="1440" height="900" loading="lazy" decoding="async"></picture></div><div class="lib-card__body"><span class="lib-kicker lib-kicker--ai-technology">Guide <span aria-hidden="true">·</span> AI &amp; Technology</span><h3 class="lib-card__title"><a class="lib-card__link" href="/blog/webassembly-browser-tools/">How in-browser file tools work: JavaScript, WebAssembly and on-device AI</a></h3><p class="lib-card__dek">Ten years ago, converting a file online almost always meant uploading it. Today a web page can do much of that work on your own device. Here is what changed, in plain language.</p><p class="lib-card__meta"><time datetime="2026-11-18">18 November 2026</time><span aria-hidden="true">·</span><span>3 min read</span></p></div></article><article class="lib-card"><div class="lib-card__media"><picture><source type="image/webp" srcset="/assets/blog/editorial/ai-tools-file-privacy-checklist-640.webp 640w, /assets/blog/editorial/ai-tools-file-privacy-checklist-960.webp 960w, /assets/blog/editorial/ai-tools-file-privacy-checklist-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc((100vw - 72px) / 2), 380px"><img src="/assets/blog/editorial/ai-tools-file-privacy-checklist-1440.jpg" alt="Locked gate protecting files at an AI processor" width="1440" height="900" loading="lazy" decoding="async"></picture></div><div class="lib-card__body"><span class="lib-kicker lib-kicker--ai-technology">Guide <span aria-hidden="true">·</span> AI &amp; Technology</span><h3 class="lib-card__title"><a class="lib-card__link" href="/blog/ai-tools-file-privacy-checklist/">Before you upload: a privacy checklist for AI and online file tools</a></h3><p class="lib-card__dek">Uploading a file to an AI assistant or an online converter is often the quickest way to get a job done. A two-minute check first can stop you sharing far more than the task needs.</p><p class="lib-card__meta"><time datetime="2026-11-18">18 November 2026</time><span aria-hidden="true">·</span><span>3 min read</span></p></div></article><article class="lib-card"><div class="lib-card__media"><picture><source type="image/webp" srcset="/assets/blog/editorial/ocr-explained-640.webp 640w, /assets/blog/editorial/ocr-explained-960.webp 960w, /assets/blog/editorial/ocr-explained-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc((100vw - 72px) / 2), 380px"><img src="/assets/blog/editorial/ocr-explained-1440.jpg" alt="Conceptual illustration of a digital document with text and accessibility controls on a laptop." width="1440" height="900" loading="lazy" decoding="async"></picture></div><div class="lib-card__body"><span class="lib-kicker lib-kicker--ai-technology">Guide <span aria-hidden="true">·</span> AI &amp; Technology</span><h3 class="lib-card__title"><a class="lib-card__link" href="/blog/ocr-explained/">How OCR works, and why it still makes mistakes</a></h3><p class="lib-card__dek">OCR is the step that turns a photographed or scanned page into words you can search, copy and edit. It is remarkably good today, and still a set of educated guesses that deserve a proofread.</p><p class="lib-card__meta"><time datetime="2026-11-18">18 November 2026</time><span aria-hidden="true">·</span><span>4 min read</span></p></div></article></div></section><p class="lib-back"><a href="/blog/"><span aria-hidden="true">←</span> Back to the blog</a></p></main>
+<footer class="site-footer">
+
+<div class="footer-container">
+
+    <div class="footer-brand">
+        <h3>Convertios</h3>
+        <p>Free online tools for converting files, images, and more.</p>
+    </div>
+
+    <div class="footer-links">
+    <a href="/blog/">Blog</a>
+        <a href="/all-tools/">Tools</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/security/">Security</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+    </div>
+
+</div>
+<p class="footer-bottom">
+© 2026 Convertios • All rights reserved
+</p>
+
+</footer>
+<script src="/script.min.js?v=e4002bc3" defer></script>
+</body>
+</html>

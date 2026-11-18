@@ -13,6 +13,8 @@ exclude:
   - test-results
   - scripts
   - docs
+  - content
+  - _preview
   - tool-template
   - README.md
   - BACKEND.md

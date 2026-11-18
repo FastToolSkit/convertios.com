@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-0CH8NE5WDH');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cómo funcionan las herramientas en el navegador (WebAssembly)</title>
+<meta name="description" content="Los navegadores modernos unen PDF, editan audio y ejecutan modelos de IA sin subir archivos. Una explicación sencilla de las tecnologías y sus límites.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://convertios.com/es/blog/webassembly-browser-tools/">
+<link rel="alternate" hreflang="en" href="https://convertios.com/blog/webassembly-browser-tools/">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/webassembly-browser-tools/">
+<link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/webassembly-browser-tools/">
+<link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/webassembly-browser-tools/">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/webassembly-browser-tools/">
+<link rel="stylesheet" href="/style.min.css?v=08447486">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta property="og:title" content="Cómo funcionan las herramientas en el navegador (WebAssembly)">
+<meta property="og:description" content="Los navegadores modernos unen PDF, editan audio y ejecutan modelos de IA sin subir archivos. Una explicación sencilla de las tecnologías y sus límites.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://convertios.com/es/blog/webassembly-browser-tools/">
+<meta property="og:image" content="https://convertios.com/assets/blog/editorial/webassembly-browser-tools-1440.jpg">
+<meta property="og:image:alt" content="Módulo de código dentro de una ventana conceptual de navegador">
+<meta name="twitter:image:alt" content="Módulo de código dentro de una ventana conceptual de navegador">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Cómo funcionan las herramientas de archivos en el navegador: JavaScript, WebAssembly e IA local", "description": "Los navegadores modernos unen PDF, editan audio y ejecutan modelos de IA sin subir archivos. Una explicación sencilla de las tecnologías y sus límites.", "url": "https://convertios.com/es/blog/webassembly-browser-tools/", "mainEntityOfPage": "https://convertios.com/es/blog/webassembly-browser-tools/", "inLanguage": "es", "datePublished": "2026-11-18", "dateModified": "2026-11-18", "image": "https://convertios.com/assets/blog/editorial/webassembly-browser-tools-1440.jpg", "articleSection": "IA y tecnología", "wordCount": 657, "author": {"@type": "Organization", "name": "Convertios", "url": "https://convertios.com/", "logo": {"@type": "ImageObject", "url": "https://convertios.com/convertios-logo.png"}}, "publisher": {"@type": "Organization", "name": "Convertios", "url": "https://convertios.com/", "logo": {"@type": "ImageObject", "url": "https://convertios.com/convertios-logo.png"}}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://convertios.com/es/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://convertios.com/es/blog/"}, {"@type": "ListItem", "position": 3, "name": "IA y tecnología", "item": "https://convertios.com/es/blog/category/ai-technology/"}, {"@type": "ListItem", "position": 4, "name": "Cómo funcionan las herramientas de archivos en el navegador: JavaScript, WebAssembly e IA local"}]}]}</script>
+<!-- /Convertios structured data -->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<style>
+.blog-intro{max-width:760px;font-size:1.1rem;color:#475569}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin:30px 0}
+.blog-card{display:block;color:inherit;text-decoration:none;background:#f8fbff;padding:24px;border:1px solid #dbe4f0;border-radius:14px}
+.blog-card:hover,.blog-card:focus-visible{border-color:#3a78ff;box-shadow:0 7px 22px rgba(35,75,120,.1)}
+.blog-card h2{margin-top:0;font-size:1.24rem}.blog-card p{margin-bottom:0}
+.blog-article{max-width:760px}.blog-article h2{margin-top:32px}
+.blog-meta{color:#64748b;font-size:.9rem}.blog-actions{margin:26px 0;padding:20px;background:#eef6ff;border-radius:12px}
+.blog-actions a{display:inline-block;margin:7px 14px 7px 0;font-weight:600}
+.blog-breadcrumb{font-size:.9rem;margin:0 0 22px}
+@media(max-width:768px){.blog-grid{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="/assets/blog/newsroom.css?v=55e30caf">
+<link rel="stylesheet" href="/assets/blog/library.css?v=b5a2147e">
+<link rel="stylesheet" href="/neon-home.css?v=1a686221">
+</head>
+<body class="blog-page neon-site-header">
+<a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+<header class="site-header">
+
+<div class="header-left">
+    <a href="/es/" class="logo">
+        <img src="/neon-convertios-logo.png" alt="Logo de Convertios" width="376" height="147" fetchpriority="high" decoding="async">
+    </a>
+</div>
+
+<nav class="nav-menu">
+
+<a href="/es/" >Inicio</a>
+
+
+<div class="nav-item dropdown">
+    <span>Imagen ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/es/png-to-jpg/">PNG a JPG</a>
+        <a href="/es/jpg-to-png/">JPG a PNG</a>
+        <a href="/es/webp-to-png/">WEBP a PNG</a>
+        <a href="/es/image-converter/">Convertidor de imágenes</a>
+        <a href="/es/image-resizer/">Redimensionar imagen</a>
+        <a href="/es/compress-image/">Comprimir imagen</a>
+        <a href="/es/remove-bg/">Eliminar fondo</a>
+        <a href="/es/ai-image-enhancer/">Mejorador de imágenes con IA</a>
+
+        <a href="/es/social-media-image-resizer/">Redimensionador para redes sociales</a>
+<a href="/es/image-tools/" class="view-all">Ver todo →</a>
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>PDF ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/es/pdf-to-word/">PDF a Word</a>
+        <a href="/es/pdf-to-jpg/">PDF a JPG</a>
+        <a href="/es/jpg-to-pdf/">JPG a PDF</a>
+
+        <a href="/es/merge-pdf/">Unir PDF</a>
+        <a href="/es/split-pdf/">Dividir PDF</a>
+        <a href="/es/rotate-pdf/">Rotar PDF</a>
+
+        <a href="/es/pdf-tools/" class="view-all">Ver todo →</a>
+
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>Audio ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/es/mp3-cutter/">Cortador de MP3</a>
+        <a href="/es/audio-converter/">Convertidor de audio</a>
+        <a href="/es/audio-speed-changer/">Cambiador de velocidad</a>
+        <a href="/es/video-to-mp3/">Vídeo a MP3</a>
+        <a href="/es/video-converter/">Convertidor de vídeo</a>
+
+        <a href="/es/audio-tools/" class="view-all">Ver todo →</a>
+
+    </div>
+</div>
+<div class="nav-item dropdown">
+    <span>Todas las herramientas ▾</span>
+    <div class="dropdown-menu">
+        <a href="/es/all-tools/" class="view-all">Todas las herramientas</a>
+
+        <a href="/es/qr-generator/">Generador de códigos QR</a>
+        <a href="/es/link-shortener/">Acortador de enlaces</a>
+        <a href="/es/password-generator/">Generador de contraseñas</a>
+        <a href="/es/word-counter/">Contador de palabras</a>
+        <a href="/es/text-formatter/">Formateador de texto</a>
+        <a href="/es/unit-converter/">Conversor de unidades</a>
+        <a href="/es/meme-generator/">Generador de memes</a>
+
+        <a href="/es/other-tools/" class="view-all">Ver todo →</a>
+
+    </div>
+</div>
+
+<a href="/es/blog/" class="nav-blog-link active" aria-current="page">Blog</a>
+<a href="/es/about/">Acerca de</a>
+<a href="/es/contact/">Contacto</a>
+</nav>
+
+<div class="nav-icon faq-wrapper">
+    <a href="/es/faq/" class="faq-link-block" aria-label="Preguntas frecuentes">
+
+        <!-- ICON -->
+        <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
+                <circle cx="12" cy="17" r="1"></circle>
+            </svg>
+        </div>
+
+        <!-- TEXT -->
+        <span class="faq-text">Preguntas frecuentes</span>
+
+    </a>
+</div>
+<details class="language-selector" dir="ltr">
+  <summary aria-label="Cambiar idioma"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">Español</span></summary>
+  <div class="language-selector__menu" role="menu" aria-label="Opciones de idioma">
+    <a href="https://convertios.com/blog/webassembly-browser-tools/" lang="en" hreflang="en" role="menuitem">English</a>
+    <a href="https://convertios.com/ar/blog/webassembly-browser-tools/" lang="ar" hreflang="ar" role="menuitem" dir="rtl">العربية</a>
+    <a href="https://convertios.com/es/blog/webassembly-browser-tools/" lang="es" hreflang="es" role="menuitem" aria-current="page">Español</a>
+    <a href="https://convertios.com/pt-br/blog/webassembly-browser-tools/" lang="pt-BR" hreflang="pt-BR" role="menuitem">Português</a>
+  </div>
+</details>
+</header>
+<main class="page-content lib-article-page" id="main-content"><article class="lib-article"><nav class="lib-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/es/blog/">Blog</a></li><li><a href="/es/blog/category/ai-technology/">IA y tecnología</a></li></ol></nav><header class="lib-article__header"><span class="lib-kicker lib-kicker--ai-technology">Guía <span aria-hidden="true">·</span> IA y tecnología</span><h1>Cómo funcionan las herramientas de archivos en el navegador: JavaScript, WebAssembly e IA local</h1><p class="lib-article__dek">Hace diez años, convertir un archivo en línea casi siempre significaba subirlo. Hoy una página web puede hacer buena parte de ese trabajo en tu propio dispositivo. Esto es lo que ha cambiado, explicado con sencillez.</p><ul class="lib-facts"><li><span>Publicado</span><time datetime="2026-11-18">18 de noviembre de 2026</time></li><li><span>Categoría</span><a href="/es/blog/category/ai-technology/">IA y tecnología</a></li><li><span>Lectura</span><strong>3 min de lectura</strong></li></ul></header><figure class="lib-article__figure"><picture><source type="image/webp" srcset="/assets/blog/editorial/webassembly-browser-tools-640.webp 640w, /assets/blog/editorial/webassembly-browser-tools-960.webp 960w, /assets/blog/editorial/webassembly-browser-tools-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc(100vw - 48px), 1180px"><img src="/assets/blog/editorial/webassembly-browser-tools-1440.jpg" alt="Módulo de código dentro de una ventana conceptual de navegador" width="1440" height="900" loading="eager" fetchpriority="high" decoding="async"></picture><figcaption>Ilustración editorial generada con IA. Imagen conceptual, no una fotografía.</figcaption></figure><nav class="lib-toc" aria-labelledby="toc-heading"><h2 id="toc-heading">En este artículo</h2><ol><li><a href="#s1">El navegador se ha convertido en un ordenador capaz</a></li><li><a href="#s2">Las piezas</a></li><li><a href="#s3">Qué significa para ti</a></li><li><a href="#s4">Los límites</a></li><li><a href="#s5">Cómo saber si una herramienta trabaja en local</a></li></ol></nav><div class="lib-prose article-body"><section aria-labelledby="s1"><h2 id="s1">El navegador se ha convertido en un ordenador capaz</h2>
+<p>Una página web ya no es solo texto e imágenes. Los navegadores modernos incluyen motores de JavaScript rápidos, interfaces gráficas y de audio, y formas de leer los archivos que eliges y devolver resultados como descargas. Juntos permiten que una página se comporte como una pequeña aplicación de escritorio mientras está abierta.</p>
+<p>Lo fundamental: <strong>leer un archivo que eliges no es lo mismo que subirlo.</strong> Al elegirlo, el navegador da a la página acceso a su contenido en memoria. Salvo que el código de la página envíe esos datos por la red, se quedan en tu dispositivo.</p>
+</section>
+<section aria-labelledby="s2"><h2 id="s2">Las piezas</h2>
+<h3>JavaScript y la File API</h3>
+<p>JavaScript ejecuta la lógica de la página. La File API le permite leer los bytes del archivo elegido, y los mecanismos de Blob y descarga, devolver un archivo nuevo. Herramientas sencillas como formateadores de texto, contadores de palabras, conversores de unidades o generadores de QR apenas necesitan más.</p>
+<h3>Canvas y descodificación de imágenes</h3>
+<p>Los navegadores ya saben descodificar JPG, PNG, WebP y otros formatos para mostrarlos. Con la interfaz canvas, una página puede dibujar una imagen, redimensionarla o recortarla y volver a codificarla como JPG, PNG o WebP. Así funcionan los redimensionadores y compresores de imágenes en el navegador.</p>
+<h3>Web Audio</h3>
+<p>La interfaz Web Audio descodifica en muestras los archivos de audio que tu navegador puede reproducir. La página puede cortar, cambiar la velocidad o analizar el sonido y codificar un archivo nuevo, por ejemplo con un codificador MP3 escrito en JavaScript. <a href="/es/mp3-cutter/">Cortar MP3</a> de Convertios funciona así.</p>
+<h3>WebAssembly</h3>
+<p><strong>WebAssembly</strong> (a menudo abreviado Wasm) es un formato binario compacto que los navegadores ejecutan a una velocidad cercana a la de un programa nativo. Los desarrolladores pueden compilar programas existentes escritos en lenguajes como C, C++ o Rust a WebAssembly y usarlos dentro de una página. Así llegan al navegador bibliotecas pesadas, por ejemplo para leer PDF o procesar imágenes, sin tener que reescribirlas.</p>
+<h3>IA en el dispositivo con WebGPU y WebAssembly</h3>
+<p>Los modelos de aprendizaje automático también pueden ejecutarse en el navegador. El archivo del modelo se descarga una vez, a menudo queda en caché para próximas visitas, y la inferencia se hace con WebAssembly o, si está disponible, con la GPU mediante WebGPU o WebGL. La herramienta <a href="/es/remove-bg/">Eliminar fondo</a> de Convertios usa así la biblioteca de código abierto de IMG.LY: la primera vez el navegador descarga y guarda en caché unos 40 MB de modelo y archivos de ejecución, y después procesa tu imagen en local. Consulta <a href="/es/blog/how-ai-background-removal-works/">cómo funciona la eliminación de fondos con IA</a>.</p>
+</section>
+<section aria-labelledby="s3"><h2 id="s3">Qué significa para ti</h2>
+<ul><li><strong>Privacidad:</strong> los archivos procesados en local nunca llegan a un servidor. En PDF, <a href="/es/merge-pdf/">Unir PDF</a> combina documentos en el navegador con una biblioteca de PDF.</li><li><strong>Rapidez:</strong> no hay que esperar a subir o bajar el archivo; el trabajo empieza al instante.</li><li><strong>Uso sin conexión:</strong> algunas herramientas siguen funcionando tras cargar la página, incluso sin conexión.</li></ul>
+</section>
+<section aria-labelledby="s4"><h2 id="s4">Los límites</h2>
+<ul><li><strong>Memoria:</strong> todo ocurre en la memoria de tu dispositivo. Vídeos muy grandes, grabaciones de una hora o PDF enormes pueden ir lentos o fallar en móviles antiguos.</li><li><strong>Descargas iniciales:</strong> las herramientas con bibliotecas grandes o modelos de IA deben descargarlos primero, lo que consume datos en el móvil.</li><li><strong>Diferencias entre navegadores:</strong> un formato que tu navegador no sabe descodificar, por ejemplo algunas fotos HEIC en algunos navegadores, no puede abrirlo una página que dependa del descodificador del navegador.</li><li><strong>Algunas tareas siguen necesitando servidor:</strong> recodificar vídeo con FFmpeg o reconstruir un PDF como Word se hacen en el servidor de Convertios porque requieren más recursos. Nuestra comparativa de <a href="/es/blog/browser-vs-server-file-processing/">procesamiento en navegador y en servidor</a> indica cómo funciona cada herramienta de Convertios.</li></ul>
+</section>
+<section aria-labelledby="s5"><h2 id="s5">Cómo saber si una herramienta trabaja en local</h2>
+<p>Busca frases como «se procesa en tu navegador» en la página de la herramienta, revisa el panel de red del navegador por si hay subidas grandes, o desconéctate de internet tras cargar la página y vuelve a probar.</p>
+</section></div><aside class="lib-tools" aria-labelledby="tools-heading"><h2 id="tools-heading">Herramientas de Convertios para esta tarea</h2><ul><li><a href="/es/remove-bg/">Eliminar fondo de una imagen<span aria-hidden="true">→</span></a></li><li><a href="/es/merge-pdf/">Unir PDF<span aria-hidden="true">→</span></a></li><li><a href="/es/mp3-cutter/">Cortar MP3<span aria-hidden="true">→</span></a></li></ul></aside><p class="lib-publisher">Publicado por Convertios.</p></article><section class="lib-related" aria-labelledby="related-heading"><h2 id="related-heading">Artículos relacionados</h2><div class="lib-grid lib-grid--related"><article class="lib-card"><div class="lib-card__media"><picture><source type="image/webp" srcset="/assets/blog/editorial/browser-vs-server-file-processing-640.webp 640w, /assets/blog/editorial/browser-vs-server-file-processing-960.webp 960w, /assets/blog/editorial/browser-vs-server-file-processing-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc((100vw - 72px) / 2), 380px"><img src="/assets/blog/editorial/browser-vs-server-file-processing-1440.jpg" alt="Ilustración conceptual de un archivo en un portátil conectado por haces de luz a servidores distantes." width="1440" height="900" loading="lazy" decoding="async"></picture></div><div class="lib-card__body"><span class="lib-kicker lib-kicker--ai-technology">Comparativa <span aria-hidden="true">·</span> IA y tecnología</span><h3 class="lib-card__title"><a class="lib-card__link" href="/es/blog/browser-vs-server-file-processing/">Herramientas de archivos en el navegador o en el servidor: ¿qué pasa con tus archivos?</a></h3><p class="lib-card__dek">«Conversor en línea» puede significar dos cosas muy distintas: o tu archivo nunca sale de tu dispositivo, o viaja a un servidor, se procesa allí y vuelve. Saber cuál es cuál es la comprobación de privacidad más útil que puedes hacer.</p><p class="lib-card__meta"><time datetime="2026-11-18">18 de noviembre de 2026</time><span aria-hidden="true">·</span><span>3 min de lectura</span></p></div></article><article class="lib-card"><div class="lib-card__media"><picture><source type="image/webp" srcset="/assets/blog/editorial/how-ai-background-removal-works-640.webp 640w, /assets/blog/editorial/how-ai-background-removal-works-960.webp 960w, /assets/blog/editorial/how-ai-background-removal-works-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc((100vw - 72px) / 2), 380px"><img src="/assets/blog/editorial/how-ai-background-removal-works-1440.jpg" alt="Auriculares aislados sobre una cuadrícula de transparencia" width="1440" height="900" loading="lazy" decoding="async"></picture></div><div class="lib-card__body"><span class="lib-kicker lib-kicker--ai-technology">Guía <span aria-hidden="true">·</span> IA y tecnología</span><h3 class="lib-card__title"><a class="lib-card__link" href="/es/blog/how-ai-background-removal-works/">Cómo funciona la eliminación de fondos con IA y por qué el pelo y el cristal son difíciles</a></h3><p class="lib-card__dek">Un clic y el fondo desaparece. Detrás de ese clic, una red neuronal decide para cada píxel si pertenece al sujeto. Entender cómo decide explica tanto los resultados impresionantes como los frustrantes.</p><p class="lib-card__meta"><time datetime="2026-11-18">18 de noviembre de 2026</time><span aria-hidden="true">·</span><span>3 min de lectura</span></p></div></article><article class="lib-card"><div class="lib-card__media"><picture><source type="image/webp" srcset="/assets/blog/editorial/ai-tools-file-privacy-checklist-640.webp 640w, /assets/blog/editorial/ai-tools-file-privacy-checklist-960.webp 960w, /assets/blog/editorial/ai-tools-file-privacy-checklist-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc((100vw - 72px) / 2), 380px"><img src="/assets/blog/editorial/ai-tools-file-privacy-checklist-1440.jpg" alt="Una puerta protege los archivos ante un procesador de IA" width="1440" height="900" loading="lazy" decoding="async"></picture></div><div class="lib-card__body"><span class="lib-kicker lib-kicker--ai-technology">Guía <span aria-hidden="true">·</span> IA y tecnología</span><h3 class="lib-card__title"><a class="lib-card__link" href="/es/blog/ai-tools-file-privacy-checklist/">Antes de subir: lista de privacidad para herramientas de IA y archivos en línea</a></h3><p class="lib-card__dek">Subir un archivo a un asistente de IA o a un conversor en línea suele ser la forma más rápida de resolver algo. Una comprobación de dos minutos antes puede evitar que compartas mucho más de lo que la tarea necesita.</p><p class="lib-card__meta"><time datetime="2026-11-18">18 de noviembre de 2026</time><span aria-hidden="true">·</span><span>3 min de lectura</span></p></div></article></div></section><p class="lib-back"><a href="/es/blog/"><span aria-hidden="true">←</span> Volver al blog</a></p></main>
+<footer class="site-footer">
+
+<div class="footer-container">
+
+    <div class="footer-brand">
+        <h3>Convertios</h3>
+        <p>Herramientas online gratuitas para convertir archivos, imágenes y mucho más.</p>
+    </div>
+
+    <div class="footer-links">
+    <a href="/es/blog/">Blog</a>
+        <a href="/es/all-tools/">Herramientas</a>
+        <a href="/es/about/">Acerca de</a>
+        <a href="/es/contact/">Contacto</a>
+        <a href="/es/security/">Seguridad</a>
+        <a href="/es/privacy/">Privacidad</a>
+        <a href="/es/terms/">Términos</a>
+    </div>
+
+</div>
+<p class="footer-bottom">
+© 2026 Convertios • Todos los derechos reservados
+</p>
+
+</footer>
+
+<script src="/script.min.js?v=e4002bc3" defer></script>
+</body>
+</html>

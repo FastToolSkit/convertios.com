@@ -14,7 +14,9 @@ def scope_pages():
     for p in sorted((REPO / 'es').rglob('index.html')):
         rel = p.relative_to(REPO / 'es').as_posix()
         parts = rel.split('/')
-        if parts[0] == 'blog' and len(parts) == 3 and parts[1] in NEWS_POSTS:
+        if parts[0] == 'blog':
+            # The whole blog (hub, listings, categories and every article) is generated in all four
+            # languages by scripts/content_library.py from content/blog/*.md; never translate it here.
             continue
         out.append(rel)
     return out
