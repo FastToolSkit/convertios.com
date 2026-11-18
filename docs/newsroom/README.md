@@ -1,10 +1,10 @@
-# Convertios Newsroom — ChatGPT Codex CLI (no OpenAI API)
+# Convertios Newsroom — ChatGPT Codex CLI + image-generation API
 
 ## Operational design
 
 **GitHub Actions** checks official RSS/Atom news sources every Monday and Thursday at 08:17 UTC (11:17 Jordan time), records a source snapshot, and uses read-only repository permissions. This workflow never calls an AI model or needs an OpenAI API key.
 
-**Windows Task Scheduler** on the authorized ASUS laptop runs a separate *local* Codex CLI process every Monday and Thursday at **11:45 Jordan local time**. It independently fetches the latest source material using the existing `scripts/newsroom.py` collector (it does not consume the GitHub artifact). It uses the user's existing `codex login` ChatGPT authentication, with **no OpenAI API billing key**. The local runner is `scripts/local_newsroom_runner.py`, installed at:
+**Windows Task Scheduler** on the authorized ASUS laptop runs a separate *local* Codex CLI process every Monday and Thursday at **11:45 Jordan local time**. It independently fetches the latest source material using the existing `scripts/newsroom.py` collector (it does not consume the GitHub artifact). It uses the user's existing `codex login` ChatGPT authentication for editorial writing. AI editorial cover generation separately requires a configured `OPENAI_API_KEY` and incurs image-generation API usage charges. The local runner is `scripts/local_newsroom_runner.py`, installed at:
 
 `C:\Users\ASUS\Convertios-Newsroom-Automation\local_newsroom_runner.py`
 
@@ -19,7 +19,7 @@ The runner refuses to create another PR while an earlier automated newsroom draf
 - Windows laptop powered on, awake, connected to the internet **and the ASUS user logged in** at the scheduled time. The scheduled task uses Windows InteractiveToken authentication to reuse the existing Codex and GitHub CLI logins without storing a password.
 - Codex CLI authenticated with ChatGPT (`codex login status`); usage limits apply. GitHub CLI authenticated (`gh auth status`) with permission to push branches and create draft PRs.
 - Python 3.11 or compatible, Git, and Windows Task Scheduler. The task is configured to run only one instance at a time, start if missed, and operate when on battery.
-- No `OPENAI_API_KEY` is required, requested, or stored by this design.
+- The editorial-writing step uses ChatGPT-authenticated Codex without an API key. Creating new AI editorial cover images requires `OPENAI_API_KEY` in the scheduled runner's environment (and may incur usage charges). Never commit or log the key; failed image generation must prevent draft creation.
 - The local installed file needs to be updated when the versioned runner in GitHub changes. The project should not assume it silently auto-updates itself.
 
 ## First-run and diagnostics
@@ -59,7 +59,7 @@ Draft PRs must be reviewed for accurate event dates, direct sources, substantive
 News stories now enter the same multilingual Content Library as the guides. A rendered draft PR contains:
 
 - one new `content/blog/<event>-<YYYYMMDD>.md` per story, with `type: news`, the event date, status and source records;
-- four new article pages (`/blog/`, `/es/blog/`, `/ar/blog/`, `/pt-br/blog/`) and one cover SVG per story;
+- four new localized article pages (under `/blog/`, `/es/blog/`, `/ar/blog/`, `/pt-br/blog/`) and an AI editorial cover with responsive WebP variants and a JPEG fallback per story;
 - regenerated listing, pagination and category pages, plus the generated blog block in `sitemap.xml`.
 
 `.github/newsroom/guard.py` allows exactly those paths and rejects any change to existing articles, Markdown sources, tools, scripts or workflows. IndexNow still runs only after the owner merges to `main`; the newsroom never submits URLs. Nothing is merged or published automatically.
@@ -68,4 +68,4 @@ After this change, update the installed copy of `local_newsroom_runner.py` on th
 
 ## Editorial artwork
 
-The local runner generates a conceptual AI cover from each validated story and its localized cover descriptions before rendering the draft. Install Pillow in the runner Python environment and configure OPENAI_API_KEY for image generation. NEWSROOM_IMAGE_MODEL optionally selects the image model. The editor should check the illustration, factual implications, localized descriptions, and card crop in the draft PR. Missing cover variants block publication.
+The local runner generates a conceptual AI cover from each validated story and its localized cover descriptions before rendering the draft. Install Pillow in the runner Python environment and configure OPENAI_API_KEY for image generation. The default model is `gpt-image-2.5-flare` (the retired `gpt-image-1` no longer works). `NEWSROOM_IMAGE_MODEL` optionally overrides the image model. Verify that the scheduled Windows task can access its credentials; an interactive shell test alone does not establish this. The editor should check the illustration, factual implications, localized descriptions, and card crop in the draft PR. Missing cover variants block publication.

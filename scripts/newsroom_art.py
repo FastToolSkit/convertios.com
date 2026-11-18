@@ -26,7 +26,7 @@ def prepare(story):
               "Compose for a 16:10 crop. No lettering, logos, official screenshots, or documentary photography. "
               f"Story: {version['title']}. Subject: {version['dek']}. Depict: {version['cover_alt']}")
     request = urllib.request.Request("https://api.openai.com/v1/images/generations",
-        data=json.dumps({"model": os.environ.get("NEWSROOM_IMAGE_MODEL", "gpt-image-1"),
+        data=json.dumps({"model": os.environ.get("NEWSROOM_IMAGE_MODEL", "gpt-image-2.5-flare"),
                          "prompt": prompt, "size": "1536x1024", "n": 1}).encode(),
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
     with urllib.request.urlopen(request, timeout=300) as response:
