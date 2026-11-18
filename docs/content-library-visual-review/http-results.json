@@ -1,0 +1,525 @@
+{
+  "checkedAt": "2026-11-18T04:13:08.234Z",
+  "base": "http://127.0.0.1:8891",
+  "checks": 18,
+  "failures": [],
+  "results": [
+    {
+      "route": "/blog/",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "",
+      "cls": 0.0016291564102564103,
+      "editorialImages": [
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/reduce-image-size-without-losing-quality-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/browser-vs-server-file-processing-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-video-to-mp3-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/qr-codes-for-business-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/strong-password-guide-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/merge-pdf-files-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/ocr-explained-640.webp",
+          "width": 350
+        }
+      ],
+      "transferredBytes": 537362
+    },
+    {
+      "route": "/blog/convert-pdf-to-word-keep-formatting/",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "",
+      "cls": 0.0016291564102564103,
+      "editorialImages": [
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/merge-pdf-files-640.webp",
+          "width": 350
+        }
+      ],
+      "transferredBytes": 283246
+    },
+    {
+      "route": "/blog/category/pdf-documents/",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "",
+      "cls": 0.0016291564102564103,
+      "editorialImages": [
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/merge-pdf-files-640.webp",
+          "width": 350
+        }
+      ],
+      "transferredBytes": 407314
+    },
+    {
+      "route": "/blog/page/2/",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "",
+      "cls": 0.0016291564102564103,
+      "editorialImages": [],
+      "transferredBytes": 384805
+    },
+    {
+      "route": "/ar/blog/",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "rtl",
+      "cls": 0,
+      "editorialImages": [
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/reduce-image-size-without-losing-quality-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/browser-vs-server-file-processing-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-video-to-mp3-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/qr-codes-for-business-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/strong-password-guide-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/merge-pdf-files-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/ocr-explained-640.webp",
+          "width": 350
+        }
+      ],
+      "transferredBytes": 546356
+    },
+    {
+      "route": "/ar/blog/convert-pdf-to-word-keep-formatting/",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "rtl",
+      "cls": 0,
+      "editorialImages": [
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/merge-pdf-files-640.webp",
+          "width": 350
+        }
+      ],
+      "transferredBytes": 292240
+    },
+    {
+      "route": "/es/blog/",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "",
+      "cls": 0.025661096153846156,
+      "editorialImages": [
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/reduce-image-size-without-losing-quality-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/browser-vs-server-file-processing-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-video-to-mp3-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/qr-codes-for-business-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/strong-password-guide-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/merge-pdf-files-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/ocr-explained-640.webp",
+          "width": 350
+        }
+      ],
+      "transferredBytes": 537362
+    },
+    {
+      "route": "/pt-br/blog/",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "",
+      "cls": 0.025661096153846156,
+      "editorialImages": [
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/reduce-image-size-without-losing-quality-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/browser-vs-server-file-processing-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-video-to-mp3-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/qr-codes-for-business-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/strong-password-guide-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/merge-pdf-files-640.webp",
+          "width": 350
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/ocr-explained-640.webp",
+          "width": 350
+        }
+      ],
+      "transferredBytes": 537362
+    },
+    {
+      "route": "/docs/content-library-visual-review/",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "",
+      "cls": 0.035598,
+      "editorialImages": [],
+      "transferredBytes": 3461822
+    },
+    {
+      "route": "/blog/",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "",
+      "cls": 0.00024618774414062497,
+      "editorialImages": [
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-960.webp",
+          "width": 720
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/reduce-image-size-without-losing-quality-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/browser-vs-server-file-processing-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-video-to-mp3-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/qr-codes-for-business-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/strong-password-guide-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/merge-pdf-files-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/ocr-explained-640.webp",
+          "width": 380
+        }
+      ],
+      "transferredBytes": 561422
+    },
+    {
+      "route": "/blog/convert-pdf-to-word-keep-formatting/",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "",
+      "cls": 0.00024618774414062497,
+      "editorialImages": [
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-1440.webp",
+          "width": 1180
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/merge-pdf-files-640.webp",
+          "width": 380
+        }
+      ],
+      "transferredBytes": 348272
+    },
+    {
+      "route": "/blog/category/pdf-documents/",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "",
+      "cls": 0.00024618774414062497,
+      "editorialImages": [
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/merge-pdf-files-640.webp",
+          "width": 380
+        }
+      ],
+      "transferredBytes": 407314
+    },
+    {
+      "route": "/blog/page/2/",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "",
+      "cls": 0.00024618774414062497,
+      "editorialImages": [],
+      "transferredBytes": 384805
+    },
+    {
+      "route": "/ar/blog/",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "rtl",
+      "cls": 0,
+      "editorialImages": [
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-960.webp",
+          "width": 720
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/reduce-image-size-without-losing-quality-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/browser-vs-server-file-processing-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-video-to-mp3-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/qr-codes-for-business-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/strong-password-guide-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/merge-pdf-files-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/ocr-explained-640.webp",
+          "width": 380
+        }
+      ],
+      "transferredBytes": 570416
+    },
+    {
+      "route": "/ar/blog/convert-pdf-to-word-keep-formatting/",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "rtl",
+      "cls": 0,
+      "editorialImages": [
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-1440.webp",
+          "width": 1180
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/merge-pdf-files-640.webp",
+          "width": 380
+        }
+      ],
+      "transferredBytes": 357266
+    },
+    {
+      "route": "/es/blog/",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "",
+      "cls": 0.0002451900227864583,
+      "editorialImages": [
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-960.webp",
+          "width": 720
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/reduce-image-size-without-losing-quality-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/browser-vs-server-file-processing-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-video-to-mp3-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/qr-codes-for-business-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/strong-password-guide-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/merge-pdf-files-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/ocr-explained-640.webp",
+          "width": 380
+        }
+      ],
+      "transferredBytes": 561422
+    },
+    {
+      "route": "/pt-br/blog/",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "",
+      "cls": 0.00024119913736979167,
+      "editorialImages": [
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-960.webp",
+          "width": 720
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/reduce-image-size-without-losing-quality-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/browser-vs-server-file-processing-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-video-to-mp3-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/qr-codes-for-business-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/strong-password-guide-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/merge-pdf-files-640.webp",
+          "width": 380
+        },
+        {
+          "src": "http://127.0.0.1:8891/assets/blog/editorial/ocr-explained-640.webp",
+          "width": 380
+        }
+      ],
+      "transferredBytes": 561422
+    },
+    {
+      "route": "/docs/content-library-visual-review/",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "broken": [],
+      "dir": "",
+      "cls": 0.056666666666666664,
+      "editorialImages": [],
+      "transferredBytes": 3461822
+    }
+  ],
+  "limitations": "Actual local HTTP; third-party services blocked. All images eagerly decoded for missing-image checks. Transfer totals include those images and are not initial-load budgets."
+}

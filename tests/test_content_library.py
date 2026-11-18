@@ -30,6 +30,7 @@ class ContentLibraryTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         shutil.copytree(REPO / "content", self.root / "content")
+        shutil.copytree(REPO / "assets/blog/editorial", self.root / "assets/blog/editorial")
         shutil.copyfile(REPO / "sitemap.xml", self.root / "sitemap.xml")
         for lang in lib.LANGS:
             for page in (REPO / lib.PREFIX[lang]).glob("*/index.html"):
@@ -92,6 +93,39 @@ class ContentLibraryTests(unittest.TestCase):
         self.assertIn('href="/blog/page/9/"', html)
         self.assertIn('rel="next"', html)
         self.assertIn('rel="prev"', html)
+
+    def test_curated_cover_uses_responsive_art_and_localized_alts(self):
+        result = lib.build()
+        slug = "convert-pdf-to-word-keep-formatting"
+        topic = next(t for t in result.published if t.slug == slug)
+        for lang in lib.LANGS:
+            html = result.files[f"{lib.PREFIX[lang]}blog/{slug}/index.html"]
+            self.assertIn('type="image/webp"', html)
+            self.assertIn(f'{slug}-640.webp 640w', html)
+            self.assertIn(f'{slug}-1440.jpg', html)
+            self.assertIn(lib.escape(topic.versions[lang].cover_alt, quote=True), html)
+            self.assertIn(lib.ILLUSTRATION_LABEL[lang], html)
+            self.assertIn('width="1440" height="900"', html)
+        self.assertIn('/assets/blog/editorial/', lib.og_image(topic))
+
+    def test_curated_cover_rejects_missing_asset_and_missing_alt(self):
+        slug = "convert-pdf-to-word-keep-formatting"
+        asset = self.root / f"assets/blog/editorial/{slug}-640.webp"
+        data = asset.read_bytes()
+        asset.unlink()
+        with self.assertRaisesRegex(lib.LibraryError, "missing editorial cover"):
+            lib.build()
+        asset.write_bytes(data)
+        topics = lib.load_topics()
+        next(t for t in topics if t.slug == slug).versions['ar'].cover_alt = ''
+        with self.assertRaisesRegex(lib.LibraryError, "requires descriptive cover_alt"):
+            lib.validate(topics)
+
+    def test_curated_cover_rejects_path_escape(self):
+        topics = lib.load_topics()
+        topics[0].meta['cover_image'] = '../../secret'
+        with self.assertRaisesRegex(lib.LibraryError, "invalid cover_image"):
+            lib.validate(topics)
 
 
 if __name__ == "__main__":

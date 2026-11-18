@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 199
 status: published
+cover_image: reduce-image-size-without-losing-quality
 cover: 4.2 MB → 380 KB
 tools: compress-image, image-resizer, image-converter
 related: compress-image-to-specific-size, lossy-vs-lossless-compression
@@ -11,6 +12,7 @@ keyword: reduce image file size without losing quality
 intent: how-to
 ---
 === en ===
+cover_alt: Conceptual illustration of a mountain photograph passing through image layers into a browser window.
 title: How to reduce image file size without losing visible quality
 seo_title: Reduce image file size without losing quality
 description: Shrink photos and screenshots for email, forms and websites by resizing first, choosing the right format and compressing only as far as the eye cannot see.
@@ -79,6 +81,7 @@ Photos often carry hidden metadata such as camera model, date and sometimes GPS 
 For hard limits like 100 KB or 20 KB on application forms, see [how to compress an image to a specific size](blog:compress-image-to-specific-size).
 
 === es ===
+cover_alt: Ilustración conceptual de una fotografía de montañas que atraviesa capas de imagen hasta una ventana del navegador.
 title: Cómo reducir el peso de una imagen sin perder calidad visible
 seo_title: Reducir el peso de una imagen sin perder calidad
 description: Aligera fotos y capturas para correo, formularios y webs: primero redimensiona, elige el formato adecuado y comprime solo hasta donde el ojo no lo note.
@@ -147,6 +150,7 @@ Las fotos suelen llevar metadatos ocultos como el modelo de cámara, la fecha y 
 Para límites estrictos como 100 KB o 20 KB en formularios, consulta [cómo comprimir una imagen a un tamaño concreto](blog:compress-image-to-specific-size).
 
 === ar ===
+cover_alt: رسم توضيحي لصورة جبال تمر عبر طبقات صور إلى نافذة متصفح.
 title: كيف تقلل حجم الصورة دون خسارة جودة مرئية
 seo_title: تقليل حجم الصورة دون خسارة الجودة
 description: صغّر الصور ولقطات الشاشة للبريد والنماذج والمواقع: غيّر الأبعاد أولاً، واختر الصيغة المناسبة، واضغط فقط إلى الحد الذي لا تلاحظه العين.
@@ -215,6 +219,7 @@ dek: معظم الصور أثقل بكثير مما تحتاج إليه. الس�
 للحدود الصارمة مثل 100 أو 20 كيلوبايت في نماذج التقديم، راجع [كيف تضغط صورة إلى حجم محدد](blog:compress-image-to-specific-size).
 
 === pt-br ===
+cover_alt: Ilustração conceitual de uma fotografia de montanhas passando por camadas de imagem até uma janela do navegador.
 title: Como diminuir o tamanho de uma imagem sem perder qualidade visível
 seo_title: Diminuir o tamanho da imagem sem perder qualidade
 description: Deixe fotos e capturas de tela mais leves para e-mail, formulários e sites: redimensione primeiro, escolha o formato certo e comprima só até onde o olho não percebe.

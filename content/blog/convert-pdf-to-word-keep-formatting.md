@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 200
 status: published
+cover_image: convert-pdf-to-word-keep-formatting
 cover: PDF → DOCX
 tools: pdf-to-word, split-pdf, rotate-pdf
 related: scanned-pdf-to-word, pdf-vs-docx
@@ -11,6 +12,7 @@ keyword: convert pdf to word without losing formatting
 intent: how-to
 ---
 === en ===
+cover_alt: Conceptual illustration of a paper document passing through a blue glass portal into an editable layout.
 title: How to convert PDF to Word without losing formatting
 seo_title: Convert PDF to Word without losing formatting
 description: Why layouts shift when a PDF becomes a Word file, how to prepare the PDF, and the quick fixes that make a converted DOCX look right again.
@@ -81,6 +83,7 @@ The Convertios tool uploads your PDF to the self-hosted Convertios server, rebui
 Compare totals, dates, names and legal wording with the original PDF line by line where it matters. Keep the original PDF as the reference copy, especially for contracts, certificates and official forms, and send the edited version under a new file name so nobody confuses the two.
 
 === es ===
+cover_alt: Ilustración conceptual de un documento de papel que atraviesa un portal de cristal azul y se convierte en un diseño editable.
 title: Cómo convertir PDF a Word sin perder el formato
 seo_title: Convertir PDF a Word sin perder el formato
 description: Por qué se descoloca el diseño cuando un PDF pasa a Word, cómo preparar el archivo y qué arreglos rápidos dejan bien un DOCX convertido.
@@ -151,6 +154,7 @@ La herramienta de Convertios sube el PDF al servidor propio de Convertios, lo re
 Compara totales, fechas, nombres y textos legales con el PDF original, línea por línea donde sea importante. Conserva el PDF original como copia de referencia, sobre todo en contratos, certificados y formularios oficiales, y envía la versión editada con otro nombre de archivo para que nadie confunda las dos.
 
 === ar ===
+cover_alt: رسم توضيحي لمستند ورقي يمر عبر بوابة زجاجية زرقاء ليصبح مستندًا قابلًا للتحرير.
 title: كيف تحوّل PDF إلى Word دون أن تفقد التنسيق
 seo_title: تحويل PDF إلى Word دون فقدان التنسيق
 description: لماذا يتغير التنسيق عند تحويل PDF إلى Word، وكيف تجهّز الملف قبل التحويل، وما الإصلاحات السريعة التي تعيد ملف DOCX المحوَّل إلى شكله الصحيح.
@@ -221,6 +225,7 @@ dek: يثبّت ملف PDF كل سطر في مكانه، بينما يعيد Wor
 قارن المجاميع والتواريخ والأسماء والصياغات القانونية بملف PDF الأصلي سطراً بسطر حيث يكون ذلك مهماً. احتفظ بالأصل كنسخة مرجعية، خصوصاً في العقود والشهادات والنماذج الرسمية، وأرسل النسخة المعدّلة باسم ملف جديد حتى لا يخلط أحد بين الاثنتين.
 
 === pt-br ===
+cover_alt: Ilustração conceitual de um documento de papel passando por um portal de vidro azul para um layout editável.
 title: Como converter PDF em Word sem perder a formatação
 seo_title: Converter PDF em Word sem perder a formatação
 description: Por que o layout muda quando um PDF vira Word, como preparar o arquivo e quais ajustes rápidos deixam um DOCX convertido com a aparência certa.

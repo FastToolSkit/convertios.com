@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 197
 status: published
+cover_image: convert-video-to-mp3
 cover: MP4 → MP3
 tools: video-to-mp3, mp3-cutter, audio-converter
 related: mp3-vs-wav, video-formats-compared, trim-voice-recordings
@@ -11,6 +12,7 @@ keyword: convert video to mp3
 intent: how-to
 ---
 === en ===
+cover_alt: Conceptual illustration of a desert video frame becoming a luminous sound wave beside headphones.
 title: How to convert a video to MP3 and keep the audio clear
 seo_title: Convert video to MP3: a practical guide
 description: Extract the soundtrack from a recorded lecture, meeting or your own clip as an MP3: what quality to expect, file limits, trimming, and what you may legally convert.
@@ -58,6 +60,7 @@ If the video is larger than 50 MB, try trimming it on your phone first, or see o
 Only convert videos you made, have permission to use, or that are licensed for it. Extracting audio from someone else's content can breach copyright or a platform's terms of service, even for personal use in some places. Convertios converts files you upload; it does not download from video websites.
 
 === es ===
+cover_alt: Ilustración conceptual de un fotograma del desierto que se transforma en una onda de sonido junto a unos auriculares.
 title: Cómo convertir un vídeo a MP3 y mantener el audio claro
 seo_title: Convertir vídeo a MP3: guía práctica
 description: Extrae como MP3 el sonido de una clase, una reunión o un clip propio: calidad esperable, límites, recortes y qué puedes convertir legalmente.
@@ -105,6 +108,7 @@ Si el vídeo supera los 50 MB, recórtalo antes en el móvil o consulta nuestra 
 Convierte solo vídeos que hayas hecho tú, que tengas permiso para usar o cuya licencia lo permita. Extraer el audio de contenido ajeno puede infringir derechos de autor o las condiciones de una plataforma, incluso para uso personal en algunos lugares. Convertios convierte archivos que tú subes; no descarga de sitios de vídeo.
 
 === ar ===
+cover_alt: رسم توضيحي لإطار فيديو للصحراء يتحول إلى موجة صوتية مضيئة بجوار سماعات.
 title: كيف تحوّل فيديو إلى MP3 مع الحفاظ على وضوح الصوت
 seo_title: تحويل الفيديو إلى MP3: دليل عملي
 description: استخرج صوت محاضرة أو اجتماع أو مقطع صورته بنفسك بصيغة MP3: الجودة المتوقعة، والحدود، والقص، وما يجوز لك تحويله قانونياً.
@@ -152,6 +156,7 @@ dek: أحياناً لا تضيف الصورة شيئاً: محاضرة مسجل
 حوّل فقط الفيديوهات التي صنعتها أو لديك إذن باستخدامها أو التي تسمح رخصتها بذلك. فاستخراج الصوت من محتوى غيرك قد يخالف حقوق النشر أو شروط المنصات، حتى للاستخدام الشخصي في بعض البلدان. ويحوّل Convertios الملفات التي ترفعها أنت، ولا ينزّل من مواقع الفيديو.
 
 === pt-br ===
+cover_alt: Ilustração conceitual de um quadro de vídeo do deserto transformado em uma onda sonora ao lado de fones.
 title: Como converter vídeo em MP3 mantendo o áudio claro
 seo_title: Converter vídeo em MP3: guia prático
 description: Extraia em MP3 o som de uma aula, reunião ou clipe seu: que qualidade esperar, limites, cortes e o que você pode converter legalmente.

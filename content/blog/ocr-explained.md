@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 192
 status: published
+cover_image: ocr-explained
 cover: OCR
 tools: pdf-to-word, pdf-to-jpg, image-resizer
 related: scanned-pdf-to-word, convert-pdf-to-word-keep-formatting
@@ -11,6 +12,7 @@ keyword: how does ocr work
 intent: informational
 ---
 === en ===
+cover_alt: Conceptual illustration of a digital document with text and accessibility controls on a laptop.
 title: How OCR works, and why it still makes mistakes
 seo_title: How OCR works and why it makes mistakes
 description: Optical character recognition turns pictures of text into real text. Learn how it works, what affects accuracy and how to check OCR output before you rely on it.
@@ -70,6 +72,7 @@ Convertios does not currently offer an OCR tool, and its [PDF to Word converter]
 > OCR turns pictures of text into text, but it guesses. Treat every OCR result as a draft until the numbers and names have been checked against the original.
 
 === es ===
+cover_alt: Ilustración conceptual de un documento digital con controles de texto y accesibilidad en un portátil.
 title: Cómo funciona el OCR y por qué todavía se equivoca
 seo_title: Cómo funciona el OCR y por qué se equivoca
 description: El reconocimiento óptico de caracteres convierte imágenes de texto en texto real. Aprende cómo funciona, qué afecta a su precisión y cómo revisar el resultado.
@@ -129,6 +132,7 @@ Convertios no ofrece actualmente una herramienta de OCR, y su [conversor de PDF 
 > El OCR convierte imágenes de texto en texto, pero adivina. Trata cada resultado de OCR como un borrador hasta comprobar los números y los nombres con el original.
 
 === ar ===
+cover_alt: رسم توضيحي لمستند رقمي مع أدوات نص وإمكانية وصول على حاسوب محمول.
 title: كيف يعمل OCR ولماذا ما زال يخطئ
 seo_title: كيف يعمل OCR ولماذا يخطئ أحياناً
 description: يحوّل التعرف الضوئي على الحروف صور النصوص إلى نص حقيقي. تعرّف إلى طريقة عمله وما يؤثر في دقته وكيف تراجع نتائجه قبل الاعتماد عليها.
@@ -188,6 +192,7 @@ dek: OCR هو الخطوة التي تحوّل صفحة ممسوحة أو مصو
 > يحوّل OCR صور النصوص إلى نص، لكنه يخمّن. تعامل مع كل نتيجة OCR كمسودة حتى تتحقق من الأرقام والأسماء مقارنةً بالأصل.
 
 === pt-br ===
+cover_alt: Ilustração conceitual de um documento digital com controles de texto e acessibilidade em um notebook.
 title: Como o OCR funciona e por que ainda erra
 seo_title: Como o OCR funciona e por que ele erra
 description: O reconhecimento óptico de caracteres transforma imagens de texto em texto de verdade. Veja como funciona, o que afeta a precisão e como revisar o resultado.

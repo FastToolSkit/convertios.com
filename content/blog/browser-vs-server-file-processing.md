@@ -4,6 +4,7 @@ type: comparison
 published: 2026-11-18
 order: 198
 status: published
+cover_image: browser-vs-server-file-processing
 cover: Browser vs Server
 tools: merge-pdf, pdf-to-word, video-converter
 related: webassembly-browser-tools, ai-tools-file-privacy-checklist
@@ -11,6 +12,7 @@ keyword: are online file converters safe / browser vs server processing
 intent: informational / comparison
 ---
 === en ===
+cover_alt: Conceptual illustration of a file on a laptop connected by light paths to distant server towers.
 title: Browser-based vs server-based file tools: what happens to your files?
 seo_title: Browser vs server file processing: privacy explained
 description: Some online tools process files on your device; others upload them. How to tell the difference, the trade-offs, and how each Convertios tool works.
@@ -67,6 +69,7 @@ Convertios states on each tool page whether files are uploaded. In summary:
 Our [privacy checklist for AI and online tools](blog:ai-tools-file-privacy-checklist) covers what to look for before uploading anything.
 
 === es ===
+cover_alt: Ilustración conceptual de un archivo en un portátil conectado por haces de luz a servidores distantes.
 title: Herramientas de archivos en el navegador o en el servidor: ¿qué pasa con tus archivos?
 seo_title: Procesar archivos en el navegador o en un servidor
 description: Algunas herramientas procesan los archivos en tu dispositivo y otras los suben. Cómo distinguirlas, sus ventajas y cómo funciona cada una en Convertios.
@@ -123,6 +126,7 @@ Convertios indica en cada herramienta si los archivos se suben. En resumen:
 Nuestra [lista de privacidad para herramientas de IA y en línea](blog:ai-tools-file-privacy-checklist) repasa qué mirar antes de subir cualquier cosa.
 
 === ar ===
+cover_alt: رسم توضيحي لملف على حاسوب محمول متصل بمسارات ضوئية بأبراج خوادم بعيدة.
 title: أدوات الملفات في المتصفح أم على الخادم: ماذا يحدث لملفاتك؟
 seo_title: معالجة الملفات في المتصفح أم على الخادم
 description: بعض الأدوات الإلكترونية تعالج الملفات على جهازك، وبعضها يرفعها إلى خادم. تعرّف إلى طريقة التمييز بينهما وإيجابيات كل منهما وكيف تعمل كل أداة في Convertios.
@@ -179,6 +183,7 @@ dek: «محوّل عبر الإنترنت» قد يعني أمرين مختلف�
 تستعرض [قائمة الخصوصية لأدوات الذكاء الاصطناعي والأدوات الإلكترونية](blog:ai-tools-file-privacy-checklist) ما يجب الانتباه إليه قبل رفع أي ملف.
 
 === pt-br ===
+cover_alt: Ilustração conceitual de um arquivo em um notebook conectado por caminhos de luz a servidores distantes.
 title: Ferramentas de arquivos no navegador ou no servidor: o que acontece com seus arquivos?
 seo_title: Processar arquivos no navegador ou no servidor
 description: Algumas ferramentas processam arquivos no seu aparelho; outras os enviam. Como diferenciar, prós e contras e como cada ferramenta da Convertios funciona.

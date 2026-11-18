@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 196
 status: published
+cover_image: qr-codes-for-business
 cover: QR for business
 tools: qr-generator, link-shortener, image-resizer
 related: qr-code-print-size, qr-code-png-vs-svg
@@ -11,6 +12,7 @@ keyword: create qr code for business
 intent: how-to
 ---
 === en ===
+cover_alt: Conceptual illustration of a handheld scanner reading a QR pattern on a product package.
 title: How to create QR codes for your business that people actually scan
 seo_title: How to create QR codes for your business
 description: Plan the destination, generate a static QR code, choose PNG or SVG, size it and test it before printing. A practical guide for menus, flyers and packaging.
@@ -65,6 +67,7 @@ Some paid services offer "dynamic" codes whose destination can be changed; they 
 Customers are increasingly cautious about QR codes. Use your own domain where possible, print your business name near the code, and check public codes periodically for stickers placed over them. Our guide to [QR code scams](blog:qr-code-scam-safety) explains what customers worry about.
 
 === es ===
+cover_alt: Ilustración conceptual de un escáner portátil leyendo un patrón QR en el envase de un producto.
 title: Cómo crear códigos QR para tu negocio que la gente realmente escanee
 seo_title: Cómo crear códigos QR para tu negocio
 description: Planifica el destino, genera un QR estático, elige PNG o SVG, ajusta el tamaño y pruébalo antes de imprimir. Guía práctica para cartas, folletos y envases.
@@ -119,6 +122,7 @@ Algunos servicios de pago ofrecen códigos «dinámicos» cuyo destino se puede 
 Los clientes desconfían cada vez más de los códigos QR. Usa tu propio dominio siempre que puedas, imprime el nombre de tu negocio cerca del código y revisa de vez en cuando los códigos públicos por si alguien ha pegado una pegatina encima. Nuestra guía sobre [estafas con códigos QR](blog:qr-code-scam-safety) explica qué preocupa a los clientes.
 
 === ar ===
+cover_alt: رسم توضيحي لجهاز مسح محمول يقرأ نمط QR على عبوة منتج.
 title: كيف تنشئ رموز QR لنشاطك التجاري يمسحها الناس فعلاً
 seo_title: كيف تنشئ رموز QR لنشاطك التجاري
 description: خطط للوجهة، وأنشئ رمز QR ثابتاً، واختر PNG أو SVG، واضبط حجمه للطباعة، واختبره قبل الطباعة. دليل عملي لقوائم الطعام والمطويات والعبوات وواجهات المحلات.
@@ -173,6 +177,7 @@ dek: قيمة رمز QR من قيمة الصفحة التي يفتحها وال�
 يزداد حذر العملاء من رموز QR. استخدم نطاقك الخاص متى أمكن، واطبع اسم نشاطك قرب الرمز، وافحص الرموز العامة دورياً بحثاً عن ملصقات وُضعت فوقها. يشرح دليلنا عن [الاحتيال عبر رموز QR](blog:qr-code-scam-safety) ما يقلق العملاء.
 
 === pt-br ===
+cover_alt: Ilustração conceitual de um leitor portátil lendo um padrão QR na embalagem de um produto.
 title: Como criar QR Codes para o seu negócio que as pessoas realmente escaneiam
 seo_title: Como criar QR Codes para o seu negócio
 description: Planeje o destino, gere um QR Code estático, escolha PNG ou SVG, defina o tamanho e teste antes de imprimir. Guia para cardápios, panfletos e embalagens.

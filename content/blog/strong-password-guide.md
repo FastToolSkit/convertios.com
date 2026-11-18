@@ -4,6 +4,7 @@ type: guide
 published: 2026-11-18
 order: 195
 status: published
+cover_image: strong-password-guide
 cover: ●●●●●●●● 16+
 tools: password-generator, word-counter
 related: link-shortener-safety, file-naming-and-organizing
@@ -11,6 +12,7 @@ keyword: how to create a strong password
 intent: how-to
 ---
 === en ===
+cover_alt: Conceptual illustration of a blue glass padlock and a metal key in magenta and amber light.
 title: How to create a strong password you never have to remember
 seo_title: How to create a strong password
 description: Length beats complexity, every account needs its own password, and a password manager does the remembering. A practical guide with the numbers behind it.
@@ -68,6 +70,7 @@ Nobody can remember dozens of random passwords, and nobody should try:
 A passphrase of several random words, such as four to six words picked by a random process, can be strong and easier to type on a TV or game console. The key word is *random*: a famous quote or song lyric is not. For everything stored in a password manager, a long random character password is simplest.
 
 === es ===
+cover_alt: Ilustración conceptual de un candado de cristal azul y una llave metálica bajo luces magenta y ámbar.
 title: Cómo crear una contraseña segura que nunca tengas que recordar
 seo_title: Cómo crear una contraseña segura
 description: La longitud gana a la complejidad, cada cuenta necesita su propia contraseña y un gestor de contraseñas las recuerda por ti. Guía práctica con las cifras que lo explican.
@@ -125,6 +128,7 @@ Nadie puede recordar decenas de contraseñas aleatorias, ni debería intentarlo:
 Una frase de contraseña de varias palabras aleatorias, por ejemplo de cuatro a seis palabras elegidas por un proceso aleatorio, puede ser fuerte y más fácil de escribir en una tele o una consola. La clave es *aleatoria*: una cita famosa o un verso de una canción no lo son. Para todo lo que guardes en un gestor, lo más sencillo es una contraseña larga de caracteres aleatorios.
 
 === ar ===
+cover_alt: رسم توضيحي لقفل زجاجي أزرق ومفتاح معدني تحت إضاءة أرجوانية وكهرمانية.
 title: كيف تنشئ كلمة مرور قوية لا تحتاج إلى تذكرها أبداً
 seo_title: كيف تنشئ كلمة مرور قوية
 description: الطول أهم من التعقيد، ولكل حساب كلمة مرور خاصة، ومدير كلمات المرور يتذكرها عنك. دليل عملي مع الأرقام التي تشرح السبب.
@@ -182,6 +186,7 @@ dek: أقوى كلمة مرور هي التي لا يستطيع أحد تخمي�
 عبارة المرور المكونة من عدة كلمات عشوائية، مثل أربع إلى ست كلمات تختارها عملية عشوائية، قد تكون قوية وأسهل في الكتابة على التلفاز أو جهاز الألعاب. الكلمة المفتاح هي *عشوائية*؛ فالاقتباس الشهير أو بيت الأغنية ليس عشوائياً. ولكل ما تحفظه في مدير كلمات المرور تبقى كلمة المرور الطويلة من أحرف عشوائية الخيار الأبسط.
 
 === pt-br ===
+cover_alt: Ilustração conceitual de um cadeado de vidro azul e uma chave metálica sob luzes magenta e âmbar.
 title: Como criar uma senha forte que você nunca precisa decorar
 seo_title: Como criar uma senha forte
 description: Tamanho vale mais que complexidade, cada conta precisa da sua própria senha e um gerenciador de senhas lembra por você. Guia prático com os números por trás.

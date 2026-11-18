@@ -4,6 +4,7 @@ type: tutorial
 published: 2026-11-18
 order: 194
 status: published
+cover_image: merge-pdf-files
 cover: PDF + PDF
 tools: merge-pdf, split-pdf, jpg-to-pdf
 related: split-pdf-extract-pages, photos-to-pdf-phone
@@ -11,6 +12,7 @@ keyword: merge multiple pdfs into one
 intent: how-to
 ---
 === en ===
+cover_alt: Conceptual illustration of document stacks connected by a luminous blue stream of data.
 title: How to merge multiple PDFs into one document
 seo_title: How to merge multiple PDFs into one file
 description: Combine several PDFs into one file in the right order, keep text searchable, and avoid the mistakes that make merged applications and claims hard to read.
@@ -83,6 +85,7 @@ If the instructions specify an order, follow it exactly. Reviewers handling hund
 - Keep the original files. If one document changes, it is easier to merge again than to edit the combined PDF.
 
 === es ===
+cover_alt: Ilustración conceptual de pilas de documentos conectadas por un flujo luminoso de datos azules.
 title: Cómo unir varios PDF en un solo documento
 seo_title: Cómo unir varios PDF en un solo archivo
 description: Combina varios PDF en un archivo en el orden correcto, conserva el texto buscable y evita los errores que dificultan leer solicitudes y justificantes.
@@ -155,6 +158,7 @@ Si las instrucciones fijan un orden, síguelo al pie de la letra. Quien revisa c
 - Conserva los archivos originales. Si cambia un documento, es más fácil volver a unir que editar el PDF combinado.
 
 === ar ===
+cover_alt: رسم توضيحي لرزم مستندات متصلة بتدفق بيانات أزرق مضيء.
 title: كيف تدمج عدة ملفات PDF في مستند واحد
 seo_title: كيف تدمج عدة ملفات PDF في ملف واحد
 description: ادمج عدة ملفات PDF في ملف واحد بالترتيب الصحيح، مع بقاء النص قابلاً للبحث، وتجنّب الأخطاء التي تجعل الطلبات والمطالبات صعبة القراءة.
@@ -227,6 +231,7 @@ dek: طلب التقديم أو مطالبة المصاريف أو العقد م
 - احتفظ بالملفات الأصلية؛ فإذا تغيّر مستند واحد كان إعادة الدمج أسهل من تعديل الملف المجمّع.
 
 === pt-br ===
+cover_alt: Ilustração conceitual de pilhas de documentos conectadas por um fluxo luminoso de dados azuis.
 title: Como juntar vários PDFs em um único documento
 seo_title: Como juntar vários PDFs em um único arquivo
 description: Junte vários PDFs em um arquivo na ordem certa, mantenha o texto pesquisável e evite os erros que deixam inscrições e reembolsos difíceis de ler.

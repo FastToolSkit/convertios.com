@@ -487,11 +487,38 @@ def jsonld(data) -> str:
 
 
 def og_image(topic: Topic) -> str:
+    if topic.meta.get("cover_image"):
+        return f"{BASE}/assets/blog/editorial/{topic.meta['cover_image']}-1440.jpg"
     return f"{BASE}/assets/blog/og/{topic.category}.png"
 
 
 def cover_path(slug: str) -> str:
     return f"/assets/blog/covers/{slug}.svg"
+
+
+ILLUSTRATION_LABEL = {
+    "en": "AI-generated editorial illustration. Conceptual imagery, not a photograph.",
+    "es": "Ilustración editorial generada con IA. Imagen conceptual, no una fotografía.",
+    "ar": "رسم تحريري مولّد بالذكاء الاصطناعي. صورة توضيحية وليست صورة فوتوغرافية.",
+    "pt-br": "Ilustração editorial gerada por IA. Imagem conceitual, não uma fotografia.",
+}
+
+
+def cover_picture(topic, lang, eager=False, size=""):
+    """Curated art is shared across translations; unreviewed topics retain their existing cover."""
+    v = topic.versions[lang]
+    alt = escape(v.cover_alt or L10N[lang]["cover_alt"].format(label=topic.cover), quote=True)
+    loading = 'loading="eager" fetchpriority="high"' if eager else 'loading="lazy"'
+    art = topic.meta.get("cover_image")
+    if not art:
+        return f'<img src="{cover_path(topic.slug)}" alt="{alt}" width="1200" height="750" {loading} decoding="async">'
+    base = f"/assets/blog/editorial/{art}"
+    sizes = "(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc(100vw - 48px), 1180px" if size == "article" else (
+        "(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc(100vw - 48px), 720px" if size == "lead" else
+        "(max-width: 640px) calc(100vw - 40px), (max-width: 980px) calc((100vw - 72px) / 2), 380px")
+    srcset = ", ".join(f"{base}-{w}.webp {w}w" for w in (640, 960, 1440))
+    return (f'<picture><source type="image/webp" srcset="{srcset}" sizes="{sizes}">'
+            f'<img src="{base}-1440.jpg" alt="{alt}" width="1440" height="900" {loading} decoding="async"></picture>')
 
 
 def head_meta(lang, title, description, canonical, alternates, og_type, image, schema_nodes, robots="index, follow"):
@@ -626,7 +653,7 @@ def card(lang, topic, size="", eager=False):
     loading = 'loading="eager" fetchpriority="high"' if eager else 'loading="lazy"'
     heading = "h2" if size == "lead" else "h3"
     return (f'<article class="lib-card{(" lib-card--" + size) if size else ""}">'
-            f'<div class="lib-card__media"><img src="{cover_path(topic.slug)}" alt="" width="1200" height="750" {loading} decoding="async"></div>'
+            f'<div class="lib-card__media">{cover_picture(topic, lang, eager, size)}</div>'
             f'<div class="lib-card__body">{kicker(lang, topic)}'
             f'<{heading} class="lib-card__title"><a class="lib-card__link" href="{href}">{escape(v.title)}</a></{heading}>'
             f'<p class="lib-card__dek">{escape(v.dek)}</p>'
@@ -768,7 +795,8 @@ def article_page(topic: Topic, lang: str, published: list[Topic], robots="index,
             f'<li><a href="{local(lang, f"blog/category/{topic.category}/")}">{escape(t["cat"][topic.category])}</a></li></ol></nav>'
             f'<header class="lib-article__header">{kicker(lang, topic)}<h1>{escape(v.title)}</h1>'
             f'<p class="lib-article__dek">{escape(v.dek)}</p><ul class="lib-facts">{"".join(facts)}</ul></header>'
-            f'<figure class="lib-article__figure"><img src="{cover_path(topic.slug)}" alt="{escape(cover_alt)}" width="1200" height="750" loading="eager" fetchpriority="high" decoding="async"></figure>'
+            f'<figure class="lib-article__figure">{cover_picture(topic, lang, True, "article")}'
+            f'{"<figcaption>" + ILLUSTRATION_LABEL[lang] + "</figcaption>" if topic.meta.get("cover_image") else ""}</figure>'
             f'{toc}<div class="lib-prose article-body">{v.html}</div>{tools}{sources}'
             f'<p class="lib-publisher">{t["publisher"]}.</p>'
             f'</article>{related_html}'
@@ -854,6 +882,17 @@ def validate(topics: list[Topic]):
         if missing:
             errors.append(f"{topic.slug}: published but missing languages {missing}")
             continue
+        art = topic.meta.get("cover_image")
+        if art:
+            if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", art):
+                errors.append(f"{topic.slug}: invalid cover_image asset name")
+            else:
+                for suffix in ("640.webp", "960.webp", "1440.webp", "1440.jpg"):
+                    if not (ROOT / f"assets/blog/editorial/{art}-{suffix}").is_file():
+                        errors.append(f"{topic.slug}: missing editorial cover {art}-{suffix}")
+            for lang in LANGS:
+                if not topic.versions[lang].cover_alt:
+                    errors.append(f"{topic.slug}/{lang}: editorial artwork requires descriptive cover_alt")
         for tool in topic.tools:
             for lang in LANGS:
                 if not (ROOT / PREFIX[lang] / tool / "index.html").is_file():

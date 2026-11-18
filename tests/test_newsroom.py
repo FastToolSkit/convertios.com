@@ -51,6 +51,7 @@ class NewsroomTests(unittest.TestCase):
         shutil.copytree(newsroom.ROOT / "content", self.root / "content")
         shutil.copyfile(newsroom.ROOT / "sitemap.xml", self.root / "sitemap.xml")
         shutil.copytree(newsroom.ROOT / "assets/blog/covers", self.root / "assets/blog/covers")
+        shutil.copytree(newsroom.ROOT / "assets/blog/editorial", self.root / "assets/blog/editorial")
         for lang in newsroom.LANGS:
             base = newsroom.ROOT / newsroom.PREFIX[lang]
             for page in base.glob("*/index.html"):
