@@ -98,13 +98,14 @@ def run(mode: str, base: Path, day: str | None = None) -> dict:
         execute([sys.executable, "-B", ".github/newsroom/guard.py"], cwd=repo)
         execute([sys.executable, "-B", "-m", "unittest", "discover", "-s", "tests",
                  "-p", "test_newsroom.py"], cwd=repo, timeout=120)
-        execute([sys.executable, "-B", "docs/blog-news-2026-11/verify_editorial.py"], cwd=repo)
+        # The Content Library check confirms every generated page, listing and the sitemap block are in sync.
+        execute([sys.executable, "-B", "scripts/content_library.py", "check"], cwd=repo, timeout=120)
         execute(["git", "diff", "--check"], cwd=repo)
         branch = PREFIX + now.strftime("%Y%m%d-%H%M%S") + f"-{os.getpid()}"
         if not re.fullmatch(r"automation/local-newsroom-[0-9]{8}-[0-9]{6}-[0-9]+", branch):
             raise RuntimeError("Invalid branch")
         execute(["git", "switch", "-c", branch], cwd=repo)
-        # Stage only rendered news pages and hubs; never stage code, the workflow, or existing articles.
+        # Stage only the story sources, their pages, covers, listings and sitemap; never code, workflows or existing articles.
         tracked = execute(["git", "diff", "--name-only"], cwd=repo).splitlines()
         new = execute(["git", "ls-files", "--others", "--exclude-standard"], cwd=repo).splitlines()
         import importlib.util
@@ -120,7 +121,7 @@ def run(mode: str, base: Path, day: str | None = None) -> dict:
                  "user.email=newsroom@users.noreply.github.com", "commit", "-m",
                  "Draft sourced multilingual newsroom articles"], cwd=repo)
         execute(["git", "push", "-u", "origin", branch], cwd=repo, timeout=180)
-        title = f"Newsroom: {count} sourced stories (EN/ES/AR) — {today}"
+        title = f"Newsroom: {count} sourced stories (EN/ES/AR/PT-BR) — {today}"
         url = execute(["gh", "pr", "create", "-R", REPO, "--base", "main", "--head", branch,
                        "--draft", "--title", title, "--body",
                        "Automatically prepared with local ChatGPT-authenticated Codex CLI. DRAFT ONLY. "

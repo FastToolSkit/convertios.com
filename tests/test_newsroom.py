@@ -17,13 +17,13 @@ guard_spec = importlib.util.spec_from_file_location("newsroom_guard", Path(__fil
 guard = importlib.util.module_from_spec(guard_spec)
 guard_spec.loader.exec_module(guard)
 
-TODAY = date(2026, 11, 14)
+TODAY = date(2026, 11, 20)
 
 
 def fixture():
     sources = [
-        {"id": "source-a", "url": "https://www.w3.org/news/example", "title": "Synthetic event specification", "source_date": "2026-11-13", "publisher": "www.w3.org", "context": "standards", "license_context": "Research only", "text": "Synthetic evidence " * 100},
-        {"id": "source-b", "url": "https://pdfa.org/example", "title": "Synthetic event corroboration", "source_date": "2026-11-13", "publisher": "pdfa.org", "context": "pdf", "license_context": "Research only", "text": "Synthetic evidence " * 100},
+        {"id": "source-a", "url": "https://www.w3.org/news/example", "title": "Synthetic event specification", "source_date": "2026-11-19", "publisher": "www.w3.org", "context": "standards", "license_context": "Research only", "text": "Synthetic evidence " * 100},
+        {"id": "source-b", "url": "https://pdfa.org/example", "title": "Synthetic event corroboration", "source_date": "2026-11-19", "publisher": "pdfa.org", "context": "pdf", "license_context": "Research only", "text": "Synthetic evidence " * 100},
     ]
     versions = {}
     for lang in newsroom.LANGS:
@@ -36,8 +36,8 @@ def fixture():
                 text = f"Synthetic fixture paragraph {number} describes a fictional event only for deterministic offline tests. " + "This example explains how a proposed article keeps page structure and source links while using harmless synthetic words. " * 3
                 paragraphs.append({"text": text, "evidence": ["source-a", "source-b"]})
             sections.append({"paragraphs": paragraphs})
-        versions[lang] = {"title": f"Synthetic fictional rendering example for {lang}", "description": "A fictional fixture description used only for offline testing of the draft newsroom renderer.", "dek": "A fictional fixture summary used only to test the multilingual news article page layout.", "sections": sections, "tools": [prefix + "pdf-to-word/", prefix + "pdf-to-jpg/"], "related_slug": "pdf-brotli-2026"}
-    plan = {"stories": [{"event_id": "synthetic-rendering-test", "topic": "pdf-documents", "event_date": "2026-11-13", "status": "draft", "source_ids": ["source-a", "source-b"], "versions": versions}]}
+        versions[lang] = {"title": f"Synthetic fictional rendering example for {lang}", "description": f"A fictional fixture description used only for offline testing of the draft newsroom renderer ({lang}).", "dek": "A fictional fixture summary used only to test the multilingual news article page layout.", "sections": sections, "tools": [prefix + "pdf-to-word/", prefix + "pdf-to-jpg/"], "related_slug": "pdf-brotli-2026"}
+    plan = {"stories": [{"event_id": "synthetic-rendering-test", "topic": "pdf-documents", "event_date": "2026-11-19", "status": "draft", "source_ids": ["source-a", "source-b"], "versions": versions}]}
     return {"generated_utc": TODAY.isoformat(), "sources": sources, "failures": []}, plan
 
 
@@ -46,18 +46,19 @@ class NewsroomTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
-        for lang in newsroom.LANGS:
-            prefix = Path() if lang == "en" else Path(lang)
-            for relative in (Path("blog/pdf-brotli-2026/index.html"), Path("blog/index.html")):
-                source = newsroom.ROOT / prefix / relative
-                target = self.root / prefix / relative
-                target.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(source, target)
-            for tool in ("pdf-to-word", "pdf-to-jpg"):
-                target = self.root / prefix / tool / "index.html"
-                target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_text("fixture", encoding="utf-8")
+        # A minimal checkout: library sources and templates, the sitemap, every localized tool page
+        # (the library reads tool names from them) and the currently generated blog pages.
+        shutil.copytree(newsroom.ROOT / "content", self.root / "content")
         shutil.copyfile(newsroom.ROOT / "sitemap.xml", self.root / "sitemap.xml")
+        shutil.copytree(newsroom.ROOT / "assets/blog/covers", self.root / "assets/blog/covers")
+        for lang in newsroom.LANGS:
+            base = newsroom.ROOT / newsroom.PREFIX[lang]
+            for page in base.glob("*/index.html"):
+                if page.parent.name not in {"blog", "es", "ar", "pt-br"}:
+                    target = self.root / page.relative_to(newsroom.ROOT)
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(page, target)
+            shutil.copytree(base / "blog", self.root / newsroom.PREFIX[lang] / "blog")
         self.intake, self.plan = fixture()
 
     def test_zero_stories_changes_nothing(self):
@@ -65,27 +66,50 @@ class NewsroomTests(unittest.TestCase):
         self.assertEqual(newsroom.render({"stories": []}, self.intake, TODAY, self.root), [])
         self.assertEqual((self.root / "sitemap.xml").read_bytes(), before)
 
-    def test_one_story_renders_three_languages_and_hubs(self):
+    def test_one_story_renders_four_languages_through_the_library(self):
         changed = newsroom.render(self.plan, self.intake, TODAY, self.root)
-        self.assertEqual(len(changed), 7)
-        slug = "synthetic-rendering-test-20261113"
+        slug = "synthetic-rendering-test-20261119"
+        self.assertIn(f"content/blog/{slug}.md", changed)
+        self.assertIn("sitemap.xml", changed)
+        source = (self.root / "content/blog" / f"{slug}.md").read_text(encoding="utf-8")
+        self.assertIn("type: news", source)
+        self.assertIn("category: pdf-documents", source)
         for lang in newsroom.LANGS:
-            prefix = "" if lang == "en" else lang + "/"
+            prefix = newsroom.PREFIX[lang]
+            self.assertIn(f"{prefix}blog/{slug}/index.html", changed)
+            self.assertIn(f"{prefix}blog/index.html", changed)  # newest-first listing now leads with the story
             page = (self.root / prefix / "blog" / slug / "index.html").read_text(encoding="utf-8")
             hub = (self.root / prefix / "blog/index.html").read_text(encoding="utf-8")
             self.assertIn(f'<link rel="canonical" href="{newsroom.url_for(lang, slug)}">', page)
             for alt in newsroom.LANGS:
-                self.assertIn(f'hreflang="{alt}" href="{newsroom.url_for(alt, slug)}"', page)
-            self.assertIn('"datePublished": "2026-11-14"', page)
-            self.assertIn('"inLanguage": "' + lang + '"', page)
+                self.assertIn(f'href="{newsroom.url_for(alt, slug)}"', page)
+            self.assertIn('"datePublished": "2026-11-20"', page)
+            self.assertIn('"@type": "NewsArticle"', page)
             self.assertIn("https://pdfa.org/example", page)
-            self.assertIn(slug, hub)
+            self.assertIn(f"/{prefix}blog/{slug}/", hub)
             self.assertIn(f'href="/{prefix}pdf-to-word/"', page)
         sitemap = (self.root / "sitemap.xml").read_text(encoding="utf-8")
         ET.fromstring(sitemap)
         for lang in newsroom.LANGS:
             self.assertIn(newsroom.url_for(lang, slug), sitemap)
         self.assertIn("Synthetic fictional rendering example", (self.root / "blog" / slug / "index.html").read_text(encoding="utf-8"))
+        # Existing articles are never rewritten by a news run.
+        self.assertFalse([p for p in changed if p.endswith("/index.html") and "/blog/" + slug not in "/" + p
+                          and not __import__("re").search(r"blog/(?:index\.html|page/|category/)", p)])
+
+    def test_rejects_markdown_and_mismatched_translations(self):
+        injected = copy.deepcopy(self.plan)
+        injected["stories"][0]["versions"]["es"]["sections"][0]["paragraphs"][0]["text"] = "## Heading injection " + "x" * 90
+        with self.assertRaisesRegex(ValueError, "prose"):
+            newsroom.validate(injected, self.intake, TODAY, self.root)
+        mismatched = copy.deepcopy(self.plan)
+        mismatched["stories"][0]["versions"]["ar"]["related_slug"] = "pdf-html-1-2-2026"
+        with self.assertRaisesRegex(ValueError, "same tools"):
+            newsroom.validate(mismatched, self.intake, TODAY, self.root)
+        missing = copy.deepcopy(self.plan)
+        del missing["stories"][0]["versions"]["pt-br"]
+        with self.assertRaisesRegex(ValueError, "four translations"):
+            newsroom.validate(missing, self.intake, TODAY, self.root)
 
     def test_rejects_stale_event_and_missing_independent_source(self):
         stale = copy.deepcopy(self.plan)
@@ -114,7 +138,7 @@ class NewsroomTests(unittest.TestCase):
             newsroom.validate(copied, self.intake, TODAY, self.root)
 
     def test_collect_offline_feed_and_published_dedupe(self):
-        feed = b'<rss><channel><item><title>Entirely synthetic specification announcement</title><link>https://www.w3.org/news/example</link><pubDate>Fri, 13 Nov 2026 12:00:00 GMT</pubDate></item></channel></rss>'
+        feed = b'<rss><channel><item><title>Entirely synthetic specification announcement</title><link>https://www.w3.org/news/example</link><pubDate>Thu, 19 Nov 2026 12:00:00 GMT</pubDate></item></channel></rss>'
         page = b'<html><body><main><p>' + b'Synthetic official page. ' * 30 + b'</p></main></body></html>'
         def fake_fetch(url):
             if url in {item[0] for item in newsroom.FEEDS.values()}:
@@ -127,14 +151,16 @@ class NewsroomTests(unittest.TestCase):
         self.assertEqual(newsroom.collect(TODAY, self.root, fake_fetch)["sources"], [])
 
     def test_pr_guard_rejects_code_and_existing_articles(self):
-        slug = "synthetic-rendering-test-20261113"
-        newsroom.render(self.plan, self.intake, TODAY, self.root)
-        new_pages = {f"{'' if lang == 'en' else lang + '/'}blog/{slug}/index.html" for lang in newsroom.LANGS}
-        hubs = {f"{'' if lang == 'en' else lang + '/'}blog/index.html" for lang in newsroom.LANGS} | {"sitemap.xml"}
-        self.assertEqual(guard.check_paths(hubs, new_pages, self.root), [])
-        self.assertTrue(guard.check_paths(hubs | {"scripts/newsroom.py"}, new_pages, self.root))
-        self.assertTrue(guard.check_paths(hubs | {"blog/pdf-brotli-2026/index.html"}, new_pages, self.root))
-        self.assertTrue(guard.check_paths(hubs, new_pages | {".github/workflows/evil.yml"}, self.root))
+        changed = set(newsroom.render(self.plan, self.intake, TODAY, self.root))
+        slug = "synthetic-rendering-test-20261119"
+        new = {p for p in changed if slug in p}
+        tracked = changed - new
+        self.assertEqual(guard.check_paths(tracked, new, self.root), [])
+        self.assertTrue(guard.check_paths(tracked | {"scripts/newsroom.py"}, new, self.root))
+        self.assertTrue(guard.check_paths(tracked | {"blog/pdf-brotli-2026/index.html"}, new, self.root))
+        self.assertTrue(guard.check_paths(tracked | {"content/blog/pdf-brotli-2026.md"}, new, self.root))
+        self.assertTrue(guard.check_paths(tracked, new | {".github/workflows/evil.yml"}, self.root))
+        self.assertTrue(guard.check_paths(tracked, new | {"blog/not-a-news-slug/index.html"}, self.root))
 
 
 if __name__ == "__main__":

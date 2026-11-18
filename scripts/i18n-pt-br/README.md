@@ -7,13 +7,13 @@ across locales. Text comes from a reviewed Spanish → Portuguese (Brazil) dicti
 | --- | --- |
 | `strings.json` | Every translatable Spanish string found in the in-scope `/es/` pages (text, attributes, meta, JSON-LD, inline JS literals). |
 | `translations/NNN.json` | Portuguese for `strings.json`, in the same order (file name = index of its first entry). |
-| `build.py` | Writes `/pt-br/**/index.html`: translation, `lang="pt-BR"`, canonical/OG/JSON-LD URLs, hreflang cluster, language selector, guides-only blog hub. Fails if any Spanish string has no translation. |
+| `build.py` | Writes `/pt-br/**/index.html`: translation, `lang="pt-BR"`, canonical/OG/JSON-LD URLs, hreflang cluster, language selector. Fails if any Spanish string has no translation. |
 | `link_pt.py` | Adds the reciprocal `pt-BR` alternate and the "Português" selector link to en/es/ar pages, and pt-BR records to `sitemap.xml`. Idempotent. |
 | `js_pt.py` | One-time insertion of `pt` dictionaries into the shared tool scripts (already applied). |
 | `extract.py` | Re-collects strings after `/es/` changes. |
 
-Scope: every `/es/` page except dated news posts (the newsroom publishes en/es/ar only). The Portuguese
-blog hub lists the three evergreen guides and links to the English and Spanish news.
+Scope: every `/es/` page outside `/es/blog/`. The whole blog, including `/pt-br/blog/`, is generated in
+all four languages by `scripts/content_library.py` from `content/blog/*.md`; see `docs/content-library-v1/`.
 
 After a Spanish page changes:
 

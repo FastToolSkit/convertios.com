@@ -37,6 +37,14 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content" / "blog"
 TEMPLATES = CONTENT / "_templates"
+
+
+def set_root(root) -> None:
+    """Point the library at another checkout (used by the newsroom renderer and its tests)."""
+    global ROOT, CONTENT, TEMPLATES
+    ROOT = Path(root)
+    CONTENT = ROOT / "content" / "blog"
+    TEMPLATES = CONTENT / "_templates"
 BASE = "https://convertios.com"
 PER_PAGE = int(__import__("os").environ.get("CONVERTIOS_BLOG_PER_PAGE", "12"))  # env override is for tests only
 LANGS = ("en", "es", "ar", "pt-br")
@@ -71,7 +79,7 @@ L10N = {
         "publisher": "Published by Convertios", "explore": "Explore by topic", "articles": "articles",
         "cover_alt": "Cover graphic: {label}", "view_all": "View all articles",
         "types": {"guide": "Guide", "tutorial": "Tutorial", "comparison": "Comparison", "news": "News"},
-        "cat": {"pdf-documents": "PDF & Documents", "images-formats": "Images & Formats", "ai-technology": "AI & Technology", "audio-video": "Audio & Video", "qr-web": "QR & Web", "productivity": "Productivity"},
+        "cat": {"pdf-documents": "PDF & Documents", "images-formats": "Images & File Formats", "ai-technology": "AI & Technology", "audio-video": "Audio & Video", "qr-web": "QR Codes & Web Utilities", "productivity": "Productivity & Digital Guides"},
         "cat_desc": {
             "pdf-documents": "Converting, merging, splitting and fixing PDFs, plus the document standards behind them.",
             "images-formats": "Choosing image formats, reducing file size, resizing and keeping pictures sharp.",
@@ -100,7 +108,7 @@ L10N = {
         "publisher": "Publicado por Convertios", "explore": "Explorar por tema", "articles": "artículos",
         "cover_alt": "Gráfico de portada: {label}", "view_all": "Ver todos los artículos",
         "types": {"guide": "Guía", "tutorial": "Tutorial", "comparison": "Comparativa", "news": "Noticia"},
-        "cat": {"pdf-documents": "PDF y documentos", "images-formats": "Imágenes y formatos", "ai-technology": "IA y tecnología", "audio-video": "Audio y vídeo", "qr-web": "QR y web", "productivity": "Productividad"},
+        "cat": {"pdf-documents": "PDF y documentos", "images-formats": "Imágenes y formatos de archivo", "ai-technology": "IA y tecnología", "audio-video": "Audio y vídeo", "qr-web": "Códigos QR y utilidades web", "productivity": "Productividad y guías digitales"},
         "cat_desc": {
             "pdf-documents": "Convertir, unir, dividir y corregir PDF, y los estándares de documentos que hay detrás.",
             "images-formats": "Elegir formatos de imagen, reducir el peso, cambiar el tamaño y conservar la nitidez.",
@@ -114,7 +122,7 @@ L10N = {
         "list_title": "Blog de Convertios: noticias, guías y tutoriales", "list_title_n": "Blog de Convertios: artículos, página {n} de {total}",
         "list_desc": "Guías, tutoriales, comparativas y noticias tecnológicas verificadas sobre PDF, imágenes, audio, vídeo, códigos QR, IA y productividad.",
         "list_desc_n": "Página {n} de {total} del Blog de Convertios: guías prácticas, comparativas y noticias sobre archivos, formatos y herramientas.",
-        "cat_title": "Artículos de {cat} | Blog de Convertios", "cat_title_n": "Artículos de {cat}, página {n} | Blog de Convertios",
+        "cat_title": "Artículos de {cat} | Blog de Convertios", "cat_title_n": "Artículos de {cat}, página {n} | Convertios",
         "cat_meta": "{desc} Guías y noticias del Blog de Convertios.", "cat_meta_n": "Página {n} de {total}: {desc}",
         "status_values": {"released": "Publicado", "candidate": "Candidato", "draft": "Borrador", "proposal": "Propuesta", "policy": "Política", "updated": "Guía actualizada"},
     },
@@ -129,7 +137,7 @@ L10N = {
         "publisher": "نشرته Convertios", "explore": "تصفح حسب الموضوع", "articles": "مقالات",
         "cover_alt": "صورة الغلاف: {label}", "view_all": "عرض كل المقالات",
         "types": {"guide": "دليل", "tutorial": "شرح عملي", "comparison": "مقارنة", "news": "خبر"},
-        "cat": {"pdf-documents": "PDF والمستندات", "images-formats": "الصور والصيغ", "ai-technology": "الذكاء الاصطناعي والتقنية", "audio-video": "الصوت والفيديو", "qr-web": "QR والويب", "productivity": "الإنتاجية"},
+        "cat": {"pdf-documents": "PDF والمستندات", "images-formats": "الصور وصيغ الملفات", "ai-technology": "الذكاء الاصطناعي والتقنية", "audio-video": "الصوت والفيديو", "qr-web": "رموز QR وأدوات الويب", "productivity": "الإنتاجية والأدلة الرقمية"},
         "cat_desc": {
             "pdf-documents": "تحويل ملفات PDF ودمجها وتقسيمها وإصلاحها، والمعايير التي تقوم عليها المستندات.",
             "images-formats": "اختيار صيغة الصورة وتقليل حجمها وتغيير أبعادها والحفاظ على وضوحها.",
@@ -158,7 +166,7 @@ L10N = {
         "publisher": "Publicado pela Convertios", "explore": "Explore por assunto", "articles": "artigos",
         "cover_alt": "Arte de capa: {label}", "view_all": "Ver todos os artigos",
         "types": {"guide": "Guia", "tutorial": "Tutorial", "comparison": "Comparação", "news": "Notícia"},
-        "cat": {"pdf-documents": "PDF e documentos", "images-formats": "Imagens e formatos", "ai-technology": "IA e tecnologia", "audio-video": "Áudio e vídeo", "qr-web": "QR e web", "productivity": "Produtividade"},
+        "cat": {"pdf-documents": "PDF e documentos", "images-formats": "Imagens e formatos de arquivo", "ai-technology": "IA e tecnologia", "audio-video": "Áudio e vídeo", "qr-web": "Códigos QR e utilitários web", "productivity": "Produtividade e guias digitais"},
         "cat_desc": {
             "pdf-documents": "Converter, juntar, dividir e corrigir PDFs, e os padrões de documentos por trás deles.",
             "images-formats": "Escolher formatos de imagem, reduzir o tamanho, redimensionar e manter a nitidez.",
@@ -172,7 +180,7 @@ L10N = {
         "list_title": "Blog da Convertios: notícias, guias e tutoriais", "list_title_n": "Blog da Convertios: artigos, página {n} de {total}",
         "list_desc": "Guias, tutoriais, comparações e notícias de tecnologia com fontes sobre PDF, imagens, áudio, vídeo, QR codes, IA e produtividade.",
         "list_desc_n": "Página {n} de {total} do Blog da Convertios: guias práticos, comparações e notícias sobre arquivos, formatos e ferramentas.",
-        "cat_title": "Artigos de {cat} | Blog da Convertios", "cat_title_n": "Artigos de {cat}, página {n} | Blog da Convertios",
+        "cat_title": "Artigos de {cat} | Blog da Convertios", "cat_title_n": "Artigos de {cat}, página {n} | Convertios",
         "cat_meta": "{desc} Guias e notícias do Blog da Convertios.", "cat_meta_n": "Página {n} de {total}: {desc}",
         "status_values": {"released": "Publicado", "candidate": "Candidato", "draft": "Rascunho", "proposal": "Proposta", "policy": "Política", "updated": "Orientação atualizada"},
     },
@@ -777,6 +785,8 @@ def listing_page(lang, topics_page, n, total, counts, category=None) -> str:
     if category:
         cat = t["cat"][category]
         title = t["cat_title"].format(cat=cat) if n == 1 else t["cat_title_n"].format(cat=cat, n=n)
+        if len(title) > 65:  # long localized category names: keep the descriptive part
+            title = title.rsplit(" | ", 1)[0]
         desc = t["cat_meta"].format(desc=t["cat_desc"][category]) if n == 1 else t["cat_meta_n"].format(n=n, total=total, desc=t["cat_desc"][category])
         h1 = cat
         eyebrow = f'<a href="{local(lang, "blog/")}">{t["blog_name"]}</a>'
@@ -937,22 +947,23 @@ def build(include_drafts=False) -> BuildResult:
     return BuildResult(files, sitemap, published, listing_rels, stale)
 
 
-def write(result: BuildResult) -> int:
-    changed = 0
+def write(result: BuildResult) -> list[str]:
+    """Write generated files; return the repository-relative paths that changed."""
+    changed = []
     for rel, content in result.files.items():
         path = ROOT / rel
         if path.is_file() and path.read_text(encoding="utf-8") == content:
             continue
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(content, encoding="utf-8", newline="\n")
-        changed += 1
+        changed.append(rel)
     sitemap_path = ROOT / "sitemap.xml"
     if sitemap_path.read_text(encoding="utf-8") != result.sitemap:
         sitemap_path.write_text(result.sitemap, encoding="utf-8", newline="\n")
-        changed += 1
+        changed.append("sitemap.xml")
     for rel in result.stale:
         (ROOT / rel).unlink()
-        changed += 1
+        changed.append(rel)
     return changed
 
 
@@ -1011,7 +1022,7 @@ def main():
         report(result); return
     changed = write(result)
     stamp()
-    print(f"content library: {len(result.published)} topics, {changed} file(s) changed, {len(result.stale)} stale page(s) removed")
+    print(f"content library: {len(result.published)} topics, {len(changed)} file(s) changed, {len(result.stale)} stale page(s) removed")
 
 
 if __name__ == "__main__":

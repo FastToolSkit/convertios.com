@@ -7,9 +7,11 @@ from email.utils import parsedate_to_datetime
 from html import escape, unescape
 from html.parser import HTMLParser
 import hashlib
+import importlib.util
 import json
 from pathlib import Path
 import re
+import subprocess
 import sys
 from urllib.parse import urlsplit, urlunsplit
 from urllib.error import HTTPError
@@ -28,17 +30,20 @@ FEEDS = {
     "mozilla": ("https://blog.mozilla.org/en/feed/", "blog.mozilla.org", "web"),
 }
 HOSTS = {v[1] for v in FEEDS.values()} | {"w3.org", "www.pdfa.org", "www.openai.com", "blog.google", "web.dev", "gs1.org", "www.gs1.org"}
-TOPICS = {"ai-tools", "pdf-documents", "images-formats", "qr-web", "audio-video"}
-ART = {"ai-tools": "image-formats.png", "pdf-documents": "accessibility.png", "images-formats": "image-formats.png", "qr-web": "barcode.png", "audio-video": "image-formats.png"}
-STATUS_LABELS = {"en": "Status", "es": "Estado", "ar": "الحالة"}
-STATUS_VALUES = {"released": ("released", "publicado", "صدر"), "candidate": ("candidate", "candidato", "مرشح"), "draft": ("draft", "borrador", "مسودة"), "proposal": ("proposal", "propuesta", "مقترح"), "policy": ("policy", "política", "سياسة")}
-LANGS = ("en", "es", "ar")
+# Plan topics map onto Content Library categories ("ai-tools" is the legacy name kept for old plans).
+TOPICS = {"ai-tools": "ai-technology", "ai-technology": "ai-technology", "pdf-documents": "pdf-documents",
+          "images-formats": "images-formats", "qr-web": "qr-web", "audio-video": "audio-video", "productivity": "productivity"}
+STATUSES = ("released", "candidate", "draft", "proposal", "policy")
+LANGS = ("en", "es", "ar", "pt-br")
+PREFIX = {"en": "", "es": "es/", "ar": "ar/", "pt-br": "pt-br/"}
+MIN_WORDS = {"en": 400, "es": 350, "ar": 250, "pt-br": 350}
+# Section headings, in the site's normal news order.
 LABELS = {
-    "en": ("Technology News", "What happened", "Why it matters", "What users should know", "What to check", "Limits and status", "Primary sources", "More coverage", "Source date", "Published by Convertios", "Original source"),
-    "es": ("Noticias de tecnología", "Qué ocurrió", "Por qué importa", "Qué deben saber los usuarios", "Qué comprobar", "Límites y estado", "Fuentes primarias", "Más noticias", "Fecha de la fuente", "Publicado por Convertios", "Fuente original"),
-    "ar": ("أخبار التقنية", "ما الذي حدث", "لماذا يهم", "ما الذي ينبغي للمستخدم معرفته", "ما الذي ينبغي التحقق منه", "الحدود والحالة", "المصادر الأصلية", "المزيد من التغطية", "تاريخ المصدر", "نشرته Convertios", "المصدر الأصلي"),
+    "en": ("What happened", "Why it matters", "What users should know", "What to check", "Limits and status"),
+    "es": ("Qué ocurrió", "Por qué importa", "Qué deben saber los usuarios", "Qué comprobar", "Límites y estado"),
+    "ar": ("ما الذي حدث", "لماذا يهم", "ما الذي ينبغي للمستخدم معرفته", "ما الذي ينبغي التحقق منه", "الحدود والحالة"),
+    "pt-br": ("O que aconteceu", "Por que importa", "O que os usuários devem saber", "O que verificar", "Limites e status"),
 }
-
 
 def canonical_url(url: str) -> str:
     parts = urlsplit(url)
@@ -111,7 +116,7 @@ def feed_items(body: bytes):
 
 def published_sources(root: Path = ROOT) -> set[str]:
     urls = set()
-    for page in (root / "blog").glob("*/index.html"):
+    for page in [*(root / "blog").glob("*/index.html"), *(root / "content" / "blog").glob("*.md")]:
         text = page.read_text(encoding="utf-8")
         for url in re.findall(r'https://[^"\'<>\s]+', text):
             try:
@@ -160,9 +165,26 @@ def strict_date(value: str) -> date:
 
 
 def prose(value, lower=25, upper=1800):
-    if not isinstance(value, str) or not lower <= len(value) <= upper or "<" in value or ">" in value or "http" in value.lower():
+    # Plain single-line prose only: no HTML, URLs, line breaks or Markdown syntax that could restructure the page.
+    if (not isinstance(value, str) or not lower <= len(value.strip()) <= upper or any(c in value for c in "<>\n\r`|[]")
+            or "http" in value.lower() or "**" in value or re.match(r"\s*(?:#|>|[-*+]\s|\d+[.)]\s|=== )", value)):
         raise ValueError("invalid prose field")
     return value.strip()
+
+
+def tool_slug(path: str, lang: str) -> str:
+    prefix = "/" if lang == "en" else f"/{lang}/"
+    if not isinstance(path, str) or not path.startswith(prefix) or not path.endswith("/") or "/blog/" in path:
+        raise ValueError("invalid localized tool path")
+    slug = path[len(prefix):].strip("/")
+    if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
+        raise ValueError("invalid localized tool path")
+    return slug
+
+
+def library_topic(root: Path, slug: str) -> bool:
+    path = root / "content" / "blog" / f"{slug}.md"
+    return path.is_file() and re.search(r"^status: published$", path.read_text(encoding="utf-8").split("\n=== ", 1)[0], re.M) is not None
 
 
 def copied_passage(paragraph: str, source_text: str, words=12) -> bool:
@@ -198,7 +220,7 @@ def validate(plan: dict, intake: dict, today: date, root: Path = ROOT) -> list[d
         if not isinstance(event, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+){2,8}", event) or event in used_events:
             raise ValueError("invalid or duplicate event ID")
         used_events.add(event)
-        if story["topic"] not in TOPICS or story["status"] not in {"released", "candidate", "draft", "proposal", "policy"}:
+        if story["topic"] not in TOPICS or story["status"] not in STATUSES:
             raise ValueError("invalid topic or status")
         event_date = strict_date(story["event_date"])
         if not 0 <= (today - event_date).days <= 10:
@@ -216,18 +238,19 @@ def validate(plan: dict, intake: dict, today: date, root: Path = ROOT) -> list[d
             raise ValueError("source reused by another story")
         used_sources.update(ids)
         slug = slug_for(event, event_date)
-        if any((root / ("" if lang == "en" else lang) / "blog" / slug / "index.html").exists() for lang in LANGS):
+        if (root / "content" / "blog" / f"{slug}.md").exists() or any((root / PREFIX[lang] / "blog" / slug / "index.html").exists() for lang in LANGS):
             raise ValueError("story slug already published")
         if any(url_for(lang, slug) in (root / "sitemap.xml").read_text(encoding="utf-8") for lang in LANGS):
             raise ValueError("story URL already in sitemap")
         versions = story["versions"]
         if not isinstance(versions, dict) or set(versions) != set(LANGS):
-            raise ValueError("all three translations required")
+            raise ValueError("all four translations required (en, es, ar, pt-br)")
+        tool_sets, related_slugs = set(), set()
         for lang in LANGS:
             version = versions[lang]
             if set(version) != {"title", "description", "dek", "sections", "tools", "related_slug"}:
                 raise ValueError("unexpected translation fields")
-            prose(version["title"], 20, 130); prose(version["description"], 60, 220); prose(version["dek"], 60, 300)
+            prose(version["title"], 20, 130); prose(version["description"], 60, 165); prose(version["dek"], 60, 300)
             if len(version["sections"]) != 5:
                 raise ValueError("five sections required")
             paragraph_count = 0
@@ -251,17 +274,24 @@ def validate(plan: dict, intake: dict, today: date, root: Path = ROOT) -> list[d
                 raise ValueError("article too short")
             if len(set(paragraph_texts)) != len(paragraph_texts):
                 raise ValueError("repeated article paragraphs")
-            if len(re.findall(r"\w+", " ".join(paragraph_texts))) < {"en": 400, "es": 350, "ar": 250}[lang]:
+            if len(re.findall(r"\w+", " ".join(paragraph_texts))) < MIN_WORDS[lang]:
                 raise ValueError("article is below editorial length")
             if len({source_map[i]["publisher"] for i in cited}) < 2:
                 raise ValueError("both independent sources must be cited in each language")
             tools = version["tools"]
-            prefix = "/" if lang == "en" else f"/{lang}/"
-            if not isinstance(tools, list) or len(tools) != 2 or len(set(tools)) != 2 or any(not isinstance(t, str) or not t.startswith(prefix) or not (root / t.lstrip("/") / "index.html").is_file() or "/blog/" in t for t in tools):
+            if not isinstance(tools, list) or len(tools) != 2 or len(set(tools)) != 2:
                 raise ValueError("two existing localized tool links required")
+            slugs = tuple(tool_slug(t, lang) for t in tools)
+            if any(not (root / PREFIX[lang] / t / "index.html").is_file() for t in slugs):
+                raise ValueError("two existing localized tool links required")
+            tool_sets.add(slugs)
             related = version["related_slug"]
-            if not isinstance(related, str) or not re.fullmatch(r"[a-z0-9-]+", related) or not (root / prefix.lstrip("/") / "blog" / related / "index.html").is_file():
+            if not isinstance(related, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", related) or not library_topic(root, related):
                 raise ValueError("related blog page missing")
+            related_slugs.add(related)
+        # The library stores one tool list and one related article per topic, shared by all languages.
+        if len(tool_sets) != 1 or len(related_slugs) != 1:
+            raise ValueError("every language must use the same tools and related article")
     return plan["stories"]
 
 
@@ -270,91 +300,72 @@ def slug_for(event: str, event_date: date) -> str:
 
 
 def url_for(lang: str, slug: str) -> str:
-    return f"https://convertios.com/{'' if lang == 'en' else lang + '/'}blog/{slug}/"
+    return f"https://convertios.com/{PREFIX[lang]}blog/{slug}/"
 
 
-def replace_once(text: str, pattern: str, replacement: str, flags=0) -> str:
-    result, n = re.subn(pattern, lambda _: replacement, text, count=1, flags=flags)
-    if n != 1:
-        raise ValueError(f"template marker missing: {pattern[:70]}")
-    return result
+def library():
+    spec = importlib.util.spec_from_file_location("content_library", Path(__file__).resolve().parent / "content_library.py")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules.setdefault("content_library", module)
+    spec.loader.exec_module(module)
+    return module
 
 
-def render_page(story, lang, intake, today, root=ROOT):
-    slug = slug_for(story["event_id"], strict_date(story["event_date"]))
-    version = story["versions"][lang]
-    template = (root / ("" if lang == "en" else lang) / "blog/pdf-brotli-2026/index.html").read_text(encoding="utf-8")
-    page = template.replace("pdf-brotli-2026", slug)
-    title, description, dek = (escape(version[k], quote=True) for k in ("title", "description", "dek"))
-    page = replace_once(page, r"<title>.*?</title>", f"<title>{title} | Convertios</title>")
-    page = replace_once(page, r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{description}">')
-    page = replace_once(page, r'<meta property="og:title" content="[^"]*">', f'<meta property="og:title" content="{title}">')
-    page = replace_once(page, r'<meta property="og:description" content="[^"]*">', f'<meta property="og:description" content="{description}">')
-    page = replace_once(page, r'<meta property="article:published_time" content="[^"]*">', f'<meta property="article:published_time" content="{today.isoformat()}">')
-    art = ART[story["topic"]]
-    page = replace_once(page, r'<meta property="og:image" content="[^"]*">', f'<meta property="og:image" content="https://convertios.com/assets/blog/{art}">')
-    schema = {"@context": "https://schema.org", "@type": "NewsArticle", "headline": version["title"], "description": version["description"], "datePublished": today.isoformat(), "mainEntityOfPage": url_for(lang, slug), "image": f"https://convertios.com/assets/blog/{art}", "inLanguage": lang, "publisher": {"@type": "Organization", "name": "Convertios", "url": "https://convertios.com/"}, "citation": [next(s["url"] for s in intake["sources"] if s["id"] == i) for i in story["source_ids"]]}
-    page = replace_once(page, r'<script type="application/ld\+json">.*?</script>', '<script type="application/ld+json">' + json.dumps(schema, ensure_ascii=False).replace("<", "\\u003c") + '</script>', re.S)
-    label = LABELS[lang]
-    prefix = "/" if lang == "en" else f"/{lang}/"
+def topic_markdown(story, intake, today: date, order: int) -> str:
+    """Serialise one validated story as a Content Library source file (content/blog/<slug>.md)."""
     citations = {s["id"]: s for s in intake["sources"]}
-    sections = []
-    for index, section in enumerate(version["sections"]):
-        paragraphs = []
-        for p in section["paragraphs"]:
-            links = " ".join(f'<a href="{escape(citations[i]["url"], quote=True)}" rel="noopener noreferrer">[{j + 1}]</a>' for j, i in enumerate(p["evidence"]))
-            paragraphs.append(f'<p>{escape(p["text"])} {links}</p>')
-        sections.append(f'<section><h2>{label[index + 1]}</h2>{"".join(paragraphs)}</section>')
-    source_links = "".join(f'<li><a href="{escape(citations[i]["url"], quote=True)}" rel="noopener noreferrer">{escape(citations[i]["publisher"])}: {escape(citations[i]["title"])}</a> ({escape(citations[i]["source_date"])})</li>' for i in story["source_ids"])
-    tools = " ".join(f'<a href="{escape(t, quote=True)}">{escape(t.strip("/").split("/")[-1].replace("-", " "))}</a>' for t in version["tools"])
-    related = f'{prefix}blog/{version["related_slug"]}/'
-    main = (f'<main class="page-content newsroom-article" id="main-content"><article class="editorial-article news-article">'
-            f'<nav class="article-breadcrumb" aria-label="Blog"><a href="{prefix}blog/">{label[0]}</a></nav>'
-            f'<header class="article-header"><span class="editorial-kicker">News / {escape(story["topic"].replace("-", " & "))}</span><h1>{title}</h1><p class="article-standfirst">{dek}</p>'
-            f'<div class="article-facts"><p><span>{label[8]}</span><strong>{story["event_date"]}</strong></p><p><span>{label[9]}</span><strong>{today.isoformat()}</strong></p><p><span>{label[10]}</span><a href="{escape(citations[story["source_ids"][0]]["url"], quote=True)}">{escape(citations[story["source_ids"][0]]["publisher"])}</a></p><p><span>{STATUS_LABELS[lang]}</span><strong>{STATUS_VALUES[story["status"]][LANGS.index(lang)]}</strong></p></div></header>'
-            f'<figure class="article-figure"><img alt="{escape(version["title"], quote=True)}" class="news-hero" height="1024" src="/assets/blog/{art}" width="1536"><figcaption>Convertios editorial illustration</figcaption></figure>'
-            f'<div class="article-body">{"".join(sections)}<p>{tools}</p><section class="news-sources"><h2>{label[6]}</h2><ul>{source_links}</ul></section></div>'
-            f'<aside class="related-coverage"><h2>{label[7]}</h2><ul><li><a href="{related}">{escape(version["related_slug"].replace("-", " "))}</a></li></ul></aside></article></main>')
-    page = replace_once(page, r'<main class="page-content newsroom-article".*?</main>', main, re.S)
-    return page
+    number = {source_id: n + 1 for n, source_id in enumerate(story["source_ids"])}
+    en = story["versions"]["en"]
+    tools = ", ".join(tool_slug(t, "en") for t in en["tools"])
+    lines = ["---", f"category: {TOPICS[story['topic']]}", "type: news", f"published: {today.isoformat()}", f"order: {order}",
+             "status: published", f"cover: News · {story['event_date']}", f"tools: {tools}", f"related: {en['related_slug']}",
+             f"event_date: {story['event_date']}", f"news_status: {story['status']}", f"keyword: {story['event_id'].replace('-', ' ')}",
+             "intent: news", "generated_by: scripts/newsroom.py"]
+    for source_id in story["source_ids"]:
+        source = citations[source_id]
+        title = re.sub(r"[|\n\r]+", " ", f"{source['publisher']}: {source['title']}").strip()
+        lines.append(f"source: {title} | {source['url']} | {source['source_date']}")
+    lines.append("---")
+    for lang in LANGS:
+        version = story["versions"][lang]
+        lines += [f"=== {lang} ===", f"title: {version['title'].strip()}", f"description: {version['description'].strip()}",
+                  f"dek: {version['dek'].strip()}", "---"]
+        for heading, section in zip(LABELS[lang], version["sections"]):
+            lines += [f"## {heading}", ""]
+            for paragraph in section["paragraphs"]:
+                refs = ", ".join(f"[{number[i]}]({citations[i]['url']})" for i in paragraph["evidence"])
+                lines += [f"{paragraph['text'].strip()} ({refs})", ""]
+        lines.append("")
+    return "\n".join(lines).rstrip() + "\n"
 
 
 def render(plan, intake, today: date, root: Path = ROOT):
+    """Write validated stories as Content Library topics and rebuild listings, categories and the sitemap."""
     stories = validate(plan, intake, today, root)
     if not stories:
         return []
-    changes = {}
+    content = root / "content" / "blog"
+    orders = [int(m.group(1)) for p in content.glob("*.md") for m in [re.search(r"^order: (\d+)$", p.read_text(encoding="utf-8"), re.M)] if m]
+    order = max(orders, default=0)
+    written = []
     for story in stories:
+        order += 1
         slug = slug_for(story["event_id"], strict_date(story["event_date"]))
-        for lang in LANGS:
-            path = root / ("" if lang == "en" else lang) / "blog" / slug / "index.html"
-            changes[path] = render_page(story, lang, intake, today, root)
-    for lang in LANGS:
-        path = root / ("" if lang == "en" else lang) / "blog/index.html"
-        hub = path.read_text(encoding="utf-8")
-        cards = ""
-        for story in stories:
-            slug = slug_for(story["event_id"], strict_date(story["event_date"]))
-            v = story["versions"][lang]
-            href = f"/{'' if lang == 'en' else lang + '/'}blog/{slug}/"
-            art = ART[story["topic"]]
-            cards += f'<a class="secondary-story" href="{href}"><span class="story-image"><img src="/assets/blog/{art}" alt="" width="1536" height="1024" loading="lazy"></span><div class="story-copy"><span class="editorial-kicker">News</span><h3>{escape(v["title"])}</h3><p>{escape(v["dek"])}</p><span class="story-meta">{story["event_date"]}</span></div></a>'
-        changes[path] = replace_once(hub, r'<div class="secondary-grid">', '<div class="secondary-grid">' + cards)
-    path = root / "sitemap.xml"
-    sitemap = path.read_text(encoding="utf-8")
-    records = ""
-    for story in stories:
-        slug = slug_for(story["event_id"], strict_date(story["event_date"]))
-        for lang in LANGS:
-            records += f'<url><loc>{url_for(lang, slug)}</loc>\n'
-            for alternative in (*LANGS, "x-default"):
-                records += f'  <xhtml:link rel="alternate" hreflang="{alternative}" href="{url_for("en" if alternative == "x-default" else alternative, slug)}"/>\n'
-            records += '</url>\n'
-    changes[path] = replace_once(sitemap, r'</urlset>', records + '</urlset>')
-    for path, content in changes.items():
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(content, encoding="utf-8")
-    return [str(p.relative_to(root)).replace("\\", "/") for p in changes]
+        path = content / f"{slug}.md"
+        path.write_text(topic_markdown(story, intake, today, order), encoding="utf-8", newline="\n")
+        written.append(path)
+    lib = library()
+    lib.set_root(root)
+    try:
+        changed = lib.write(lib.build())
+    except lib.LibraryError as exc:
+        for path in written:
+            path.unlink()
+        raise ValueError(f"content library rejected the story: {exc}") from None
+    stamper = root / "scripts" / "stamp-assets.py"
+    if stamper.is_file():
+        subprocess.run([sys.executable, str(stamper)], cwd=root, check=True, stdout=subprocess.DEVNULL)
+    return sorted({*changed, *(str(p.relative_to(root)).replace("\\", "/") for p in written)})
 
 
 def main():
