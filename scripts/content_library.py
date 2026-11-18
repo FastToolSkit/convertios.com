@@ -77,6 +77,7 @@ L10N = {
         "in_article": "In this article", "tools": "Convertios tools for this task", "related": "Related articles",
         "back": "Back to the blog", "sources": "Sources", "source_date": "Source date", "status": "Status",
         "publisher": "Published by Convertios", "explore": "Explore by topic", "articles": "articles",
+        "breadcrumb": "Breadcrumb",
         "cover_alt": "Cover graphic: {label}", "view_all": "View all articles",
         "types": {"guide": "Guide", "tutorial": "Tutorial", "comparison": "Comparison", "news": "News"},
         "cat": {"pdf-documents": "PDF & Documents", "images-formats": "Images & File Formats", "ai-technology": "AI & Technology", "audio-video": "Audio & Video", "qr-web": "QR Codes & Web Utilities", "productivity": "Productivity & Digital Guides"},
@@ -106,6 +107,7 @@ L10N = {
         "in_article": "En este artículo", "tools": "Herramientas de Convertios para esta tarea", "related": "Artículos relacionados",
         "back": "Volver al blog", "sources": "Fuentes", "source_date": "Fecha de la fuente", "status": "Estado",
         "publisher": "Publicado por Convertios", "explore": "Explorar por tema", "articles": "artículos",
+        "breadcrumb": "Ruta de navegación",
         "cover_alt": "Gráfico de portada: {label}", "view_all": "Ver todos los artículos",
         "types": {"guide": "Guía", "tutorial": "Tutorial", "comparison": "Comparativa", "news": "Noticia"},
         "cat": {"pdf-documents": "PDF y documentos", "images-formats": "Imágenes y formatos de archivo", "ai-technology": "IA y tecnología", "audio-video": "Audio y vídeo", "qr-web": "Códigos QR y utilidades web", "productivity": "Productividad y guías digitales"},
@@ -135,6 +137,7 @@ L10N = {
         "in_article": "في هذا المقال", "tools": "أدوات Convertios لهذه المهمة", "related": "مقالات ذات صلة",
         "back": "العودة إلى المدونة", "sources": "المصادر", "source_date": "تاريخ المصدر", "status": "الحالة",
         "publisher": "نشرته Convertios", "explore": "تصفح حسب الموضوع", "articles": "مقالات",
+        "breadcrumb": "مسار التنقل",
         "cover_alt": "صورة الغلاف: {label}", "view_all": "عرض كل المقالات",
         "types": {"guide": "دليل", "tutorial": "شرح عملي", "comparison": "مقارنة", "news": "خبر"},
         "cat": {"pdf-documents": "PDF والمستندات", "images-formats": "الصور وصيغ الملفات", "ai-technology": "الذكاء الاصطناعي والتقنية", "audio-video": "الصوت والفيديو", "qr-web": "رموز QR وأدوات الويب", "productivity": "الإنتاجية والأدلة الرقمية"},
@@ -164,6 +167,7 @@ L10N = {
         "in_article": "Neste artigo", "tools": "Ferramentas da Convertios para esta tarefa", "related": "Artigos relacionados",
         "back": "Voltar ao blog", "sources": "Fontes", "source_date": "Data da fonte", "status": "Status",
         "publisher": "Publicado pela Convertios", "explore": "Explore por assunto", "articles": "artigos",
+        "breadcrumb": "Caminho de navegação",
         "cover_alt": "Arte de capa: {label}", "view_all": "Ver todos os artigos",
         "types": {"guide": "Guia", "tutorial": "Tutorial", "comparison": "Comparação", "news": "Notícia"},
         "cat": {"pdf-documents": "PDF e documentos", "images-formats": "Imagens e formatos de arquivo", "ai-technology": "IA e tecnologia", "audio-video": "Áudio e vídeo", "qr-web": "Códigos QR e utilitários web", "productivity": "Produtividade e guias digitais"},
@@ -521,7 +525,7 @@ def cover_picture(topic, lang, eager=False, size=""):
             f'<img src="{base}-1440.jpg" alt="{alt}" width="1440" height="900" {loading} decoding="async"></picture>')
 
 
-def head_meta(lang, title, description, canonical, alternates, og_type, image, schema_nodes, robots="index, follow"):
+def head_meta(lang, title, description, canonical, alternates, og_type, image, schema_nodes, robots="index, follow", image_alt=""):
     parts = [f"<title>{escape(title)}</title>",
              f'<meta name="description" content="{escape(description)}">',
              f'<meta name="robots" content="{robots}">',
@@ -535,15 +539,17 @@ def head_meta(lang, title, description, canonical, alternates, og_type, image, s
         f'<meta property="og:type" content="{og_type}">',
         f'<meta property="og:url" content="{canonical}">',
         f'<meta property="og:image" content="{image}">',
+        f'<meta property="og:image:alt" content="{escape(image_alt)}">',
+        f'<meta name="twitter:image:alt" content="{escape(image_alt)}">',
         f'<meta property="og:locale" content="{ {"en": "en_US", "es": "es_ES", "ar": "ar_AR", "pt-br": "pt_BR"}[lang] }">',
         '<meta name="twitter:card" content="summary_large_image">',
         jsonld({"@context": "https://schema.org", "@graph": schema_nodes}),
     ]
 
 
-def page_html(lang, title, description, canonical, alternates, og_type, image, schema_nodes, main, robots="index, follow", blog_current=True):
+def page_html(lang, title, description, canonical, alternates, og_type, image, schema_nodes, main, robots="index, follow", blog_current=True, image_alt=""):
     template = shell(lang)
-    first, rest = head_meta(lang, title, description, canonical, alternates, og_type, image, schema_nodes, robots)
+    first, rest = head_meta(lang, title, description, canonical, alternates, og_type, image, schema_nodes, robots, image_alt)
     # Shell order: title/meta/canonical/alternates, the shell's stylesheet and icon links, then Open Graph and JSON-LD.
     page = template.replace("{{HEAD_META}}", first, 1).replace("{{HEAD_SOCIAL}}", "\n".join(rest), 1).replace("{{MAIN}}", main, 1)
     for alt_lang in LANGS:
@@ -792,7 +798,7 @@ def article_page(topic: Topic, lang: str, published: list[Topic], robots="index,
                         f'<div class="lib-grid lib-grid--related">{"".join(card(lang, r) for r in related)}</div></section>')
     cover_alt = v.cover_alt or t["cover_alt"].format(label=topic.cover)
     main = (f'<main class="page-content lib-article-page" id="main-content"><article class="lib-article">'
-            f'<nav class="lib-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="{local(lang, "blog/")}">{t["blog"]}</a></li>'
+            f'<nav class="lib-breadcrumb" aria-label="{t["breadcrumb"]}"><ol><li><a href="{local(lang, "blog/")}">{t["blog"]}</a></li>'
             f'<li><a href="{local(lang, f"blog/category/{topic.category}/")}">{escape(t["cat"][topic.category])}</a></li></ol></nav>'
             f'<header class="lib-article__header">{kicker(lang, topic)}<h1>{escape(v.title)}</h1>'
             f'<p class="lib-article__dek">{escape(v.dek)}</p><ul class="lib-facts">{"".join(facts)}</ul></header>'
@@ -802,7 +808,7 @@ def article_page(topic: Topic, lang: str, published: list[Topic], robots="index,
             f'<p class="lib-publisher">{t["publisher"]}.</p>'
             f'</article>{related_html}'
             f'<p class="lib-back"><a href="{local(lang, "blog/")}"><span aria-hidden="true">{"→" if lang == "ar" else "←"}</span> {t["back"]}</a></p></main>')
-    return page_html(lang, title, v.description, canonical, alternates, "article", og_image(topic), [article_node, crumbs], main, robots)
+    return page_html(lang, title, v.description, canonical, alternates, "article", og_image(topic), [article_node, crumbs], main, robots, image_alt=cover_alt)
 
 
 def listing_page(lang, topics_page, n, total, counts, category=None) -> str:
@@ -860,7 +866,8 @@ def listing_page(lang, topics_page, n, total, counts, category=None) -> str:
         crumbs_items[-1] = (t["blog"], None)
     nodes = [{"@type": "CollectionPage", "name": title, "headline": title, "description": desc, "url": canonical,
               "inLanguage": HREFLANG[lang], "publisher": publisher(), "mainEntity": item_list}, breadcrumb_node(crumbs_items)]
-    return page_html(lang, title, desc, canonical, alternates, "website", f"{BASE}/assets/blog/og/blog.png", nodes, main)
+    return page_html(lang, title, desc, canonical, alternates, "website", og_image(items[0]) if items else f"{BASE}/favicon-96x96.png", nodes, main,
+                     image_alt=items[0].versions[lang].cover_alt if items else "Convertios")
 
 
 @dataclass

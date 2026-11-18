@@ -37,6 +37,16 @@ def fixture():
                 paragraphs.append({"text": text, "evidence": ["source-a", "source-b"]})
             sections.append({"paragraphs": paragraphs})
         versions[lang] = {"cover_alt": "Conceptual illustration of the synthetic specification.", "title": f"Synthetic fictional rendering example for {lang}", "description": f"A fictional fixture description used only for offline testing of the draft newsroom renderer ({lang}).", "dek": "A fictional fixture summary used only to test the multilingual news article page layout.", "sections": sections, "tools": [prefix + "pdf-to-word/", prefix + "pdf-to-jpg/"], "related_slug": "pdf-brotli-2026"}
+    for lang, sentence in {
+        "es": "Este ejemplo explica cómo se revisan los documentos y sus fuentes antes de publicar la noticia.",
+        "ar": "يوضح هذا المثال كيف يراجع فريق التحرير الوثائق والمصادر قبل نشر المقال للقراء.",
+        "pt-br": "Este exemplo explica como a equipe revisa os documentos e as fontes antes de publicar a notícia.",
+    }.items():
+        for field in ("cover_alt", "title", "description", "dek"):
+            versions[lang][field] = sentence
+        for section_index, section in enumerate(versions[lang]["sections"]):
+            for index, paragraph in enumerate(section["paragraphs"]):
+                paragraph["text"] = f"{section_index}.{index} " + (sentence + " ") * 5
     plan = {"stories": [{"event_id": "synthetic-rendering-test", "topic": "pdf-documents", "event_date": "2026-11-19", "status": "draft", "source_ids": ["source-a", "source-b"], "versions": versions}]}
     return {"generated_utc": TODAY.isoformat(), "sources": sources, "failures": []}, plan
 
@@ -102,6 +112,11 @@ class NewsroomTests(unittest.TestCase):
                           and not __import__("re").search(r"blog/(?:index\.html|page/|category/)", p)])
 
     def test_rejects_markdown_and_mismatched_translations(self):
+        copied = copy.deepcopy(self.plan)
+        versions = copied["stories"][0]["versions"]
+        versions["es"]["cover_alt"] = versions["en"]["cover_alt"]
+        with self.assertRaisesRegex(ValueError, "translate cover_alt"):
+            newsroom.validate(copied, self.intake, TODAY, self.root)
         injected = copy.deepcopy(self.plan)
         injected["stories"][0]["versions"]["es"]["sections"][0]["paragraphs"][0]["text"] = "## Heading injection " + "x" * 90
         with self.assertRaisesRegex(ValueError, "prose"):

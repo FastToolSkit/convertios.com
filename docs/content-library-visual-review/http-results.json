@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-18T04:37:16.376Z",
+  "checkedAt": "2026-11-18T04:48:16.228Z",
   "base": "http://127.0.0.1:8891",
   "checks": 18,
   "failures": [],
@@ -219,7 +219,7 @@
       "overflow": false,
       "broken": [],
       "dir": "rtl",
-      "cls": 0,
+      "cls": 0.0016258282051282052,
       "editorialImages": [
         {
           "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-640.webp",
@@ -646,7 +646,7 @@
       "overflow": false,
       "broken": [],
       "dir": "rtl",
-      "cls": 0.00019015462239583333,
+      "cls": 0,
       "editorialImages": [
         {
           "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-960.webp",
@@ -706,7 +706,7 @@
       "overflow": false,
       "broken": [],
       "dir": "rtl",
-      "cls": 0.00019015462239583333,
+      "cls": 0,
       "editorialImages": [
         {
           "src": "http://127.0.0.1:8891/assets/blog/editorial/convert-pdf-to-word-keep-formatting-1440.webp",

@@ -250,6 +250,15 @@ def validate(plan: dict, intake: dict, today: date, root: Path = ROOT) -> list[d
             version = versions[lang]
             if set(version) != {"title", "description", "dek", "sections", "tools", "related_slug", "cover_alt"}:
                 raise ValueError("unexpected translation fields")
+            if lang != "en":
+                for field in ("title", "description", "dek", "cover_alt"):
+                    if version[field].strip().casefold() == versions["en"][field].strip().casefold():
+                        raise ValueError(f"{lang}: translate {field} before generating a draft")
+                english_paragraphs = {p["text"].strip().casefold() for section in versions["en"]["sections"]
+                                      for p in section["paragraphs"]}
+                if any(p["text"].strip().casefold() in english_paragraphs for section in version["sections"]
+                       for p in section["paragraphs"]):
+                    raise ValueError(f"{lang}: an article paragraph duplicates the English version")
             prose(version["cover_alt"], 12, 300)
             prose(version["title"], 20, 130); prose(version["description"], 60, 165); prose(version["dek"], 60, 300)
             if len(version["sections"]) != 5:

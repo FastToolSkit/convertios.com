@@ -7,3 +7,4 @@ Write fully original coverage in English, Spanish, Arabic, and Brazilian Portugu
 Remember: the output is a proposal for owner review. The owner alone decides whether to merge and publish.
 
 For every story, design a concrete visual metaphor unique to its subject. In each translation supply cover_alt describing the same planned composition in that language. Use cinematic conceptual editorial art with a single focal point. Avoid fake official imagery or product screenshots. The runner generates responsive art from the English brief for review on the draft PR.
+Write the title, description, introduction, every paragraph, and cover description in the target language, using Brazilian Portuguese for pt-br. Preserve product names, standards and file extensions. Compose artwork that works in every locale using objects and symbols without embedded headlines, captions or interface copy.
