@@ -1666,6 +1666,42 @@
 </url>
 
 <url>
+  <loc>https://convertios.com/blog/page/4/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/page/4/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/ar/blog/page/4/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/page/4/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/blog/page/4/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/page/4/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pt-br/blog/page/4/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/page/4/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/page/4/"/>
+</url>
+
+<url>
   <loc>https://convertios.com/blog/category/pdf-documents/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/category/pdf-documents/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/category/pdf-documents/"/>
@@ -1915,6 +1951,78 @@
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/reduce-image-size-without-losing-quality/"/>
   <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/reduce-image-size-without-losing-quality/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/reduce-image-size-without-losing-quality/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/blog/browser-vs-server-file-processing/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/browser-vs-server-file-processing/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/ar/blog/browser-vs-server-file-processing/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/browser-vs-server-file-processing/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/blog/browser-vs-server-file-processing/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/browser-vs-server-file-processing/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pt-br/blog/browser-vs-server-file-processing/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/browser-vs-server-file-processing/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/browser-vs-server-file-processing/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/blog/qr-codes-for-business/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/qr-codes-for-business/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/ar/blog/qr-codes-for-business/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/qr-codes-for-business/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/blog/qr-codes-for-business/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/qr-codes-for-business/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pt-br/blog/qr-codes-for-business/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/qr-codes-for-business/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/qr-codes-for-business/"/>
 </url>
 
 <url>
@@ -2170,6 +2278,78 @@
 </url>
 
 <url>
+  <loc>https://convertios.com/blog/remove-background-clean-cutouts/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/remove-background-clean-cutouts/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/ar/blog/remove-background-clean-cutouts/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/remove-background-clean-cutouts/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/blog/remove-background-clean-cutouts/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/remove-background-clean-cutouts/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pt-br/blog/remove-background-clean-cutouts/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/remove-background-clean-cutouts/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/remove-background-clean-cutouts/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/blog/ai-upscaling-vs-resizing/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/ai-upscaling-vs-resizing/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/ar/blog/ai-upscaling-vs-resizing/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/ai-upscaling-vs-resizing/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/blog/ai-upscaling-vs-resizing/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/ai-upscaling-vs-resizing/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pt-br/blog/ai-upscaling-vs-resizing/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/ai-upscaling-vs-resizing/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/ai-upscaling-vs-resizing/"/>
+</url>
+
+<url>
   <loc>https://convertios.com/blog/trim-voice-recordings/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/trim-voice-recordings/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/trim-voice-recordings/"/>
@@ -2203,6 +2383,42 @@
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/trim-voice-recordings/"/>
   <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/trim-voice-recordings/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/trim-voice-recordings/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/blog/qr-code-print-size/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/qr-code-print-size/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/ar/blog/qr-code-print-size/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/qr-code-print-size/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/blog/qr-code-print-size/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/qr-code-print-size/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pt-br/blog/qr-code-print-size/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/qr-code-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/qr-code-print-size/"/>
 </url>
 
 <url>
@@ -2278,6 +2494,42 @@
 </url>
 
 <url>
+  <loc>https://convertios.com/blog/png-to-jpg-transparency/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/png-to-jpg-transparency/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/ar/blog/png-to-jpg-transparency/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/png-to-jpg-transparency/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/blog/png-to-jpg-transparency/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/png-to-jpg-transparency/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pt-br/blog/png-to-jpg-transparency/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/png-to-jpg-transparency/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/png-to-jpg-transparency/"/>
+</url>
+
+<url>
   <loc>https://convertios.com/blog/rotate-pdf-pages/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/rotate-pdf-pages/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/rotate-pdf-pages/"/>
@@ -2350,6 +2602,42 @@
 </url>
 
 <url>
+  <loc>https://convertios.com/blog/improve-image-quality/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/improve-image-quality/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/ar/blog/improve-image-quality/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/improve-image-quality/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/blog/improve-image-quality/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/improve-image-quality/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pt-br/blog/improve-image-quality/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/improve-image-quality/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/improve-image-quality/"/>
+</url>
+
+<url>
   <loc>https://convertios.com/blog/make-ringtone-mp3-cutter/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/make-ringtone-mp3-cutter/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/make-ringtone-mp3-cutter/"/>
@@ -2383,6 +2671,42 @@
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/make-ringtone-mp3-cutter/"/>
   <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/make-ringtone-mp3-cutter/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/make-ringtone-mp3-cutter/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/blog/link-shortener-safety/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/link-shortener-safety/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/ar/blog/link-shortener-safety/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/link-shortener-safety/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/blog/link-shortener-safety/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/link-shortener-safety/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pt-br/blog/link-shortener-safety/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/link-shortener-safety/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/link-shortener-safety/"/>
 </url>
 
 <url>
@@ -2422,6 +2746,42 @@
 </url>
 
 <url>
+  <loc>https://convertios.com/blog/how-ai-background-removal-works/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/how-ai-background-removal-works/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/ar/blog/how-ai-background-removal-works/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/how-ai-background-removal-works/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/blog/how-ai-background-removal-works/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/how-ai-background-removal-works/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pt-br/blog/how-ai-background-removal-works/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/how-ai-background-removal-works/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/how-ai-background-removal-works/"/>
+</url>
+
+<url>
   <loc>https://convertios.com/blog/reduce-pdf-file-size/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/reduce-pdf-file-size/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/reduce-pdf-file-size/"/>
@@ -2455,6 +2815,150 @@
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/reduce-pdf-file-size/"/>
   <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/reduce-pdf-file-size/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/reduce-pdf-file-size/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/blog/qr-code-scam-safety/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/qr-code-scam-safety/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/ar/blog/qr-code-scam-safety/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/qr-code-scam-safety/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/blog/qr-code-scam-safety/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/qr-code-scam-safety/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pt-br/blog/qr-code-scam-safety/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/qr-code-scam-safety/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/qr-code-scam-safety/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/blog/webassembly-browser-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/webassembly-browser-tools/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/ar/blog/webassembly-browser-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/webassembly-browser-tools/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/blog/webassembly-browser-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/webassembly-browser-tools/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pt-br/blog/webassembly-browser-tools/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/webassembly-browser-tools/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/webassembly-browser-tools/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/blog/ai-tools-file-privacy-checklist/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/ai-tools-file-privacy-checklist/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/ar/blog/ai-tools-file-privacy-checklist/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/ai-tools-file-privacy-checklist/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/blog/ai-tools-file-privacy-checklist/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/ai-tools-file-privacy-checklist/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pt-br/blog/ai-tools-file-privacy-checklist/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/ai-tools-file-privacy-checklist/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/ai-tools-file-privacy-checklist/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/blog/image-dpi-and-print-size/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/image-dpi-and-print-size/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/ar/blog/image-dpi-and-print-size/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/image-dpi-and-print-size/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/blog/image-dpi-and-print-size/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/image-dpi-and-print-size/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pt-br/blog/image-dpi-and-print-size/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/image-dpi-and-print-size/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/image-dpi-and-print-size/"/>
 </url>
 
 <url>
@@ -2563,6 +3067,42 @@
   <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/pdf-redaction-mistakes/"/>
   <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/pdf-redaction-mistakes/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/pdf-redaction-mistakes/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/blog/prepare-documents-for-ai-assistants/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/prepare-documents-for-ai-assistants/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/ar/blog/prepare-documents-for-ai-assistants/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/prepare-documents-for-ai-assistants/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/es/blog/prepare-documents-for-ai-assistants/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/prepare-documents-for-ai-assistants/"/>
+</url>
+
+<url>
+  <loc>https://convertios.com/pt-br/blog/prepare-documents-for-ai-assistants/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://convertios.com/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/prepare-documents-for-ai-assistants/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/prepare-documents-for-ai-assistants/"/>
 </url>
 
 <url>
