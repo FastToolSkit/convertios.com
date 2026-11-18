@@ -89,10 +89,10 @@ Para corregir un documento para todos, la rotación tiene que guardarse en el pr
 
 ## Cómo rotar páginas con Convertios
 
-La herramienta [Rotar PDF](tool:rotate-pdf) abre el documento en tu navegador, así que el archivo no se sube a ningún servidor.
+La herramienta [Girar PDF](tool:rotate-pdf) abre el documento en tu navegador, así que el archivo no se sube a ningún servidor.
 
-1. Abre [Rotar PDF](tool:rotate-pdf) y elige tu PDF. Cada página aparece como miniatura con su propio botón Rotar.
-2. Haz clic en **Rotar** bajo cada página que necesite corregirse. Cada clic gira esa página 90° en el sentido de las agujas del reloj:
+1. Abre [Girar PDF](tool:rotate-pdf) y elige tu PDF. Cada página aparece como miniatura con su propio botón Girar.
+2. Haz clic en **Girar** bajo cada página que necesite corregirse. Cada clic gira esa página 90° en el sentido de las agujas del reloj:
    - un clic para una página tumbada sobre su lado izquierdo,
    - dos clics para una página al revés,
    - tres clics para girar una página 90° en sentido contrario.

@@ -711,7 +711,9 @@ def article_page(topic: Topic, lang: str, published: list[Topic], robots="index,
     canonical = url(lang, rel)
     alternates = {l: url(l, rel) for l in LANGS}
     seo = v.seo_title or v.title
-    title = seo if seo.endswith("| Convertios") else f"{seo} | Convertios"
+    # Keep the brand suffix when the whole title still fits in ~65 characters;
+    # otherwise the descriptive part is more useful in search results.
+    title = seo if seo.endswith("| Convertios") or len(seo) + 13 > 65 else f"{seo} | Convertios"
     schema_type = "NewsArticle" if topic.type == "news" else "BlogPosting"
     article_node = {
         "@type": schema_type, "headline": v.title[:110], "description": v.description, "url": canonical,

@@ -104,7 +104,7 @@ Ninguna es automáticamente «segura» o «insegura». Una herramienta en servid
 
 Convertios indica en cada herramienta si los archivos se suben. En resumen:
 
-**Se procesan en tu navegador (los archivos no se suben):** [Unir PDF](tool:merge-pdf), Dividir PDF, Rotar PDF, PDF a JPG, JPG a PDF, compresión, redimensionado y conversión de imágenes, Eliminar fondo (que descarga un modelo de código abierto en tu navegador la primera vez), Cortar MP3, Recortar audio, Conversor de audio, Control de velocidad de audio, Generador de códigos QR, Generador de contraseñas, Contador de palabras, Formateador de texto y Conversor de unidades.
+**Se procesan en tu navegador (los archivos no se suben):** [Unir PDF](tool:merge-pdf), Dividir PDF, Girar PDF, PDF a JPG, JPG a PDF, compresión, redimensionado y conversión de imágenes, Eliminar fondo (que descarga un modelo de código abierto en tu navegador la primera vez), Cortar MP3, Recortar audio, Conversor de audio, Control de velocidad de audio, Generador de códigos QR, Generador de contraseñas, Contador de palabras, Formateador de texto y Conversor de unidades.
 
 **Se procesan en un servidor:**
 

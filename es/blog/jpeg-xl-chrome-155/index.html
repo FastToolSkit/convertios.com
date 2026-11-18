@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CH8NE5WDH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-0CH8NE5WDH');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chrome 155 añade soporte para JPEG XL | Convertios</title>
+<meta name="description" content="Chrome ya decodifica imágenes JPEG XL por defecto con un nuevo decodificador en Rust. Qué ofrece JPEG XL, qué ha cambiado y si conviene usar archivos .jxl.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://convertios.com/es/blog/jpeg-xl-chrome-155/">
+<link rel="alternate" hreflang="en" href="https://convertios.com/blog/jpeg-xl-chrome-155/">
+<link rel="alternate" hreflang="ar" href="https://convertios.com/ar/blog/jpeg-xl-chrome-155/">
+<link rel="alternate" hreflang="es" href="https://convertios.com/es/blog/jpeg-xl-chrome-155/">
+<link rel="alternate" hreflang="pt-BR" href="https://convertios.com/pt-br/blog/jpeg-xl-chrome-155/">
+<link rel="alternate" hreflang="x-default" href="https://convertios.com/blog/jpeg-xl-chrome-155/">
+<link rel="stylesheet" href="/style.min.css?v=08447486">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta property="og:title" content="Chrome 155 añade soporte para JPEG XL | Convertios">
+<meta property="og:description" content="Chrome ya decodifica imágenes JPEG XL por defecto con un nuevo decodificador en Rust. Qué ofrece JPEG XL, qué ha cambiado y si conviene usar archivos .jxl.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://convertios.com/es/blog/jpeg-xl-chrome-155/">
+<meta property="og:image" content="https://convertios.com/assets/blog/og/images-formats.png">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "NewsArticle", "headline": "Chrome 155 recupera JPEG XL: qué supone para tus imágenes", "description": "Chrome ya decodifica imágenes JPEG XL por defecto con un nuevo decodificador en Rust. Qué ofrece JPEG XL, qué ha cambiado y si conviene usar archivos .jxl.", "url": "https://convertios.com/es/blog/jpeg-xl-chrome-155/", "mainEntityOfPage": "https://convertios.com/es/blog/jpeg-xl-chrome-155/", "inLanguage": "es", "datePublished": "2026-11-18", "dateModified": "2026-11-18", "image": "https://convertios.com/assets/blog/og/images-formats.png", "articleSection": "Imágenes y formatos", "wordCount": 520, "author": {"@type": "Organization", "name": "Convertios", "url": "https://convertios.com/", "logo": {"@type": "ImageObject", "url": "https://convertios.com/convertios-logo.png"}}, "publisher": {"@type": "Organization", "name": "Convertios", "url": "https://convertios.com/", "logo": {"@type": "ImageObject", "url": "https://convertios.com/convertios-logo.png"}}, "citation": ["https://developer.chrome.com/blog/jpeg-xl-in-chrome", "https://developer.chrome.com/blog/chrome-155-beta"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://convertios.com/es/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://convertios.com/es/blog/"}, {"@type": "ListItem", "position": 3, "name": "Imágenes y formatos", "item": "https://convertios.com/es/blog/category/images-formats/"}, {"@type": "ListItem", "position": 4, "name": "Chrome 155 recupera JPEG XL: qué supone para tus imágenes"}]}]}</script>
+<!-- /Convertios structured data -->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8386549343296072" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8386549343296072">
+<style>
+.blog-intro{max-width:760px;font-size:1.1rem;color:#475569}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin:30px 0}
+.blog-card{display:block;color:inherit;text-decoration:none;background:#f8fbff;padding:24px;border:1px solid #dbe4f0;border-radius:14px}
+.blog-card:hover,.blog-card:focus-visible{border-color:#3a78ff;box-shadow:0 7px 22px rgba(35,75,120,.1)}
+.blog-card h2{margin-top:0;font-size:1.24rem}.blog-card p{margin-bottom:0}
+.blog-article{max-width:760px}.blog-article h2{margin-top:32px}
+.blog-meta{color:#64748b;font-size:.9rem}.blog-actions{margin:26px 0;padding:20px;background:#eef6ff;border-radius:12px}
+.blog-actions a{display:inline-block;margin:7px 14px 7px 0;font-weight:600}
+.blog-breadcrumb{font-size:.9rem;margin:0 0 22px}
+@media(max-width:768px){.blog-grid{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="/assets/blog/newsroom.css?v=55e30caf">
+<link rel="stylesheet" href="/assets/blog/library.css?v=bef9b422">
+<link rel="stylesheet" href="/neon-home.css?v=1a686221">
+</head>
+<body class="blog-page neon-site-header">
+<a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+<header class="site-header">
+
+<div class="header-left">
+    <a href="/es/" class="logo">
+        <img src="/neon-convertios-logo.png" alt="Logo de Convertios" width="376" height="147" fetchpriority="high" decoding="async">
+    </a>
+</div>
+
+<nav class="nav-menu">
+
+<a href="/es/" >Inicio</a>
+
+
+<div class="nav-item dropdown">
+    <span>Imagen ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/es/png-to-jpg/">PNG a JPG</a>
+        <a href="/es/jpg-to-png/">JPG a PNG</a>
+        <a href="/es/webp-to-png/">WEBP a PNG</a>
+        <a href="/es/image-converter/">Convertidor de imágenes</a>
+        <a href="/es/image-resizer/">Redimensionar imagen</a>
+        <a href="/es/compress-image/">Comprimir imagen</a>
+        <a href="/es/remove-bg/">Eliminar fondo</a>
+        <a href="/es/ai-image-enhancer/">Mejorador de imágenes con IA</a>
+
+        <a href="/es/social-media-image-resizer/">Redimensionador para redes sociales</a>
+<a href="/es/image-tools/" class="view-all">Ver todo →</a>
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>PDF ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/es/pdf-to-word/">PDF a Word</a>
+        <a href="/es/pdf-to-jpg/">PDF a JPG</a>
+        <a href="/es/jpg-to-pdf/">JPG a PDF</a>
+
+        <a href="/es/merge-pdf/">Unir PDF</a>
+        <a href="/es/split-pdf/">Dividir PDF</a>
+        <a href="/es/rotate-pdf/">Rotar PDF</a>
+
+        <a href="/es/pdf-tools/" class="view-all">Ver todo →</a>
+
+    </div>
+</div>
+
+<div class="nav-item dropdown">
+    <span>Audio ▾</span>
+    <div class="dropdown-menu">
+
+        <a href="/es/mp3-cutter/">Cortador de MP3</a>
+        <a href="/es/audio-converter/">Convertidor de audio</a>
+        <a href="/es/audio-speed-changer/">Cambiador de velocidad</a>
+        <a href="/es/video-to-mp3/">Vídeo a MP3</a>
+        <a href="/es/video-converter/">Convertidor de vídeo</a>
+
+        <a href="/es/audio-tools/" class="view-all">Ver todo →</a>
+
+    </div>
+</div>
+<div class="nav-item dropdown">
+    <span>Todas las herramientas ▾</span>
+    <div class="dropdown-menu">
+        <a href="/es/all-tools/" class="view-all">Todas las herramientas</a>
+
+        <a href="/es/qr-generator/">Generador de códigos QR</a>
+        <a href="/es/link-shortener/">Acortador de enlaces</a>
+        <a href="/es/password-generator/">Generador de contraseñas</a>
+        <a href="/es/word-counter/">Contador de palabras</a>
+        <a href="/es/text-formatter/">Formateador de texto</a>
+        <a href="/es/unit-converter/">Conversor de unidades</a>
+        <a href="/es/meme-generator/">Generador de memes</a>
+
+        <a href="/es/other-tools/" class="view-all">Ver todo →</a>
+
+    </div>
+</div>
+
+<a href="/es/blog/" class="nav-blog-link active" aria-current="page">Blog</a>
+<a href="/es/about/">Acerca de</a>
+<a href="/es/contact/">Contacto</a>
+</nav>
+
+<div class="nav-icon faq-wrapper">
+    <a href="/es/faq/" class="faq-link-block" aria-label="Preguntas frecuentes">
+
+        <!-- ICON -->
+        <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .7-1 1.7"></path>
+                <circle cx="12" cy="17" r="1"></circle>
+            </svg>
+        </div>
+
+        <!-- TEXT -->
+        <span class="faq-text">FAQ</span>
+
+    </a>
+</div>
+<details class="language-selector" dir="ltr">
+  <summary aria-label="Cambiar idioma"><span class="language-selector__globe" aria-hidden="true">🌐</span><span class="language-selector__label">Español</span></summary>
+  <div class="language-selector__menu" role="menu" aria-label="Opciones de idioma">
+    <a href="https://convertios.com/blog/jpeg-xl-chrome-155/" lang="en" hreflang="en" role="menuitem">English</a>
+    <a href="https://convertios.com/ar/blog/jpeg-xl-chrome-155/" lang="ar" hreflang="ar" role="menuitem" dir="rtl">العربية</a>
+    <a href="https://convertios.com/es/blog/jpeg-xl-chrome-155/" lang="es" hreflang="es" role="menuitem" aria-current="page">Español</a>
+    <a href="https://convertios.com/pt-br/blog/jpeg-xl-chrome-155/" lang="pt-BR" hreflang="pt-BR" role="menuitem">Português</a>
+  </div>
+</details>
+</header>
+<main class="page-content lib-article-page" id="main-content"><article class="lib-article"><nav class="lib-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/es/blog/">Blog</a></li><li><a href="/es/blog/category/images-formats/">Imágenes y formatos</a></li></ol></nav><header class="lib-article__header"><span class="lib-kicker lib-kicker--images-formats">Noticia <span aria-hidden="true">·</span> Imágenes y formatos</span><h1>Chrome 155 recupera JPEG XL: qué supone para tus imágenes</h1><p class="lib-article__dek">Google retiró el soporte experimental de JPEG XL de Chrome a principios de 2023. Con Chrome 155 la decodificación vuelve activada por defecto, basada en un decodificador seguro para la memoria escrito en Rust.</p><ul class="lib-facts"><li><span>Publicado</span><time datetime="2026-11-18">18 de noviembre de 2026</time></li><li><span>Fecha de la fuente</span><time datetime="2026-10-06">6 de octubre de 2026</time></li><li><span>Estado</span><strong>Publicado</strong></li><li><span>Categoría</span><a href="/es/blog/category/images-formats/">Imágenes y formatos</a></li><li><span>Lectura</span><strong>2 min de lectura</strong></li></ul></header><figure class="lib-article__figure"><img src="/assets/blog/covers/jpeg-xl-chrome-155.svg" alt="Gráfico de portada: .jxl in Chrome 155" width="1200" height="750" loading="eager" fetchpriority="high" decoding="async"></figure><nav class="lib-toc" aria-labelledby="toc-heading"><h2 id="toc-heading">En este artículo</h2><ol><li><a href="#s1">Qué ha pasado</a></li><li><a href="#s2">Por qué importa el decodificador</a></li><li><a href="#s3">Qué ofrece JPEG XL</a></li><li><a href="#s4">¿Deberías pasarte a .jxl?</a></li><li><a href="#s5">¿Convertios admite JPEG XL?</a></li></ol></nav><div class="lib-prose article-body"><section aria-labelledby="s1"><h2 id="s1">Qué ha pasado</h2>
+<p>Google anunció en su blog Chrome for Developers, el 6 de octubre de 2026, que Chrome incorpora la decodificación del formato de imagen JPEG XL (.jxl) a partir de Chrome 155. Las notas de la beta de Chrome 155, publicadas el 16 de septiembre de 2026, describen el cambio como decodificación de JPEG XL en Blink, el motor de renderizado de Chrome, mediante <strong>jxl-rs</strong>, un decodificador escrito íntegramente en el lenguaje Rust. Las notas indican Android, ChromeOS, Linux, macOS y Windows como plataformas de la versión.</p>
+<p>En la práctica, una web puede servir imágenes .jxl y los usuarios de Chrome las verán sin activar ningún ajuste experimental.</p>
+</section>
+<section aria-labelledby="s2"><h2 id="s2">Por qué importa el decodificador</h2>
+<p>Los decodificadores de imágenes procesan archivos complejos que llegan directamente de internet, por lo que son un objetivo habitual de ataques. Google explica que eligió una implementación pura en Rust para eliminar de raíz clases enteras de errores de memoria, en lugar de depender solo del aislamiento (sandbox) de Chrome. El equipo también describe un trabajo amplio para que el decodificador en Rust sea tan rápido como la biblioteca existente en C++.</p>
+</section>
+<section aria-labelledby="s3"><h2 id="s3">Qué ofrece JPEG XL</h2>
+<p>JPEG XL está normalizado como ISO/IEC 18181. Según el equipo de Chrome, entre sus funciones están:</p>
+<ul><li><strong>Decodificación progresiva</strong>, de modo que aparece pronto una imagen reconocible mientras se carga el resto.</li><li><strong>Gama de color amplia, HDR y alta profundidad de bits</strong>, útiles para cámaras y pantallas modernas.</li><li><strong>Animación</strong>.</li><li><strong>Compresión sin pérdida</strong>, y la posibilidad de reempaquetar sin pérdida archivos JPEG existentes en un JPEG XL más pequeño.</li></ul>
+<p>El anuncio de Google afirma una compresión entre un 30 % y un 50 % mejor que JPEG. Es la cifra del equipo de Chrome; el ahorro real depende de la imagen y de los ajustes. Google no presenta JPEG XL como sustituto de AVIF: recomienda probar ambos y prevé que JPEG XL será más útil en compresión de alta fidelidad o sin pérdida, sobre todo en fotografías, y cuando interese una carga progresiva muy gradual.</p>
+</section>
+<section aria-labelledby="s4"><h2 id="s4">¿Deberías pasarte a .jxl?</h2>
+<p>Para la mayoría, todavía no como única opción:</p>
+<ul><li><strong>Quien gestiona una web</strong> puede empezar a ofrecer JPEG XL con una alternativa, usando el elemento HTML <code>&lt;picture&gt;</code> para que los navegadores que no muestran .jxl reciban JPEG, WebP o AVIF.</li><li><strong>En el uso diario</strong>, sigue compartiendo fotos en JPG o PNG. Aplicaciones de mensajería, clientes de correo, programas de oficina y dispositivos antiguos pueden no abrir archivos .jxl.</li><li><strong>Los fotógrafos</strong> interesados en archivar sin pérdida pueden experimentar, pero conviene guardar los originales en formatos asentados hasta que sus herramientas de edición y copia de seguridad admitan JPEG XL por completo.</li></ul>
+<p>Para ver las ventajas e inconvenientes, consulta nuestra comparativa de <a href="/es/blog/avif-vs-webp-vs-jpeg-xl/">AVIF, WebP y JPEG XL</a> y la <a href="/es/blog/jpg-png-webp-guide/">guía práctica de JPG, PNG y WebP</a>.</p>
+</section>
+<section aria-labelledby="s5"><h2 id="s5">¿Convertios admite JPEG XL?</h2>
+<p>Por ahora no. El <a href="/es/image-converter/">Convertidor de imágenes</a> genera JPG, PNG, WEBP, BMP y GIF, y el <a href="/es/compress-image/">Compresor de imágenes</a> trabaja con JPG, PNG y WEBP. Ninguno crea archivos .jxl, y no hemos probado ni anunciado JPEG XL como formato de entrada admitido. Lo revisaremos a medida que madure el soporte en navegadores y sistemas operativos.</p>
+</section></div><aside class="lib-tools" aria-labelledby="tools-heading"><h2 id="tools-heading">Herramientas de Convertios para esta tarea</h2><ul><li><a href="/es/image-converter/">Convertidor de Imágenes<span aria-hidden="true">→</span></a></li><li><a href="/es/compress-image/">Compresor de imágenes gratuito<span aria-hidden="true">→</span></a></li></ul></aside><section class="lib-sources" aria-labelledby="sources-heading"><h2 id="sources-heading">Fuentes</h2><ol><li><a href="https://developer.chrome.com/blog/jpeg-xl-in-chrome" rel="noopener noreferrer">Chrome for Developers: Shipping JPEG XL in Chrome</a> <span>(2026-10-06)</span></li><li><a href="https://developer.chrome.com/blog/chrome-155-beta" rel="noopener noreferrer">Chrome for Developers: Chrome 155 beta</a> <span>(2026-09-16)</span></li></ol></section><p class="lib-publisher">Publicado por Convertios.</p></article><section class="lib-related" aria-labelledby="related-heading"><h2 id="related-heading">Artículos relacionados</h2><div class="lib-grid lib-grid--related"><article class="lib-card"><div class="lib-card__media"><img src="/assets/blog/covers/avif-vs-webp-vs-jpeg-xl.svg" alt="" width="1200" height="750" loading="lazy" decoding="async"></div><div class="lib-card__body"><span class="lib-kicker lib-kicker--images-formats">Comparativa <span aria-hidden="true">·</span> Imágenes y formatos</span><h3 class="lib-card__title"><a class="lib-card__link" href="/es/blog/avif-vs-webp-vs-jpeg-xl/">AVIF, WebP o JPEG XL: cómo elegir un formato de imagen moderno</a></h3><p class="lib-card__dek">JPEG y PNG siguen funcionando en todas partes, pero tres formatos más nuevos prometen archivos más pequeños con una calidad parecida. No son intercambiables: cada uno tiene puntos fuertes y un nivel de compatibilidad distintos.</p><p class="lib-card__meta"><time datetime="2026-11-18">18 de noviembre de 2026</time><span aria-hidden="true">·</span><span>2 min de lectura</span></p></div></article><article class="lib-card"><div class="lib-card__media"><img src="/assets/blog/covers/jpg-png-webp-guide.svg" alt="" width="1200" height="750" loading="lazy" decoding="async"></div><div class="lib-card__body"><span class="lib-kicker lib-kicker--images-formats">Comparativa <span aria-hidden="true">·</span> Imágenes y formatos</span><h3 class="lib-card__title"><a class="lib-card__link" href="/es/blog/jpg-png-webp-guide/">JPG, PNG o WebP: ¿qué formato de imagen deberías usar?</a></h3><p class="lib-card__dek">El mejor formato depende de lo que muestra la imagen, de si necesitas transparencia y de adónde va el archivo. Una tabla de decisión rápida cubre la mayoría de las situaciones.</p><p class="lib-card__meta"><time datetime="2026-11-11">11 de noviembre de 2026</time><span aria-hidden="true">·</span><span>3 min de lectura</span></p></div></article><article class="lib-card"><div class="lib-card__media"><img src="/assets/blog/covers/png-to-jpg-transparency.svg" alt="" width="1200" height="750" loading="lazy" decoding="async"></div><div class="lib-card__body"><span class="lib-kicker lib-kicker--images-formats">Tutorial <span aria-hidden="true">·</span> Imágenes y formatos</span><h3 class="lib-card__title"><a class="lib-card__link" href="/es/blog/png-to-jpg-transparency/">De PNG a JPG: archivos más ligeros y qué pasa con la transparencia</a></h3><p class="lib-card__dek">Las capturas y fotos exportadas llegan a menudo como PNG que pesan varias veces más de lo necesario. Convertirlas a JPG lo arregla en segundos, siempre que sepas qué no puede guardar un JPG.</p><p class="lib-card__meta"><time datetime="2026-11-18">18 de noviembre de 2026</time><span aria-hidden="true">·</span><span>2 min de lectura</span></p></div></article></div></section><p class="lib-back"><a href="/es/blog/"><span aria-hidden="true">←</span> Volver al blog</a></p></main>
+<footer class="site-footer">
+
+<div class="footer-container">
+
+    <div class="footer-brand">
+        <h3>Convertios</h3>
+        <p>Herramientas online gratuitas para convertir archivos, imágenes y mucho más.</p>
+    </div>
+
+    <div class="footer-links">
+    <a href="/es/blog/">Blog</a>
+        <a href="/es/all-tools/">Herramientas</a>
+        <a href="/es/about/">Acerca de</a>
+        <a href="/es/contact/">Contacto</a>
+        <a href="/es/security/">Seguridad</a>
+        <a href="/es/privacy/">Privacidad</a>
+        <a href="/es/terms/">Términos</a>
+    </div>
+
+</div>
+<p class="footer-bottom">
+© 2026 Convertios • Todos los derechos reservados
+</p>
+
+</footer>
+
+<script src="/script.min.js?v=e4002bc3" defer></script>
+</body>
+</html>

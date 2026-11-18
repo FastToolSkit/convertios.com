@@ -121,7 +121,7 @@ Quitar páginas es una buena forma de no compartir de más, pero solo elimina p�
 
 ## Combinaciones útiles
 
-- **¿Orientación incorrecta?** Corrige las páginas giradas con [Rotar PDF](tool:rotate-pdf) antes o después de dividir. Consulta [cómo rotar páginas de un PDF de forma permanente](blog:rotate-pdf-pages).
+- **¿Orientación incorrecta?** Corrige las páginas giradas con [Girar PDF](tool:rotate-pdf) antes o después de dividir. Consulta [cómo rotar páginas de un PDF de forma permanente](blog:rotate-pdf-pages).
 - **¿Necesitas la página como imagen?** Si una web pide una imagen en lugar de un PDF, exporta la página con [PDF a JPG](tool:pdf-to-jpg).
 - **¿Demasiado grande para convertir?** La herramienta PDF a Word admite archivos de hasta 25 MB. Dividir un documento largo en partes mantiene cada conversión dentro de ese límite.
 

@@ -93,7 +93,7 @@ Los documentos largos dispersan la atención y pueden chocar con los límites. E
 
 ## Paso 3: corrige la orientación y la legibilidad
 
-- Gira las páginas de lado con [Rotar PDF](tool:rotate-pdf) para que las líneas vayan en la dirección correcta.
+- Gira las páginas de lado con [Girar PDF](tool:rotate-pdf) para que las líneas vayan en la dirección correcta.
 - Repite las fotos borrosas con buena luz y la página llenando el encuadre.
 - Si hay una tabla muy densa, plantéate un recorte solo de la tabla con buena resolución.
 

@@ -107,7 +107,7 @@ A veces la mejor forma de conservar el formato es no convertir:
 - **Tienes acceso al original.** Si alguien exportó el PDF desde Word o Google Docs, pide el DOCX original. Siempre será más fiel que cualquier reconstrucción.
 - **Solo necesitas unas frases.** Cópialas del PDF y pégalas como texto sin formato en tu documento.
 - **Necesitas cambiar páginas, no palabras.** Usa [Dividir PDF](tool:split-pdf) para extraer páginas y mantener el diseño exactamente igual.
-- **Hay páginas giradas.** Corrígelas con [Rotar PDF](tool:rotate-pdf) antes de convertir, para que el conversor lea las líneas en la dirección correcta.
+- **Hay páginas giradas.** Corrígelas con [Girar PDF](tool:rotate-pdf) antes de convertir, para que el conversor lea las líneas en la dirección correcta.
 
 ## Paso 3: prepara el PDF
 
