@@ -5,6 +5,8 @@ on:
     paths:
       - 'Dockerfile'
       - 'requirements.txt'
+      - 'package-lock.json'
+      - 'tests/smart_http_checks.py'
       - 'server.js'
       - 'backend/smart*'
       - 'content/smart-tools/**'
@@ -48,4 +50,5 @@ jobs:
           . "$RUNNER_TEMP/browser-env/bin/activate"
           pip install playwright Pillow pypdf
           python -m playwright install --with-deps chromium
+          python tests/smart_http_checks.py "$RUNNER_TEMP/convertios-fixtures" http://127.0.0.1:3000
           python tests/browser/smart-tools.py "$RUNNER_TEMP/convertios-fixtures" http://127.0.0.1:3000
