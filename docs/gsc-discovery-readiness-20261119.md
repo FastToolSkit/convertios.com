@@ -1,6 +1,6 @@
 # Convertios — Google crawling and indexing readiness follow-up
-**Audit date:** 2026-11-19  
-**Site:** https://convertios.com  
+**Audit date:** 2026-11-19
+**Site:** https://convertios.com
 **Source:** Google Search Console property `sc-domain:convertios.com` (OpenSEO), the user's local GSC XLSX exports and latest production repository.
 
 ## Scope and baseline
