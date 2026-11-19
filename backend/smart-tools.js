@@ -29,7 +29,7 @@ function processFiles(python, cwd, args, res, script = 'smart_tools.py') {
     const group = process.platform === 'linux';
     const worker = spawn(python, [path.join(__dirname, script), ...args], {
       cwd, detached: group, stdio: ['ignore', 'ignore', 'pipe'],
-      env: {MALLOC_ARENA_MAX: '2', PATH: process.env.PATH, LANG: 'C.UTF-8', SystemRoot: process.env.SystemRoot, PYTHONDONTWRITEBYTECODE: '1'}
+      env: {MALLOC_ARENA_MAX: '2', PATH: process.env.PATH, LANG: 'C.UTF-8', SystemRoot: process.env.SystemRoot, PYTHONDONTWRITEBYTECODE: '1', CONVERTIOS_ARTIFACT_DEBUG: process.env.CONVERTIOS_ARTIFACT_DEBUG}
     });
     let stopped = false;
     let diagnostic = '';
@@ -83,6 +83,7 @@ module.exports = function registerSmartTools(app, {withJob, limiter, python, fai
         await processFiles(python, dir, [tool, output, JSON.stringify(req.body || {}), ...(req.files || []).map(f => f.filename)], res, 'utility_artifacts.py');
       } catch (error) {
         if (res.destroyed) return;
+        if (process.env.CONVERTIOS_ARTIFACT_DEBUG === '1') console.error('[artifact-diagnostic]', error.message);
         const code = userErrors.has(error.message) ? error.message : 'PROCESSING_FAILED';
         return fail(res, code === 'PROCESSING_FAILED' ? 500 : 422, code, 'Conversion could not complete.');
       }

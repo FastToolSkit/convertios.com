@@ -385,4 +385,7 @@ if __name__ == "__main__":
     except Rejected as exc:
         sys.exit(str(exc))
     except (ValueError, OSError, KeyError, TypeError, zipfile.BadZipFile, MemoryError):
+        if os.environ.get("CONVERTIOS_ARTIFACT_DEBUG") == "1":
+            import traceback
+            traceback.print_exc()
         sys.exit("INVALID_FILE")

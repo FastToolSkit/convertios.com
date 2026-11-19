@@ -45,7 +45,7 @@ jobs:
       - name: Exercise real artifact downloads through the Express HTTP backend
         run: |
           npm ci --omit=dev
-          PORT=39399 PYTHON_BIN="$RUNNER_TEMP/artifact-env/bin/python" node server.js > "$RUNNER_TEMP/artifact-api.log" 2>&1 &
+          PORT=39399 CONVERTIOS_ARTIFACT_DEBUG=1 PYTHON_BIN="$RUNNER_TEMP/artifact-env/bin/python" node server.js > "$RUNNER_TEMP/artifact-api.log" 2>&1 &
           backend_pid=$!
           trap 'kill "$backend_pid" 2>/dev/null || true; tail -30 "$RUNNER_TEMP/artifact-api.log"' EXIT
           for attempt in $(seq 1 30); do
