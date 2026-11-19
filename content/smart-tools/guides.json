@@ -14,8 +14,24 @@
       "info": "Tool information",
       "input": "Input format",
       "output": "Download format",
-      "size": "Maximum file size",
-      "processing": "Processing"
+      "size": "Max file size",
+      "processing": "Processing",
+      "browser": "Runs in browser",
+      "upload": "Upload required",
+      "third": "Third-party processing",
+      "retention": "File retention",
+      "formats": "Supported formats",
+      "yes": "Yes",
+      "no": "No",
+      "none": "None",
+      "local": "No — processed on your device",
+      "remote": "Yes — sent to the Convertios processor",
+      "localret": "Files stay on your device and are not stored by Convertios.",
+      "remoteret": "Temporary conversion files are deleted after the request completes.",
+      "extra": "Explore more tools",
+      "read": "Related reading",
+      "source": "Source",
+      "result": "Result"
     },
     "es": {
       "why": "Cuándo utilizar esta herramienta",
@@ -31,8 +47,24 @@
       "info": "Información de la herramienta",
       "input": "Formato de entrada",
       "output": "Formato de descarga",
-      "size": "Tamaño máximo por archivo",
-      "processing": "Procesamiento"
+      "size": "Tamaño máximo",
+      "processing": "Procesamiento",
+      "browser": "Se ejecuta en el navegador",
+      "upload": "¿Se suben archivos?",
+      "third": "Procesamiento de terceros",
+      "retention": "Conservación de archivos",
+      "formats": "Formatos admitidos",
+      "yes": "Sí",
+      "no": "No",
+      "none": "Ninguno",
+      "local": "No; se procesa en tu dispositivo",
+      "remote": "Sí; se envía al procesador de Convertios",
+      "localret": "Los archivos permanecen en tu dispositivo y Convertios no los almacena.",
+      "remoteret": "Los archivos temporales se eliminan al finalizar la solicitud.",
+      "extra": "Explora más herramientas",
+      "read": "Lectura relacionada",
+      "source": "Origen",
+      "result": "Resultado"
     },
     "ar": {
       "why": "متى تحتاج هذه الأداة؟",
@@ -49,7 +81,23 @@
       "input": "صيغة الإدخال",
       "output": "صيغة التنزيل",
       "size": "الحد الأقصى لحجم الملف",
-      "processing": "المعالجة"
+      "processing": "المعالجة",
+      "browser": "هل تعمل داخل المتصفح؟",
+      "upload": "هل يلزم رفع الملف؟",
+      "third": "المعالجة لدى جهات خارجية",
+      "retention": "الاحتفاظ بالملفات",
+      "formats": "الصيغ المدعومة",
+      "yes": "نعم",
+      "no": "لا",
+      "none": "لا يوجد",
+      "local": "لا؛ تتم المعالجة على جهازك",
+      "remote": "نعم؛ يُرسل الملف إلى معالج Convertios",
+      "localret": "تبقى ملفاتك على جهازك ولا تخزّنها Convertios.",
+      "remoteret": "تُحذف ملفات التحويل المؤقتة بعد انتهاء الطلب.",
+      "extra": "اكتشف المزيد من الأدوات",
+      "read": "مقال مرتبط",
+      "source": "الملف الأصلي",
+      "result": "الملف الناتج"
     },
     "pt-BR": {
       "why": "Quando usar esta ferramenta",
@@ -65,8 +113,24 @@
       "info": "Informações da ferramenta",
       "input": "Formato de entrada",
       "output": "Formato de download",
-      "size": "Tamanho máximo por arquivo",
-      "processing": "Processamento"
+      "size": "Tamanho máximo",
+      "processing": "Processamento",
+      "browser": "Funciona no navegador",
+      "upload": "Precisa enviar arquivos",
+      "third": "Processamento por terceiros",
+      "retention": "Retenção de arquivos",
+      "formats": "Formatos compatíveis",
+      "yes": "Sim",
+      "no": "Não",
+      "none": "Nenhum",
+      "local": "Não; processado no seu dispositivo",
+      "remote": "Sim; enviado ao processador Convertios",
+      "localret": "Os arquivos permanecem no seu dispositivo e não são armazenados pelo Convertios.",
+      "remoteret": "Os arquivos temporários são excluídos ao final da solicitação.",
+      "extra": "Explore mais ferramentas",
+      "read": "Leitura relacionada",
+      "source": "Origem",
+      "result": "Resultado"
     }
   },
   "tools": {
@@ -330,5 +394,67 @@
         "answer": "Não. Remove tags incorporadas compatíveis, mas não informações visíveis nos pixels."
       }
     }
+  },
+  "related_tools": {
+    "heic-to-jpg": [
+      "heic-to-pdf",
+      "compress-image",
+      "jpg-to-pdf",
+      "image-resizer"
+    ],
+    "heic-to-pdf": [
+      "heic-to-jpg",
+      "merge-pdf",
+      "jpg-to-pdf",
+      "pdf-to-jpg"
+    ],
+    "mp4-to-gif": [
+      "gif-compressor",
+      "video-compressor",
+      "video-converter",
+      "video-to-mp3"
+    ],
+    "video-compressor": [
+      "mp4-to-gif",
+      "video-converter",
+      "video-to-mp3",
+      "audio-converter"
+    ],
+    "image-to-text": [
+      "pdf-to-text",
+      "text-formatter",
+      "pdf-to-word",
+      "image-converter"
+    ],
+    "gif-compressor": [
+      "mp4-to-gif",
+      "compress-image",
+      "image-resizer",
+      "image-converter"
+    ],
+    "svg-to-png": [
+      "image-resizer",
+      "image-converter",
+      "compress-image",
+      "png-to-jpg"
+    ],
+    "avif-to-png": [
+      "image-converter",
+      "compress-image",
+      "image-resizer",
+      "webp-to-png"
+    ],
+    "pdf-to-text": [
+      "image-to-text",
+      "pdf-to-word",
+      "pdf-to-jpg",
+      "split-pdf"
+    ],
+    "image-metadata-remover": [
+      "compress-image",
+      "image-resizer",
+      "image-converter",
+      "remove-bg"
+    ]
   }
 }

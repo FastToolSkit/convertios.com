@@ -74,29 +74,62 @@ def heading(lang, path):
     return unescape(re.sub(r'<[^>]+>','',match[1])).strip()
 
 
-def rich_guide(tool, lang):
-    headings = GUIDES["headings"][lang]
-    details = GUIDES["tools"][tool["slug"]][lang]
-    e = escape
-    steps = "".join(f"<li>{e(step)}</li>" for step in headings["steps"])
-    t = UI[lang]
-    processing = t["local" if tool["slug"] in LOCAL else "server"]
-    rows = [
-        (headings["input"], tool["formats"]),
-        (headings["output"], tool["ext"].upper()),
-        (headings["size"], f'{tool["limit"]} MiB'),
-        (headings["processing"], processing),
+def tool_information(tool, lang):
+    labels = GUIDES["headings"][lang]
+    local = tool["slug"] in LOCAL
+    values = [
+        (labels["browser"], labels["yes"] if local else labels["no"]),
+        (labels["upload"], labels["local"] if local else labels["remote"]),
+        (labels["third"], labels["none"]),
+        (labels["retention"], labels["localret"] if local else labels["remoteret"]),
+        (labels["size"], f'{tool["limit"]} MiB'),
+        (labels["formats"], f'{tool["formats"]} → {tool["ext"].upper()}'),
     ]
-    facts = "".join(f"<div><dt>{e(label)}</dt><dd>{e(str(value))}</dd></div>" for label,value in rows)
-
-    return (
-        f'<h2>{e(headings["info"])}</h2><dl class="smart-info">{facts}</dl>'
-        f'<h2>{e(headings["why"])}</h2><p>{e(details["use"])}</p>'
-        f'<h2>{e(headings["how"])}</h2><ol>{steps}</ol>'
-        f'<h2>{e(headings["limits"])}</h2><p>{e(details["limits"])}</p>'
-        f'<h2>{e(headings["faq"])}</h2><details class="smart-faq">'
-        f'<summary>{e(details["question"])}</summary><p>{e(details["answer"])}</p></details>'
+    cells = "".join(
+        f'<div><strong>{escape(key)}:</strong><span>{escape(value)}</span></div>'
+        for key, value in values
     )
+    return (f'<section class="tool-info-block" aria-labelledby="tool-info-heading">'
+            f'<h2 id="tool-info-heading">{escape(labels["info"])}</h2>'
+            f'<div class="tool-info-grid">{cells}</div></section>')
+
+
+def rich_guide(tool, lang):
+    h = GUIDES["headings"][lang]
+    details = GUIDES["tools"][tool["slug"]][lang]
+    local = tool["slug"] in LOCAL
+    steps = "".join(f'<li>{escape(step)}</li>' for step in h["steps"])
+    limit = f'{tool["limit"]} MiB'
+    return (
+        f'<section class="tool-description page-guide" aria-labelledby="guide-heading">'
+        f'<h2 id="guide-heading">{escape(h["why"])}</h2><p>{escape(details["use"])}</p>'
+        f'<h2>{escape(h["how"])}</h2><ol>{steps}</ol>'
+        f'<h2>{escape(h["limits"])}</h2><p>{escape(details["limits"])}</p>'
+        f'<h2>{escape(UI[lang]["help"])}</h2><p>{escape(tool["copy"][lang]["help"])}</p>'
+        f'<h2>{escape(h["faq"])}</h2>'
+        f'<h3>{escape(details["question"])}</h3><p>{escape(details["answer"])}</p>'
+        f'<h3>{escape(h["upload"])}</h3><p>{escape(h["localret"] if local else h["remoteret"])}</p>'
+        f'<h3>{escape(h["size"])}</h3><p>{escape(limit)} {escape(UI[lang]["perfile"])}.</p>'
+        f'<p class="guide-note">{escape(h["read"])}: '
+        f'<a href="/{PREFIX[lang]}blog/{tool["article"]}/">'
+        f'{escape(heading(lang,"blog/"+tool["article"]))}</a></p>'
+        f'</section>'
+    )
+
+
+def more_tools(tool, lang):
+    h = GUIDES["headings"][lang]
+    cards = []
+    for slug in GUIDES["related_tools"][tool["slug"]]:
+        display = escape(heading(lang, slug))
+        cards.append(
+            f'<a href="/{PREFIX[lang]}{slug}/" class="more-tool-card">'
+            f'<span class="more-tool-icon" aria-hidden="true">↗</span>'
+            f'<span>{display}</span></a>'
+        )
+    return (f'<section class="more-tools" aria-labelledby="more-tools-heading">'
+            f'<h2 id="more-tools-heading">{escape(h["extra"])}</h2>'
+            f'<div class="more-tools-grid">{"".join(cards)}</div></section>')
 
 
 def render(tool, lang):
@@ -127,10 +160,6 @@ def render(tool, lang):
     config = dict(tool=slug,extension=tool["ext"],limit=tool["limit"],maxFiles=count,local=slug in LOCAL,
                   messages={k:v for k,v in t.items() if k.isupper() or k in
                             "up down empty working files download before after edit done partial".split()})
-    hrefs = [tool["related"], "blog/"+tool["article"]]
-    if slug == "pdf-to-text":
-        hrefs.insert(0,"pdf-to-jpg")
-    related = '\n'.join(f'<li><a href="/{PREFIX[lang]}{rel}/">{escape(heading(lang,rel))}</a></li>' for rel in hrefs)
     backend_ui = '' if slug in LOCAL else '<script src="/js/tool-ui.js" defer></script>'
     html = f'''<!DOCTYPE html>
 <html lang="{lang}" dir="{'rtl' if lang == 'ar' else 'ltr'}">
@@ -139,6 +168,7 @@ def render(tool, lang):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title} | Convertios</title>
 <meta name="description" content="{desc}">
+<meta name="robots" content="index, follow">
 <link rel="canonical" href="{canonical}">
 {alts}
 <meta property="og:type" content="website">
@@ -173,8 +203,9 @@ def render(tool, lang):
 </fieldset></form>
 <p id="smart-status" role="status" aria-live="polite"></p><div id="results"></div>
 </section>
-<section class="smart-guide">{rich_guide(tool,lang)}<h2>{t['help']}</h2><p>{escape(copy['help'])}</p>
-<h2>{t['related']}</h2><ul>{related}</ul></section>
+{tool_information(tool,lang)}
+{rich_guide(tool,lang)}
+{more_tools(tool,lang)}
 </main>
 {footer}
 <script type="application/json" id="smart-config">{json.dumps(config,ensure_ascii=False)}</script>
