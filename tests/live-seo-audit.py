@@ -100,8 +100,9 @@ def main():
                 'one-h1': signals.h1 == 1,
                 'normalized-url': url.startswith(BASE) and url.endswith('/') and not urllib.parse.urlsplit(url).query,
             }
-            lang = 'ar' if '/ar/' in url else 'es' if '/es/' in url else 'en'
-            checks['language'] = signals.lang.split('-')[0] == lang
+            lang = ('ar' if '/ar/' in url else 'es' if '/es/' in url
+                    else 'pt-BR' if '/pt-br/' in url else 'en')
+            checks['language'] = signals.lang.lower() == lang.lower()
             checks['rtl'] = lang != 'ar' or signals.direction == 'rtl'
             for check, ok in checks.items():
                 if not ok:
@@ -110,7 +111,7 @@ def main():
     inbound = {url: set() for url in urls}
     extra = {}
     for url, signals in parsed.items():
-        for lang in ('en', 'es', 'ar', 'x-default'):
+        for lang in ('en', 'es', 'ar', 'pt-BR', 'x-default'):
             target = signals.alternates.get(lang)
             if target not in parsed or parsed[target].alternates != signals.alternates:
                 problems.append({'url': url, 'type': 'hreflang-reciprocity', 'language': lang, 'target': target})
