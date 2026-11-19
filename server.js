@@ -29,6 +29,7 @@ const allowedOrigins = new Set([
 ]);
 
 let activeJobs = 0;
+let exclusiveJob = false;
 
 const documentUpload = multer({ storage: multer.memoryStorage(), limits: { files: 1, fileSize: MAX_DOCUMENT_BYTES } });
 const imageUpload = multer({ storage: multer.memoryStorage(), limits: { files: 1, fileSize: MAX_IMAGE_BYTES } });
@@ -124,17 +125,20 @@ function videoFormatSettings(format) {
   return settings[format] || null;
 }
 
-async function withJob(res, handler) {
-  if (activeJobs >= MAX_ACTIVE_JOBS) {
+async function withJob(res, handler, {exclusive = false} = {}) {
+  if (exclusiveJob || activeJobs >= MAX_ACTIVE_JOBS || (exclusive && activeJobs > 0)) {
     return fail(res, 503, 'BUSY', 'The converter is busy. Please retry in a moment.');
   }
   activeJobs += 1;
-  const jobDir = await fs.mkdtemp(path.join(os.tmpdir(), 'convertios-'));
+  if (exclusive) exclusiveJob = true;
+  let jobDir;
   try {
+    jobDir = await fs.mkdtemp(path.join(os.tmpdir(), 'convertios-'));
     return await handler(jobDir);
   } finally {
     activeJobs -= 1;
-    await fs.rm(jobDir, { recursive: true, force: true });
+    if (exclusive) exclusiveJob = false;
+    if (jobDir) await fs.rm(jobDir, { recursive: true, force: true });
   }
 }
 
@@ -192,7 +196,7 @@ app.post('/api/shorten-url', shortenRateLimit, express.json({ limit: '4kb' }), a
 
 app.post('/api/enhance-image', conversionRateLimit, uploadSingle(enhanceUpload, 'image'), async (req, res) => {
   if (!req.file) return fail(res, 400, 'NO_FILE', 'No image uploaded.');
-  if (activeJobs >= MAX_ACTIVE_JOBS) return fail(res, 503, 'BUSY', 'The server is busy. Please retry in a moment.');
+  if (exclusiveJob || activeJobs >= MAX_ACTIVE_JOBS) return fail(res, 503, 'BUSY', 'The server is busy. Please retry in a moment.');
   activeJobs += 1;
   try {
     const result = await api.handleEnhance(req.file, apiConfig);
@@ -264,6 +268,8 @@ app.post('/convert/video', videoConversionRateLimit, uploadSingle(videoUpload, '
     return sendFile(res, result, settings.contentType, api.safeDownloadName(req.file.originalname, settings.extension, 'converted-video'));
   });
 });
+
+require('./backend/smart-tools')(app, {withJob, limiter: limiter(24), python: PYTHON_BIN, fail});
 
 app.use((_req, res) => fail(res, 404, 'NOT_FOUND', 'Not found.'));
 

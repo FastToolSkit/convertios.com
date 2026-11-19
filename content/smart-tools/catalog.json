@@ -1,0 +1,312 @@
+[
+  {
+    "slug": "heic-to-jpg",
+    "formats": "HEIC, HEIF",
+    "accept": ".heic,.heif",
+    "ext": "jpg",
+    "limit": 10,
+    "related": "compress-image",
+    "article": "jpg-png-webp-guide",
+    "copy": {
+      "en": {
+        "title": "HEIC to JPG",
+        "description": "Convert up to six HEIC photos to separate JPG files. Choose JPEG quality and download each photo as it finishes.",
+        "help": "Each JPG contains the primary still photo. Live Photo video, depth maps and HDR effects are excluded. The camera orientation is applied during decoding."
+      },
+      "es": {
+        "title": "Convertir HEIC a JPG",
+        "description": "Convierte hasta seis fotos HEIC en archivos JPG individuales. Elige la calidad y descarga cada foto cuando esté lista.",
+        "help": "Cada JPG contiene la foto principal. Se aplica la orientación de la cámara y se omiten el vídeo de Live Photo, los mapas de profundidad y los efectos HDR."
+      },
+      "ar": {
+        "title": "تحويل HEIC إلى JPG",
+        "description": "حوّل ما يصل إلى ست صور HEIC إلى ملفات JPG منفصلة. اختر جودة الصورة ونزّل كل ملف عند اكتماله.",
+        "help": "يحتوي كل ملف JPG على الصورة الثابتة الرئيسية باتجاه الكاميرا. لا يشمل فيديو Live Photo أو خرائط العمق أو تأثيرات HDR."
+      },
+      "pt-BR": {
+        "title": "Converter HEIC em JPG",
+        "description": "Converta até seis fotos HEIC em arquivos JPG separados. Escolha a qualidade e baixe cada foto assim que estiver pronta.",
+        "help": "Cada JPG contém a foto principal na orientação da câmera. O vídeo da Live Photo, os mapas de profundidade e os efeitos HDR ficam de fora."
+      }
+    }
+  },
+  {
+    "slug": "heic-to-pdf",
+    "formats": "HEIC, HEIF",
+    "accept": ".heic,.heif",
+    "ext": "pdf",
+    "limit": 10,
+    "related": "merge-pdf",
+    "article": "merge-pdf-files",
+    "copy": {
+      "en": {
+        "title": "HEIC to PDF",
+        "description": "Arrange up to six HEIC photos into one PDF. Each photo fits on its own A4 page with room around the edges.",
+        "help": "Use the arrows to set reading order. Landscape photos get landscape pages. Photos are fitted without cropping."
+      },
+      "es": {
+        "title": "Convertir HEIC a PDF",
+        "description": "Ordena hasta seis fotos HEIC y crea un PDF. Cada foto ocupa una página A4 con márgenes.",
+        "help": "Usa las flechas para ordenar las páginas. Las fotos horizontales se colocan en páginas apaisadas sin recortarlas."
+      },
+      "ar": {
+        "title": "تحويل صور HEIC إلى PDF",
+        "description": "رتّب ما يصل إلى ست صور HEIC في ملف PDF واحد. توضع كل صورة في صفحة A4 مستقلة مع هوامش.",
+        "help": "استخدم الأسهم لترتيب الصفحات. تُعرض الصور الأفقية على صفحات أفقية وتبقى حواف الصور كاملة."
+      },
+      "pt-BR": {
+        "title": "Converter HEIC em PDF",
+        "description": "Organize até seis fotos HEIC em um único PDF. Cada foto ocupa uma página A4 com margens.",
+        "help": "Use as setas para ordenar as páginas. Fotos horizontais ficam em páginas na horizontal e nenhuma borda é cortada."
+      }
+    }
+  },
+  {
+    "slug": "mp4-to-gif",
+    "formats": "MP4",
+    "accept": ".mp4",
+    "ext": "gif",
+    "limit": 50,
+    "related": "gif-compressor",
+    "article": "lossy-vs-lossless-compression",
+    "copy": {
+      "en": {
+        "title": "MP4 to animated GIF",
+        "description": "Turn a short section of an MP4 into a looping GIF. Set the start time, clip length, frame rate, palette and output dimensions.",
+        "help": "Choose up to eight seconds from a video of five minutes or less. A smaller frame or fewer frames per second usually makes sharing easier. GIF has no audio."
+      },
+      "es": {
+        "title": "Convertir MP4 a GIF animado",
+        "description": "Crea un GIF en bucle a partir de un MP4. Ajusta el inicio, la duración, los fotogramas por segundo, la paleta y el tamaño.",
+        "help": "Elige hasta ocho segundos de un vídeo de cinco minutos como máximo. Reduce el tamaño o los fotogramas por segundo para aligerar el GIF. El GIF no tiene sonido."
+      },
+      "ar": {
+        "title": "تحويل MP4 إلى GIF متحرك",
+        "description": "حوّل مقطعاً من فيديو MP4 إلى صورة GIF متكررة. اضبط البداية والمدة ومعدل الإطارات وعدد الألوان والأبعاد.",
+        "help": "اختر حتى ثماني ثوانٍ من فيديو مدته خمس دقائق أو أقل. تقلّل الأبعاد الأصغر ومعدلات الإطارات المنخفضة حجم الملف عادةً. صيغة GIF صامتة."
+      },
+      "pt-BR": {
+        "title": "Converter MP4 em GIF animado",
+        "description": "Crie um GIF em loop a partir de um trecho de MP4. Ajuste início, duração, quadros por segundo, paleta e dimensões.",
+        "help": "Escolha até oito segundos de um vídeo de até cinco minutos. Reduza o tamanho ou a taxa de quadros para facilitar o envio. GIF não tem áudio."
+      }
+    }
+  },
+  {
+    "slug": "video-compressor",
+    "formats": "MP4",
+    "accept": ".mp4",
+    "ext": "mp4",
+    "limit": 50,
+    "related": "video-converter",
+    "article": "email-attachment-size-limits",
+    "copy": {
+      "en": {
+        "title": "MP4 video compressor",
+        "description": "Compress an MP4 with three quality presets. Compare the original and output sizes before downloading the smaller video.",
+        "help": "Up to five minutes. Output is H.264, up to 1280 pixels per side and 30 fps, with the first audio track. Already compact clips may have no smaller result."
+      },
+      "es": {
+        "title": "Comprimir vídeo MP4",
+        "description": "Comprime un MP4 con tres niveles de calidad. Compara el tamaño original y el final antes de descargar el vídeo.",
+        "help": "Hasta cinco minutos. La salida usa H.264, hasta 1280 píxeles por lado y 30 fps, con la primera pista de audio. Un vídeo muy comprimido puede no reducirse más."
+      },
+      "ar": {
+        "title": "ضغط فيديو MP4",
+        "description": "اضغط فيديو MP4 باستخدام أحد ثلاثة مستويات للجودة. قارن حجم الملف قبل الضغط وبعده ثم نزّل الفيديو الأصغر.",
+        "help": "الحد خمس دقائق. يستخدم الناتج H.264 مع أول مسار صوتي، وبحد أقصى 1280 بكسل لكل ضلع و30 إطاراً في الثانية. قد يتعذر تصغير فيديو مضغوط مسبقاً."
+      },
+      "pt-BR": {
+        "title": "Compressor de vídeo MP4",
+        "description": "Comprima um MP4 com três níveis de qualidade. Compare os tamanhos antes de baixar o vídeo menor.",
+        "help": "Até cinco minutos. A saída usa H.264 com até 1280 pixels por lado, 30 fps e a primeira faixa de áudio. Um vídeo já compacto pode não ficar menor."
+      }
+    }
+  },
+  {
+    "slug": "image-to-text",
+    "formats": "JPG, PNG",
+    "accept": ".jpg,.jpeg,.png",
+    "ext": "txt",
+    "limit": 10,
+    "related": "text-formatter",
+    "article": "ocr-explained",
+    "copy": {
+      "en": {
+        "title": "Image to text (OCR)",
+        "description": "Extract printed English, Spanish, Arabic or Portuguese text from a JPG or PNG. Review and edit the result before downloading it.",
+        "help": "Select the language printed in the image. Crop to the text and use a sharp, upright photo. Check names and numbers against the original."
+      },
+      "es": {
+        "title": "Extraer texto de una imagen (OCR)",
+        "description": "Extrae texto impreso en inglés, español, árabe o portugués de un JPG o PNG. Revisa y edita el resultado antes de descargarlo.",
+        "help": "Selecciona el idioma del texto. Recorta la imagen y usa una foto nítida y bien orientada. Comprueba los nombres y las cifras con el original."
+      },
+      "ar": {
+        "title": "استخراج النص من الصور (OCR)",
+        "description": "استخرج النص المطبوع بالعربية أو الإنجليزية أو الإسبانية أو البرتغالية من صورة JPG أو PNG، ثم راجعه وعدّله قبل التنزيل.",
+        "help": "اختر لغة النص داخل الصورة. قصّ الهوامش واستخدم صورة واضحة ومستقيمة. راجع الأسماء والأرقام بالرجوع إلى الأصل."
+      },
+      "pt-BR": {
+        "title": "Extrair texto de imagem (OCR)",
+        "description": "Extraia texto impresso em português, inglês, espanhol ou árabe de um JPG ou PNG. Revise e edite o resultado antes de baixar.",
+        "help": "Escolha o idioma do texto na imagem. Recorte a área de interesse e use uma foto nítida e alinhada. Confira nomes e números com o original."
+      }
+    }
+  },
+  {
+    "slug": "gif-compressor",
+    "formats": "GIF",
+    "accept": ".gif",
+    "ext": "gif",
+    "limit": 10,
+    "related": "mp4-to-gif",
+    "article": "lossy-vs-lossless-compression",
+    "copy": {
+      "en": {
+        "title": "Animated GIF compressor",
+        "description": "Reduce an animated GIF while keeping its frame timing and loop settings. Compare file sizes before downloading.",
+        "help": "Start at zero for lossless optimization. Increasing the setting trades detail for size. A file that is already optimized may have no smaller result."
+      },
+      "es": {
+        "title": "Comprimir GIF animado",
+        "description": "Reduce un GIF animado conservando la duración de sus fotogramas y la repetición. Compara el tamaño antes de descargarlo.",
+        "help": "Empieza en cero para optimizar sin pérdida. Al subir el valor se pierde detalle. Un GIF ya optimizado puede no reducirse más."
+      },
+      "ar": {
+        "title": "ضغط صور GIF المتحركة",
+        "description": "قلّل حجم صورة GIF مع الحفاظ على توقيت الإطارات وإعدادات التكرار، ثم قارن الحجم قبل التنزيل.",
+        "help": "ابدأ بالقيمة صفر للضغط دون فقدان التفاصيل. تؤدي زيادة القيمة إلى تقليل التفاصيل لتصغير الحجم. قد لا يصغر الملف المحسّن مسبقاً."
+      },
+      "pt-BR": {
+        "title": "Compressor de GIF animado",
+        "description": "Reduza um GIF animado mantendo a duração dos quadros e a repetição. Compare os tamanhos antes de baixar.",
+        "help": "Comece em zero para otimização sem perdas. Aumentar o valor reduz detalhes. Um GIF já otimizado pode não ficar menor."
+      }
+    }
+  },
+  {
+    "slug": "svg-to-png",
+    "formats": "SVG",
+    "accept": ".svg",
+    "ext": "png",
+    "limit": 1,
+    "related": "image-resizer",
+    "article": "image-dpi-and-print-size",
+    "copy": {
+      "en": {
+        "title": "SVG to PNG",
+        "description": "Export a static SVG as a PNG at your chosen width, with a transparent or white background. The aspect ratio stays the same.",
+        "help": "Supports paths, shapes and gradients. Convert text to paths in your editor first. Embedded images, CSS, scripts, filters and linked assets are unsupported."
+      },
+      "es": {
+        "title": "Convertir SVG a PNG",
+        "description": "Exporta un SVG estático a PNG con el ancho que elijas y fondo transparente o blanco. Se conservan las proporciones.",
+        "help": "Admite trazados, formas y degradados. Convierte primero el texto en trazados. No admite imágenes incrustadas, CSS, scripts, filtros ni recursos enlazados."
+      },
+      "ar": {
+        "title": "تحويل SVG إلى PNG",
+        "description": "صدّر رسماً ثابتاً بصيغة SVG إلى PNG بالعرض الذي تختاره وخلفية شفافة أو بيضاء، مع الحفاظ على تناسب الأبعاد.",
+        "help": "يدعم المسارات والأشكال والتدرجات اللونية. حوّل الكتابة إلى مسارات في محرّر الرسم أولاً. لا يدعم الصور المضمّنة أو CSS أو البرمجيات النصية أو المرشحات أو الموارد المرتبطة."
+      },
+      "pt-BR": {
+        "title": "Converter SVG em PNG",
+        "description": "Exporte um SVG estático para PNG na largura escolhida, com fundo transparente ou branco. A proporção é mantida.",
+        "help": "Aceita caminhos, formas e gradientes. Antes de exportar, converta o texto em caminhos no editor. Imagens incorporadas, CSS, scripts, filtros e recursos vinculados não são aceitos."
+      }
+    }
+  },
+  {
+    "slug": "avif-to-png",
+    "formats": "AVIF",
+    "accept": ".avif",
+    "ext": "png",
+    "limit": 10,
+    "related": "image-resizer",
+    "article": "avif-vs-webp-vs-jpeg-xl",
+    "copy": {
+      "en": {
+        "title": "AVIF to PNG",
+        "description": "Convert a still AVIF image to PNG with transparency. Download an image you can open in editors that do not read AVIF.",
+        "help": "The output is an 8-bit still image. PNG files can be larger than AVIF. Animated sequences are rejected so frames are never silently discarded."
+      },
+      "es": {
+        "title": "Convertir AVIF a PNG",
+        "description": "Convierte una imagen AVIF estática en PNG conservando la transparencia. Abre el resultado en editores sin soporte para AVIF.",
+        "help": "La salida es una imagen estática de 8 bits. El PNG puede ocupar más que el AVIF. Las secuencias animadas se rechazan para evitar la pérdida de fotogramas."
+      },
+      "ar": {
+        "title": "تحويل AVIF إلى PNG",
+        "description": "حوّل صورة AVIF ثابتة إلى PNG مع الحفاظ على الشفافية لاستخدامها في برامج التحرير التي لا تفتح AVIF.",
+        "help": "الناتج صورة ثابتة بعمق 8 بت وقد يكون ملف PNG أكبر من الأصل. تُرفض الصور المتحركة لتجنب إسقاط إطاراتها."
+      },
+      "pt-BR": {
+        "title": "Converter AVIF em PNG",
+        "description": "Converta uma imagem AVIF estática em PNG com transparência e abra o resultado em editores sem suporte a AVIF.",
+        "help": "A saída é uma imagem estática de 8 bits. O PNG pode ficar maior que o AVIF. Sequências animadas são recusadas para evitar perda de quadros."
+      }
+    }
+  },
+  {
+    "slug": "pdf-to-text",
+    "formats": "PDF",
+    "accept": ".pdf",
+    "ext": "txt",
+    "limit": 20,
+    "related": "image-to-text",
+    "article": "ocr-explained",
+    "copy": {
+      "en": {
+        "title": "PDF to text",
+        "description": "Extract selectable text from a PDF, review the reading order and download an editable UTF-8 text file.",
+        "help": "Up to 200 pages. Columns and tables may need editing. Scanned pages have no selectable text. Use image OCR on those pages, including scans inside mixed documents."
+      },
+      "es": {
+        "title": "Convertir PDF a texto",
+        "description": "Extrae el texto seleccionable de un PDF, revisa el orden de lectura y descarga un archivo de texto UTF-8 editable.",
+        "help": "Hasta 200 páginas. Las tablas y columnas pueden necesitar ajustes. Las páginas escaneadas carecen de texto seleccionable. Usa OCR en esas páginas, también en documentos mixtos."
+      },
+      "ar": {
+        "title": "استخراج النص من PDF",
+        "description": "استخرج النص القابل للتحديد من PDF، وراجع ترتيب القراءة ثم نزّل ملفاً نصياً قابلاً للتحرير بترميز UTF-8.",
+        "help": "الحد 200 صفحة. قد تحتاج الجداول والأعمدة إلى تعديل. لا تحتوي الصفحات المصوّرة على نص قابل للتحديد. استخدم أداة استخراج النص من الصور لهذه الصفحات حتى لو كانت ضمن مستند مختلط."
+      },
+      "pt-BR": {
+        "title": "Converter PDF em texto",
+        "description": "Extraia o texto selecionável de um PDF, revise a ordem de leitura e baixe um arquivo de texto editável em UTF-8.",
+        "help": "Até 200 páginas. Colunas e tabelas podem precisar de ajustes. Páginas digitalizadas não têm texto selecionável. Use OCR nessas páginas, inclusive em documentos mistos."
+      }
+    }
+  },
+  {
+    "slug": "image-metadata-remover",
+    "formats": "JPG, PNG",
+    "accept": ".jpg,.jpeg,.png",
+    "ext": "png",
+    "limit": 10,
+    "related": "compress-image",
+    "article": "image-metadata-exif-privacy",
+    "copy": {
+      "en": {
+        "title": "Remove photo metadata",
+        "description": "Create a PNG copy of a JPG or PNG without the original EXIF or GPS tags. The photo is processed on your device.",
+        "help": "A new PNG is drawn from the visible pixels. Original color profiles may change and file size may increase. Faces, addresses and other visible details stay in the picture."
+      },
+      "es": {
+        "title": "Eliminar metadatos de fotos",
+        "description": "Crea una copia PNG sin las etiquetas EXIF o GPS del JPG o PNG original. La foto se procesa en tu dispositivo.",
+        "help": "El PNG se genera a partir de los píxeles visibles. El perfil de color puede cambiar y el tamaño puede aumentar. Los rostros y las direcciones visibles seguirán en la foto."
+      },
+      "ar": {
+        "title": "إزالة البيانات الوصفية من الصور",
+        "description": "أنشئ نسخة PNG من صورة JPG أو PNG دون وسوم EXIF أو إحداثيات GPS الأصلية. تُعالج الصورة على جهازك.",
+        "help": "تُرسم نسخة PNG جديدة من البكسلات الظاهرة. قد يتغيّر ملف الألوان ويزداد حجم الصورة. تبقى الوجوه والعناوين وأي تفاصيل مرئية داخلها."
+      },
+      "pt-BR": {
+        "title": "Remover metadados de fotos",
+        "description": "Crie uma cópia PNG de um JPG ou PNG sem os campos EXIF ou GPS originais. A foto é processada no seu dispositivo.",
+        "help": "O novo PNG é criado a partir dos pixels visíveis. O perfil de cor pode mudar e o arquivo pode ficar maior. Rostos, endereços e outros detalhes visíveis continuam na foto."
+      }
+    }
+  }
+]

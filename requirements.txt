@@ -1,2 +1,6 @@
 pdf2docx==0.5.8
 rembg[cpu]==2.0.67
+
+Pillow==13.0.0
+pillow-heif==1.8.1
+reportlab==5.1.0
