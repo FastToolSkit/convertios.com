@@ -1,0 +1,334 @@
+{
+  "headings": {
+    "en": {
+      "why": "When this tool is useful",
+      "how": "How to use it",
+      "limits": "Formats, quality and limitations",
+      "faq": "Frequently asked questions",
+      "q": "What should I know about the output?",
+      "steps": [
+        "Choose the supported file or files and review the size limit.",
+        "Adjust any available settings, then start processing.",
+        "Check the result and download the file before leaving the page."
+      ],
+      "info": "Tool information",
+      "input": "Input format",
+      "output": "Download format",
+      "size": "Maximum file size",
+      "processing": "Processing"
+    },
+    "es": {
+      "why": "Cuándo utilizar esta herramienta",
+      "how": "Cómo utilizarla",
+      "limits": "Formatos, calidad y limitaciones",
+      "faq": "Preguntas frecuentes",
+      "q": "¿Qué debo saber sobre el resultado?",
+      "steps": [
+        "Selecciona los archivos admitidos y comprueba el límite de tamaño.",
+        "Ajusta las opciones disponibles e inicia el proceso.",
+        "Revisa el resultado y descárgalo antes de salir de la página."
+      ],
+      "info": "Información de la herramienta",
+      "input": "Formato de entrada",
+      "output": "Formato de descarga",
+      "size": "Tamaño máximo por archivo",
+      "processing": "Procesamiento"
+    },
+    "ar": {
+      "why": "متى تحتاج هذه الأداة؟",
+      "how": "طريقة الاستخدام",
+      "limits": "الصيغ والجودة والقيود",
+      "faq": "الأسئلة الشائعة",
+      "q": "ما الذي يجب معرفته عن الملف الناتج؟",
+      "steps": [
+        "اختر الملف أو الملفات المدعومة وتحقق من الحد الأقصى للحجم.",
+        "اضبط الخيارات المتاحة ثم ابدأ المعالجة.",
+        "راجع النتيجة ونزّل الملف قبل مغادرة الصفحة."
+      ],
+      "info": "معلومات الأداة",
+      "input": "صيغة الإدخال",
+      "output": "صيغة التنزيل",
+      "size": "الحد الأقصى لحجم الملف",
+      "processing": "المعالجة"
+    },
+    "pt-BR": {
+      "why": "Quando usar esta ferramenta",
+      "how": "Como usar",
+      "limits": "Formatos, qualidade e limitações",
+      "faq": "Perguntas frequentes",
+      "q": "O que preciso saber sobre o arquivo final?",
+      "steps": [
+        "Selecione os arquivos compatíveis e confira o limite de tamanho.",
+        "Ajuste as opções disponíveis e inicie o processamento.",
+        "Confira o resultado e faça o download antes de sair da página."
+      ],
+      "info": "Informações da ferramenta",
+      "input": "Formato de entrada",
+      "output": "Formato de download",
+      "size": "Tamanho máximo por arquivo",
+      "processing": "Processamento"
+    }
+  },
+  "tools": {
+    "heic-to-jpg": {
+      "en": {
+        "use": "Use this converter when an iPhone HEIC photo cannot be opened in an older editor, submitted to a form or shared with someone who needs a standard JPEG. Select up to six photos; each receives its own JPG download.",
+        "limits": "JPEG is widely compatible but uses lossy compression. The converter exports the primary still image, not the motion component of a Live Photo, depth data or the full HDR appearance. A higher quality setting may produce a larger file.",
+        "question": "Does converting HEIC to JPG preserve Live Photos?",
+        "answer": "No. Only the primary still photograph is exported; Live Photo motion and depth information are not included."
+      },
+      "es": {
+        "use": "Úsala si una foto HEIC del iPhone no se abre en un editor, no se acepta en un formulario o necesitas compartirla como JPEG. Puedes elegir hasta seis fotos y descargar cada JPG por separado.",
+        "limits": "JPEG es compatible con muchos programas, pero utiliza compresión con pérdida. Se exporta la foto principal, no el movimiento de Live Photo, los datos de profundidad ni el aspecto HDR completo.",
+        "question": "¿Se conserva el movimiento de Live Photo?",
+        "answer": "No. Se exporta solamente la foto fija principal, sin movimiento ni datos de profundidad."
+      },
+      "ar": {
+        "use": "استخدم هذه الأداة عندما لا تُفتح صورة HEIC الملتقطة بالآيفون في برنامج قديم أو لا يقبلها نموذج رفع الملفات. يمكنك اختيار ما يصل إلى ست صور وتنزيل ملف JPG مستقل لكل صورة.",
+        "limits": "صيغة JPG واسعة التوافق لكنها تستخدم ضغطاً مع فقدان بعض البيانات. يُصدَّر إطار الصورة الأساسي فقط، دون حركة Live Photo أو بيانات العمق أو المظهر الكامل لنطاق HDR.",
+        "question": "هل يحتفظ التحويل بحركة Live Photo؟",
+        "answer": "لا، يتم استخراج الصورة الثابتة الأساسية فقط، دون الفيديو القصير أو بيانات العمق."
+      },
+      "pt-BR": {
+        "use": "Use quando uma foto HEIC do iPhone não abre em um editor antigo, não é aceita em um formulário ou precisa ser compartilhada como JPEG. Selecione até seis fotos e baixe cada JPG separadamente.",
+        "limits": "JPEG funciona em muitos aplicativos, mas utiliza compressão com perdas. A conversão exporta a foto principal, sem o movimento do Live Photo, dados de profundidade ou toda a aparência HDR.",
+        "question": "O movimento do Live Photo é mantido?",
+        "answer": "Não. Apenas a foto estática principal é exportada, sem movimento ou dados de profundidade."
+      }
+    },
+    "heic-to-pdf": {
+      "en": {
+        "use": "Combine iPhone HEIC photos into a single PDF for a form, school assignment or shareable document. Reorder up to six images before creating the file; each photo gets an A4 page.",
+        "limits": "The original photos are fitted inside the page without cropping. Landscape images use landscape A4 pages. This is a photo-based PDF, not searchable text, and it does not extract Live Photo video.",
+        "question": "Can I change the order of the pages?",
+        "answer": "Yes. Use the up and down controls next to the selected images before converting."
+      },
+      "es": {
+        "use": "Agrupa fotos HEIC del iPhone en un PDF para enviar un trámite, trabajo escolar o documento. Ordena hasta seis imágenes antes de convertirlas; cada foto ocupa una página A4.",
+        "limits": "Las fotos se ajustan sin recortarse y las imágenes horizontales se colocan en páginas A4 apaisadas. El PDF contiene imágenes, no texto seleccionable, y no extrae vídeos de Live Photo.",
+        "question": "¿Puedo cambiar el orden de las páginas?",
+        "answer": "Sí. Usa las flechas junto a las imágenes seleccionadas antes de convertir."
+      },
+      "ar": {
+        "use": "اجمع صور HEIC من الآيفون في ملف PDF واحد لإرساله مع طلب أو واجب أو مستند. يمكنك ترتيب ما يصل إلى ست صور قبل التحويل، وستظهر كل صورة في صفحة A4 مستقلة.",
+        "limits": "تُضبط الصور داخل الصفحات دون قصّها، وتُستخدم صفحات أفقية للصور الأفقية. الملف الناتج يحتوي على صور وليس نصاً قابلاً للتحديد، ولا يشمل فيديو Live Photo.",
+        "question": "هل يمكن تغيير ترتيب الصفحات؟",
+        "answer": "نعم، استخدم أزرار التحريك للأعلى والأسفل بجانب الصور قبل التحويل."
+      },
+      "pt-BR": {
+        "use": "Reúna fotos HEIC do iPhone em um PDF para enviar formulários, tarefas ou documentos. Organize até seis imagens antes de converter; cada foto ocupa uma página A4.",
+        "limits": "As imagens são ajustadas sem cortes, e as fotos horizontais usam páginas A4 em paisagem. O PDF contém imagens, não texto selecionável, e não inclui vídeos de Live Photo.",
+        "question": "Posso alterar a ordem das páginas?",
+        "answer": "Sim. Use os controles para subir ou descer as imagens antes de converter."
+      }
+    },
+    "mp4-to-gif": {
+      "en": {
+        "use": "Turn a short part of an MP4 video into a looping animated GIF for a reaction, tutorial or message. Choose the starting second, clip length, width, frame rate and number of colors.",
+        "limits": "GIF has no audio, supports a limited color palette and may be larger than the source clip. Input is capped at 50 MiB and five minutes; the animated excerpt can be up to eight seconds.",
+        "question": "Will my GIF include the video's sound?",
+        "answer": "No. GIF is a silent image format. Use MP4 if you need audio or longer playback."
+      },
+      "es": {
+        "use": "Convierte un fragmento de vídeo MP4 en un GIF animado para una reacción, explicación o mensaje. Elige el inicio, la duración, la anchura, los fotogramas por segundo y los colores.",
+        "limits": "GIF no admite sonido, tiene una paleta limitada y puede ocupar más que el fragmento original. El MP4 no puede superar 50 MiB ni cinco minutos; el GIF puede durar hasta ocho segundos.",
+        "question": "¿El GIF conserva el sonido?",
+        "answer": "No. Los archivos GIF no incluyen audio. Mantén MP4 si necesitas sonido."
+      },
+      "ar": {
+        "use": "حوّل جزءاً قصيراً من فيديو MP4 إلى صورة GIF متحركة للمحادثات أو الشروحات. حدد وقت البداية ومدة المقطع والعرض وعدد الإطارات والألوان.",
+        "limits": "صيغة GIF لا تدعم الصوت وألوانها محدودة، وقد يكون حجمها أكبر من المقطع الأصلي. الحد الأقصى للفيديو 50 ميبيبايت وخمس دقائق، وللمقطع المتحرك ثماني ثوانٍ.",
+        "question": "هل تحتفظ صورة GIF بصوت الفيديو؟",
+        "answer": "لا، ملفات GIF صامتة. احتفظ بصيغة MP4 إذا كنت بحاجة إلى الصوت."
+      },
+      "pt-BR": {
+        "use": "Transforme um trecho de vídeo MP4 em GIF animado para reações, tutoriais ou mensagens. Ajuste o início, a duração, a largura, os quadros por segundo e a quantidade de cores.",
+        "limits": "GIF não tem áudio, usa uma paleta limitada e pode ficar maior que o trecho original. O MP4 pode ter até 50 MiB e cinco minutos; o GIF pode ter até oito segundos.",
+        "question": "O GIF mantém o som do vídeo?",
+        "answer": "Não. GIF não suporta áudio. Use MP4 quando precisar de som."
+      }
+    },
+    "video-compressor": {
+      "en": {
+        "use": "Reduce an MP4 video's size before sending it in a message or uploading it to a platform with file limits. Choose light, balanced or small quality settings based on how much detail you can afford to lose.",
+        "limits": "Compression re-encodes the video and may reduce resolution, frame rate or visible detail. It cannot guarantee a specific final size; if the new file is not smaller, the tool reports that no useful reduction was achieved.",
+        "question": "Does the smallest preset always look the same as the original?",
+        "answer": "No. Stronger compression trades some image quality for smaller files; review the download before sharing it."
+      },
+      "es": {
+        "use": "Reduce el peso de un vídeo MP4 antes de enviarlo o subirlo a una plataforma con límites. Elige compresión ligera, equilibrada o máxima según la calidad que necesites.",
+        "limits": "La compresión vuelve a codificar el vídeo y puede reducir resolución, fotogramas o detalle. No garantiza un tamaño concreto; si el resultado no es menor, se informa de que no hubo una reducción útil.",
+        "question": "¿La compresión máxima mantiene la calidad original?",
+        "answer": "No. Un archivo más pequeño suele perder algo de detalle. Revisa el resultado antes de compartirlo."
+      },
+      "ar": {
+        "use": "قلّل حجم فيديو MP4 قبل مشاركته أو رفعه إلى خدمة تفرض حداً على حجم الملفات. اختر مستوى الضغط الخفيف أو المتوازن أو الأصغر حسب الجودة التي تريد الاحتفاظ بها.",
+        "limits": "تُعاد معالجة الفيديو وقد تقل الدقة أو الإطارات أو التفاصيل. لا يمكن ضمان حجم نهائي محدد، وإذا لم يكن الملف الجديد أصغر فستعرض الأداة رسالة توضح عدم تحقق ضغط مفيد.",
+        "question": "هل يحافظ أقوى ضغط على الجودة الأصلية؟",
+        "answer": "لا، تقليل الحجم بدرجة أكبر قد يُضعف بعض التفاصيل. راجع الفيديو الناتج قبل إرساله."
+      },
+      "pt-BR": {
+        "use": "Diminua o tamanho de um vídeo MP4 antes de enviar por mensagem ou publicar em um serviço com limite de arquivo. Escolha compressão leve, equilibrada ou mais forte.",
+        "limits": "O vídeo é recodificado e pode perder resolução, quadros ou detalhes. Não há garantia de tamanho final; se o arquivo não ficar menor, a ferramenta informa que não houve ganho.",
+        "question": "A compressão mais forte mantém a qualidade original?",
+        "answer": "Não. Um arquivo menor pode perder detalhes; confira o resultado antes de compartilhar."
+      }
+    },
+    "image-to-text": {
+      "en": {
+        "use": "Copy printed text out of a JPG or PNG screenshot, notice or scanned image instead of typing it manually. Select the recognition language, then review and edit the extracted text before downloading a TXT file.",
+        "limits": "OCR works best with clear, upright, high-contrast print. Blurry photos, handwriting, tables and mixed-language pages can produce mistakes. Processing uses the Convertios server; avoid uploading sensitive documents.",
+        "question": "Can OCR perfectly recognize handwriting?",
+        "answer": "No. Recognition accuracy depends on image quality, font, layout and language; always proofread the extracted text."
+      },
+      "es": {
+        "use": "Extrae texto impreso de una captura JPG o PNG, cartel o imagen escaneada sin volver a escribirlo. Selecciona el idioma y corrige el texto reconocido antes de descargar un TXT.",
+        "limits": "El OCR funciona mejor con letras nítidas y bien orientadas. Fotos borrosas, escritura a mano, tablas y páginas multilingües pueden contener errores. El proceso utiliza el servidor de Convertios.",
+        "question": "¿El OCR reconoce perfectamente la escritura manual?",
+        "answer": "No. Depende de la nitidez, la tipografía y el diseño; revisa siempre el texto extraído."
+      },
+      "ar": {
+        "use": "استخرج النص المطبوع من لقطة شاشة أو صورة JPG أو PNG بدلاً من كتابته يدوياً. اختر لغة التعرف ثم راجع النص المستخرج وعدّله قبل تنزيل ملف TXT.",
+        "limits": "تتحسن دقة التعرف على النصوص عندما تكون الصورة واضحة ومستقيمة وعالية التباين. قد تحدث أخطاء في الخط اليدوي والجداول والصور الضبابية والنصوص المختلطة. تتم المعالجة على خادم Convertios.",
+        "question": "هل يتعرف OCR على الخط اليدوي بدقة كاملة؟",
+        "answer": "لا، تعتمد النتيجة على وضوح الصورة ونوع الخط وتنسيق الصفحة؛ راجع النص قبل استخدامه."
+      },
+      "pt-BR": {
+        "use": "Extraia texto impresso de capturas JPG ou PNG, avisos ou imagens digitalizadas sem digitar tudo novamente. Escolha o idioma e revise o texto reconhecido antes de baixar o TXT.",
+        "limits": "O OCR funciona melhor em textos nítidos, retos e com bom contraste. Fotos desfocadas, manuscritos, tabelas e páginas com vários idiomas podem conter erros. O processamento acontece no servidor Convertios.",
+        "question": "O OCR reconhece manuscritos perfeitamente?",
+        "answer": "Não. A precisão varia conforme a imagem, a fonte e o layout; revise o texto antes de usá-lo."
+      }
+    },
+    "gif-compressor": {
+      "en": {
+        "use": "Make an animated GIF easier to share by optimizing its frames and reducing file size. Adjust the loss setting and compare the output against the original animation.",
+        "limits": "Optimization retains the animation timeline, frame dimensions and loop behavior but lossy settings can change some colors and fine details. Already optimized GIFs might not shrink and will return a no-gain message.",
+        "question": "Will the compressed GIF still animate?",
+        "answer": "Yes. The converter checks the frame sequence and timing; it rejects results that do not preserve the expected animation properties."
+      },
+      "es": {
+        "use": "Reduce el tamaño de un GIF animado para compartirlo con más facilidad. Ajusta el nivel de pérdida y compara el resultado con la animación original.",
+        "limits": "La optimización conserva la secuencia, las dimensiones y el bucle, pero puede alterar colores y detalles finos. Si el GIF ya está optimizado, puede aparecer un aviso de que no se redujo.",
+        "question": "¿El GIF comprimido seguirá animado?",
+        "answer": "Sí. Se comprueban la secuencia y los tiempos; se rechazan resultados que no los conservan."
+      },
+      "ar": {
+        "use": "خفّض حجم ملف GIF المتحرك لتسهيل مشاركته. اضبط مقدار فقدان الجودة ثم قارن النتيجة بالحركة الأصلية.",
+        "limits": "تحافظ المعالجة على تسلسل الإطارات وأبعادها وتوقيت الحركة والتكرار، لكن الضغط مع الفقد قد يغيّر بعض الألوان والتفاصيل. قد لا يصغر الملف إذا كان مضغوطاً مسبقاً.",
+        "question": "هل سيبقى ملف GIF متحركاً بعد الضغط؟",
+        "answer": "نعم، تتحقق الأداة من الإطارات والتوقيت وترفض النتيجة إذا لم تُحافظ على خصائص الحركة المطلوبة."
+      },
+      "pt-BR": {
+        "use": "Reduza o tamanho de um GIF animado para compartilhar com mais facilidade. Ajuste a perda permitida e compare o arquivo final com a animação original.",
+        "limits": "A otimização preserva a sequência, as dimensões e os tempos dos quadros, mas pode alterar cores e detalhes. GIFs já otimizados podem não diminuir e gerar um aviso.",
+        "question": "O GIF continuará animado após a compressão?",
+        "answer": "Sim. A ferramenta verifica os quadros e o tempo da animação antes de aceitar o resultado."
+      }
+    },
+    "svg-to-png": {
+      "en": {
+        "use": "Export a simple SVG logo, icon or diagram as a PNG for software that does not accept vector files. Set the output width and choose a transparent or white background.",
+        "limits": "This browser-only converter supports a safe subset of static SVG shapes and gradients. Scripts, linked images, external fonts and unsupported elements are rejected rather than loaded. PNG pixels cannot be scaled without loss indefinitely.",
+        "question": "Does the tool upload my SVG to a server?",
+        "answer": "No. Supported SVGs are checked and rendered in your browser. External resources and scripts are not allowed."
+      },
+      "es": {
+        "use": "Exporta un logotipo, icono o diagrama SVG sencillo como PNG para programas que no aceptan vectores. Elige la anchura y el fondo transparente o blanco.",
+        "limits": "La conversión ocurre en el navegador y admite un conjunto seguro de formas y degradados estáticos. Se rechazan scripts, imágenes enlazadas, fuentes externas y otros elementos no admitidos.",
+        "question": "¿Se sube el SVG a un servidor?",
+        "answer": "No. Los SVG admitidos se validan y convierten en el navegador; se bloquean recursos externos y scripts."
+      },
+      "ar": {
+        "use": "صدّر شعاراً أو أيقونة أو رسماً بسيطاً بصيغة SVG إلى PNG لاستخدامه في برامج لا تدعم الرسومات المتجهة. حدد العرض واختر خلفية شفافة أو بيضاء.",
+        "limits": "تعمل الأداة داخل المتصفح وتدعم مجموعة آمنة من الأشكال والتدرجات الثابتة. تُرفض السكربتات والصور المرتبطة والخطوط الخارجية والعناصر غير المدعومة. صورة PNG الناتجة نقطية وليست متجهة.",
+        "question": "هل تُرفع ملفات SVG إلى الخادم؟",
+        "answer": "لا، يجري فحص ملفات SVG المدعومة وتحويلها داخل متصفحك، دون تحميل موارد خارجية أو تشغيل سكربتات."
+      },
+      "pt-BR": {
+        "use": "Exporte um logo, ícone ou diagrama SVG simples como PNG para aplicativos sem suporte a vetores. Escolha a largura e um fundo transparente ou branco.",
+        "limits": "A conversão ocorre no navegador e aceita um subconjunto seguro de formas e gradientes estáticos. Scripts, imagens vinculadas, fontes externas e elementos não compatíveis são rejeitados.",
+        "question": "Meu SVG é enviado a um servidor?",
+        "answer": "Não. SVGs compatíveis são verificados e convertidos no navegador, sem scripts ou recursos externos."
+      }
+    },
+    "avif-to-png": {
+      "en": {
+        "use": "Convert a still AVIF image to PNG when an editor, form or design workflow cannot open AVIF directly. PNG provides broad compatibility and can preserve transparent regions.",
+        "limits": "The conversion uses a server-side AVIF decoder. PNG is lossless after decoding but may be much larger than the AVIF source; animated AVIF files are not supported. The output cannot restore details already lost in the source.",
+        "question": "Will transparent areas remain transparent?",
+        "answer": "Yes, transparency is retained for supported still AVIF files that contain an alpha channel."
+      },
+      "es": {
+        "use": "Convierte una imagen AVIF fija a PNG si un editor, formulario o programa de diseño no admite AVIF. PNG es compatible con muchos programas y puede conservar transparencias.",
+        "limits": "Se utiliza un decodificador AVIF en el servidor. PNG no añade pérdida al guardar, pero puede ocupar mucho más; los AVIF animados no se admiten y no se recupera detalle perdido previamente.",
+        "question": "¿Se conserva la transparencia?",
+        "answer": "Sí, en imágenes AVIF estáticas compatibles con canal alfa."
+      },
+      "ar": {
+        "use": "حوّل صورة AVIF ثابتة إلى PNG إذا كان المحرر أو نموذج الرفع لا يدعم AVIF. تمتاز PNG بتوافق واسع ويمكنها الاحتفاظ بالمناطق الشفافة.",
+        "limits": "يُفك ترميز AVIF على الخادم. صيغة PNG تحفظ الصورة دون ضغط مع فقد جديد لكنها قد تكون أكبر حجماً، ولا تدعم الأداة ملفات AVIF المتحركة أو استعادة التفاصيل المفقودة في المصدر.",
+        "question": "هل تبقى الخلفية الشفافة كما هي؟",
+        "answer": "نعم، تُحفظ الشفافية في صور AVIF الثابتة المدعومة التي تحتوي على قناة ألفا."
+      },
+      "pt-BR": {
+        "use": "Converta uma imagem AVIF estática para PNG quando um editor, formulário ou programa de design não aceitar AVIF. PNG tem ampla compatibilidade e pode manter transparência.",
+        "limits": "Um decodificador no servidor processa o AVIF. O PNG não adiciona perda na gravação, mas pode ficar bem maior; AVIF animado não é suportado e detalhes perdidos no original não são recuperados.",
+        "question": "A transparência será preservada?",
+        "answer": "Sim, para imagens AVIF estáticas compatíveis que tenham canal alfa."
+      }
+    },
+    "pdf-to-text": {
+      "en": {
+        "use": "Extract selectable text from a digital PDF into a plain TXT file for searching, editing or copying into another document. The extracted text can be reviewed and edited before downloading.",
+        "limits": "This tool reads existing PDF text layers. A PDF made only of scanned photos has no selectable text and needs OCR instead. Complex columns, tables and spacing may not match the original layout.",
+        "question": "Can it read text from a scanned PDF?",
+        "answer": "Not directly. Scanned pages require optical character recognition; use an image OCR workflow for a suitable page image."
+      },
+      "es": {
+        "use": "Extrae el texto seleccionable de un PDF digital a un archivo TXT para buscarlo, editarlo o reutilizarlo. Puedes revisar el texto antes de descargarlo.",
+        "limits": "Solo se leen las capas de texto existentes. Un PDF compuesto por páginas escaneadas necesita OCR. Las tablas, columnas y espacios pueden no conservar la disposición original.",
+        "question": "¿Sirve para PDF escaneados?",
+        "answer": "No directamente. Las páginas que son imágenes necesitan reconocimiento óptico de caracteres."
+      },
+      "ar": {
+        "use": "استخرج النص القابل للتحديد من ملف PDF رقمي إلى TXT للبحث فيه أو تحريره أو نسخه إلى مستند آخر. يمكنك مراجعة النص وتعديله قبل التنزيل.",
+        "limits": "تقرأ الأداة طبقة النص الموجودة أصلاً في PDF فقط. إذا كانت الصفحات صوراً ممسوحة ضوئياً فستحتاج إلى OCR. قد لا يُحفظ ترتيب الجداول والأعمدة والمسافات كما في الأصل.",
+        "question": "هل تستخرج النص من PDF ممسوح ضوئياً؟",
+        "answer": "ليس مباشرةً. الصفحات التي تحتوي على صور فقط تحتاج إلى التعرف الضوئي على الحروف OCR."
+      },
+      "pt-BR": {
+        "use": "Extraia texto selecionável de um PDF digital para um TXT que você pode pesquisar, editar ou reutilizar. Revise o texto antes de baixar.",
+        "limits": "A ferramenta lê apenas as camadas de texto presentes no PDF. Páginas digitalizadas como imagens precisam de OCR. Colunas, tabelas e espaçamento podem mudar.",
+        "question": "Funciona com PDF digitalizado?",
+        "answer": "Não diretamente. Páginas que são apenas imagens precisam de reconhecimento óptico de caracteres."
+      }
+    },
+    "image-metadata-remover": {
+      "en": {
+        "use": "Prepare a photo for sharing without its original EXIF camera settings and GPS tags. The browser redraws supported JPG or PNG images into a fresh PNG download.",
+        "limits": "The new file contains rendered pixels rather than the source metadata. It may be larger than the original JPEG and does not remove visible names, faces, addresses or watermarks within the photo. Review the image itself before publishing.",
+        "question": "Does removing metadata hide everything identifying in a photo?",
+        "answer": "No. It removes supported embedded tags, not identifying details visible in the image pixels."
+      },
+      "es": {
+        "use": "Prepara una foto para compartir sin las etiquetas EXIF originales, como ajustes de cámara o ubicación GPS. El navegador genera un nuevo archivo PNG.",
+        "limits": "El PNG contiene los píxeles de la imagen, no los metadatos de origen. Puede pesar más que el JPEG original y no oculta nombres, rostros, direcciones ni marcas visibles.",
+        "question": "¿Se elimina cualquier dato identificable?",
+        "answer": "No. Se eliminan etiquetas incrustadas compatibles, pero no lo que se ve en la fotografía."
+      },
+      "ar": {
+        "use": "جهّز صورة للمشاركة دون بيانات EXIF الأصلية مثل إعدادات الكاميرا أو إحداثيات GPS. يعيد المتصفح رسم الصور المدعومة من JPG أو PNG داخل ملف PNG جديد.",
+        "limits": "يحتفظ الملف الجديد بالبكسلات الظاهرة دون وسوم البيانات الوصفية الأصلية، وقد يكون أكبر من صورة JPG. لا تُزال الوجوه أو الأسماء أو العناوين أو العلامات الظاهرة داخل الصورة نفسها.",
+        "question": "هل تؤدي إزالة البيانات الوصفية إلى إخفاء كل المعلومات الشخصية؟",
+        "answer": "لا، تُزال الوسوم المضمنة المدعومة فقط، وليس ما يظهر داخل بكسلات الصورة."
+      },
+      "pt-BR": {
+        "use": "Prepare uma foto para compartilhar sem as tags EXIF originais, como configurações da câmera e localização GPS. O navegador recria JPG ou PNG como um novo PNG.",
+        "limits": "O arquivo novo guarda os pixels renderizados, não os metadados de origem. Pode ser maior que o JPEG inicial e não apaga rostos, nomes, endereços ou marcas visíveis na foto.",
+        "question": "Isso remove todos os dados que identificam alguém?",
+        "answer": "Não. Remove tags incorporadas compatíveis, mas não informações visíveis nos pixels."
+      }
+    }
+  }
+}

@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "content/smart-tools"
 TOOLS = json.loads((DATA / "catalog.json").read_text("utf-8"))
 UI = json.loads((DATA / "interface.json").read_text("utf-8"))
+GUIDES = json.loads((DATA / "guides.json").read_text("utf-8"))
 PREFIX = {"en":"", "es":"es/", "ar":"ar/", "pt-BR":"pt-br/"}
 BASE = "https://convertios.com"
 LOCAL = {"svg-to-png", "image-metadata-remover"}
@@ -73,6 +74,31 @@ def heading(lang, path):
     return unescape(re.sub(r'<[^>]+>','',match[1])).strip()
 
 
+def rich_guide(tool, lang):
+    headings = GUIDES["headings"][lang]
+    details = GUIDES["tools"][tool["slug"]][lang]
+    e = escape
+    steps = "".join(f"<li>{e(step)}</li>" for step in headings["steps"])
+    t = UI[lang]
+    processing = t["local" if tool["slug"] in LOCAL else "server"]
+    rows = [
+        (headings["input"], tool["formats"]),
+        (headings["output"], tool["ext"].upper()),
+        (headings["size"], f'{tool["limit"]} MiB'),
+        (headings["processing"], processing),
+    ]
+    facts = "".join(f"<div><dt>{e(label)}</dt><dd>{e(str(value))}</dd></div>" for label,value in rows)
+
+    return (
+        f'<h2>{e(headings["info"])}</h2><dl class="smart-info">{facts}</dl>'
+        f'<h2>{e(headings["why"])}</h2><p>{e(details["use"])}</p>'
+        f'<h2>{e(headings["how"])}</h2><ol>{steps}</ol>'
+        f'<h2>{e(headings["limits"])}</h2><p>{e(details["limits"])}</p>'
+        f'<h2>{e(headings["faq"])}</h2><details class="smart-faq">'
+        f'<summary>{e(details["question"])}</summary><p>{e(details["answer"])}</p></details>'
+    )
+
+
 def render(tool, lang):
     slug = tool["slug"]
     t, copy = UI[lang], tool["copy"][lang]
@@ -121,6 +147,7 @@ def render(tool, lang):
 <meta property="og:title" content="{title} | Convertios">
 <meta property="og:description" content="{desc}">
 <meta property="og:image" content="{BASE}/convertios-logo.png">
+<meta name="twitter:card" content="summary_large_image">
 {links}
 <link rel="stylesheet" href="/smart-tools.css">
 {integrations[0]}
@@ -146,7 +173,7 @@ def render(tool, lang):
 </fieldset></form>
 <p id="smart-status" role="status" aria-live="polite"></p><div id="results"></div>
 </section>
-<section class="smart-guide"><h2>{t['help']}</h2><p>{escape(copy['help'])}</p>
+<section class="smart-guide">{rich_guide(tool,lang)}<h2>{t['help']}</h2><p>{escape(copy['help'])}</p>
 <h2>{t['related']}</h2><ul>{related}</ul></section>
 </main>
 {footer}
