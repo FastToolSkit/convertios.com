@@ -30,3 +30,17 @@
 .smart-guide h2 { color:inherit; font-size:1.25rem; margin:.75rem 0; }
 .smart-guide ul { padding-inline-start:1.4rem; }
 @media(max-width:500px) { .smart-page { margin-top:1.1rem; } .smart-panel #smart-run { width:100%; } }
+
+.smart-guide { max-width: 72ch; }
+.smart-guide h2 { margin-block: 1.5rem .5rem; }
+.smart-guide p, .smart-guide li { line-height: 1.75; }
+.smart-guide ol { padding-inline-start: 1.4rem; }
+.smart-guide .smart-faq { border: 1px solid #b8cad9; border-radius: .7rem; margin-block: .7rem 1.2rem; padding: .8rem 1rem; background: #f0f6fa; }
+.smart-guide .smart-faq summary { cursor: pointer; font-weight: 650; }
+.smart-guide .smart-faq summary:focus-visible { outline: 3px solid #d49117; outline-offset: 4px; }
+.smart-guide .smart-faq p { margin-bottom: 0; }
+
+.smart-info { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr)); gap:.65rem; margin-block:.8rem 1.2rem; }
+.smart-info > div { border:1px solid #c7d6df; border-radius:.6rem; padding:.7rem .9rem; background:#f4f8fa; min-width:0; }
+.smart-info dt { font-size:.85rem; color:#456379; }
+.smart-info dd { margin:0; font-weight:650; overflow-wrap:anywhere; }
