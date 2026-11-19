@@ -91,11 +91,14 @@ class ArtifactTests(unittest.TestCase):
         self.assertEqual(book['Data']['B3'].value, 'a,b')
         book.create_sheet('Other')['A1'] = '=HYPERLINK("https://example.com")'
         book.save(xlsx)
+        # Production multer uploads have generated names with no .xlsx extension.
+        upload = self.root / 'upload-without-extension'
+        upload.write_bytes(xlsx.read_bytes())
         listing = self.root / 'sheets.json'
-        workbook(xlsx, listing, {'direction':'xlsx-csv'}, list_only=True)
+        workbook(upload, listing, {'direction':'xlsx-csv'}, list_only=True)
         self.assertIn('Other', listing.read_text('utf-8'))
         csv = self.root / 'result.csv'
-        workbook(xlsx, csv, {'direction':'xlsx-csv','sheet':'Data'})
+        workbook(upload, csv, {'direction':'xlsx-csv','sheet':'Data'})
         self.assertIn("'=1+1", csv.read_text('utf-8-sig'))
         with self.assertRaises(Rejected): workbook(xlsx, csv, {'direction':'xlsx-csv','sheet':'missing'})
 

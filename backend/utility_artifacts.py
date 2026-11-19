@@ -267,7 +267,9 @@ def workbook(source, output, options, list_only=False):
         book.save(output)
     elif direction == "xlsx-csv":
         check_xlsx(source)
-        book = load_workbook(source, read_only=True, data_only=True, keep_links=False)
+        # Multer stores uploads under extensionless generated names. A byte stream
+        # avoids openpyxl's filename-extension check after ZIP validation.
+        book = load_workbook(io.BytesIO(source.read_bytes()), read_only=True, data_only=True, keep_links=False)
         try:
             if list_only:
                 output.write_text(json.dumps(book.sheetnames, ensure_ascii=False), encoding="utf-8")
