@@ -233,6 +233,13 @@
 .blog-page .lib-card__meta{font-size:.72rem;font-weight:500;color:#596b81}
 .blog-page .lib-grid .lib-card:hover,.blog-page .lib-card--side:hover{transform:none;box-shadow:none;border-color:#9eb8d5}
 .blog-page .lib-pagination{margin-top:44px;padding-top:28px;gap:18px}
+/* Keep category pagination separate from the route back to the complete library. */
+.blog-page .lib-all-articles{display:flex;justify-content:center;margin:22px 0 42px}
+.blog-page .lib-all-articles a{display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:9px;min-height:48px;padding:11px 22px;border:1px solid #a9bfdb;border-radius:999px;background:#eaf2fb;color:#123761;font-weight:750;font-size:.92rem;line-height:1.4;text-decoration:none;box-shadow:0 3px 10px #1237610c;transition:background .15s,border-color .15s}
+.blog-page .lib-all-articles a:hover{background:#dceaf9;border-color:#547ca7}
+.blog-page .lib-all-articles a:focus-visible{outline:3px solid #1273ca;outline-offset:3px}
+.blog-page .lib-all-articles__count{font-weight:600;color:#4c6380}
+.blog-page:dir(rtl) .lib-all-articles a{letter-spacing:0}
 .blog-page .lib-page{border:0;background:transparent;border-radius:50%;min-width:44px;min-height:44px;font-size:.82rem}
 .blog-page .lib-page--step{border-radius:8px;padding:0 12px}
 .blog-page .lib-page[aria-current="page"]{background:#123761;box-shadow:0 4px 12px #12376125}
