@@ -49,6 +49,8 @@ jobs:
           test -s _site/blog/page/2/index.html
           test -s _site/pt-br/blog/index.html
           echo 'Pages candidate build and publication exclusions passed'
+      - name: Verify generated 404 recovery redirects
+        run: python tests/verify-jekyll-redirects.py
       - name: Verify deterministic stamps and published asset bytes
         shell: bash
         run: |

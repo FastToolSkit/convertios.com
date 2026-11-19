@@ -1,6 +1,10 @@
 # GitHub Pages (Jekyll) publishing settings for convertios.com.
 # Pages are plain HTML without front matter, so Jekyll copies them unchanged.
 # The entries below stay in the repository but are not published on the website.
+# The site's real host is GitHub Pages, not Cloudflare Pages: _redirects is inert here.
+# GitHub Pages bundles this plugin for zero-delay HTML redirects on legacy routes.
+plugins:
+  - jekyll-redirect-from
 exclude:
   - server.js
   - package.json
