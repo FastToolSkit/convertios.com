@@ -16,6 +16,13 @@ import urllib.robotparser
 import xml.etree.ElementTree as ET
 
 BASE = 'https://convertios.com/'
+# Historical Google-selected .html canonicals (November 12/19 inspections).
+# Their redirect targets are already present in the sitemap; keep 301s intact.
+LEGACY_CANONICAL_PATHS = (
+    '/ar/ai-image-enhancer/', '/ar/image-converter/', '/ar/pdf-to-jpg/',
+    '/ar/split-pdf/', '/ar/webp-to-png/', '/text-formatter/',
+    '/trim-audio-online/',
+)
 
 
 class Signals(HTMLParser):
@@ -131,12 +138,27 @@ def main():
         row['inbound_pages'] = len(inbound[row['url']])
         if not row['inbound_pages']:
             problems.append({'url': row['url'], 'type': 'no-inbound-sitemap-page-links'})
+    # Google can retain stale .html canonical choices. Catch real regressions
+    # without treating correctly redirected legacy URLs as indexing defects.
+    alias_urls = [BASE + path.lstrip('/').rstrip('/') + '.html'
+                  for path in LEGACY_CANONICAL_PATHS]
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        alias_rows = [row for row, _ in pool.map(fetch, alias_urls)]
+    for row, path in zip(alias_rows, LEGACY_CANONICAL_PATHS):
+        expected = BASE + path.lstrip('/')
+        row['expected_target'] = expected
+        if row['status'] != 301 or row['location'] != expected:
+            problems.append({'type': 'legacy-canonical-redirect', **row})
+        if expected not in sitemap_set:
+            problems.append({'type': 'legacy-canonical-target-not-in-sitemap',
+                             'url': expected})
     with ThreadPoolExecutor(max_workers=4) as pool:
         additional = [row for row, _ in pool.map(fetch, args.check_url)]
     report = {'checked_at': datetime.now(timezone.utc).isoformat(),
               'scope': 'HTTP sitemap audit, not Google live inspection or Core Web Vitals',
               'robots': robots_result, 'robots_text': robots_text, 'sitemap': sitemap_result,
-              'pages': rows, 'extra_link_targets': extra_rows, 'additional_urls': additional, 'problems': problems}
+              'pages': rows, 'legacy_aliases': alias_rows,
+              'extra_link_targets': extra_rows, 'additional_urls': additional, 'problems': problems}
     Path(args.output).write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({'pages': len(rows), 'extra_targets': len(extra_rows), 'problems': problems}, ensure_ascii=False))
     raise SystemExit(bool(problems))
