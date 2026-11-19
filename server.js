@@ -265,6 +265,8 @@ app.post('/convert/video', videoConversionRateLimit, uploadSingle(videoUpload, '
   });
 });
 
+require('./backend/smart-tools')(app, {withJob, limiter: videoConversionRateLimit, python: PYTHON_BIN, fail});
+
 app.use((_req, res) => fail(res, 404, 'NOT_FOUND', 'Not found.'));
 
 app.use((error, _req, res, _next) => {
