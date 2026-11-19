@@ -1,0 +1,7 @@
+Completed the SEO update for all 40 pages across EN, ES, AR RTL, and PT-BR.
+
+The [generator](/C:/Users/ASUS/convertios-utility-seo/scripts/build-utility-tools.py) now uses [tool-specific localized content](/C:/Users/ASUS/convertios-utility-seo/scripts/utility_seo_content.py) for titles, descriptions, steps, examples, output guidance, and two visible FAQs per page. I regenerated the pages and directory cards, aligned WebApplication and Open Graph descriptions, and kept the existing forms and tool behavior.
+
+The [sitemap](/C:/Users/ASUS/convertios-utility-seo/sitemap.xml) still has 544 URLs. Exactly the 40 updated URLs have `2026-11-19` as their lastmod; the other 504 URLs and dates are unchanged. The [40-URL manifest](/C:/Users/ASUS/convertios-utility-seo/docs/utility-batch2-indexnow-urls-20261119.txt) and [post-deployment handoff](/C:/Users/ASUS/convertios-utility-seo/docs/utility-batch2-seo-20261119.md) are ready.
+
+Verification passed: four new SEO regression tests, 29 Node tests and the site check, 27 Python tests (four existing skips), three asset stamp tests, and both browser smoke suites. The worktree changes are uncommitted. No deployment or indexing submission was made; the pre-existing untracked files were left untouched.
