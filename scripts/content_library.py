@@ -851,8 +851,14 @@ def listing_page(lang, topics_page, n, total, counts, category=None) -> str:
         label = t["latest"] if not category else t["cat"][category]
         body += (f'<section class="lib-latest" aria-labelledby="latest-heading"><h2 class="lib-section-label" id="latest-heading">{escape(label)}</h2>'
                  f'<div class="lib-grid">{"".join(card(lang, x, eager=(i == 0)) for i, x in enumerate(items))}</div></section>')
+    all_articles_link = (
+        f'<p class="lib-all-articles"><a href="{local(lang, "blog/")}">'
+        f'{escape(t["view_all"])} <span class="lib-all-articles__count">({count_label(lang, sum(counts.values()))})</span>'
+        f'<span aria-hidden="true">{"←" if lang == "ar" else "→"}</span></a></p>'
+    ) if category else ""
     main = (f'<main class="page-content lib-hub" id="main-content">{masthead}{category_nav(lang, counts, category)}{body}'
-            f'{pagination(lang, base_rel, n, total)}{explore(lang, counts) if (n == 1 and not category) else ""}</main>')
+            f'{pagination(lang, base_rel, n, total)}{all_articles_link}'
+            f'{explore(lang, counts) if (n == 1 and not category) else ""}</main>')
     item_list = {"@type": "ItemList", "itemListElement": [
         {"@type": "ListItem", "position": (n - 1) * PER_PAGE + i + 1, "url": url(lang, f"blog/{x.slug}/")} for i, x in enumerate(items)]}
     crumbs_items = [(t["home"], url(lang)), (t["blog"], url(lang, "blog/"))]
