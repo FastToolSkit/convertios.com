@@ -5,6 +5,7 @@ from pathlib import Path
 import json
 import re
 from artifact_content import TOOLS as ARTIFACTS, COMMON as ARTIFACT_LABELS
+from utility_seo_content import SEO_CONTENT, GUIDE_LABELS
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://convertios.com"
@@ -149,6 +150,8 @@ def render(slug, lang):
     artifact = slug in ARTIFACTS
     tool = ARTIFACTS[slug] if artifact else TOOLS[slug]
     title, desc, use, limit, question, answer = tool[lang]
+    seo = SEO_CONTENT[slug][lang]
+    title, desc = seo['title'], seo['description']
     template = read(PREFIX[lang] + 'jpg-to-png/index.html')
     header = re.search(r'<body[^>]*>(.*?)</header>', template, re.S)[1] + '</header>'
     header = re.sub(r'<details class="language-selector".*?</details>', lambda m:m[0].replace('/jpg-to-png/', f'/{slug}/'), header, flags=re.S)
@@ -158,7 +161,7 @@ def render(slug, lang):
     analytics = re.search(r'<!-- Google tag.*?</script>\s*<script>.*?</script>', template, re.S)
     alts = '\n'.join(f'<link rel="alternate" hreflang="{k}" href="{url(k,slug) if k != "x-default" else url("en",slug)}">' for k in [*PREFIX, 'x-default'])
     canonical = url(lang,slug)
-    schema = json.dumps({"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":title,"url":canonical,"inLanguage":lang,"applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":CATEGORIES[lang]['tools'],"item":url(lang,'all-tools')},{"@type":"ListItem","position":2,"name":title,"item":canonical}]}]},ensure_ascii=False)
+    schema = json.dumps({"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":title,"description":desc,"url":canonical,"inLanguage":lang,"applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":CATEGORIES[lang]['tools'],"item":url(lang,'all-tools')},{"@type":"ListItem","position":2,"name":title,"item":canonical}]}]},ensure_ascii=False).replace('<','\\u003c')
     l = ARTIFACT_LABELS[lang] if artifact else LABELS[lang]
     versions = {name:sha256((ROOT / 'js' / file).read_bytes()).hexdigest()[:8] for name,file in [('core','utility-core.mjs'),('rename','rename-core.mjs'),('worker','regex-worker.js')]}
     config = json.dumps(({'tool':slug,'messages':l,'maxBytes':{'invoice-generator':2,'csv-xlsx-converter':6,'compress-pdf':15,'searchable-pdf-ocr':12}[slug]*1024*1024} if artifact else {'tool':slug,'labels':l,'versions':versions}),ensure_ascii=False).replace('<','\\u003c')
@@ -169,6 +172,12 @@ def render(slug, lang):
     output_id = 'artifact-result' if artifact else 'utility-output'
     fields = artifact_fields(slug,lang) if artifact else form_fields(slug,lang)
     config_id = 'artifact-config' if artifact else 'utility-config'
+    guide_labels = GUIDE_LABELS[lang]
+    steps = ''.join(f'<li>{escape(step)}</li>' for step in seo['steps'])
+    second_question, second_answer = seo['faq']
+    guide = (f'<h2>{escape(guide_labels["how"])}</h2><ol>{steps}</ol>'
+             f'<h2>{escape(guide_labels["example"])}</h2><p>{escape(seo["example"])}</p>'
+             f'<h2>{escape(guide_labels["output"])}</h2><p>{escape(seo["output"])}</p>')
     html = f'''<!DOCTYPE html>
 <html lang="{lang}" dir="{'rtl' if lang == 'ar' else 'ltr'}"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -183,7 +192,7 @@ def render(slug, lang):
 <section class="smart-panel utility-panel"><h1>{escape(title)}</h1><p>{escape(desc)}</p><p class="utility-privacy">{escape(l['private'])}</p>
 <form id="{form_id}"><div class="utility-fields">{fields}</div><button type="submit">{escape(l['preview'] if slug == 'bulk-file-renamer' else l['run'])}</button></form>
 <p id="{status_id}" role="status" aria-live="polite"></p><div id="{output_id}" aria-label="{escape(l['result'],quote=True)}"></div></section>
-<section class="smart-guide"><h2>{escape(title)}</h2><p>{escape(use)}</p><h2>{escape(CATEGORIES[lang]['limits'])}</h2><p>{escape(limit)}</p><details class="smart-faq"><summary>{escape(question)}</summary><p>{escape(answer)}</p></details><p><a href="/{PREFIX[lang]}all-tools/">{escape(CATEGORIES[lang]['heading'])}</a></p></section></main>
+<section class="smart-guide">{guide}<h2>{escape(guide_labels['options'])}</h2><p>{escape(use)}</p><h2>{escape(CATEGORIES[lang]['limits'])}</h2><p>{escape(limit)}</p><h2>{escape(guide_labels['faq'])}</h2><details class="smart-faq"><summary>{escape(question)}</summary><p>{escape(answer)}</p></details><details class="smart-faq"><summary>{escape(second_question)}</summary><p>{escape(second_answer)}</p></details><p><a href="/{PREFIX[lang]}all-tools/">{escape(CATEGORIES[lang]['heading'])}</a></p></section></main>
 {footer}<script type="application/json" id="{config_id}">{config}</script></body></html>'''
     def stamp(m):
         data = (ROOT / m[2][1:]).read_bytes().replace(b'\r\n', b'\n')
@@ -208,17 +217,19 @@ def main():
             cards = []
             for slug,tool in all_tools.items():
                 if tool['category'] != category: continue
-                title, desc = tool[lang][:2]
+                title, desc = SEO_CONTENT[slug][lang]['title'], SEO_CONTENT[slug][lang]['description']
                 cards.append(f'<a href="/{PREFIX[lang]}{slug}/" class="tool-card"><div class="tool-icon-wrap" aria-hidden="true">{escape(tool["icon"])}</div><h3>{escape(title)}</h3><p>{escape(desc)}</p></a>')
             sections.append(f'<h2>{escape(CATEGORIES[lang][category])}</h2><div class="tools-grid">'+''.join(cards)+'</div>')
         listing = f'<section class="utility-directory"><h2>{escape(CATEGORIES[lang]["heading"])}</h2>'+''.join(sections)+'</section>'
         replace_block(PREFIX[lang]+'all-tools/index.html','utility-tools',listing,'</main>')
-        mini = '<section class="utility-home"><h2>'+escape(CATEGORIES[lang]['heading'])+'</h2><div>'+''.join(f'<a href="/{PREFIX[lang]}{slug}/">{escape(tool[lang][0])}</a>' for slug,tool in all_tools.items())+'</div></section>'
+        mini = '<section class="utility-home"><h2>'+escape(CATEGORIES[lang]['heading'])+'</h2><div>'+''.join(f'<a href="/{PREFIX[lang]}{slug}/">{escape(SEO_CONTENT[slug][lang]["title"])}</a>' for slug,tool in all_tools.items())+'</div></section>'
         replace_block(PREFIX[lang]+'index.html','utility-tools',mini,'<section class="categories-section">')
     entries = []
     for slug in all_tools:
         alts = '\n'.join(f'  <xhtml:link rel="alternate" hreflang="{k}" href="{url(k,slug) if k != "x-default" else url("en",slug)}"/>' for k in [*PREFIX,'x-default'])
-        entries += [f'<url>\n  <loc>{url(lang,slug)}</loc>\n{alts}\n</url>' for lang in PREFIX]
+        entries += [f'<url>\n  <loc>{url(lang,slug)}</loc>\n  <lastmod>2026-11-19</lastmod>\n{alts}\n</url>' for lang in PREFIX]
     replace_block('sitemap.xml','utility-tools','\n'.join(entries),'</urlset>')
+    write('docs/utility-batch2-indexnow-urls-20261119.txt',
+          '\n'.join(url(lang, slug) for slug in all_tools for lang in PREFIX) + '\n')
 
 if __name__ == '__main__': main()
