@@ -6,6 +6,7 @@ import json
 import re
 from artifact_content import TOOLS as ARTIFACTS, COMMON as ARTIFACT_LABELS
 from utility_seo_content import SEO_CONTENT, GUIDE_LABELS
+from related_tool_cards import ensure_icons, render as related_cards, UTILITY_RELATED
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://convertios.com"
@@ -192,7 +193,8 @@ def render(slug, lang):
 <section class="smart-panel utility-panel"><h1>{escape(title)}</h1><p>{escape(desc)}</p><p class="utility-privacy">{escape(l['private'])}</p>
 <form id="{form_id}"><div class="utility-fields">{fields}</div><button type="submit">{escape(l['preview'] if slug == 'bulk-file-renamer' else l['run'])}</button></form>
 <p id="{status_id}" role="status" aria-live="polite"></p><div id="{output_id}" aria-label="{escape(l['result'],quote=True)}"></div></section>
-<section class="smart-guide">{guide}<h2>{escape(guide_labels['options'])}</h2><p>{escape(use)}</p><h2>{escape(CATEGORIES[lang]['limits'])}</h2><p>{escape(limit)}</p><h2>{escape(guide_labels['faq'])}</h2><details class="smart-faq"><summary>{escape(question)}</summary><p>{escape(answer)}</p></details><details class="smart-faq"><summary>{escape(second_question)}</summary><p>{escape(second_answer)}</p></details><p><a href="/{PREFIX[lang]}all-tools/">{escape(CATEGORIES[lang]['heading'])}</a></p></section></main>
+<section class="smart-guide">{guide}<h2>{escape(guide_labels['options'])}</h2><p>{escape(use)}</p><h2>{escape(CATEGORIES[lang]['limits'])}</h2><p>{escape(limit)}</p><h2>{escape(guide_labels['faq'])}</h2><details class="smart-faq"><summary>{escape(question)}</summary><p>{escape(answer)}</p></details><details class="smart-faq"><summary>{escape(second_question)}</summary><p>{escape(second_answer)}</p></details><p><a href="/{PREFIX[lang]}all-tools/">{escape(CATEGORIES[lang]['heading'])}</a></p></section>
+{related_cards(slug, lang, UTILITY_RELATED[slug])}</main>
 {footer}<script type="application/json" id="{config_id}">{config}</script></body></html>'''
     def stamp(m):
         data = (ROOT / m[2][1:]).read_bytes().replace(b'\r\n', b'\n')
@@ -207,6 +209,7 @@ def replace_block(rel, name, block, before):
     write(rel,source)
 
 def main():
+    ensure_icons()
     for lang, title in {'en':'Business Tools','es':'Herramientas empresariales','ar':'أدوات الأعمال','pt-BR':'Ferramentas de negócios'}.items(): CATEGORIES[lang]['business'] = title
     for lang, title in {'en':'PDF Tools','es':'Herramientas PDF','ar':'أدوات PDF','pt-BR':'Ferramentas PDF'}.items(): CATEGORIES[lang]['pdf'] = title
     all_tools = {**TOOLS, **ARTIFACTS}

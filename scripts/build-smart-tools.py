@@ -4,6 +4,7 @@ from html import escape, unescape
 from pathlib import Path
 import json
 import re
+from related_tool_cards import ensure_icons, render as related_cards
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "content/smart-tools"
@@ -118,18 +119,7 @@ def rich_guide(tool, lang):
 
 
 def more_tools(tool, lang):
-    h = GUIDES["headings"][lang]
-    cards = []
-    for slug in GUIDES["related_tools"][tool["slug"]]:
-        display = escape(heading(lang, slug))
-        cards.append(
-            f'<a href="/{PREFIX[lang]}{slug}/" class="more-tool-card">'
-            f'<span class="more-tool-icon" aria-hidden="true">↗</span>'
-            f'<span>{display}</span></a>'
-        )
-    return (f'<section class="more-tools" aria-labelledby="more-tools-heading">'
-            f'<h2 id="more-tools-heading">{escape(h["extra"])}</h2>'
-            f'<div class="more-tools-grid">{"".join(cards)}</div></section>')
+    return related_cards(tool["slug"], lang, GUIDES["related_tools"][tool["slug"]])
 
 
 def render(tool, lang):
@@ -240,6 +230,7 @@ def update_hub(lang, hub, groups):
 
 
 def main():
+    ensure_icons()
     sitemap = []
     for tool in TOOLS:
         for lang in PREFIX:
