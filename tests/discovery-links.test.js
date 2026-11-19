@@ -25,6 +25,21 @@ test('every language homepage directly links to all ten published smart tools', 
     }
   }
 });
+test('new tool discovery section renders accessible cards and a versioned stylesheet in every locale', () => {
+  const css = fs.readFileSync(path.join(ROOT, 'assets/smart-tools-home.css'), 'utf8');
+  assert.match(css, /\.discovery-links__grid\s*\{/);
+  assert.match(css, /\.discovery-card:focus-visible\s*\{/);
+  for (const locale of locales) {
+    const html = fs.readFileSync(path.join(ROOT, locale, 'index.html'), 'utf8');
+    const section = html.match(/<section class="discovery-links"[^>]*>([\s\S]*?)<\/section>/);
+    assert.ok(section, 'missing Smart Tools cards on /' + locale);
+    const cards = [...section[1].matchAll(/<a class="discovery-card" href="([^"]+)"/g)];
+    assert.equal(cards.length, slugs.length, 'must show exactly 10 cards on /' + locale);
+    assert.deepEqual(cards.map(m => m[1]), slugs.map(slug => '/' + locale + slug + '/'));
+    assert.match(html, /href="\/assets\/smart-tools-home\.css\?v=[a-f0-9]{8}"/);
+    assert.ok(!section[1].includes('<p class="section-sub">'), 'unformatted raw links returned on /' + locale);
+  }
+});
 test('every homepage has crawlable cross-language navigation', () => {
   for (const locale of locales) {
     const html = fs.readFileSync(path.join(ROOT,locale,'index.html'),'utf8');
