@@ -1,5 +1,13 @@
 # Canonical URL policy: public HTML pages use clean trailing-slash URLs.
 # Keep explicit rules first for URLs already reported by Google Search Console.
+# Recovered November 19 GSC Not found (404) examples with real replacement pages.
+# Do not redirect unrelated legacy files or malformed program URLs to the homepage.
+/ar/es/meme-generator/ /ar/meme-generator/ 301
+/ar/es/split-pdf/ /ar/split-pdf/ 301
+/ar/es/ /ar/ 301
+/ai-enhance.html /ai-image-enhancer/ 301
+/ai-enhance/ /ai-image-enhancer/ 301
+/remove-background /remove-bg/ 301
 /password-generator.html /password-generator/ 301
 /compress-image-to-100kb.html /compress-image-to-100kb/ 301
 /ar/compress-image-to-50kb.html /ar/compress-image-to-50kb/ 301
