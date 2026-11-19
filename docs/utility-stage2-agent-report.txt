@@ -1,0 +1,5 @@
+Implemented the four remaining tools in the stage 2 worktree: invoice PDF generation, CSV ↔ XLSX conversion, measured PDF compression, and searchable PDF OCR. Each has EN/ES/AR/PT-BR pages, with Arabic RTL support. The six committed tools remain unchanged, and all 528 prior sitemap URLs are preserved among 544 current URLs.
+
+**Verification is incomplete, so the branch is not release ready.** `npm.cmd test` passed 29 tests, the SEO audit found zero problems, and browser tests passed for all 16 new pages using fixture backend responses. Local Python checks passed for invoice rounding, PDF bounds, and XLSX ZIP limits. Four tests that would inspect artifacts produced by the new processors were skipped because this sandbox lacks the required Python packages and PDF/OCR binaries; package downloads are blocked.
+
+The exact results and the remaining Docker artifact test gate are in the [stage 2 QA report](/C:/Users/ASUS/convertios-utility-batch2/docs/utility-expansion-stage2-qa.md) and [batch report](/C:/Users/ASUS/convertios-utility-batch2/docs/utility-expansion-batch2-20261119.md). Stage 2 files are uncommitted. No push, merge, or deployment was performed.

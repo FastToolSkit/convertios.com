@@ -1,0 +1,56 @@
+name: Utility artifact real-file verification
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/utility-artifacts-qa.yml'
+      - 'Dockerfile'
+      - 'requirements.txt'
+      - 'backend/utility_artifacts.py'
+      - 'backend/smart-tools.js'
+      - 'js/artifact-tools.js'
+      - 'tests/test_utility_artifacts.py'
+      - 'tests/artifact_http_real.py'
+      - 'tests/browser/artifact-tools.py'
+      - 'scripts/build-utility-tools.py'
+      - 'scripts/artifact_content.py'
+
+permissions:
+  contents: read
+
+jobs:
+  artifact-fixtures:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install production artifact binaries and fonts
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ghostscript poppler-utils tesseract-ocr tesseract-ocr-eng fonts-noto-core
+      - name: Install pinned artifact Python dependencies
+        run: |
+          python3 -m venv "$RUNNER_TEMP/artifact-env"
+          . "$RUNNER_TEMP/artifact-env/bin/activate"
+          python -m pip install --disable-pip-version-check reportlab==5.1.0 pillow==13.0.0 openpyxl==3.1.5 pypdf==6.20.1 arabic-reshaper==3.0.0 python-bidi==0.4.2
+      - name: Verify actual PDF and spreadsheet artifacts (no skips)
+        run: |
+          . "$RUNNER_TEMP/artifact-env/bin/activate"
+          set -o pipefail
+          python -m unittest discover -s tests -p test_utility_artifacts.py -v 2>&1 | tee "$RUNNER_TEMP/utility-artifacts-results.log"
+          if grep -q 'skipped' "$RUNNER_TEMP/utility-artifacts-results.log"; then
+            echo 'Artifact acceptance requires all tests; skips are forbidden.'
+            exit 1
+          fi
+      - name: Exercise real artifact downloads through the Express HTTP backend
+        run: |
+          npm ci --omit=dev
+          PORT=39399 CONVERTIOS_ARTIFACT_DEBUG=1 PYTHON_BIN="$RUNNER_TEMP/artifact-env/bin/python" node server.js > "$RUNNER_TEMP/artifact-api.log" 2>&1 &
+          backend_pid=$!
+          trap 'kill "$backend_pid" 2>/dev/null || true; tail -30 "$RUNNER_TEMP/artifact-api.log"' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --silent --fail http://127.0.0.1:39399/health >/dev/null; then break; fi
+            sleep 1
+          done
+          . "$RUNNER_TEMP/artifact-env/bin/activate"
+          python tests/artifact_http_real.py http://127.0.0.1:39399

@@ -8,7 +8,7 @@ ENV NODE_ENV=production \
 WORKDIR /app
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends python3 python3-pip libgl1 libglib2.0-0 ffmpeg gifsicle poppler-utils tesseract-ocr tesseract-ocr-eng tesseract-ocr-ara tesseract-ocr-spa tesseract-ocr-por \
+    && apt-get install -y --no-install-recommends python3 python3-pip libgl1 libglib2.0-0 ffmpeg gifsicle ghostscript fonts-noto-core poppler-utils tesseract-ocr tesseract-ocr-eng tesseract-ocr-ara tesseract-ocr-spa tesseract-ocr-por \
     && rm -rf /var/lib/apt/lists/*
 
 COPY package.json package-lock.json* ./

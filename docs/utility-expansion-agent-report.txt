@@ -1,0 +1,7 @@
+Six of the ten approved tools are implemented in EN, ES, AR and PT-BR: JSON formatter/validator, JSON ↔ CSV converter, regex tester, UTM builder, SEO/social preview, and bulk file renamer. Their limits and privacy behavior are documented in the [QA report](/C:/Users/ASUS/convertios-utility-batch2/docs/utility-expansion-batch2-20261119.md).
+
+**Validation passed:** 29 automated tests, real Chrome smoke tests for all six tools, and a static-site check with zero issues. All original 504 sitemap URLs remain; the 24 new localized pages bring the total to 528.
+
+Compress PDF, searchable PDF OCR, invoice generation, and CSV ↔ Excel remain unshipped. The report records the specific work needed for each.
+
+**Commits are blocked.** Git cannot create `index.lock` because this worktree’s Git metadata is outside the writable workspace. The verified changes remain on the requested branch as uncommitted files, so the worktree is not clean. Nothing was pushed, merged or deployed.
