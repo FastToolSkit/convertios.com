@@ -17,6 +17,7 @@ for rel, destination in TARGETS.items():
     html = file.read_text(encoding="utf-8")
     assert re.search(r'http-equiv\s*=\s*["\']refresh["\']', html, re.I), f"missing instant refresh: {rel}"
     assert re.search(r'content\s*=\s*["\']0\s*;', html, re.I), f"redirect not immediate: {rel}"
-    assert destination in html, f"wrong redirect destination: {rel} → {destination}"
+    assert 'https://convertios.com' + destination in html, (f"redirect must use HTTPS canonical destination: {rel}")
+    assert 'http://convertios.com/' not in html, f"insecure redirect found: {rel}"
     print(f"OK {rel} -> {destination}")
 print(f"Verified {len(TARGETS)} Jekyll generated immediate redirects")
