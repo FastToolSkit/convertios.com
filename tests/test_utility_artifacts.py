@@ -89,6 +89,10 @@ class ArtifactTests(unittest.TestCase):
         self.assertEqual(book['Data']['B2'].value, '=1+1')
         self.assertEqual(book['Data']['B2'].data_type, 's')
         self.assertEqual(book['Data']['B3'].value, 'a,b')
+        # The writer uses streaming mode: imported worksheet dimensions may be absent.
+        stream_roundtrip = self.root / 'stream-roundtrip.csv'
+        workbook(xlsx, stream_roundtrip, {'direction':'xlsx-csv','sheet':'Data'})
+        self.assertIn("'=1+1", stream_roundtrip.read_text('utf-8-sig'))
         book.create_sheet('Other')['A1'] = '=HYPERLINK("https://example.com")'
         book.save(xlsx)
         # Production multer uploads have generated names with no .xlsx extension.

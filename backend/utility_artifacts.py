@@ -277,10 +277,18 @@ def workbook(source, output, options, list_only=False):
             selected = text(options.get("sheet", ""), 100)
             need(selected in book.sheetnames, "BAD_OPTIONS")
             sheet = book[selected]
-            need(sheet.max_row <= 10000 and sheet.max_column <= 100, "LIMIT")
+            # Streaming XLSX producers may omit worksheet dimension metadata.
+            # Enforce limits against actual rows and columns as we read them.
+            if sheet.max_row is not None:
+                need(sheet.max_row <= 10000, "LIMIT")
+            if sheet.max_column is not None:
+                need(sheet.max_column <= 100, "LIMIT")
             with output.open("w", encoding=encoding, newline="") as handle:
                 writer = csv.writer(handle, delimiter=delimiter)
+                row_count = 0
                 for row in sheet.iter_rows(values_only=True):
+                    row_count += 1
+                    need(row_count <= 10000 and len(row) <= 100, "LIMIT")
                     values = []
                     for value in row:
                         cell = "" if value is None else str(value)
