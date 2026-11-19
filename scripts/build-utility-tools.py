@@ -4,6 +4,7 @@ from html import escape
 from pathlib import Path
 import json
 import re
+from artifact_content import TOOLS as ARTIFACTS, COMMON as ARTIFACT_LABELS
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://convertios.com"
@@ -90,10 +91,32 @@ def attrs(**items): return " ".join(f'{k}="{escape(str(v), quote=True)}"' for k,
 def field(label, name, kind="text", **extra):
     a = attrs(name=name, id=name, type=kind, **extra)
     return f'<label for="{name}">{escape(label)}</label><input {a}>'
-def area(label, name="source", limit=2097152):
-    return f'<label for="{name}">{escape(label)}</label><textarea id="{name}" name="{name}" maxlength="{limit}" rows="9" spellcheck="false"></textarea>'
+def area(label, name="source", limit=2097152, required=False):
+    return f'<label for="{name}">{escape(label)}</label><textarea id="{name}" name="{name}" maxlength="{limit}" rows="9" spellcheck="false"{" required" if required else ""}></textarea>'
 def select(label, name, options):
     return f'<label for="{name}">{escape(label)}</label><select id="{name}" name="{name}">' + "".join(f'<option value="{escape(v)}">{escape(t)}</option>' for v,t in options) + '</select>'
+def artifact_fields(slug, lang):
+    l = ARTIFACT_LABELS[lang]
+    if slug == 'invoice-generator':
+        return (area(l['seller'], 'seller', 500, True) + area(l['customer'], 'customer', 500, True)
+                + field(l['number'],'number',required=True,maxlength=60)
+                + field(l['issued'],'issued','date',required=True)
+                + field(l['due'],'due','date')
+                + select(l['currency'],'currency',[(c,c) for c in ['USD','EUR','GBP','JOD','SAR','AED','BRL','ARS','MXN']])
+                + field(l['logo'],'file','file',accept='.png,.jpg,.jpeg,image/png,image/jpeg')
+                + '<div id="invoice-items" class="invoice-items"></div><button type="button" id="add-item">'+escape(l['add'])+'</button>'
+                + '<p id="invoice-totals" aria-live="polite"></p>' + area(l['notes'],'notes',500))
+    out = field(l['file'],'file','file',required=True,accept='.csv,.xlsx' if slug == 'csv-xlsx-converter' else '.pdf,application/pdf')
+    if slug == 'csv-xlsx-converter':
+        out += select(l['direction'],'direction',[('csv-xlsx',l['csvxlsx']),('xlsx-csv',l['xlsxcsv'])])
+        out += select(l['delimiter'],'delimiter',[('comma',l['comma']),('semicolon',l['semicolon']),('tab',l['tab'])])
+        out += select(l['encoding'],'encoding',[('utf-8','UTF-8'),('windows-1252','Windows-1252')])
+        out += '<div id="sheet-wrap" hidden>'+select(l['sheet'],'sheet',[])+'</div>'
+    elif slug == 'compress-pdf':
+        out += select(l['preset'],'preset',[('light',l['light']),('balanced',l['balanced']),('small',l['small'])])
+    else:
+        out += select(l['language'],'lang',[('eng','English'),('spa','Español'),('ara','العربية'),('por','Português')])
+    return out
 def form_fields(slug, lang):
     l = LABELS[lang]
     if slug in {"json-formatter-validator", "json-csv-converter"}:
@@ -123,7 +146,9 @@ def form_fields(slug, lang):
     return (field(l['url'],'url','url',required=True,maxlength=2048,placeholder='https://example.com/page') + field(l['title'],'title',maxlength=300) + area(l['description'],'description',1000) + field(l['image'],'image','url',maxlength=2048))
 
 def render(slug, lang):
-    tool = TOOLS[slug]; title, desc, use, limit, question, answer = tool[lang]
+    artifact = slug in ARTIFACTS
+    tool = ARTIFACTS[slug] if artifact else TOOLS[slug]
+    title, desc, use, limit, question, answer = tool[lang]
     template = read(PREFIX[lang] + 'jpg-to-png/index.html')
     header = re.search(r'<body[^>]*>(.*?)</header>', template, re.S)[1] + '</header>'
     header = re.sub(r'<details class="language-selector".*?</details>', lambda m:m[0].replace('/jpg-to-png/', f'/{slug}/'), header, flags=re.S)
@@ -134,25 +159,32 @@ def render(slug, lang):
     alts = '\n'.join(f'<link rel="alternate" hreflang="{k}" href="{url(k,slug) if k != "x-default" else url("en",slug)}">' for k in [*PREFIX, 'x-default'])
     canonical = url(lang,slug)
     schema = json.dumps({"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":title,"url":canonical,"inLanguage":lang,"applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":CATEGORIES[lang]['tools'],"item":url(lang,'all-tools')},{"@type":"ListItem","position":2,"name":title,"item":canonical}]}]},ensure_ascii=False)
-    l = LABELS[lang]
+    l = ARTIFACT_LABELS[lang] if artifact else LABELS[lang]
     versions = {name:sha256((ROOT / 'js' / file).read_bytes()).hexdigest()[:8] for name,file in [('core','utility-core.mjs'),('rename','rename-core.mjs'),('worker','regex-worker.js')]}
-    config = json.dumps({'tool':slug,'labels':l,'versions':versions},ensure_ascii=False).replace('<','\\u003c')
+    config = json.dumps(({'tool':slug,'messages':l,'maxBytes':{'invoice-generator':2,'csv-xlsx-converter':6,'compress-pdf':15,'searchable-pdf-ocr':12}[slug]*1024*1024} if artifact else {'tool':slug,'labels':l,'versions':versions}),ensure_ascii=False).replace('<','\\u003c')
+    script = '<script src="/js/tool-ui.js" defer></script><script src="/js/artifact-tools.js" type="module"></script>' if artifact else '<script src="/js/utility-tools.js" type="module"></script>'
+    extra_style = '<link rel="stylesheet" href="/assets/artifact-tools.css">' if artifact else ''
+    form_id = 'artifact-form' if artifact else 'utility-form'
+    status_id = 'artifact-status' if artifact else 'utility-status'
+    output_id = 'artifact-result' if artifact else 'utility-output'
+    fields = artifact_fields(slug,lang) if artifact else form_fields(slug,lang)
+    config_id = 'artifact-config' if artifact else 'utility-config'
     html = f'''<!DOCTYPE html>
 <html lang="{lang}" dir="{'rtl' if lang == 'ar' else 'ltr'}"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(title)} | Convertios</title><meta name="description" content="{escape(desc,quote=True)}"><meta name="robots" content="index, follow">
 <link rel="canonical" href="{canonical}">{alts}
 <meta property="og:type" content="website"><meta property="og:url" content="{canonical}"><meta property="og:title" content="{escape(title,quote=True)} | Convertios"><meta property="og:description" content="{escape(desc,quote=True)}"><meta property="og:image" content="{BASE}/convertios-logo.png"><meta name="twitter:card" content="summary_large_image">
-{links}<link rel="stylesheet" href="/smart-tools.css"><link rel="stylesheet" href="/assets/utility-tools.css">
+{links}<link rel="stylesheet" href="/smart-tools.css"><link rel="stylesheet" href="/assets/utility-tools.css">{extra_style}
 {analytics[0] if analytics else ''}{ads}
-<script type="application/ld+json">{schema}</script><script src="/script.min.js" defer></script><script src="/js/utility-tools.js" type="module"></script></head>
+<script type="application/ld+json">{schema}</script><script src="/script.min.js" defer></script>{script}</head>
 <body class="neon-site-header">{header}
 <main class="smart-page" id="main-content"><nav class="smart-crumb" aria-label="{escape(CATEGORIES[lang]['tools'])}"><a href="/{PREFIX[lang]}all-tools/">{escape(CATEGORIES[lang]['tools'])}</a><span aria-hidden="true">/</span><span aria-current="page">{escape(title)}</span></nav>
 <section class="smart-panel utility-panel"><h1>{escape(title)}</h1><p>{escape(desc)}</p><p class="utility-privacy">{escape(l['private'])}</p>
-<form id="utility-form"><div class="utility-fields">{form_fields(slug,lang)}</div><button type="submit">{escape(l['preview'] if slug == 'bulk-file-renamer' else l['run'])}</button></form>
-<p id="utility-status" role="status" aria-live="polite"></p><div id="utility-output" aria-label="{escape(l['result'],quote=True)}"></div></section>
+<form id="{form_id}"><div class="utility-fields">{fields}</div><button type="submit">{escape(l['preview'] if slug == 'bulk-file-renamer' else l['run'])}</button></form>
+<p id="{status_id}" role="status" aria-live="polite"></p><div id="{output_id}" aria-label="{escape(l['result'],quote=True)}"></div></section>
 <section class="smart-guide"><h2>{escape(title)}</h2><p>{escape(use)}</p><h2>{escape(CATEGORIES[lang]['limits'])}</h2><p>{escape(limit)}</p><details class="smart-faq"><summary>{escape(question)}</summary><p>{escape(answer)}</p></details><p><a href="/{PREFIX[lang]}all-tools/">{escape(CATEGORIES[lang]['heading'])}</a></p></section></main>
-{footer}<script type="application/json" id="utility-config">{config}</script></body></html>'''
+{footer}<script type="application/json" id="{config_id}">{config}</script></body></html>'''
     def stamp(m):
         data = (ROOT / m[2][1:]).read_bytes().replace(b'\r\n', b'\n')
         return f'{m[1]}{m[2]}?v={sha256(data).hexdigest()[:8]}"'
@@ -166,22 +198,25 @@ def replace_block(rel, name, block, before):
     write(rel,source)
 
 def main():
+    for lang, title in {'en':'Business Tools','es':'Herramientas empresariales','ar':'أدوات الأعمال','pt-BR':'Ferramentas de negócios'}.items(): CATEGORIES[lang]['business'] = title
+    for lang, title in {'en':'PDF Tools','es':'Herramientas PDF','ar':'أدوات PDF','pt-BR':'Ferramentas PDF'}.items(): CATEGORIES[lang]['pdf'] = title
+    all_tools = {**TOOLS, **ARTIFACTS}
     for lang in PREFIX:
-        for slug in TOOLS: write(PREFIX[lang]+slug+'/index.html',render(slug,lang))
+        for slug in all_tools: write(PREFIX[lang]+slug+'/index.html',render(slug,lang))
         sections = []
-        for category in ('developer','data','marketing','files'):
+        for category in ('developer','data','marketing','files','business','pdf'):
             cards = []
-            for slug,tool in TOOLS.items():
+            for slug,tool in all_tools.items():
                 if tool['category'] != category: continue
                 title, desc = tool[lang][:2]
                 cards.append(f'<a href="/{PREFIX[lang]}{slug}/" class="tool-card"><div class="tool-icon-wrap" aria-hidden="true">{escape(tool["icon"])}</div><h3>{escape(title)}</h3><p>{escape(desc)}</p></a>')
             sections.append(f'<h2>{escape(CATEGORIES[lang][category])}</h2><div class="tools-grid">'+''.join(cards)+'</div>')
         listing = f'<section class="utility-directory"><h2>{escape(CATEGORIES[lang]["heading"])}</h2>'+''.join(sections)+'</section>'
         replace_block(PREFIX[lang]+'all-tools/index.html','utility-tools',listing,'</main>')
-        mini = '<section class="utility-home"><h2>'+escape(CATEGORIES[lang]['heading'])+'</h2><div>'+''.join(f'<a href="/{PREFIX[lang]}{slug}/">{escape(tool[lang][0])}</a>' for slug,tool in TOOLS.items())+'</div></section>'
+        mini = '<section class="utility-home"><h2>'+escape(CATEGORIES[lang]['heading'])+'</h2><div>'+''.join(f'<a href="/{PREFIX[lang]}{slug}/">{escape(tool[lang][0])}</a>' for slug,tool in all_tools.items())+'</div></section>'
         replace_block(PREFIX[lang]+'index.html','utility-tools',mini,'<section class="categories-section">')
     entries = []
-    for slug in TOOLS:
+    for slug in all_tools:
         alts = '\n'.join(f'  <xhtml:link rel="alternate" hreflang="{k}" href="{url(k,slug) if k != "x-default" else url("en",slug)}"/>' for k in [*PREFIX,'x-default'])
         entries += [f'<url>\n  <loc>{url(lang,slug)}</loc>\n{alts}\n</url>' for lang in PREFIX]
     replace_block('sitemap.xml','utility-tools','\n'.join(entries),'</urlset>')

@@ -1,0 +1,12 @@
+.utility-fields #seller,.utility-fields #customer,.utility-fields #notes { direction:auto; }
+.invoice-items { grid-column:1/-1; }
+.invoice-row { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.4rem .7rem; margin:.6rem 0; border:1px solid #8ca9bb; border-radius:.6rem; padding:.8rem; }
+.invoice-row legend { padding:0 .3rem; font-weight:700; }
+.invoice-row input,.invoice-row label { min-width:0; width:100%; }
+.invoice-row button { grid-column:1/-1; justify-self:start; }
+#sheet-wrap { grid-column:1/-1; }
+#sheet-wrap select { display:block; }
+#invoice-totals { grid-column:1/-1; font-weight:700; }
+#artifact-status { min-height:1.6em; }
+#artifact-result a { display:inline-block; padding:.6rem 1rem; border-radius:.5rem; background:#a2eceb; color:#062b38; font-weight:700; }
+@media(max-width:640px) { .invoice-row { grid-template-columns:repeat(2,minmax(0,1fr)); } }

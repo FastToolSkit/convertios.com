@@ -1,8 +1,8 @@
 # Utility expansion batch 2 — implementation and QA
 
-Branch: `feat/utility-expansion-batch2-20261119` from `819e626c`. No deployment, push, PR or merge was performed.
+Branch: `feat/utility-expansion-batch2-20261119`. Draft PR #303 is open. No push, merge, or deployment was performed in stage 2.
 
-**Commit status:** implementation and QA are complete, but this execution environment cannot write Git metadata. The worktree's `.git` points to `C:/Users/ASUS/convertios.com/.git/worktrees/convertios-utility-batch2`, outside its only writable root. `git add` and `git commit` both failed to create `index.lock` with "Permission denied". Files are left in the working tree for a writable session to commit; the worktree is therefore not clean. No remote commit was attempted because pushing was explicitly excluded.
+**Commit status:** the first six tools are committed at `b971d603`. Stage 2 changes are uncommitted. This sandbox cannot write Git metadata because the worktree's `.git` points outside its writable root. The four new processors have not passed production artifact tests, so this branch is **not release ready**.
 
 ## Shipped in this branch
 
@@ -19,7 +19,7 @@ Six working browser tools, each with English, Spanish, Arabic RTL and Brazilian 
 
 The JSON ↔ CSV tool intentionally returns flat text values when converting CSV to JSON. Nested JSON objects become escaped dotted column names going to CSV; arrays become JSON text. Empty and null values lose their distinction in CSV. Its page explains those limits. The regex match list follows the `g` flag; replacement follows standard JavaScript `String.replace` behavior. The SEO preview is illustrative because search and social platforms may choose different text/layout.
 
-`scripts/build-utility-tools.py` owns these 24 pages, localized homepage discovery links, categorized All Tools sections, and sitemap entries. It is idempotent and does not edit the existing smart-tool generator. Each page has a canonical, reciprocal hreflang set, OG metadata, WebApplication and BreadcrumbList structured data, accessible form controls, localized guidance, and a link back to All Tools. Existing homepage smart-tool cards remain as they were.
+`scripts/build-utility-tools.py` owns these 24 pages plus the 16 new stage 2 pages, localized homepage discovery links, categorized All Tools sections, and sitemap entries. It is idempotent and does not edit the existing smart-tool generator. Each page has a canonical, reciprocal hreflang set, OG metadata, WebApplication and BreadcrumbList structured data, accessible form controls, localized guidance, and a link back to All Tools. The six original utility pages remain byte-for-byte unchanged in the stage 2 working tree.
 
 ## QA performed
 
@@ -32,20 +32,20 @@ python tests/browser/utility-tools.py
 git -c safe.directory=C:/Users/ASUS/convertios-utility-batch2 diff --check
 ```
 
-- `npm.cmd test`: 29 tests passed; static validator reports **530 pages, 528 indexable, 528 sitemap URLs, zero problems and zero warnings**.
+- `npm.cmd test`: 29 tests passed; current static validator reports **546 pages, 544 indexable, 544 sitemap URLs, zero problems and zero warnings**.
 - Browser smoke used headless Chrome against a local static HTTP server. It exercised all six tools, a real JSON download, a real ZIP download opened with Python `zipfile` and checked for original bytes, JSON syntax failure, a catastrophic regex stopped by the 250 ms timeout, Arabic RTL, and mobile horizontal overflow checks on all six pages. Passed.
-- The original sitemap contained 504 URLs; all 504 are still present, with 24 new localized URLs. Generator rerun left checked output hashes unchanged.
-- Existing redirect, Content Library, IndexNow and server files were not changed.
+- All 528 URLs from the first committed batch remain in the 544-URL sitemap. Generator rerun left checked output hashes unchanged.
+- Redirects, Content Library, and IndexNow files were not changed.
 
-When Git metadata is writable, commit the implementation and this QA record on the current branch. The untracked `docs/utility-expansion-batch2-mission.md` is the owner-approved brief and belongs with the QA record.
+The original six-tool browser smoke still passes. Stage 2 details and the remaining release gate are in [the stage 2 QA report](utility-expansion-stage2-qa.md).
 
-## Approved tools not shipped
+## Stage 2 implementation state
 
-The remaining four have **no production page, sitemap entry, or claimed endpoint**:
+Four routes, forms and localized pages have been added in the working tree, but the actual artifact processors still need execution in the production Python image before commit or release:
 
-1. **Compress PDF:** the current deployment has no bounded PDF optimization pipeline with controlled image recompression, preservation checks, measured before/after bytes and source retention when the result is larger. PDF to text is a different existing operation.
-2. **Searchable PDF OCR:** existing Tesseract use extracts text from images. It does not create a selectable, correctly positioned PDF text layer. This needs a page rasterization/OCR/PDF overlay pipeline plus multilingual scanned-PDF fixtures and page alignment checks.
-3. **Invoice Generator:** the repository has ReportLab but no invoice data model and PDF renderer covering validated totals, taxes, currency, logo and embedded fonts for the four languages (especially Arabic). A print-only page would not meet the PDF download requirement.
-4. **CSV ↔ Excel Converter:** the deployment has no XLSX dependency or safe bounded workbook parser/writer. This needs sheet selection, encoding/delimiter controls, formula-safe cells, ZIP bomb limits and real workbook artifact tests in both directions.
+1. **Invoice Generator:** server-side ReportLab renderer, decimal line/tax calculation, date and field validation, sanitized PNG/JPEG logo input, and embedded Noto Latin/Arabic fonts with Arabic shaping. PDF text/geometry/logo fixture test exists but was skipped locally because ReportLab and the Docker fonts are unavailable.
+2. **CSV ↔ XLSX:** openpyxl reader/writer, sheet discovery/selection, encoding and delimiter controls, text-only CSV import, formula-safe CSV export, 6 MiB ZIP and expansion checks. Real workbook round-trip test exists but was skipped locally because openpyxl is unavailable.
+3. **Compress PDF:** Ghostscript optimization with page count/geometry verification and strict smaller-byte check. Real compression fixture test exists but was skipped locally because Ghostscript and ReportLab are unavailable.
+4. **Searchable PDF OCR:** Poppler rasterization, Tesseract searchable PDF per page, merged downloadable PDF, language choice and 10-page limit. Real OCR text/geometry fixture test exists but was skipped locally because Poppler and Tesseract are unavailable.
 
-These tools should be implemented and tested before adding their categories or pages. Business Tools is therefore not shown as an empty category.
+The local browser test uses deterministic backend responses; it verifies forms and downloads but does not establish that the four Python processors produce correct files. Do not merge or deploy until the skipped artifact tests pass inside a build of the production Docker image and the produced PDFs/XLSX are inspected.
