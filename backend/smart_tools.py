@@ -82,7 +82,7 @@ def heic_pdf(inputs, out):
     document.save()
 
 
-def gif_timing(path):
+def gif_timing(path, max_frame_pixels=36_000_000):
     with Image.open(path, formats=["GIF"]) as image:
         frames = []
         for i in range(301):
@@ -90,7 +90,7 @@ def gif_timing(path):
                 image.seek(i)
             except EOFError:
                 break
-            require(i < 300 and image.width * image.height * (i + 1) <= 36_000_000, "LIMIT")
+            require(i < 300 and image.width * image.height * (i + 1) <= max_frame_pixels, "LIMIT")
             image.load()
             frames.append(image.info.get("duration", 0))
         return image.size, frames, image.info.get("loop")
@@ -132,13 +132,15 @@ def video(source, out, opts, gif):
         width = integer(opts, "width", 320, 64, 640)
         colors = integer(opts, "colors", 128, 16, 256)
         require(start < duration and min(seconds, duration-start)*fps >= 2, "BAD_OPTIONS")
-        # Trim before palette generation to bound its buffered frames.
-        graph = (f"[0:v:0]trim=duration={seconds},setpts=PTS-STARTPTS,fps={fps},"
-                 f"scale={width}:{width}:force_original_aspect_ratio=decrease,split[a][b];"
-                 f"[a]palettegen=max_colors={colors}[p];[b][p]paletteuse=dither=bayer[out]")
-        command(*args, "-ss", str(start), "-t", str(seconds), *common, "-i", str(source),
-                "-filter_complex", graph, "-map", "[out]", "-an", "-threads", "1", "-loop", "0", str(out))
-        require(len(gif_timing(out)[1]) >= 2)
+        # Two short passes avoid buffering the entire decoded clip for palette generation.
+        clip = [*args, "-ss", str(start), "-t", str(seconds), *common, "-i", str(source)]
+        filters = (f"fps={fps},scale={width}:{width}:force_original_aspect_ratio=decrease")
+        command(*clip, "-vf", f"{filters},palettegen=max_colors={colors}", "-frames:v", "1",
+                "-threads", "1", "palette.png")
+        command(*clip, "-i", "palette.png", "-filter_complex",
+                f"[0:v:0]{filters}[clip];[clip][1:v]paletteuse=dither=bayer[out]",
+                "-map", "[out]", "-an", "-threads", "1", "-loop", "0", str(out))
+        require(len(gif_timing(out, max_frame_pixels=640*640*15*8)[1]) >= 2)
     else:
         crf = {"light": 23, "balanced": 28, "small": 33}.get(opts.get("preset", "balanced"))
         require(crf, "BAD_OPTIONS")

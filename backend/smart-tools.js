@@ -49,43 +49,36 @@ function processFiles(python, cwd, args, res) {
 }
 
 module.exports = function registerSmartTools(app, {withJob, limiter, python, fail}) {
-  let occupied = false;
   app.post('/convert/smart/:tool', limiter, async (req, res) => {
     const tool = req.params.tool;
     if (!formats.has(tool)) return fail(res, 404, 'NOT_FOUND', 'Unknown tool.');
-    if (occupied) return fail(res, 503, 'BUSY', 'Retry when the processor is available.');
-    occupied = true;
-    try {
-      return await withJob(res, async dir => {
-        const [extension, mime, maxMiB] = formats.get(tool);
-        const count = tool === 'heic-to-pdf' ? 6 : 1;
-        const upload = multer({dest: dir, limits: {
-          files: count, fileSize: maxMiB * 1024 ** 2, fields: 6, fieldSize: 48, parts: count + 7
-        }}).array('file', count);
-        try {
-          await new Promise((resolve, reject) => upload(req, res, error => error ? reject(error) : resolve()));
-        } catch (error) {
-          return fail(res, 413, 'LIMIT', 'Upload exceeds the supported limits.');
-        }
-        if (!req.files?.length || req.files.some(file => !file.size)) {
-          return fail(res, 400, 'INVALID_FILE', 'Choose a nonempty file.');
-        }
-        const output = 'converted.' + extension;
-        try {
-          await processFiles(python, dir, [tool, output, JSON.stringify(req.body || {}), ...req.files.map(f => f.filename)], res);
-        } catch (error) {
-          if (res.destroyed) return;
-          const code = userErrors.has(error.message) ? error.message : 'PROCESSING_FAILED';
-          return fail(res, code === 'PROCESSING_FAILED' ? 500 : 422, code, 'Conversion could not complete.');
-        }
-        res.setHeader('Cache-Control', 'no-store');
-        res.type(mime);
-        await new Promise((resolve, reject) => {
-          res.download(path.join(dir, output), output, error => error ? reject(error) : resolve());
-        });
+    return withJob(res, async dir => {
+      const [extension, mime, maxMiB] = formats.get(tool);
+      const count = tool === 'heic-to-pdf' ? 6 : 1;
+      const upload = multer({dest: dir, limits: {
+        files: count, fileSize: maxMiB * 1024 ** 2, fields: 6, fieldSize: 48, parts: count + 7
+      }}).array('file', count);
+      try {
+        await new Promise((resolve, reject) => upload(req, res, error => error ? reject(error) : resolve()));
+      } catch (error) {
+        return fail(res, 413, 'LIMIT', 'Upload exceeds the supported limits.');
+      }
+      if (!req.files?.length || req.files.some(file => !file.size)) {
+        return fail(res, 400, 'INVALID_FILE', 'Choose a nonempty file.');
+      }
+      const output = 'converted.' + extension;
+      try {
+        await processFiles(python, dir, [tool, output, JSON.stringify(req.body || {}), ...req.files.map(f => f.filename)], res);
+      } catch (error) {
+        if (res.destroyed) return;
+        const code = userErrors.has(error.message) ? error.message : 'PROCESSING_FAILED';
+        return fail(res, code === 'PROCESSING_FAILED' ? 500 : 422, code, 'Conversion could not complete.');
+      }
+      res.setHeader('Cache-Control', 'no-store');
+      res.type(mime);
+      await new Promise((resolve, reject) => {
+        res.download(path.join(dir, output), output, error => error ? reject(error) : resolve());
       });
-    } finally {
-      occupied = false;
-    }
+    }, {exclusive: true});
   });
 };
