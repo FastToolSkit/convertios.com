@@ -1,0 +1,51 @@
+name: Smart tools real-file verification
+
+on:
+  pull_request:
+    paths:
+      - 'Dockerfile'
+      - 'requirements.txt'
+      - 'server.js'
+      - 'backend/smart*'
+      - 'content/smart-tools/**'
+      - 'scripts/build-smart-tools.py'
+      - 'js/smart-*.js'
+      - 'smart-tools.css'
+      - 'tests/smart_tools_real.py'
+      - 'tests/browser/smart-tools.py'
+      - '.github/workflows/smart-tools-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  conversions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check generated pages
+        run: |
+          python3 scripts/build-smart-tools.py
+          git diff --exit-code
+      - name: Build the production container
+        run: docker build -t convertios-review .
+      - name: Prepare a real iPhone fixture
+        run: |
+          mkdir -p "$RUNNER_TEMP/convertios-fixtures"
+          chmod 777 "$RUNNER_TEMP/convertios-fixtures"
+          curl -fsSL --retry 2 https://raw.githubusercontent.com/ianare/exif-samples/5332a9cf0220e9c6c93f88a187daa90808051e10/heic/mobile/iphone_13_pro_max.HEIC -o "$RUNNER_TEMP/convertios-fixtures/iphone.heic"
+          echo "e760c80eed310e4f27c092d5487693ca8e104e7cc01d25ba4828deb28f679676  $RUNNER_TEMP/convertios-fixtures/iphone.heic" | sha256sum -c -
+      - name: Verify bounded native workers and generated files
+        run: |
+          docker run --rm --network none --memory=512m --cpus=1 \
+            -v "$PWD/tests:/app/tests:ro" -v "$RUNNER_TEMP/convertios-fixtures:/fixtures" \
+            convertios-review python3 /app/tests/smart_tools_real.py /fixtures /fixtures/iphone.heic
+      - name: Exercise all ten workflows through Chromium
+        run: |
+          docker run -d --name convertios-review-api --memory=512m --cpus=1 -p 127.0.0.1:3000:3000 convertios-review
+          python3 -m venv "$RUNNER_TEMP/browser-env"
+          . "$RUNNER_TEMP/browser-env/bin/activate"
+          pip install playwright Pillow pypdf
+          python -m playwright install --with-deps chromium
+          python tests/browser/smart-tools.py "$RUNNER_TEMP/convertios-fixtures" http://127.0.0.1:3000
