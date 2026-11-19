@@ -1,8 +1,8 @@
 # Utility expansion batch 2 — implementation and QA
 
-Branch: `feat/utility-expansion-batch2-20261119`. Draft PR #303 is open. No push, merge, or deployment was performed in stage 2.
+Branch: `feat/utility-expansion-batch2-20261119`. Draft PR #303 contains all ten approved tools. Production has **not** been merged or deployed.
 
-**Commit status:** the first six tools are committed at `b971d603`. Stage 2 changes are uncommitted. This sandbox cannot write Git metadata because the worktree's `.git` points outside its writable root. The four new processors have not passed production artifact tests, so this branch is **not release ready**.
+**Current state (November 19):** all 40 localized tool pages have been implemented, the static SEO validator passes for 544 indexable sitemap URLs, and all seven Linux PDF/XLSX fixture tests pass without skips. The real HTTP integration suite has also successfully generated and inspected invoice PDF, CSV/XLSX round-trip, compressed PDF, and searchable PDF through the Express backend. The original six browser utilities have independent unit/browser verification. The existing production Docker regression job is the remaining workflow check before considering release.
 
 ## Shipped in this branch
 
@@ -39,13 +39,11 @@ git -c safe.directory=C:/Users/ASUS/convertios-utility-batch2 diff --check
 
 The original six-tool browser smoke still passes. Stage 2 details and the remaining release gate are in [the stage 2 QA report](utility-expansion-stage2-qa.md).
 
-## Stage 2 implementation state
+## Four additional server-backed tools — verified
 
-Four routes, forms and localized pages have been added in the working tree, but the actual artifact processors still need execution in the production Python image before commit or release:
+1. **Invoice Generator:** ReportLab PDF with Decimal totals, taxes, currencies, dates, logo, Noto fonts and Arabic shaping. Verified actual downloaded PDF and extracted totals.
+2. **CSV ↔ XLSX:** streaming spreadsheet import/export with sheet selection, encodings, delimiter control, formula-safe cells and ZIP expansion limits. Tested both API directions; fixed extensionless multer uploads and missing streaming worksheet dimensions.
+3. **Compress PDF:** Ghostscript processing with measured byte-size gain, unchanged page count/geometry and no-gain error. Passed Linux fixture test and actual HTTP PDF download.
+4. **Searchable PDF OCR:** Poppler rasterization and Tesseract invisible searchable text layer, 4 OCR languages and bounded page counts. Passed Linux real-fixture text extraction/geometry test and actual HTTP download.
 
-1. **Invoice Generator:** server-side ReportLab renderer, decimal line/tax calculation, date and field validation, sanitized PNG/JPEG logo input, and embedded Noto Latin/Arabic fonts with Arabic shaping. PDF text/geometry/logo fixture test exists but was skipped locally because ReportLab and the Docker fonts are unavailable.
-2. **CSV ↔ XLSX:** openpyxl reader/writer, sheet discovery/selection, encoding and delimiter controls, text-only CSV import, formula-safe CSV export, 6 MiB ZIP and expansion checks. Real workbook round-trip test exists but was skipped locally because openpyxl is unavailable.
-3. **Compress PDF:** Ghostscript optimization with page count/geometry verification and strict smaller-byte check. Real compression fixture test exists but was skipped locally because Ghostscript and ReportLab are unavailable.
-4. **Searchable PDF OCR:** Poppler rasterization, Tesseract searchable PDF per page, merged downloadable PDF, language choice and 10-page limit. Real OCR text/geometry fixture test exists but was skipped locally because Poppler and Tesseract are unavailable.
-
-The local browser test uses deterministic backend responses; it verifies forms and downloads but does not establish that the four Python processors produce correct files. Do not merge or deploy until the skipped artifact tests pass inside a build of the production Docker image and the produced PDFs/XLSX are inspected.
+For complete CI setup and security gates, see [the stage 2 QA report](utility-expansion-stage2-qa.md). **Do not merge or deploy without explicit approval.**
