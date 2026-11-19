@@ -8,6 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 import json
+import time
 from pathlib import Path
 import urllib.error
 import urllib.parse
@@ -22,6 +23,16 @@ LEGACY_CANONICAL_PATHS = (
     '/ar/ai-image-enhancer/', '/ar/image-converter/', '/ar/pdf-to-jpg/',
     '/ar/split-pdf/', '/ar/webp-to-png/', '/text-formatter/',
     '/trim-audio-online/',
+)
+# The other 14 exact example URLs in the November 19 GSC canonical drilldown.
+# They are old .html URLs, not separate indexable content.
+GSC_DUPLICATE_HTML_PATHS = (
+    '/ar/faq.html', '/ar/compress-image-to-50kb.html', '/ar/remove-bg.html',
+    '/ar/about.html', '/ar/word-counter.html', '/ar/privacy.html',
+    '/ar/audio-converter.html', '/ar/security.html',
+    '/ar/password-generator.html', '/ar/compress-image-to-100kb.html',
+    '/ar/qr-generator.html', '/ar/audio-speed-changer.html',
+    '/ar/other-tools.html', '/ar/terms.html',
 )
 
 
@@ -57,16 +68,28 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 
 def fetch(url):
     request = urllib.request.Request(url, headers={'User-Agent': 'ConvertiosReadOnlyAudit/1.0'})
-    try:
-        response = urllib.request.build_opener(NoRedirect).open(request, timeout=25)
-    except urllib.error.HTTPError as error:
-        response = error
-    except (urllib.error.URLError, OSError) as error:
-        return {'url': url, 'status': None, 'error': str(error)}, ''
-    with response:
-        return {'url': url, 'status': response.code,
-                'location': response.headers.get('Location'),
-                'x_robots_tag': response.headers.get('X-Robots-Tag', '')}, response.read().decode('utf-8', errors='replace')
+    # A single transient 503/429 must not be mistaken for missing SEO markup.
+    # Keep the final failed status visible after two bounded retries.
+    for attempt in range(3):
+        try:
+            response = urllib.request.build_opener(NoRedirect).open(request, timeout=25)
+        except urllib.error.HTTPError as error:
+            response = error
+        except (urllib.error.URLError, OSError) as error:
+            if attempt < 2:
+                time.sleep(attempt + 1)
+                continue
+            return {'url': url, 'status': None, 'error': str(error),
+                    'attempts': attempt + 1}, ''
+        with response:
+            row = {'url': url, 'status': response.code,
+                   'location': response.headers.get('Location'),
+                   'x_robots_tag': response.headers.get('X-Robots-Tag', ''),
+                   'attempts': attempt + 1}
+            content = response.read().decode('utf-8', errors='replace')
+        if row['status'] not in (429, 502, 503, 504) or attempt == 2:
+            return row, content
+        time.sleep(attempt + 1)
 
 
 def main():
@@ -140,12 +163,13 @@ def main():
             problems.append({'url': row['url'], 'type': 'no-inbound-sitemap-page-links'})
     # Google can retain stale .html canonical choices. Catch real regressions
     # without treating correctly redirected legacy URLs as indexing defects.
-    alias_urls = [BASE + path.lstrip('/').rstrip('/') + '.html'
-                  for path in LEGACY_CANONICAL_PATHS]
+    alias_urls = ([BASE + path.lstrip('/').rstrip('/') + '.html'
+                   for path in LEGACY_CANONICAL_PATHS] +
+                  [BASE + path.lstrip('/') for path in GSC_DUPLICATE_HTML_PATHS])
     with ThreadPoolExecutor(max_workers=4) as pool:
         alias_rows = [row for row, _ in pool.map(fetch, alias_urls)]
-    for row, path in zip(alias_rows, LEGACY_CANONICAL_PATHS):
-        expected = BASE + path.lstrip('/')
+    for row in alias_rows:
+        expected = row['url'][:-5] + '/'
         row['expected_target'] = expected
         if row['status'] != 301 or row['location'] != expected:
             problems.append({'type': 'legacy-canonical-redirect', **row})
