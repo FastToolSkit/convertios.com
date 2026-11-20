@@ -222,7 +222,7 @@ def main():
                 if tool['category'] != category: continue
                 title, desc = SEO_CONTENT[slug][lang]['title'], SEO_CONTENT[slug][lang]['description']
                 cards.append(f'<a href="/{PREFIX[lang]}{slug}/" class="tool-card"><div class="tool-icon-wrap" aria-hidden="true">{escape(tool["icon"])}</div><h3>{escape(title)}</h3><p>{escape(desc)}</p></a>')
-            sections.append(f'<h2>{escape(CATEGORIES[lang][category])}</h2><div class="tools-grid">'+''.join(cards)+'</div>')
+            sections.append(f'<h2 id="{category}-tools">{escape(CATEGORIES[lang][category])}</h2><div class="tools-grid">'+''.join(cards)+'</div>')
         listing = f'<section class="utility-directory"><h2>{escape(CATEGORIES[lang]["heading"])}</h2>'+''.join(sections)+'</section>'
         replace_block(PREFIX[lang]+'all-tools/index.html','utility-tools',listing,'</main>')
         mini = '<section class="utility-home"><h2>'+escape(CATEGORIES[lang]['heading'])+'</h2><div>'+''.join(f'<a href="/{PREFIX[lang]}{slug}/">{escape(SEO_CONTENT[slug][lang]["title"])}</a>' for slug,tool in all_tools.items())+'</div></section>'
