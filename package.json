@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node server.js",
     "check": "node --check server.js",
-    "test": "node --test tests/server.test.js tests/smart-guides.test.js tests/gsc-404-recovery.test.js tests/discovery-links.test.js tests/blog-all-articles.test.js tests/utility-tools.test.js && node tests/site-check.mjs",
+    "test": "node --test tests/server.test.js tests/smart-guides.test.js tests/gsc-404-recovery.test.js tests/discovery-links.test.js tests/blog-all-articles.test.js tests/utility-tools.test.js tests/related-tool-cards.test.js && node tests/site-check.mjs",
     "test:browser": "node tests/browser/run.mjs",
     "stamp": "python3 scripts/stamp-assets.py"
   },

@@ -44,3 +44,7 @@
 .smart-info > div { border:1px solid #c7d6df; border-radius:.6rem; padding:.7rem .9rem; background:#f4f8fa; min-width:0; }
 .smart-info dt { font-size:.85rem; color:#456379; }
 .smart-info dd { margin:0; font-weight:650; overflow-wrap:anywhere; }
+
+/* Related cards share the established tool layout; keep thumbnails stable. */
+.smart-page .more-tool-icon img { display:block; width:32px; height:32px; max-width:none; border-radius:7px; }
+.smart-page .more-tool-card { min-width:0; }
